@@ -55,13 +55,13 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => (
         size="small"
        sx={{ 
       textTransform: 'uppercase', 
-      borderRadius: 0,      // Sharp edges
+      borderRadius: 0,     
       fontWeight: 700,
-      bgcolor: '#0052cc',  // Keeping the blue background
-      color: '#ffffff',    // White text
-      py: 1.3,               // EXTRA vertical padding to make it "bigger"
-      fontSize: '0.7rem',  // Making the text a "tad smaller"
-      letterSpacing: '1px', // Keeps small text readable
+      bgcolor: '#0052cc',  
+      color: '#ffffff',   
+      py: 1.3,              
+      fontSize: '0.7rem',  
+      letterSpacing: '1px', 
       '&:hover': {
         bgcolor: '#0041a3',
       }
