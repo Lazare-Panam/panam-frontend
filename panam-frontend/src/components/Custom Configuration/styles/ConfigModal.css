@@ -1,19 +1,13 @@
-/* ConfigModal.css */
-
-/* Target the Paper specifically to beat internal MUI styles */
 .MuiDialog-container .industrial-dialog {
     border-radius: 0;
     border: 1px solid #e0e0e0;
     box-shadow: none;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
-
-/* Specificity: Class + Tag */
 h2.industrial-title {
     font-weight: 700;
 }
 
-/* Overriding the IconButton */
 .industrial-dialog .close-button {
     position: absolute;
     right: 8px;
@@ -31,12 +25,10 @@ h2.industrial-title {
     
 }
 
-/* Target the Select root specifically */
 .industrial-dialog .industrial-select {
     border-radius: 0;
 }
 
-/* Action buttons: Targeting the MuiButton-root class increases specificity */
 .industrial-dialog .MuiButton-root.modal-action-btn {
     flex: 1;
     text-transform: uppercase;
@@ -47,13 +39,11 @@ h2.industrial-title {
     letter-spacing: 1px;
 }
 
-/* Outlined variant specific overrides */
 .industrial-dialog .modal-action-btn.btn-outlined {
     color: #0052cc;
     border-color: #0052cc;
 }
 
-/* Contained variant specific overrides */
 .industrial-dialog .modal-action-btn.btn-contained {
     background-color: #0052cc;
     color: #ffffff;
