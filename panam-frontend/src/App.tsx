@@ -1,5 +1,5 @@
 
-import ProductGallery from './components/ProductGallery'
+import ProductGallery from './components/Custom Configuration/ProductGallery'
 function App() {
   return (
     <>
