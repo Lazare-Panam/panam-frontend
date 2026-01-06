@@ -20,8 +20,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
         component="img"
         image={product.imageUrl}
         alt={product.name}
-        sx={{
-          width: 250,
+        sx={{width: '100%',
+          maxWidth: 250,
           height: 150,
           objectFit: "contain",
         }}
@@ -41,8 +41,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
     </CardContent>
 
     <Box className="card-actions-group">
-      <Button
-        variant="contained"
+      <Button 
+        variant="contained" 
         fullWidth
         size="small"
         onClick={() => onConfigure(product)}
@@ -52,8 +52,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
       </Button>
 
       <Button variant="outlined" fullWidth className="btn-learn-more">
-        Learn More
-      </Button>
+    Learn More
+  </Button>
     </Box>
   </Card>
 );

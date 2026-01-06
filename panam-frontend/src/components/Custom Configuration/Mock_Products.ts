@@ -1,113 +1,91 @@
-
-
 import { type Product } from "./types/CustomConfigurationtypes";
 
 export const MOCK_PRODUCTS: Product[] = [
   {
-    id: '1',
-    name: 'High Pressure Ball Valve',
-    description: 'Series BV-3, Stainless Steel 316, 6000 PSI rated.',
-    price: 'Contact for Quote',
-    imageUrl: "/images/d1.jpg",
+    id: "5",
+    name: "2-Way Valve Manifold",
+    description: "Designed for connecting system impulse lines & transmitters.",
+    price: "Contact for Quote",
+    imageUrl: "/images/d5.jpg",
     configurations: [
-      { label: "Pressure Range", options: ["0-10 Bar", "0-50 Bar", "0-100 Bar"] },
-      { label: "Output Signal", options: ["4-20mA", "0-10V", "Modbus"] }
-    ]
+      {
+        label: "Number of Valves",
+        options: [{ code: "2VM", label: "2-Way Manifold" }],
+      },
+      {
+        label: "Material",
+        options: [
+          { code: "SS", label: "Stainless Steel 316" },
+          { code: "CS", label: "Carbon Steel" },
+          { code: "MO", label: "Monel - 400" },
+          { code: "HC", label: "Hastelloy - C 276" },
+          { code: "DSS", label: "Duplex - UNS S32205" },
+          { code: "SDSS", label: "Super Duplex - UNS S32750" },
+          { code: "6MO", label: "UNS S31254" },
+          { code: "INC625", label: "Inconel 625" },
+          { code: "INC825", label: "Inconel 825" },
+        ],
+      },
+      {
+        label: "Connection Size",
+        options: [
+          { code: "4", label: "1/4” NPT" },
+          { code: "8", label: "1/2” NPT" },
+          { code: "20M", label: "M20x1.5" },
+          { code: "4R", label: "1/4” BSPT" },
+          { code: "4G", label: "1/4” BSPP" },
+          { code: "8R", label: "1/2” BSPT" },
+          { code: "8G", label: "1/2” BSPP" },
+          { code: "20MM", label: "External Thread M20x1.5 / Flange" },
+          { code: "20MSWL", label: "M20x1.5 with Swivel Nut" },
+          { code: "4GSWL", label: "1/4” BSPP with Swivel Nut" },
+          { code: "8GSWL", label: "1/2” BSPP with Swivel Nut" },
+          { code: "08", label: "1/2” Tube Fitting" },
+          { code: "M12", label: "12mm Tube Fitting" },
+        ],
+      },
+      {
+        label: "Connection Type",
+        options: [
+          { code: "F", label: "Female Thread (Standard)" },
+          { code: "MM", label: "Male Thread" },
+          { code: "MF", label: "Male/Female" },
+          { code: "FM", label: "Female/Male" },
+        ],
+      },
+      {
+        label: "Mounting",
+        options: [
+          { code: "R", label: "Standard Body - Pipe to Pipe" },
+          { code: "BM", label: "Pipe to Pipe (Base Mounting)" },
+          { code: "T", label: "Standard Body - Pipe to Flange" },
+          { code: "BV", label: "Pipe to Pipe (Base Vent)" },
+          { code: "H", label: "Standard Body - Flange to Flange" },
+          { code: "DM", label: "Direct Mounting (Pipe to Flange)" },
+        ],
+      },
+      {
+        label: "Configuration",
+        options: [
+          { code: "L", label: "Type L (Standard)" },
+          { code: "V", label: "Type V" },
+          { code: "A", label: "Type A" },
+        ],
+      },
+      {
+        label: "Optional",
+        options: [
+          { code: "P", label: "Vent with a Plug" },
+          { code: "XLT", label: "Low Temperature Application" },
+          { code: "SG", label: "Sour Gas (NACE MR-01-75)" },
+          { code: "BT", label: "Ball Tip" },
+          { code: "LB", label: "Soft Seat (Large Bore)" },
+          { code: "HT", label: "Grafoil Seal (High Temp)" },
+          { code: "ATK", label: "Anti-Tamper Key" },
+          { code: "BKT", label: "Mounting Brackets" },
+          { code: "10K", label: "10,000 PSI Pressure Rating" },
+        ],
+      },
+    ],
   },
-  {
-    id: '2',
-    name: 'Needle Valve - NV Series',
-    description: 'Hard seated, integral bonnet design for leak-proof shut-off.',
-    price: 'Contact for Quote',
-    imageUrl: '/images/d2.jpg',
-    configurations: [
-      { label: "Material", options: ["Stainless Steel", "Carbon Steel"] },
-      { label: "Size", options: ["1/2\"", "1\"", "2\""] },
-      { label: "Seal Type", options: ["PTFE", "Graphite"] }
-    ]
-  },
-  {
-    id: '3',
-    name: 'Double Block & Bleed Valve',
-    description: 'Forged body construction for severe service applications.',
-    price: 'Contact for Quote',
-    imageUrl: '/images/d3.jpg',
-    configurations: [
-      { label: "Material", options: ["Stainless Steel", "Carbon Steel"] },
-      { label: "Size", options: ["1/2\"", "1\"", "2\""] },
-      { label: "Seal Type", options: ["PTFE", "Graphite"] }
-    ]
-  },
-  {
-    id: '4',
-    name: 'Check Valve - CV Series',
-    description: 'Poppet style design with various cracking pressures available.',
-    price: 'Contact for Quote',
-    imageUrl: '/images/d4.jpg',
-    configurations: [
-      { label: "Material", options: ["Stainless Steel", "Carbon Steel"] },
-      { label: "Size", options: ["1/2\"", "1\"", "2\""] },
-      { label: "Seal Type", options: ["PTFE", "Graphite"] }
-    ]
-  },
-  {
-    id: '5',
-    name: '2-Way Valve Manifold',
-    description: 'Designed for connecting system impulse lines & transmitters.',
-    price: 'Contact for Quote',
-    imageUrl: '/images/d5.jpg',
-    configurations: [
-      { label: "Material", options: ["Stainless Steel", "Carbon Steel"] },
-      { label: "Size", options: ["1/2\"", "1\"", "2\""] },
-      { label: "Seal Type", options: ["PTFE", "Graphite"] }
-    ]
-  },
-  {
-    id: '6',
-    name: 'Gate Valve - GV Series',
-    description: 'Outside Screw and Yoke (OS&Y) for high temp/pressure.',
-    price: 'Contact for Quote',
-    imageUrl: '/images/d6.jpg',
-    configurations: [
-      { label: "Material", options: ["Stainless Steel", "Carbon Steel"] },
-      { label: "Size", options: ["1/2\"", "1\"", "2\""] },
-      { label: "Seal Type", options: ["PTFE", "Graphite"] }
-    ]
-  },
-  {
-    id: '7',
-    name: 'Female Connector Fitting',
-    description: 'Double ferrule tube fittings for leak-tight connections.',
-    price: 'Contact for Quote',
-    imageUrl: '/images/d7.jpg',
-    configurations: [
-      { label: "Material", options: ["Stainless Steel", "Carbon Steel"] },
-      { label: "Size", options: ["1/2\"", "1\"", "2\""] },
-      { label: "Seal Type", options: ["PTFE", "Graphite"] }
-    ]
-  },
-  {
-    id: '8',
-    name: 'Pressure Relief Valve',
-    description: 'Proportional relief valves for liquid or gas service.',
-    price: 'Contact for Quote',
-    imageUrl: '/images/d8.jpg',
-    configurations: [
-      { label: "Material", options: ["Stainless Steel", "Carbon Steel"] },
-      { label: "Size", options: ["1/2\"", "1\"", "2\""] },
-      { label: "Seal Type", options: ["PTFE", "Graphite"] }
-    ]
-  },
-  {
-    id: '9',
-    name: 'Gauge Root Valve',
-    description: 'Multi-port design allowing for versatile instrument mounting.',
-    price: 'Contact for Quote',
-    imageUrl: '/images/d9.jpg',
-    configurations: [
-      { label: "Material", options: ["Stainless Steel", "Carbon Steel"] },
-      { label: "Size", options: ["1/2\"", "1\"", "2\""] },
-      { label: "Seal Type", options: ["PTFE", "Graphite"] }
-    ]
-  }
 ];
