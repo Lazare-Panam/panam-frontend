@@ -9,7 +9,7 @@ import {
   CardContent, 
 } from '@mui/material';
 import { type Product } from './types/CustomConfigurationtypes';
-
+import "./styles/ProductCard.css"
 interface ProductCardProps {
   product: Product;
   onConfigure: (product: Product) => void; 
@@ -17,14 +17,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
   <Card 
     variant="outlined" 
-    sx={{ 
-      height: '100%', 
-      display: 'flex', 
-      flexDirection: 'column', 
-      borderRadius: 0,
-      borderColor: 'grey.200',
-      
-    }}
+   className="product-card"
   >
    <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
       <CardMedia
@@ -51,51 +44,25 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
       </Typography>
     </CardContent>
 
-    <Box sx={{ p: 2, pt: 0, gap:1 }}>
-      <Button 
-        variant="contained" 
-        fullWidth
-        size="small"
-        onClick={() => onConfigure(product)}
-       sx={{ 
-      textTransform: 'uppercase', 
-      borderRadius: 0,     
-      fontWeight: 700,
-      bgcolor: '#0052cc',  
-      color: '#ffffff',   
-      py: 1.3,              
-      fontSize: '0.7rem',  
-      letterSpacing: '1px', 
-      '&:hover': {
-        bgcolor: '#0041a3',
-      }
-    }}
-      >
-        CONFIGURE
-      </Button>
-      <Button 
+    <Box className="card-actions-group">
+  <Button 
+    variant="contained" 
+    fullWidth
+    size="small"
+    onClick={() => onConfigure(product)}
+    className="btn-configure"
+  >
+    CONFIGURE
+  </Button>
+  
+  <Button 
     variant="outlined" 
     fullWidth
-    sx={{ 
-      textTransform: 'uppercase', 
-      borderRadius: 0,
-      fontWeight: 700,
-      bgcolor: '#ffffff',
-      color: '#0052cc',
-      py: 1.5,
-      fontSize: '0.7rem',
-      letterSpacing: '1px',
-      borderColor: '#0052cc', 
-      mt: '8px',             
-      '&:hover': {
-        bgcolor: '#f0f7ff',
-        borderColor: '#0041a3',
-      }
-    }}
+    className="btn-learn-more"
   >
     Learn More
   </Button>
-    </Box>
+</Box>
   </Card>
 );
 
