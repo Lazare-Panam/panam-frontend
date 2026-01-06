@@ -10,13 +10,16 @@ import {
   FormControl,
   InputLabel,
   Select,
-  MenuItem
+  MenuItem,
+  IconButton
 } from '@mui/material';
-import {type Product } from './Mock_Products';
+import CloseIcon from '@mui/icons-material/Close'; // You may need to install @mui/icons-material
+import { type Product } from './Mock_Products';
+
 interface ConfigModalProps {
   open: boolean;
   onClose: () => void;
-  product: Product|null; 
+  product: Product | null; 
 }
 
 const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product }) => {
@@ -27,18 +30,32 @@ const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product }) => 
       fullWidth 
       maxWidth="xs"
       slotProps={{
-    paper: {
-      sx: {
-        borderRadius: 0,
-        border: '1px solid',
-        borderColor: 'grey.300',
-        boxShadow: 'none', // Optional: keeps it flat and industrial
-      }
-    }
-  }}
+        paper: {
+          sx: {
+            borderRadius: 0,
+            border: '1px solid',
+            borderColor: 'grey.300',
+            boxShadow: 'none',
+          }
+        }
+      }}
     >
-      <DialogTitle sx={{ fontWeight: 700 }}>
+      <DialogTitle sx={{ fontWeight: 700, pr: 6 }}>
         Configure {product?.name || 'Product'}
+        {/* The Cross Button */}
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: 'grey.500',
+            borderRadius: 0, // Keeping it square
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
       </DialogTitle>
       
       <DialogContent dividers>
@@ -50,31 +67,29 @@ const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product }) => 
           {product?.configurations && product.configurations.length > 0 ? (
             product.configurations.map((config, index) => (
               <Box key={index}>
-    
-        <Typography 
-          variant="caption" 
-          fontWeight={700} 
-          sx={{ textTransform: 'uppercase', mb: 1, display: 'block', color: 'text.primary' }}
-        >
-          Please select {config.label.toLowerCase()}
-        </Typography>
-
-        <FormControl fullWidth size="small">
-          <InputLabel id={`label-${index}`}>{config.label}</InputLabel>
-          <Select
-            labelId={`label-${index}`}
-            label={config.label}
-            defaultValue=""
-            sx={{ borderRadius: 0 }}
-          >
-            {config.options.map((option) => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </Box>
+                <Typography 
+                  variant="caption" 
+                  fontWeight={700} 
+                  sx={{ textTransform: 'uppercase', mb: 1, display: 'block', color: 'text.primary' }}
+                >
+                  Please select {config.label.toLowerCase()}
+                </Typography>
+                <FormControl fullWidth size="small">
+                  <InputLabel id={`label-${index}`}>{config.label}</InputLabel>
+                  <Select
+                    labelId={`label-${index}`}
+                    label={config.label}
+                    defaultValue=""
+                    sx={{ borderRadius: 0 }}
+                  >
+                    {config.options.map((option) => (
+                      <MenuItem key={option} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
             ))
           ) : (
             <Typography variant="body2" sx={{ fontStyle: 'italic', color: 'orange' }}>
@@ -89,14 +104,14 @@ const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product }) => 
     onClick={onClose} 
     variant="outlined" 
     sx={{ 
-      flex: 1,               // Takes up half the space
+      flex: 1,               // Identical size to Save
       textTransform: 'uppercase', 
       borderRadius: 0,
       fontWeight: 700,
       bgcolor: '#ffffff',
       color: '#0052cc',
       py: 1.5,
-      fontSize: '0.7rem',
+      fontSize: '0.7rem',     // Consistent font size
       letterSpacing: '1px',
       borderColor: '#0052cc', 
       '&:hover': {
@@ -105,14 +120,14 @@ const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product }) => 
       }
     }}
   >
-    Cancel
+    Add to Workspace
   </Button>
 
   <Button 
     onClick={onClose} 
     variant="contained" 
     sx={{ 
-      flex: 1,               // Takes up the other half
+      flex: 1,               // Identical size to Add to Workspace
       textTransform: 'uppercase', 
       borderRadius: 0,     
       fontWeight: 700,
@@ -132,4 +147,5 @@ const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product }) => 
     </Dialog>
   );
 };
+
 export default ConfigModal;
