@@ -1,14 +1,6 @@
 
-export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: string;
-  imageUrl: string;
-  configurations?: { label: string; options: string[] }[];
-}
 
-
+import { type Product } from "./types/CustomConfigurationtypes";
 
 export const MOCK_PRODUCTS: Product[] = [
   {

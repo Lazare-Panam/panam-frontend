@@ -1,0 +1,81 @@
+/* ProductCard.css */
+
+/* Main Card Container */
+.product-card.MuiPaper-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  border-color: #eeeeee; /* grey.200 */
+  box-shadow: none;
+}
+
+/* Image Wrapper */
+.card-media-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 24px; /* p: 3 */
+}
+
+.product-image {
+  width: 250px;
+  height: 150px;
+  object-fit: contain;
+}
+
+/* Content Area */
+.card-content-area.MuiCardContent-root {
+  flex-grow: 1;
+  padding: 16px; /* p: 2 */
+}
+
+.product-name {
+  font-weight: 700 !important;
+}
+
+.product-price {
+  font-weight: 600 !important;
+  color: #0052cc; /* primary.main */
+}
+
+/* Actions Section */
+.card-actions-group {
+  padding: 16px;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Shared Button Styles */
+.industrial-button.MuiButton-root {
+  text-transform: uppercase;
+  border-radius: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.7rem;
+}
+
+/* Configure Button (Contained) */
+.btn-configure.MuiButton-contained {
+  background-color: #0052cc;
+  color: #ffffff;
+  padding: 10.4px 0; /* py: 1.3 */
+}
+
+.btn-configure.MuiButton-contained:hover {
+  background-color: #0041a3;
+}
+
+/* Learn More Button (Outlined) */
+.btn-learn-more.MuiButton-outlined {
+  background-color: #ffffff;
+  color: #0052cc;
+  border-color: #0052cc;
+  padding: 12px 0; /* py: 1.5 */
+}
+
+.btn-learn-more.MuiButton-outlined:hover {
+  background-color: #f0f7ff;
+  border-color: #0041a3;
+}
