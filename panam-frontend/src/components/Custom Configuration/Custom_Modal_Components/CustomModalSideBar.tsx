@@ -4,7 +4,7 @@ import {
   NavButton,
   SidebarContainer,
   SidebarTitle,
-} from "../CustomModel.styles";
+} from "./CustomModel.styles";
 import { type ProductConfig } from "../types/CustomConfigurationtypes";
 
 interface CategorySidebarProps {
@@ -20,7 +20,6 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
   return (
     <SidebarContainer>
       <SidebarTitle>Categories</SidebarTitle>
-
       <Stack spacing={0}>
         {categories.map((config, index) => (
           <NavButton

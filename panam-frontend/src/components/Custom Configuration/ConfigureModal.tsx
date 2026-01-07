@@ -10,13 +10,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import { type Product } from "./types/CustomConfigurationtypes";
 import "./styles/ConfigModal.css";
 import { useProductConfigurator } from "./useProductConfigurator";
-import {
-  ActionButton,
-} from "./CustomModel.styles";
+import { ActionButton } from "./Custom_Modal_Components/CustomModel.styles";
 import { CategorySidebar } from "./Custom_Modal_Components/CustomModalSideBar";
 import { SelectionPanel } from "./Custom_Modal_Components/SelectionPanel";
 import { SummaryPanel } from "./Custom_Modal_Components/SummaryPanel";
-//import ConfigSidebar from "./CustomModal/ConfigSidebar";
 interface ConfigModalProps {
   open: boolean;
   onClose: () => void;
@@ -33,48 +30,7 @@ const ConfigModal: React.FC<ConfigModalProps> = ({
   const currentSelection = currentCategory
     ? productConfig.selections[currentCategory.label]
     : null;
-  const handleOptionChange = (event: any) => {
-    const selectedCode = event.target.value;
-    const category = productConfig.currentCategory;
-    if (!category) return;
-    if (category.options) {
-      const option = category.options.find((opt) => opt.code === selectedCode);
-      if (option) {
-        productConfig.handleSelect(category.label, option);
-      }
-    }
-  };
 
-  const getPartValue = (partId: string) => {
-    const currentSelection =
-      productConfig.selections[currentCategory?.label || ""];
-    // Cast to any to allow dynamic indexing (baseSize, threadType)
-    return (currentSelection as any)?.[partId] || "";
-  };
-
-  const handlePartChange = (partId: string, newValue: string) => {
-    if (!currentCategory) return;
-
-    // 1. Get the current values for both parts from our selection state
-    const existing = productConfig.selections[currentCategory.label] || {};
-
-    // 2. Update only the part the user just clicked
-    const updatedParts = {
-      baseSize: existing.baseSize || "",
-      threadType: existing.threadType || "",
-      [partId]: newValue, // Overwrite with the new selection
-    };
-
-    // 3. Join them with NO separators
-    const combinedCode = `${updatedParts.baseSize}${updatedParts.threadType}`;
-
-    // 4. Save everything back to the main state
-    productConfig.handleSelect(currentCategory.label, {
-      code: combinedCode,
-      label: combinedCode, // Keep label simple as requested
-      ...updatedParts, // Spread the parts so getPartValue can find them next time
-    });
-  };
   return (
     <Dialog
       open={open}
@@ -98,7 +54,6 @@ const ConfigModal: React.FC<ConfigModalProps> = ({
       </DialogTitle>
 
       <DialogContent dividers sx={{ p: 0, display: "flex", height: "60vh" }}>
-        {/* LEFT COLUMN: The Navigation Sidebar */}
         {product?.configurations && (
           <CategorySidebar
             categories={product.configurations}
@@ -111,11 +66,11 @@ const ConfigModal: React.FC<ConfigModalProps> = ({
           currentCategory={productConfig.currentCategory}
           currentSelection={currentSelection}
           selections={productConfig.selections}
-          getPartValue={getPartValue}
-          onPartChange={handlePartChange}
-          onOptionChange={handleOptionChange}
+          getSplitOptionValue={productConfig.getSplitOptionValue}
+          onSplitOptionChange={productConfig.handleSplitOptionChange}
+          onOptionChange={productConfig.handleOptionChange}
         />
-       <SummaryPanel
+        <SummaryPanel
           configurations={product?.configurations}
           selections={productConfig.selections}
           generatedPartNumber={productConfig.generatedPartNumber}

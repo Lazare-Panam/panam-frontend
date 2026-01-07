@@ -1,15 +1,12 @@
 import { styled } from "@mui/material/styles";
 import { Box, Button, MenuItem, Select, Typography } from "@mui/material";
 
-/*SideBar*/
 export const SidebarContainer = styled(Box)({
   width: 220,
   backgroundColor: "#f5f5f5",
   borderRight: "1px solid #ddd",
-
   display: "flex",
   flexDirection: "column",
-  
   flexShrink: 0,
    overflowY: "auto",
 });
@@ -92,8 +89,6 @@ export const SummaryContainer = styled(Box)({
   display: "flex",
   flexDirection: "column",
    overflowY: "auto",
-  
- 
 });
 
 export const SummaryHeader = styled(Typography)({

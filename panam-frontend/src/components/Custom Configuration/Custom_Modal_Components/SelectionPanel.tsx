@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Stack,
-  FormControl,
-  InputLabel,
-  Typography,
-} from "@mui/material";
+import { Stack, FormControl, InputLabel, Typography } from "@mui/material";
 import {
   SelectionContainer,
   CategoryHeader,
@@ -12,15 +7,15 @@ import {
   StyledSelect,
   StyledMenuItem,
   SelectionDetailBox,
-} from "../CustomModel.styles";
+} from "./CustomModel.styles";
 import { type ProductConfig } from "../types/CustomConfigurationtypes";
 
 interface SelectionPanelProps {
   currentCategory: ProductConfig | undefined;
   currentSelection: any;
   selections: Record<string, any>;
-  getPartValue: (partId: string) => string;
-  onPartChange: (partId: string, value: string) => void;
+  getSplitOptionValue: (partId: string) => string;
+  onSplitOptionChange: (partId: string, value: string) => void;
   onOptionChange: (event: any) => void;
 }
 
@@ -28,20 +23,14 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
   currentCategory,
   currentSelection,
   selections,
-  getPartValue,
-  onPartChange,
+  getSplitOptionValue,
+  onSplitOptionChange,
   onOptionChange,
 }) => {
   return (
     <SelectionContainer>
-      <CategoryHeader variant="caption">
-        SELECT SPECIFICATION
-      </CategoryHeader>
-
-      <CategoryTitle variant="h5">
-        {currentCategory?.label}
-      </CategoryTitle>
-
+      <CategoryHeader variant="caption">SELECT SPECIFICATION</CategoryHeader>
+      <CategoryTitle variant="h5">{currentCategory?.label}</CategoryTitle>
       {currentCategory?.isSplit ? (
         /* CASE 1: SPLIT DROPDOWNS */
         <Stack spacing={2}>
@@ -50,9 +39,9 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
               <InputLabel>{part.label}</InputLabel>
               <StyledSelect
                 label={part.label}
-                value={getPartValue(part.id)}
+                value={getSplitOptionValue(part.id)}
                 onChange={(e) =>
-                  onPartChange(part.id, e.target.value as string)
+                  onSplitOptionChange(part.id, e.target.value as string)
                 }
               >
                 {part.options.map((opt) => (
@@ -75,10 +64,10 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
           <InputLabel>Choose Option...</InputLabel>
           <StyledSelect
             label="Choose Option..."
-            value={
-              selections[currentCategory?.label || ""]?.code || ""
-            }
-            onChange={onOptionChange}
+            value={selections[currentCategory?.label || ""]?.code || ""}
+             onChange={(e) =>
+    onOptionChange(e.target.value as string)
+  }
           >
             {currentCategory?.options?.map((option: any) => (
               <StyledMenuItem key={option.code} value={option.code}>
@@ -96,10 +85,7 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
 
       {currentSelection && (
         <SelectionDetailBox>
-          <Typography
-            variant="caption"
-            sx={{ fontWeight: 700, color: "#666" }}
-          >
+          <Typography variant="caption" sx={{ fontWeight: 700, color: "#666" }}>
             CURRENT SELECTION:
           </Typography>
           <Typography variant="body1" sx={{ fontWeight: 600 }}>

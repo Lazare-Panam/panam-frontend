@@ -18,6 +18,43 @@ const handleSelect = (categoryLabel: string, option: ConfigOption) => {
    ? product.configurations.map((c) => selections[c.label]?.code || "??").join("-")
     : "NO-CONFIG-LOADED";
 
+     const handleOptionChange = (selectedCode: string) => {
+    if (!currentCategory?.options) return;
+
+    const option = currentCategory.options.find(
+      (opt) => opt.code === selectedCode
+    );
+
+    if (option) {
+      handleSelect(currentCategory.label, option);
+    }
+  };
+  const getSplitOptionValue = (partId: string): string => {
+    const selection = selections[currentCategory?.label || ""];
+    return (selection as any)?.[partId] || "";
+  };
+
+  const handleSplitOptionChange = (partId: string, newValue: string) => {
+    if (!currentCategory) return;
+
+    const existing = selections[currentCategory.label] || ({} as any);
+
+    const updatedParts = {
+      baseSize: existing.baseSize || "",
+      threadType: existing.threadType || "",
+      [partId]: newValue,
+    };
+
+    const combinedCode = `${updatedParts.baseSize}${updatedParts.threadType}`;
+
+    handleSelect(currentCategory.label, {
+      code: combinedCode,
+      label: combinedCode,
+      ...updatedParts,
+    });
+  };
+
+
   return {
     activeCategory,
     setActiveCategory,
@@ -25,5 +62,8 @@ const handleSelect = (categoryLabel: string, option: ConfigOption) => {
     handleSelect,
     generatedPartNumber,
     currentCategory,
+    handleOptionChange,
+    getSplitOptionValue,
+    handleSplitOptionChange
   };
 };

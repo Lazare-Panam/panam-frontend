@@ -1,7 +1,10 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import { SummaryContainer, SummaryHeader } from "../CustomModel.styles";
-import type { ProductConfig, ConfigOption } from "../types/CustomConfigurationtypes";
+import { SummaryContainer, SummaryHeader } from "./CustomModel.styles";
+import type {
+  ProductConfig,
+  ConfigOption,
+} from "../types/CustomConfigurationtypes";
 
 interface SummaryPanelProps {
   configurations: ProductConfig[] | undefined;
@@ -57,10 +60,7 @@ export const SummaryPanel: React.FC<SummaryPanelProps> = ({
 
       {/* PART NUMBER */}
       <Box sx={{ p: 2, bgcolor: "#0052cc", color: "#fff" }}>
-        <Typography
-          variant="caption"
-          sx={{ opacity: 0.8, fontWeight: 700 }}
-        >
+        <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700 }}>
           GENERATED PART NUMBER:
         </Typography>
 
