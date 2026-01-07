@@ -28,20 +28,30 @@ export const MOCK_PRODUCTS: Product[] = [
       },
       {
         label: "Connection Size",
-        options: [
-          { code: "4", label: "1/4” NPT" },
-          { code: "8", label: "1/2” NPT" },
-          { code: "20M", label: "M20x1.5" },
-          { code: "4R", label: "1/4” BSPT" },
-          { code: "4G", label: "1/4” BSPP" },
-          { code: "8R", label: "1/2” BSPT" },
-          { code: "8G", label: "1/2” BSPP" },
-          { code: "20MM", label: "External Thread M20x1.5 / Flange" },
-          { code: "20MSWL", label: "M20x1.5 with Swivel Nut" },
-          { code: "4GSWL", label: "1/4” BSPP with Swivel Nut" },
-          { code: "8GSWL", label: "1/2” BSPP with Swivel Nut" },
-          { code: "08", label: "1/2” Tube Fitting" },
-          { code: "M12", label: "12mm Tube Fitting" },
+        isSplit: true,
+        parts: [
+          {
+            id: "baseSize",
+            label: "Base Size",
+            options: [
+              { code: "4", label: "1/4”" },
+              { code: "8", label: "1/2”" },
+              { code: "20M", label: "M20x1.5" },
+              { code: "M12", label: "12mm Tube" },
+              { code: "09", label: "9mm (Custom)" },
+            ],
+          },
+          {
+            id: "threadType",
+            label: "Thread / Modifier",
+            options: [
+              { code: "MM", label: "Male Thread" },
+              { code: "R", label: "BSPT" },
+              { code: "G", label: "BSPP" },
+              { code: "MSWL", label: "Metric Swivel" },
+              { code: "GSWL", label: "BSPP Swivel" },
+            ],
+          },
         ],
       },
       {

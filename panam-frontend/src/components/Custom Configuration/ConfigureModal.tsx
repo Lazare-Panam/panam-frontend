@@ -19,6 +19,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { type Product } from "./types/CustomConfigurationtypes";
 import "./styles/ConfigModal.css";
 import { useProductConfigurator } from "./useProductConfigurator";
+import { SidebarContainer, SidebarTitle, NavButton, SelectionContainer, CategoryHeader, SelectionDetailBox, CategoryTitle, StyledSelect, StyledMenuItem, SummaryContainer, SummaryHeader, ActionButton } from "./CustomModel.styles";
 //import ConfigSidebar from "./CustomModal/ConfigSidebar";
 interface ConfigModalProps {
   open: boolean;
@@ -30,6 +31,49 @@ const ConfigModal: React.FC<ConfigModalProps> = ({open, onClose, product}) => {
   const productConfig = useProductConfigurator(product);
   const currentCategory = productConfig.currentCategory;
   const currentSelection = currentCategory? productConfig.selections[currentCategory.label] : null;
+  const handleOptionChange = (event: any) => {
+    const selectedCode = event.target.value;
+    const category = productConfig.currentCategory;
+    if(!category) return
+    if (category.options) {
+      const option = category.options.find((opt) => opt.code === selectedCode);
+      if (option) {
+        productConfig.handleSelect(category.label, option);
+      }
+  }
+  
+};
+
+const getPartValue = (partId: string) => {
+  const currentSelection = productConfig.selections[currentCategory?.label || ""];
+  
+  // Cast to any to allow dynamic indexing (baseSize, threadType)
+  return (currentSelection as any)?.[partId] || "";
+};
+
+const handlePartChange = (partId: string, newValue: string) => {
+  if (!currentCategory) return;
+
+  // 1. Get the current values for both parts from our selection state
+  const existing = productConfig.selections[currentCategory.label] || {};
+  
+  // 2. Update only the part the user just clicked
+  const updatedParts = {
+    baseSize: existing.baseSize || "",
+    threadType: existing.threadType || "",
+    [partId]: newValue // Overwrite with the new selection
+  };
+
+  // 3. Join them with NO separators
+  const combinedCode = `${updatedParts.baseSize}${updatedParts.threadType}`;
+
+  // 4. Save everything back to the main state
+  productConfig.handleSelect(currentCategory.label, {
+    code: combinedCode,
+    label: combinedCode, // Keep label simple as requested
+    ...updatedParts      // Spread the parts so getPartValue can find them next time
+  });
+};
   return (
     <Dialog
       open={open}
@@ -54,144 +98,93 @@ const ConfigModal: React.FC<ConfigModalProps> = ({open, onClose, product}) => {
 
       <DialogContent dividers sx={{ p: 0, display: "flex", height: "60vh" }}>
         {/* LEFT COLUMN: The Navigation Sidebar */}
-        <Box sx={{ width: 220, bgcolor: "#f5f5f5", borderRight: "1px solid #ddd" }}>
-          <Typography sx={{ p: 2, fontWeight: "bold" }}> Categories</Typography>
+        <SidebarContainer>
+         <SidebarTitle>Categories</SidebarTitle>
           <Stack spacing={0}>
             {product?.configurations?.map((config, index) => (
-              <Button
+              <NavButton
                 key={index}
                 onClick={() => productConfig.setActiveCategory(index)}
                 fullWidth
                 sx={{
-                  justifyContent: "flex-start",
-                  borderRadius: 0,
-                  py: 2,
-                  px: 2,
-                  textAlign: "left",
-                  fontSize: "0.85rem",
                   fontWeight: productConfig.activeCategory === index ? 700 : 500,
                   color: productConfig.activeCategory === index ? "#0052cc" : "#333",
                   bgcolor: productConfig.activeCategory === index ? "#ffffff" : "transparent",
-                  borderLeft:
-                    productConfig.activeCategory === index
-                      ? "4px solid #0052cc"
-                      : "4px solid transparent",
-                  "&:hover": {
-                    bgcolor: productConfig.activeCategory === index ? "#ffffff" : "#eee",
-                  },
+                  borderLeft: productConfig.activeCategory === index ? "4px solid #0052cc": "4px solid transparent", "&:hover": {
+                    bgcolor: productConfig.activeCategory === index ? "#ffffff" : "#eee",},
                 }}
               >
                 {config.label}
-              </Button>
+              </NavButton>
             ))}
           </Stack>
-        </Box>
+       </SidebarContainer>
 
         {/* MIDDLE COLUMN: The Selection Area */}
-        <Box sx={{ flex: 1, bgcolor: "#ffffff", p: 4 }}>
-          <Typography
-            variant="caption"
-            sx={{ fontWeight: 800, color: "#0052cc", letterSpacing: 1.5 }}
-          >
-            SELECT SPECIFICATION
-          </Typography>
-          <Typography
-            variant="h5"
-            sx={{
-              mb: 4,
-              fontWeight: 900,
-              color: "#333",
-              textTransform: "uppercase",
-            }}
-          >
-            {productConfig.currentCategory?.label}
-          </Typography>
+       {/* MIDDLE COLUMN: The Selection Area */}
+<SelectionContainer>
+  <CategoryHeader variant="caption">SELECT SPECIFICATION</CategoryHeader>
+  
+ <CategoryTitle variant="h5">
+    {productConfig.currentCategory?.label}
+  </CategoryTitle>
+ {productConfig.currentCategory?.isSplit ? (
+  /* CASE 1: SPLIT DROPDOWNS */
+  <Stack spacing={2}>
+    {(productConfig.currentCategory.parts || []).map((part) => (
+      <FormControl key={part.id} fullWidth>
+        <InputLabel>{part.label}</InputLabel>
+        <StyledSelect
+          label={part.label}
+          value={getPartValue(part.id)}
+          onChange={(e) => handlePartChange(part.id, e.target.value as string)}
+        >
+          {part.options.map((opt) => (
+            <StyledMenuItem key={opt.code} value={opt.code}>
+              <Typography sx={{ fontWeight: 700, color: "#0052cc" }}>{opt.code}</Typography>
+              <Typography sx={{ fontSize: "0.85rem", color: "#666" }}>{opt.label}</Typography>
+            </StyledMenuItem>
+          ))}
+        </StyledSelect>
+      </FormControl>
+    ))}
+  </Stack>
+) : (
+  /* CASE 2: STANDARD DROPDOWN */
+  <FormControl fullWidth sx={{ mb: 3 }}>
+    <InputLabel>Choose Option...</InputLabel>
+    <StyledSelect
+      label="Choose Option..."
+      value={productConfig.selections[productConfig.currentCategory?.label || ""]?.code || ""}
+      onChange={handleOptionChange}
+    >
+      {/* ADDED ?. HERE - This prevents the crash when switching categories */}
+      {productConfig.currentCategory?.options?.map((option: any) => (
+        <StyledMenuItem key={option.code} value={option.code}>
+          <Typography sx={{ fontWeight: 700, color: "#0052cc" }}>{option.code}</Typography>
+          <Typography sx={{ fontSize: "0.85rem", color: "#666" }}>{option.label}</Typography>
+        </StyledMenuItem>
+      ))}
+    </StyledSelect>
+  </FormControl>
+)}
 
-          <FormControl fullWidth sx={{ mb: 3 }}>
-            <InputLabel id="config-dropdown-label" sx={{ borderRadius: 0 }}>
-              Choose Option...
-            </InputLabel>
-            <Select
-                labelId="config-dropdown-label"
-                label="Choose Option..."
-                value={productConfig.selections[productConfig.currentCategory?.label || ""]?.code || ""}
-                onChange={(e) => {
-          const option = productConfig.currentCategory?.options.find(
-            (opt) => opt.code === e.target.value
-          );
-          if (option && productConfig.currentCategory) {
-            // Use the hook's handler to save the choice
-            productConfig.handleSelect(productConfig.currentCategory.label, option);
-          }
-        }}
-              sx={{
-                borderRadius: 0, // Sharp edges
-                ".MuiOutlinedInput-notchedOutline": {
-                  borderWidth: "2px",
-                  borderColor: "#ddd",
-                },
-                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#0052cc",
-                },
-              }}
-            >
-              {productConfig.currentCategory?.options.map(
-                (option: any) => (
-                  <MenuItem
-                    key={option.code}
-                    value={option.code}
-                    sx={{
-                      py: 1.5,
-                      display: "flex",
-                      justifyContent: "space-between",
-                      borderBottom: "1px solid #f0f0f0",
-                    }}
-                  >
-                    <Typography sx={{ fontWeight: 700, color: "#0052cc" }}>
-                      {option.code}
-                    </Typography>
-                    <Typography sx={{ fontSize: "0.85rem", color: "#666" }}>
-                      {option.label}
-                    </Typography>
-                  </MenuItem>
-                )
-              )}
-            </Select>
-          </FormControl>
-
-          {/* Selection Detail Box */}
-          {currentSelection && (
-            <Box
-              sx={{ p: 2, bgcolor: "#f9f9f9", borderLeft: "4px solid #0052cc" }}
-            >
-              <Typography
-                variant="caption"
-                sx={{ fontWeight: 700, color: "#666" }}
-              >
-                CURRENT SELECTION:
-              </Typography>
-              <Typography variant="body1" sx={{ fontWeight: 600 }}>
-                {currentSelection.label}
-              </Typography>
-            </Box>
-          )}
-        </Box>
+  {/* Selection Detail Box */}
+  {currentSelection && (
+    <SelectionDetailBox>
+      <Typography variant="caption" sx={{ fontWeight: 700, color: "#666" }}>
+        CURRENT SELECTION:
+      </Typography>
+      <Typography variant="body1" sx={{ fontWeight: 600 }}>
+        {currentSelection.label}
+      </Typography>
+    </SelectionDetailBox>
+  )}
+</SelectionContainer>
 
         {/* RIGHT COLUMN: The Summary Sidebar */}
-       {/* RIGHT COLUMN: The Summary Sidebar */}
-<Box
-  sx={{
-    width: 280,
-    bgcolor: "#f0f7ff",
-    borderLeft: "1px solid #ddd",
-    p: 2,
-    display: "flex",
-    flexDirection: "column",
-  }}
->
-  <Typography sx={{ mb: 2, fontSize: "0.7rem", fontWeight: 800, color: "#0052cc", letterSpacing: 1.5 }}>
-    ORDERING SUMMARY
-  </Typography>
+<SummaryContainer>
+  <SummaryHeader>ORDERING SUMMARY</SummaryHeader>
 
   <Stack spacing={2} sx={{ flexGrow: 1 }}>
     {product?.configurations?.map((config) => {
@@ -217,58 +210,60 @@ const ConfigModal: React.FC<ConfigModalProps> = ({open, onClose, product}) => {
   </Stack>
 
   {/* PART NUMBER BOX */}
-  <Box sx={{ mt: "auto", p: 2, bgcolor: "#0052cc", color: "#fff" }}>
-    <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700 }}>
+ <Box 
+    sx={{ 
+      p: 2, 
+      bgcolor: "#0052cc", 
+      color: "#fff" 
+      // mt: "auto" is handled by the flexGrow: 1 above
+    }}
+  >
+    <Typography 
+      variant="caption" 
+      sx={{ opacity: 0.8, fontWeight: 700 }}
+    >
       GENERATED PART NUMBER:
     </Typography>
 
-    <Typography variant="h6" sx={{ fontWeight: 900, fontSize: "1.1rem", mt: 0.5 }}>
-      {/* ✅ USE THE HOOK HERE */}
+    <Typography 
+      sx={{ 
+        fontWeight: 700,      // Slightly smaller weight
+        fontSize: "1rem",    // Scaled down from 1.1rem
+        mt: 0.5,
+        lineHeight: 1.2,
+        wordBreak: "break-all",
+         // Safety for long codes
+      }}
+    >
       {productConfig.generatedPartNumber}
     </Typography>
   </Box>
-</Box>
+</SummaryContainer>
       </DialogContent>
 
       <DialogActions sx={{ p: 2, gap: 1 }}>
-        <Button
+        <ActionButton
           onClick={onClose}
           variant="outlined"
-          sx={{
-            borderRadius: 0,
-            borderColor: "#0052cc",
-            color: "#0052cc",
-            paddingY: "10.4px",
-            textTransform: "none",
-            fontWeight: 600,
-            "&:hover": {
-              borderColor: "#0041a3",
-              bgcolor: "rgba(0, 82, 204, 0.04)",
-            },
-          }}
+         sx={{ 
+      color: "#0052cc", 
+      borderColor: "#0052cc",
+      "&:hover": { borderColor: "#0041a3" } 
+    }}
         >
           ADD TO WORKSPACE
-        </Button>
+        </ActionButton>
 
-        <Button
+        <ActionButton
           onClick={onClose}
           variant="contained"
           sx={{
-            borderRadius: 0,
-            bgcolor: "#0052cc", // Your hex color
-            color: "#ffffff",
-            paddingY: "10.4px", // Your padding
-            textTransform: "none",
-            fontWeight: 600,
-            boxShadow: "none",
-            "&:hover": {
-              bgcolor: "#0041a3", // Your hover hex color
-              boxShadow: "none",
-            },
+          bgcolor: "#0052cc", 
+      "&:hover": { bgcolor: "#0041a3" }
           }}
         >
           SAVE CONFIGURATION
-        </Button>
+        </ActionButton>
       </DialogActions>
     </Dialog>
   );
