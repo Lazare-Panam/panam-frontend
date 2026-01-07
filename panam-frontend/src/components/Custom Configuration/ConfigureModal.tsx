@@ -4,16 +4,12 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Button,
   Typography,
   Box,
   Stack,
   FormControl,
   InputLabel,
-  Select,
-  MenuItem,
   IconButton,
-  Skeleton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { type Product } from "./types/CustomConfigurationtypes";
