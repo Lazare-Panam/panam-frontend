@@ -1,21 +1,21 @@
 export interface ConfigOption {
-  code: string;  // e.g., "4" or "GSWL"
-  label: string; // e.g., "1/4”" or "BSPP with Swivel Nut"
-baseSize?: string;   // Optional: only for split categories
+  code: string; 
+  label: string; 
+  baseSize?: string;   
   threadType?: string
 }
 
 export interface ConfigPart {
-  id: string;             // e.g., "baseSize" or "threadType"
-  label: string;          // e.g., "Size" or "Thread"
+  id: string;            
+  label: string;          
   options: ConfigOption[]; 
 }
 
 export interface ProductConfig {
-  label: string;            // e.g., "Connection Size"
-  isSplit?: boolean;        // Flag to trigger the two-dropdown UI
-  options?: ConfigOption[]; // Used for standard single dropdowns
-  parts?: ConfigPart[];     // Used for the 4 + GSWL split logic
+  label: string;           
+  isSplit?: boolean;        
+  options?: ConfigOption[]; 
+  parts?: ConfigPart[];     
 }
 
 export interface Product {
