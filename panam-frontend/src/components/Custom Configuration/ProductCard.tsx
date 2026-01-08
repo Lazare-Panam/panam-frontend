@@ -19,7 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
       <CardMedia
         component="img"
         image={product.imageUrl}
-        alt={product.name}
+        alt={product.title}
         sx={{width: '100%',
           maxWidth: 250,
           height: 150,
@@ -30,7 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
 
     <CardContent sx={{ flexGrow: 1, p: 2 }}>
       <Typography variant="subtitle2" fontWeight={700} gutterBottom>
-        {product.name}
+        {product.title}
       </Typography>
       <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
         {product.description}

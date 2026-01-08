@@ -20,9 +20,9 @@ export interface ProductConfig {
 
 export interface Product {
   id: string;
-  name: string;
+  title: string;
   description: string;
-  price: string;
+  price?: string;
   imageUrl: string;
   configurations?: ProductConfig[];
 }

@@ -44,7 +44,7 @@ const ConfigModal: React.FC<ConfigModalProps> = ({
       }}
     >
       <DialogTitle sx={{ m: 0, p: 2 }}>
-        {`Configure ${product?.name || "Product"}`}
+        {`Configure ${product?.title || "Product"}`}
         <IconButton
           onClick={onClose}
           sx={{ position: "absolute", right: 8, top: 8 }}
