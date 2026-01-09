@@ -1,39 +1,24 @@
-import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
-import { SummaryContainer, SummaryHeader } from "./CustomModel.styles";
-import type {
-  ProductConfig,
-  ConfigOption,
-} from "../types/CustomConfigurationtypes";
+import React from "react"
+import { Box, Stack, Typography } from "@mui/material"
+import { SummaryContainer, SummaryHeader } from "./CustomModel.styles"
+import type { ProductConfig, ConfigOption } from "../types/CustomConfigurationtypes"
 
 interface SummaryPanelProps {
-  configurations: ProductConfig[] | undefined;
-  selections: Record<string, ConfigOption>;
-  generatedPartNumber: string;
+  configurations: ProductConfig[] | undefined
+  selections: Record<string, ConfigOption>
+  generatedPartNumber: string
 }
 
-export const SummaryPanel: React.FC<SummaryPanelProps> = ({
-  configurations,
-  selections,
-  generatedPartNumber,
-}) => {
+export const SummaryPanel: React.FC<SummaryPanelProps> = ({ configurations, selections, generatedPartNumber }) => {
   return (
     <SummaryContainer>
       <SummaryHeader>ORDERING SUMMARY</SummaryHeader>
-
       <Stack spacing={2} sx={{ flexGrow: 1 }}>
-        {configurations?.map((config) => {
-          const selection = selections[config.label];
-
+        {configurations?.map(config => {
+          const selection = selections[config.label]
           return (
-            <Box
-              key={config.label}
-              sx={{ borderBottom: "1px solid #d0e0f5", pb: 1 }}
-            >
-              <Typography
-                variant="caption"
-                sx={{ color: "#666", fontWeight: 600 }}
-              >
+            <Box key={config.label} sx={{ borderBottom: "1px solid #d0e0f5", pb: 1 }}>
+              <Typography variant="caption" sx={{ color: "#666", fontWeight: 600 }}>
                 {config.label}
               </Typography>
 
@@ -43,8 +28,7 @@ export const SummaryPanel: React.FC<SummaryPanelProps> = ({
                   fontWeight: 700,
                   display: "flex",
                   justifyContent: "space-between",
-                }}
-              >
+                }}>
                 <span>{selection?.label || "—"}</span>
 
                 {selection && (
@@ -54,7 +38,7 @@ export const SummaryPanel: React.FC<SummaryPanelProps> = ({
                 )}
               </Typography>
             </Box>
-          );
+          )
         })}
       </Stack>
 
@@ -71,11 +55,10 @@ export const SummaryPanel: React.FC<SummaryPanelProps> = ({
             mt: 0.5,
             lineHeight: 1.2,
             wordBreak: "break-all",
-          }}
-        >
+          }}>
           {generatedPartNumber}
         </Typography>
       </Box>
     </SummaryContainer>
-  );
-};
+  )
+}

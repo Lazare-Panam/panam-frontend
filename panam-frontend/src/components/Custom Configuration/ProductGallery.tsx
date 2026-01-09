@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { MOCK_PRODUCTS } from "./Mock_Products";
 import ConfigModal from "./ConfigureModal";
 import ProductCard from "./ProductCard";
 import { getProductCategory, getProductSpecification } from "../../api/productApi";
 import type { Product } from "./types/CustomConfigurationtypes";
 
-type ProductCatalog = {
+interface ProductCatalog  {
   type: string;
   title: string;
   description: string;
@@ -17,11 +16,9 @@ type ProductCatalog = {
 export default function ProductInventory() {
   const [open, setOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
- 
-  const [selectedProductName, setSelectedProductName] = useState<string>("");
   const [products, setProducts] = useState<ProductCatalog[]>([]);
   const [loading, setLoading] = useState(true);
-   const [modalLoading, setModalLoading] = useState(false);
+  const [modalLoading, setModalLoading] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -41,10 +38,10 @@ export default function ProductInventory() {
   const handleOpenConfig = async (product: any) => {
       setModalLoading(true);
       setSelectedProduct(null);
-    console.log(selectedProductName);
+  
      try {
       const specification = await getProductSpecification(product.title);
-      console.log("Product Specification:", specification);
+      //console.log("Product Specification:", specification);
        const fullProductData: Product = {
         id: specification.id || product.type,
         title: specification.title || product.title,
@@ -80,7 +77,7 @@ export default function ProductInventory() {
             <Grid key={item.type} size={{ xs: 12, sm: 6, md: 3 }}>
               <ProductCard
                 product={{
-                  id: item.type, // 👈 stable id
+                  id: item.type,
                   title: item.title,
                   description: item.description,
                   imageUrl: item.image,
@@ -96,7 +93,7 @@ export default function ProductInventory() {
         open={open}
         onClose={handleClose}
         product={selectedProduct}
-          loading={modalLoading}
+        loading={modalLoading}
       />
     </Container>
   );

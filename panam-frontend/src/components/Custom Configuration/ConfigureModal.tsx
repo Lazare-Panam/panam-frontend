@@ -1,36 +1,21 @@
-import React from "react";
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  IconButton,
-  CircularProgress,
-  Typography,
-  Box,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { type Product } from "./types/CustomConfigurationtypes";
-import "./styles/ConfigModal.css";
-import { useProductConfigurator } from "./useProductConfigurator";
-import { ActionButton } from "./Custom_Modal_Components/CustomModel.styles";
-import { CategorySidebar } from "./Custom_Modal_Components/CustomModalSideBar";
-import { SelectionPanel } from "./Custom_Modal_Components/SelectionPanel";
-import { SummaryPanel } from "./Custom_Modal_Components/SummaryPanel";
+import React from "react"
+import { Dialog, DialogTitle,DialogContent, DialogActions,IconButton,CircularProgress,Typography,Box} from "@mui/material"
+import CloseIcon from "@mui/icons-material/Close"
+import { type Product } from "./types/CustomConfigurationtypes"
+import "./styles/ConfigModal.css"
+import { useProductConfigurator } from "./useProductConfigurator"
+import { ActionButton } from "./Custom_Modal_Components/CustomModel.styles"
+import { CategorySidebar } from "./Custom_Modal_Components/CustomModalSideBar"
+import { SelectionPanel } from "./Custom_Modal_Components/SelectionPanel"
+import { SummaryPanel } from "./Custom_Modal_Components/SummaryPanel"
 interface ConfigModalProps {
-  open: boolean;
-  onClose: () => void;
-  product: Product | null;
-    loading?: boolean;
+  open: boolean
+  onClose: () => void
+  product: Product | null
+  loading?: boolean
 }
 
-const ConfigModal: React.FC<ConfigModalProps> = ({
-  open,
-  onClose,
-  product,
-  loading=false
-}) => {
-
+const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product, loading = false }) => {
   if (loading) {
     return (
       <Dialog open={open} onClose={onClose}>
@@ -41,13 +26,11 @@ const ConfigModal: React.FC<ConfigModalProps> = ({
           </Box>
         </DialogContent>
       </Dialog>
-    );
+    )
   }
-  const productConfig = useProductConfigurator(product);
-  const currentCategory = productConfig.currentCategory;
-  const currentSelection = currentCategory
-    ? productConfig.selections[currentCategory.label]
-    : null;
+  const productConfig = useProductConfigurator(product)
+  const currentCategory = productConfig.currentCategory
+  const currentSelection = currentCategory ? productConfig.selections[currentCategory.label] : null
 
   return (
     <Dialog
@@ -59,14 +42,10 @@ const ConfigModal: React.FC<ConfigModalProps> = ({
         sx: {
           borderRadius: 0,
         },
-      }}
-    >
+      }}>
       <DialogTitle sx={{ m: 0, p: 2 }}>
         {`Configure ${product?.title || "Product"}`}
-        <IconButton
-          onClick={onClose}
-          sx={{ position: "absolute", right: 8, top: 8 }}
-        >
+        <IconButton onClick={onClose} sx={{ position: "absolute", right: 8, top: 8 }}>
           <CloseIcon />
         </IconButton>
       </DialogTitle>
@@ -103,8 +82,7 @@ const ConfigModal: React.FC<ConfigModalProps> = ({
             color: "#0052cc",
             borderColor: "#0052cc",
             "&:hover": { borderColor: "#0041a3" },
-          }}
-        >
+          }}>
           ADD TO WORKSPACE
         </ActionButton>
 
@@ -114,13 +92,12 @@ const ConfigModal: React.FC<ConfigModalProps> = ({
           sx={{
             bgcolor: "#0052cc",
             "&:hover": { bgcolor: "#0041a3" },
-          }}
-        >
+          }}>
           SAVE CONFIGURATION
         </ActionButton>
       </DialogActions>
     </Dialog>
-  );
-};
+  )
+}
 
-export default ConfigModal;
+export default ConfigModal

@@ -3,7 +3,7 @@ import { type Product } from "./types/CustomConfigurationtypes";
 export const MOCK_PRODUCTS: Product[] = [
   {
     id: "5",
-    name: "2-Way Valve Manifold",
+    title: "2-Way Valve Manifold",
     description: "Designed for connecting system impulse lines & transmitters.",
     price: "Contact for Quote",
     imageUrl: "/images/d5.jpg",
