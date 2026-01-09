@@ -10,7 +10,11 @@ import { ActionButton } from "./Custom_Modal_Components/CustomModel.styles"
 import { useProductConfigurator } from "./useProductConfigurator"
 
 const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false }) => {
-  const productConfig = useProductConfigurator(product)
+  //const productConfig = useProductConfigurator(product)
+
+
+  //refactor next week
+  
 
   if (loading) {
     return (
@@ -24,6 +28,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
       </Dialog>
     )
   }
+  const productConfig = useProductConfigurator(product)
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
