@@ -1,99 +1,158 @@
 import React from "react"
-import { Dialog, DialogTitle,DialogContent, DialogActions,IconButton,CircularProgress,Typography,Box} from "@mui/material"
+import { 
+  Dialog, DialogTitle, DialogContent, DialogActions, 
+  IconButton, CircularProgress, Typography, Box, Grid, 
+  FormControl, Select, MenuItem, Stack 
+} from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import { type Product } from "./types/CustomConfigurationtypes"
-import "./styles/ConfigModal.css"
-import { useProductConfigurator } from "./useProductConfigurator"
 import { ActionButton } from "./Custom_Modal_Components/CustomModel.styles"
-import { CategorySidebar } from "./Custom_Modal_Components/CustomModalSideBar"
-import { SelectionPanel } from "./Custom_Modal_Components/SelectionPanel"
-import { SummaryPanel } from "./Custom_Modal_Components/SummaryPanel"
-interface ConfigModalProps {
-  open: boolean
-  onClose: () => void
-  product: Product | null
-  loading?: boolean
-}
+import { useProductConfigurator } from "./useProductConfigurator"
 
-const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product, loading = false }) => {
+const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false }) => {
+  const productConfig = useProductConfigurator(product)
+
   if (loading) {
     return (
       <Dialog open={open} onClose={onClose}>
         <DialogContent>
           <Box display="flex" justifyContent="center" alignItems="center" minHeight={200}>
             <CircularProgress />
-            <Typography sx={{ ml: 2 }}>Loading product configuration...</Typography>
+            <Typography sx={{ ml: 2 }}>Loading configuration...</Typography>
           </Box>
         </DialogContent>
       </Dialog>
     )
   }
-  const productConfig = useProductConfigurator(product)
-  const currentCategory = productConfig.currentCategory
-  const currentSelection = currentCategory ? productConfig.selections[currentCategory.label] : null
 
   return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      fullWidth
-      maxWidth="md"
-      PaperProps={{
-        sx: {
-          borderRadius: 0,
-        },
-      }}>
-      <DialogTitle sx={{ m: 0, p: 2 }}>
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
+      <DialogTitle sx={{ borderBottom: '1px solid #eee', fontWeight: 700 }}>
         {`Configure ${product?.title || "Product"}`}
         <IconButton onClick={onClose} sx={{ position: "absolute", right: 8, top: 8 }}>
           <CloseIcon />
         </IconButton>
       </DialogTitle>
 
-      <DialogContent dividers sx={{ p: 0, display: "flex", height: "60vh" }}>
-        {product?.configurations && (
-          <CategorySidebar
-            categories={product.configurations}
-            activeIndex={productConfig.activeCategory}
-            onSelect={productConfig.setActiveCategory}
+      <DialogContent sx={{ p: 0 }}>
+        <Grid container sx={{ height: "70vh" }}>
+          
+          {/* MAIN COLUMN: EVERYTHING SCROLLS TOGETHER */}
+          <Grid size={{ xs: 12, md: 8 }} sx={{ 
+            height: "100%", 
+            overflowY: "auto", 
+            p: 4, 
+            borderRight: '1px solid #eee' 
+          }}>
+            <Typography variant="h6" sx={{ mb: 4, fontWeight: 700, color: "#333" }}>
+              Product Specifications
+            </Typography>
 
-          />
-        )}
+            <Stack spacing={2}>
+              {/* Table Header for the specifications */}
+              <Grid container sx={{ pb: 1, borderBottom: '2px solid #eee', mb: 1 }}>
+                <Grid size={{ xs: 5 }}>
+                  <Typography variant="caption" sx={{ fontWeight: 800, color: '#999' }}>SPECIFICATION</Typography>
+                </Grid>
+                <Grid size={{ xs: 7 }}>
+                  <Typography variant="caption" sx={{ fontWeight: 800, color: '#999' }}>SELECTION</Typography>
+                </Grid>
+              </Grid>
 
-        <SelectionPanel
-          currentCategory={productConfig.currentCategory}
-          currentSelection={currentSelection}
-          selections={productConfig.selections}
-          onOptionChange={productConfig.handleOptionChange}
-          getEffectiveSelection={productConfig.getEffectiveSelection}
-        />
-        <SummaryPanel
-          configurations={product?.configurations}
-          selections={productConfig.selections}
-          generatedPartNumber={productConfig.generatedPartNumber}
-          //getEffectiveSelection={productConfig.getEffectiveSelection}
-        />
+              {product?.configurations?.map((config) => {
+                const selection = productConfig.selections[config.label];
+                
+                return (
+                  <Grid container key={config.label} alignItems="center" sx={{ 
+                    py: 1.5, 
+                    borderBottom: '1px solid #f5f5f5' 
+                  }}>
+                    {/* LEFT SIDE: LABEL */}
+                    <Grid size={{ xs: 5 }}>
+                      <Typography sx={{ fontWeight: 600, fontSize: "0.9rem" }}>
+                        {config.label}
+                      </Typography>
+                      {selection && (
+                        <Typography variant="caption" sx={{ color: '#0052cc', fontWeight: 700 }}>
+                          Code: {selection.code}
+                        </Typography>
+                      )}
+                    </Grid>
+
+                    {/* RIGHT SIDE: DROPDOWN */}
+                    <Grid size={{ xs: 7 }}>
+                      <FormControl fullWidth>
+                        <Select
+                          size="small"
+                          value={selection?.code || ""}
+                          onChange={(e) => productConfig.handleOptionChange(config.label, e.target.value)}
+                          displayEmpty
+                          sx={{ borderRadius: '4px', bgcolor: '#fff' }}
+                        >
+                          <MenuItem value="" disabled>Choose option...</MenuItem>
+                          {config.options?.map((option) => (
+                            <MenuItem key={option.code} value={option.code}>
+                              <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                <Typography variant="body2">{option.label}</Typography>
+                                <Typography variant="caption" sx={{ fontWeight: 700, color: '#aaa', ml: 2 }}>
+                                  {option.code}
+                                </Typography>
+                              </Box>
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </Grid>
+                  </Grid>
+                )
+              })}
+            </Stack>
+          </Grid>
+
+          {/* SUMMARY SIDEBAR (Fixed visual reference) */}
+          <Grid size={{ xs: 12, md: 4 }} sx={{ 
+            bgcolor: "#fcfcfc", 
+            p: 3, 
+            display: 'flex', 
+            flexDirection: 'column',
+            height: "100%" 
+          }}>
+            <Typography variant="subtitle2" sx={{ color: "#666", fontWeight: 700, mb: 3 }}>
+              ORDERING SUMMARY
+            </Typography>
+
+            <Box sx={{ flexGrow: 1, overflowY: 'auto' }}>
+              {/* Quick glance list of what has been picked */}
+               <Stack spacing={1}>
+                 {product?.configurations?.map(config => {
+                   const sel = productConfig.selections[config.label];
+                   return sel ? (
+                     <Box key={config.label} sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                       <Typography variant="caption" sx={{ color: '#888' }}>{config.label}:</Typography>
+                       <Typography variant="caption" sx={{ fontWeight: 700 }}>{sel.code}</Typography>
+                     </Box>
+                   ) : null;
+                 })}
+               </Stack>
+            </Box>
+
+            {/* THE FINAL PART NUMBER RESULT */}
+            <Box sx={{ mt: 'auto', p: 2, bgcolor: "#0052cc", color: "#fff", borderRadius: 1 }}>
+               <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700 }}>
+                 GENERATED PART NUMBER:
+               </Typography>
+               <Typography sx={{ fontWeight: 700, fontSize: "1.2rem", mt: 0.5, letterSpacing: 1 }}>
+                 {productConfig.generatedPartNumber || "---"}
+               </Typography>
+            </Box>
+          </Grid>
+
+        </Grid>
       </DialogContent>
 
-      <DialogActions sx={{ p: 2, gap: 1 }}>
-        <ActionButton
-          onClick={onClose}
-          variant="outlined"
-          sx={{
-            color: "#0052cc",
-            borderColor: "#0052cc",
-            "&:hover": { borderColor: "#0041a3" },
-          }}>
-          ADD TO WORKSPACE
-        </ActionButton>
-
-        <ActionButton
-          onClick={onClose}
-          variant="contained"
-          sx={{
-            bgcolor: "#0052cc",
-            "&:hover": { bgcolor: "#0041a3" },
-          }}>
+      <DialogActions sx={{ p: 2, borderTop: '1px solid #eee' }}>
+        <ActionButton onClick={onClose} variant="outlined">ADD TO WORKSPACE</ActionButton>
+        <ActionButton onClick={onClose} variant="contained" sx={{ bgcolor: "#0052cc" }}>
           SAVE CONFIGURATION
         </ActionButton>
       </DialogActions>
