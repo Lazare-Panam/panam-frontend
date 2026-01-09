@@ -5,6 +5,9 @@ import {
   DialogContent,
   DialogActions,
   IconButton,
+  CircularProgress,
+  Typography,
+  Box,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { type Product } from "./types/CustomConfigurationtypes";
@@ -18,13 +21,28 @@ interface ConfigModalProps {
   open: boolean;
   onClose: () => void;
   product: Product | null;
+    loading?: boolean;
 }
 
 const ConfigModal: React.FC<ConfigModalProps> = ({
   open,
   onClose,
   product,
+  loading=false
 }) => {
+
+  if (loading) {
+    return (
+      <Dialog open={open} onClose={onClose}>
+        <DialogContent>
+          <Box display="flex" justifyContent="center" alignItems="center" minHeight={200}>
+            <CircularProgress />
+            <Typography sx={{ ml: 2 }}>Loading product configuration...</Typography>
+          </Box>
+        </DialogContent>
+      </Dialog>
+    );
+  }
   const productConfig = useProductConfigurator(product);
   const currentCategory = productConfig.currentCategory;
   const currentSelection = currentCategory
