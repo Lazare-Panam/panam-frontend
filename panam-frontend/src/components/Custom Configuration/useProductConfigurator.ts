@@ -39,14 +39,22 @@ export const useProductConfigurator = (product: Product | null) => {
         .join("-")
     : "LOADING...";
 
-  const handleOptionChange = (selectedCode: string) => {
-    if (!currentCategory?.options) return
-    const option = currentCategory.options.find(opt => opt.code === selectedCode)
-    if (option) {
-      handleSelect(currentCategory.label, option)
-    }
-  }
+// Inside useProductConfigurator.ts
 
+const handleOptionChange = (categoryLabel: string, selectedCode: string) => {
+  // 1. Find the specific category from the product configurations
+  const category = product?.configurations?.find(c => c.label === categoryLabel);
+  
+  if (!category?.options) return;
+
+  // 2. Find the option within that specific category
+  const option = category.options.find(opt => opt.code === selectedCode);
+  
+  if (option) {
+    // 3. Update the selections state using the label as the key
+    handleSelect(categoryLabel, option);
+  }
+};
   return {
     activeCategory,
     setActiveCategory,

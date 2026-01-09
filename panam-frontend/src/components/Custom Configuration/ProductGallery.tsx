@@ -94,6 +94,7 @@ export default function ProductInventory() {
         onClose={handleClose}
         product={selectedProduct}
         loading={modalLoading}
+        key={selectedProduct?.id || 'no-product'}
       />
     </Container>
   );

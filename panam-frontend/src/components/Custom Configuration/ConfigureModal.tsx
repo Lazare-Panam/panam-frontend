@@ -5,7 +5,7 @@ import {
   FormControl, Select, MenuItem, Stack 
 } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
-import { type Product } from "./types/CustomConfigurationtypes"
+import { type Product, type ProductConfig } from "./types/CustomConfigurationtypes"
 import { ActionButton } from "./Custom_Modal_Components/CustomModel.styles"
 import { useProductConfigurator } from "./useProductConfigurator"
 
@@ -36,20 +36,14 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
 
       <DialogContent sx={{ p: 0 }}>
         <Grid container sx={{ height: "70vh" }}>
-          
-          {/* MAIN COLUMN: EVERYTHING SCROLLS TOGETHER */}
           <Grid size={{ xs: 12, md: 8 }} sx={{ 
             height: "100%", 
             overflowY: "auto", 
             p: 4, 
             borderRight: '1px solid #eee' 
           }}>
-            <Typography variant="h6" sx={{ mb: 4, fontWeight: 700, color: "#333" }}>
-              Product Specifications
-            </Typography>
-
+            
             <Stack spacing={2}>
-              {/* Table Header for the specifications */}
               <Grid container sx={{ pb: 1, borderBottom: '2px solid #eee', mb: 1 }}>
                 <Grid size={{ xs: 5 }}>
                   <Typography variant="caption" sx={{ fontWeight: 800, color: '#999' }}>SPECIFICATION</Typography>
@@ -59,53 +53,61 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
                 </Grid>
               </Grid>
 
-              {product?.configurations?.map((config) => {
-                const selection = productConfig.selections[config.label];
-                
-                return (
-                  <Grid container key={config.label} alignItems="center" sx={{ 
-                    py: 1.5, 
-                    borderBottom: '1px solid #f5f5f5' 
-                  }}>
-                    {/* LEFT SIDE: LABEL */}
-                    <Grid size={{ xs: 5 }}>
-                      <Typography sx={{ fontWeight: 600, fontSize: "0.9rem" }}>
-                        {config.label}
-                      </Typography>
-                      {selection && (
-                        <Typography variant="caption" sx={{ color: '#0052cc', fontWeight: 700 }}>
-                          Code: {selection.code}
-                        </Typography>
-                      )}
-                    </Grid>
+              {product?.configurations?.map((config: ProductConfig) => {
+  const selection = productConfig.getEffectiveSelection(config);
+  
+  // A row is "locked" if there is only one choice available
+  const isLocked = config.options?.length === 1;
 
-                    {/* RIGHT SIDE: DROPDOWN */}
-                    <Grid size={{ xs: 7 }}>
-                      <FormControl fullWidth>
-                        <Select
-                          size="small"
-                          value={selection?.code || ""}
-                          onChange={(e) => productConfig.handleOptionChange(config.label, e.target.value)}
-                          displayEmpty
-                          sx={{ borderRadius: '4px', bgcolor: '#fff' }}
-                        >
-                          <MenuItem value="" disabled>Choose option...</MenuItem>
-                          {config.options?.map((option) => (
-                            <MenuItem key={option.code} value={option.code}>
-                              <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                                <Typography variant="body2">{option.label}</Typography>
-                                <Typography variant="caption" sx={{ fontWeight: 700, color: '#aaa', ml: 2 }}>
-                                  {option.code}
-                                </Typography>
-                              </Box>
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                    </Grid>
-                  </Grid>
-                )
-              })}
+  return (
+    <Grid container key={config.label} alignItems="center" sx={{ py: 1.5, borderBottom: '1px solid #f5f5f5' }}>
+      <Grid size={{ xs: 5 }}>
+        <Typography sx={{ 
+          fontWeight: 600, 
+          fontSize: "0.9rem",
+          color: isLocked ? 'text.secondary' : 'text.primary' 
+        }}>
+          {config.label}
+          {isLocked && " (Fixed)"}
+        </Typography>
+      </Grid>
+
+      <Grid size={{ xs: 7 }}>
+        <FormControl fullWidth>
+          <Select
+            size="small"
+            value={selection?.code || ""}
+            onChange={(e) => productConfig.handleOptionChange(config.label, e.target.value as string)}
+            displayEmpty
+            // Use the logic here
+            disabled={isLocked} 
+            sx={{ 
+              borderRadius: '4px', 
+              bgcolor: isLocked ? '#fcfcfc' : '#fff',
+              // Ensures the text remains readable even when disabled
+              "& .Mui-disabled": {
+                color: "rgba(0, 0, 0, 0.8) !important",
+                WebkitTextFillColor: "rgba(0, 0, 0, 0.8) !important",
+              }
+            }}
+          >
+            <MenuItem value="" disabled>Choose option...</MenuItem>
+            {config.options?.map((option) => (
+              <MenuItem key={option.code} value={option.code}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                  <Typography variant="body2">{option.label}</Typography>
+                  <Typography variant="caption" sx={{ fontWeight: 700, color: '#aaa' }}>
+                    {option.code}
+                  </Typography>
+                </Box>
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Grid>
+    </Grid>
+  );
+})}
             </Stack>
           </Grid>
 
@@ -117,25 +119,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
             flexDirection: 'column',
             height: "100%" 
           }}>
-            <Typography variant="subtitle2" sx={{ color: "#666", fontWeight: 700, mb: 3 }}>
-              ORDERING SUMMARY
-            </Typography>
-
-            <Box sx={{ flexGrow: 1, overflowY: 'auto' }}>
-              {/* Quick glance list of what has been picked */}
-               <Stack spacing={1}>
-                 {product?.configurations?.map(config => {
-                   const sel = productConfig.selections[config.label];
-                   return sel ? (
-                     <Box key={config.label} sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                       <Typography variant="caption" sx={{ color: '#888' }}>{config.label}:</Typography>
-                       <Typography variant="caption" sx={{ fontWeight: 700 }}>{sel.code}</Typography>
-                     </Box>
-                   ) : null;
-                 })}
-               </Stack>
-            </Box>
-
+           
             {/* THE FINAL PART NUMBER RESULT */}
             <Box sx={{ mt: 'auto', p: 2, bgcolor: "#0052cc", color: "#fff", borderRadius: 1 }}>
                <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700 }}>
