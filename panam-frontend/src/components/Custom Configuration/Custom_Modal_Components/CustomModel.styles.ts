@@ -85,7 +85,7 @@ export const SummaryContainer = styled(Box)({
   width: 280,
   backgroundColor: "#f0f7ff",
   borderLeft: "1px solid #ddd",
-  padding: "16px", // This is p: 2
+ padding: "16px 16px 0px 16px",
   display: "flex",
   flexDirection: "column",
    overflowY: "auto",

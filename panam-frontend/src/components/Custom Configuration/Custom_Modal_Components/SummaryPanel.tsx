@@ -43,21 +43,23 @@ export const SummaryPanel: React.FC<SummaryPanelProps> = ({ configurations, sele
       </Stack>
 
       {/* PART NUMBER */}
-      <Box sx={{ p: 2, bgcolor: "#0052cc", color: "#fff" }}>
-        <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700 }}>
-          GENERATED PART NUMBER:
-        </Typography>
+     <Box sx={{ p: 2, mx: -2, bgcolor: "#0052cc", color: "#fff", mt: "auto", width: "100%" }}>
+        <Box sx={{ px: 2 }}>
+          <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700 }}>
+            GENERATED PART NUMBER:
+          </Typography>
 
-        <Typography
-          sx={{
-            fontWeight: 700,
-            fontSize: "1rem",
-            mt: 0.5,
-            lineHeight: 1.2,
-            wordBreak: "break-all",
-          }}>
-          {generatedPartNumber}
-        </Typography>
+          <Typography
+            sx={{
+              fontWeight: 700,
+              fontSize: "1rem",
+              mt: 0.5,
+              lineHeight: 1.2,
+              wordBreak: "break-all",
+            }}>
+            {generatedPartNumber}
+          </Typography>
+        </Box>
       </Box>
     </SummaryContainer>
   )

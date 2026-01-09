@@ -34,7 +34,7 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
           ))}
         </StyledSelect>
       </FormControl>
-      {currentSelection && (
+      {/* {currentSelection && (
         <SelectionDetailBox>
           <Typography variant="caption" sx={{ fontWeight: 700, color: "#666" }}>
             CURRENT SELECTION:
@@ -43,7 +43,7 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
             {currentSelection.label}
           </Typography>
         </SelectionDetailBox>
-      )}
+      )} */}
     </SelectionContainer>
   )
 }
