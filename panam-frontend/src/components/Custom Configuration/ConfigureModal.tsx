@@ -56,6 +56,7 @@ const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product, loadi
             categories={product.configurations}
             activeIndex={productConfig.activeCategory}
             onSelect={productConfig.setActiveCategory}
+
           />
         )}
 
@@ -64,11 +65,13 @@ const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product, loadi
           currentSelection={currentSelection}
           selections={productConfig.selections}
           onOptionChange={productConfig.handleOptionChange}
+          getEffectiveSelection={productConfig.getEffectiveSelection}
         />
         <SummaryPanel
           configurations={product?.configurations}
           selections={productConfig.selections}
           generatedPartNumber={productConfig.generatedPartNumber}
+          //getEffectiveSelection={productConfig.getEffectiveSelection}
         />
       </DialogContent>
 
