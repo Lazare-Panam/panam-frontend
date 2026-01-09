@@ -1,5 +1,5 @@
 import React from "react"
-import { Stack, FormControl, InputLabel, Typography } from "@mui/material"
+import {FormControl, InputLabel, Typography } from "@mui/material"
 import { SelectionContainer, CategoryHeader, CategoryTitle, StyledSelect, StyledMenuItem, SelectionDetailBox } from "./CustomModel.styles"
 import { type ProductConfig } from "../types/CustomConfigurationtypes"
 
@@ -7,8 +7,6 @@ interface SelectionPanelProps {
   currentCategory: ProductConfig | undefined
   currentSelection: any
   selections: Record<string, any>
-  getSplitOptionValue: (partId: string) => string
-  onSplitOptionChange: (partId: string, value: string) => void
   onOptionChange: (event: any) => void
 }
 
@@ -16,8 +14,6 @@ export const SelectionPanel: React.FC<SelectionPanelProps> = ({
   currentCategory,
   currentSelection,
   selections,
-  getSplitOptionValue,
-  onSplitOptionChange,
   onOptionChange,
 }) => {
   return (

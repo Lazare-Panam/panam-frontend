@@ -63,8 +63,6 @@ const ConfigModal: React.FC<ConfigModalProps> = ({ open, onClose, product, loadi
           currentCategory={productConfig.currentCategory}
           currentSelection={currentSelection}
           selections={productConfig.selections}
-          getSplitOptionValue={productConfig.getSplitOptionValue}
-          onSplitOptionChange={productConfig.handleSplitOptionChange}
           onOptionChange={productConfig.handleOptionChange}
         />
         <SummaryPanel
