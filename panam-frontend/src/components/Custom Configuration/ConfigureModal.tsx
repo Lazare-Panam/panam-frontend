@@ -44,15 +44,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
           }}>
             
             <Stack spacing={2}>
-              <Grid container sx={{ pb: 1, borderBottom: '2px solid #eee', mb: 1 }}>
-                <Grid size={{ xs: 5 }}>
-                  <Typography variant="caption" sx={{ fontWeight: 800, color: '#999' }}>SPECIFICATION</Typography>
-                </Grid>
-                <Grid size={{ xs: 7 }}>
-                  <Typography variant="caption" sx={{ fontWeight: 800, color: '#999' }}>SELECTION</Typography>
-                </Grid>
-              </Grid>
-
+              
               {product?.configurations?.map((config: ProductConfig) => {
   const selection = productConfig.getEffectiveSelection(config);
   
