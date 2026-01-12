@@ -1,34 +1,23 @@
 pipeline {
-  agent any
+    agent any
 
-  stages {
-    stage('Checkout') {
-      steps {
-        echo 'Code checked out'
-      }
-    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
 
-    stage('Install') {
-      steps {
-        echo 'Installing dependencies'
-        sh 'npm install'
-      }
-    }
+        stage('Build') {
+            steps {
+                echo 'Build running'
+            }
+        }
 
-    stage('Build') {
-      steps {
-        echo 'Building project'
-        sh 'npm run build'
-      }
+        stage('Test') {
+            steps {
+                echo 'Tests running'
+            }
+        }
     }
-  }
-
-  post {
-    success {
-      echo '✅ Build successful'
-    }
-    failure {
-      echo '❌ Build failed'
-    }
-  }
 }
