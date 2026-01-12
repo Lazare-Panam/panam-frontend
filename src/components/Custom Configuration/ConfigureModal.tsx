@@ -9,7 +9,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
   //const productConfig = useProductConfigurator(product)
 
   //refactor next week
-
+ //
   if (loading) {
     return (
       <Dialog open={open} onClose={onClose}>
