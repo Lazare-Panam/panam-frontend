@@ -7,7 +7,15 @@ interface ProductCardProps {
   onConfigure: (product: Product) => void
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
-  <Card variant="outlined" className="product-card">
+  <Card
+    variant="outlined"
+    className="product-card"
+    sx={{
+      borderRadius: 0,
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+    }}>
     <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
       <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 150, objectFit: "contain" }} />
     </Box>

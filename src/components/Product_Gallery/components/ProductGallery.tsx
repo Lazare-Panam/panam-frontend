@@ -15,7 +15,7 @@ interface ProductCatalog {
 }
 
 export default function ProductInventory() {
-  const { id } = useParams<{ id: string }>(); 
+  const { id } = useParams<{ id: string }>()
   const [open, setOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<any>(null)
   const [products, setProducts] = useState<ProductCatalog[]>([])
@@ -24,9 +24,8 @@ export default function ProductInventory() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      if(!id)
-        return;
-      setLoading(true);
+      if (!id) return
+      setLoading(true)
       try {
         const data = await getProductCategory(id)
         setProducts(data)

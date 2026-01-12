@@ -1,5 +1,5 @@
 .card-actions-group {
-  padding: 16px; 
+  padding: 16px;
   padding-top: 0;
   display: flex;
   flex-direction: column;
@@ -29,19 +29,18 @@
   background-color: #ffffff;
   color: #0052cc;
   border: 1px solid #0052cc;
-  padding-top: 12px; 
+  padding-top: 12px;
   padding-bottom: 12px;
 }
 
 .product-card {
-  display: flex;             /* 1. Enable Flexbox */
-  flex-direction: column;    /* 1. Stack children (Media, Content, Buttons) vertically */
-  height: 100%;              /* 1. Ensure the card stretches to match neighbor heights */
-  border-radius: 0;          /* Sharp edges */
+  display: flex; /* 1. Enable Flexbox */
+  flex-direction: column; /* 1. Stack children (Media, Content, Buttons) vertically */
+  height: 100%; /* 1. Ensure the card stretches to match neighbor heights */
+  border-radius: 0; /* Sharp edges */
 }
 
 /* Ensure the content area grows to push buttons to the bottom */
 .product-card .MuiCardContent-root {
   flex-grow: 1;
 }
-

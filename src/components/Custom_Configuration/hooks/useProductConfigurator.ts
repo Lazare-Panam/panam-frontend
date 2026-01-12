@@ -1,5 +1,5 @@
 import { useState } from "react"
-import {type Product, type ConfigOption } from "../types/CustomConfigurationtypes"
+import { type Product, type ConfigOption } from "../types/CustomConfigurationtypes"
 
 export const useProductConfigurator = (product: Product | null) => {
   const [activeCategory, setActiveCategory] = useState(0)
