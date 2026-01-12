@@ -5,12 +5,8 @@ pipeline {
     }
 
     stages {
-         stage('Check Node') {
-            steps {
-                sh 'node -v'
-                sh 'npm -v'
-            }
-        }
+        
+       
 
         stage('Checkout') {
             steps {
@@ -18,15 +14,21 @@ pipeline {
             }
         }
 
+        stage('Install Dependancies'){
+            steps{
+                sh 'npm ci'
+            }
+        }
+
         stage('Build') {
             steps {
-                echo 'Build running'
+                sh 'npm run build'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Tests running'
+                sh 'npm test'
             }
         }
     }
