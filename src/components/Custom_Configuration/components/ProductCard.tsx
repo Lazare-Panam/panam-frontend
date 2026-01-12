@@ -1,7 +1,7 @@
 import React from "react"
 import { Box, Typography, Button, Card, CardMedia, CardContent } from "@mui/material"
-import { type Product } from "./types/CustomConfigurationtypes"
-import "./styles/ProductCard.css"
+import { type Product } from "../types/CustomConfigurationtypes"
+import "../styles/ProductCard.css"
 interface ProductCardProps {
   product: Product
   onConfigure: (product: Product) => void

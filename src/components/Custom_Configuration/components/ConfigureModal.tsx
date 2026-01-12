@@ -1,15 +1,11 @@
 import React from "react"
 import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton, CircularProgress, Typography, Box, Grid, FormControl, Select, MenuItem, Stack } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
-import { type ProductConfig } from "./types/CustomConfigurationtypes"
-import { ActionButton } from "./Custom_Modal_Components/CustomModel.styles"
-import { useProductConfigurator } from "./useProductConfigurator"
+import { type ProductConfig } from "../types/CustomConfigurationtypes"
+import { ActionButton } from "../styles/CustomModel.styles"
+import { useProductConfigurator } from "../hooks/useProductConfigurator"
 
 const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false }) => {
-  //const productConfig = useProductConfigurator(product)
-
-  //refactor next week
- //
   if (loading) {
     return (
       <Dialog open={open} onClose={onClose}>

@@ -1,6 +1,6 @@
 import React from "react"
 import { Stack } from "@mui/material"
-import { NavButton, SidebarContainer, SidebarTitle } from "./CustomModel.styles"
+import { NavButton, SidebarContainer, SidebarTitle } from "../styles/CustomModel.styles"
 import { type ProductConfig } from "../types/CustomConfigurationtypes"
 
 interface CategorySidebarProps {

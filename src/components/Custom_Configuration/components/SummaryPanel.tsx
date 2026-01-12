@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Stack, Typography } from "@mui/material"
-import { SummaryContainer, SummaryHeader } from "./CustomModel.styles"
+import { SummaryContainer, SummaryHeader } from "../styles/CustomModel.styles"
 import type { ProductConfig, ConfigOption } from "../types/CustomConfigurationtypes"
 
 interface SummaryPanelProps {
