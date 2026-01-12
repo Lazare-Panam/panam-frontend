@@ -43,7 +43,7 @@ export const SummaryPanel: React.FC<SummaryPanelProps> = ({ configurations, sele
       </Stack>
 
       {/* PART NUMBER */}
-     <Box sx={{ p: 2, mx: -2, bgcolor: "#0052cc", color: "#fff", mt: "auto", width: "100%" }}>
+      <Box sx={{ p: 2, mx: -2, bgcolor: "#0052cc", color: "#fff", mt: "auto", width: "100%" }}>
         <Box sx={{ px: 2 }}>
           <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700 }}>
             GENERATED PART NUMBER:

@@ -4,54 +4,45 @@ import { type ConfigOption, type Product } from "./types/CustomConfigurationtype
 export const useProductConfigurator = (product: Product | null) => {
   const [activeCategory, setActiveCategory] = useState(0)
   const [selections, setSelections] = useState<Record<string, ConfigOption>>({})
-  
-
-  const handleSelect = (categoryLabel: string, option: ConfigOption) => {
-    setSelections(prev => ({
-      ...prev,
-      [categoryLabel]: option,
-    }))
-  }
-
   const currentCategory = product?.configurations?.[activeCategory]
-
   const getEffectiveSelection = (config: any): ConfigOption | null => {
-
     if (!config || !config.label) {
-    return null;
-  }
+      return null
+    }
     if (selections[config.label]) {
-      return selections[config.label];
+      return selections[config.label]
     }
     if (config.options?.length === 1) {
-      return config.options[0];
+      return config.options[0]
     }
-    return null;
-  };
-
+    return null
+  }
 
   const generatedPartNumber = product?.configurations
     ? product.configurations
-        .map((config) => {
-          const selection = getEffectiveSelection(config);
-          return selection ? selection.code : "??";
+        .map(config => {
+          const selection = getEffectiveSelection(config)
+          return selection ? selection.code : "??"
         })
         .join("-")
-    : "LOADING...";
+    : "LOADING..."
 
-  const handleOptionChange = (selectedCode: string) => {
-    if (!currentCategory?.options) return
-    const option = currentCategory.options.find(opt => opt.code === selectedCode)
+  const handleOptionChange = (categoryLabel: string, selectedCode: string) => {
+    const category = product?.configurations?.find(c => c.label === categoryLabel)
+    if (!category?.options) return
+
+    const option = category.options.find(opt => opt.code === selectedCode)
     if (option) {
-      handleSelect(currentCategory.label, option)
+      setSelections(prev => ({
+        ...prev,
+        [categoryLabel]: option,
+      }))
     }
   }
-
   return {
     activeCategory,
     setActiveCategory,
     selections,
-    handleSelect,
     generatedPartNumber,
     currentCategory,
     handleOptionChange,
