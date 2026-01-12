@@ -4,9 +4,7 @@ import { type ConfigOption, type Product } from "./types/CustomConfigurationtype
 export const useProductConfigurator = (product: Product | null) => {
   const [activeCategory, setActiveCategory] = useState(0)
   const [selections, setSelections] = useState<Record<string, ConfigOption>>({})
-
   const currentCategory = product?.configurations?.[activeCategory]
-
   const getEffectiveSelection = (config: any): ConfigOption | null => {
     if (!config || !config.label) {
       return null
