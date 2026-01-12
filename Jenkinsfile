@@ -1,7 +1,7 @@
 pipeline {
     agent any
      tools {
-        nodejs 'node-22'
+        nodejs 'node-24'
     }
 
     stages {
