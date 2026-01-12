@@ -1,6 +1,6 @@
 import React from "react"
 import {FormControl, InputLabel, Typography } from "@mui/material"
-import { SelectionContainer, CategoryHeader, CategoryTitle, StyledSelect, StyledMenuItem, SelectionDetailBox } from "./CustomModel.styles"
+import { SelectionContainer, CategoryHeader, CategoryTitle, StyledSelect, StyledMenuItem } from "./CustomModel.styles"
 import { type ConfigOption, type ProductConfig } from "../types/CustomConfigurationtypes"
 
 interface SelectionPanelProps {
@@ -14,8 +14,6 @@ interface SelectionPanelProps {
 
 export const SelectionPanel: React.FC<SelectionPanelProps> = ({
   currentCategory,
-  currentSelection,
-  selections,
   onOptionChange,
   getEffectiveSelection
 }) => {

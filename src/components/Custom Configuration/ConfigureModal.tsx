@@ -1,7 +1,7 @@
 import React from "react"
 import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton, CircularProgress, Typography, Box, Grid, FormControl, Select, MenuItem, Stack } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
-import { type Product, type ProductConfig } from "./types/CustomConfigurationtypes"
+import { type ProductConfig } from "./types/CustomConfigurationtypes"
 import { ActionButton } from "./Custom_Modal_Components/CustomModel.styles"
 import { useProductConfigurator } from "./useProductConfigurator"
 
