@@ -3,8 +3,6 @@ import { Container, Typography, Stack, Card, CardActionArea, CardContent } from 
 
 export default function AllCategories() {
   const navigate = useNavigate()
-
-  // Defining the IDs exactly as your API expects them
   const categories = [
     { title: "Valve Manifolds", id: "valve-manifolds" },
     { title: "Valves", id: "valves" },
