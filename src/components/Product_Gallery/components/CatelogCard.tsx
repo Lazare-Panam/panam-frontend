@@ -11,7 +11,6 @@ interface ProductCardProps {
 
 const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
   const navigate = useNavigate()
-
   const handleClick = () => {
     navigate(`/products/${type}`)
   }

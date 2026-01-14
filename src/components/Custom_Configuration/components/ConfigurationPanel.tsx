@@ -1,12 +1,15 @@
 import React from "react"
-import { Box, FormControl, Grid, MenuItem, Select, Stack, Typography } from "@mui/material"
+import { Box, FormControl, Grid, MenuItem, Select, Stack, Typography, FormHelperText } from "@mui/material"
 import type { ConfigOption, Product, ProductConfig } from "../types/CustomConfigurationtypes"
+
 interface ConfigurationPanelProps {
   product: Product
   getEffectiveSelection: (config: ProductConfig) => ConfigOption | null
   handleOptionChange: (categoryLabel: string, selectedCode: string) => void
+  showValidation: boolean
 }
-const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEffectiveSelection, handleOptionChange }) => {
+
+const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEffectiveSelection, handleOptionChange, showValidation }) => {
   return (
     <>
       <Grid
@@ -21,6 +24,8 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEff
           {product?.configurations?.map((config: ProductConfig) => {
             const selection = getEffectiveSelection(config)
             const isLocked = config.options?.length === 1
+            const showError = showValidation && config.required && !selection?.code
+
             return (
               <Grid container key={config.label} alignItems="center" sx={{ py: 1.5, borderBottom: "1px solid #f5f5f5" }}>
                 <Grid size={{ xs: 5 }}>
@@ -36,13 +41,14 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEff
                 </Grid>
 
                 <Grid size={{ xs: 7 }}>
-                  <FormControl fullWidth>
+                  <FormControl fullWidth required={config.required} error={showError}>
                     <Select
                       size="small"
                       value={selection?.code || ""}
                       onChange={e => handleOptionChange(config.label, e.target.value as string)}
                       displayEmpty
                       disabled={isLocked}
+                      required={config.required}
                       sx={{
                         borderRadius: "4px",
                         bgcolor: isLocked ? "#fcfcfc" : "#fff",
@@ -65,6 +71,7 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEff
                         </MenuItem>
                       ))}
                     </Select>
+                    {showError && <FormHelperText>This field is required</FormHelperText>}
                   </FormControl>
                 </Grid>
               </Grid>

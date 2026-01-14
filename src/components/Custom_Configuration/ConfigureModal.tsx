@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton, CircularProgress, Typography, Box, Grid } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import { ActionButton } from "./styles/CustomModel.styles"
 import { useProductConfigurator } from "./hooks/useProductConfigurator"
 import ConfigurationPanel from "./components/ConfigurationPanel"
 import SummaryPanel from "./components/SummaryPanel"
+import type { ProductConfig } from "./types/CustomConfigurationtypes"
 const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false }) => {
   if (loading) {
     return (
@@ -19,6 +20,16 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
     )
   }
   const productConfig = useProductConfigurator(product)
+  const [showValidation, setShowValidation] = useState(false)
+
+  const handleSaveClick = () => {
+    setShowValidation(true)
+    const hasErrors = product?.configurations?.some((config: ProductConfig) => config.required && !productConfig.getEffectiveSelection(config)?.code)
+    if (hasErrors) {
+      return
+    }
+    onClose()
+  }
 
   return (
     <Dialog
@@ -42,7 +53,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
 
       <DialogContent sx={{ p: 0 }}>
         <Grid container sx={{ height: "70vh" }}>
-          <ConfigurationPanel product={product} getEffectiveSelection={productConfig.getEffectiveSelection} handleOptionChange={productConfig.handleOptionChange} />
+          <ConfigurationPanel product={product} getEffectiveSelection={productConfig.getEffectiveSelection} handleOptionChange={productConfig.handleOptionChange} showValidation={showValidation} />
           <SummaryPanel generatedPartNumber={productConfig.generatedPartNumber} />
         </Grid>
       </DialogContent>
@@ -51,7 +62,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
         <ActionButton onClick={onClose} variant="outlined">
           ADD TO WORKSPACE
         </ActionButton>
-        <ActionButton onClick={onClose} variant="contained" sx={{ bgcolor: "#0052cc" }}>
+        <ActionButton onClick={handleSaveClick} variant="contained" sx={{ bgcolor: "#0052cc" }}>
           SAVE CONFIGURATION
         </ActionButton>
       </DialogActions>

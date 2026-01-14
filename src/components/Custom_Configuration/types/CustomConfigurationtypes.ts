@@ -12,6 +12,7 @@ export interface ConfigPart {
 }
 
 export interface ProductConfig {
+  required: boolean
   label: string
   isSplit?: boolean
   options?: ConfigOption[]

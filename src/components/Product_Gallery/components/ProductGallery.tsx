@@ -56,6 +56,7 @@ export default function ProductInventory() {
         imageUrl: product.image, // From ProductCatalog
         configurations: specification.configurations,
       }
+
       setSelectedProduct(fullProductData)
     } catch (error) {
       console.error("Failed to fetch product specification", error)
@@ -103,7 +104,6 @@ export default function ProductInventory() {
           ))}
         </Grid>
       )}
-
       <ConfigModal open={open} onClose={handleClose} product={selectedProduct} loading={modalLoading} key={selectedProduct?.id || "no-product"} />
     </Container>
   )
