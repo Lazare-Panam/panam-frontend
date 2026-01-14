@@ -6,6 +6,7 @@ import ProductCard from "./ProductCard"
 import { getProductCategory, getProductSpecification } from "../../../api/productApi"
 import type { Product } from "../../Custom_Configuration/types/CustomConfigurationtypes"
 import { useParams } from "react-router-dom"
+import CatelogCard from "./CatelogCard"
 
 interface ProductCatalog {
   type: string
@@ -18,6 +19,7 @@ export default function ProductInventory() {
   const { id } = useParams<{ id: string }>()
   const [open, setOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<any>(null)
+  const [pageType, setPageType] = useState(0)
   const [products, setProducts] = useState<ProductCatalog[]>([])
   const [loading, setLoading] = useState(true)
   const [modalLoading, setModalLoading] = useState(false)
@@ -28,7 +30,8 @@ export default function ProductInventory() {
       setLoading(true)
       try {
         const data = await getProductCategory(id)
-        setProducts(data)
+        setProducts(data.children)
+        setPageType(data.pageType)
         setLoading(false)
       } catch (error) {
         console.error("Failed to fetch valve manifolds", error)
@@ -58,7 +61,6 @@ export default function ProductInventory() {
       console.error("Failed to fetch product specification", error)
     } finally {
       setModalLoading(false)
-
       setOpen(true)
     }
   }
@@ -76,15 +78,27 @@ export default function ProductInventory() {
         <Grid container spacing={0}>
           {products.map(item => (
             <Grid key={item.type} size={{ xs: 12, sm: 6, md: 3 }}>
-              <ProductCard
-                product={{
-                  id: item.type,
-                  title: item.title,
-                  description: item.description,
-                  imageUrl: item.image,
-                }}
-                onConfigure={handleOpenConfig}
-              />
+              {pageType === 1 ? (
+                <ProductCard
+                  product={{
+                    id: item.type,
+                    title: item.title,
+                    description: item.description,
+                    imageUrl: item.image,
+                  }}
+                  onConfigure={handleOpenConfig}
+                />
+              ) : (
+                <CatelogCard
+                  product={{
+                    id: item.type,
+                    title: item.title,
+                    description: item.description,
+                    imageUrl: item.image,
+                  }}
+                  type={item.type}
+                />
+              )}
             </Grid>
           ))}
         </Grid>
