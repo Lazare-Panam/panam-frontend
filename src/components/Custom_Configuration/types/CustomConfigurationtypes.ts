@@ -12,7 +12,8 @@ export interface ConfigPart {
 }
 
 export interface ProductConfig {
-  required: boolean
+  required?: boolean
+  noSeperatorAfter?: boolean
   label: string
   isSplit?: boolean
   options?: ConfigOption[]

@@ -48,7 +48,7 @@ export default function ProductInventory() {
 
     try {
       const specification = await getProductSpecification(product.title)
-      //console.log("Product Specification:", specification);
+      console.log("Product Specification:", specification)
       const fullProductData: Product = {
         id: specification.id || product.type,
         title: specification.title || product.title,

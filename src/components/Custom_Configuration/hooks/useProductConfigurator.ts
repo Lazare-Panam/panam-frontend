@@ -21,11 +21,17 @@ export const useProductConfigurator = (product: Product | null) => {
 
   const generatedPartNumber = product?.configurations
     ? product.configurations
-        .map(config => {
+        .map((config, index) => {
+          console.log(config)
           const selection = getEffectiveSelection(config)
-          return selection ? selection.code : "??"
+          const code = selection ? selection.code : "??"
+          if (!code || code.trim() === "") {
+            return ""
+          }
+          const separator = config.noSeperatorAfter ? "" : "-"
+          if (product.configurations) return index === product.configurations.length - 1 ? code : code + separator
         })
-        .join("-")
+        .join("")
     : "LOADING..."
 
   const handleOptionChange = (categoryLabel: string, selectedCode: string) => {

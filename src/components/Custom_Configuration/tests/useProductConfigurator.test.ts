@@ -12,13 +12,10 @@ const mockProduct: Product = {
   configurations: [
     {
       label: "Body",
-      required:true,
       options: [{ label: "Steel", code: "ST" }],
-      
     },
     {
       label: "Size",
-      required:true,
       options: [
         { label: "1 inch", code: "01" },
         { label: "2 inch", code: "02" },
