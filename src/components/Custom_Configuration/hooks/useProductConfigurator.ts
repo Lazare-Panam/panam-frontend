@@ -20,18 +20,31 @@ export const useProductConfigurator = (product: Product | null) => {
   }
 
   const generatedPartNumber = product?.configurations
-    ? product.configurations
-        .map((config, index) => {
-          console.log(config)
+    ? (() => {
+        const segments: string[] = []
+
+        product.configurations.forEach((config, index) => {
           const selection = getEffectiveSelection(config)
-          const code = selection ? selection.code : "??"
-          if (!code || code.trim() === "") {
-            return ""
+          const code = selection?.code
+          const isLast = index === product.configurations!.length - 1
+
+          // Determine what to add
+          const hasValidCode = code && code.trim() && code.trim() !== "-"
+          const needsPlaceholder = !selection && config.required
+
+          if (!hasValidCode && !needsPlaceholder) return // Skip optional/empty
+
+          // Add code or placeholder
+          segments.push(hasValidCode ? code : "??")
+
+          // Add separator if needed
+          if (!config.noSeperatorAfter && !isLast) {
+            segments.push("-")
           }
-          const separator = config.noSeperatorAfter ? "" : "-"
-          if (product.configurations) return index === product.configurations.length - 1 ? code : code + separator
         })
-        .join("")
+
+        return segments.join("").replace(/-$/, "")
+      })()
     : "LOADING..."
 
   const handleOptionChange = (categoryLabel: string, selectedCode: string) => {
