@@ -83,7 +83,7 @@ export default function ProductInventory() {
       ) : (
         <Grid container spacing={0}>
           {products.map(item => (
-            <Grid key={item.type} size={{ xs: 12, sm: 6, md: 3 }}>
+            <Grid key={item.type} size={{ xs: 12, sm: 6, md: 2.4 }}>
               {apiPageType === PageType.ProductListing ? (
                 <ProductCard
                   product={{
