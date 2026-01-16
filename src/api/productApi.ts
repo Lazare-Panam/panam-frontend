@@ -1,11 +1,15 @@
 import axiosClient from "../api/axiosClient"
 
+const CATALOG_BASE_PATH = "/api/catalog"
+
 export const getProductCategory = async (id: string) => {
-  const response = await axiosClient.get(`/api/catalog/${id}`)
+  const url = `${CATALOG_BASE_PATH}/${id}`
+  const response = await axiosClient.get(url)
   return response.data
 }
 
 export const getProductSpecification = async (productId: string) => {
-  const response = await axiosClient.get(`/api/catalog/products/${productId}/specification`)
+  const url = `${CATALOG_BASE_PATH}/products/${productId}/specification`
+  const response = await axiosClient.get(url)
   return response.data
 }

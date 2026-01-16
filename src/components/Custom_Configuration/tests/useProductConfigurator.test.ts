@@ -1,7 +1,7 @@
 import { renderHook, act } from "@testing-library/react"
 import { describe, it, expect } from "vitest"
-import { useProductConfigurator } from "./useProductConfigurator"
-import { type Product } from "./types/CustomConfigurationtypes"
+import { useProductConfigurator } from "../hooks/useProductConfigurator"
+import { type Product } from "../types/CustomConfigurationtypes"
 
 const mockProduct: Product = {
   id: "prod-123",
@@ -12,24 +12,26 @@ const mockProduct: Product = {
   configurations: [
     {
       label: "Body",
-      options: [{ label: "Steel", code: "ST" }] 
+      required: true,
+      options: [{ label: "Steel", code: "ST" }],
     },
     {
       label: "Size",
+      required: true,
       options: [
         { label: "1 inch", code: "01" },
-        { label: "2 inch", code: "02" }
-      ]
-    }
-  ]
+        { label: "2 inch", code: "02" },
+      ],
+    },
+  ],
 }
 
-describe("useProductConfigurator general use", ()=>{
-    it("should initialize the fixed components", ()=>{
-        const {result} = renderHook(()=>useProductConfigurator(mockProduct));
-        expect(result.current.generatedPartNumber).toBe("ST-??");
-    })
-    it("should update selections and part number when handleOptionChange is called", () => {
+describe("useProductConfigurator general use", () => {
+  it("should initialize the fixed components", () => {
+    const { result } = renderHook(() => useProductConfigurator(mockProduct))
+    expect(result.current.generatedPartNumber).toBe("ST-??")
+  })
+  it("should update selections and part number when handleOptionChange is called", () => {
     const { result } = renderHook(() => useProductConfigurator(mockProduct))
     act(() => {
       result.current.handleOptionChange("Size", "02")

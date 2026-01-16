@@ -1,13 +1,21 @@
 import React from "react"
 import { Box, Typography, Button, Card, CardMedia, CardContent } from "@mui/material"
-import { type Product } from "./types/CustomConfigurationtypes"
-import "./styles/ProductCard.css"
+import { type Product } from "../../Custom_Configuration/types/CustomConfigurationtypes"
+import "../styles/ProductCard.css"
 interface ProductCardProps {
   product: Product
   onConfigure: (product: Product) => void
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
-  <Card variant="outlined" className="product-card">
+  <Card
+    variant="outlined"
+    className="product-card"
+    sx={{
+      borderRadius: 0,
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+    }}>
     <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
       <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 150, objectFit: "contain" }} />
     </Box>
