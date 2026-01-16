@@ -22,22 +22,14 @@ export const useProductConfigurator = (product: Product | null) => {
   const generatedPartNumber = product?.configurations
     ? (() => {
         const segments: string[] = []
-
         product.configurations.forEach((config, index) => {
           const selection = getEffectiveSelection(config)
           const code = selection?.code
           const isLast = index === product.configurations!.length - 1
-
-          // Determine what to add
           const hasValidCode = code && code.trim() && code.trim() !== "-"
           const needsPlaceholder = !selection && config.required
-
-          if (!hasValidCode && !needsPlaceholder) return // Skip optional/empty
-
-          // Add code or placeholder
+          if (!hasValidCode && !needsPlaceholder) return
           segments.push(hasValidCode ? code : "??")
-
-          // Add separator if needed
           if (!config.noSeperatorAfter && !isLast) {
             segments.push("-")
           }

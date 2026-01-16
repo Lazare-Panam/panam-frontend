@@ -4,8 +4,10 @@ import { Container, Typography, Stack, Card, CardActionArea, CardContent } from 
 export default function AllCategories() {
   const navigate = useNavigate()
   const categories = [
-    { title: "Valve Manifolds", id: "valve-manifolds" },
+    { title: "Hydrogen", id: "hydrogen" },
+    { title: "Manifolds", id: "valve-manifolds" },
     { title: "Valves", id: "valves" },
+    { title: "Double Block and Bleed", id: "double-block-and-bleed-valves" },
   ]
 
   return (

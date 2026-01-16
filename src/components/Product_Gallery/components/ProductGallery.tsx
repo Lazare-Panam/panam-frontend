@@ -7,6 +7,7 @@ import { getProductCategory, getProductSpecification } from "../../../api/produc
 import type { Product } from "../../Custom_Configuration/types/CustomConfigurationtypes"
 import { useParams } from "react-router-dom"
 import CatelogCard from "./CatelogCard"
+import { PageType } from "../types/pagetypes"
 
 interface ProductCatalog {
   type: string
@@ -16,10 +17,12 @@ interface ProductCatalog {
 }
 
 export default function ProductInventory() {
+  //let pageType: PageType = PageType.CategoryGroup;
   const { id } = useParams<{ id: string }>()
   const [open, setOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<any>(null)
-  const [pageType, setPageType] = useState(0)
+  const [apiPageType, setApiPageType] = useState<number>(0)
+
   const [products, setProducts] = useState<ProductCatalog[]>([])
   const [loading, setLoading] = useState(true)
   const [modalLoading, setModalLoading] = useState(false)
@@ -30,8 +33,10 @@ export default function ProductInventory() {
       setLoading(true)
       try {
         const data = await getProductCategory(id)
+        console.log(data)
+
         setProducts(data.children)
-        setPageType(data.pageType)
+        setApiPageType(data.pageType)
         setLoading(false)
       } catch (error) {
         console.error("Failed to fetch valve manifolds", error)
@@ -47,8 +52,8 @@ export default function ProductInventory() {
     setSelectedProduct(null)
 
     try {
-      const specification = await getProductSpecification(product.title)
-      console.log("Product Specification:", specification)
+      const specification = await getProductSpecification(product.id)
+      //console.log("Product Specification:", specification)
       const fullProductData: Product = {
         id: specification.id || product.type,
         title: specification.title || product.title,
@@ -79,7 +84,7 @@ export default function ProductInventory() {
         <Grid container spacing={0}>
           {products.map(item => (
             <Grid key={item.type} size={{ xs: 12, sm: 6, md: 3 }}>
-              {pageType === 1 ? (
+              {apiPageType === PageType.ProductListing ? (
                 <ProductCard
                   product={{
                     id: item.type,

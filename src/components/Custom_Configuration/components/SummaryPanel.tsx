@@ -12,7 +12,7 @@ const SummaryPanel: React.FC<SummaryPanelProps> = ({ generatedPartNumber }) => {
           display: "flex",
           flexDirection: "column",
         }}>
-        <Box sx={{ mt: "auto", p: 2, bgcolor: "#0052cc", color: "#fff", borderRadius: 0, textAlign: "center" }}>
+        <Box sx={{ mt: "auto", p: 2, bgcolor: "#01B0F0", color: "#fff", borderRadius: 0, textAlign: "center" }}>
           <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700 }}>
             GENERATED PART NUMBER:
           </Typography>

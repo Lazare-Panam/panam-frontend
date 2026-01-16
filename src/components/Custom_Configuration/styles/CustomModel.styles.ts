@@ -39,7 +39,7 @@ export const SelectionContainer = styled(Box)({
 export const CategoryHeader = styled(Typography)({
   fontSize: "0.75rem",
   fontWeight: 800,
-  color: "#0052cc",
+  color: "#01B0F0",
   letterSpacing: 1.5,
   marginBottom: "8px",
   display: "block",
@@ -48,7 +48,7 @@ export const CategoryHeader = styled(Typography)({
 export const SelectionDetailBox = styled(Box)({
   padding: "16px",
   backgroundColor: "#f9f9f9",
-  borderLeft: "4px solid #0052cc",
+  borderLeft: "4px solid #01B0F0",
   marginTop: "24px",
 })
 
@@ -67,7 +67,7 @@ export const StyledSelect = styled(Select)({
     borderColor: "#ddd",
   },
   "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#0052cc",
+    borderColor: "#01B0F0",
   },
 })
 
@@ -94,7 +94,7 @@ export const SummaryHeader = styled(Typography)({
   marginBottom: "16px",
   fontSize: "0.7rem",
   fontWeight: 800,
-  color: "#0052cc",
+  color: "#01B0F0",
   letterSpacing: 1.5,
   textTransform: "uppercase",
 })

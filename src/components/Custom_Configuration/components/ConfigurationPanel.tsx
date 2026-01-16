@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, FormControl, Grid, MenuItem, Select, Stack, Typography, FormHelperText } from "@mui/material"
+import { Checkbox, Box, FormControl, Grid, MenuItem, Select, Stack, Typography, FormHelperText, FormControlLabel } from "@mui/material"
 import type { ConfigOption, Product, ProductConfig } from "../types/CustomConfigurationtypes"
 
 interface ConfigurationPanelProps {
@@ -10,6 +10,8 @@ interface ConfigurationPanelProps {
 }
 
 const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEffectiveSelection, handleOptionChange, showValidation }) => {
+  const [orderCertificates, setOrderCertificates] = React.useState(false)
+
   return (
     <>
       <Grid
@@ -21,6 +23,16 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEff
           borderRight: "1px solid #eee",
         }}>
         <Stack spacing={2}>
+          <Box>
+            <FormControlLabel
+              control={<Checkbox checked={orderCertificates} onChange={e => setOrderCertificates(e.target.checked)} size="small" />}
+              label={
+                <Typography fontSize="0.9rem" fontWeight={600}>
+                  Order 3.1 material certificates
+                </Typography>
+              }
+            />
+          </Box>
           {product?.configurations?.map((config: ProductConfig) => {
             const selection = getEffectiveSelection(config)
             const isLocked = config.options?.length === 1

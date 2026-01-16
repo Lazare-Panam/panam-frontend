@@ -62,7 +62,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false })
         <ActionButton onClick={onClose} variant="outlined">
           ADD TO WORKSPACE
         </ActionButton>
-        <ActionButton onClick={handleSaveClick} variant="contained" sx={{ bgcolor: "#0052cc" }}>
+        <ActionButton onClick={handleSaveClick} variant="contained" sx={{ bgcolor: "#01B0F0" }}>
           SAVE CONFIGURATION
         </ActionButton>
       </DialogActions>

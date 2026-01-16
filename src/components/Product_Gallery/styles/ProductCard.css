@@ -15,20 +15,20 @@
 }
 
 .card-actions-group .btn-configure {
-  background-color: #0052cc;
+  background-color: #01b0f0;
   color: #ffffff;
   padding-top: 10.4px;
   padding-bottom: 10.4px;
 }
 
 .card-actions-group .btn-configure:hover {
-  background-color: #0041a3;
+  background-color: #0196cc;
 }
 
 .card-actions-group .btn-learn-more {
   background-color: #ffffff;
-  color: #0052cc;
-  border: 1px solid #0052cc;
+  color: #01b0f0;
+  border: 1px solid #01b0f0;
   padding-top: 12px;
   padding-bottom: 12px;
 }
