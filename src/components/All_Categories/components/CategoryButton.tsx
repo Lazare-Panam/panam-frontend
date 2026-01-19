@@ -60,7 +60,7 @@ const ProductOverlay = styled(Box)(({ theme }) => ({
   borderLeft: "1px solid rgba(0, 0, 0, 0.1)",
   zIndex: 2,
   // Let the box grow with the content but cap it at the image width
-  maxWidth: "100%", 
+  maxWidth: "100%",
 }))
 
 export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image, products, onProductClick }) => {
@@ -88,26 +88,25 @@ export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image
 
       {/* Wrapping Quick Links Overlay */}
       <ProductOverlay className="ProductOverlay">
-        <Box 
-          sx={{ 
-            display: 'flex', 
-            flexDirection: 'row', // Items flow horizontally
-            flexWrap: 'wrap',    // Items wrap to next line
-            justifyContent: 'flex-end', // Aligns links to the right
-            gap: 1.5             // Space between the wrapped links
-          }}
-        >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row", // Items flow horizontally
+            flexWrap: "wrap", // Items wrap to next line
+            justifyContent: "flex-end", // Aligns links to the right
+            gap: 1.5, // Space between the wrapped links
+          }}>
           {products.slice(0, 8).map((prod, idx) => (
             <Link
               key={idx}
               component="button"
               variant="body2"
               onClick={(e: React.MouseEvent) => {
-                e.stopPropagation();
+                e.stopPropagation()
                 if (prod.isProduct && prod.id) {
-                  onProductClick(prod.id);
+                  onProductClick(prod.id)
                 } else if (prod.link) {
-                  navigate(prod.link);
+                  navigate(prod.link)
                 }
               }}
               sx={{
@@ -116,11 +115,10 @@ export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image
                 fontSize: "0.7rem",
                 textDecoration: "none",
                 // Remove fixed width to allow natural wrapping
-                width: 'auto', 
-                whiteSpace: 'nowrap', // Keeps individual names on one line
+                width: "auto",
+                whiteSpace: "nowrap", // Keeps individual names on one line
                 "&:hover": { textDecoration: "underline" },
-              }}
-            >
+              }}>
               • {prod.name}
             </Link>
           ))}
