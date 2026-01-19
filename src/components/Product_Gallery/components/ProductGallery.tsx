@@ -20,47 +20,48 @@ interface ProductCatalog {
 
 export default function ProductInventory() {
   //let pageType: PageType = PageType.CategoryGroup;
-  const { id } = useParams<{
-    id: string
-  }>()
-  const [open, setOpen] = useState(false)
-  const [selectedProduct, setSelectedProduct] = useState<any>(null)
-  const [modalLoading, setModalLoading] = useState(false)
+  const { id } = useParams<{ id: string }>()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null)
 
-  const query = useQuery({
+  const {
+    data: catalog,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ["productCategory", id],
     queryFn: () => getProductCategory(id!),
     enabled: !!id,
   })
-  const { data: catalog, isLoading, isError } = query
 
-  const handleOpenConfig = async (product: any) => {
-    setModalLoading(true)
-    setSelectedProduct(null)
+  const { data: specification } = useQuery({
+    queryKey: ["productSpecification", selectedProductId],
+    queryFn: () => getProductSpecification(selectedProductId!),
+    enabled: isModalOpen && !!selectedProductId,
+  })
 
-    try {
-      const specification = await getProductSpecification(product.id)
-      const fullProductData: Product = {
-        id: specification.id || product.type,
-        title: specification.title || product.title,
-        description: product.description,
-        imageUrl: product.image,
-        configurations: specification.configurations,
-      }
+  const buildSelectedProduct = (): Product | null => {
+    if (!specification) return null
 
-      setSelectedProduct(fullProductData)
-    } catch (error) {
-      console.error("Failed to fetch product specification", error)
-    } finally {
-      setModalLoading(false)
-      setOpen(true)
+    return {
+      id: specification.id || selectedProductId!,
+      title: specification.title,
+      description: specification.description,
+      imageUrl: specification.imageUrl,
+      configurations: specification.configurations,
     }
   }
 
-  const handleClose = () => {
-    setOpen(false)
-    setSelectedProduct(null)
-    setModalLoading(false)
+  const selectedProduct = buildSelectedProduct()
+
+  const handleOpenModal = (product: any) => {
+    setSelectedProductId(product.id)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSelectedProductId(null)
   }
 
   if (isLoading) {
@@ -93,7 +94,7 @@ export default function ProductInventory() {
                   description: item.description,
                   imageUrl: item.image,
                 }}
-                onConfigure={handleOpenConfig}
+                onConfigure={handleOpenModal}
               />
             ) : (
               <CatelogCard
@@ -110,7 +111,7 @@ export default function ProductInventory() {
         ))}
       </Grid>
 
-      <ConfigModal open={open} onClose={handleClose} product={selectedProduct} loading={modalLoading} key={selectedProduct?.id || "no-product"} />
+      <ConfigModal open={isModalOpen} onClose={handleCloseModal} product={selectedProduct} key={selectedProduct?.id || "no-product"} />
     </Container>
   )
 }

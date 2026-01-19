@@ -30,7 +30,6 @@ const ProductInventorySkeleton = ({ count = 6 }: SkeletonProps) => {
               <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
                 <Skeleton variant="rectangular" width="100%" height={150} sx={{ maxWidth: 250, borderRadius: "4px" }} />
               </Box>
-
               <CardContent sx={{ flexGrow: 1, p: 2, display: "flex", flexDirection: "column" }}>
                 <Skeleton variant="text" width="70%" height={24} sx={{ mb: 1 }} />
                 <Box sx={{ mb: 1.5, minHeight: "2.5em" }}>
@@ -38,7 +37,6 @@ const ProductInventorySkeleton = ({ count = 6 }: SkeletonProps) => {
                   <Skeleton variant="text" width="85%" />
                 </Box>
               </CardContent>
-
               <Box className="card-actions-group" sx={{ p: 2, pt: 0 }}>
                 <Skeleton variant="rectangular" height={31} width="100%" sx={{ mb: 1, borderRadius: "4px" }} />
                 <Skeleton variant="rectangular" height={31} width="100%" sx={{ borderRadius: "4px" }} />

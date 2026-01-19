@@ -1,126 +1,118 @@
-import { useNavigate } from "react-router-dom"
-import { Container, Typography, Stack, Card, CardActionArea, CardContent, Box, Link } from "@mui/material"
+import { useState } from "react"
+import { Container, Typography, Box } from "@mui/material"
+import { CategoryButton, type ProductforHomePage } from "./CategoryButton"
+import type { Product } from "../../Custom_Configuration/types/CustomConfigurationtypes"
+import { useQuery } from "@tanstack/react-query"
+import { getProductSpecification } from "../../../api/productApi"
+import ConfigModal from "../../Custom_Configuration/ConfigureModal"
+
+interface CategoryData {
+  title: string
+  id: string
+  image: string
+  products: ProductforHomePage[]
+}
+
+const CATEGORIES: CategoryData[] = [
+  // {
+  //   title: "Hydrogen",
+  //   id: "hydrogen",
+  //   image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
+  //   products: [
+  //     { name: "Hydrogen Regulators", link: "/products/hydrogen/regulators" },
+  //     { name: "Hydrogen Valves", link: "/products/hydrogen/valves" },
+  //     { name: "Hydrogen Fittings", link: "/products/hydrogen/fittings" },
+  //   ],
+  // },
+  {
+    title: "Manifolds",
+    id: "valve-manifolds",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768834959/3VM-SS-8-T_-_JPG_1_olp12u.jpg",
+    products: [
+      { name: "2-Valve Manifolds", id: "2-way-valve-manifold", isProduct: true }, // Modal
+      { name: "3-Valve Manifolds", id: "3-way-valve-manifold" },
+      { name: "5-Valve Manifolds", id: "5-way-valve-manifold" },
+    ],
+  },
+  {
+    title: "Valves",
+    id: "valves",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835251/PBV-HB-S-M12-OD_-_JPG_uj1uay.jpg",
+    products: [
+      { name: "Needle ", link: "/products/needle-valves" },
+      { name: "Ball ", link: "/products/ball-valves" },
+      { name: "Check ", link: "/products/valves/check" },
+    ],
+  },
+  {
+    title: "Double Block and Bleed",
+    id: "double-block-and-bleed-valves",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835558/mono_flange_-_1_-_JPEG_1_plsmpe.webp",
+    products: [
+      { name: "DBB Ball Valves", link: "/products/dbb/ball" },
+      { name: "DBB Needle Valves", link: "/products/dbb/needle" },
+      { name: "DBB Plug Valves", link: "/products/dbb/plug" },
+    ],
+  },
+]
 
 export default function AllCategories() {
-  const navigate = useNavigate()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null)
 
-  const categories = [
-    {
-      title: "Hydrogen",
-      id: "hydrogen",
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768580245/modern-hydrogen-tank-renewable-energy_jhli4b.jpg",
-      products: [
-        { name: "Hydrogen Regulators", link: "/products/hydrogen/regulators" },
-        { name: "Hydrogen Valves", link: "/products/hydrogen/valves" },
-        { name: "Hydrogen Fittings", link: "/products/hydrogen/fittings" },
-      ],
-    },
-    {
-      title: "Manifolds",
-      id: "valve-manifolds",
-      image: "/images/manifolds.jpg",
-      products: [
-        { name: "2-Valve Manifolds", link: "/products/manifolds/2-valve" },
-        { name: "3-Valve Manifolds", link: "/products/manifolds/3-valve" },
-        { name: "5-Valve Manifolds", link: "/products/manifolds/5-valve" },
-      ],
-    },
-    {
-      title: "Valves",
-      id: "valves",
-      image: "/images/valves.jpg",
-      products: [
-        { name: "Needle Valves", link: "/products/needle-valves" },
-        { name: "Ball Valves", link: "/products/ball-valves" },
-        { name: "Check Valves", link: "/products/valves/check" },
-      ],
-    },
-    {
-      title: "Double Block and Bleed",
-      id: "double-block-and-bleed-valves",
-      image: "/images/double-block.jpg",
-      products: [
-        { name: "DBB Ball Valves", link: "/products/dbb/ball" },
-        { name: "DBB Needle Valves", link: "/products/dbb/needle" },
-        { name: "DBB Plug Valves", link: "/products/dbb/plug" },
-      ],
-    },
-  ]
+  // 1. Same logic as ProductInventory: Fetch spec when modal opens
+  const { data: specification } = useQuery({
+    queryKey: ["productSpecification", selectedProductId],
+    queryFn: () => getProductSpecification(selectedProductId!),
+    enabled: isModalOpen && !!selectedProductId,
+  })
 
+  // 2. Same logic as ProductInventory: Build the product object for the modal
+  const buildSelectedProduct = (): Product | null => {
+    if (!specification) return null
+    return {
+      id: specification.id || selectedProductId!,
+      title: specification.title,
+      description: specification.description,
+      imageUrl: specification.imageUrl,
+      configurations: specification.configurations,
+    }
+  }
+
+  const selectedProduct = buildSelectedProduct()
+
+  // 3. Same handlers as ProductInventory
+  const handleOpenModal = (productId: string) => {
+    setSelectedProductId(productId)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSelectedProductId(null)
+  }
   return (
-    <Container sx={{ py: 8 }}>
-      <Typography variant="h3" textAlign="center" gutterBottom sx={{ fontWeight: "bold" }}>
+    <Container sx={{ py: 8 }} maxWidth="lg">
+      <Typography variant="h3" textAlign="center" gutterBottom sx={{ fontWeight: 900, mb: 6 }}>
         Product Catalog
       </Typography>
 
-      <Stack direction="row" spacing={4} justifyContent="center" mt={6} flexWrap="wrap" gap={4}>
-        {categories.map(cat => (
-          <Card key={cat.id} sx={{ width: 320, boxShadow: 3, overflow: "hidden" }}>
-            <Box sx={{ position: "relative" }}>
-              <CardActionArea onClick={() => navigate(`/products/${cat.id}`)}>
-                <Box
-                  component="img"
-                  src={cat.image}
-                  alt={cat.title}
-                  sx={{
-                    width: "100%",
-                    height: 250,
-                    objectFit: "cover",
-                    display: "block",
-                  }}
-                />
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: "100%",
-                    textAlign: "center",
-                    backgroundColor: "rgba(0, 0, 0, 0.6)",
-                    color: "white",
-                    py: 2,
-                  }}>
-                  <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-                    {cat.title}
-                  </Typography>
-                </Box>
-              </CardActionArea>
-            </Box>
-
-            <CardContent sx={{ bgcolor: "white", pt: 3, pb: 3 }}>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: 600, color: "text.primary" }}>
-                Our Products
-              </Typography>
-              <Stack spacing={1.5}>
-                {cat.products.map((product, idx) => (
-                  <Link
-                    key={idx}
-                    href={product.link}
-                    onClick={e => {
-                      e.preventDefault()
-                      navigate(product.link)
-                    }}
-                    sx={{
-                      fontSize: "1rem",
-                      fontWeight: 500,
-                      color: "primary.main",
-                      textDecoration: "none",
-                      transition: "all 0.2s",
-                      "&:hover": {
-                        color: "primary.dark",
-                        transform: "translateX(4px)",
-                        textDecoration: "underline",
-                      },
-                    }}>
-                    {product.name}
-                  </Link>
-                ))}
-              </Stack>
-            </CardContent>
-          </Card>
+      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+        {CATEGORIES.map(cat => (
+          <Box
+            key={cat.id}
+            sx={{
+              width: {
+                xs: "100%",
+                sm: "calc(50% - 12px)",
+                lg: "calc(33.33% - 16px)",
+              },
+            }}>
+            <CategoryButton {...cat} onProductClick={handleOpenModal} />
+          </Box>
         ))}
-      </Stack>
+      </Box>
+      <ConfigModal open={isModalOpen} onClose={handleCloseModal} product={selectedProduct} key={selectedProduct?.id || "no-product"} />
     </Container>
   )
 }
