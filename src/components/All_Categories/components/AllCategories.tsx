@@ -29,9 +29,9 @@ const CATEGORIES: CategoryData[] = [
     id: "valve-manifolds",
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768834959/3VM-SS-8-T_-_JPG_1_olp12u.jpg",
     products: [
-      { name: "2-Valve Manifolds", id: "2-way-valve-manifold", isProduct: true }, // Modal
-      { name: "3-Valve Manifolds", id: "3-way-valve-manifold" },
-      { name: "5-Valve Manifolds", id: "5-way-valve-manifold" },
+      { name: "2-Valve ", id: "2-way-valve-manifold", isProduct: true }, // Modal
+      { name: "3-Valve ", id: "3-way-valve-manifold", isProduct: true},
+      { name: "5-Valve ", id: "5-way-valve-manifold", isProduct: true },
     ],
   },
   {
@@ -41,7 +41,9 @@ const CATEGORIES: CategoryData[] = [
     products: [
       { name: "Needle ", link: "/products/needle-valves" },
       { name: "Ball ", link: "/products/ball-valves" },
-      { name: "Check ", link: "/products/valves/check" },
+      { name: "Check ", link: "/products/check-valves" },
+       { name: "Relif ", link: "/products/relief-valves" },
+        { name: "Gauge Root ", link: "/products/gauge-root-valves" },
     ],
   },
   {
@@ -49,9 +51,9 @@ const CATEGORIES: CategoryData[] = [
     id: "double-block-and-bleed-valves",
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835558/mono_flange_-_1_-_JPEG_1_plsmpe.webp",
     products: [
-      { name: "DBB Ball Valves", link: "/products/dbb/ball" },
-      { name: "DBB Needle Valves", link: "/products/dbb/needle" },
-      { name: "DBB Plug Valves", link: "/products/dbb/plug" },
+      { name: "Flange to Flange ", id: "double-block-and-bleed-valves-flange-to-flange", isProduct:true },
+      { name: "Flange to Pipe ", id: "double-block-and-bleed-valves-flange-to-pipe", isProduct: true },
+      { name: "Pipe to Pipe ", id: "double-block-and-bleed-valves-pipe-to-pipe", isProduct:true },
     ],
   },
 ]
