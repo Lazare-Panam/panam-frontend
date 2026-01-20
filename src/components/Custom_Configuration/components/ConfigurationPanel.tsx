@@ -55,6 +55,7 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEff
                 <Grid size={{ xs: 7 }}>
                   <FormControl fullWidth required={config.required} error={showError}>
                     <Select
+                      inputProps={{ 'aria-label': `Select ${config.label}` }}
                       size="small"
                       value={selection?.code || ""}
                       onChange={e => handleOptionChange(config.label, e.target.value as string)}
@@ -73,7 +74,7 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEff
                         Choose option...
                       </MenuItem>
                       {config.options?.map(option => (
-                        <MenuItem key={option.code} value={option.code}>
+                        <MenuItem key={option.code} value={option.code}  aria-label={option.code}>
                           <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
                             <Typography variant="body2">{option.label}</Typography>
                             <Typography variant="caption" sx={{ fontWeight: 700, color: "#aaa" }}>
