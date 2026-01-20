@@ -62,14 +62,12 @@ export default function AllCategories() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null)
 
-  // 1. Same logic as ProductInventory: Fetch spec when modal opens
   const { data: specification } = useQuery({
     queryKey: ["productSpecification", selectedProductId],
     queryFn: () => getProductSpecification(selectedProductId!),
     enabled: isModalOpen && !!selectedProductId,
   })
 
-  // 2. Same logic as ProductInventory: Build the product object for the modal
   const buildSelectedProduct = (): Product | null => {
     if (!specification) return null
     return {
@@ -83,7 +81,6 @@ export default function AllCategories() {
 
   const selectedProduct = buildSelectedProduct()
 
-  // 3. Same handlers as ProductInventory
   const handleOpenModal = (productId: string) => {
     setSelectedProductId(productId)
     setIsModalOpen(true)

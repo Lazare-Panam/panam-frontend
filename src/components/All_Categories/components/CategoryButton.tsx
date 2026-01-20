@@ -58,20 +58,15 @@ const ProductOverlay = styled(Box)(({ theme }) => ({
   backdropFilter: "blur(8px)",
   borderTop: "1px solid rgba(0, 0, 0, 0.1)",
   borderLeft: "1px solid rgba(0, 0, 0, 0.1)",
-  zIndex: 2,
-  // Let the box grow with the content but cap it at the image width
   maxWidth: "100%",
 }))
 
 export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image, products, onProductClick }) => {
   const navigate = useNavigate()
-
   return (
     <ImageButton focusRipple onClick={() => navigate(`/products/${id}`)}>
       <ImageSrc className="ImageSrc" style={{ backgroundImage: `url(${image})` }} />
       <ImageBackdrop className="MuiImageBackdrop-root" />
-
-      {/* Centered Category Title */}
       <Box sx={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "white", p: 2, pb: 6 }}>
         <Typography
           variant="h5"
@@ -85,16 +80,14 @@ export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image
           {title}
         </Typography>
       </Box>
-
-      {/* Wrapping Quick Links Overlay */}
       <ProductOverlay className="ProductOverlay">
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row", // Items flow horizontally
-            flexWrap: "wrap", // Items wrap to next line
-            justifyContent: "flex-end", // Aligns links to the right
-            gap: 1.5, // Space between the wrapped links
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "flex-end",
+            gap: 1.5,
           }}>
           {products.slice(0, 8).map((prod, idx) => (
             <Link
@@ -114,9 +107,8 @@ export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image
                 fontWeight: 700,
                 fontSize: "0.7rem",
                 textDecoration: "none",
-                // Remove fixed width to allow natural wrapping
                 width: "auto",
-                whiteSpace: "nowrap", // Keeps individual names on one line
+                whiteSpace: "nowrap",
                 "&:hover": { textDecoration: "underline" },
               }}>
               • {prod.name}
