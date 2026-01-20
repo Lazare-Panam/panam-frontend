@@ -16,6 +16,7 @@ interface ProductCatalog {
   title: string
   description: string
   image: string
+  features: string[]
 }
 
 export default function ProductInventory() {
@@ -103,6 +104,7 @@ export default function ProductInventory() {
                   title: item.title,
                   description: item.description,
                   imageUrl: item.image,
+                  features: item.features,
                 }}
                 type={item.type}
               />

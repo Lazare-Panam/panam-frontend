@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Typography, Button, Card, CardMedia, CardContent } from "@mui/material"
+import { Box, Typography, Button, Card, CardMedia, CardContent, List, ListItem, ListItemText } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { type Product } from "../../Custom_Configuration/types/CustomConfigurationtypes"
 import "../styles/ProductCard.css"
@@ -26,19 +26,30 @@ const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
         flexDirection: "column",
       }}>
       <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
-        <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 150, objectFit: "contain" }} />
+        <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 250, objectFit: "contain" }} />
       </Box>
 
       <CardContent sx={{ flexGrow: 1, p: 2, display: "flex", flexDirection: "column" }}>
         <Typography variant="subtitle2" fontWeight={700} gutterBottom>
           {product.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5, minHeight: "3em" }}>
-          {product.description}
-        </Typography>
-        <Typography variant="caption" fontWeight={600} color="primary.main">
-          {product.price}
-        </Typography>
+        <List dense disablePadding sx={{ color: "text.secondary" }}>
+          {product.features?.map((feature, index) => (
+            <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
+              <ListItemText
+                primary={feature}
+                slotProps={{
+                  primary: {
+                    sx: {
+                      fontSize: "0.8rem",
+                    },
+                    variant: "body2",
+                  },
+                }}
+              />
+            </ListItem>
+          ))}
+        </List>
       </CardContent>
 
       <Box className="card-actions-group">

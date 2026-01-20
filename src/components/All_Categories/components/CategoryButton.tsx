@@ -1,6 +1,6 @@
 import React from "react"
 import { styled } from "@mui/material/styles"
-import { Box, ButtonBase, Typography, Link } from "@mui/material"
+import { Box, ButtonBase, Typography, Paper, Stack, Divider } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
 export interface ProductforHomePage {
@@ -17,6 +17,20 @@ interface CategoryButtonProps {
   products: ProductforHomePage[]
   onProductClick: (productId: string) => void
 }
+const RootCard = styled(Paper)(({ theme }) => ({
+  overflow: "hidden",
+  transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+  "&:hover": {
+    transform: "translateY(-4px)",
+    boxShadow: theme.shadows[8],
+  },
+}))
+
+const DetailsSection = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(2),
+  backgroundColor: "#fff",
+  borderTop: "1px solid #eee",
+}))
 
 const ImageButton = styled(ButtonBase)({
   position: "relative",
@@ -48,74 +62,58 @@ const ImageBackdrop = styled("span")({
   transition: "opacity 0.3s",
 })
 
-const ProductOverlay = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  bottom: 0,
-  right: 0,
-  padding: theme.spacing(1.5),
-  borderRadius: 0,
-  backgroundColor: "rgba(255, 255, 255, 0.9)",
-  backdropFilter: "blur(8px)",
-  borderTop: "1px solid rgba(0, 0, 0, 0.1)",
-  borderLeft: "1px solid rgba(0, 0, 0, 0.1)",
-  maxWidth: "100%",
-}))
-
-export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image, products, onProductClick }) => {
+export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image }) => {
   const navigate = useNavigate()
   return (
-    <ImageButton focusRipple onClick={() => navigate(`/products/${id}`)}>
-      <ImageSrc className="ImageSrc" style={{ backgroundImage: `url(${image})` }} />
-      <ImageBackdrop className="MuiImageBackdrop-root" />
-      <Box sx={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "white", p: 2, pb: 6 }}>
-        <Typography
-          variant="h5"
-          sx={{
-            fontWeight: 900,
-            textTransform: "uppercase",
-            letterSpacing: "0.1em",
-            textAlign: "center",
-            textShadow: "0 2px 10px rgba(0,0,0,0.7)",
-          }}>
-          {title}
-        </Typography>
-      </Box>
-      <ProductOverlay className="ProductOverlay">
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "flex-end",
-            gap: 1.5,
-          }}>
-          {products.slice(0, 8).map((prod, idx) => (
-            <Link
-              key={idx}
-              component="button"
-              variant="body2"
-              onClick={(e: React.MouseEvent) => {
-                e.stopPropagation()
-                if (prod.isProduct && prod.id) {
-                  onProductClick(prod.id)
-                } else if (prod.link) {
-                  navigate(prod.link)
-                }
-              }}
-              sx={{
-                color: "primary.main",
-                fontWeight: 700,
-                fontSize: "0.7rem",
-                textDecoration: "none",
-                width: "auto",
-                whiteSpace: "nowrap",
-                "&:hover": { textDecoration: "underline" },
-              }}>
-              • {prod.name}
-            </Link>
-          ))}
+    <RootCard elevation={2}>
+      <ImageButton focusRipple onClick={() => navigate(`/products/${id}`)}>
+        <ImageSrc className="ImageSrc" style={{ backgroundImage: `url(${image})` }} />
+        <ImageBackdrop className="MuiImageBackdrop-root" />
+        <Box sx={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "white", p: 2, pb: 6 }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 900,
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+              textAlign: "center",
+              textShadow: "0 2px 10px rgba(0,0,0,0.7)",
+            }}>
+            {title}
+          </Typography>
         </Box>
-      </ProductOverlay>
-    </ImageButton>
+      </ImageButton>
+      <DetailsSection>
+        <Stack direction="row" justifyContent="space-between" alignItems="center" mb={1}>
+          <Typography
+            variant="overline"
+            sx={{
+              fontWeight: "700",
+              color: "#01b0f0", // Your specific blue color
+              letterSpacing: "1.2px",
+            }}>
+            Featured Collection
+          </Typography>
+        </Stack>
+
+        <Typography variant="body2" color="text.secondary" mb={2}>
+          Explore our premium selection of {title.toLowerCase()} curated for quality and performance.
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ lineHeight: 1.6 }}>
+          Explore our premium selection of {title.toLowerCase()} curated for quality and performance. Engineered for durability and modern aesthetics.
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ lineHeight: 1.6 }}>
+          Explore our premium selection of {title.toLowerCase()} curated for quality and performance. Engineered for durability and modern aesthetics.
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ lineHeight: 1.6 }}>
+          Explore our premium selection of {title.toLowerCase()} curated for quality and performance. Engineered for durability and modern aesthetics.
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ lineHeight: 1.6 }}>
+          Explore our premium selection of {title.toLowerCase()} curated for quality and performance. Engineered for durability and modern aesthetics.
+        </Typography>
+
+        <Divider sx={{ mb: 2 }} />
+      </DetailsSection>
+    </RootCard>
   )
 }

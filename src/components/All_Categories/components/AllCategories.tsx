@@ -14,24 +14,24 @@ interface CategoryData {
 }
 
 const CATEGORIES: CategoryData[] = [
-  // {
-  //   title: "Hydrogen",
-  //   id: "hydrogen",
-  //   image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
-  //   products: [
-  //     { name: "Hydrogen Regulators", link: "/products/hydrogen/regulators" },
-  //     { name: "Hydrogen Valves", link: "/products/hydrogen/valves" },
-  //     { name: "Hydrogen Fittings", link: "/products/hydrogen/fittings" },
-  //   ],
-  // },
   {
-    title: "Manifolds",
-    id: "valve-manifolds",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768834959/3VM-SS-8-T_-_JPG_1_olp12u.jpg",
+    title: "Hydrogen Fittings & Valves",
+    id: "hydrogen",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
     products: [
-      { name: "2-Valve ", id: "2-way-valve-manifold", isProduct: true }, // Modal
-      { name: "3-Valve ", id: "3-way-valve-manifold", isProduct: true },
-      { name: "5-Valve ", id: "5-way-valve-manifold", isProduct: true },
+      { name: "Hydrogen Regulators", link: "/products/hydrogen/regulators" },
+      { name: "Hydrogen Valves", link: "/products/hydrogen/valves" },
+      { name: "Hydrogen Fittings", link: "/products/hydrogen/fittings" },
+    ],
+  },
+  {
+    title: "Hydraulic Fittings",
+    id: "hydrogen",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
+    products: [
+      { name: "Hydrogen Regulators", link: "/products/hydrogen/regulators" },
+      { name: "Hydrogen Valves", link: "/products/hydrogen/valves" },
+      { name: "Hydrogen Fittings", link: "/products/hydrogen/fittings" },
     ],
   },
   {
@@ -46,6 +46,18 @@ const CATEGORIES: CategoryData[] = [
       { name: "Gauge Root ", link: "/products/gauge-root-valves" },
     ],
   },
+
+  {
+    title: "Manifolds",
+    id: "valve-manifolds",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768834959/3VM-SS-8-T_-_JPG_1_olp12u.jpg",
+    products: [
+      { name: "2-Valve ", id: "2-way-valve-manifold", isProduct: true }, // Modal
+      { name: "3-Valve ", id: "3-way-valve-manifold", isProduct: true },
+      { name: "5-Valve ", id: "5-way-valve-manifold", isProduct: true },
+    ],
+  },
+
   {
     title: "Double Block and Bleed",
     id: "double-block-and-bleed-valves",
@@ -54,6 +66,37 @@ const CATEGORIES: CategoryData[] = [
       { name: "Flange to Flange ", id: "double-block-and-bleed-valves-flange-to-flange", isProduct: true },
       { name: "Flange to Pipe ", id: "double-block-and-bleed-valves-flange-to-pipe", isProduct: true },
       { name: "Pipe to Pipe ", id: "double-block-and-bleed-valves-pipe-to-pipe", isProduct: true },
+    ],
+  },
+  {
+    title: "Filters",
+    id: "double-block-and-bleed-valves",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835558/mono_flange_-_1_-_JPEG_1_plsmpe.webp",
+    products: [
+      { name: "Flange to Flange ", id: "double-block-and-bleed-valves-flange-to-flange", isProduct: true },
+      { name: "Flange to Pipe ", id: "double-block-and-bleed-valves-flange-to-pipe", isProduct: true },
+      { name: "Pipe to Pipe ", id: "double-block-and-bleed-valves-pipe-to-pipe", isProduct: true },
+    ],
+  },
+  {
+    title: "Quick Coupling",
+    id: "hydrogen",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
+    products: [
+      { name: "Hydrogen Regulators", link: "/products/hydrogen/regulators" },
+      { name: "Hydrogen Valves", link: "/products/hydrogen/valves" },
+      { name: "Hydrogen Fittings", link: "/products/hydrogen/fittings" },
+    ],
+  },
+
+  {
+    title: "Regulators And Others",
+    id: "hydrogen",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
+    products: [
+      { name: "Hydrogen Regulators", link: "/products/hydrogen/regulators" },
+      { name: "Hydrogen Valves", link: "/products/hydrogen/valves" },
+      { name: "Hydrogen Fittings", link: "/products/hydrogen/fittings" },
     ],
   },
 ]
@@ -102,9 +145,10 @@ export default function AllCategories() {
             key={cat.id}
             sx={{
               width: {
-                xs: "100%",
-                sm: "calc(50% - 12px)",
-                lg: "calc(33.33% - 16px)",
+                xs: "100%", // 1 per row
+                sm: "calc(50% - 16px)", // 2 per row
+                md: "calc(33.33% - 16px)", // 3 per row
+                lg: "calc(25% - 16px)", // 4 per row
               },
             }}>
             <CategoryButton {...cat} onProductClick={handleOpenModal} />

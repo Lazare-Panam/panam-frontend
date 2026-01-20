@@ -26,5 +26,6 @@ export interface Product {
   description: string
   price?: string
   imageUrl: string
+  features?: string[]
   configurations?: ProductConfig[]
 }
