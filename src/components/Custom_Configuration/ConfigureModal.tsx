@@ -1,24 +1,21 @@
 import React, { useState } from "react"
-import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton, CircularProgress, Typography, Box, Grid } from "@mui/material"
+import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton, CircularProgress, Grid, Backdrop } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import { ActionButton } from "./styles/CustomModel.styles"
 import { useProductConfigurator } from "./hooks/useProductConfigurator"
 import ConfigurationPanel from "./components/ConfigurationPanel"
 import SummaryPanel from "./components/SummaryPanel"
 import type { ProductConfig } from "./types/CustomConfigurationtypes"
-const ConfigModal: React.FC<any> = ({ open, onClose, product, loading = false }) => {
-  if (loading) {
+const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
+  if (open && !product) {
     return (
-      <Dialog open={open} onClose={onClose}>
-        <DialogContent>
-          <Box display="flex" justifyContent="center" alignItems="center" minHeight={200}>
-            <CircularProgress />
-            <Typography sx={{ ml: 2 }}>Loading configuration...</Typography>
-          </Box>
-        </DialogContent>
-      </Dialog>
+      <Backdrop sx={{ color: "#fff" }} open={open} onClick={onClose}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
     )
   }
+
+  if (!open) return null
   const productConfig = useProductConfigurator(product)
   const [showValidation, setShowValidation] = useState(false)
 

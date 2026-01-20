@@ -19,16 +19,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
     <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
       <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 150, objectFit: "contain" }} />
     </Box>
-
-    <CardContent sx={{ flexGrow: 1, p: 2 }}>
+    <CardContent sx={{ flexGrow: 1, p: 2, display: "flex", flexDirection: "column" }}>
       <Typography variant="subtitle2" fontWeight={700} gutterBottom>
         {product.title}
       </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
+      <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5, minHeight: "2.5em", fontSize: "0.8rem" }}>
         {product.description}
-      </Typography>
-      <Typography variant="caption" fontWeight={600} color="primary.main">
-        {product.price}
       </Typography>
     </CardContent>
 
