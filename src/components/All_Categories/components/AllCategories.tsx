@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Container, Typography, Box } from "@mui/material"
-import { CategoryButton, type ProductforHomePage } from "./CategoryButton"
+import { CategoryButton } from "./CategoryButton"
 import type { Product } from "../../Custom_Configuration/types/CustomConfigurationtypes"
 import { useQuery } from "@tanstack/react-query"
 import { getProductSpecification } from "../../../api/productApi"
