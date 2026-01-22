@@ -15,10 +15,10 @@ const RESOURCE_GREEN = "#01B0F0"
 const ProductResources: React.FC = () => {
   const resources = [
     { icon: <MenuBookIcon fontSize="large" />, label: "Catalog Library" },
-    { icon: <CalculateIcon fontSize="large" />, label: "Flow Coefficient (Cv) Calculator" },
+    { icon: <CalculateIcon fontSize="large" />, label: "2D/3D Drawings" },
     { icon: <ArchitectureIcon fontSize="large" />, label: "CAD Files" },
-    { icon: <SettingsInputComponentIcon fontSize="large" />, label: "Regulator Flow Curve Generator" },
-    { icon: <VerifiedIcon fontSize="large" />, label: "Certifications" },
+    { icon: <SettingsInputComponentIcon fontSize="large" />, label: "Test Type Reports" },
+    { icon: <VerifiedIcon fontSize="large" />, label: "QMS Certifications" },
   ]
 
   return (

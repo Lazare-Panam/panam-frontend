@@ -1,6 +1,6 @@
 import React from "react"
 import { AppBar, Toolbar, Typography, Button, Stack, Container, useScrollTrigger, Box } from "@mui/material"
-
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
               fontWeight: 800,
               letterSpacing: "-1px",
               cursor: "pointer",
-              color: "#1A1A1A", // Deep black for the logo
+              color: BRAND_BLUE, // Deep black for the logo
             }}>
             Panam
             <Box component="span" sx={{ color: BRAND_BLUE }}>
@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
 
           {/* ACTION BUTTONS */}
           <Stack direction="row" spacing={2} alignItems="center">
-            <Button
+            {/* <Button
               variant="text"
               sx={{
                 display: { xs: "none", sm: "inline-flex" },
@@ -95,27 +95,26 @@ const Navbar: React.FC = () => {
                 color: "#1A1A1A",
               }}>
               Log in
-            </Button>
-            <Button
-              variant="contained"
-              disableElevation
-              sx={{
-                borderRadius: "6px", // Slightly sharper for industrial look
-                px: 3,
-                py: 1,
-                textTransform: "none",
-                fontFamily: PRIMARY_FONT,
-                fontWeight: 700,
-                fontSize: "0.9rem",
-                backgroundColor: BRAND_BLUE,
-                color: "#fff",
-                "&:hover": {
-                  backgroundColor: "#0090C5",
-                  boxShadow: `0 4px 14px 0 rgba(1, 176, 240, 0.39)`, // Professional glow
-                },
-              }}>
-              Get Started
-            </Button>
+            </Button> */}
+            <ShoppingCartOutlinedIcon sx={{ fontSize: 28, color: "#999" }} />
+            <Box>
+              <Typography variant="caption" display="block" sx={{ fontWeight: 700, color: BRAND_BLUE, lineHeight: 1.2 }}>
+                Get Connected
+              </Typography>
+              <Typography variant="caption" display="block" sx={{ fontWeight: 700, color: BRAND_BLUE, lineHeight: 1.2 }}>
+                Quick Order?
+              </Typography>
+              {/* <Typography variant="caption" sx={{ color: "#666" }}>
+                  Log in or{" "}
+                  <MuiLink 
+                    href="/register" 
+                    underline="always" 
+                    sx={{ color: BRAND_BLUE, fontWeight: 600, cursor: 'pointer' }}
+                  >
+                    register now.
+                  </MuiLink>
+                </Typography> */}
+            </Box>
           </Stack>
         </Toolbar>
       </Container>
