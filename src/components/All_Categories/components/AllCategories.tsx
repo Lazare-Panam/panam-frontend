@@ -51,10 +51,10 @@ export default function AllCategories() {
             key={cat.id}
             sx={{
               width: {
-                xs: "100%", // 1 per row
-                sm: "calc(50% - 16px)", // 2 per row
-                md: "calc(33.33% - 16px)", // 3 per row
-                lg: "calc(25% - 16px)", // 4 per row
+                xs: "100%",
+                sm: "calc(50% - 16px)",
+                md: "calc(33.33% - 16px)",
+                lg: "calc(25% - 16px)",
               },
             }}>
             <CategoryButton {...cat} onProductClick={handleOpenModal} />

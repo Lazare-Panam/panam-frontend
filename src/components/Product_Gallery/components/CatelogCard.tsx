@@ -35,7 +35,7 @@ const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
         </Typography>
         <List dense disablePadding sx={{ color: "text.secondary" }}>
           {product.features?.map((feature, index) => (
-            <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
+            <ListItem key={index} disableGutters sx={{ py: 0 }}>
               <ListItemText
                 primary={feature}
                 slotProps={{
