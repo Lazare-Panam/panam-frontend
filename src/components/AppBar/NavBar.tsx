@@ -10,10 +10,11 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { label: "Features", href: "#features" },
-  { label: "Infrastructure", href: "#infra" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Docs", href: "#docs" },
+  { label: "Products", href: "#features" },
+  { label: "Engineering Services", href: "#infra" },
+  { label: "News & Blog", href: "#pricing" },
+  { label: "About Us", href: "#docs" },
+  { label: "Contact Us", href: "#docs" },
 ]
 
 const Navbar: React.FC = () => {
