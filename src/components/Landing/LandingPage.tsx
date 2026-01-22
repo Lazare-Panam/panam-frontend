@@ -4,6 +4,7 @@ import IntroSection from "./components/Intro/Intro"
 import Commitments from "./components/Commitments/Commitments"
 import FeatureSection from "./components/FeatureSection/FeatureSection"
 import Footer from "./components/Footer/Footer"
+import GetConnected from "./components/GetConnected/GetConnected"
 const LandingPage = () => {
   return (
     <>
@@ -12,6 +13,7 @@ const LandingPage = () => {
       <IntroSection />
       <FeatureSection />
       <Commitments />
+      <GetConnected />
       <Footer />
     </>
   )

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import FeatureGridSection from "./FeatureGridSection"
+import ProductResources from "./ProductResources"
 
 const FeatureSection = () => {
   const navigate = useNavigate()
@@ -43,7 +44,7 @@ const FeatureSection = () => {
       link: "/products/hydrogen",
     },
     {
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768297043/PBV-HB-S-M12-OD-1_wycek9.webp",
+      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769096692/WITH_SAND_BLASTING_-_JPEG_iqkqwa.jpg",
       caption: (
         <>
           Precision-engineered <span>instrumentation valves</span> providing reliable flow control for high-pressure industrial applications.
@@ -65,6 +66,7 @@ const FeatureSection = () => {
   return (
     <>
       <FeatureGridSection sectionTitle="Our Core Product Lines" items={productData} buttonText="View Full Product Catalog" onButtonClick={() => navigate("/products")} />
+      <ProductResources />
       <FeatureGridSection sectionTitle="Global Expertise, Local Support" items={expertiseData} buttonText="Find Support from a Local Sales and Service Center" onButtonClick={() => console.log("Button Clicked!")} />
     </>
   )

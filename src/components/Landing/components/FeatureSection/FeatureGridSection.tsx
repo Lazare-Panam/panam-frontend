@@ -74,13 +74,13 @@ const FeatureGridSection: React.FC<FeatureGridProps> = ({ sectionTitle, items, b
             size="large"
             onClick={onButtonClick}
             sx={{
-              borderRadius: "50px", // Pills style from your reference image
+              borderRadius: "50px",
               px: 4,
               py: 1.5,
               fontWeight: 700,
               textTransform: "uppercase",
-              color: "#005596", // Corporate blue
-              borderColor: "#005596",
+              color: "#01B0F0",
+              borderColor: "#01B0F0",
               borderWidth: 2,
               "&:hover": {
                 borderWidth: 2,

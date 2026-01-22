@@ -6,8 +6,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import TwitterIcon from "@mui/icons-material/Twitter"
 import YouTubeIcon from "@mui/icons-material/YouTube"
 
-const BRAND_BLUE = "#01B0F0"
-const FOOTER_DARK = "#1A1A1A" // Deep charcoal
+const BRAND_BLUE = "#F9F9F9"
+const FOOTER_DARK = "#01B0F0" // Deep charcoal
 
 const Footer: React.FC = () => {
   return (
@@ -71,8 +71,20 @@ const Footer: React.FC = () => {
               <br />
               United Kingdom.
             </Typography>
-            <Typography variant="body2" sx={{ color: BRAND_BLUE, fontWeight: 700 }}>
-              sales@panamvalves.com
+            <Typography variant="body2" sx={{ fontWeight: 700 }}>
+              <Link
+                href="mailto:sales@panamvalves.co.uk"
+                underline="hover"
+                sx={{
+                  color: BRAND_BLUE,
+                  fontFamily: '"Inter", sans-serif',
+                  textDecoration: "none",
+                  "&:hover": {
+                    textDecoration: "underline",
+                  },
+                }}>
+                sales@panamvalves.co.uk
+              </Link>
             </Typography>
           </Grid>
         </Grid>

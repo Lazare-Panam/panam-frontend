@@ -43,8 +43,8 @@ const Commitments: React.FC = () => {
                     py: 1.2,
                     fontWeight: 700,
                     textTransform: "uppercase",
-                    color: "#005596",
-                    borderColor: "#005596",
+                    color: "#01B0F0",
+                    borderColor: "#01B0F0",
                     borderWidth: 2,
                     "&:hover": {
                       borderWidth: 2,
