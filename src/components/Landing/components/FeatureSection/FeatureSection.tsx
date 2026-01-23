@@ -67,6 +67,7 @@ const FeatureSection = () => {
     <>
       <FeatureGridSection sectionTitle="Our Core Product Lines" items={productData} buttonText="View Full Product Catalog" onButtonClick={() => navigate("/products")} />
       <ProductResources />
+      <FeatureGridSection sectionTitle="Hydrogen & Project Engineering" items={expertiseData} buttonText="Find Support from a Local Sales and Service Center" onButtonClick={() => console.log("Button Clicked!")} />
       <FeatureGridSection sectionTitle="Global Expertise, Local Support" items={expertiseData} buttonText="Find Support from a Local Sales and Service Center" onButtonClick={() => console.log("Button Clicked!")} />
     </>
   )
