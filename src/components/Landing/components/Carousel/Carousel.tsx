@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from "react"
 import { Box, Typography, Button, Container, Stack } from "@mui/material"
 import { Swiper, SwiperSlide } from "swiper/react"
