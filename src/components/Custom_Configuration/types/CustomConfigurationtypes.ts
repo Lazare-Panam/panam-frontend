@@ -1,6 +1,7 @@
 export interface ConfigOption {
   code: string
   label: string
+  unit?: "imperial" | "metric"
   baseSize?: string
   threadType?: string
 }
@@ -19,7 +20,10 @@ export interface ProductConfig {
   options?: ConfigOption[]
   parts?: ConfigPart[]
 }
-
+export interface ProductCapabilities {
+  supportsCertificates: boolean
+  hasUnitSystem: boolean
+}
 export interface Product {
   id: string
   title: string
@@ -28,4 +32,5 @@ export interface Product {
   imageUrl: string
   features?: string[]
   configurations?: ProductConfig[]
+  capabilities?: ProductCapabilities
 }

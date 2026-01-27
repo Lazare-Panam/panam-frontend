@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { type Product, type ConfigOption } from "../types/CustomConfigurationtypes"
+import { type Product, type ConfigOption, type ProductConfig } from "../types/CustomConfigurationtypes"
 
 export const useProductConfigurator = (product: Product | null) => {
   const [activeCategory, setActiveCategory] = useState(0)
   const [selections, setSelections] = useState<Record<string, ConfigOption>>({})
   const currentCategory = product?.configurations?.[activeCategory]
 
-  const getEffectiveSelection = (config: any): ConfigOption | null => {
+  const getEffectiveSelection = (config: ProductConfig): ConfigOption | null => {
     if (!config || !config.label) {
       return null
     }

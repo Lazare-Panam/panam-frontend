@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
         // Now using black text explicitly so it's visible on white backgrounds
         color: "text.primary",
         borderBottom: "1px solid",
-        borderColor: trigger ? "divider" : "transparent",
+        borderColor: trigger ? "divider" : "#E0E0E0",
       }}>
       <Container maxWidth="lg">
         <Toolbar

@@ -6,6 +6,7 @@ import { useProductConfigurator } from "./hooks/useProductConfigurator"
 import ConfigurationPanel from "./components/ConfigurationPanel"
 import SummaryPanel from "./components/SummaryPanel"
 import type { ProductConfig } from "./types/CustomConfigurationtypes"
+
 const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
   if (open && !product) {
     return (
@@ -14,6 +15,8 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
       </Backdrop>
     )
   }
+
+  console.log("Product in parent", product)
 
   if (!open) return null
   const productConfig = useProductConfigurator(product)

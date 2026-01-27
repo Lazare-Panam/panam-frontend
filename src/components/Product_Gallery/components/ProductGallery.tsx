@@ -49,13 +49,14 @@ export default function ProductInventory() {
       title: specification.title,
       description: specification.description,
       imageUrl: specification.imageUrl,
+      capabilities: specification.capabilities,
       configurations: specification.configurations,
     }
   }
 
   const selectedProduct = buildSelectedProduct()
 
-  const handleOpenModal = (product: any) => {
+  const handleOpenModal = (product: Product) => {
     setSelectedProductId(product.id)
     setIsModalOpen(true)
   }

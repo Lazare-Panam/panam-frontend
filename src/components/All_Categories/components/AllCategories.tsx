@@ -18,10 +18,16 @@ export default function AllCategories() {
   })
 
   const buildSelectedProduct = (): Product | null => {
-    if (!specification) return null
+    if (!specification) {
+      console.log("Specification is still null/undefined")
+      return null
+    }
+    console.log("Keys in specification:", Object.keys(specification))
+
     return {
       id: specification.id || selectedProductId!,
       title: specification.title,
+      capabilities: specification.capabilities,
       description: specification.description,
       imageUrl: specification.imageUrl,
       configurations: specification.configurations,

@@ -13,5 +13,6 @@ export const getProductCategory = async (id: string) => {
 export const getProductSpecification = async (productId: string) => {
   const url = `${CATALOG_BASE_PATH}/products/${productId}/specification`
   const response = await axiosClient.get(url)
+  console.log("Raw Product", response.data)
   return response.data
 }
