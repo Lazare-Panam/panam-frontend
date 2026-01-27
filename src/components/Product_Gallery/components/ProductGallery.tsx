@@ -20,7 +20,6 @@ interface ProductCatalog {
 }
 
 export default function ProductInventory() {
-  //let pageType: PageType = PageType.CategoryGroup;
   const { id } = useParams<{ id: string }>()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null)

@@ -7,7 +7,7 @@ export const useProductConfigurator = (product: Product | null) => {
   const currentCategory = product?.configurations?.[activeCategory]
 
   const getEffectiveSelection = (config: ProductConfig): ConfigOption | null => {
-    if (!config || !config.label) {
+    if (!config?.label) {
       return null
     }
     if (selections[config.label]) {
