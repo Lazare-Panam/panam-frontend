@@ -22,10 +22,41 @@ const navConfig = {
     { id: "regulators", label: "Regulators", items: ["Pressure Regulators", "Air Headers", "Condensate Pots", "Flange Adaptors"] },
   ],
   industries: [
-    { id: "energy", label: "Energy & Power", items: ["Oil & Gas", "Hydrogen Energy", "Nuclear Power", "Renewables"] },
-    { id: "process", label: "Process & Chemical", items: ["Petrochemical", "Chemical Processing", "Fertilizer Plants"] },
-    { id: "marine", label: "Marine & Offshore", items: ["Shipbuilding", "Offshore Platforms", "Subsea Systems"] },
-    { id: "pharma", label: "Pharma & Biotech", items: ["Hygienic Valves", "Sanitary Fittings", "Laboratory Gas"] },
+    {
+      id: "marine",
+      label: "Marine",
+      items: ["Shipbuilding", "Propulsion Systems", "Ballast Water Treatment", "Marine Engine Components", "Deck Machinery"],
+    },
+    {
+      id: "oil-gas",
+      label: "Oil & Gas",
+      items: ["Upstream Exploration", "Midstream Pipelines", "Downstream Refining", "Petrochemical Plants", "Gas Processing"],
+    },
+    {
+      id: "renewables",
+      label: "Renewables",
+      items: ["Hydrogen Electrolysers", "Wind Turbine Hydraulics", "Solar Thermal Systems", "Biofuel Processing", "Geothermal Energy"],
+    },
+    {
+      id: "automotive",
+      label: "Automotive",
+      items: ["Testing Rigs", "Fuel Injection Systems", "Brake Line Fittings", "Cooling Systems", "Assembly Line Automation"],
+    },
+    {
+      id: "agriculture",
+      label: "Agriculture",
+      items: ["Irrigation Systems", "Fertilizer Spraying", "Tractor Hydraulics", "Grain Processing", "Pesticide Handling"],
+    },
+    {
+      id: "manufacturing",
+      label: "Manufacturing",
+      items: ["Hydraulic Presses", "Pneumatic Controls", "Factory Automation", "Machine Tooling", "Coolant Circulation"],
+    },
+    {
+      id: "ship-repair",
+      label: "Ship Management & Repair",
+      items: ["Dry Dock Services", "Retrofitting Valves", "Hull Maintenance Systems", "Emergency Repairs", "Spare Parts Logistics"],
+    },
   ],
   about: [
     { id: "company", label: "Our Company", items: ["Mission & Vision", "Manufacturing Excellence", "Quality Policy", "Global Presence"] },
@@ -64,7 +95,6 @@ const Navbar: React.FC = () => {
           backdropFilter: "blur(12px)",
           transition: "all 0.3s ease-in-out",
           color: "text.primary",
-          borderBottom: "1px solid #E0E0E0",
         }}>
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ height: { xs: 70, md: 80 }, justifyContent: "space-between" }}>
