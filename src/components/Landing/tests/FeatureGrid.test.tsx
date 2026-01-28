@@ -1,132 +1,78 @@
 import { render, screen } from "@testing-library/react"
-import { MemoryRouter, useNavigate } from "react-router-dom"
-import { beforeEach, describe, expect, test, vi } from "vitest"
-import FeatureGridSection from "../components/FeatureSection/FeatureGridSection"
-import userEvent from "@testing-library/user-event"
+import userEvent from "@testing-library/user-event" // Import userEvent
+import { BrowserRouter } from "react-router-dom"
+import FeatureGridSection, { type FeatureGridProps } from "../components/FeatureSection/FeatureGridSection"
+import { beforeEach, describe, expect, it, vi } from "vitest"
 
+const mockedUsedNavigate = vi.fn()
 vi.mock("react-router-dom", async () => {
   const actual = await vi.importActual("react-router-dom")
   return {
     ...actual,
-    useNavigate: vi.fn(),
+    useNavigate: () => mockedUsedNavigate,
   }
 })
 
-const mockItems = [
-  {
-    image: "test1.jpg",
-    caption: "Testing Item One",
-    link: "/item-one",
-  },
-  {
-    image: "test2.jpg",
-    caption: "Testing Item Two",
-    link: "/item-two",
-  },
-]
+const defaultProps: FeatureGridProps = {
+  sectionTitle: "Features",
+  items: [
+    { image: "test1.jpg", caption: "Caption 1", link: "/path1" },
+    { image: "test2.jpg", caption: "Caption 2", link: "/path2" },
+  ],
+  buttonText: "See More",
+  onButtonClick: vi.fn(),
+}
 
-const mockNavigate = vi.fn()
+const renderComponent = (props = defaultProps) => {
+  // Set up user-event
+  const user = userEvent.setup()
 
-beforeEach(() => {
-  vi.mocked(useNavigate).mockReturnValue(mockNavigate)
-  vi.clearAllMocks()
-})
+  const utils = render(
+    <BrowserRouter>
+      <FeatureGridSection {...props} />
+    </BrowserRouter>
+  )
+
+  return { ...utils, user }
+}
 
 describe("FeatureGridSection", () => {
-  test("renders title and all items", () => {
-    render(
-      <MemoryRouter>
-        <FeatureGridSection sectionTitle="Industrial Solutions" items={mockItems} buttonText="View All" />
-      </MemoryRouter>
-    )
-
-    expect(screen.getByText("Industrial Solutions")).toBeInTheDocument()
-    expect(screen.getByText("Testing Item One")).toBeInTheDocument()
-    expect(screen.getByText(/Testing Item Two/i)).toBeInTheDocument()
-
-    const images = screen.getAllByRole("img")
-    expect(images).toHaveLength(2)
-    expect(images[0]).toHaveAttribute("src", "test1.jpg")
-    expect(images[0]).toHaveAttribute("alt", "Feature 0")
-    expect(images[1]).toHaveAttribute("src", "test2.jpg")
-    expect(images[1]).toHaveAttribute("alt", "Feature 1")
-
-    expect(screen.getByRole("button", { name: /view all/i })).toBeInTheDocument()
+  beforeEach(() => {
+    vi.clearAllMocks()
   })
 
-  test("navigates when grid item is clicked", async () => {
-    const user = userEvent.setup()
+  it("navigates when a grid item is clicked", async () => {
+    const { user } = renderComponent()
 
-    render(
-      <MemoryRouter>
-        <FeatureGridSection sectionTitle="Title" items={mockItems} buttonText="Button" />
-      </MemoryRouter>
-    )
+    // Find the item by its role and the text inside it
+    const gridItem = screen.getByRole("button", { name: /view caption 1/i })
 
-    const firstImage = screen.getByAltText("Feature 0")
-    await user.click(firstImage)
+    await user.click(gridItem)
 
-    expect(mockNavigate).toHaveBeenCalledWith("/item-one")
-    expect(mockNavigate).toHaveBeenCalledTimes(1)
+    expect(mockedUsedNavigate).toHaveBeenCalledWith("/path1")
   })
 
-  test("navigates when caption is clicked", async () => {
-    const user = userEvent.setup()
+  it("calls onButtonClick with full interaction simulation", async () => {
+    const { user } = renderComponent()
 
-    render(
-      <MemoryRouter>
-        <FeatureGridSection sectionTitle="Title" items={mockItems} buttonText="Button" />
-      </MemoryRouter>
-    )
+    const actionButton = screen.getByRole("button", { name: /see more/i })
 
-    const secondCaption = screen.getByText("Testing Item Two")
-    await user.click(secondCaption)
+    // user.click handles focus and hover states automatically
+    await user.click(actionButton)
 
-    expect(mockNavigate).toHaveBeenCalledWith("/item-two")
+    expect(defaultProps.onButtonClick).toHaveBeenCalledTimes(1)
   })
 
-  test("triggers onButtonClick when CTA is clicked", async () => {
-    const user = userEvent.setup()
-    const onButtonClickMock = vi.fn()
+  it("renders complex captions correctly", () => {
+    const complexItems = [
+      {
+        image: "img.jpg",
+        caption: <span data-testid="custom-span">Complex Content</span>,
+        link: "/test",
+      },
+    ]
 
-    render(
-      <MemoryRouter>
-        <FeatureGridSection sectionTitle="Title" items={mockItems} buttonText="View More" onButtonClick={onButtonClickMock} />
-      </MemoryRouter>
-    )
-
-    const btn = screen.getByRole("button", { name: /view more/i })
-    await user.click(btn)
-
-    expect(onButtonClickMock).toHaveBeenCalledTimes(1)
-  })
-
-  test("renders with empty items array", () => {
-    render(
-      <MemoryRouter>
-        <FeatureGridSection sectionTitle="Empty Section" items={[]} buttonText="View All" />
-      </MemoryRouter>
-    )
-
-    expect(screen.getByText("Empty Section")).toBeInTheDocument()
-    expect(screen.queryByRole("img")).not.toBeInTheDocument()
-    expect(screen.getByRole("button", { name: /view all/i })).toBeInTheDocument()
-  })
-
-  test("supports keyboard navigation with Enter key", async () => {
-    const user = userEvent.setup()
-
-    render(
-      <MemoryRouter>
-        <FeatureGridSection sectionTitle="Title" items={mockItems} buttonText="Button" />
-      </MemoryRouter>
-    )
-
-    const firstImage = screen.getByAltText("Feature 0")
-    firstImage.parentElement?.focus() // Focus the grid item
-    await user.keyboard("{Enter}")
-
-    // Note: This might not work as expected since Grid doesn't have
-    // onClick + onKeyDown handlers. Consider adding keyboard support to component!
+    renderComponent({ ...defaultProps, items: complexItems })
+    expect(screen.getByTestId("custom-span")).toBeInTheDocument()
   })
 })

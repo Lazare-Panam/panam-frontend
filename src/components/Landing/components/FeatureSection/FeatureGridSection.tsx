@@ -10,7 +10,7 @@ interface FeatureItem {
   link: string
 }
 
-interface FeatureGridProps {
+export interface FeatureGridProps {
   sectionTitle: string
   items: FeatureItem[]
   buttonText: string
@@ -39,21 +39,31 @@ const FeatureGridSection: React.FC<FeatureGridProps> = ({ sectionTitle, items, b
 
         <Grid container spacing={4}>
           {items.map((item, index) => (
-            <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }} sx={{ cursor: "pointer" }} onClick={() => navigate(item.link)}>
+            <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }} sx={{ cursor: "pointer" }} onClick={() => navigate(item.link)} role="button" aria-label={`View ${item.caption}`}>
               <Box
-                component="img"
-                src={item.image}
-                alt={`Feature ${index}`}
                 sx={{
                   width: "100%",
                   height: "200px",
-                  objectFit: "cover",
-                  borderRadius: "2px", // Sharper industrial look
+                  display: "flex", // Centers the image
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "#fff", // Clean white background
+                  padding: "20px", // Creates a "frame" look
                   mb: 2,
-                  transition: "transform 0.3s ease",
-                  "&:hover": { transform: "scale(1.02)" },
-                }}
-              />
+                  overflow: "hidden",
+                }}>
+                <Box
+                  component="img"
+                  src={item.image}
+                  sx={{
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    objectFit: "contain", // Keeps proportions perfect
+                    transition: "transform 0.3s ease",
+                    "&:hover": { transform: "scale(1.1)" },
+                  }}
+                />
+              </Box>
               <Typography
                 variant="body1"
                 sx={{
