@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { AppBar, Toolbar, Typography, Button, Stack, Container, useScrollTrigger, Box, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Fade, Grid } from "@mui/material"
+import { AppBar, Toolbar, Typography, Button, Stack, Container, useScrollTrigger, Box, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Fade, Grid, InputBase } from "@mui/material"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
 import SearchIcon from "@mui/icons-material/Search"
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline"
@@ -45,10 +45,12 @@ const Navbar: React.FC = () => {
   const [openDrawer, setOpenDrawer] = useState(false)
   const [megaMenuOpen, setMegaMenuOpen] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState(navConfig.products[0])
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 30 })
 
   const handleMouseEnter = (menuId: string) => {
+    if (isSearchOpen) return
     setMegaMenuOpen(menuId)
     if (menuId === "products") setActiveTab(navConfig.products[0])
     if (menuId === "industries") setActiveTab(navConfig.industries[0])
@@ -59,7 +61,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <AppBar
-        position="fixed"
+        position="sticky"
         elevation={trigger ? 2 : 0}
         onMouseLeave={() => setMegaMenuOpen(null)}
         sx={{
@@ -69,67 +71,95 @@ const Navbar: React.FC = () => {
           color: "text.primary",
           borderBottom: trigger ? "none" : "1px solid #E0E0E0",
         }}>
-        <Container maxWidth="xl">
-          {" "}
-          {/* Wider container spreads the elements */}
+        <Container maxWidth="xl" sx={{ position: "relative" }}>
           <Toolbar disableGutters sx={{ height: { xs: 70, md: 90 }, justifyContent: "space-between" }}>
-            {/* Logo */}
-            <Box component="a" href="/" sx={{ display: "block", textDecoration: "none" }}>
+            {/* Logo Section */}
+            <Box component="a" href="/" sx={{ display: "flex", alignItems: "center", textDecoration: "none", zIndex: 10 }}>
               <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png" alt="Panam Valves Logo" sx={{ height: { xs: 60, md: 70 }, width: "auto", objectFit: "contain" }} />
             </Box>
 
-            {/* Main Links - Spread out with spacing and padding */}
-            <Stack direction="row" spacing={3} sx={{ display: { xs: "none", md: "flex" }, height: "100%", ml: 4 }}>
-              {[
-                { label: "Products", id: "products" },
-                { label: "Industries", id: "industries" },
-                { label: "News & Blog", id: "news" },
-                { label: "About Us", id: "about" },
-              ].map(item => (
-                <Button
-                  key={item.id}
-                  onMouseEnter={() => handleMouseEnter(item.id)}
-                  endIcon={
-                    <KeyboardArrowDownIcon
-                      sx={{
-                        transition: "0.2s",
-                        transform: megaMenuOpen === item.id ? "rotate(180deg)" : "none",
-                        fontSize: 18,
-                      }}
-                    />
-                  }
+            {/* Navigation / Search Overlay Section */}
+            <Box sx={{ flexGrow: 1, display: "flex", height: "100%", alignItems: "center", position: "relative", overflow: "hidden" }}>
+              {/* Regular Navigation Links */}
+              <Fade in={!isSearchOpen} timeout={400}>
+                <Stack direction="row" spacing={3} sx={{ display: { xs: "none", md: isSearchOpen ? "none" : "flex" }, ml: 6 }}>
+                  {[
+                    { label: "Products", id: "products" },
+                    { label: "Industries", id: "industries" },
+                    { label: "News & Blog", id: "news" },
+                    { label: "About Us", id: "about" },
+                  ].map(item => (
+                    <Button key={item.id} onMouseEnter={() => handleMouseEnter(item.id)} endIcon={<KeyboardArrowDownIcon sx={{ transition: "0.2s", transform: megaMenuOpen === item.id ? "rotate(180deg)" : "none", fontSize: 18 }} />} sx={{ color: "#1A1A1A", textTransform: "none", fontFamily: PRIMARY_FONT, fontSize: "0.95rem", fontWeight: 600, px: 2 }}>
+                      {item.label}
+                    </Button>
+                  ))}
+                  <Button sx={{ color: "#1A1A1A", textTransform: "none", fontFamily: PRIMARY_FONT, fontWeight: 600, fontSize: "0.95rem", px: 2 }}>Contact Us</Button>
+                </Stack>
+              </Fade>
+
+              {/* SLOW APPEARING Blue Search Bar Container */}
+              <Fade in={isSearchOpen} timeout={600}>
+                <Box
                   sx={{
-                    color: megaMenuOpen === item.id ? BRAND_BLUE : "#1A1A1A",
-                    textTransform: "none",
-                    fontFamily: PRIMARY_FONT,
-                    fontSize: "0.95rem",
-                    fontWeight: megaMenuOpen === item.id ? 700 : 500,
-                    px: 2, // Extra padding spreads the menu
+                    position: "absolute",
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    backgroundColor: BRAND_BLUE,
+                    display: isSearchOpen ? "flex" : "none",
+                    alignItems: "center",
+                    px: 4,
+                    zIndex: 5,
+                    transition: "transform 0.5s ease-in-out",
+                    transform: isSearchOpen ? "translateX(0)" : "translateX(20px)", // Subtle slide effect
                   }}>
-                  {item.label}
-                </Button>
-              ))}
-              <Button sx={{ color: "#1A1A1A", textTransform: "none", fontFamily: PRIMARY_FONT, fontWeight: 500, fontSize: "0.95rem", px: 2, "&:hover": { color: BRAND_BLUE } }}>Contact Us</Button>
-            </Stack>
+                  <InputBase
+                    autoFocus
+                    placeholder="Search by model, part number or keyword"
+                    sx={{
+                      flex: 1,
+                      color: "white",
+                      fontFamily: PRIMARY_FONT,
+                      fontSize: "1.2rem",
+                      fontStyle: "italic",
+                      borderBottom: "1px solid white",
+                      "& input::placeholder": { color: "rgba(255,255,255,0.8)", opacity: 1 },
+                    }}
+                  />
+                  <SearchIcon sx={{ color: "white", fontSize: 35, ml: 2 }} />
+                </Box>
+              </Fade>
+            </Box>
 
-            {/* Actions: Search, Account, Cart */}
-            <Stack direction="row" spacing={{ xs: 1, md: 3 }} alignItems="center">
-              <IconButton sx={{ color: BRAND_BLUE, p: 1.5 }}>
-                <SearchIcon sx={{ fontSize: 30 }} /> {/* Increased from 24 */}
+            {/* Action Icons Section */}
+            <Stack direction="row" spacing={1} alignItems="center" sx={{ zIndex: 10 }}>
+              <IconButton
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                sx={{
+                  color: isSearchOpen ? "white" : BRAND_BLUE,
+                  backgroundColor: isSearchOpen ? "#003366" : "transparent",
+                  borderRadius: 0,
+                  height: "90px",
+                  width: "70px",
+                  transition: "background-color 0.4s ease",
+                  "&:hover": { backgroundColor: isSearchOpen ? "#002244" : "rgba(0,0,0,0.04)" },
+                }}>
+                {/* Cross/Search icon also fades for smoothness */}
+                <Fade in={true} key={isSearchOpen ? "close" : "search"} timeout={300}>
+                  {isSearchOpen ? <CloseIcon sx={{ fontSize: 40 }} /> : <SearchIcon sx={{ fontSize: 32 }} />}
+                </Fade>
               </IconButton>
 
               <IconButton sx={{ color: BRAND_BLUE, p: 1.5 }}>
-                <PersonOutlineIcon sx={{ fontSize: 32 }} /> {/* Increased from 26 */}
+                <PersonOutlineIcon sx={{ fontSize: 34 }} />
               </IconButton>
 
-              <Stack direction="row" spacing={1.5} alignItems="center" sx={{ cursor: "pointer" }}>
-                <ShoppingCartOutlinedIcon sx={{ fontSize: 26, color: "#4A4A4A" }} />
+              <Stack direction="row" spacing={1.5} alignItems="center" sx={{ cursor: "pointer", pl: 1 }}>
+                <ShoppingCartOutlinedIcon sx={{ fontSize: 28, color: "#4A4A4A" }} />
                 <Box sx={{ display: { xs: "none", lg: "block" } }}>
                   <Typography variant="caption" display="block" sx={{ fontWeight: 700, color: BRAND_BLUE, lineHeight: 1.2 }}>
                     Quick Order?
-                  </Typography>
-                  <Typography variant="caption" display="block" sx={{ fontWeight: 500, color: "#666", lineHeight: 1.2 }}>
-                    0 items
                   </Typography>
                 </Box>
               </Stack>
@@ -141,46 +171,24 @@ const Navbar: React.FC = () => {
           </Toolbar>
         </Container>
 
-        {/* Mega Menu Overlay - FIXED with conditional rendering to prevent white bars */}
-        {megaMenuOpen && (
+        {/* Mega Menu Overlay */}
+        {megaMenuOpen && !isSearchOpen && (
           <Fade in={Boolean(megaMenuOpen)}>
-            <Box
-              sx={{
-                position: "absolute",
-                top: { xs: 70, md: 90 },
-                left: 0,
-                right: 0,
-                backgroundColor: "white",
-                borderBottom: "1px solid #E0E0E0",
-                boxShadow: "0px 15px 30px rgba(0,0,0,0.08)",
-              }}>
+            <Box sx={{ position: "absolute", top: { xs: 70, md: 90 }, left: 0, right: 0, backgroundColor: "white", borderBottom: "1px solid #E0E0E0", boxShadow: "0px 15px 30px rgba(0,0,0,0.08)" }}>
               <Container maxWidth="lg" sx={{ p: 0 }}>
                 <Grid container>
-                  {/* Left Sidebar */}
                   <Grid size={{ md: 3 }} sx={{ backgroundColor: "white", py: 4, borderRight: "1px solid #F0F0F0" }}>
                     <Stack spacing={0}>
                       {(megaMenuOpen ? (navConfig as any)[megaMenuOpen] : []).map((cat: any) => (
                         <Box
                           key={cat.id}
                           onMouseEnter={() => setActiveTab(cat)}
-                          sx={{
-                            px: 4,
-                            py: 1.8,
-                            cursor: "pointer",
-                            fontFamily: PRIMARY_FONT,
-                            fontWeight: activeTab.id === cat.id ? 700 : 500,
-                            color: activeTab.id === cat.id ? BRAND_BLUE : "#4A4A4A",
-                            backgroundColor: activeTab.id === cat.id ? "#F9FAFB" : "transparent",
-                            transition: "0.2s",
-                            borderLeft: activeTab.id === cat.id ? `4px solid ${BRAND_BLUE}` : "4px solid transparent",
-                          }}>
+                          sx={{ px: 4, py: 1.8, cursor: "pointer", fontFamily: PRIMARY_FONT, fontWeight: activeTab.id === cat.id ? 700 : 500, color: activeTab.id === cat.id ? BRAND_BLUE : "#4A4A4A", backgroundColor: activeTab.id === cat.id ? "#F9FAFB" : "transparent", transition: "0.2s", borderLeft: activeTab.id === cat.id ? `4px solid ${BRAND_BLUE}` : "4px solid transparent" }}>
                           {cat.label}
                         </Box>
                       ))}
                     </Stack>
                   </Grid>
-
-                  {/* Content Area */}
                   <Grid size={{ md: 9 }} sx={{ backgroundColor: "#F9FAFB", py: 4, px: 6 }}>
                     <Typography variant="overline" sx={{ color: "#999", fontWeight: 700, mb: 3, display: "block", letterSpacing: 1.5 }}>
                       Explore {activeTab?.label}
@@ -188,27 +196,9 @@ const Navbar: React.FC = () => {
                     <Grid container spacing={2}>
                       {activeTab?.items.map((item: string) => (
                         <Grid size={{ xs: 6, md: 4 }} key={item}>
-                          <Box
-                            component="a"
-                            href="#"
-                            sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              py: 1,
-                              textDecoration: "none",
-                              color: "#4A4A4A",
-                              fontFamily: PRIMARY_FONT,
-                              fontSize: "0.9rem",
-                              transition: "0.2s",
-                              "& .item-arrow": { opacity: 0, ml: -1, transition: "0.2s" },
-                              "&:hover": {
-                                color: BRAND_BLUE,
-                                transform: "translateX(5px)",
-                                "& .item-arrow": { opacity: 1, ml: 1 },
-                              },
-                            }}>
+                          <Box component="a" href="#" sx={{ display: "flex", alignItems: "center", py: 1, textDecoration: "none", color: "#4A4A4A", fontFamily: PRIMARY_FONT, fontSize: "0.9rem", transition: "0.2s", "&:hover": { color: BRAND_BLUE, transform: "translateX(5px)" } }}>
                             {item}
-                            <ArrowForwardIcon className="item-arrow" sx={{ fontSize: 14 }} />
+                            <ArrowForwardIcon sx={{ fontSize: 14, ml: 1, opacity: 0.5 }} />
                           </Box>
                         </Grid>
                       ))}
@@ -221,10 +211,10 @@ const Navbar: React.FC = () => {
         )}
       </AppBar>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer remains the same */}
       <Drawer anchor="right" open={openDrawer} onClose={() => setOpenDrawer(false)} PaperProps={{ sx: { width: "100%", maxWidth: 350 } }}>
         <Box sx={{ p: 2, display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #eee" }}>
-          <Typography sx={{ fontWeight: 800, color: BRAND_BLUE, letterSpacing: 1 }}>MENU</Typography>
+          <Typography sx={{ fontWeight: 800, color: BRAND_BLUE }}>MENU</Typography>
           <IconButton onClick={() => setOpenDrawer(false)}>
             <CloseIcon />
           </IconButton>
