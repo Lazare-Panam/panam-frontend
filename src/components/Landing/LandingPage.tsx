@@ -3,6 +3,7 @@ import IntroSection from "./components/Intro/Intro"
 import Commitments from "./components/Commitments/Commitments"
 import FeatureSection from "./components/FeatureSection/FeatureSection"
 import PartnersCarousel from "./components/Carousel/PartnersCarousel"
+
 const LandingPage = () => {
   return (
     <>
@@ -11,7 +12,6 @@ const LandingPage = () => {
       <FeatureSection />
       <Commitments />
       <PartnersCarousel />
-      {/* <GetConnected /> */}
     </>
   )
 }

@@ -1,6 +1,5 @@
 import React from "react"
-import { Box, Container, Typography, Link, Stack, Divider, IconButton } from "@mui/material"
-import Grid from "@mui/material/Grid" // In v6, this points to Grid2
+import { Box, Container, Grid, Typography, Link, Stack, Divider, IconButton } from "@mui/material"
 import FacebookIcon from "@mui/icons-material/Facebook"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import TwitterIcon from "@mui/icons-material/Twitter"
@@ -9,28 +8,33 @@ import YouTubeIcon from "@mui/icons-material/YouTube"
 const BRAND_BLUE = "#F9F9F9"
 const FOOTER_DARK = "#01B0F0"
 
+const SOCIAL_LINKS = [
+  { Icon: LinkedInIcon, name: "LinkedIn" },
+  { Icon: YouTubeIcon, name: "YouTube" },
+  { Icon: FacebookIcon, name: "Facebook" },
+  { Icon: TwitterIcon, name: "Twitter" },
+]
+
 const Footer: React.FC = () => {
   return (
     <Box sx={{ bgcolor: FOOTER_DARK, color: "white", pt: 8, pb: 4, mt: 8 }}>
       <Container
         maxWidth={false}
         sx={{
-          px: { xs: 6, md: 24 }, // This reduces the default large side-padding
+          px: { xs: 6, md: 24 },
           width: "100%",
         }}>
-        {/* 'container' prop is still used on the parent */}
         <Grid container spacing={2}>
-          {/* COLUMN 1: BRAND - size={2} makes it 1/6th of the width */}
           <Grid size={{ xs: 12, sm: 6, md: 2 }}>
             <Box
               component="img"
-              src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png" // Replace this with your logo path (e.g., /logo.png)
+              src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png"
               alt="Panam Valves Logo"
               sx={{
-                height: 120, // Standard footer logo height
+                height: 120,
                 width: "auto",
-                mb: 3, // Space before the description text
-                filter: "brightness(0) invert(1)", // This makes a dark logo pure white to match the footer
+                mb: 3,
+                filter: "brightness(0) invert(1)",
                 display: "block",
               }}
             />
@@ -44,15 +48,14 @@ const Footer: React.FC = () => {
               Precision-engineered instrumentation solutions for critical global infrastructure.
             </Typography>
             <Stack direction="row" spacing={0.5}>
-              {[LinkedInIcon, YouTubeIcon, FacebookIcon, TwitterIcon].map((Icon, index) => (
-                <IconButton key={index} size="small" sx={{ color: "white", "&:hover": { color: BRAND_BLUE } }}>
+              {SOCIAL_LINKS.map(({ Icon, name }) => (
+                <IconButton key={name} aria-label={name} size="small" sx={{ color: "white", "&:hover": { color: BRAND_BLUE } }}>
                   <Icon fontSize="small" />
                 </IconButton>
               ))}
             </Stack>
           </Grid>
 
-          {/* COLUMN 2: PRODUCTS */}
           <Grid size={{ xs: 6, sm: 4, md: 2 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2, fontFamily: '"Inter", sans-serif', textTransform: "uppercase", letterSpacing: 1 }}>
               Products
@@ -66,9 +69,6 @@ const Footer: React.FC = () => {
             </Stack>
           </Grid>
 
-          {/* COLUMN 3: MARKETS */}
-
-          {/* COLUMN 4: RESOURCES */}
           <Grid size={{ xs: 6, sm: 4, md: 2 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2, fontFamily: '"Inter", sans-serif', textTransform: "uppercase", letterSpacing: 1 }}>
               Support
@@ -82,7 +82,6 @@ const Footer: React.FC = () => {
             </Stack>
           </Grid>
 
-          {/* COLUMN 5: SUPPORT */}
           <Grid size={{ xs: 12, sm: 4, md: 2 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2, textTransform: "uppercase", letterSpacing: 1, fontFamily: '"Inter", sans-serif' }}>
               Headquarters
@@ -96,7 +95,7 @@ const Footer: React.FC = () => {
             </Typography>
             <Box sx={{ mb: 1 }}>
               <Link
-                href="tel:+441869226300" // Replace with your actual office number
+                href="tel:+441869226300"
                 underline="none"
                 sx={{
                   color: BRAND_BLUE,
@@ -123,13 +122,10 @@ const Footer: React.FC = () => {
             </Link>
           </Grid>
 
-          {/* COLUMN 6: CONTACT */}
           <Grid size={{ xs: 12, sm: 4, md: 2 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2, textTransform: "uppercase", letterSpacing: 1, fontFamily: '"Inter", sans-serif' }}>
               Where are we?
             </Typography>
-
-            {/* Embedded Google Map */}
             <Box
               sx={{
                 width: "100%",
@@ -146,7 +142,6 @@ const Footer: React.FC = () => {
 
         <Divider sx={{ my: 6, borderColor: "rgba(255,255,255,0.1)" }} />
 
-        {/* BOTTOM BAR */}
         <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems="center" spacing={2}>
           <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontSize: "0.7rem", fontFamily: '"Inter", sans-serif' }}>
             © {new Date().getFullYear()} Panam Engineers Ltd. All Rights Reserved.
