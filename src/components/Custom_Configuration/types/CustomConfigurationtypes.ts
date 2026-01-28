@@ -2,8 +2,6 @@ export interface ConfigOption {
   code: string
   label: string
   unit?: "imperial" | "metric"
-  baseSize?: string
-  threadType?: string
 }
 
 export interface ConfigPart {
@@ -16,7 +14,6 @@ export interface ProductConfig {
   required?: boolean
   noSeperatorAfter?: boolean
   label: string
-  isSplit?: boolean
   options?: ConfigOption[]
   parts?: ConfigPart[]
 }

@@ -16,7 +16,7 @@ const AboutHero = () => {
           alignItems: "center",
           overflow: "hidden",
           backgroundColor: "#000",
-          backgroundImage: `url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=2000')`,
+          backgroundImage: `url('https://res.cloudinary.com/dm9rmmemx/image/upload/v1769618379/igal-ness-wQfV9njQxW4-unsplash_cyolxm.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
           "&::before": {

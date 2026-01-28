@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { type Product, type ConfigOption, type ProductConfig } from "../types/CustomConfigurationtypes"
 
 export const useProductConfigurator = (product: Product | null) => {
@@ -19,25 +19,35 @@ export const useProductConfigurator = (product: Product | null) => {
     return null
   }
 
-  const generatedPartNumber = product?.configurations
-    ? (() => {
-        const segments: string[] = []
-        product.configurations.forEach((config, index) => {
-          const selection = getEffectiveSelection(config)
-          const code = selection?.code
-          const isLast = index === product.configurations!.length - 1
-          const hasValidCode = code && code.trim() && code.trim() !== "-"
-          const needsPlaceholder = !selection && config.required
-          if (!hasValidCode && !needsPlaceholder) return
-          segments.push(hasValidCode ? code : "??")
-          if (!config.noSeperatorAfter && !isLast) {
-            segments.push("-")
-          }
-        })
+  const generatedPartNumber = useMemo(() => {
+    if (!product?.configurations) return "LOADING..."
+    const activeSegments = product.configurations
+      .map((config, originalIndex) => {
+        const selection = getEffectiveSelection(config)
+        const code = selection?.code?.trim() || ""
+        const hasValidCode = code !== "" && code !== "-"
+        const isMissingRequired = !selection && config.required
+        if (!hasValidCode && !isMissingRequired) return null
+        return {
+          code: hasValidCode ? code : "??",
+          noSeperatorAfter: !!config.noSeperatorAfter,
+          originalIndex,
+        }
+      })
+      .filter((seg): seg is NonNullable<typeof seg> => seg !== null)
 
-        return segments.join("").replace(/-$/, "")
-      })()
-    : "LOADING..."
+    if (activeSegments.length === 0) return "SELECT OPTIONS"
+
+    return activeSegments.reduce((sku, seg, i) => {
+      const isLast = i === activeSegments.length - 1
+      if (isLast) return sku + seg.code
+      const nextSeg = activeSegments[i + 1]
+      const isAdjacent = nextSeg.originalIndex === seg.originalIndex + 1
+      const shouldHug = seg.noSeperatorAfter && isAdjacent && nextSeg.code !== "??"
+
+      return sku + seg.code + (shouldHug ? "" : "-")
+    }, "")
+  }, [product, selections])
 
   const handleOptionChange = (categoryLabel: string, selectedCode: string) => {
     const category = product?.configurations?.find(c => c.label === categoryLabel)

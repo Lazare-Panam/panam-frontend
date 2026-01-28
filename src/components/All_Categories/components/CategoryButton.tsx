@@ -94,15 +94,6 @@ export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image
         </Box>
       </ImageButton>
       <DetailsSection>
-        {/* <Typography
-            variant="overline"
-            sx={{
-              fontWeight: "800",
-              color: "#01b0f0", // Your specific blue color
-              letterSpacing: "1.2px",
-            }}>
-            Featured Collection
-          </Typography> */}
         <Typography
           variant="overline"
           sx={{
@@ -121,38 +112,24 @@ export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image
               variant="subtitle2"
               onClick={() => {
                 if (product.isProduct && product.id) {
-                  // Logic for MODAL
                   onProductClick(product.id)
                 } else if (product.link) {
-                  // Logic for REDIRECT
                   navigate(product.link)
                 }
               }}
               sx={{
                 fontWeight: 500,
-                color: "#444", // Different color (Dark Grey)
+                color: "#444",
                 cursor: "pointer",
-
-                fontSize: "0.9rem", // Slightly larger/cleaner font
-                fontFamily: "Inter, Roboto, Arial, sans-serif", // Clean modern font
+                fontSize: "0.9rem",
+                fontFamily: "Inter, Roboto, Arial, sans-serif",
                 "&:hover": {
-                  color: "#050505", // Highlights to blue on hover
+                  color: "#050505",
                   textDecoration: "underline",
                 },
               }}>
               {product.name}
             </Typography>
-            {/* <Typography 
-        variant="body2" 
-        color="text.secondary" 
-        sx={{ 
-          lineHeight: 1.4, 
-          mt: 0.5,
-          fontSize: "0.85rem" 
-        }}
-      >
-        {product.description || `High-quality ${product.name.toLowerCase()} for industrial applications.`}
-      </Typography> */}
           </Box>
         ))}
       </DetailsSection>
