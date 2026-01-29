@@ -1,5 +1,5 @@
 import IndustriesHero from "./components/IndustriesHero"
-import IndustriesCards from "./IndustriesCards"
+import IndustriesCards from "./components/IndustriesCards"
 const Industries = () => {
   return (
     <>

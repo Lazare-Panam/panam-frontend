@@ -109,8 +109,8 @@ const Carousel: React.FC = () => {
 
       <style>{`
         .swiper-pagination-bullet { background: rgba(255,255,255,0.5); opacity: 1; }
-        .swiper-pagination-bullet-active { background: ${BRAND_BLUE} !important; width: 24px; border-radius: 4px; transition: all 0.3s; }
-        .swiper-button-next, .swiper-button-prev { color: white !important; transform: scale(0.5); opacity: 0.5; transition: 0.3s; }
+        .swiper-pagination-bullet-active { background: ${BRAND_BLUE} ; width: 24px; border-radius: 4px; transition: all 0.3s; }
+        .swiper-button-next, .swiper-button-prev { color: white ; transform: scale(0.5); opacity: 0.5; transition: 0.3s; }
         .swiper-button-next:hover, .swiper-button-prev:hover { opacity: 1; }
       `}</style>
     </Box>

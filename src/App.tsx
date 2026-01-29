@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import { lazy, Suspense } from "react"
 import LandingPage from "./components/Landing/LandingPage"
 import Layout from "./Layout"
+import News from "./components/News/News"
 
 // Lazy load these pages
 const AllCategories = lazy(() => import("./components/All_Categories/components/AllCategories"))
@@ -43,6 +44,14 @@ function App() {
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <Industries />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/news"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <News />
             </Suspense>
           }
         />

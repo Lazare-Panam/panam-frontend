@@ -25,7 +25,6 @@ const IndustriesHero = () => {
           right: 0,
           bottom: 0,
           background: "radial-gradient(circle at 20% 50%, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%)",
-          zIndex: 1,
         },
       }}>
       <Container maxWidth="xl" sx={{ zIndex: 2, position: "relative" }}>
