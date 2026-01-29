@@ -3,7 +3,8 @@ import { lazy, Suspense } from "react"
 import LandingPage from "./components/Landing/LandingPage"
 import Layout from "./Layout"
 import News from "./components/News/News"
-
+import Contact from "./components/Contact/Contact"
+import LoadingScreen from "./components/Loading/LoadingScreen"
 // Lazy load these pages
 const AllCategories = lazy(() => import("./components/All_Categories/components/AllCategories"))
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
@@ -18,7 +19,7 @@ function App() {
         <Route
           path="/products"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingScreen />}>
               <AllCategories />
             </Suspense>
           }
@@ -26,7 +27,7 @@ function App() {
         <Route
           path="/products/:id"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingScreen />}>
               <ProductGallery />
             </Suspense>
           }
@@ -34,7 +35,7 @@ function App() {
         <Route
           path="/about"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingScreen />}>
               <AboutUs />
             </Suspense>
           }
@@ -42,7 +43,7 @@ function App() {
         <Route
           path="/industries"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingScreen />}>
               <Industries />
             </Suspense>
           }
@@ -50,8 +51,16 @@ function App() {
         <Route
           path="/news"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingScreen />}>
               <News />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <Suspense fallback={<LoadingScreen />}>
+              <Contact />
             </Suspense>
           }
         />
