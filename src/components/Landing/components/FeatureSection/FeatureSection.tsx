@@ -4,35 +4,6 @@ import ProductResources from "./ProductResources"
 
 const FeatureSection = () => {
   const navigate = useNavigate()
-  // const expertiseData = [
-  //   {
-  //     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
-  //     caption: (
-  //       <>
-  //         Authorized sales and service centers in 70 countries provide <span>local access</span> to fluid system solutions.
-  //       </>
-  //     ),
-  //     link: "/locations",
-  //   },
-  //   {
-  //     image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=800",
-  //     caption: (
-  //       <>
-  //         Local specialists offer <span>engineering services</span> that help customers address fluid system issues.
-  //       </>
-  //     ),
-  //     link: "/services",
-  //   },
-  //   {
-  //     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
-  //     caption: (
-  //       <>
-  //         The <span>global Panam network</span> facilitates convenient access to technical expertise worldwide.
-  //       </>
-  //     ),
-  //     link: "/network",
-  //   },
-  // ]
   const productData = [
     {
       image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768569088/HP_Ball_Valve_2_aybek4.webp",
