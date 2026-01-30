@@ -28,7 +28,32 @@ const mockProduct: Product = {
     },
   ],
 }
-
+const adjacencyGapMock: Product = {
+  id: "test-gap",
+  title: "Gap Test Valve",
+  description: "Testing if sticky segments jump over gaps.",
+  imageUrl: "https://example.com/valve.jpg",
+  configurations: [
+    {
+      label: "Size",
+      required: true,
+      noSeperatorAfter: true,
+      options: [{ label: "1/2 inch", code: "08" }],
+    },
+    {
+      label: "Thread Type",
+      options: [
+        { label: "None", code: "" },
+        { label: "Standard", code: "N" },
+      ],
+    },
+    {
+      label: "Connection Type",
+      required: true,
+      options: [{ label: "Socket Weld", code: "SW" }],
+    },
+  ],
+}
 describe("useProductConfigurator general use", () => {
   it("should initialize the fixed components", () => {
     const { result } = renderHook(() => useProductConfigurator(mockProduct))
@@ -131,5 +156,64 @@ describe("Configuration Panel Component Test", () => {
     expect(checkbox).not.toBeChecked()
     await user.click(checkbox)
     expect(checkbox).toBeChecked()
+  })
+})
+describe("useProductConfigurator - Adjacency and Separator Logic", () => {
+  it("should enforce a separator when the direct successor is empty", () => {
+    const { result } = renderHook(() => useProductConfigurator(adjacencyGapMock))
+    act(() => {
+      result.current.handleOptionChange("Size", "08")
+      result.current.handleOptionChange("Thread Type", "")
+      result.current.handleOptionChange("Connection Type", "SW")
+    })
+    expect(result.current.generatedPartNumber).toBe("08-SW")
+  })
+  it("should omit the separator when categories are sequentially adjacent (the hug test)", () => {
+    const { result } = renderHook(() => useProductConfigurator(adjacencyGapMock))
+    act(() => {
+      result.current.handleOptionChange("Size", "08")
+      result.current.handleOptionChange("Thread Type", "N")
+      result.current.handleOptionChange("Connection Type", "SW")
+    })
+    expect(result.current.generatedPartNumber).toBe("08N-SW")
+  })
+
+  const multiGapMock: Product = {
+    id: "multi-gap",
+    title: "Multi Gap Valve",
+    description: "Testing multiple empty optional fields.",
+    imageUrl: "https://example.com/valve.jpg",
+    configurations: [
+      {
+        label: "Size",
+        required: true,
+        noSeperatorAfter: true,
+        options: [{ label: "1/2 inch", code: "08" }],
+      },
+      {
+        label: "Option A",
+        required: false,
+        options: [{ label: "Opt A", code: "" }],
+      },
+      {
+        label: "Option B",
+        required: false,
+        options: [{ label: "Opt B", code: "" }],
+      },
+      {
+        label: "Connection",
+        required: true,
+        options: [{ label: "Socket Weld", code: "SW" }],
+      },
+    ],
+  }
+  it("should handle multiple sequential empty categories without extra dashes", () => {
+    const { result } = renderHook(() => useProductConfigurator(multiGapMock))
+
+    act(() => {
+      result.current.handleOptionChange("Size", "08")
+      result.current.handleOptionChange("Connection", "SW")
+    })
+    expect(result.current.generatedPartNumber).toBe("08-SW")
   })
 })

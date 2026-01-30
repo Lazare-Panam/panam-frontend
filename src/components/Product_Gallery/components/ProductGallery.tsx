@@ -16,10 +16,10 @@ interface ProductCatalog {
   title: string
   description: string
   image: string
+  features: string[]
 }
 
 export default function ProductInventory() {
-  //let pageType: PageType = PageType.CategoryGroup;
   const { id } = useParams<{ id: string }>()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null)
@@ -48,13 +48,14 @@ export default function ProductInventory() {
       title: specification.title,
       description: specification.description,
       imageUrl: specification.imageUrl,
+      capabilities: specification.capabilities,
       configurations: specification.configurations,
     }
   }
 
   const selectedProduct = buildSelectedProduct()
 
-  const handleOpenModal = (product: any) => {
+  const handleOpenModal = (product: Product) => {
     setSelectedProductId(product.id)
     setIsModalOpen(true)
   }
@@ -103,6 +104,7 @@ export default function ProductInventory() {
                   title: item.title,
                   description: item.description,
                   imageUrl: item.image,
+                  features: item.features,
                 }}
                 type={item.type}
               />

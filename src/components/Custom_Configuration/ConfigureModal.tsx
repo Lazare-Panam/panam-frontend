@@ -6,7 +6,10 @@ import { useProductConfigurator } from "./hooks/useProductConfigurator"
 import ConfigurationPanel from "./components/ConfigurationPanel"
 import SummaryPanel from "./components/SummaryPanel"
 import type { ProductConfig } from "./types/CustomConfigurationtypes"
+
 const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
+  const [showValidation, setShowValidation] = useState(false)
+  const productConfig = useProductConfigurator(product)
   if (open && !product) {
     return (
       <Backdrop sx={{ color: "#fff" }} open={open} onClick={onClose}>
@@ -15,9 +18,9 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
     )
   }
 
+  console.log("Product in parent", product)
+
   if (!open) return null
-  const productConfig = useProductConfigurator(product)
-  const [showValidation, setShowValidation] = useState(false)
 
   const handleSaveClick = () => {
     setShowValidation(true)

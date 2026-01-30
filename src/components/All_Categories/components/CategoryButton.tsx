@@ -1,6 +1,6 @@
 import React from "react"
 import { styled } from "@mui/material/styles"
-import { Box, ButtonBase, Typography, Link } from "@mui/material"
+import { Box, ButtonBase, Typography, Paper } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
 export interface ProductforHomePage {
@@ -8,6 +8,7 @@ export interface ProductforHomePage {
   link?: string
   isProduct?: boolean
   id?: string
+  description?: string
 }
 
 interface CategoryButtonProps {
@@ -17,12 +18,35 @@ interface CategoryButtonProps {
   products: ProductforHomePage[]
   onProductClick: (productId: string) => void
 }
+const RootCard = styled(Paper)(({ theme }) => ({
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  overflow: "hidden",
+  borderRadius: 0,
+  transition: "transform 0.3s ease-in-out",
+  "&:hover": {
+    transform: "translateY(-4px)",
+    boxShadow: theme.shadows[8],
+  },
+}))
+
+const DetailsSection = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(2),
+  backgroundColor: "#fff",
+  borderTop: "1px solid #eee",
+  flexGrow: 1, // This is the key change
+  display: "flex",
+  flexDirection: "column",
+  textAlign: "center", // <--- ADD THIS
+  alignItems: "center",
+}))
 
 const ImageButton = styled(ButtonBase)({
   position: "relative",
   height: 320,
   width: "100%",
-  border: "2px solid white",
+  border: "1px solid white",
   borderRadius: 0,
   overflow: "hidden",
   "&:hover, &.Mui-focusVisible": {
@@ -48,74 +72,67 @@ const ImageBackdrop = styled("span")({
   transition: "opacity 0.3s",
 })
 
-const ProductOverlay = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  bottom: 0,
-  right: 0,
-  padding: theme.spacing(1.5),
-  borderRadius: 0,
-  backgroundColor: "rgba(255, 255, 255, 0.9)",
-  backdropFilter: "blur(8px)",
-  borderTop: "1px solid rgba(0, 0, 0, 0.1)",
-  borderLeft: "1px solid rgba(0, 0, 0, 0.1)",
-  maxWidth: "100%",
-}))
-
 export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image, products, onProductClick }) => {
   const navigate = useNavigate()
   return (
-    <ImageButton focusRipple onClick={() => navigate(`/products/${id}`)}>
-      <ImageSrc className="ImageSrc" style={{ backgroundImage: `url(${image})` }} />
-      <ImageBackdrop className="MuiImageBackdrop-root" />
-      <Box sx={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "white", p: 2, pb: 6 }}>
+    <RootCard elevation={2}>
+      <ImageButton focusRipple onClick={() => navigate(`/products/${id}`)}>
+        <ImageSrc className="ImageSrc" style={{ backgroundImage: `url(${image})` }} />
+        <ImageBackdrop className="MuiImageBackdrop-root" />
+        <Box sx={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "white", p: 2, pb: 6 }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 800,
+              textTransform: "uppercase",
+              letterSpacing: "0em",
+              textAlign: "center",
+              textShadow: "0 2px 10px rgba(0,0,0,0.7)",
+            }}>
+            {title}
+          </Typography>
+        </Box>
+      </ImageButton>
+      <DetailsSection>
         <Typography
-          variant="h5"
+          variant="overline"
           sx={{
-            fontWeight: 900,
-            textTransform: "uppercase",
-            letterSpacing: "0.1em",
-            textAlign: "center",
-            textShadow: "0 2px 10px rgba(0,0,0,0.7)",
+            fontWeight: "800",
+            color: "#01b0f0",
+            letterSpacing: "1.2px",
+            display: "block",
+            mb: 1,
           }}>
-          {title}
+          Our Features
         </Typography>
-      </Box>
-      <ProductOverlay className="ProductOverlay">
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "flex-end",
-            gap: 1.5,
-          }}>
-          {products.slice(0, 8).map((prod, idx) => (
-            <Link
-              key={idx}
-              component="button"
-              variant="body2"
-              onClick={(e: React.MouseEvent) => {
-                e.stopPropagation()
-                if (prod.isProduct && prod.id) {
-                  onProductClick(prod.id)
-                } else if (prod.link) {
-                  navigate(prod.link)
+
+        {products?.map((product, index) => (
+          <Box key={index} sx={{ mb: 2, justifyContent: "center" }}>
+            <Typography
+              variant="subtitle2"
+              onClick={() => {
+                if (product.isProduct && product.id) {
+                  onProductClick(product.id)
+                } else if (product.link) {
+                  navigate(product.link)
                 }
               }}
               sx={{
-                color: "primary.main",
-                fontWeight: 700,
-                fontSize: "0.7rem",
-                textDecoration: "none",
-                width: "auto",
-                whiteSpace: "nowrap",
-                "&:hover": { textDecoration: "underline" },
+                fontWeight: 500,
+                color: "#444",
+                cursor: "pointer",
+                fontSize: "0.9rem",
+                fontFamily: "Inter, Roboto, Arial, sans-serif",
+                "&:hover": {
+                  color: "#050505",
+                  textDecoration: "underline",
+                },
               }}>
-              • {prod.name}
-            </Link>
-          ))}
-        </Box>
-      </ProductOverlay>
-    </ImageButton>
+              {product.name}
+            </Typography>
+          </Box>
+        ))}
+      </DetailsSection>
+    </RootCard>
   )
 }
