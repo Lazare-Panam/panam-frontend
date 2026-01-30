@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { AppBar, Toolbar, Typography, Button, Stack, Container, useScrollTrigger, Box, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Fade, Grid, InputBase } from "@mui/material"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
 import SearchIcon from "@mui/icons-material/Search"
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline"
@@ -229,10 +229,16 @@ const navConfig = {
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate()
+  const location = useLocation()
   const [openDrawer, setOpenDrawer] = useState(false)
   const [megaMenuOpen, setMegaMenuOpen] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState(navConfig.products[0])
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  useEffect(() => {
+    setMegaMenuOpen(null) // Closes the hover menu
+    setOpenDrawer(false) // Closes the mobile drawer
+    setIsSearchOpen(false) // Closes search if you navigated
+  }, [location])
 
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 30 })
 
