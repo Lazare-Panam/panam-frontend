@@ -1,11 +1,11 @@
+import HeroSection from "../Common/HeroSection"
 import ContactForm from "./components/ContactForm"
-import ContactHero from "./components/ContactHero"
 import FAQSection from "./components/FaqSection"
 
 const Contact = () => {
   return (
     <>
-      <ContactHero />
+      <HeroSection overline="GET IN TOUCH" titleMain="How can we help" titleAccent="You?" description="Our global engineering team is ready to support your next project with precision flow control solutions." backgroundImage="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769690759/ben-o-bro-wpU4veNGnHg-unsplash_ryeikh.jpg" />
       <FAQSection />
       <ContactForm />
     </>

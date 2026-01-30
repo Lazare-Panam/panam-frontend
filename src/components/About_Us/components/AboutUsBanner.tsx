@@ -1,4 +1,5 @@
 import { Box, Typography, Container, Stack, Button } from "@mui/material"
+import HeroSection from "../../Common/HeroSection"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -7,93 +8,14 @@ const AboutHero = () => {
   return (
     <Box>
       {/* HERO SECTION */}
-      <Box
-        sx={{
-          width: "100%",
-          height: "70vh",
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
-          backgroundColor: "#000",
-          backgroundImage: `url('https://res.cloudinary.com/dm9rmmemx/image/upload/v1769618379/igal-ness-wQfV9njQxW4-unsplash_cyolxm.jpg')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center 30%",
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: "linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%)",
-            zIndex: 1,
-          },
-        }}>
-        <Container maxWidth="xl" sx={{ zIndex: 2, position: "relative" }}>
-          <Stack spacing={2} sx={{ maxWidth: "850px", pl: { md: 4 } }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: BRAND_BLUE,
-                fontWeight: 800,
-                letterSpacing: 4,
-                fontFamily: PRIMARY_FONT,
-                textShadow: "0px 0px 10px rgba(1, 176, 240, 0.3)",
-              }}>
-              THE FUTURE OF FLOW CONTROL
-            </Typography>
-
-            <Typography
-              variant="h1"
-              sx={{
-                color: "white",
-                fontWeight: 800,
-                fontSize: { xs: "2.8rem", md: "4.5rem" },
-                lineHeight: 1.05,
-                fontFamily: PRIMARY_FONT,
-                letterSpacing: "-0.02em",
-              }}>
-              Engineering a <br />
-              <span
-                style={{
-                  color: BRAND_BLUE,
-                  background: `linear-gradient(90deg, ${BRAND_BLUE} 0%, #fff 200%)`,
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}>
-                Sustainable
-              </span>{" "}
-              Tomorrow.
-            </Typography>
-
-            <Typography
-              variant="h6"
-              sx={{
-                color: "rgba(255, 255, 255, 0.85)",
-                fontWeight: 400,
-                maxWidth: "650px",
-                lineHeight: 1.7,
-                fontSize: "1.2rem",
-                fontFamily: PRIMARY_FONT,
-                mt: 1,
-              }}>
-              Bridging the gap between traditional industry and the renewable future. Panam Valves provides the critical precision required for the global transition to Hydrogen and clean energy.
-            </Typography>
-          </Stack>
-        </Container>
-
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            width: "100%",
-            height: "4px",
-            background: `linear-gradient(90deg, ${BRAND_BLUE}, transparent)`,
-          }}
-        />
-      </Box>
+      <HeroSection
+        overline="THE FUTURE OF FLOW CONTROL"
+        titleMain="Engineering a"
+        titleAccent="Sustainable"
+        titleEnd="Tomorrow."
+        description="Bridging the gap between traditional industry and the renewable future. Panam Valves provides the critical precision required for the global transition to Hydrogen and clean energy."
+        backgroundImage="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769618379/igal-ness-wQfV9njQxW4-unsplash_cyolxm.jpg"
+      />
 
       {/* NEW CONTENT SECTION */}
       <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: "#ffffff" }}>
