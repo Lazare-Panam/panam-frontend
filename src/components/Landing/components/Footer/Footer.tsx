@@ -9,10 +9,26 @@ const BRAND_BLUE = "#F9F9F9"
 const FOOTER_DARK = "#01B0F0"
 
 const SOCIAL_LINKS = [
-  { Icon: LinkedInIcon, name: "LinkedIn" },
-  { Icon: YouTubeIcon, name: "YouTube" },
-  { Icon: FacebookIcon, name: "Facebook" },
-  { Icon: TwitterIcon, name: "Twitter" },
+  {
+    Icon: LinkedInIcon,
+    name: "LinkedIn",
+    url: "https://uk.linkedin.com/company/panamvalves-ltd",
+  },
+  {
+    Icon: YouTubeIcon,
+    name: "YouTube",
+    url: "https://www.youtube.com/@panamengineersltd",
+  },
+  {
+    Icon: FacebookIcon,
+    name: "Facebook",
+    url: "https://www.facebook.com/PanamEngineers/",
+  },
+  {
+    Icon: TwitterIcon,
+    name: "Twitter",
+    url: "https://twitter.com/panamvalves",
+  },
 ]
 
 const Footer: React.FC = () => {
@@ -48,8 +64,23 @@ const Footer: React.FC = () => {
               Precision-engineered instrumentation solutions for critical global infrastructure.
             </Typography>
             <Stack direction="row" spacing={0.5}>
-              {SOCIAL_LINKS.map(({ Icon, name }) => (
-                <IconButton key={name} aria-label={name} size="small" sx={{ color: "white", "&:hover": { color: BRAND_BLUE } }}>
+              {SOCIAL_LINKS.map(({ Icon, name, url }) => (
+                <IconButton
+                  key={name}
+                  aria-label={name}
+                  size="small"
+                  component="a" // This makes the button behave like an <a> tag
+                  href={url}
+                  target="_blank" // Opens in new tab
+                  rel="noopener noreferrer" // Security best practice
+                  sx={{
+                    color: "white",
+                    "&:hover": {
+                      color: "#01B0F0", // Use the blue for hover
+                      transform: "translateY(-2px)", // Subtle lift effect
+                      transition: "all 0.2s",
+                    },
+                  }}>
                   <Icon fontSize="small" />
                 </IconButton>
               ))}

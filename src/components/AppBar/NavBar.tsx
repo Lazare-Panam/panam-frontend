@@ -234,6 +234,7 @@ const Navbar: React.FC = () => {
   const [megaMenuOpen, setMegaMenuOpen] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState(navConfig.products[0])
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+
   useEffect(() => {
     setMegaMenuOpen(null) // Closes the hover menu
     setOpenDrawer(false) // Closes the mobile drawer

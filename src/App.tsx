@@ -5,9 +5,9 @@ import Layout from "./Layout"
 import News from "./components/News/News"
 import Contact from "./components/Contact/Contact"
 import LoadingScreen from "./components/Loading/LoadingScreen"
-
+import ProductPage from "./components/All_Categories/ProductPage"
+import NotFound from "./components/Error/NotFound"
 // Lazy load components for better performance
-const AllCategories = lazy(() => import("./components/All_Categories/components/AllCategories"))
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
         path: "products",
         element: (
           <Suspense fallback={<LoadingScreen />}>
-            <AllCategories />
+            <ProductPage />
           </Suspense>
         ),
       },
@@ -70,6 +70,10 @@ export const router = createBrowserRouter([
             <Contact />
           </Suspense>
         ),
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

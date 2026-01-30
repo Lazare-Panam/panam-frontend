@@ -11,7 +11,7 @@ const partnerSlides = [
   { name: "Hydraulic Megastore", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516390/download_1_ixgkup.jpg", url: "https://www.hydraulicmegastore.com/" },
   { name: "Ram Universal", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521921/ram-logo_endebu.png", url: "https://www.ramuniversal.co.uk/" },
   { name: "OMV", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769522389/49dc2b_94be551593d14559b5895c083a396ec2_mv2_mnpehy.avif", url: "https://www.omv.as/" },
-  { name: "AC Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521817/eafe29df-39d4-412b-ba55-35534adb2578_b5kiaj.jpg", url: "https://acv-group.com/products/" },
+  { name: "AC Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521817/eafe29df-39d4-412b-ba55-35534adb2578_b5kiaj.jpg", url: "https://acv-group.com/" },
   { name: "Andro Mach", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769522584/67802ddc81f9ad5db58223d2_logo-svg-shape_jiketc.svg", url: "https://www.andromach.space/" },
 ]
 
