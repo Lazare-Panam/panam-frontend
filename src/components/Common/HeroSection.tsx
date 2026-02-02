@@ -22,7 +22,7 @@ const HeroSection = ({ overline, titleMain, titleAccent, titleEnd, description, 
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
-        backgroundColor: "#000",
+        backgroundColor: "#1a1a1a",
         backgroundImage: `url('${backgroundImage}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -33,10 +33,10 @@ const HeroSection = ({ overline, titleMain, titleAccent, titleEnd, description, 
           left: 0,
           right: 0,
           bottom: 0,
-          background: "radial-gradient(circle at 20% 50%, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%)",
+          background: "radial-gradient(circle at 20% 50%, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 100%)",
         },
       }}>
-      <Container maxWidth="xl" sx={{ zIndex: 2, position: "relative" }}>
+      <Container maxWidth="xl" sx={{ position: "relative" }}>
         <Stack spacing={2} sx={{ maxWidth: "900px", pl: { md: 4 } }}>
           <Typography
             variant="overline"
@@ -45,7 +45,7 @@ const HeroSection = ({ overline, titleMain, titleAccent, titleEnd, description, 
               fontWeight: 800,
               letterSpacing: 4,
               fontFamily: PRIMARY_FONT,
-              textShadow: "0px 0px 15px rgba(1, 176, 240, 0.4)",
+              textShadow: "0px 4px 12px rgba(0, 0, 0, 0.5)",
             }}>
             {overline}
           </Typography>
@@ -76,13 +76,14 @@ const HeroSection = ({ overline, titleMain, titleAccent, titleEnd, description, 
           <Typography
             variant="h6"
             sx={{
-              color: "rgba(255, 255, 255, 0.9)",
+              color: "#fff",
               fontWeight: 400,
               maxWidth: "700px",
               lineHeight: 1.6,
               fontSize: "1.25rem",
               fontFamily: PRIMARY_FONT,
               mt: 2,
+              textShadow: "0px 2px 10px rgba(0,0,0,0.4)",
             }}>
             {description}
           </Typography>
