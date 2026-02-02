@@ -40,7 +40,7 @@ const navConfig = {
     },
     {
       id: "valves",
-      label: "Valves",
+      label: "Instrumentation Valves",
       link: "/products/valves",
       items: [
         { name: "Needle Valves", link: "/products/valves/needle" },
@@ -74,7 +74,7 @@ const navConfig = {
     },
     {
       id: "filter",
-      label: "Filter",
+      label: "Filters",
       link: "/products/filter",
       items: [
         { name: "T-Type Filter", link: "/products/filter/t-type" },
@@ -84,7 +84,7 @@ const navConfig = {
     },
     {
       id: "couplings",
-      label: "Quick Coupling",
+      label: "Hose & Quick Coupling",
       link: "/products/couplings",
       items: [
         { name: "ISO-A & ISO-B", link: "/products/couplings/iso" },
@@ -93,9 +93,21 @@ const navConfig = {
         { name: "High Pressure Hoses", link: "/products/couplings/hoses" },
       ],
     },
+
+    {
+      id: "regulator",
+      label: "Tubing and Integrated Systems",
+      link: "/products/regulators",
+      items: [
+        { name: "Pressure Regulators", link: "/products/regulators/pressure" },
+        { name: "Air Headers", link: "/products/regulators/air-headers" },
+        { name: "Condensate Pots", link: "/products/regulators/condensate-pots" },
+        { name: "Flange Adaptors", link: "/products/regulators/flange-adaptors" },
+      ],
+    },
     {
       id: "regulators",
-      label: "Regulators",
+      label: "Regulator And Others",
       link: "/products/regulators",
       items: [
         { name: "Pressure Regulators", link: "/products/regulators/pressure" },
@@ -115,7 +127,6 @@ const navConfig = {
         { name: "Propulsion Systems", link: "/industries/marine/propulsion" },
         { name: "Ballast Water Treatment", link: "/industries/marine/ballast" },
         { name: "Marine Engine Components", link: "/industries/marine/engine" },
-        { name: "Deck Machinery", link: "/industries/marine/deck" },
       ],
     },
     {
@@ -169,6 +180,30 @@ const navConfig = {
     {
       id: "manufacturing",
       label: "Manufacturing",
+      link: "/industries/manufacturing",
+      items: [
+        { name: "Hydraulic Presses", link: "/industries/manufacturing/hydraulic" },
+        { name: "Pneumatic Controls", link: "/industries/manufacturing/pneumatic" },
+        { name: "Factory Automation", link: "/industries/manufacturing/automation" },
+        { name: "Machine Tooling", link: "/industries/manufacturing/tooling" },
+        { name: "Coolant Circulation", link: "/industries/manufacturing/coolant" },
+      ],
+    },
+    {
+      id: "off-shore",
+      label: "Off Shore And Subsea",
+      link: "/industries/manufacturing",
+      items: [
+        { name: "Hydraulic Presses", link: "/industries/manufacturing/hydraulic" },
+        { name: "Pneumatic Controls", link: "/industries/manufacturing/pneumatic" },
+        { name: "Factory Automation", link: "/industries/manufacturing/automation" },
+        { name: "Machine Tooling", link: "/industries/manufacturing/tooling" },
+        { name: "Coolant Circulation", link: "/industries/manufacturing/coolant" },
+      ],
+    },
+    {
+      id: "semiconductor",
+      label: "Semi Conductor",
       link: "/industries/manufacturing",
       items: [
         { name: "Hydraulic Presses", link: "/industries/manufacturing/hydraulic" },

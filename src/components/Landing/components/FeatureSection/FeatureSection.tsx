@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import FeatureGridSection from "./FeatureGridSection"
 import ProductResources from "./ProductResources"
+import ScrollReveal from "../../../Common/ScrollReveal"
 
 const FeatureSection = () => {
   const navigate = useNavigate()
@@ -65,9 +66,16 @@ const FeatureSection = () => {
 
   return (
     <>
-      <FeatureGridSection sectionTitle="Our Core Product Lines" items={productData} buttonText="View Full Product Catalog" onButtonClick={() => navigate("/products")} />
-      <ProductResources />
-      <FeatureGridSection sectionTitle="Hydrogen & Project Engineering" items={hydrogenData} buttonText="Find Out more about our work on hydrogen" onButtonClick={() => console.log("Button Clicked!")} />
+      <ScrollReveal delay={0.2}>
+        <FeatureGridSection sectionTitle="Our Core Product Lines" items={productData} buttonText="View Full Product Catalog" onButtonClick={() => navigate("/products")} />
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.2}>
+        <FeatureGridSection sectionTitle="Hydrogen Product & Project Engineering" items={hydrogenData} buttonText="Find Out more about our work on hydrogen" onButtonClick={() => console.log("Button Clicked!")} />
+      </ScrollReveal>
+      <ScrollReveal delay={0.2}>
+        <ProductResources />
+      </ScrollReveal>
       {/* <FeatureGridSection sectionTitle="Global Expertise, Local Support" items={expertiseData} buttonText="Find Support from a Local Sales and Service Center" onButtonClick={() => console.log("Button Clicked!")} /> */}
     </>
   )
