@@ -13,7 +13,7 @@ const pillarData = [
   },
   {
     title: "Our Leadership",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769532726/jehyun-sung-6U5AEmQIajg-unsplash_dv6h7l.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769789155/WhatsApp_Image_2026-01-30_at_3.43.08_PM_stqorr.jpg",
     description: "Our team of strong and diverse leaders guides Panam Valves in our world's dynamic environment.",
   },
   {

@@ -46,9 +46,9 @@ export const CATEGORIES: CategoryData[] = [
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769424806/union_-_jpg_x7siq3.jpg",
     products: [
       { name: "Tube Fittings", id: "tube-fittings", isProduct: true },
-      { name: "37 JIC Fittings", id: "pipe-fittings", isProduct: true },
-      { name: "Pipe Fittings", id: "weld-fittings", isProduct: true },
-      { name: "Weld Fittings", id: "37-jic-fittings", isProduct: true },
+      { name: "37 JIC Fittings", id: "37-jic-fittings", isProduct: true },
+      { name: "Pipe Fittings", id: "pipe-fittings", isProduct: true },
+      { name: "Weld Fittings", id: "weld-fittings", isProduct: true },
       { name: "Swivel Gauge Adaptors", link: "/products/hydrogen/fittings" },
     ],
   },

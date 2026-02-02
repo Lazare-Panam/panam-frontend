@@ -236,9 +236,9 @@ const Navbar: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   useEffect(() => {
-    setMegaMenuOpen(null) // Closes the hover menu
-    setOpenDrawer(false) // Closes the mobile drawer
-    setIsSearchOpen(false) // Closes search if you navigated
+    setMegaMenuOpen(null)
+    setOpenDrawer(false)
+    setIsSearchOpen(false)
   }, [location])
 
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 30 })
