@@ -39,7 +39,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
       cartItemId: `${product.id}-${productConfig.generatedPartNumber}`,
       id: product.id,
       name: product.title,
-      image: product.imageUrl || "", // Ensure your product object has this
+      image: product.imageUrl || "",
       quantity: 1,
       partNumber: productConfig.generatedPartNumber,
       specs: selectedSpecs,
@@ -49,12 +49,8 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
       severity: "success",
       partNumber: productConfig.generatedPartNumber,
     })
-
-    // 3. Close the modal after a brief delay so they see the success
     setTimeout(() => {
       onClose()
-      // We don't reset notif.open here because the Snackbar
-      // will handle its own autoHideDuration
     }, 1200)
   }
   if (!open) return null

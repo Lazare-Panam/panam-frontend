@@ -23,6 +23,9 @@ interface CartItemProps {
 }
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }: CartItemProps) => {
+  const fullDescription = Object.values(item.specs)
+    .filter(val => val) // Remove any empty selections
+    .join(", ")
   return (
     <Box sx={{ borderBottom: "2px solid #f0f0f0", py: 6 }}>
       <Grid container alignItems="center">
@@ -32,19 +35,11 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }: CartItemProps) => {
             <Box component="img" src={item.image} sx={{ width: 140, height: 140, objectFit: "contain", p: 1 }} />
             <Box>
               <Typography variant="h6" fontWeight={600} color={BRAND_BLUE} sx={{ mb: 1, lineHeight: 1.1, cursor: "pointer", "&:hover": { textDecoration: "underline" } }}>
-                {item.name}
+                {fullDescription || item.name}
               </Typography>
               <Typography variant="h6" sx={{ color: "#444", display: "block", fontWeight: 700, mb: 1.5 }}>
                 Part Number: {item.partNumber}
               </Typography>
-
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                {Object.entries(item.specs).map(([key, value]) => (
-                  <Typography key={key} sx={{ fontSize: "0.85rem", color: "#666", fontWeight: 500, bgcolor: "#f5f5f5", px: 1 }}>
-                    {String(value)}
-                  </Typography>
-                ))}
-              </Box>
             </Box>
           </Stack>
         </Grid>
