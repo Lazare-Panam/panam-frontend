@@ -92,10 +92,7 @@ const CartPage = () => {
       ))}
 
       {/* Bottom Action Bar */}
-      <CartFooter 
-  onProceed={() => mutate()} 
-  isPending={isPending} 
-/>
+      <CartFooter onProceed={() => mutate()} isPending={isPending} />
 
       {/* Notification System */}
       <Snackbar open={notif.open} autoHideDuration={5000} onClose={handleCloseNotif} anchorOrigin={{ vertical: "top", horizontal: "center" }} sx={{ mt: 5 }}>
