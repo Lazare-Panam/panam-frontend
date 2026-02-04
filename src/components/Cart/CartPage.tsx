@@ -1,18 +1,58 @@
-import { Box, Container, Typography, Stack, Button, IconButton, CircularProgress, TextField } from "@mui/material"
-import Grid from "@mui/material/Grid"
-import CloseIcon from "@mui/icons-material/Close"
-import AddIcon from "@mui/icons-material/Add"
-import RemoveIcon from "@mui/icons-material/Remove"
+import React, { useState } from "react"
+import { Box, Container, Typography, Stack, Button, CircularProgress, Snackbar, Alert } from "@mui/material"
+import { useMutation } from "@tanstack/react-query"
+import { requestQuotation } from "../../api/orderApi"
 import { useCartStore } from "../store/useCartStore"
 import { useNavigate } from "react-router-dom"
+import CartHeader from "./components/CartHeader"
+import CartItem from "./components/CartItem"
+import CartFooter from "./components/CartFooter"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
+
+interface NotificationState {
+  open: boolean
+  message: string
+  severity: "success" | "error"
+}
 
 const CartPage = () => {
   const navigate = useNavigate()
   const { cart, removeItem, updateQuantity } = useCartStore()
   const isHydrated = useCartStore.persist.hasHydrated()
+
+  // --- Notification State ---
+  const [notif, setNotif] = useState<NotificationState>({
+    open: false,
+    message: "",
+    severity: "success",
+  })
+
+  // --- API Mutation ---
+  const { mutate, isPending } = useMutation<any, Error>({
+    mutationFn: requestQuotation,
+    onSuccess: () => {
+      setNotif({
+        open: true,
+        message: "Quotation request submitted successfully!",
+        severity: "success",
+      })
+    },
+    onError: () => {
+      setNotif({
+        open: true,
+        message: "Unable to send request. Please try again later.",
+        severity: "error",
+      })
+    },
+    retry: false,
+  })
+
+  const handleCloseNotif = (_event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === "clickaway") return
+    setNotif(prev => ({ ...prev, open: false }))
+  }
 
   if (!isHydrated) {
     return (
@@ -43,123 +83,42 @@ const CartPage = () => {
         </Typography>
       </Stack>
 
-      {/* Table Header Row - Increased Font Weight and Size */}
-      <Grid container sx={{ bgcolor: BRAND_BLUE, p: 2, color: "white", mb: 3 }}>
-        <Grid size={{ xs: 5 }}>
-          <Typography variant="subtitle1" fontWeight={600} sx={{ ml: 2, textTransform: "uppercase", fontSize: "0.9rem" }}>
-            Item
-          </Typography>
-        </Grid>
-        <Grid size={{ xs: 4 }}>
-          <Typography variant="subtitle1" fontWeight={600} sx={{ textTransform: "uppercase", fontSize: "0.9rem" }}>
-            Customer Info
-          </Typography>
-        </Grid>
-        <Grid size={{ xs: 3 }}>
-          <Typography variant="subtitle1" fontWeight={600} sx={{ textAlign: "center", display: "block", textTransform: "uppercase", fontSize: "0.9rem" }}>
-            Quantity
-          </Typography>
-        </Grid>
-      </Grid>
+      {/* Table Header Row */}
+      <CartHeader />
 
       {/* Product Rows */}
       {cart.map(item => (
-        <Box key={item.cartItemId} sx={{ borderBottom: "2px solid #f0f0f0", py: 6 }}>
-          <Grid container alignItems="center">
-            {/* 1. Item Detail Section - Using Brand Blue and Bigger Text */}
-            <Grid size={{ xs: 5 }}>
-              <Stack direction="row" spacing={4} alignItems="center">
-                <Box component="img" src={item.image} sx={{ width: 140, height: 140, objectFit: "contain", p: 1 }} />
-                <Box>
-                  <Typography variant="h6" fontWeight={600} color={BRAND_BLUE} sx={{ mb: 1, lineHeight: 1.1, cursor: "pointer", "&:hover": { textDecoration: "underline" } }}>
-                    {item.name}
-                  </Typography>
-                  <Typography variant="h6" sx={{ color: "#444", display: "block", fontWeight: 700, mb: 1.5 }}>
-                    Part Number: {item.partNumber}
-                  </Typography>
-
-                  {/* Specifications - More legible */}
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                    {Object.entries(item.specs).map(([key, value]) => (
-                      <Typography key={key} sx={{ fontSize: "0.85rem", color: "#666", fontWeight: 500, bgcolor: "#f5f5f5", px: 1 }}>
-                        {value}
-                      </Typography>
-                    ))}
-                  </Box>
-                </Box>
-              </Stack>
-            </Grid>
-
-            {/* 2. Customer Info / Notes Section */}
-            <Grid size={{ xs: 4 }} sx={{ px: 4 }}>
-              <Typography variant="body1" fontWeight={600} sx={{ display: "block", mb: 1, color: "#2D3E50" }}>
-                Notes
-              </Typography>
-              <TextField
-                fullWidth
-                multiline
-                rows={4}
-                placeholder="Add specific instructions for this configuration..."
-                sx={{
-                  "& .MuiInputBase-root": { fontSize: "1rem", borderRadius: 0, bgcolor: "#fff", fontFamily: PRIMARY_FONT },
-                  "& .MuiOutlinedInput-notchedOutline": { borderColor: "#ccc", borderWidth: "2px" },
-                }}
-              />
-              <Button size="large" sx={{ color: BRAND_BLUE, textTransform: "none", mt: 1, fontSize: "0.9rem", fontWeight: 600, p: 0 }}>
-                Save Changes {">"}
-              </Button>
-            </Grid>
-
-            {/* 3. Quantity Section - Bigger Controls */}
-            <Grid size={{ xs: 3 }}>
-              <Stack direction="row" spacing={3} alignItems="center" justifyContent="center">
-                <Stack direction="row" alignItems="center" sx={{ border: "2px solid #ccc", bgcolor: "#fff" }}>
-                  <IconButton onClick={() => updateQuantity(item.cartItemId, -1)} sx={{ borderRadius: 0, p: 1.5 }}>
-                    <RemoveIcon sx={{ fontSize: "1.5rem" }} />
-                  </IconButton>
-                  <Typography sx={{ width: 60, textAlign: "center", fontWeight: 900, fontSize: "1.4rem", color: "#2D3E50" }}>{item.quantity}</Typography>
-                  <IconButton onClick={() => updateQuantity(item.cartItemId, 1)} sx={{ borderRadius: 0, p: 1.5 }}>
-                    <AddIcon sx={{ fontSize: "1.5rem" }} />
-                  </IconButton>
-                </Stack>
-
-                <IconButton
-                  onClick={() => removeItem(item.cartItemId)}
-                  sx={{
-                    color: "#ccc",
-                    transition: "color 0.2s",
-                    "&:hover": { color: "#ff4d4d" },
-                  }}>
-                  <CloseIcon sx={{ fontSize: "2rem" }} />
-                </IconButton>
-              </Stack>
-            </Grid>
-          </Grid>
-        </Box>
+        <CartItem key={item.cartItemId} item={item} onUpdateQuantity={updateQuantity} onRemove={removeItem} />
       ))}
 
-      {/* Optional Bottom Action Bar for long carts */}
-      <Stack direction="row" justifyContent="flex-end" sx={{ mt: 6 }}>
-        <Button
-          variant="outlined"
-          size="large"
+      {/* Bottom Action Bar */}
+      <CartFooter 
+  onProceed={() => mutate()} 
+  isPending={isPending} 
+/>
+
+      {/* Notification System */}
+      <Snackbar open={notif.open} autoHideDuration={5000} onClose={handleCloseNotif} anchorOrigin={{ vertical: "top", horizontal: "center" }} sx={{ mt: 5 }}>
+        <Alert
+          onClose={handleCloseNotif}
+          severity={notif.severity}
+          variant="filled"
           sx={{
-            borderRadius: "50px",
+            width: "100%",
+            bgcolor: notif.severity === "success" ? BRAND_BLUE : "#f44336",
+            color: "#fff",
+            fontWeight: 800,
+            fontFamily: PRIMARY_FONT,
+            borderRadius: 0,
+            fontSize: "1.1rem",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
             px: 4,
-            py: 1.5,
-            fontWeight: 700,
-            textTransform: "uppercase",
-            color: "#01B0F0",
-            borderColor: "#01B0F0",
-            borderWidth: 2,
-            "&:hover": {
-              borderWidth: 2,
-              backgroundColor: "rgba(0,85,150,0.05)",
-            },
+            py: 2,
+            "& .MuiAlert-icon": { fontSize: "2rem" },
           }}>
-          Procceed to quote
-        </Button>
-      </Stack>
+          {notif.message}
+        </Alert>
+      </Snackbar>
     </Container>
   )
 }
