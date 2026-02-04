@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { AppBar, Toolbar, Typography, Button, Stack, Container, useScrollTrigger, Box, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Fade, Grid, InputBase } from "@mui/material"
+import { AppBar, Toolbar, Typography, Button, Stack, Container, useScrollTrigger, Box, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Fade, Grid, InputBase, Badge } from "@mui/material"
 import { useNavigate, useLocation } from "react-router-dom"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
 import SearchIcon from "@mui/icons-material/Search"
@@ -8,6 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import CloseIcon from "@mui/icons-material/Close"
+import { useCartStore } from "../store/useCartStore"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -269,6 +270,10 @@ const Navbar: React.FC = () => {
   const [megaMenuOpen, setMegaMenuOpen] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState(navConfig.products[0])
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const cart = useCartStore(state => state.cart)
+
+  // Calculate total items (sum of quantities)
+  const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0)
 
   useEffect(() => {
     setMegaMenuOpen(null)
@@ -391,7 +396,23 @@ const Navbar: React.FC = () => {
               </IconButton>
 
               <Stack direction="row" spacing={1.5} alignItems="center" onClick={() => navigate("/cart")} sx={{ cursor: "pointer", pl: 1 }}>
-                <ShoppingCartOutlinedIcon sx={{ fontSize: 28, color: "#4A4A4A" }} />
+                <Badge
+                  badgeContent={cartCount}
+                  color="error"
+                  sx={{
+                    "& .MuiBadge-badge": {
+                      backgroundColor: BRAND_BLUE, // Match your brand color
+                      color: "white",
+                      fontWeight: 800,
+                      fontFamily: PRIMARY_FONT,
+                      fontSize: "0.75rem",
+                      top: 2,
+                      right: 2,
+                    },
+                  }}>
+                  <ShoppingCartOutlinedIcon sx={{ fontSize: 28, color: "#4A4A4A" }} />
+                </Badge>
+
                 <Box sx={{ display: { xs: "none", lg: "block" } }}>
                   <Typography variant="caption" display="block" sx={{ fontWeight: 700, color: BRAND_BLUE, lineHeight: 1.2 }}>
                     Quick Order?

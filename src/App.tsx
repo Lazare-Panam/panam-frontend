@@ -8,6 +8,7 @@ import LoadingScreen from "./components/Loading/LoadingScreen"
 import ProductPage from "./components/All_Categories/ProductPage"
 import NotFound from "./components/Error/NotFound"
 import ErrorPage from "./components/Error/ErrorPage"
+import CartPage from "./components/Cart/CartPage"
 // Lazy load components for better performance
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
@@ -74,6 +75,14 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "cart",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CartPage />
           </Suspense>
         ),
       },

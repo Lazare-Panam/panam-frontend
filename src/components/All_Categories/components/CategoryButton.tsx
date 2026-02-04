@@ -1,6 +1,6 @@
 import React from "react"
 import { styled } from "@mui/material/styles"
-import { Box, ButtonBase, Typography, Paper } from "@mui/material"
+import { Box, ButtonBase, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
 export interface ProductforHomePage {
@@ -18,27 +18,29 @@ interface CategoryButtonProps {
   products: ProductforHomePage[]
   onProductClick: (productId: string) => void
 }
-const RootCard = styled(Paper)(({ theme }) => ({
+
+const BRAND_BLUE = "#33C1FF"
+
+const RootCard = styled(Box)(() => ({
   height: "100%",
   display: "flex",
   flexDirection: "column",
   overflow: "hidden",
   borderRadius: 0,
-  transition: "transform 0.3s ease-in-out",
-  "&:hover": {
-    transform: "translateY(-4px)",
-    boxShadow: theme.shadows[8],
-  },
+  backgroundColor: "#fff",
+  // Pure grey border, no shadows
+  border: "1px solid rgba(0, 0, 0, 0.12)",
+  transition: "all 0.2s ease-in-out",
+  margin: 0,
 }))
 
 const DetailsSection = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(2),
+  padding: theme.spacing(3),
   backgroundColor: "#fff",
-  borderTop: "1px solid #eee",
-  flexGrow: 1, // This is the key change
+  flexGrow: 1,
   display: "flex",
   flexDirection: "column",
-  textAlign: "center", // <--- ADD THIS
+  textAlign: "center",
   alignItems: "center",
 }))
 
@@ -46,13 +48,12 @@ const ImageButton = styled(ButtonBase)({
   position: "relative",
   height: 320,
   width: "100%",
-  border: "1px solid white",
   borderRadius: 0,
   overflow: "hidden",
-  "&:hover, &.Mui-focusVisible": {
-    zIndex: 1,
-    "& .MuiImageBackdrop-root": { opacity: 0.2 },
-    "& .ImageSrc": { transform: "scale(1.05)" },
+  // Subtle line between image and text
+  borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
+  "&:hover .ImageSrc": {
+    transform: "scale(1.05)",
   },
 })
 
@@ -64,53 +65,58 @@ const ImageSrc = styled("span")({
   transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
 })
 
-const ImageBackdrop = styled("span")({
-  position: "absolute",
-  inset: 0,
-  backgroundColor: "#000",
-  opacity: 0.4,
-  transition: "opacity 0.3s",
-})
-
 export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image, products, onProductClick }) => {
   const navigate = useNavigate()
+
   return (
-    <RootCard elevation={2}>
+    <RootCard>
       <ImageButton focusRipple onClick={() => navigate(`/products/${id}`)}>
         <ImageSrc className="ImageSrc" style={{ backgroundImage: `url(${image})` }} />
-        <ImageBackdrop className="MuiImageBackdrop-root" />
-        <Box sx={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "white", p: 2, pb: 6 }}>
+
+        {/* No grey overlay here - just the text with a shadow for legibility */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            p: 2,
+          }}>
           <Typography
             variant="h5"
             sx={{
               fontWeight: 800,
               textTransform: "uppercase",
-              letterSpacing: "0em",
+              color: "white",
               textAlign: "center",
-              textShadow: "0 2px 10px rgba(0,0,0,0.7)",
+              // Essential shadow so white text is visible on light images
+              textShadow: "0 2px 12px rgba(0,0,0,0.6)",
             }}>
             {title}
           </Typography>
         </Box>
       </ImageButton>
+
       <DetailsSection>
         <Typography
           variant="overline"
           sx={{
             fontWeight: "800",
-            color: "#01b0f0",
+            color: BRAND_BLUE,
             letterSpacing: "1.2px",
             display: "block",
-            mb: 1,
+            mb: 2,
           }}>
           Our Features
         </Typography>
 
         {products?.map((product, index) => (
-          <Box key={index} sx={{ mb: 2, justifyContent: "center" }}>
+          <Box key={index} sx={{ mb: 1.5 }}>
             <Typography
               variant="subtitle2"
-              onClick={() => {
+              onClick={e => {
+                e.stopPropagation()
                 if (product.isProduct && product.id) {
                   onProductClick(product.id)
                 } else if (product.link) {
@@ -119,12 +125,11 @@ export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image
               }}
               sx={{
                 fontWeight: 500,
-                color: "#444",
+                color: "#666",
                 cursor: "pointer",
-                fontSize: "0.9rem",
-                fontFamily: "Inter, Roboto, Arial, sans-serif",
+                fontSize: "0.85rem",
                 "&:hover": {
-                  color: "#050505",
+                  color: "#000",
                   textDecoration: "underline",
                 },
               }}>

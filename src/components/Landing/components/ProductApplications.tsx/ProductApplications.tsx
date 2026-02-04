@@ -14,8 +14,8 @@ const BRAND_BLUE_LIGHT = "#33C1FF"
 const APPLICATIONS_DATA = [
   {
     id: "semiconductor",
-    label: "Semiconductor and Specialty Gases",
-    title: "Semiconductor and Specialty Gases",
+    label: "Semiconductor & Specialty Gases",
+    title: "Semiconductor & Specialty Gases",
     description: "High-purity gas delivery systems designed for the rigorous demands of semiconductor manufacturing, ensuring zero contamination and maximum precision.",
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770033270/vishnu-mohanan-zs4gtT8thO0-unsplash_hotyyf.jpg",
   },
@@ -68,7 +68,7 @@ const ProductApplications = () => {
         },
       }}>
       <Container maxWidth="xl" sx={{ position: "relative", zIndex: 2 }}>
-        <Typography variant="h3" textAlign="center" fontWeight={800} sx={{ mb: 6, letterSpacing: -1 }}>
+        <Typography variant="h4" textAlign="center" fontWeight={800} sx={{ mb: 6, letterSpacing: -1 }}>
           Product <span style={{ color: BRAND_BLUE_LIGHT }}>Applications</span>
         </Typography>
 
@@ -108,7 +108,7 @@ const ProductApplications = () => {
                 <Typography variant="overline" sx={{ color: BRAND_BLUE_LIGHT, fontWeight: 700, letterSpacing: 2 }}>
                   Industrial Excellence
                 </Typography>
-                <Typography variant="h2" fontWeight={800} sx={{ fontSize: { xs: "2.5rem", md: "3.5rem" }, mb: 3, lineHeight: 1.2 }}>
+                <Typography variant="h2" fontWeight={600} sx={{ fontSize: { xs: "2.5rem", md: "3.5rem" }, mb: 3, lineHeight: 1.2 }}>
                   {current.title}
                 </Typography>
                 <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.8)", mb: 5, lineHeight: 1.9, fontSize: "1.15rem", maxWidth: "550px" }}>
