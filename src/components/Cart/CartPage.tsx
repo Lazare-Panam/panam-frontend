@@ -10,15 +10,26 @@ import EmptyCartView from "./components/EmptyCart"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
+
+interface QuotationPayload {
+  customerEmail: string
+  customerName: string
+  orderNumber: string
+  items: {
+    description: string
+    partNumber: string
+    quantity: number
+  }[]
+}
 const CartPage = () => {
   const { cart, removeItem, updateQuantity } = useCartStore()
   const isHydrated = useCartStore.persist.hasHydrated()
   const showNotification = useNotificationStore(state => state.showNotification)
-  const { mutate, isPending } = useMutation<any, Error>({
+  const { mutate, isPending } = useMutation<any, Error, QuotationPayload>({
     mutationFn: requestQuotation,
     onSuccess: () => {
       showNotification({
-        message: "Quotation request submitted successfully!",
+        message: "Quotation request submitted successfully, you will recieve a mail soon!",
         severity: "success",
       })
     },
@@ -30,6 +41,25 @@ const CartPage = () => {
     },
     retry: false,
   })
+  const handleProceed = () => {
+    // This payload matches your .NET QuotationRequest DTO exactly
+    const payload = {
+      customerEmail: "panamvalves@gmail.com",
+      customerName: "Lazare",
+      orderNumber: `PV-${Math.floor(1000 + Math.random() * 9000)}`,
+      items: cart.map(item => ({
+        description:
+          Object.values(item.specs)
+            .filter(v => v)
+            .join(", ") || item.name,
+        partNumber: item.partNumber,
+        quantity: item.quantity,
+        // Notes omitted as requested
+      })),
+    }
+
+    mutate(payload)
+  }
 
   if (!isHydrated) {
     return (
@@ -54,7 +84,7 @@ const CartPage = () => {
       {cart.map(item => (
         <CartItem key={item.cartItemId} item={item} onUpdateQuantity={updateQuantity} onRemove={removeItem} />
       ))}
-      <CartFooter onProceed={() => mutate()} isPending={isPending} />
+      <CartFooter onProceed={handleProceed} isPending={isPending} />
     </Container>
   )
 }

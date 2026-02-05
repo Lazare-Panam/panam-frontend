@@ -50,7 +50,7 @@ export const useCartStore = create<CartStore>()(
         })),
       updateNotes: (cartItemId: string, notes: string) =>
         set(state => ({
-          cart: state.cart.map(item => (item.cartItemId === cartItemId ? { ...item, notes } : item)),
+          cart: state.cart.map(item => (item.cartItemId === cartItemId ? { ...item, notes: notes.trim() === "" ? undefined : notes } : item)),
         })),
 
       clearCart: () => set({ cart: [] }),

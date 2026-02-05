@@ -59,7 +59,7 @@ const navConfig = {
         { name: "2-Valve Manifolds", link: "/products/manifolds/2-valve" },
         { name: "3-Valve Manifolds", link: "/products/manifolds/3-valve" },
         { name: "5-Valve Manifolds", link: "/products/manifolds/5-valve" },
-        { name: "Monoflanges", link: "/products/manifolds/monoflanges" },
+        { name: "Air Header", link: "/products/manifolds/monoflanges" },
       ],
     },
     {
@@ -80,7 +80,6 @@ const navConfig = {
       items: [
         { name: "T-Type Filter", link: "/products/filter/t-type" },
         { name: "In-Line Filter", link: "/products/filter/inline" },
-        { name: "Bypass Filters", link: "/products/filter/bypass" },
       ],
     },
     {
@@ -96,14 +95,15 @@ const navConfig = {
     },
 
     {
-      id: "regulator",
+      id: "tubing",
       label: "Tubing and Integrated Systems",
-      link: "/products/regulators",
+      link: "/products/tubing",
       items: [
-        { name: "Pressure Regulators", link: "/products/regulators/pressure" },
-        { name: "Air Headers", link: "/products/regulators/air-headers" },
+        { name: "Tubing", link: "/products/regulators/pressure" },
+        { name: "Tube Clamp", link: "/products/regulators/air-headers" },
+        { name: "Pre-Fabricated Hook ups", link: "/products/regulators/condensate-pots" },
+        { name: "Gas Grab Sampling", link: "/products/regulators/condensate-pots" },
         { name: "Condensate Pots", link: "/products/regulators/condensate-pots" },
-        { name: "Flange Adaptors", link: "/products/regulators/flange-adaptors" },
       ],
     },
     {
@@ -112,16 +112,19 @@ const navConfig = {
       link: "/products/regulators",
       items: [
         { name: "Pressure Regulators", link: "/products/regulators/pressure" },
-        { name: "Air Headers", link: "/products/regulators/air-headers" },
-        { name: "Condensate Pots", link: "/products/regulators/condensate-pots" },
-        { name: "Flange Adaptors", link: "/products/regulators/flange-adaptors" },
+        { name: "Pressure Transmitter", link: "/products/regulators/pressure" },
+        { name: "Pressure Gauges", link: "/products/regulators/pressure" },
+        { name: "Temperature Gauges", link: "/products/regulators/air-headers" },
+        { name: "Thermowell", link: "/products/regulators/flange-adaptors" },
+        { name: "Pressure Transmitter", link: "/products/regulators/flange-adaptors" },
+        { name: "Temperature Transmitter", link: "/products/regulators/flange-adaptors" },
       ],
     },
   ],
   industries: [
     {
       id: "marine",
-      label: "Marine",
+      label: "Marine & Subsea",
       link: "/industries/marine",
       items: [
         { name: "Shipbuilding", link: "/industries/marine/shipbuilding" },
@@ -143,8 +146,20 @@ const navConfig = {
       ],
     },
     {
+      id: "Hydrogen",
+      label: "Hydrogen",
+      link: "/industries/oil-gas",
+      items: [
+        { name: "Upstream Exploration", link: "/industries/oil-gas/upstream" },
+        { name: "Midstream Pipelines", link: "/industries/oil-gas/midstream" },
+        { name: "Downstream Refining", link: "/industries/oil-gas/downstream" },
+        { name: "Petrochemical Plants", link: "/industries/oil-gas/petrochemical" },
+        { name: "Gas Processing", link: "/industries/oil-gas/gas-processing" },
+      ],
+    },
+    {
       id: "renewables",
-      label: "Renewables",
+      label: "Aerospace & Defense",
       link: "/industries/renewables",
       items: [
         { name: "Hydrogen Electrolysers", link: "/industries/renewables/hydrogen" },
@@ -156,7 +171,7 @@ const navConfig = {
     },
     {
       id: "automotive",
-      label: "Automotive",
+      label: "Food & Beverages",
       link: "/industries/automotive",
       items: [
         { name: "Testing Rigs", link: "/industries/automotive/testing" },
@@ -168,7 +183,7 @@ const navConfig = {
     },
     {
       id: "agriculture",
-      label: "Agriculture",
+      label: "Chemicals & Petrochemical",
       link: "/industries/agriculture",
       items: [
         { name: "Irrigation Systems", link: "/industries/agriculture/irrigation" },
@@ -176,42 +191,6 @@ const navConfig = {
         { name: "Tractor Hydraulics", link: "/industries/agriculture/tractor" },
         { name: "Grain Processing", link: "/industries/agriculture/grain" },
         { name: "Pesticide Handling", link: "/industries/agriculture/pesticide" },
-      ],
-    },
-    {
-      id: "manufacturing",
-      label: "Manufacturing",
-      link: "/industries/manufacturing",
-      items: [
-        { name: "Hydraulic Presses", link: "/industries/manufacturing/hydraulic" },
-        { name: "Pneumatic Controls", link: "/industries/manufacturing/pneumatic" },
-        { name: "Factory Automation", link: "/industries/manufacturing/automation" },
-        { name: "Machine Tooling", link: "/industries/manufacturing/tooling" },
-        { name: "Coolant Circulation", link: "/industries/manufacturing/coolant" },
-      ],
-    },
-    {
-      id: "off-shore",
-      label: "Off Shore And Subsea",
-      link: "/industries/manufacturing",
-      items: [
-        { name: "Hydraulic Presses", link: "/industries/manufacturing/hydraulic" },
-        { name: "Pneumatic Controls", link: "/industries/manufacturing/pneumatic" },
-        { name: "Factory Automation", link: "/industries/manufacturing/automation" },
-        { name: "Machine Tooling", link: "/industries/manufacturing/tooling" },
-        { name: "Coolant Circulation", link: "/industries/manufacturing/coolant" },
-      ],
-    },
-    {
-      id: "semiconductor",
-      label: "Semi Conductor",
-      link: "/industries/manufacturing",
-      items: [
-        { name: "Hydraulic Presses", link: "/industries/manufacturing/hydraulic" },
-        { name: "Pneumatic Controls", link: "/industries/manufacturing/pneumatic" },
-        { name: "Factory Automation", link: "/industries/manufacturing/automation" },
-        { name: "Machine Tooling", link: "/industries/manufacturing/tooling" },
-        { name: "Coolant Circulation", link: "/industries/manufacturing/coolant" },
       ],
     },
   ],
@@ -223,19 +202,8 @@ const navConfig = {
       items: [
         { name: "Mission & Vision", link: "/about/mission" },
         { name: "Manufacturing Excellence", link: "/about/manufacturing" },
-        { name: "Quality Policy", link: "/about/quality" },
         { name: "Global Presence", link: "/about/global" },
-      ],
-    },
-    {
-      id: "compliance",
-      label: "Compliance",
-      link: "/about/compliance",
-      items: [
-        { name: "ISO Certifications", link: "/about/compliance/iso" },
-        { name: "API Standards", link: "/about/compliance/api" },
-        { name: "Health & Safety", link: "/about/compliance/safety" },
-        { name: "Environment Policy", link: "/about/compliance/environment" },
+        { name: "Quality Control", link: "/about/global" },
       ],
     },
   ],

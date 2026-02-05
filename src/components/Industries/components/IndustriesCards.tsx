@@ -6,7 +6,7 @@ const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
 const industryData = [
   {
-    title: "Marine",
+    title: "Marine & Subsea",
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", // Ship/marine
   },
   {
@@ -14,19 +14,19 @@ const industryData = [
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg", // Oil rig
   },
   {
-    title: "Renewables",
+    title: "Hydrogen",
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80", // Wind turbines
   },
   {
-    title: "Automotive",
+    title: "Aerospace & Defense",
     image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80", // Car manufacturing
   },
   {
-    title: "Agriculture",
+    title: "Chemicals & Petrochemical",
     image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80", // Tractor/farming
   },
   {
-    title: "Manufacturing",
+    title: "Food & Beverages",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80", // Factory
   },
 ]
