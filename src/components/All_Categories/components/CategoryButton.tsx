@@ -28,7 +28,6 @@ const RootCard = styled(Box)(() => ({
   overflow: "hidden",
   borderRadius: 0,
   backgroundColor: "#fff",
-  // Pure grey border, no shadows
   border: "1px solid rgba(0, 0, 0, 0.12)",
   transition: "all 0.2s ease-in-out",
   margin: 0,
@@ -46,14 +45,14 @@ const DetailsSection = styled(Box)(({ theme }) => ({
 
 const ImageButton = styled(ButtonBase)({
   position: "relative",
-  height: 320,
+  height: 220,
   width: "100%",
   borderRadius: 0,
   overflow: "hidden",
-  // Subtle line between image and text
+  // Keeping your original border below the image
   borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
   "&:hover .ImageSrc": {
-    transform: "scale(1.05)",
+    transform: "scale(1.03)",
   },
 })
 
@@ -70,40 +69,32 @@ export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image
 
   return (
     <RootCard>
+      {/* 1. Image only - no text overlay */}
       <ImageButton focusRipple onClick={() => navigate(`/products/${id}`)}>
         <ImageSrc className="ImageSrc" style={{ backgroundImage: `url(${image})` }} />
-
-        {/* No grey overlay here - just the text with a shadow for legibility */}
-        <Box
-          sx={{
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            p: 2,
-          }}>
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 800,
-              textTransform: "uppercase",
-              color: "white",
-              textAlign: "center",
-              // Essential shadow so white text is visible on light images
-              textShadow: "0 2px 12px rgba(0,0,0,0.6)",
-            }}>
-            {title}
-          </Typography>
-        </Box>
       </ImageButton>
 
       <DetailsSection>
+        {/* 2. Title moved here: Smaller, Brand Blue, and Bold */}
+        <Typography
+          variant="body1"
+          sx={{
+            fontWeight: 700,
+            textTransform: "uppercase",
+            color: BRAND_BLUE,
+            textAlign: "center",
+            mb: 1, // Space before the "Our Features" label
+            fontSize: "0.95rem", // Making it a little smaller as requested
+            letterSpacing: "0.5px",
+          }}>
+          {title}
+        </Typography>
+
         <Typography
           variant="overline"
           sx={{
             fontWeight: "800",
-            color: BRAND_BLUE,
+            color: "#999", // Subdued slightly so it doesn't compete with the main title
             letterSpacing: "1.2px",
             display: "block",
             mb: 2,

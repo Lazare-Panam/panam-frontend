@@ -2,6 +2,7 @@ import CorporatePillars from "./components/CorporatePillars"
 import BusinessOverview from "./components/BusinessOverview"
 import GlobalReachMetrics from "./components/GlobalReact"
 import HeroSection from "../Common/HeroSection"
+import ScrollReveal from "../Common/ScrollReveal"
 const AboutUs = () => {
   return (
     <>
@@ -14,9 +15,17 @@ const AboutUs = () => {
         backgroundImage="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769618379/igal-ness-wQfV9njQxW4-unsplash_cyolxm.jpg"
       />
 
-      <BusinessOverview />
-      <CorporatePillars />
-      <GlobalReachMetrics />
+      <ScrollReveal>
+        <BusinessOverview />
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.2}>
+        <CorporatePillars />
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.3}>
+        <GlobalReachMetrics />
+      </ScrollReveal>
     </>
   )
 }

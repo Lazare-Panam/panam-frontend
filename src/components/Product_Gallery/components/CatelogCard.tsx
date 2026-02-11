@@ -15,6 +15,19 @@ const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
     navigate(`/products/${type}`)
   }
 
+  const formatFeature = (text: string) => {
+    const parts = text.split(/(\*\*.*?\*\*)/g)
+    return parts.map((part, i) =>
+      part.startsWith("**") && part.endsWith("**") ? (
+        <Box component="span" key={i} sx={{ fontWeight: 700, color: "text.primary" }}>
+          {part.slice(2, -2)}
+        </Box>
+      ) : (
+        part
+      )
+    )
+  }
+
   return (
     <Card
       variant="outlined"
@@ -26,7 +39,7 @@ const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
         flexDirection: "column",
       }}>
       <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
-        <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 250, objectFit: "contain" }} />
+        <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 150, objectFit: "contain" }} />
       </Box>
 
       <CardContent sx={{ flexGrow: 1, p: 2, display: "flex", flexDirection: "column" }}>
@@ -37,7 +50,7 @@ const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
           {product.features?.map((feature, index) => (
             <ListItem key={index} disableGutters sx={{ py: 0 }}>
               <ListItemText
-                primary={feature}
+                primary={formatFeature(feature)}
                 slotProps={{
                   primary: {
                     sx: {
