@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server",
+  "prerender": "node prerender.mjs",
+  "build:full": "npm run build && npm run prerender",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
@@ -22,7 +24,7 @@
     "framer-motion": "^12.29.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.12.0",
+    "react-router-dom": "^7.13.0",
     "swiper": "^11.1.14",
     "zustand": "^5.0.11"
   },

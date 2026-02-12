@@ -1,12 +1,11 @@
 import { defineConfig } from "vitest/config"
 import react from "@vitejs/plugin-react"
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
   build: {
     rollupOptions: {
-      output: {
-        // This breaks the 900KB giant into smaller, cached files
+      output: isSsrBuild ? {} : {
         manualChunks: {
           "vendor-react": ["react", "react-dom"],
           "vendor-mui": ["@mui/material", "@emotion/react", "@emotion/styled"],
@@ -20,4 +19,4 @@ export default defineConfig({
     setupFiles: ["./src/vitest.setup.ts"],
     globals: true,
   },
-})
+}))

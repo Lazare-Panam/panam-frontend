@@ -4,6 +4,10 @@ import ScrollReveal from "../Common/ScrollReveal"
 const Industries = () => {
   return (
     <>
+    <title>Industrial Valve Solutions | Panam Valves</title>
+      <meta name="description" content="Precision engineered valve solutions for extreme pressure applications." />
+      <meta property="og:title" content="Precision for the World's Toughest Applications" />
+      <meta property="og:image" content="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616757/image.jpg" />
       <HeroSection
         overline="SECTORS WE SERVE"
         titleMain="Precision for the"
