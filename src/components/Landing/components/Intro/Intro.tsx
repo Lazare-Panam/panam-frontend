@@ -81,6 +81,7 @@ const IntroSection: React.FC = () => {
                   border: 0,
                 }}
                 src="https://www.youtube.com/embed/HRFxY37P0Lg"
+                referrerPolicy="no-referrer"
                 title="Panam Valves Product Showcase"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
