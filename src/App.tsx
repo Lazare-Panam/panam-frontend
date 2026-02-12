@@ -22,13 +22,62 @@ export const routes = [
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <LandingPage /> },
-      { path: "products", element: <Suspense fallback={<LoadingScreen />}><ProductPage /></Suspense> },
-      { path: "products/:id", element: <Suspense fallback={<LoadingScreen />}><ProductGallery /></Suspense> },
-      { path: "about", element: <Suspense fallback={<LoadingScreen />}><AboutUs /></Suspense> },
-      { path: "industries", element: <Suspense fallback={<LoadingScreen />}><Industries /></Suspense> },
-      { path: "news", element: <Suspense fallback={<LoadingScreen />}><News /></Suspense> },
-      { path: "contact", element: <Suspense fallback={<LoadingScreen />}><Contact /></Suspense> },
-      { path: "cart", element: <Suspense fallback={<LoadingScreen />}><CartPage /></Suspense> },
+      {
+        path: "products",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ProductPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "products/:id",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ProductGallery />
+          </Suspense>
+        ),
+      },
+      {
+        path: "about",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AboutUs />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <Industries />
+          </Suspense>
+        ),
+      },
+      {
+        path: "news",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <News />
+          </Suspense>
+        ),
+      },
+      {
+        path: "contact",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "cart",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CartPage />
+          </Suspense>
+        ),
+      },
       { path: "*", element: <NotFound /> },
     ],
   },

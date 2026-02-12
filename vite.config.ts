@@ -5,13 +5,15 @@ export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
   build: {
     rollupOptions: {
-      output: isSsrBuild ? {} : {
-        manualChunks: {
-          "vendor-react": ["react", "react-dom"],
-          "vendor-mui": ["@mui/material", "@emotion/react", "@emotion/styled"],
-          "vendor-utils": ["framer-motion", "swiper", "axios"],
-        },
-      },
+      output: isSsrBuild
+        ? {}
+        : {
+            manualChunks: {
+              "vendor-react": ["react", "react-dom"],
+              "vendor-mui": ["@mui/material", "@emotion/react", "@emotion/styled"],
+              "vendor-utils": ["framer-motion", "swiper", "axios"],
+            },
+          },
     },
   },
   test: {

@@ -6,9 +6,9 @@ import FAQSection from "./components/FaqSection"
 const Contact = () => {
   return (
     <>
-    <title>Contact Panam Valves | Global Engineering & Support</title>
+      <title>Contact Panam Valves | Global Engineering & Support</title>
       <meta name="description" content="Get in touch with Panam Valves' global engineering team for support with precision flow control solutions, technical inquiries, and project consultations." />
-      
+
       {/* Social Media Preview Tags */}
       <meta property="og:title" content="Contact Our Engineering Team | Panam Valves" />
       <meta property="og:description" content="Our global team is ready to support your next project with precision flow control solutions." />

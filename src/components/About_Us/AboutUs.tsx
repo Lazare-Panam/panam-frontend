@@ -6,9 +6,9 @@ import ScrollReveal from "../Common/ScrollReveal"
 const AboutUs = () => {
   return (
     <>
-    <title>About Panam Valves | Leaders in Hydrogen & Clean Energy Flow Control</title>
+      <title>About Panam Valves | Leaders in Hydrogen & Clean Energy Flow Control</title>
       <meta name="description" content="Discover Panam Valves' commitment to engineering excellence. We provide the precision components required for the global transition to Hydrogen and renewable energy." />
-      
+
       {/* Open Graph / Social Media */}
       <meta property="og:title" content="Engineering a Sustainable Tomorrow | Panam Valves" />
       <meta property="og:description" content="Bridging the gap between traditional industry and the renewable future with high-precision valve solutions." />

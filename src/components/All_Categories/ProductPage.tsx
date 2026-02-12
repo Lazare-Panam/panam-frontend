@@ -6,7 +6,7 @@ const ProductPage = () => {
     <div style={containerStyle}>
       <title>Instrumentation Valves & Fittings Catalog | Panam Valves</title>
       <meta name="description" content="Browse our comprehensive range of high-performance instrumentation valves and fittings designed for critical flow control and absolute integrity." />
-      
+
       {/* Open Graph for Social Sharing */}
       <meta property="og:title" content="Engineering Excellence: Valve & Fitting Solutions | Panam Valves" />
       <meta property="og:image" content="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769772200/encata-pd-SRqJ3eli-4I-unsplash_jgpfgl.jpg" />
@@ -31,7 +31,7 @@ const containerStyle: React.CSSProperties = {
   position: "relative",
   width: "100%",
   minHeight: "100vh",
-  backgroundColor: "#ffffff", 
+  backgroundColor: "#ffffff",
 }
 
 const watermarkStyle: React.CSSProperties = {
@@ -45,9 +45,9 @@ const watermarkStyle: React.CSSProperties = {
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
-  filter: "brightness(1.1) contrast(0.8) grayscale(1) blur(11px)", 
-  opacity: 0.07, 
-  mixBlendMode: "multiply", 
+  filter: "brightness(1.1) contrast(0.8) grayscale(1) blur(11px)",
+  opacity: 0.07,
+  mixBlendMode: "multiply",
   pointerEvents: "none",
 }
 

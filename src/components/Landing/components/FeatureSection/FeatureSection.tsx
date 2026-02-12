@@ -4,7 +4,6 @@ import ScrollReveal from "../../../Common/ScrollReveal"
 import FeatureCarousel from "./FeatureCarousel"
 
 const FeatureSection = () => {
-
   const hydrogenData = [
     {
       image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=80&w=800",
@@ -38,7 +37,7 @@ const FeatureSection = () => {
   return (
     <>
       <ScrollReveal delay={0.2}>
-       <FeatureCarousel/>
+        <FeatureCarousel />
       </ScrollReveal>
 
       <ScrollReveal delay={0.2}>

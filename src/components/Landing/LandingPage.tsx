@@ -22,7 +22,7 @@ const LandingPage = () => {
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
           <PartnersCarousel />
-        </ScrollReveal>    
+        </ScrollReveal>
       </div>
     </div>
   )
@@ -32,7 +32,7 @@ const containerStyle: React.CSSProperties = {
   position: "relative",
   width: "100%",
   minHeight: "100vh",
-  backgroundColor: "#ffffff", 
+  backgroundColor: "#ffffff",
 }
 
 const watermarkStyle: React.CSSProperties = {
@@ -46,11 +46,10 @@ const watermarkStyle: React.CSSProperties = {
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
-  filter: "brightness(1.1) contrast(0.8) grayscale(1) blur(4px)", 
-  opacity: 0.07, 
-  mixBlendMode: "multiply", 
+  filter: "brightness(1.1) contrast(0.8) grayscale(1) blur(4px)",
+  opacity: 0.07,
+  mixBlendMode: "multiply",
   pointerEvents: "none",
 }
-
 
 export default LandingPage
