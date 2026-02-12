@@ -1,20 +1,18 @@
-import { Stack, Button, CircularProgress } from "@mui/material"
+import { Stack, Button } from "@mui/material"
 
 const BRAND_BLUE = "#01B0F0"
 
 interface CartFooterProps {
   onProceed: () => void
-  isPending: boolean
 }
 
-const CartFooter = ({ onProceed, isPending }: CartFooterProps) => {
+const CartFooter = ({ onProceed }: CartFooterProps) => {
   return (
     <Stack direction="row" justifyContent="flex-end" sx={{ mt: 6 }}>
       <Button
         variant="outlined"
         size="large"
         onClick={onProceed}
-        disabled={isPending}
         sx={{
           borderRadius: "50px",
           px: 4,
@@ -30,7 +28,7 @@ const CartFooter = ({ onProceed, isPending }: CartFooterProps) => {
             backgroundColor: "rgba(0,176,240,0.05)",
           },
         }}>
-        {isPending ? <CircularProgress size={24} sx={{ color: BRAND_BLUE }} /> : "Proceed to quote"}
+        Proceed to quote
       </Button>
     </Stack>
   )

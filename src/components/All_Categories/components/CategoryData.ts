@@ -64,7 +64,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: "Gauge Root Valves", link: "/products/gauge-root-valves" },
     ],
   },
-
   {
     title: "Manifolds",
     id: "valve-manifolds",
@@ -75,7 +74,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: "5-Valve ", link: "/products/5-way-valve-manifold" },
     ],
   },
-
   {
     title: "Double Block and Bleed",
     id: "double-block-and-bleed-valves",

@@ -27,7 +27,7 @@ const RootCard = styled(Box)(() => ({
   flexDirection: "column",
   overflow: "hidden",
   borderRadius: 0,
-  backgroundColor: "#fff",
+  backgroundColor: "transparent",
   border: "1px solid rgba(0, 0, 0, 0.12)",
   transition: "all 0.2s ease-in-out",
   margin: 0,
@@ -35,7 +35,7 @@ const RootCard = styled(Box)(() => ({
 
 const DetailsSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(3),
-  backgroundColor: "#fff",
+  backgroundColor: "transparent",
   flexGrow: 1,
   display: "flex",
   flexDirection: "column",

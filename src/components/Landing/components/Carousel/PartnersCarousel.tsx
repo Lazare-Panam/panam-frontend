@@ -17,7 +17,7 @@ const partnerSlides = [
 
 const PartnersCarousel: React.FC = () => {
   return (
-    <Box sx={{ bgcolor: "#fff" }}>
+    <Box sx={{ bgcolor: "transparent" }}>
       <Divider sx={{ borderColor: "#eee", width: "100%" }} />
 
       <Box sx={{ py: 10 }}>

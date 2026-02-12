@@ -1,65 +1,19 @@
+import { useState } from "react"
 import { Box, Container, Typography, Stack, CircularProgress } from "@mui/material"
-import { useMutation } from "@tanstack/react-query"
-import { requestQuotation } from "../../api/orderApi"
 import { useCartStore } from "../store/useCartStore"
 import CartHeader from "./components/CartHeader"
 import CartItem from "./components/CartItem"
 import CartFooter from "./components/CartFooter"
-import { useNotificationStore } from "../store/useNotficationStore"
 import EmptyCartView from "./components/EmptyCart"
+import QuotationModal from "./components/QuotationModal" // New Import
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
-interface QuotationPayload {
-  customerEmail: string
-  customerName: string
-  orderNumber: string
-  items: {
-    description: string
-    partNumber: string
-    quantity: number
-  }[]
-}
 const CartPage = () => {
   const { cart, removeItem, updateQuantity } = useCartStore()
   const isHydrated = useCartStore.persist.hasHydrated()
-  const showNotification = useNotificationStore(state => state.showNotification)
-  const { mutate, isPending } = useMutation<any, Error, QuotationPayload>({
-    mutationFn: requestQuotation,
-    onSuccess: () => {
-      showNotification({
-        message: "Quotation request submitted successfully, you will recieve a mail soon!",
-        severity: "success",
-      })
-    },
-    onError: () => {
-      showNotification({
-        message: "Unable to send request. Please try again later.",
-        severity: "error",
-      })
-    },
-    retry: false,
-  })
-  const handleProceed = () => {
-    // This payload matches your .NET QuotationRequest DTO exactly
-    const payload = {
-      customerEmail: "panamvalves@gmail.com",
-      customerName: "Lazare",
-      orderNumber: `PV-${Math.floor(1000 + Math.random() * 9000)}`,
-      items: cart.map(item => ({
-        description:
-          Object.values(item.specs)
-            .filter(v => v)
-            .join(", ") || item.name,
-        partNumber: item.partNumber,
-        quantity: item.quantity,
-        // Notes omitted as requested
-      })),
-    }
-
-    mutate(payload)
-  }
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   if (!isHydrated) {
     return (
@@ -80,11 +34,16 @@ const CartPage = () => {
           Shopping Cart
         </Typography>
       </Stack>
+
       <CartHeader />
+
       {cart.map(item => (
         <CartItem key={item.cartItemId} item={item} onUpdateQuantity={updateQuantity} onRemove={removeItem} />
       ))}
-      <CartFooter onProceed={handleProceed} isPending={isPending} />
+
+      <CartFooter onProceed={() => setIsModalOpen(true)} />
+
+      <QuotationModal open={isModalOpen} onClose={() => setIsModalOpen(false)} cartItems={cart} />
     </Container>
   )
 }

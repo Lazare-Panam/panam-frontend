@@ -18,8 +18,6 @@ const Navbar: React.FC = () => {
   const [activeTab, setActiveTab] = useState(navConfig.products[0])
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const cart = useCartStore(state => state.cart)
-
-  // Calculate total items (sum of quantities)
   const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0)
 
   useEffect(() => {
