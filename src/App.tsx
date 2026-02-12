@@ -1,4 +1,3 @@
-import { createBrowserRouter } from "react-router-dom"
 import { lazy, Suspense } from "react"
 import LandingPage from "./components/Landing/LandingPage"
 import Layout from "./Layout"
@@ -14,7 +13,7 @@ const ProductGallery = lazy(() => import("./components/Product_Gallery/component
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
 
-// Shared routes array - safe to import in Node (no browser APIs)
+// 1. Just export the routes. No Router creation here!
 export const routes = [
   {
     path: "/",
@@ -22,74 +21,15 @@ export const routes = [
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <LandingPage /> },
-      {
-        path: "products",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <ProductPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "products/:id",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <ProductGallery />
-          </Suspense>
-        ),
-      },
-      {
-        path: "about",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <AboutUs />
-          </Suspense>
-        ),
-      },
-      {
-        path: "industries",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <Industries />
-          </Suspense>
-        ),
-      },
-      {
-        path: "news",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <News />
-          </Suspense>
-        ),
-      },
-      {
-        path: "contact",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <Contact />
-          </Suspense>
-        ),
-      },
-      {
-        path: "cart",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <CartPage />
-          </Suspense>
-        ),
-      },
+      { path: "products", element: <Suspense fallback={<LoadingScreen />}><ProductPage /></Suspense> },
+      { path: "products/:id", element: <Suspense fallback={<LoadingScreen />}><ProductGallery /></Suspense> },
+      { path: "about", element: <Suspense fallback={<LoadingScreen />}><AboutUs /></Suspense> },
+      { path: "industries", element: <Suspense fallback={<LoadingScreen />}><Industries /></Suspense> },
+      { path: "news", element: <Suspense fallback={<LoadingScreen />}><News /></Suspense> },
+      { path: "contact", element: <Suspense fallback={<LoadingScreen />}><Contact /></Suspense> },
+      { path: "cart", element: <Suspense fallback={<LoadingScreen />}><CartPage /></Suspense> },
       { path: "*", element: <NotFound /> },
     ],
   },
 ]
 
-// createBrowserRouter is only called in main.tsx (browser only), never here
-export function createRouter() {
-  return createBrowserRouter(routes)
-}
-
-function App() {
-  return null
-}
-
-export default App
