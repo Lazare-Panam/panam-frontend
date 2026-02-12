@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography, Stack } from "@mui/material"
 
 const IntroSection: React.FC = () => {
   return (
-    <Box sx={{ py: { xs: 8, md: 3 }, backgroundColor: "#FFFFFF" }}>
+    <Box sx={{ py: { xs: 8, md: 3 }, backgroundColor: "transparent" }}>
       <Container maxWidth="lg">
         {/* Parent Grid remains the same */}
         <Grid container spacing={8} alignItems="center">

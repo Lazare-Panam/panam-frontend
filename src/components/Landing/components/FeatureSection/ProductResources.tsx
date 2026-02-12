@@ -22,7 +22,7 @@ const ProductResources: React.FC = () => {
   ]
 
   return (
-    <Box sx={{ width: "100%", py: 8, backgroundColor: "#fff" }}>
+    <Box sx={{ width: "100%", py: 8, backgroundColor: "transparent" }}>
       <Divider sx={{ mb: 8, borderColor: "rgba(0,0,0,0.08)" }} />
       <Container maxWidth="lg">
         <Typography
