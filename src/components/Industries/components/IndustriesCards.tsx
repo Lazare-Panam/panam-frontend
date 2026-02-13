@@ -1,11 +1,10 @@
 import { Box, Container, Typography, Card, CardContent } from "@mui/material"
-import Grid from "@mui/material/Grid" 
+import Grid from "@mui/material/Grid"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { Link } from "react-router-dom"
 import { industryData } from "./industryData"
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
-
 
 const IndustriesCards = () => {
   return (
@@ -39,9 +38,8 @@ const IndustriesCards = () => {
           </Typography>
         </Box>
 
-     
         <Grid container spacing={4}>
-          {industryData.map((industry) => (
+          {industryData.map(industry => (
             /* Grid2 Item using the new 'size' prop */
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={industry.id}>
               <Card
@@ -68,7 +66,7 @@ const IndustriesCards = () => {
                     },
                     "& .arrow-icon": {
                       transform: "translateX(5px)",
-                    }
+                    },
                   },
                 }}>
                 <Box
@@ -133,10 +131,7 @@ const IndustriesCards = () => {
                       fontSize: "0.875rem",
                     }}>
                     Find out more
-                    <ArrowForwardIcon 
-                      className="arrow-icon" 
-                      sx={{ ml: 1, fontSize: "1.2rem", transition: "transform 0.2s" }} 
-                    />
+                    <ArrowForwardIcon className="arrow-icon" sx={{ ml: 1, fontSize: "1.2rem", transition: "transform 0.2s" }} />
                   </Typography>
                 </CardContent>
               </Card>

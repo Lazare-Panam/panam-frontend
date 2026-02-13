@@ -1,6 +1,5 @@
 import React from "react"
 import { Box, Fade, Container, Grid, Stack, Typography } from "@mui/material"
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
 // Pro Tip: Keep these synced with your main file or a theme constants file
 const BRAND_BLUE = "#01B0F0"
@@ -75,7 +74,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuData, activeTab, setAct
                         transition: "0.2s",
                       }}>
                       {item.name}
-                     
                     </Box>
                   </Grid>
                 ))}

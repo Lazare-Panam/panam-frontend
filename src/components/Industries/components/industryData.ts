@@ -14,8 +14,9 @@ export const industryData = [
     content: {
       subHeading: "MARINE & SUBSEA EXPERTISE",
       heading: "Reliability Where Failure is Not an Option.",
-      bodyText: "Operating thousands of feet below sea level requires more than just standard equipment. We provide specialized instrumentation valves and manifolds designed for ROVs, subsea production systems, and vessel propulsion. \n\nOur products feature high-grade Duplex and Super Duplex materials to prevent pitting and crevice corrosion, ensuring a service life measured in decades, not years."
-    }
+      bodyText:
+        "Operating thousands of feet below sea level requires more than just standard equipment. We provide specialized instrumentation valves and manifolds designed for ROVs, subsea production systems, and vessel propulsion. \n\nOur products feature high-grade Duplex and Super Duplex materials to prevent pitting and crevice corrosion, ensuring a service life measured in decades, not years.",
+    },
   },
   {
     id: "oil-gas",
@@ -32,8 +33,8 @@ export const industryData = [
     content: {
       subHeading: "OIL & GAS SOLUTIONS",
       heading: "High-Pressure Performance for Harsh Environments.",
-      bodyText: "In an industry where safety and environmental protection are paramount, our valves meet the most stringent API and ASME standards. \n\nWe specialize in Double Block and Bleed (DBB) solutions, high-pressure needle valves, and fugitive emission-certified components that reduce leak paths and maximize site safety across global refineries and drilling platforms."
-    }
+      bodyText: "In an industry where safety and environmental protection are paramount, our valves meet the most stringent API and ASME standards. \n\nWe specialize in Double Block and Bleed (DBB) solutions, high-pressure needle valves, and fugitive emission-certified components that reduce leak paths and maximize site safety across global refineries and drilling platforms.",
+    },
   },
   {
     id: "hydrogen",
@@ -50,8 +51,8 @@ export const industryData = [
     content: {
       subHeading: "THE HYDROGEN ECONOMY",
       heading: "Mastering the Smallest Molecule.",
-      bodyText: "Hydrogen is notoriously difficult to contain. Our engineering team has developed specialized seal technologies and material selections that prevent hydrogen embrittlement. \n\nFrom electrolyzer integration to high-pressure storage and refueling stations, we are the trusted partner for companies scaling up green and blue hydrogen infrastructure globally."
-    }
+      bodyText: "Hydrogen is notoriously difficult to contain. Our engineering team has developed specialized seal technologies and material selections that prevent hydrogen embrittlement. \n\nFrom electrolyzer integration to high-pressure storage and refueling stations, we are the trusted partner for companies scaling up green and blue hydrogen infrastructure globally.",
+    },
   },
   {
     id: "aerospace-defense",
@@ -68,8 +69,8 @@ export const industryData = [
     content: {
       subHeading: "AEROSPACE & DEFENSE",
       heading: "Precision for High-Altitude Performance.",
-      bodyText: "We provide lightweight, high-strength valve solutions for ground support equipment, engine testing rigs, and flight systems. \n\nOur components undergo rigorous vibration and thermal shock testing to ensure they perform under the extreme G-forces and temperature fluctuations found in aerospace applications."
-    }
+      bodyText: "We provide lightweight, high-strength valve solutions for ground support equipment, engine testing rigs, and flight systems. \n\nOur components undergo rigorous vibration and thermal shock testing to ensure they perform under the extreme G-forces and temperature fluctuations found in aerospace applications.",
+    },
   },
   {
     id: "chemicals-petrochemical",
@@ -86,8 +87,8 @@ export const industryData = [
     content: {
       subHeading: "CHEMICAL PROCESSING",
       heading: "Corrosion Resistance for Toxic Media.",
-      bodyText: "Managing lethal or highly corrosive fluids requires specialized sealing and material science. We offer valves in Hastelloy, Monel, and Inconel to ensure compatibility with aggressive acids and bases. \n\nOur modular designs allow for easy maintenance and zero-leakage performance in continuous process environments."
-    }
+      bodyText: "Managing lethal or highly corrosive fluids requires specialized sealing and material science. We offer valves in Hastelloy, Monel, and Inconel to ensure compatibility with aggressive acids and bases. \n\nOur modular designs allow for easy maintenance and zero-leakage performance in continuous process environments.",
+    },
   },
   {
     id: "food-beverages",
@@ -104,7 +105,7 @@ export const industryData = [
     content: {
       subHeading: "FOOD & BEVERAGE INDUSTRY",
       heading: "Sanitary Solutions for Mass Production.",
-      bodyText: "Our valves for the F&B sector focus on cleanability and contamination prevention. Using high-polish 316L Stainless Steel and FDA-approved sealing materials, we support everything from dairy processing to large-scale brewery operations. \n\nEvery component is designed to withstand frequent CIP (Clean-In-Place) cycles without degrading."
-    }
+      bodyText: "Our valves for the F&B sector focus on cleanability and contamination prevention. Using high-polish 316L Stainless Steel and FDA-approved sealing materials, we support everything from dairy processing to large-scale brewery operations. \n\nEvery component is designed to withstand frequent CIP (Clean-In-Place) cycles without degrading.",
+    },
   },
 ]

@@ -1,11 +1,11 @@
-import { Box, Container, Typography, Card, CardContent, Button, Stack } from "@mui/material";
-import Grid from "@mui/material/Grid"; // Updated to Grid2 as requested previously
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { Link } from "react-router-dom"; // Import Link
-import { blogs } from "./blogData";
+import { Box, Container, Typography, Card, CardContent, Button, Stack } from "@mui/material"
+import Grid from "@mui/material/Grid" // Updated to Grid2 as requested previously
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import { Link } from "react-router-dom" // Import Link
+import { blogs } from "./blogData"
 
-const BRAND_BLUE = "#01B0F0";
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
+const BRAND_BLUE = "#01B0F0"
+const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
 const NewsCards = () => {
   return (
@@ -20,8 +20,7 @@ const NewsCards = () => {
               color: "#1a1a1a",
               mb: 3,
               fontSize: { xs: "2rem", md: "2.5rem" },
-            }}
-          >
+            }}>
             Latest News & Insights
           </Typography>
           <Typography
@@ -31,14 +30,13 @@ const NewsCards = () => {
               color: "#555",
               fontSize: "1.125rem",
               lineHeight: 1.8,
-            }}
-          >
+            }}>
             Stay informed with the latest developments, technical breakthroughs, and industry insights from Panam Valves.
           </Typography>
         </Box>
 
         <Grid container spacing={4}>
-          {blogs.map((news) => (
+          {blogs.map(news => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={news.slug}>
               {/* Wrap the whole card in a Link for better UX */}
               <Card
@@ -63,8 +61,7 @@ const NewsCards = () => {
                       transform: "scale(1.05)",
                     },
                   },
-                }}
-              >
+                }}>
                 {/* Image Section */}
                 <Box sx={{ width: "100%", height: "200px", overflow: "hidden" }}>
                   <Box
@@ -84,16 +81,10 @@ const NewsCards = () => {
                 {/* Content Section */}
                 <CardContent sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
                   <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
-                    <Typography
-                      variant="caption"
-                      sx={{ fontWeight: 600, color: "#999", letterSpacing: "0.5px" }}
-                    >
+                    <Typography variant="caption" sx={{ fontWeight: 600, color: "#999", letterSpacing: "0.5px" }}>
                       {news.date}
                     </Typography>
-                    <Typography
-                      variant="caption"
-                      sx={{ fontWeight: 700, color: BRAND_BLUE, letterSpacing: "0.5px" }}
-                    >
+                    <Typography variant="caption" sx={{ fontWeight: 700, color: BRAND_BLUE, letterSpacing: "0.5px" }}>
                       {news.category}
                     </Typography>
                   </Stack>
@@ -107,8 +98,7 @@ const NewsCards = () => {
                       fontSize: "1.15rem",
                       lineHeight: 1.4,
                       fontFamily: PRIMARY_FONT,
-                    }}
-                  >
+                    }}>
                     {news.title}
                   </Typography>
 
@@ -120,8 +110,7 @@ const NewsCards = () => {
                       lineHeight: 1.7,
                       mb: 3,
                       flexGrow: 1,
-                    }}
-                  >
+                    }}>
                     {news.excerpt} {/* Using the excerpt from blogData */}
                   </Typography>
 
@@ -138,8 +127,7 @@ const NewsCards = () => {
                         backgroundColor: "transparent",
                         "& .MuiButton-endIcon": { transform: "translateX(5px)" },
                       },
-                    }}
-                  >
+                    }}>
                     Read More
                   </Button>
                 </CardContent>
@@ -149,7 +137,7 @@ const NewsCards = () => {
         </Grid>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default NewsCards;
+export default NewsCards

@@ -8,7 +8,6 @@ import ProductPage from "./components/All_Categories/ProductPage"
 import NotFound from "./components/Error/NotFound"
 import ErrorPage from "./components/Error/ErrorPage"
 import CartPage from "./components/Cart/CartPage"
-import IndustryTemplate from "./components/Industries/components/IndustriesTemplate"
 import IndustryPage from "./components/Industries/components/IndustryPage"
 import BlogDetail from "./components/News/components/BlogTempate"
 
@@ -23,17 +22,79 @@ export const routes = [
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <LandingPage /> },
-      { path: "products", element: <Suspense fallback={<LoadingScreen />}><ProductPage /></Suspense> },
-      { path: "products/:id", element: <Suspense fallback={<LoadingScreen />}><ProductGallery /></Suspense> },
-      { path: "about", element: <Suspense fallback={<LoadingScreen />}><AboutUs /></Suspense> },
-      { path: "industries", element: <Suspense fallback={<LoadingScreen />}><Industries /></Suspense> },
-      { path: "industries/:id", element: <Suspense fallback={<LoadingScreen />}><IndustryPage /></Suspense>},
-      { path: "news", element: <Suspense fallback={<LoadingScreen />}><News /></Suspense> },
-      { path: "blog/:slug", element: <Suspense fallback={<LoadingScreen />}><BlogDetail /></Suspense>},
-      { path: "contact", element: <Suspense fallback={<LoadingScreen />}><Contact /></Suspense> },
-      { path: "cart", element: <Suspense fallback={<LoadingScreen />}><CartPage /></Suspense> },
+      {
+        path: "products",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ProductPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "products/:id",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ProductGallery />
+          </Suspense>
+        ),
+      },
+      {
+        path: "about",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AboutUs />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <Industries />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/:id",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <IndustryPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "news",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <News />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/:slug",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <BlogDetail />
+          </Suspense>
+        ),
+      },
+      {
+        path: "contact",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "cart",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CartPage />
+          </Suspense>
+        ),
+      },
       { path: "*", element: <NotFound /> },
     ],
   },
 ]
-

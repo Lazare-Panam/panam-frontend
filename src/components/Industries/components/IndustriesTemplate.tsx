@@ -1,7 +1,7 @@
-import { Box, Typography, Container  } from "@mui/material"
+import { Box, Typography, Container } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import HeroSection from "../../Common/HeroSection"
-import IndustriesCards from "./IndustriesCards" 
+import IndustriesCards from "./IndustriesCards"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -33,10 +33,7 @@ const IndustryTemplate = ({ hero, content }: IndustryPageProps) => {
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 5 }}>
-              <Typography
-                variant="overline"
-                sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2 }}
-              >
+              <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2 }}>
                 {content.subHeading}
               </Typography>
               <Typography
@@ -47,8 +44,7 @@ const IndustryTemplate = ({ hero, content }: IndustryPageProps) => {
                   mt: 1,
                   color: "#1a1a1a",
                   lineHeight: 1.2,
-                }}
-              >
+                }}>
                 {content.heading}
               </Typography>
               <Box
@@ -69,8 +65,7 @@ const IndustryTemplate = ({ hero, content }: IndustryPageProps) => {
                   color: "#444",
                   lineHeight: 1.8,
                   whiteSpace: "pre-line", // Respects line breaks in your text
-                }}
-              >
+                }}>
                 {content.bodyText}
               </Typography>
             </Grid>
