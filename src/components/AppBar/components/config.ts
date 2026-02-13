@@ -166,11 +166,11 @@ export const navConfig: NavConfig = {
     {
       id: "company",
       label: "Our Company",
-      link: "/about/company",
+      link: "/about",
       items: [
         { name: "Mission & Vision", link: "/about/mission" },
         { name: "Manufacturing Excellence", link: "/about/manufacturing" },
-        { name: "Global Presence", link: "/about/global" },
+       
         { name: "Quality Control", link: "/about/global" },
       ],
     },
@@ -179,22 +179,13 @@ export const navConfig: NavConfig = {
     {
       id: "updates",
       label: "Latest News",
-      link: "/news/updates",
+      link: "/news",
       items: [
         { name: "Product Launches", link: "/news/product-launches" },
         { name: "Exhibitions 2024", link: "/news/exhibitions" },
         { name: "Corporate Events", link: "/news/events" },
       ],
     },
-    {
-      id: "resources",
-      label: "Resources",
-      link: "/news/resources",
-      items: [
-        { name: "Technical Blogs", link: "/news/blogs" },
-        { name: "White Papers", link: "/news/white-papers" },
-        { name: "Case Studies", link: "/news/case-studies" },
-      ],
-    },
+    
   ],
 }

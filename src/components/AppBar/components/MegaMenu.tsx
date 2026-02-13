@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Fade, Container, Grid, Stack, Typography } from "@mui/material"
+import { Box, Fade, Container, Grid, Stack } from "@mui/material"
 
 // Pro Tip: Keep these synced with your main file or a theme constants file
 const BRAND_BLUE = "#01B0F0"
@@ -56,9 +56,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuData, activeTab, setAct
 
             {/* Right Side: Specific Items */}
             <Grid size={{ md: 9 }} sx={{ backgroundColor: "#F9FAFB", py: 4, px: 6 }}>
-              <Typography variant="overline" sx={{ color: "#999", fontWeight: 700, mb: 3, display: "block", letterSpacing: 1.5 }}>
-                Explore {activeTab?.label}
-              </Typography>
+
               <Grid container spacing={2}>
                 {activeTab?.items?.map((item: any) => (
                   <Grid size={{ xs: 6, md: 4 }} key={item.name}>
