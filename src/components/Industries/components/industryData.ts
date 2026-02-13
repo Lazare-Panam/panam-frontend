@@ -1,0 +1,110 @@
+export const industryData = [
+  {
+    id: "marine-subsea",
+    title: "Marine & Subsea",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
+    hero: {
+      overline: "SECTORS WE SERVE",
+      titleMain: "Engineering for the",
+      titleAccent: "Deepest Frontiers",
+      titleEnd: "on Earth.",
+      description: "Our marine-grade valve solutions are engineered to withstand extreme hydrostatic pressures and corrosive saltwater environments, ensuring uptime for offshore energy and subsea exploration.",
+      backgroundImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80",
+    },
+    content: {
+      subHeading: "MARINE & SUBSEA EXPERTISE",
+      heading: "Reliability Where Failure is Not an Option.",
+      bodyText: "Operating thousands of feet below sea level requires more than just standard equipment. We provide specialized instrumentation valves and manifolds designed for ROVs, subsea production systems, and vessel propulsion. \n\nOur products feature high-grade Duplex and Super Duplex materials to prevent pitting and crevice corrosion, ensuring a service life measured in decades, not years."
+    }
+  },
+  {
+    id: "oil-gas",
+    title: "Oil & Gas",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg",
+    hero: {
+      overline: "SECTORS WE SERVE",
+      titleMain: "Fueling the World with",
+      titleAccent: "Unmatched Precision",
+      titleEnd: "and Safety.",
+      description: "From upstream extraction to downstream refining, Panam provides the critical flow control components that keep the world's energy infrastructure moving safely.",
+      backgroundImage: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg",
+    },
+    content: {
+      subHeading: "OIL & GAS SOLUTIONS",
+      heading: "High-Pressure Performance for Harsh Environments.",
+      bodyText: "In an industry where safety and environmental protection are paramount, our valves meet the most stringent API and ASME standards. \n\nWe specialize in Double Block and Bleed (DBB) solutions, high-pressure needle valves, and fugitive emission-certified components that reduce leak paths and maximize site safety across global refineries and drilling platforms."
+    }
+  },
+  {
+    id: "hydrogen",
+    title: "Hydrogen",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+    hero: {
+      overline: "SECTORS WE SERVE",
+      titleMain: "Pioneering the",
+      titleAccent: "Clean Energy",
+      titleEnd: "Transition.",
+      description: "Hydrogen presents unique challenges, from embrittlement to cryogenic temperatures. Our specialized valve range is built specifically for the H2 value chain.",
+      backgroundImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80",
+    },
+    content: {
+      subHeading: "THE HYDROGEN ECONOMY",
+      heading: "Mastering the Smallest Molecule.",
+      bodyText: "Hydrogen is notoriously difficult to contain. Our engineering team has developed specialized seal technologies and material selections that prevent hydrogen embrittlement. \n\nFrom electrolyzer integration to high-pressure storage and refueling stations, we are the trusted partner for companies scaling up green and blue hydrogen infrastructure globally."
+    }
+  },
+  {
+    id: "aerospace-defense",
+    title: "Aerospace & Defense",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80",
+    hero: {
+      overline: "SECTORS WE SERVE",
+      titleMain: "Mission Critical",
+      titleAccent: "Aerospace Systems",
+      titleEnd: "Engineering.",
+      description: "When precision is measured in microns and failure is not an option, the world's leading aerospace firms turn to Panam for specialized fluid control.",
+      backgroundImage: "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1200&q=80",
+    },
+    content: {
+      subHeading: "AEROSPACE & DEFENSE",
+      heading: "Precision for High-Altitude Performance.",
+      bodyText: "We provide lightweight, high-strength valve solutions for ground support equipment, engine testing rigs, and flight systems. \n\nOur components undergo rigorous vibration and thermal shock testing to ensure they perform under the extreme G-forces and temperature fluctuations found in aerospace applications."
+    }
+  },
+  {
+    id: "chemicals-petrochemical",
+    title: "Chemicals & Petrochemical",
+    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80",
+    hero: {
+      overline: "SECTORS WE SERVE",
+      titleMain: "Integrity for",
+      titleAccent: "Complex Chemical",
+      titleEnd: "Processing.",
+      description: "Handling aggressive chemicals requires superior metallurgy. Our valves are designed for maximum corrosion resistance in the toughest process loops.",
+      backgroundImage: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1200&q=80",
+    },
+    content: {
+      subHeading: "CHEMICAL PROCESSING",
+      heading: "Corrosion Resistance for Toxic Media.",
+      bodyText: "Managing lethal or highly corrosive fluids requires specialized sealing and material science. We offer valves in Hastelloy, Monel, and Inconel to ensure compatibility with aggressive acids and bases. \n\nOur modular designs allow for easy maintenance and zero-leakage performance in continuous process environments."
+    }
+  },
+  {
+    id: "food-beverages",
+    title: "Food & Beverages",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    hero: {
+      overline: "SECTORS WE SERVE",
+      titleMain: "Purity for",
+      titleAccent: "Global Food & Drink",
+      titleEnd: "Production.",
+      description: "Maintaining sanitary conditions is the top priority. We provide high-quality stainless steel solutions that meet strict hygienic standards.",
+      backgroundImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80",
+    },
+    content: {
+      subHeading: "FOOD & BEVERAGE INDUSTRY",
+      heading: "Sanitary Solutions for Mass Production.",
+      bodyText: "Our valves for the F&B sector focus on cleanability and contamination prevention. Using high-polish 316L Stainless Steel and FDA-approved sealing materials, we support everything from dairy processing to large-scale brewery operations. \n\nEvery component is designed to withstand frequent CIP (Clean-In-Place) cycles without degrading."
+    }
+  },
+]

@@ -1,4 +1,23 @@
-export const navConfig = {
+
+export interface NavSubItem {
+  name: string;
+  link?: string; // The '?' makes the link optional!
+}
+
+export interface NavCategory {
+  id: string;
+  label: string;
+  link: string;
+  items: NavSubItem[];
+}
+
+export interface NavConfig {
+  products: NavCategory[];
+  industries: NavCategory[];
+  about: NavCategory[];
+  news: NavCategory[];
+}
+export const navConfig : NavConfig = {
   products: [
     {
       id: "hydrogen",
@@ -58,7 +77,7 @@ export const navConfig = {
     {
       id: "filters",
       label: "Filters",
-      link: "/products/filter",
+      link: "/products/filters",
       items: [
         { name: "T-Type Filter", link: "/products/filters" },
         { name: "In-Line Filter", link: "/products/filters" },
@@ -98,30 +117,31 @@ export const navConfig = {
     {
       id: "marine",
       label: "Marine & Subsea",
-      link: "/industries/marine",
+      link: "/industries/marine-subsea",
       items: [
-        { name: "Shipbuilding", link: "/industries/marine/shipbuilding" },
-        { name: "Propulsion Systems", link: "/industries/marine/propulsion" },
-        { name: "Ballast Water Treatment", link: "/industries/marine/ballast" },
-        { name: "Marine Engine Components", link: "/industries/marine/engine" },
-      ],
+    { name: "Vessel Construction & Integration" },
+    { name: "Marine Propulsion Fluid Control" },
+    { name: "Ballast & Water Management" },
+    { name: "Offshore Platform Instrumentation" }, // Replaced Engine for a broader subsea feel
+    { name: "Deep-Sea Pressure Management" },
+  ],
     },
     {
       id: "oil-gas",
       label: "Oil & Gas",
       link: "/industries/oil-gas",
       items: [
-        { name: "Upstream Exploration", link: "/industries/oil-gas/upstream" },
-        { name: "Midstream Pipelines", link: "/industries/oil-gas/midstream" },
-        { name: "Downstream Refining", link: "/industries/oil-gas/downstream" },
-        { name: "Petrochemical Plants", link: "/industries/oil-gas/petrochemical" },
-        { name: "Gas Processing", link: "/industries/oil-gas/gas-processing" },
+        { name: "Upstream Exploration & Production (E&P)" },
+    { name: "Midstream Pipeline & Storage Infrastructure" },
+    { name: "Downstream Refining & Petrochemical Processing" },
+    { name: "Natural Gas Compression & Liquefaction (LNG)" },
+    { name: "Fugitive Emission & Environmental Control Systems" },
       ],
     },
     {
       id: "Hydrogen",
       label: "Hydrogen",
-      link: "/industries/oil-gas",
+      link: "/industries/hydrogen",
       items: [
         { name: "Upstream Exploration", link: "/industries/oil-gas/upstream" },
         { name: "Midstream Pipelines", link: "/industries/oil-gas/midstream" },
@@ -131,40 +151,43 @@ export const navConfig = {
       ],
     },
     {
-      id: "renewables",
+      id: "aerospace-defense",
       label: "Aerospace & Defense",
-      link: "/industries/renewables",
-      items: [
-        { name: "Hydrogen Electrolysers", link: "/industries/renewables/hydrogen" },
-        { name: "Wind Turbine Hydraulics", link: "/industries/renewables/wind" },
-        { name: "Solar Thermal Systems", link: "/industries/renewables/solar" },
-        { name: "Biofuel Processing", link: "/industries/renewables/biofuel" },
-        { name: "Geothermal Energy", link: "/industries/renewables/geothermal" },
-      ],
+      link: "/industries/aerospace-defense",
+     items: [
+    { name: "PEM & Alkaline Electrolyzer Stack Integration" },
+    { name: "High-Pressure Hydrogen Storage & Cascade Systems" },
+    { name: "Cryogenic Liquid Hydrogen (LH2) Fluid Management" },
+    { name: "Hydrogen Refuelling Station (HRS) Infrastructure" },
+    { name: "Fuel Cell Power Plant Instrumentation & Control" },
+    { name: "H2 Pipeline De-blending & Purification Stations" },
+  ],
     },
     {
-      id: "automotive",
+      id: "food-beverages",
       label: "Food & Beverages",
-      link: "/industries/automotive",
+      link: "/industries/food-beverages",
       items: [
-        { name: "Testing Rigs", link: "/industries/automotive/testing" },
-        { name: "Fuel Injection Systems", link: "/industries/automotive/fuel-injection" },
-        { name: "Brake Line Fittings", link: "/industries/automotive/brake" },
-        { name: "Cooling Systems", link: "/industries/automotive/cooling" },
-        { name: "Assembly Line Automation", link: "/industries/automotive/assembly" },
-      ],
+    { name: "Sanitary Process Automation & Fluid Control" },
+    { name: "Hygienic Beverage Distribution & Filling Lines" },
+    { name: "Clean-In-Place (CIP) & Sterilization Systems" },
+    { name: "High-Polish Instrumentation for Dairy Processing" },
+    { name: "Automated Ingredient Batching & Mixing Loops" },
+    { name: "Brewery & Distillery Fermentation Management" },
+  ],
     },
     {
-      id: "agriculture",
+      id: "chemicals-petrochemical",
       label: "Chemicals & Petrochemical",
-      link: "/industries/agriculture",
-      items: [
-        { name: "Irrigation Systems", link: "/industries/agriculture/irrigation" },
-        { name: "Fertilizer Spraying", link: "/industries/agriculture/fertilizer" },
-        { name: "Tractor Hydraulics", link: "/industries/agriculture/tractor" },
-        { name: "Grain Processing", link: "/industries/agriculture/grain" },
-        { name: "Pesticide Handling", link: "/industries/agriculture/pesticide" },
-      ],
+      link: "/industries/chemicals-petrochemical",
+     items: [
+    { name: "Corrosive & Aggressive Media Management Systems" },
+    { name: "High-Temperature & High-Pressure Process Loops" },
+    { name: "Hazardous Chemical Refining & Storage Infrastructure" },
+    { name: "Critical Instrumentation for Batch Reactor Control" },
+    { name: "Specialty Polymer & Fertilizer Production Lines" },
+    { name: "Toxic Gas Leak Detection & Fluid Isolation" },
+  ],
     },
   ],
   about: [

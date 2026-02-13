@@ -1,54 +1,11 @@
-import { Box, Container, Typography, Card, CardContent, Button, Stack } from "@mui/material"
-import Grid from "@mui/material/Grid"
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import { Box, Container, Typography, Card, CardContent, Button, Stack } from "@mui/material";
+import Grid from "@mui/material/Grid"; // Updated to Grid2 as requested previously
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Link } from "react-router-dom"; // Import Link
+import { blogs } from "./blogData";
 
-const BRAND_BLUE = "#01B0F0"
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
-
-const newsData = [
-  {
-    date: "OCT 24, 2025",
-    category: "Technical",
-    title: "Advancements in Cryogenic Valve Sealing",
-    description: "Discover how our latest polymer-composite seals are setting new benchmarks for zero-leakage performance in liquid hydrogen storage.",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80",
-  },
-  {
-    date: "SEP 12, 2025",
-    category: "Case Study",
-    title: "Offshore Reliability: The North Sea Project",
-    description: "A deep dive into how Panam Valves provided critical flow control solutions for one of the largest offshore platforms in the Atlantic.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80",
-  },
-  {
-    date: "AUG 05, 2025",
-    category: "Innovation",
-    title: "Sustainability in Valve Manufacturing",
-    description: "Learn about our initiative to reduce carbon footprints by optimizing high-pressure testing cycles and material sourcing.",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80",
-  },
-  {
-    date: "JUL 18, 2025",
-    category: "Industry News",
-    title: "The Future of Hydrogen Infrastructure",
-    description: "As the world pivots to clean energy, we explore the vital role of high-precision valves in the emerging global hydrogen economy.",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
-  },
-  {
-    date: "JUN 30, 2025",
-    category: "Safety",
-    title: "Pressure Testing: Safety Without Compromise",
-    description: "An overview of our rigorous safety protocols and how we simulate extreme environments to ensure fail-safe performance.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-  },
-  {
-    date: "MAY 14, 2025",
-    category: "Global",
-    title: "Expanding Strategic Hubs in Asia-Pacific",
-    description: "Panam Valves announces the opening of two new support centers to provide rapid-response engineering services to the APAC region.",
-    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80",
-  },
-]
+const BRAND_BLUE = "#01B0F0";
+const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
 const NewsCards = () => {
   return (
@@ -63,7 +20,8 @@ const NewsCards = () => {
               color: "#1a1a1a",
               mb: 3,
               fontSize: { xs: "2rem", md: "2.5rem" },
-            }}>
+            }}
+          >
             Latest News & Insights
           </Typography>
           <Typography
@@ -73,26 +31,30 @@ const NewsCards = () => {
               color: "#555",
               fontSize: "1.125rem",
               lineHeight: 1.8,
-            }}>
-            Stay informed with the latest developments, technical breakthroughs, and industry insights from Panam Valves. From innovation in valve technology to global expansion updates, discover how we're shaping the future of flow control solutions.
+            }}
+          >
+            Stay informed with the latest developments, technical breakthroughs, and industry insights from Panam Valves.
           </Typography>
         </Box>
+
         <Grid container spacing={4}>
-          {newsData.map((news, index) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+          {blogs.map((news) => (
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={news.slug}>
+              {/* Wrap the whole card in a Link for better UX */}
               <Card
+                component={Link}
+                to={`/blog/${news.slug}`}
                 elevation={0}
                 sx={{
+                  textDecoration: "none", // Remove underline from Link
                   height: "100%",
                   minHeight: "450px",
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "space-between",
                   border: "1px solid #e0e0e0",
                   borderRadius: "0px",
                   overflow: "hidden",
                   transition: "all 0.3s ease-in-out",
-                  cursor: "pointer",
                   backgroundColor: "#ffffff",
                   "&:hover": {
                     boxShadow: `0px 10px 30px rgba(1, 176, 240, 0.15)`,
@@ -101,15 +63,10 @@ const NewsCards = () => {
                       transform: "scale(1.05)",
                     },
                   },
-                }}>
+                }}
+              >
                 {/* Image Section */}
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "200px",
-                    overflow: "hidden",
-                    position: "relative",
-                  }}>
+                <Box sx={{ width: "100%", height: "200px", overflow: "hidden" }}>
                   <Box
                     component="img"
                     src={news.image}
@@ -129,22 +86,14 @@ const NewsCards = () => {
                   <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
                     <Typography
                       variant="caption"
-                      sx={{
-                        fontWeight: 600,
-                        fontFamily: PRIMARY_FONT,
-                        color: "#999",
-                        letterSpacing: "0.5px",
-                      }}>
+                      sx={{ fontWeight: 600, color: "#999", letterSpacing: "0.5px" }}
+                    >
                       {news.date}
                     </Typography>
                     <Typography
                       variant="caption"
-                      sx={{
-                        fontWeight: 700,
-                        fontFamily: PRIMARY_FONT,
-                        color: BRAND_BLUE,
-                        letterSpacing: "0.5px",
-                      }}>
+                      sx={{ fontWeight: 700, color: BRAND_BLUE, letterSpacing: "0.5px" }}
+                    >
                       {news.category}
                     </Typography>
                   </Stack>
@@ -153,11 +102,13 @@ const NewsCards = () => {
                     variant="h6"
                     sx={{
                       fontWeight: 700,
-                      fontFamily: PRIMARY_FONT,
                       color: "#1a1a1a",
                       mb: 2,
-                      fontSize: "1.25rem",
-                    }}>
+                      fontSize: "1.15rem",
+                      lineHeight: 1.4,
+                      fontFamily: PRIMARY_FONT,
+                    }}
+                  >
                     {news.title}
                   </Typography>
 
@@ -169,8 +120,9 @@ const NewsCards = () => {
                       lineHeight: 1.7,
                       mb: 3,
                       flexGrow: 1,
-                    }}>
-                    {news.description}
+                    }}
+                  >
+                    {news.excerpt} {/* Using the excerpt from blogData */}
                   </Typography>
 
                   <Button
@@ -181,17 +133,13 @@ const NewsCards = () => {
                       fontWeight: 700,
                       p: 0,
                       textTransform: "none",
-                      fontFamily: PRIMARY_FONT,
-                      "& .MuiButton-endIcon": {
-                        transition: "transform 0.2s",
-                      },
+                      "& .MuiButton-endIcon": { transition: "transform 0.2s" },
                       "&:hover": {
                         backgroundColor: "transparent",
-                        "& .MuiButton-endIcon": {
-                          transform: "translateX(5px)",
-                        },
+                        "& .MuiButton-endIcon": { transform: "translateX(5px)" },
                       },
-                    }}>
+                    }}
+                  >
                     Read More
                   </Button>
                 </CardContent>
@@ -201,7 +149,7 @@ const NewsCards = () => {
         </Grid>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default NewsCards
+export default NewsCards;

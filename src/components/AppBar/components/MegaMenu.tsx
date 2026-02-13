@@ -64,7 +64,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuData, activeTab, setAct
                 {activeTab?.items?.map((item: any) => (
                   <Grid size={{ xs: 6, md: 4 }} key={item.name}>
                     <Box
-                      onClick={() => handleNavigate(item.link)}
                       sx={{
                         display: "flex",
                         alignItems: "center",
@@ -74,11 +73,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuData, activeTab, setAct
                         fontFamily: PRIMARY_FONT,
                         fontSize: "0.9rem",
                         transition: "0.2s",
-                        cursor: "pointer",
-                        "&:hover": { color: BRAND_BLUE, transform: "translateX(5px)" },
                       }}>
                       {item.name}
-                      <ArrowForwardIcon sx={{ fontSize: 14, ml: 1, opacity: 0.5 }} />
+                     
                     </Box>
                   </Grid>
                 ))}

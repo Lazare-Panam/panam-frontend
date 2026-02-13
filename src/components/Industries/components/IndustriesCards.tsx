@@ -1,35 +1,11 @@
-import { Box, Grid, Container, Typography, Card, CardContent, Button } from "@mui/material"
+import { Box, Container, Typography, Card, CardContent } from "@mui/material"
+import Grid from "@mui/material/Grid" 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
-
+import { Link } from "react-router-dom"
+import { industryData } from "./industryData"
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
-const industryData = [
-  {
-    title: "Marine & Subsea",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", // Ship/marine
-  },
-  {
-    title: "Oil & Gas",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg", // Oil rig
-  },
-  {
-    title: "Hydrogen",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80", // Wind turbines
-  },
-  {
-    title: "Aerospace & Defense",
-    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80", // Car manufacturing
-  },
-  {
-    title: "Chemicals & Petrochemical",
-    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80", // Tractor/farming
-  },
-  {
-    title: "Food & Beverages",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80", // Factory
-  },
-]
 
 const IndustriesCards = () => {
   return (
@@ -59,15 +35,21 @@ const IndustriesCards = () => {
                 fontWeight: 600,
               },
             }}>
-            For over two decades, we've been delivering precision-engineered solutions across the world's most demanding sectors. From powering <span>offshore operations</span> to supporting <span>sustainable energy transitions</span>, our technology drives efficiency and reliability where it matters most. Trusted by industry leaders globally, we turn complex challenges into seamless operations.
+            For over two decades, we've been delivering precision-engineered solutions across the world's most demanding sectors. From powering <span>offshore operations</span> to supporting <span>sustainable energy transitions</span>, our technology drives efficiency and reliability where it matters most.
           </Typography>
         </Box>
+
+     
         <Grid container spacing={4}>
-          {industryData.map((industry, index) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+          {industryData.map((industry) => (
+            /* Grid2 Item using the new 'size' prop */
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={industry.id}>
               <Card
+                component={Link}
+                to={`/industries/${industry.id}`}
                 elevation={0}
                 sx={{
+                  textDecoration: "none",
                   height: "100%",
                   minHeight: "350px",
                   display: "flex",
@@ -84,9 +66,11 @@ const IndustriesCards = () => {
                     "& .industry-image": {
                       transform: "scale(1.05)",
                     },
+                    "& .arrow-icon": {
+                      transform: "translateX(5px)",
+                    }
                   },
                 }}>
-                {/* Image Section */}
                 <Box
                   sx={{
                     width: "100%",
@@ -106,7 +90,6 @@ const IndustriesCards = () => {
                       transition: "transform 0.4s ease-in-out",
                     }}
                   />
-                  {/* Dark overlay for better text contrast */}
                   <Box
                     sx={{
                       position: "absolute",
@@ -119,7 +102,6 @@ const IndustriesCards = () => {
                   />
                 </Box>
 
-                {/* Content Section */}
                 <CardContent sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
                   <Typography
                     variant="h6"
@@ -140,28 +122,22 @@ const IndustriesCards = () => {
                     }}
                   />
 
-                  <Button
-                    endIcon={<ArrowForwardIcon />}
+                  <Typography
                     sx={{
-                      alignSelf: "flex-start",
+                      display: "flex",
+                      alignItems: "center",
                       color: BRAND_BLUE,
                       fontWeight: 700,
-                      p: 0,
-                      mt: 2,
-                      textTransform: "none",
+                      mt: 4,
                       fontFamily: PRIMARY_FONT,
-                      "& .MuiButton-endIcon": {
-                        transition: "transform 0.2s",
-                      },
-                      "&:hover": {
-                        backgroundColor: "transparent",
-                        "& .MuiButton-endIcon": {
-                          transform: "translateX(5px)",
-                        },
-                      },
+                      fontSize: "0.875rem",
                     }}>
                     Find out more
-                  </Button>
+                    <ArrowForwardIcon 
+                      className="arrow-icon" 
+                      sx={{ ml: 1, fontSize: "1.2rem", transition: "transform 0.2s" }} 
+                    />
+                  </Typography>
                 </CardContent>
               </Card>
             </Grid>
