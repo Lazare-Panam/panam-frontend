@@ -61,7 +61,15 @@ const Navbar: React.FC = () => {
       </AppBar>
 
       {/* Mobile Drawer */}
-      <Drawer anchor="right" open={openDrawer} onClose={() => setOpenDrawer(false)} PaperProps={{ sx: { width: "100%", maxWidth: 350 } }}>
+      <Drawer
+        anchor="right"
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        slotProps={{
+          paper: {
+            sx: { width: "100%", maxWidth: 350 },
+          },
+        }}>
         <Box sx={{ p: 2, display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #eee" }}>
           <Typography sx={{ fontWeight: 800, color: BRAND_BLUE }}>MENU</Typography>
           <IconButton onClick={() => setOpenDrawer(false)}>
@@ -83,7 +91,18 @@ const Navbar: React.FC = () => {
                   setOpenDrawer(false)
                 }}
                 sx={{ py: 2 }}>
-                <ListItemText primary={item.text} primaryTypographyProps={{ fontFamily: PRIMARY_FONT, fontWeight: 600, fontSize: "1rem" }} />
+                <ListItemText
+                  primary={item.text}
+                  slotProps={{
+                    primary: {
+                      sx: {
+                        fontFamily: PRIMARY_FONT,
+                        fontWeight: 600,
+                        fontSize: "1rem",
+                      },
+                    },
+                  }}
+                />
                 <ArrowForwardIcon sx={{ fontSize: 16, color: "#ccc" }} />
               </ListItemButton>
             </ListItem>

@@ -42,8 +42,8 @@ const Carousel: React.FC = () => {
         loop
         watchSlidesProgress={true} // Forces Swiper to calculate visibility for the first slide
         style={{ height: "100%", width: "100%" }}>
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
+        {slides.map(slide => (
+          <SwiperSlide key={slide.title}>
             <Box
               sx={{
                 position: "relative",

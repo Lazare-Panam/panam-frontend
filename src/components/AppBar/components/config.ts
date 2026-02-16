@@ -170,7 +170,7 @@ export const navConfig: NavConfig = {
       items: [
         { name: "Mission & Vision", link: "/about/mission" },
         { name: "Manufacturing Excellence", link: "/about/manufacturing" },
-       
+
         { name: "Quality Control", link: "/about/global" },
       ],
     },
@@ -186,6 +186,5 @@ export const navConfig: NavConfig = {
         { name: "Corporate Events", link: "/news/events" },
       ],
     },
-    
   ],
 }

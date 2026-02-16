@@ -85,24 +85,27 @@ const BlogTemplate: React.FC = () => {
                 "& h4": { mt: 6, mb: 3, fontWeight: 800, color: "#1A1A1A", fontSize: "1.75rem" },
               }}>
               {post.body.map((section, index) => {
+                // Creating a stable key by combining type and index
+                const sectionKey = `${section.type}-${index}`
+
                 switch (section.type) {
                   case "paragraph":
                     return (
-                      <Typography key={index} variant="body1">
+                      <Typography key={sectionKey} variant="body1">
                         {section.text}
                       </Typography>
                     )
 
                   case "subheading":
                     return (
-                      <Typography key={index} variant="h4">
+                      <Typography key={sectionKey} variant="h4">
                         {section.text}
                       </Typography>
                     )
 
                   case "wrap-section":
                     return (
-                      <Box key={index} sx={{ display: "block", mb: 4 }}>
+                      <Box key={sectionKey} sx={{ display: "block", mb: 4 }}>
                         <Box
                           component="img"
                           src={section.url}
@@ -115,14 +118,13 @@ const BlogTemplate: React.FC = () => {
                           }}
                         />
                         <Typography variant="body1">{section.text}</Typography>
-                        {/* Clearfix ensures subsequent paragraphs (type: 'paragraph') start below this section if they exceed the image height */}
                         <Box sx={{ clear: "both" }} />
                       </Box>
                     )
 
                   case "quote":
                     return (
-                      <Box key={index} sx={{ borderLeft: "5px solid #01B0F0", pl: 4, my: 7, py: 1, bgcolor: "#F0F9FF", pr: 2 }}>
+                      <Box key={sectionKey} sx={{ borderLeft: "5px solid #01B0F0", pl: 4, my: 7, py: 1, bgcolor: "#F0F9FF", pr: 2 }}>
                         <Typography variant="h5" sx={{ fontStyle: "italic", fontWeight: 500, color: "#003366" }}>
                           "{section.text}"
                         </Typography>
@@ -131,9 +133,9 @@ const BlogTemplate: React.FC = () => {
 
                   case "list":
                     return (
-                      <Box component="ul" key={index} sx={{ mb: 5, pl: 3 }}>
+                      <Box component="ul" key={sectionKey} sx={{ mb: 5, pl: 3 }}>
                         {section.items?.map((item, i) => (
-                          <Typography component="li" key={i} sx={{ mb: 2, fontSize: "1.15rem", color: "#2D3436", "&::marker": { color: "#01B0F0" } }}>
+                          <Typography component="li" key={`${sectionKey}-item-${i}`} sx={{ mb: 2, fontSize: "1.15rem", color: "#2D3436", "&::marker": { color: "#01B0F0" } }}>
                             {item}
                           </Typography>
                         ))}
@@ -145,7 +147,7 @@ const BlogTemplate: React.FC = () => {
                 }
               })}
 
-              {/* Final CTA Section (Preserved per your request) */}
+              {/* Final CTA Section - No key needed here as it's not mapped */}
               <Box sx={{ mt: 10, p: 5, bgcolor: "#ffffff", border: "1px solid #EEE", textAlign: "center" }}>
                 <Typography variant="h4" sx={{ fontWeight: 800, mb: 2, color: "#1A1A1A" }}>
                   Ready to optimize your systems?

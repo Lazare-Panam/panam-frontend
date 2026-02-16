@@ -56,7 +56,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuData, activeTab, setAct
 
             {/* Right Side: Specific Items */}
             <Grid size={{ md: 9 }} sx={{ backgroundColor: "#F9FAFB", py: 4, px: 6 }}>
-
               <Grid container spacing={2}>
                 {activeTab?.items?.map((item: any) => (
                   <Grid size={{ xs: 6, md: 4 }} key={item.name}>
