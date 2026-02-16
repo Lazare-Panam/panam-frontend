@@ -19,20 +19,6 @@ jobs:
         with:
           submodules: true
           lfs: false
-      - name: Setup Node.js        # ← ADD THIS
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'npm'
-
-      - name: Install dependencies  # ← ADD THIS
-        run: npm ci
-
-      - name: Build                 # ← ADD THIS
-        run: npm run build
-        env:
-          VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
-
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -46,7 +32,6 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "dist" # Built app content directory - optional
           production_branch: "feature/adding-features"
-          skip_app_build: true 
           ###### End of Repository/Build Configurations ######
         env:
           VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
