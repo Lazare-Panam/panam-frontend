@@ -6,10 +6,14 @@ import { useProductConfigurator } from "./hooks/useProductConfigurator"
 import ConfigurationPanel from "./components/ConfigurationPanel"
 import SummaryPanel from "./components/SummaryPanel"
 import type { ProductConfig } from "./types/CustomConfigurationtypes"
+import { useCartStore } from "../store/useCartStore"
+import { useNotificationStore } from "../store/useNotficationStore"
 
 const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
   const [showValidation, setShowValidation] = useState(false)
+  const showNotif = useNotificationStore(state => state.showNotification)
   const productConfig = useProductConfigurator(product)
+  const addItem = useCartStore(state => state.addItem)
   if (open && !product) {
     return (
       <Backdrop sx={{ color: "#fff" }} open={open} onClick={onClose}>
@@ -18,18 +22,38 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
     )
   }
 
-  console.log("Product in parent", product)
-
-  if (!open) return null
-
   const handleSaveClick = () => {
     setShowValidation(true)
     const hasErrors = product?.configurations?.some((config: ProductConfig) => config.required && !productConfig.getEffectiveSelection(config)?.code)
     if (hasErrors) {
       return
     }
-    onClose()
+    const selectedSpecs: Record<string, string> = {}
+    product?.configurations?.forEach((config: ProductConfig) => {
+      const selection = productConfig.getEffectiveSelection(config)
+      if (selection) {
+        selectedSpecs[config.label] = selection.label
+      }
+    })
+    addItem({
+      cartItemId: `${product.id}-${productConfig.generatedPartNumber}`,
+      id: product.id,
+      name: product.title,
+      image: product.imageUrl || "",
+      quantity: 1,
+      partNumber: productConfig.generatedPartNumber,
+      specs: selectedSpecs,
+    })
+    showNotif({
+      message: "Added to quote list",
+      severity: "success",
+      partNumber: productConfig.generatedPartNumber,
+    })
+    setTimeout(() => {
+      onClose()
+    }, 1200)
   }
+  if (!open) return null
 
   return (
     <Dialog

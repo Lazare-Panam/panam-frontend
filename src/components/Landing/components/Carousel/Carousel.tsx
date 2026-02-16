@@ -13,7 +13,7 @@ const slides = [
   {
     title: "Global Infrastructure Support",
     subtitle: "Built to withstand the most demanding environments on Earth.",
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=2000",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770984276/FACTORY-PHOTO-OPTION-1-JPEG_v9hkcn.jpg",
   },
   {
     title: "Next-Gen Flow Control",
@@ -42,8 +42,8 @@ const Carousel: React.FC = () => {
         loop
         watchSlidesProgress={true} // Forces Swiper to calculate visibility for the first slide
         style={{ height: "100%", width: "100%" }}>
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
+        {slides.map(slide => (
+          <SwiperSlide key={slide.title}>
             <Box
               sx={{
                 position: "relative",

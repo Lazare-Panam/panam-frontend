@@ -47,7 +47,7 @@ const FeatureGridSection: React.FC<FeatureGridProps> = ({ sectionTitle, items, b
                   display: "flex", // Centers the image
                   alignItems: "center",
                   justifyContent: "center",
-                  backgroundColor: "#fff", // Clean white background
+                  backgroundColor: "transparent", // Clean white background
                   padding: "20px", // Creates a "frame" look
                   mb: 2,
                   overflow: "hidden",

@@ -43,7 +43,6 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEff
             gap: 4,
             mb: 2,
           }}>
-          {/* Show Checkbox only if supported */}
           {(product.capabilities?.supportsCertificates ?? true) ? (
             <FormControlLabel
               sx={{ margin: 0 }}
@@ -57,9 +56,6 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEff
           ) : (
             <Box />
           )}
-
-          {/* Show Toggle only if product has unit systems */}
-
           {product.capabilities?.hasUnitSystem && (
             <ToggleButtonGroup
               value={unitSystem}
@@ -88,24 +84,15 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({ product, getEff
 
         {product?.configurations?.map((config: ProductConfig) => {
           const selection = getEffectiveSelection(config)
-
-          // 1. Filter the options based on the toggle state
           const filteredOptions =
             config.options?.filter((option: ConfigOption) => {
               if (!product.capabilities?.hasUnitSystem) return true
-
               if (!option.unit) return true // Keeps Brand, Material, etc. visible
               return option.unit === unitSystem
             }) || []
-
-          // 2. Lock the field only if the FILTERED list has 1 item
           const isLocked = filteredOptions.length === 1
-
-          // 3. Safety: If the current selection isn't in the filtered list, show empty
           const currentValue = filteredOptions.some(opt => opt.code === selection?.code) ? selection?.code || "" : ""
-
           const showError = showValidation && config.required && !selection?.code
-
           return (
             <Grid container key={config.label} alignItems="center" sx={{ py: 1.5, borderBottom: "1px solid #f5f5f5" }}>
               <Grid size={{ xs: 5 }}>

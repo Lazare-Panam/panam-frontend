@@ -1,10 +1,12 @@
-import { Box, Typography, Container, Card, CardMedia, CardContent, Divider, Button, Stack } from "@mui/material"
-import Grid from "@mui/material/Grid" // Import Grid2 separately
+import React from "react"
+import { Box, Typography, Container, Card, CardMedia, CardContent, Divider } from "@mui/material"
+import Grid from "@mui/material/Grid" // Consistency with Grid2 preference
 
-const TEXT_GREY = "#444444"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const TEXT_MAIN = "#1a1a1a"
 const TEXT_SECONDARY = "#555555"
+const BRAND_BLUE = "#01B0F0"
+
 const pillarData = [
   {
     title: "Sustainability",
@@ -13,7 +15,7 @@ const pillarData = [
   },
   {
     title: "Our Leadership",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769532726/jehyun-sung-6U5AEmQIajg-unsplash_dv6h7l.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769789155/WhatsApp_Image_2026-01-30_at_3.43.08_PM_stqorr.jpg",
     description: "Our team of strong and diverse leaders guides Panam Valves in our world's dynamic environment.",
   },
   {
@@ -23,29 +25,77 @@ const pillarData = [
   },
 ]
 
-const CorporatePillars = () => {
+const CorporatePillars: React.FC = () => {
   return (
-    <Box sx={{ backgroundColor: "#fff" }}>
+    <Box sx={{ backgroundColor: "#fff", py: 10 }}>
       <Divider
         sx={{
           width: "100%",
           borderColor: "rgba(0,0,0,0.1)",
           borderBottomWidth: 1,
-          mb: 5, // Remove default vertical margins if you want total control
+          mb: 8,
         }}
       />
+
       <Container maxWidth="xl">
-        {/* TOP DIVIDER */}
+        {/* --- CENTRALIZED HEADER SECTION --- */}
+        <Box
+          sx={{
+            mb: 10,
+            maxWidth: "850px",
+            mx: "auto",
+            textAlign: "center",
+          }}>
+          <Typography
+            variant="overline"
+            sx={{
+              color: BRAND_BLUE,
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              fontFamily: PRIMARY_FONT,
+              display: "block",
+            }}>
+            Our Foundation
+          </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              fontFamily: PRIMARY_FONT,
+              color: TEXT_MAIN,
+              fontWeight: 800,
+              mt: 1,
+              mb: 3,
+              fontSize: { xs: "2.2rem", md: "3rem" },
+            }}>
+            The Pillars of Our Excellence
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontFamily: PRIMARY_FONT,
+              color: TEXT_SECONDARY,
+              fontSize: "1.15rem",
+              lineHeight: 1.8,
+            }}>
+            At Panam Valves, our growth is rooted in a steadfast commitment to environmental responsibility, visionary leadership, and a shared global mission to deliver engineering solutions that withstand the test of time.
+          </Typography>
+        </Box>
 
         {/* THE GRID CONTAINER */}
-        <Grid container spacing={4} sx={{ mb: 12 }}>
+        <Grid container spacing={4}>
           {pillarData.map((item, index) => (
             <Grid key={index} size={{ xs: 12, md: 4 }}>
-              <Card elevation={0} sx={{ borderRadius: 0, backgroundColor: "transparent" }}>
+              <Card
+                elevation={0}
+                sx={{
+                  borderRadius: 0,
+                  backgroundColor: "transparent",
+                  height: "100%",
+                }}>
                 <Box sx={{ overflow: "hidden", mb: 3 }}>
                   <CardMedia
                     component="img"
-                    height="260"
+                    height="320"
                     image={item.image}
                     alt={item.title}
                     sx={{
@@ -71,6 +121,7 @@ const CorporatePillars = () => {
                       fontFamily: PRIMARY_FONT,
                       color: TEXT_SECONDARY,
                       fontSize: "1.05rem",
+                      lineHeight: 1.6,
                     }}>
                     {item.description}
                   </Typography>
@@ -79,104 +130,6 @@ const CorporatePillars = () => {
             </Grid>
           ))}
         </Grid>
-
-        {/* CENTERED BUSINESS SECTION */}
-        <Box sx={{ textAlign: "center", maxWidth: "950px", mx: "auto" }}>
-          <Typography
-            variant="h3"
-            sx={{
-              fontFamily: PRIMARY_FONT,
-              fontWeight: 300,
-              color: "#333",
-              mb: 4,
-              fontSize: { xs: "2rem", md: "2.5rem" },
-            }}>
-            Our Business
-          </Typography>
-          <Typography
-            sx={{
-              fontFamily: PRIMARY_FONT,
-              fontSize: "1.25rem",
-              lineHeight: 1.6,
-              color: TEXT_GREY,
-              fontWeight: 300,
-            }}>
-            Panam Valves' industry-leading portfolio enables us to identify and confront the challenges of an increasingly complex and unpredictable marketplace from a position of strength, driving near- and long-term value as a trusted partner for our customers.
-          </Typography>
-        </Box>
-        <Box sx={{ width: "100%", py: 8 }}>
-          {/* Visual Divider on Top */}
-          <Divider sx={{ mb: 8, borderColor: "rgba(0,0,0,0.1)", borderWidth: 1 }} />
-
-          <Container maxWidth="lg">
-            <Grid container spacing={6} alignItems="center">
-              {/* LEFT: TEXT CONTENT */}
-              <Grid size={{ xs: 12, md: 6 }}>
-                <Stack spacing={3}>
-                  <Typography
-                    variant="h3"
-                    sx={{
-                      fontWeight: 800,
-                      color: "#1A1A1A",
-                      lineHeight: 1.2,
-                      fontSize: { xs: "2rem", md: "2.8rem" },
-                    }}>
-                    Company Portfolio
-                  </Typography>
-
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#4A4A4A",
-                      fontSize: "1.1rem",
-                      lineHeight: 1.7,
-                    }}>
-                    Industry leaders are looking to Panam as a trusted partner that continuously innovates to help them meet the next big challenge. Our robust automation portfolio enables us to collaborate across our businesses to develop more complete solutions for customers based on our deep industry experience. We leverage our global presence, domain expertise and industrial software to help
-                    industries achieve key sustainability and operational goals.
-                  </Typography>
-
-                  <Box sx={{ pt: 2 }}>
-                    <Button
-                      variant="outlined"
-                      sx={{
-                        borderRadius: "50px",
-                        px: 4,
-                        py: 1.2,
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        color: "#01B0F0",
-                        borderColor: "#01B0F0",
-                        borderWidth: 2,
-                        "&:hover": {
-                          borderWidth: 2,
-                          backgroundColor: "rgba(0,85,150,0.05)",
-                        },
-                      }}>
-                      Find Information About Panam
-                    </Button>
-                  </Box>
-                </Stack>
-              </Grid>
-
-              {/* RIGHT: IMAGE */}
-              <Grid size={{ xs: 12, md: 6 }}>
-                <Box
-                  component="img"
-                  src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769532955/pexels-rbrigant44-771881_kvhwsv.jpg"
-                  alt="Panam Headquarters"
-                  sx={{
-                    width: "100%",
-                    height: "auto",
-                    maxHeight: "600px",
-                    objectFit: "cover",
-                    borderRadius: "2px",
-                    boxShadow: "0px 10px 30px rgba(0,0,0,0.05)",
-                  }}
-                />
-              </Grid>
-            </Grid>
-          </Container>
-        </Box>
       </Container>
     </Box>
   )

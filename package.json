@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "prerender": "node prerender.mjs",
+    "build:full": "npm run build && npm run prerender",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
@@ -19,10 +21,12 @@
     "@mui/material": "^7.3.6",
     "@tanstack/react-query": "^5.90.19",
     "axios": "^1.13.2",
+    "framer-motion": "^12.29.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.12.0",
-    "swiper": "^11.1.14"
+    "react-router-dom": "^7.13.0",
+    "swiper": "^11.1.14",
+    "zustand": "^5.0.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -41,6 +45,7 @@
     "globals": "^16.5.0",
     "jsdom": "^27.4.0",
     "prettier": "^3.7.4",
+    "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",

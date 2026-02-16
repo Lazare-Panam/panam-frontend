@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
           width: "100%",
         }}>
         <Grid container spacing={2}>
-          <Grid size={{ xs: 12, sm: 6, md: 2 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
             <Box
               component="img"
               src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png"
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
             />
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 6, md: 2 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
             <Typography variant="h6" sx={{ fontWeight: 900, mb: 2, fontSize: "1.1rem", fontFamily: '"Inter", sans-serif' }}>
               PANAM <span style={{ color: BRAND_BLUE }}>VALVES</span>
             </Typography>
@@ -87,12 +87,12 @@ const Footer: React.FC = () => {
             </Stack>
           </Grid>
 
-          <Grid size={{ xs: 6, sm: 4, md: 2 }}>
+          <Grid size={{ xs: 6, sm: 4, md: 2.4 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2, fontFamily: '"Inter", sans-serif', textTransform: "uppercase", letterSpacing: 1 }}>
               Products
             </Typography>
             <Stack spacing={1}>
-              {["Ball Valves", "Needle Valves", "DBB Valves", "Manifolds", "Fittings", "Check Valves"].map(link => (
+              {["Valves", "Manifolds", "Hydrogen", "Double Block And Bleed", "Fittings", "Filters"].map(link => (
                 <Link key={link} href="#" underline="none" sx={{ color: "rgba(255,255,255,0.6)", "&:hover": { color: BRAND_BLUE }, fontFamily: '"Inter", sans-serif', fontSize: "0.8rem" }}>
                   {link}
                 </Link>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
             </Stack>
           </Grid>
 
-          <Grid size={{ xs: 6, sm: 4, md: 2 }}>
+          {/* <Grid size={{ xs: 6, sm: 4, md: 2 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2, fontFamily: '"Inter", sans-serif', textTransform: "uppercase", letterSpacing: 1 }}>
               Support
             </Typography>
@@ -111,16 +111,16 @@ const Footer: React.FC = () => {
                 </Link>
               ))}
             </Stack>
-          </Grid>
+          </Grid> */}
 
-          <Grid size={{ xs: 12, sm: 4, md: 2 }}>
+          <Grid size={{ xs: 12, sm: 4, md: 2.4 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2, textTransform: "uppercase", letterSpacing: 1, fontFamily: '"Inter", sans-serif' }}>
               Headquarters
             </Typography>
             <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.6)", mb: 2, fontFamily: '"Inter", sans-serif', fontSize: "0.8rem", lineHeight: 1.6 }}>
-              Franklin's House,
+              Ground Floor, St Edburgs Hall
               <br />
-              Bicester, OX26 6JU
+              Priory Road, Bicester, OX26 6BL
               <br />
               United Kingdom.
             </Typography>
@@ -153,7 +153,7 @@ const Footer: React.FC = () => {
             </Link>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 4, md: 2 }}>
+          <Grid size={{ xs: 12, sm: 4, md: 2.4 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2, textTransform: "uppercase", letterSpacing: 1, fontFamily: '"Inter", sans-serif' }}>
               Where are we?
             </Typography>
@@ -175,7 +175,7 @@ const Footer: React.FC = () => {
 
         <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems="center" spacing={2}>
           <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontSize: "0.7rem", fontFamily: '"Inter", sans-serif' }}>
-            © {new Date().getFullYear()} Panam Engineers Ltd. All Rights Reserved.
+            © {new Date().getFullYear()} Panam Valves Ltd. All Rights Reserved.
           </Typography>
           <Stack direction="row" spacing={3}>
             {["Privacy Policy", "Terms of Use", "Sitemap"].map(item => (

@@ -1,18 +1,26 @@
 import React from "react"
-import ReactDOM from "react-dom/client"
-import { RouterProvider } from "react-router-dom"
+import { createRoot, hydrateRoot } from "react-dom/client"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { router } from "./App.tsx"
+import { routes } from "./App.tsx" // Import the routes we just cleaned up
 
 const queryClient = new QueryClient()
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+// Create the browser-specific router here
+const router = createBrowserRouter(routes)
+
+const app = (
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      {/* RouterProvider is the modern way to render your app in v7.
-          It provides the context needed for ScrollRestoration.
-      */}
       <RouterProvider router={router} />
     </QueryClientProvider>
   </React.StrictMode>
 )
+
+const rootElement = document.getElementById("root")!
+
+if (rootElement.hasChildNodes()) {
+  hydrateRoot(rootElement, app)
+} else {
+  createRoot(rootElement).render(app)
+}

@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography, Stack } from "@mui/material"
 
 const IntroSection: React.FC = () => {
   return (
-    <Box sx={{ py: { xs: 8, md: 3 }, backgroundColor: "#FFFFFF" }}>
+    <Box sx={{ py: { xs: 8, md: 3 }, backgroundColor: "transparent" }}>
       <Container maxWidth="lg">
         {/* Parent Grid remains the same */}
         <Grid container spacing={8} alignItems="center">
@@ -81,6 +81,7 @@ const IntroSection: React.FC = () => {
                   border: 0,
                 }}
                 src="https://www.youtube.com/embed/HRFxY37P0Lg"
+                referrerPolicy="strict-origin-when-cross-origin"
                 title="Panam Valves Product Showcase"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

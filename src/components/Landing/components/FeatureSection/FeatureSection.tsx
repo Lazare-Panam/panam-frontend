@@ -1,38 +1,9 @@
-import { useNavigate } from "react-router-dom"
 import FeatureGridSection from "./FeatureGridSection"
 import ProductResources from "./ProductResources"
+import ScrollReveal from "../../../Common/ScrollReveal"
+import FeatureCarousel from "./FeatureCarousel"
 
 const FeatureSection = () => {
-  const navigate = useNavigate()
-  const productData = [
-    {
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768569088/HP_Ball_Valve_2_aybek4.webp",
-      caption: (
-        <>
-          High-performance <span>hydrogen solutions</span> designed for leak-tight containment in alternative fuel infrastructure.
-        </>
-      ),
-      link: "/products/hydrogen",
-    },
-    {
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769096692/WITH_SAND_BLASTING_-_JPEG_iqkqwa.jpg",
-      caption: (
-        <>
-          Precision-engineered <span>instrumentation valves</span> providing reliable flow control for high-pressure industrial applications.
-        </>
-      ),
-      link: "/products/valves",
-    },
-    {
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768485615/block_bleed_-_flange_x_flange_-_H2_JPEG_bld2iz.webp",
-      caption: (
-        <>
-          Advanced <span>Double Block and Bleed</span> (DBB) systems ensuring maximum safety and isolation in critical process lines.
-        </>
-      ),
-      link: "/products/double-block-and-bleed-valves",
-    },
-  ]
   const hydrogenData = [
     {
       image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=80&w=800",
@@ -65,9 +36,16 @@ const FeatureSection = () => {
 
   return (
     <>
-      <FeatureGridSection sectionTitle="Our Core Product Lines" items={productData} buttonText="View Full Product Catalog" onButtonClick={() => navigate("/products")} />
-      <ProductResources />
-      <FeatureGridSection sectionTitle="Hydrogen & Project Engineering" items={hydrogenData} buttonText="Find Out more about our work on hydrogen" onButtonClick={() => console.log("Button Clicked!")} />
+      <ScrollReveal delay={0.2}>
+        <FeatureCarousel />
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.2}>
+        <FeatureGridSection sectionTitle="Hydrogen Product & Project Engineering" items={hydrogenData} buttonText="Find Out more about our work on hydrogen" onButtonClick={() => console.log("Button Clicked!")} />
+      </ScrollReveal>
+      <ScrollReveal delay={0.2}>
+        <ProductResources />
+      </ScrollReveal>
       {/* <FeatureGridSection sectionTitle="Global Expertise, Local Support" items={expertiseData} buttonText="Find Support from a Local Sales and Service Center" onButtonClick={() => console.log("Button Clicked!")} /> */}
     </>
   )

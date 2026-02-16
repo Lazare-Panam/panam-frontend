@@ -81,7 +81,7 @@ export default function AllCategories() {
                 xs: "100%",
                 sm: "calc(50% - 16px)",
                 md: "calc(33.33% - 16px)",
-                lg: "calc(25% - 16px)",
+                lg: "calc(20% - 16px)",
               },
             }}>
             <CategoryButton {...cat} onProductClick={handleOpenModal} />

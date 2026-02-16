@@ -45,11 +45,11 @@ export const CATEGORIES: CategoryData[] = [
     id: "instrumentation-fittings",
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769424806/union_-_jpg_x7siq3.jpg",
     products: [
-      { name: "Tube Fittings", id: "tube-fittings", isProduct: true },
-      { name: "37 JIC Fittings", id: "pipe-fittings", isProduct: true },
-      { name: "Pipe Fittings", id: "weld-fittings", isProduct: true },
-      { name: "Weld Fittings", id: "37-jic-fittings", isProduct: true },
-      { name: "Swivel Gauge Adaptors", link: "/products/hydrogen/fittings" },
+      { name: "Tube Fittings", link: "/products/fittings" },
+      { name: "37 JIC Fittings", link: "/products/37-jic-fittings" },
+      { name: "Pipe Fittings", link: "/products/pipe-fittings" },
+      { name: "Weld Fittings", link: "/products/weld-fittings" },
+      { name: "High Pressure Fittings", link: "/products/pipe-fittings-high-pressure" },
     ],
   },
   {
@@ -64,7 +64,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: "Gauge Root Valves", link: "/products/gauge-root-valves" },
     ],
   },
-
   {
     title: "Manifolds",
     id: "valve-manifolds",
@@ -75,7 +74,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: "5-Valve ", link: "/products/5-way-valve-manifold" },
     ],
   },
-
   {
     title: "Double Block and Bleed",
     id: "double-block-and-bleed-valves",
@@ -109,15 +107,33 @@ export const CATEGORIES: CategoryData[] = [
       { name: "Hoses", id: "hoses", isProduct: true },
     ],
   },
-
   {
-    title: "Regulators And Others",
-    id: "hydrogen",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
+    title: "Regulators & Transmitter",
+    id: "pressure-regulator-transmitter",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770726940/PRESSURE_TRANSMITTERS_-_2_-_JPEG_gu0les.jpg",
     products: [
       { name: "Pressure Regulator", link: "/products/hydrogen/regulators" },
-      { name: "Air Headers", link: "/products/hydrogen/valves" },
-      { name: "Condensate Pts", link: "/products/hydrogen/fittings" },
+      { name: "Pressure Gauge", link: "/products/hydrogen/valves" },
+      { name: "Pressure Transmitter", link: "/products/hydrogen/fittings" },
+    ],
+  },
+  {
+    title: "Tubing",
+    id: "tubing",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770718728/HP_Tubings_chk8ms.jpg",
+    products: [
+      { name: "Tubing", link: "/products/hydrogen/regulators" },
+      { name: "High Pressure Tubing", link: "/products/hydrogen/valves" },
+    ],
+  },
+  {
+    title: "System Integration",
+    id: "system-integration",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770727010/GRAB-SAMPLING-SYSTEM-PNG_n3glyc.png",
+    products: [
+      { name: "Grab Sampling System", link: "/products/hydrogen/regulators" },
+      { name: "Air Header", link: "/products/hydrogen/valves" },
+      { name: "Condensate Pots", link: "/products/hydrogen/fittings" },
       { name: "Flange Adaptors", link: "/products/hydrogen/fittings" },
     ],
   },
