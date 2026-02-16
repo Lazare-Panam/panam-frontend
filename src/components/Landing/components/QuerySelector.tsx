@@ -5,7 +5,7 @@ const BRAND_BLUE = "#01B0F0";
 const DARK_BLUE = "#0096cc"; // For a subtle gradient effect
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
-const queryTypes = ["Existing Order", "Component Search", "Technical Support", "General Inquiry"];
+const queryTypes = ["Order Tracking", "Component Configuration", "General Inquiry", "Technical Support"];
 
 const QuerySelector = () => {
   const navigate = useNavigate();
