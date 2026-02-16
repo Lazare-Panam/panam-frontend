@@ -1,5 +1,5 @@
 import { Box, Container, TextField, Button, Typography, Stack } from "@mui/material"
-import Grid from "@mui/material/Grid" // Note: MUI recommends Grid2 for the latest builds
+import Grid from "@mui/material/Grid" 
 import { useState } from "react"
 
 const BRAND_BLUE = "#01B0F0"
@@ -7,8 +7,10 @@ const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
 const queryTypes = ["Existing Order", "Component Search", "Technical Support", "General Inquiry"]
 
-const ContactForm = () => {
-  const [selectedQuery, setSelectedQuery] = useState("General Inquiry")
+// Destructure 'initialQuery' from props with a default value
+const ContactForm = ({ initialQuery = "General Inquiry" }) => {
+  // Initialize state with the prop value
+  const [selectedQuery, setSelectedQuery] = useState(initialQuery)
 
   return (
     <Box sx={{ width: "100%", py: 10, backgroundColor: "#f9f9f9" }}>
@@ -47,8 +49,9 @@ const ContactForm = () => {
           {/* LEFT SIDE: FORM */}
           <Grid size={{ xs: 12, md: 6 }} sx={{ backgroundColor: "#ffffff", p: { xs: 4, md: 8 } }}>
             <Box sx={{ mb: 4 }}>
-              <Typography variant="h3" sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, mb: 2 }}>
-                Contact Form
+              {/* This header now reflects the state, which starts as the prop value */}
+              <Typography variant="h4" sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, mb: 2, textTransform: 'capitalize' }}>
+                {selectedQuery}
               </Typography>
               <Typography variant="body1" sx={{ color: "#666", fontFamily: PRIMARY_FONT }}>
                 Fill in the details below and our team in Bicester will get back to you shortly.
@@ -64,10 +67,21 @@ const ContactForm = () => {
                   <TextField fullWidth label="Email Address" variant="standard" required />
                 </Grid>
                 <Grid size={{ xs: 12 }}>
-                  <TextField fullWidth label={selectedQuery === "Existing Order" ? "Order Number" : "Company Name"} variant="standard" />
+                  <TextField 
+                    fullWidth 
+                    label={selectedQuery === "Existing Order" ? "Order Number" : "Company Name"} 
+                    variant="standard" 
+                  />
                 </Grid>
                 <Grid size={{ xs: 12 }}>
-                  <TextField fullWidth label="Message" placeholder={`Tell us more about your ${selectedQuery.toLowerCase()}...`} multiline rows={4} variant="standard" />
+                  <TextField 
+                    fullWidth 
+                    label="Message" 
+                    placeholder={`Tell us more about your ${selectedQuery.toLowerCase()}...`} 
+                    multiline 
+                    rows={4} 
+                    variant="standard" 
+                  />
                 </Grid>
                 <Grid size={{ xs: 12 }}>
                   <Button
@@ -90,11 +104,17 @@ const ContactForm = () => {
             </Box>
           </Grid>
 
-          {/* RIGHT SIDE: PERCH COWORKING MAP */}
+          {/* RIGHT SIDE: MAP */}
           <Grid size={{ xs: 12, md: 6 }} sx={{ minHeight: { xs: "400px", md: "auto" } }}>
             <Box sx={{ width: "100%", height: "100%", lineHeight: 0, position: "relative" }}>
-              {/* Note: In production, use the actual Embed URL from Google Maps for Perch Coworking, Bicester */}
-              <iframe title="Panam UK Location" width="100%" height="100%" style={{ border: 0 }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2460.672403623049!2d-1.1554566!3d51.899757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876e9389e02377b%3A0x89796e6d5952e399!2sPerch%20Coworking!5e0!3m2!1sen!2suk!4v1700000000000" allowFullScreen></iframe>
+              <iframe 
+                title="Location Map" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                src="about:blank" 
+                allowFullScreen
+              ></iframe>
             </Box>
           </Grid>
         </Grid>
