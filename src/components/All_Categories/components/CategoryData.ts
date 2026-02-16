@@ -62,6 +62,7 @@ export const CATEGORIES: CategoryData[] = [
       { name: "Check Valves", link: "/products/check-valves" },
       { name: "Relif Valves", link: "/products/relief-valves" },
       { name: "Gauge Root Valves", link: "/products/gauge-root-valves" },
+       { name: "Purge Valves", link: "/products/purge-valves" },
     ],
   },
   {
@@ -112,9 +113,7 @@ export const CATEGORIES: CategoryData[] = [
     id: "pressure-regulator-transmitter",
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770726940/PRESSURE_TRANSMITTERS_-_2_-_JPEG_gu0les.jpg",
     products: [
-      { name: "Pressure Regulator", link: "/products/hydrogen/regulators" },
-      { name: "Pressure Gauge", link: "/products/hydrogen/valves" },
-      { name: "Pressure Transmitter", link: "/products/hydrogen/fittings" },
+      { name: "Pressure Transmitter", link: "/products/pressure-transmitter" },
     ],
   },
   {
@@ -122,8 +121,8 @@ export const CATEGORIES: CategoryData[] = [
     id: "tubing",
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770718728/HP_Tubings_chk8ms.jpg",
     products: [
-      { name: "Tubing", link: "/products/hydrogen/regulators" },
-      { name: "High Pressure Tubing", link: "/products/hydrogen/valves" },
+      { name: "Tubing", id: "tubing", isProduct: true },
+      { name: "High Pressure Tubing", id: "tubing-high-pressure", isProduct: true },
     ],
   },
   {
@@ -131,10 +130,10 @@ export const CATEGORIES: CategoryData[] = [
     id: "system-integration",
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770727010/GRAB-SAMPLING-SYSTEM-PNG_n3glyc.png",
     products: [
-      { name: "Grab Sampling System", link: "/products/hydrogen/regulators" },
-      { name: "Air Header", link: "/products/hydrogen/valves" },
-      { name: "Condensate Pots", link: "/products/hydrogen/fittings" },
-      { name: "Flange Adaptors", link: "/products/hydrogen/fittings" },
+      { name: "Grab Sampling System", link:"/products/system-integration"},
+      { name: "Air Header", link:"/products/system-integration" },
+      { name: "Condensate Pots", link:"/products/system-integration"},
+      { name: "Flange Adaptors",id: "flange-adapter", isProduct: true },
     ],
   },
 ]

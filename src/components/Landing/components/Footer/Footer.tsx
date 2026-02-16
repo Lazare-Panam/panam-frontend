@@ -139,7 +139,7 @@ const Footer: React.FC = () => {
               </Link>
             </Box>
             <Link
-              href="mailto:sales@panamvalves.co.uk"
+              href="mailto:marketing@panamvalve.com"
               underline="hover"
               sx={{
                 color: BRAND_BLUE,
@@ -149,7 +149,7 @@ const Footer: React.FC = () => {
                 textDecoration: "none",
                 "&:hover": { textDecoration: "underline" },
               }}>
-              sales@panamvalves.co.uk
+              marketing@panamvalve.com
             </Link>
           </Grid>
 
