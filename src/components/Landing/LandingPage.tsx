@@ -4,7 +4,7 @@ import FeatureSection from "./components/FeatureSection/FeatureSection"
 import PartnersCarousel from "./components/Carousel/PartnersCarousel"
 import ScrollReveal from "../Common/ScrollReveal"
 
-import QuerySelector from "./components/QuerySelector"
+import ProductApplications from "./components/ProductApplications.tsx/ProductApplications"
 
 const LandingPage = () => {
   return (
@@ -19,7 +19,7 @@ const LandingPage = () => {
           <FeatureSection />
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <QuerySelector />
+          <ProductApplications />
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
           <PartnersCarousel />

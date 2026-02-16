@@ -1,7 +1,8 @@
-import { Box, Typography, Stack, Button, Divider } from "@mui/material";
+import { Box, Typography, Stack, Button, Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const BRAND_BLUE = "#01B0F0";
+const DARK_BLUE = "#0096cc"; // For a subtle gradient effect
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
 const queryTypes = ["Existing Order", "Component Search", "Technical Support", "General Inquiry"];
@@ -10,43 +11,85 @@ const QuerySelector = () => {
   const navigate = useNavigate();
 
   const handleNavigation = (type: string) => {
-    // encodeURIComponent handles spaces in the string for the URL
     const typeParam = encodeURIComponent(type);
-    
-    // Navigate to /contact?type=Technical%20Support
     navigate(`/contact?type=${typeParam}`);
   };
 
   return (
-    <><Divider sx={{ borderColor: "#eee", width: "100%" }} />
-    <Box sx={{ mb: 6, textAlign: "center", py: 4 }}>
-      <Typography variant="subtitle2" sx={{ fontWeight: 800, color: BRAND_BLUE, letterSpacing: 1.5, mb: 2 }}>
-        WHAT IS YOUR QUERY REGARDING?
-      </Typography>
-      <Stack direction="row" spacing={2} flexWrap="wrap" justifyContent="center" useFlexGap>
-        {queryTypes.map(type => (
-          <Button
-            key={type}
-            onClick={() => handleNavigation(type)}
-            sx={{
-              px: 4, py: 1.5,
-              borderRadius: "0px",
-              border: "2px solid #e0e0e0",
-              color: "#666",
-              fontWeight: 700,
-              fontFamily: PRIMARY_FONT,
-              "&:hover": {
-                bgcolor: "rgba(1, 176, 240, 0.05)",
-                borderColor: BRAND_BLUE,
-                color: BRAND_BLUE
-              },
-            }}>
-            {type}
-          </Button>
-        ))}
-      </Stack>
-    </Box></>
-     
+    <Box 
+      sx={{ 
+        width: "100%",
+        // Using a gradient makes the brand color look more modern/premium
+        background: `linear-gradient(135deg, ${BRAND_BLUE} 0%, ${DARK_BLUE} 100%)`, 
+        py: { xs: 6, md: 8 }, 
+        color: "white" 
+      }}
+    >
+      <Container maxWidth="lg">
+        <Typography 
+          variant="overline" 
+          sx={{ 
+            display: "block",
+            fontWeight: 800, 
+            color: "rgba(255, 255, 255, 0.9)", // Soft white
+            letterSpacing: 2, 
+            mb: 1,
+            textAlign: "center"
+          }}
+        >
+          NEED ASSISTANCE?
+        </Typography>
+        
+        <Typography 
+          variant="h4" 
+          sx={{ 
+            fontWeight: 900, 
+            fontFamily: PRIMARY_FONT,
+            mb: 5, 
+            textAlign: "center",
+            textTransform: "uppercase"
+          }}
+        >
+          What is your query regarding?
+        </Typography>
+
+        <Stack 
+          direction="row" 
+          spacing={2} 
+          flexWrap="wrap" 
+          justifyContent="center" 
+          useFlexGap
+        >
+          {queryTypes.map((type) => (
+            <Button
+              key={type}
+              onClick={() => handleNavigation(type)}
+              variant="outlined"
+              sx={{
+                px: 4,
+                py: 2,
+                borderRadius: "4px", // Tiny bit of rounding looks better than 0px
+                border: "2px solid white",
+                color: "white",
+                fontWeight: 800,
+                fontSize: "0.9rem",
+                fontFamily: PRIMARY_FONT,
+                transition: "all 0.2s ease-in-out",
+                "&:hover": {
+                  bgcolor: "white",
+                  borderColor: "white",
+                  color: BRAND_BLUE,
+                  transform: "translateY(-3px)", // Subtle lift effect
+                  boxShadow: "0px 10px 20px rgba(0,0,0,0.1)"
+                },
+              }}
+            >
+              {type}
+            </Button>
+          ))}
+        </Stack>
+      </Container>
+    </Box>
   );
 };
 
