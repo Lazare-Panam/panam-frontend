@@ -41,6 +41,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ isSearchOpen, setIsSearch
                 { label: "Industries", id: "industries" },
                 { label: "News & Blog", id: "news" },
                 { label: "About Us", id: "about" },
+                { label: "My Account", id: "account"}
               ].map(item => (
                 <Button
                   key={item.id}
@@ -59,9 +60,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ isSearchOpen, setIsSearch
                   {item.label}
                 </Button>
               ))}
-              <Button onClick={() => navigate("/contact")} sx={{ color: "#1A1A1A", textTransform: "none", fontFamily: PRIMARY_FONT, fontWeight: 600, fontSize: "0.95rem", px: 2 }}>
-                Contact Us
-              </Button>
+             
             </Stack>
           </Fade>
 

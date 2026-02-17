@@ -10,6 +10,7 @@ import ErrorPage from "./components/Error/ErrorPage"
 import CartPage from "./components/Cart/CartPage"
 import IndustryPage from "./components/Industries/components/IndustryPage"
 import BlogDetail from "./components/News/components/BlogTempate"
+import AuthAndInquiryPage from "./components/Auth/Register/AuthAndInquiryPage"
 
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
@@ -79,7 +80,7 @@ export const routes = [
         ),
       },
       {
-        path: "contact",
+        path: "account",
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <Contact />
@@ -91,6 +92,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <CartPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "enquiry",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AuthAndInquiryPage />
           </Suspense>
         ),
       },

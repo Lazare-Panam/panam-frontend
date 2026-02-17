@@ -1,9 +1,20 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/static/media/*.{png,jpg,gif}", "/css/*"]
+    "exclude": ["/assets/*", "/static/media/*.{png,jpg,gif}", "/css/*"]
   },
-  "globalHeaders": {
-    "cache-control": "no-cache, no-store, must-revalidate"
-  }
+  "routes": [
+    {
+      "route": "/index.html",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      }
+    },
+    {
+      "route": "/assets/*",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    }
+  ]
 }

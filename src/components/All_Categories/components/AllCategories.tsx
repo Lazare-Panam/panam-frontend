@@ -7,7 +7,7 @@ import { getProductSpecification } from "../../../api/productApi";
 import ConfigModal from "../../Custom_Configuration/ConfigureModal";
 import { CATEGORIES } from "./CategoryData";
 import ScrollReveal from "../../Common/ScrollReveal";
-import QuerySelector from "../../Landing/components/QuerySelector";
+import QuerySelector from "../../Contact/components/QuerySelector";
 
 export default function AllCategories() {
   const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
@@ -82,7 +82,7 @@ export default function AllCategories() {
           </Box>
         </ScrollReveal>
       </Container>
-      
+
       <Box sx={{ width: "100%" }}>
         <ScrollReveal delay={0.2}>
           <QuerySelector />

@@ -35,6 +35,7 @@ const Navbar: React.FC = () => {
     if (menuId === "industries") setActiveTab(navConfig.industries[0])
     if (menuId === "about") setActiveTab(navConfig.about[0])
     if (menuId === "news") setActiveTab(navConfig.news[0])
+    if (menuId === "account") setActiveTab(navConfig.account[0]);
   }
 
   const handleNavigate = (link: string) => {
@@ -82,7 +83,7 @@ const Navbar: React.FC = () => {
             { text: "Industries", link: "/industries" },
             { text: "News & Blog", link: "/news" },
             { text: "About Us", link: "/about" },
-            { text: "Contact Us", link: "/contact" },
+            { text: "My Account", link: "/account" },
           ].map(item => (
             <ListItem key={item.text} disablePadding sx={{ borderBottom: "1px solid #f5f5f5" }}>
               <ListItemButton
