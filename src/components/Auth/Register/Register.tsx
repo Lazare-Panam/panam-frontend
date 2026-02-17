@@ -22,7 +22,7 @@ export const RegistrationSection = () => {
               backgroundSize: 'cover'
             }}>
               <Typography variant="h3" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 800, mb: 2 }}>
-                Join the <span style={{ color: BRAND_BLUE }}>Network Now.</span>
+                Join the familing of panam <span style={{ color: BRAND_BLUE }}>Network Now.</span>
               </Typography>
               <Typography sx={{ opacity: 0.8, fontSize: '1.1rem', maxWidth: '400px' }}>
                 Access our full technical catalog, CAD drawings, and real-time project tracking.
