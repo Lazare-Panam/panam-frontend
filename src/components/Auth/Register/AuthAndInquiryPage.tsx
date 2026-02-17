@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import HeroSection from "../../Common/HeroSection";
 import { RegistrationSection } from "./Register";
-import { InquirySection } from "../../Contact/components/InquirySection";
+
 
 const AuthAndInquiryPage = () => {
   return (
@@ -20,7 +20,7 @@ const AuthAndInquiryPage = () => {
       <RegistrationSection />
 
       {/* 3. INQUIRY */}
-      <InquirySection />
+    
     </Box>
   );
 };
