@@ -1,17 +1,17 @@
 import { lazy, Suspense } from "react"
-import LandingPage from "./components/Landing/LandingPage"
-import Layout from "./Layout"
-import News from "./components/News/News"
-import Contact from "./components/Contact/Contact"
 import LoadingScreen from "./components/Loading/LoadingScreen"
-import ProductPage from "./components/All_Categories/ProductPage"
-import NotFound from "./components/Error/NotFound"
 import ErrorPage from "./components/Error/ErrorPage"
-import CartPage from "./components/Cart/CartPage"
-import IndustryPage from "./components/Industries/components/IndustryPage"
-import BlogDetail from "./components/News/components/BlogTempate"
-import AuthAndInquiryPage from "./components/Auth/Register/AuthAndInquiryPage"
+import Layout from "./Layout"
 
+const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
+const News = lazy(() => import("./components/News/News"))
+const Contact = lazy(() => import("./components/Contact/Contact"))
+const ProductPage = lazy(() => import("./components/All_Categories/ProductPage"))
+const NotFound = lazy(() => import("./components/Error/NotFound"))
+const CartPage = lazy(() => import("./components/Cart/CartPage"))
+const IndustryPage = lazy(() => import("./components/Industries/components/IndustryPage"))
+const BlogDetail = lazy(() => import("./components/News/components/BlogTempate"))
+const AuthAndInquiryPage = lazy(() => import("./components/Auth/Register/AuthAndInquiryPage"))
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
