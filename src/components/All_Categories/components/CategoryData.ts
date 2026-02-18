@@ -60,7 +60,7 @@ export const CATEGORIES: CategoryData[] = [
       { name: "Needle Valves", link: "/products/needle-valves" },
       { name: "Ball Valves", link: "/products/ball-valves" },
       { name: "Check Valves", link: "/products/check-valves" },
-      { name: "Relif Valves", link: "/products/relief-valves" },
+      { name: "Relief Valves", link: "/products/relief-valves" },
       { name: "Gauge Root Valves", link: "/products/gauge-root-valves" },
        { name: "Purge Valves", link: "/products/purge-valves" },
     ],

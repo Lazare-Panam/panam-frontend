@@ -13,25 +13,46 @@ const BRAND_BLUE_LIGHT = "#33C1FF"
 
 const APPLICATIONS_DATA = [
   {
-    id: "semiconductor",
-    label: "Semiconductor & Specialty Gases",
-    title: "Semiconductor & Specialty Gases",
-    description: "High-purity gas delivery systems designed for the rigorous demands of semiconductor manufacturing, ensuring zero contamination and maximum precision.",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770033270/vishnu-mohanan-zs4gtT8thO0-unsplash_hotyyf.jpg",
+    id: "marine-subsea",
+    label: "Marine & Subsea",
+    title: "Marine & Subsea",
+    description: "Specialized instrumentation valves and manifolds designed for extreme hydrostatic pressures. We utilize high-grade Duplex materials to prevent corrosion in offshore energy and subsea production systems.",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
+  },
+  {
+    id: "oil-gas",
+    label: "Oil & Gas",
+    title: "Oil & Gas Solutions",
+    description: "Critical flow control components meeting API and ASME standards. We specialize in Double Block and Bleed (DBB) solutions and fugitive emission-certified components for global refineries and drilling platforms.",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg",
   },
   {
     id: "hydrogen",
     label: "Hydrogen",
-    title: "Hydrogen Solutions",
-    description: "Cutting-edge infrastructure for the hydrogen economy. Our components handle high-pressure storage and transport with industry-leading safety standards.",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770033418/karsten-wurth-ZKWgoRUYuMk-unsplash_osxgcu.jpg",
+    title: "Hydrogen Economy",
+    description: "Engineering for the H2 value chain. Our specialized seal technologies and material selections prevent hydrogen embrittlement in electrolyzers, high-pressure storage, and refueling infrastructure.",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
   },
   {
-    id: "offshore",
-    label: "Offshore and Subsea",
-    title: "Offshore and Subsea",
-    description: "With extensive design expertise in offshore and subsea applications, FITOK delivers efficient, safe, and cost-effective solutions for deep-sea drilling equipment and floating production units.",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770033512/arvind-vallabh-rqWWhKzVCaU-unsplash_ijy6oa.jpg",
+    id: "aerospace-defense",
+    label: "Aerospace & Defense",
+    title: "Aerospace & Defense",
+    description: "Mission-critical fluid control where precision is measured in microns. Lightweight, high-strength valve solutions designed to perform under extreme G-forces and rapid thermal fluctuations.",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80",
+  },
+  {
+    id: "chemicals-petrochemical",
+    label: "Chemicals & Petrochemical",
+    title: "Chemicals & Petrochemical",
+    description: "Superior metallurgy including Hastelloy and Monel for aggressive chemical processing. Our modular designs ensure zero-leakage performance and corrosion resistance in toxic media environments.",
+    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80",
+  },
+  {
+    id: "food-beverages",
+    label: "Food & Beverages",
+    title: "Food & Beverages",
+    description: "Hygienic stainless steel solutions focusing on cleanability and contamination prevention. Components are designed with FDA-approved materials to withstand frequent Clean-In-Place (CIP) cycles.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
   },
 ]
 
@@ -115,26 +136,7 @@ const ProductApplications = () => {
                   {current.description}
                 </Typography>
 
-                <Box
-                  component="button"
-                  sx={{
-                    bgcolor: "transparent",
-                    color: "white",
-                    border: `1px solid ${BRAND_BLUE_LIGHT}`,
-                    px: 4,
-                    py: 1.5,
-                    fontSize: "0.9rem",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    transition: "all 0.3s",
-                    "&:hover": {
-                      bgcolor: BRAND_BLUE_LIGHT,
-                      color: "#000",
-                      transform: "translateY(-2px)",
-                    },
-                  }}>
-                  VIEW CASE STUDIES
-                </Box>
+                
               </Box>
 
               {/* Smaller Image Container - Flex 0.8 */}

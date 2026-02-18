@@ -2,6 +2,7 @@ import React from "react"
 import { Box, Typography, Button, Container, Stack } from "@mui/material"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules"
+import { useNavigate } from "react-router-dom"
 const BRAND_BLUE = "#01B0F0"
 
 const slides = [
@@ -23,6 +24,7 @@ const slides = [
 ]
 
 const Carousel: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -104,6 +106,7 @@ const Carousel: React.FC = () => {
                     <Button
                       variant="contained"
                       disableElevation
+                      onClick={()=>navigate("/products")}
                       sx={{
                         backgroundColor: BRAND_BLUE,
                         px: { xs: 2, md: 4 },
@@ -116,6 +119,7 @@ const Carousel: React.FC = () => {
                     </Button>
                     <Button
                       variant="outlined"
+                       onClick={()=>navigate("/enquiry")}
                       sx={{
                         color: "white",
                         borderColor: "rgba(255,255,255,0.5)",
