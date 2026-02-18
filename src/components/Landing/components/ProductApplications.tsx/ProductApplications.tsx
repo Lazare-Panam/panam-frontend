@@ -74,7 +74,7 @@ const ProductApplications = () => {
         py: 10,
         overflow: "hidden",
         backgroundColor: "#000c17",
-        backgroundImage: `url('https://res.cloudinary.com/dm9rmmemx/image/upload/v1770033141/ricardo-gomez-angel-41X6FwTwPh4-unsplash_1_u84x0e.jpg')`,
+        backgroundImage: `url('https://res.cloudinary.com/dm9rmmemx/image/upload/w_1920,f_auto,q_auto/v1770033141/ricardo-gomez-angel-41X6FwTwPh4-unsplash_1_u84x0e.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         "&::before": {
