@@ -43,9 +43,7 @@ const FeatureSection = () => {
       <ScrollReveal delay={0.2}>
         <FeatureGridSection sectionTitle="Hydrogen Product & Project Engineering" items={hydrogenData} buttonText="Find Out more about our work on hydrogen" onButtonClick={() => console.log("Button Clicked!")} />
       </ScrollReveal>
-      <ScrollReveal delay={0.2}>
-        <ProductResources />
-      </ScrollReveal>
+     
       {/* <FeatureGridSection sectionTitle="Global Expertise, Local Support" items={expertiseData} buttonText="Find Support from a Local Sales and Service Center" onButtonClick={() => console.log("Button Clicked!")} /> */}
     </>
   )

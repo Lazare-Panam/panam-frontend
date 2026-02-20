@@ -68,8 +68,8 @@ const SocialIcons = () => (
 
 const Footer: React.FC = () => {
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"))
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"))        // < 640px
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "lg")) // 640–1280px
 
   return (
     <Box sx={{ bgcolor: FOOTER_DARK, color: "white", pt: { xs: 6, sm: 8, md: 10 }, pb: { xs: 4, md: 5 }, mt: 8 }}>

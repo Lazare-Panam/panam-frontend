@@ -23,7 +23,6 @@ const ProductResources: React.FC = () => {
 
   return (
     <Box sx={{ width: "100%", py: 8, backgroundColor: "transparent" }}>
-      <Divider sx={{ mb: 8, borderColor: "rgba(0,0,0,0.08)" }} />
       <Container maxWidth="lg">
         <Typography
           variant="h4"
@@ -34,7 +33,7 @@ const ProductResources: React.FC = () => {
             color: "#333",
             fontFamily: '"Inter", sans-serif',
           }}>
-          Explore Our Product Resources
+         Technical Support
         </Typography>
 
         <Grid container spacing={2} justifyContent="center">

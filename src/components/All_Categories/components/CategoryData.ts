@@ -45,7 +45,7 @@ export const CATEGORIES: CategoryData[] = [
     id: "instrumentation-fittings",
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769424806/union_-_jpg_x7siq3.jpg",
     products: [
-      { name: "Tube Fittings", link: "/products/fittings" },
+      { name: "Tube Fittings", link: "/products/tube-fittings" },
       { name: "37 JIC Fittings", link: "/products/37-jic-fittings" },
       { name: "Pipe Fittings", link: "/products/pipe-fittings" },
       { name: "Weld Fittings", link: "/products/weld-fittings" },

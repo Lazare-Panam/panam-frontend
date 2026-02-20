@@ -17,7 +17,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onConfigure }) => (
       flexDirection: "column",
     }}>
     <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
-      <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 150, objectFit: "contain" }} />
+      <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 250, objectFit: "contain" }} />
     </Box>
     <CardContent sx={{ flexGrow: 1, p: 2, display: "flex", flexDirection: "column" }}>
       <Typography variant="subtitle2" fontWeight={700} gutterBottom>

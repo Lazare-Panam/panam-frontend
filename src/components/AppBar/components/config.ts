@@ -24,7 +24,7 @@ export const navConfig: NavConfig = {
       label: "Hydrogen",
       link: "/products/hydrogen",
       items: [
-        { name: "Hydrogen Valves", link: "/products/hydrogen-valve" },
+        { name: "Hydrogen Valves", link: "/products/hydrogen-valves" },
         { name: "Hydrogen Manifolds", link: "/products/hydrogen-manifolds" },
         { name: "Hydrogen Block & Bleed", link: "/products/hydrogen-double-block-and-bleed" },
         { name: "Hydrogen Filters", link: "/products/hydrogen-filters" },
@@ -36,7 +36,7 @@ export const navConfig: NavConfig = {
       label: "Instrumentation Fittings",
       link: "/products/instrumentation-fittings",
       items: [
-        { name: "Tube Fittings", link: "/products/fittings" },
+        { name: "Tube Fittings", link: "/products/tube-fittings" },
         { name: "37° JIC Fittings", link: "/products/37-jic-fittings" },
         { name: "Pipe Fittings", link: "/products/pipe-fittings" },
         { name: "Weld Fittings", link: "/products/weld-fittings" },
@@ -100,7 +100,7 @@ export const navConfig: NavConfig = {
       link: "/products/tubing",
       items: [
         { name: "Tubing", link: "/products/tubing" },
-        { name: "High Pressure Tubinh", link: "/products/tubing" },
+        { name: "High Pressure Tubing", link: "/products/tubing" },
       ],
     },
     {
@@ -137,11 +137,11 @@ export const navConfig: NavConfig = {
       label: "Hydrogen",
       link: "/industries/hydrogen",
       items: [
-        { name: "Upstream Exploration", link: "/industries/oil-gas/upstream" },
-        { name: "Midstream Pipelines", link: "/industries/oil-gas/midstream" },
-        { name: "Downstream Refining", link: "/industries/oil-gas/downstream" },
-        { name: "Petrochemical Plants", link: "/industries/oil-gas/petrochemical" },
-        { name: "Gas Processing", link: "/industries/oil-gas/gas-processing" },
+        { name: "Upstream Exploration" },
+        { name: "Midstream Pipelines" },
+        { name: "Downstream Refining" },
+        { name: "Petrochemical Plants" },
+        { name: "Gas Processing"},
       ],
     },
     {
@@ -169,10 +169,10 @@ export const navConfig: NavConfig = {
       label: "Our Company",
       link: "/about",
       items: [
-        { name: "Mission & Vision", link: "/about/mission" },
-        { name: "Manufacturing Excellence", link: "/about/manufacturing" },
+        { name: "Mission & Vision",  },
+        { name: "Manufacturing Excellence", },
 
-        { name: "Quality Control", link: "/about/global" },
+        { name: "Quality Control" },
       ],
     },
   ],
@@ -182,9 +182,9 @@ export const navConfig: NavConfig = {
       label: "Latest News",
       link: "/news",
       items: [
-        { name: "Product Launches", link: "/news/product-launches" },
-        { name: "Exhibitions 2024", link: "/news/exhibitions" },
-        { name: "Corporate Events", link: "/news/events" },
+        { name: "Product Launches"},
+        { name: "Exhibitions 2024"  },
+        { name: "Corporate Events" },
       ],
     },
   ],
@@ -195,7 +195,7 @@ export const navConfig: NavConfig = {
     label: "General Enquiry",
     link: "/enquiry",
     items: [
-      { name: "Profile", link: "/account/profile" },
+      { name: "Profile",},
     ],
   },
    {
@@ -203,14 +203,14 @@ export const navConfig: NavConfig = {
     label: "Component Configuration",
     link: "/products",
     items: [
-      { name: "Profile", link: "/account/profile" },
+      { name: "Profile", },
     ],
   },{
     id: "user-account",
     label: "Order Tracking",
     link: "/account",
     items: [
-      { name: "Profile", link: "/account/profile" },
+      { name: "Profile",  },
     ],
   },
    
@@ -220,7 +220,7 @@ export const navConfig: NavConfig = {
     label: "Techncial Support",
     link: "/account",
     items: [
-      { name: "Profile", link: "/account/profile" },
+      { name: "Profile"},
     ],
   },
   ]
