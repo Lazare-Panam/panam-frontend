@@ -1,5 +1,4 @@
 import FeatureGridSection from "./FeatureGridSection"
-import ProductResources from "./ProductResources"
 import ScrollReveal from "../../../Common/ScrollReveal"
 import FeatureCarousel from "./FeatureCarousel"
 

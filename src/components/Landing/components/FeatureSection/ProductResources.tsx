@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Container, Typography, Button, Divider, Stack } from "@mui/material"
+import { Box, Container, Typography, Button,  Stack } from "@mui/material"
 import Grid from "@mui/material/Grid"
 
 // Icons that match the technical resource style
