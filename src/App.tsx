@@ -2,7 +2,8 @@ import { lazy, Suspense } from "react"
 import LoadingScreen from "./components/Loading/LoadingScreen"
 import ErrorPage from "./components/Error/ErrorPage"
 import Layout from "./Layout"
-
+import CrossReference from "./components/Cross_Reference/CrossReference"
+ 
 const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
 const News = lazy(() => import("./components/News/News"))
 const Contact = lazy(() => import("./components/Contact/Contact"))
@@ -100,6 +101,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <AuthAndInquiryPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "cross-reference",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CrossReference />
           </Suspense>
         ),
       },

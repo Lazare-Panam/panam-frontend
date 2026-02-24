@@ -17,3 +17,9 @@ export const registerUser = async (formData: any) => {
   const response = await axiosClient.post(url, payload)
   return response.data
 }
+// Add this to your existing api file
+export const convertCode = async (code: string) => {
+  const url = `${USER_BASE_PATH}/convert?code=${encodeURIComponent(code)}`
+  const response = await axiosClient.get(url)
+  return response.data // This returns { panamCode: "..." }
+}
