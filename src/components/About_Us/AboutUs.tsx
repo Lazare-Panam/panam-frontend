@@ -2,7 +2,6 @@ import CorporatePillars from "./components/CorporatePillars"
 import BusinessOverview from "./components/BusinessOverview"
 import GlobalReachMetrics from "./components/GlobalReact"
 import HeroSection from "../Common/HeroSection"
-import ScrollReveal from "../Common/ScrollReveal"
 const AboutUs = () => {
   return (
     <>
