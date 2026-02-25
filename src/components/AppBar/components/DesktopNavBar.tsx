@@ -158,6 +158,8 @@ export default function DesktopNavbar({
                 { label: "Industries", id: "industries" },
                 { label: "News & Blog", id: "news" },
                 { label: "About Us", id: "about" },
+                { label: "Account", id: "account" },
+
               ].map((item) => (
                 <Button
                   key={item.id}

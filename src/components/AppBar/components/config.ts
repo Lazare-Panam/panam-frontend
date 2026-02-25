@@ -189,7 +189,6 @@ export const navConfig: NavConfig = {
     },
   ],
   account: [ // Change the key name here
-    
     {
     id: "user-accunt",
     label: "General Enquiry",
