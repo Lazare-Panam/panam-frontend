@@ -23,7 +23,12 @@ export const routes = [
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <LandingPage /> },
+      { index: true, 
+        element: (
+        <Suspense fallback={<LoadingScreen />}>
+          <LandingPage />
+        </Suspense>
+      )},
       {
         path: "products",
         element: (
