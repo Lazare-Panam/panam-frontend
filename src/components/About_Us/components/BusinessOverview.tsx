@@ -1,28 +1,28 @@
 import { Box, Typography, Container, Stack, Button } from "@mui/material"
 import Grid from "@mui/material/Grid" // Switched to Grid2
-import { motion } from "framer-motion"
-import { type ReactNode } from "react"
+// import { motion } from "framer-motion"
+// import { type ReactNode } from "react"
 
 // --- Local SideReveal Component ---
-interface SideProps {
-  children: ReactNode
-  delay?: number
-  direction?: "left" | "right"
-}
+// interface SideProps {
+//   children: ReactNode
+//   delay?: number
+//   direction?: "left" | "right"
+// }
 
-const SideReveal = ({ children, delay = 0, direction = "left" }: SideProps) => (
-  <motion.div
-    initial={{ opacity: 0, x: direction === "left" ? -60 : 60 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true, margin: "-100px" }}
-    transition={{
-      duration: 0.8,
-      delay: delay,
-      ease: [0.21, 0.47, 0.32, 0.98],
-    }}>
-    {children}
-  </motion.div>
-)
+// const SideReveal = ({ children, delay = 0, direction = "left" }: SideProps) => (
+//   <motion.div
+//     initial={{ opacity: 0, x: direction === "left" ? -60 : 60 }}
+//     whileInView={{ opacity: 1, x: 0 }}
+//     viewport={{ once: true, margin: "-100px" }}
+//     transition={{
+//       duration: 0.8,
+//       delay: delay,
+//       ease: [0.21, 0.47, 0.32, 0.98],
+//     }}>
+//     {children}
+//   </motion.div>
+// )
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const TEXT_GREY = "#666"
@@ -61,7 +61,7 @@ const BusinessOverview = () => {
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
-              <SideReveal direction="left">
+             
                 <Stack spacing={3}>
                   <Typography variant="h3" sx={headingStyle}>
                     Mission & Vision
@@ -75,12 +75,12 @@ const BusinessOverview = () => {
                     </Button>
                   </Box>
                 </Stack>
-              </SideReveal>
+              
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
-              <SideReveal direction="right" delay={0.2}>
+             
                 <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1770220550/jared-erondu-6Fq2U47SKtE-unsplash_e2hhj9.jpg" alt="Panam Headquarters" sx={imageStyle} />
-              </SideReveal>
+              
             </Grid>
           </Grid>
         </Container>
@@ -91,12 +91,12 @@ const BusinessOverview = () => {
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }} sx={{ order: { xs: 2, md: 1 } }}>
-              <SideReveal direction="left" delay={0.2}>
+             
                 <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1770218903/_DSC6667_cqlkmi.webp" alt="Manufacturing Excellence" sx={imageStyle} />
-              </SideReveal>
+             
             </Grid>
             <Grid size={{ xs: 12, md: 6 }} sx={{ order: { xs: 1, md: 2 } }}>
-              <SideReveal direction="right">
+            
                 <Stack spacing={3}>
                   <Typography variant="h3" sx={headingStyle}>
                     Manufacturing Excellence
@@ -110,7 +110,7 @@ const BusinessOverview = () => {
                     </Button>
                   </Box>
                 </Stack>
-              </SideReveal>
+          
             </Grid>
           </Grid>
         </Container>
@@ -121,7 +121,7 @@ const BusinessOverview = () => {
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
-              <SideReveal direction="left">
+            
                 <Stack spacing={3}>
                   <Typography variant="h3" sx={headingStyle}>
                     Quality Control
@@ -135,12 +135,12 @@ const BusinessOverview = () => {
                     </Button>
                   </Box>
                 </Stack>
-              </SideReveal>
+              
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
-              <SideReveal direction="right" delay={0.2}>
+            
                 <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1770222963/hoi-an-and-da-nang-photographer-pEd5UevsexQ-unsplash_oge3vm.jpg" alt="Quality Control" sx={imageStyle} />
-              </SideReveal>
+             
             </Grid>
           </Grid>
         </Container>
