@@ -48,9 +48,7 @@ export const routes = [
       {
         path: "about",
         element: (
-          <Suspense fallback={<LoadingScreen />}>
             <AboutUs />
-          </Suspense>
         ),
       },
       {
