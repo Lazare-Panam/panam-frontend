@@ -2,7 +2,6 @@ import { Box, Typography, Container, Stack, Button } from "@mui/material"
 import Grid from "@mui/material/Grid" // Switched to Grid2
 import { motion } from "framer-motion"
 import { type ReactNode } from "react"
-import ScrollReveal from "../../Common/ScrollReveal"
 
 // --- Local SideReveal Component ---
 interface SideProps {
@@ -32,7 +31,7 @@ const BusinessOverview = () => {
   return (
     <Box sx={{ pt: 10, pb: 0, overflowX: "hidden" }}>
       {/* 0. Main Header */}
-      <ScrollReveal>
+    
         <Box sx={{ textAlign: "center", maxWidth: "950px", mx: "auto", mb: 8, px: 2 }}>
           <Typography
             variant="h3"
@@ -56,8 +55,7 @@ const BusinessOverview = () => {
             Panam Valves' industry-leading portfolio enables us to identify and confront the challenges of an increasingly complex and unpredictable marketplace from a position of strength.
           </Typography>
         </Box>
-      </ScrollReveal>
-
+     
       {/* 1. Mission & Vision Section (Text Left, Image Right) */}
       <Box sx={{ width: "100%", py: 8 }}>
         <Container maxWidth="lg">
