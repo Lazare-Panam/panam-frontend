@@ -1,31 +1,15 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/assets/*", "/static/media/*.{png,jpg,gif}", "/css/*", "/products/*", "/about/*", "/industries/*", "/news/*", "/account/*"]
+    "exclude": ["/assets/*", "/static/media/*.{png,jpg,gif}", "/css/*",  "/about/*"]
   },
   "globalHeaders": {
     "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
   },
   "routes": [
     {
-      "route": "/products",
-      "rewrite": "/products/index.html"
-    },
-    {
       "route": "/about",
       "rewrite": "/about/index.html"
-    },
-    {
-      "route": "/industries",
-      "rewrite": "/industries/index.html"
-    },
-    {
-      "route": "/news",
-      "rewrite": "/news/index.html"
-    },
-    {
-      "route": "/account",
-      "rewrite": "/account/index.html"
     },
     {
       "route": "/index.html",
