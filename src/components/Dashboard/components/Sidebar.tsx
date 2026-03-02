@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 
 const BRAND_BLUE = "#01B0F0";

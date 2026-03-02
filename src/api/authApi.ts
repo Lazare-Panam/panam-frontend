@@ -2,7 +2,6 @@
 import axiosClient from "../api/axiosClient"
 
 const USER_BASE_PATH = "/api/User"
-const ORDER_BASE_PATH = "/api/Order"
 export interface RegisterUserDto {
   firstName: string;
   lastName: string;
