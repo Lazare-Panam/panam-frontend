@@ -17,18 +17,27 @@ export const useProductConfigurator = (product: Product | null) => {
     return buildPartNumber(segments)
   }, [product, selections])
 
-  const handleOptionChange = (categoryLabel: string, selectedCode: string) => {
-    const category = product?.configurations?.find(c => c.label === categoryLabel)
-    if (!category?.options) return
-    const option = category.options.find(opt => opt.code === selectedCode)
-    if (option) {
-      setSelections(prev => ({
-        ...prev,
-        [categoryLabel]: option,
-      }))
-    }
+const handleOptionChange = (categoryLabel: string, selectedCode: string) => {
+  // Empty string means clear — delete the key entirely
+  if (!selectedCode) {
+    setSelections(prev => {
+      const next = { ...prev }
+      delete next[categoryLabel]
+      return next
+    })
+    return
   }
 
+  const category = product?.configurations?.find(c => c.label === categoryLabel)
+  if (!category?.options) return
+  const option = category.options.find(opt => opt.code === selectedCode)
+  if (option) {
+    setSelections(prev => ({
+      ...prev,
+      [categoryLabel]: option,
+    }))
+  }
+}
   return {
     activeCategory,
     setActiveCategory,

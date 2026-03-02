@@ -1,18 +1,21 @@
-import { Stack, Button } from "@mui/material"
+import { Stack, Button, CircularProgress } from "@mui/material"
 
 const BRAND_BLUE = "#01B0F0"
 
 interface CartFooterProps {
   onProceed: () => void
+  isSubmitting?: boolean
+  label?: string // New optional prop for dynamic text
 }
 
-const CartFooter = ({ onProceed }: CartFooterProps) => {
+const CartFooter = ({ onProceed, isSubmitting, label = "Proceed to quote" }: CartFooterProps) => {
   return (
     <Stack direction="row" justifyContent="flex-end" sx={{ mt: 6 }}>
       <Button
         variant="outlined"
         size="large"
         onClick={onProceed}
+        disabled={isSubmitting}
         sx={{
           borderRadius: "50px",
           px: 4,
@@ -22,13 +25,22 @@ const CartFooter = ({ onProceed }: CartFooterProps) => {
           color: BRAND_BLUE,
           borderColor: BRAND_BLUE,
           borderWidth: 2,
-          minWidth: "220px",
+          minWidth: "240px", // Slightly wider to accommodate "Sign In" text
           "&:hover": {
             borderWidth: 2,
             backgroundColor: "rgba(0,176,240,0.05)",
+            borderColor: BRAND_BLUE,
           },
+          "&.Mui-disabled": {
+            borderWidth: 2,
+            borderColor: "rgba(0, 176, 240, 0.3)",
+          }
         }}>
-        Proceed to quote
+        {isSubmitting ? (
+          <CircularProgress size={24} sx={{ color: BRAND_BLUE }} />
+        ) : (
+          label
+        )}
       </Button>
     </Stack>
   )

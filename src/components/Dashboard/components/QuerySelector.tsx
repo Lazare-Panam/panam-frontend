@@ -8,8 +8,8 @@ const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 // 1. Defined structured data for routes
 const QUERY_OPTIONS = [
    { label: "General Inquiry", path: "/enquiry" },
-  { label: "Order Tracking", path: "/login" },
   { label: "Component Configuration", path: "/products" },
+  { label: "Order Tracking", path: "/login" },
   { label: "Technical Support", path: "/#resources" },
 ];
 

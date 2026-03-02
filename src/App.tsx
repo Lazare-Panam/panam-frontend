@@ -3,10 +3,11 @@ import LoadingScreen from "./components/Loading/LoadingScreen"
 import ErrorPage from "./components/Error/ErrorPage"
 import Layout from "./Layout"
 import CrossReference from "./components/Cross_Reference/CrossReference"
- 
+import RegisterForm from "./components/Account/components/RegisterForm"
+import Login from "./components/Account/Login"
 const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
 const News = lazy(() => import("./components/News/News"))
-const Contact = lazy(() => import("./components/Contact/Contact"))
+const DashBoard = lazy(() => import("./components/Dashboard/Dashboard"))
 const ProductPage = lazy(() => import("./components/All_Categories/ProductPage"))
 const NotFound = lazy(() => import("./components/Error/NotFound"))
 const CartPage = lazy(() => import("./components/Cart/CartPage"))
@@ -23,12 +24,14 @@ export const routes = [
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, 
+      {
+        index: true,
         element: (
-        <Suspense fallback={<LoadingScreen />}>
-          <LandingPage />
-        </Suspense>
-      )},
+          <Suspense fallback={<LoadingScreen />}>
+            <LandingPage />
+          </Suspense>
+        ),
+      },
       {
         path: "products",
         element: (
@@ -48,7 +51,9 @@ export const routes = [
       {
         path: "about",
         element: (
+          <Suspense fallback={<LoadingScreen />}>
             <AboutUs />
+          </Suspense>
         ),
       },
       {
@@ -84,10 +89,27 @@ export const routes = [
         ),
       },
       {
-        path: "account",
+        path: "login",
         element: (
           <Suspense fallback={<LoadingScreen />}>
-            <Contact />
+            <Login />
+          </Suspense>
+        ),
+      },
+      {
+        path: "register",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <RegisterForm />
+          </Suspense>
+        ),
+      },
+
+      {
+        path: "dashboard",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <DashBoard />
           </Suspense>
         ),
       },

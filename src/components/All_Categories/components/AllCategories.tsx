@@ -7,7 +7,7 @@ import { getProductSpecification } from "../../../api/productApi"
 import ConfigModal from "../../Custom_Configuration/ConfigureModal"
 import { CATEGORIES } from "./CategoryData"
 import ScrollReveal from "../../Common/ScrollReveal"
-import QuerySelector from "../../Contact/components/QuerySelector"
+import QuerySelector from "../../Dashboard/components/QuerySelector"
 
 export default function AllCategories() {
   const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'

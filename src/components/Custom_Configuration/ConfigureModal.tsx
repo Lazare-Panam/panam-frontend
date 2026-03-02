@@ -10,6 +10,7 @@ import { useCartStore } from "../store/useCartStore"
 import { useNotificationStore } from "../store/useNotficationStore"
 
 const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
+    const [orderCertificates, setOrderCertificates] = React.useState(false);
   const [showValidation, setShowValidation] = useState(false)
   const showNotif = useNotificationStore(state => state.showNotification)
   const productConfig = useProductConfigurator(product)
@@ -43,6 +44,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
       quantity: 1,
       partNumber: productConfig.generatedPartNumber,
       specs: selectedSpecs,
+      hasCertificates: orderCertificates,
     })
     showNotif({
       message: "Added to quote list",
@@ -77,14 +79,15 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
 
       <DialogContent sx={{ p: 0 }}>
         <Grid container sx={{ height: "70vh" }}>
-          <ConfigurationPanel product={product} getEffectiveSelection={productConfig.getEffectiveSelection} handleOptionChange={productConfig.handleOptionChange} showValidation={showValidation} />
+          <ConfigurationPanel product={product} getEffectiveSelection={productConfig.getEffectiveSelection} handleOptionChange={productConfig.handleOptionChange} showValidation={showValidation} orderCertificates={orderCertificates}
+    setOrderCertificates={setOrderCertificates} />
           <SummaryPanel generatedPartNumber={productConfig.generatedPartNumber} />
         </Grid>
       </DialogContent>
 
       <DialogActions sx={{ p: 2, borderTop: "1px solid #eee" }}>
         <ActionButton onClick={onClose} variant="outlined">
-          ADD TO WORKSPACE
+          NEED HELP WITH CONFIGURATION
         </ActionButton>
         <ActionButton onClick={handleSaveClick} variant="contained" sx={{ bgcolor: "#01B0F0" }}>
           SAVE CONFIGURATION

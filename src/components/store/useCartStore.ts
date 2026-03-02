@@ -2,34 +2,40 @@ import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
 export interface CartItem {
-  cartItemId: string // Unique ID (productId + partNumber)
-  id: string // Base Product ID
+  cartItemId: string 
+  id: string 
   name: string
   image: string
   quantity: number
-  partNumber: string // <--- Added for direct display
+  partNumber: string 
   notes?: string
   specs: Record<string, string>
+  hasCertificates?: boolean // <--- Step 1: Add this optional property
 }
 
 interface CartStore {
   cart: CartItem[]
   addItem: (item: CartItem) => void
-  removeItem: (cartItemId: string) => void
-  updateQuantity: (cartItemId: string, delta: number) => void
-  updateNotes: (cartItemId: string, notes: string) => void
+  // Step 1: Update these signatures to accept the optional boolean
+  removeItem: (cartItemId: string, hasCertificates?: boolean) => void
+  updateQuantity: (cartItemId: string, hasCertificates: boolean | undefined, delta: number) => void
+  updateNotes: (cartItemId: string, hasCertificates: boolean | undefined, notes: string) => void
   clearCart: () => void
 }
 
 export const useCartStore = create<CartStore>()(
   persist(
-    set => ({
+    (set) => ({
       cart: [],
 
-      addItem: newItem =>
-        set(state => {
-          // Check if this exact configuration already exists
-          const existingIndex = state.cart.findIndex(item => item.cartItemId === newItem.cartItemId)
+      addItem: (newItem) =>
+        set((state) => {
+          // We treat 'undefined' or 'null' as 'false' for comparison
+          const existingIndex = state.cart.findIndex(
+            (item) =>
+              item.cartItemId === newItem.cartItemId &&
+              (item.hasCertificates ?? false) === (newItem.hasCertificates ?? false)
+          )
 
           if (existingIndex > -1) {
             const newCart = [...state.cart]
@@ -39,18 +45,29 @@ export const useCartStore = create<CartStore>()(
           return { cart: [...state.cart, newItem] }
         }),
 
-      removeItem: cartItemId =>
-        set(state => ({
-          cart: state.cart.filter(i => i.cartItemId !== cartItemId),
+      removeItem: (cartItemId, hasCertificates) =>
+        set((state) => ({
+          cart: state.cart.filter(
+            (i) => !(i.cartItemId === cartItemId && (i.hasCertificates ?? false) === (hasCertificates ?? false))
+          ),
         })),
 
-      updateQuantity: (cartItemId, delta) =>
-        set(state => ({
-          cart: state.cart.map(item => (item.cartItemId === cartItemId ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item)),
+      updateQuantity: (cartItemId, hasCertificates, delta) =>
+        set((state) => ({
+          cart: state.cart.map((item) =>
+            item.cartItemId === cartItemId && (item.hasCertificates ?? false) === (hasCertificates ?? false)
+              ? { ...item, quantity: Math.max(1, item.quantity + delta) }
+              : item
+          ),
         })),
-      updateNotes: (cartItemId: string, notes: string) =>
-        set(state => ({
-          cart: state.cart.map(item => (item.cartItemId === cartItemId ? { ...item, notes: notes.trim() === "" ? undefined : notes } : item)),
+
+      updateNotes: (cartItemId, hasCertificates, notes) =>
+        set((state) => ({
+          cart: state.cart.map((item) =>
+            item.cartItemId === cartItemId && (item.hasCertificates ?? false) === (hasCertificates ?? false)
+              ? { ...item, notes: notes.trim() === "" ? undefined : notes }
+              : item
+          ),
         })),
 
       clearCart: () => set({ cart: [] }),

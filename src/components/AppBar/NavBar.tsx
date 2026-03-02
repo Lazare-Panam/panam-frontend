@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
           handleMouseEnter={handleMouseEnter} 
           cartCount={cartCount} 
           setOpenDrawer={setOpenDrawer} 
-          navigate={handleNavigate} // Pass the navigation handler
+          navigate={handleNavigate} 
         />
         {megaMenuOpen && !isSearchOpen && (
           <MegaMenu 

@@ -6,7 +6,6 @@ import {
 import Grid from "@mui/material/Grid"; // Using Grid2 as requested
 import TermsModal from "./AccessTerms";
 import { useNotificationStore } from "../../store/useNotficationStore";
-import { registerUser } from "../../../api/authApi";
 
 const BRAND_BLUE = "#01B0F0";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
@@ -58,7 +57,7 @@ export const RegistrationSection = () => {
 
     try {
       // 2. Call API Service
-      await registerUser(formData);
+      
 
       // 3. Success Feedback
       showNotification({ 
