@@ -55,5 +55,19 @@ export const STATIC_PRODUCTS: Record<string, any> = {
       "Safe transportation without risk of spillage or evaporation",
       "Ordered as a single part number for simplified procurement"
     ]
+  },
+  "mini-series-needle-valves": {
+    title: "Mini Series Needle Valves",
+    description: "Compact needle valves for space-restricted applications, rated for 3,000 psig working pressure. Engineered for precise flow control in analytical and instrumentation systems.",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768296938/99999_ingr4f.webp",
+    features: [
+      "Compact design for space-restricted installations",
+      "Rated for working pressures up to 3,000 psig (206 bar)",
+      "Available in 316 Stainless Steel and Brass construction",
+      "T-bar handle for easy operation and flow adjustment",
+      "PTFE packing for bubble-tight seal and low operating torque",
+      "Stem threads above packing to prevent media contamination",
+      "100% factory tested for reliability"
+    ]
   }
 };

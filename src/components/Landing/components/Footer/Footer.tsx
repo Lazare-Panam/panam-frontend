@@ -15,7 +15,7 @@ const SOCIAL_LINKS = [
   { Icon: TwitterIcon, name: "Twitter", url: "https://twitter.com/panamvalves" },
 ]
 
-const PRODUCT_LINKS = ["Valves", "Manifolds", "Hydrogen", "Double Block And Bleed", "Fittings", "Filters"]
+const PRODUCT_LINKS = ["Valves", "Manifolds", "Hydrogen", "Double Block & Bleed", "Fittings", "Filters"]
 
 const sectionHeading = {
   fontWeight: 700,
