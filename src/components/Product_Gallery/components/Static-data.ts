@@ -10,8 +10,8 @@ export const STATIC_PRODUCTS: Record<string, any> = {
       "Schedule 160 or heavier pipe valve inlet for maximum strength",
       "Optional graphoil packing available for high-temperature applications",
       "Bearing joint design eliminates rotation between tip & seat at closure",
-      "Prevents scoring and galling to ensure long life in repetitive shut-off service"
-    ]
+      "Prevents scoring and galling to ensure long life in repetitive shut-off service",
+    ],
   },
   "air-header": {
     title: "Air Header",
@@ -21,12 +21,12 @@ export const STATIC_PRODUCTS: Record<string, any> = {
       "Available in SS 316 & Carbon Steel Materials",
       "End connections: Threaded, Flanged, Socket Weld, Tapered & Straight",
       "Maximum working pressure up to 6,000 psig (414 bar)",
-      "Size ranging from 1/2\" to 2\" (Class 150 to 2500)",
+      'Size ranging from 1/2" to 2" (Class 150 to 2500)',
       "NPT threads per ANSI B 2.1 & Socket welds per ANSI B 16.11",
       "Radiography & liquid penetrate testing of butt-welding joints per ASME BPVC Section V",
       "NACE certification available upon request",
-      "Full heat code traceability"
-    ]
+      "Full heat code traceability",
+    ],
   },
   "condensate-pots": {
     title: "Condensate Pots",
@@ -36,25 +36,18 @@ export const STATIC_PRODUCTS: Record<string, any> = {
       "Available in SS 316 & Carbon Steel Materials",
       "Variety of end connections: Threaded, Flanged, Socket Weld",
       "Maximum working pressure up to 6,000 psig (414 bar)",
-      "Size ranging from 1/2\" to 2\" (Class 150 to 2500)",
+      'Size ranging from 1/2" to 2" (Class 150 to 2500)',
       "NPT threads per ANSI B 2.1 & Socket welds per ANSI B 16.11",
       "Radiography & liquid penetrate testing per ASME BPVC section V",
       "NACE certification available upon request",
-      "Heat code traceability"
-    ]
+      "Heat code traceability",
+    ],
   },
   "grab-sampling": {
     title: "Grab Sampling System",
     description: "A system designed to safely extract representative fluid samples from process lines for laboratory analysis. It ensures the transportation of samples without risk of spillage or evaporation.",
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770727010/GRAB-SAMPLING-SYSTEM-PNG_n3glyc.png",
-    features: [
-      "Easy to install and operate",
-      "Collection of samples made easy and 'Fit for Use' in industry",
-      "Fully configurable, locally built and supported",
-      "Closed Loop and open loop options available",
-      "Safe transportation without risk of spillage or evaporation",
-      "Ordered as a single part number for simplified procurement"
-    ]
+    features: ["Easy to install and operate", "Collection of samples made easy and 'Fit for Use' in industry", "Fully configurable, locally built and supported", "Closed Loop and open loop options available", "Safe transportation without risk of spillage or evaporation", "Ordered as a single part number for simplified procurement"],
   },
   "mini-series-needle-valves": {
     title: "Mini Series Needle Valves",
@@ -67,7 +60,22 @@ export const STATIC_PRODUCTS: Record<string, any> = {
       "T-bar handle for easy operation and flow adjustment",
       "PTFE packing for bubble-tight seal and low operating torque",
       "Stem threads above packing to prevent media contamination",
-      "100% factory tested for reliability"
-    ]
-  }
-};
+      "100% factory tested for reliability",
+    ],
+  },
+  "toggle-valves": {
+    title: "Toggle Valves",
+    description: "Compact high-pressure toggle valves designed for positive shut-off and reliable flow control in instrumentation and process applications.",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1772546505/12383f94-ac1a-4901-8737-8580eac08449_j6hykw.jpg",
+    features: [
+      "Maximum working pressure up to 4,000 psig (276 bar)",
+      "Available in 316 Stainless Steel construction",
+      'Connection sizes: 1/4", 3/8", 1/2", 6 mm, 8 mm, 10 mm & 12 mm',
+      "End connections: Tube Fittings, Tube Adaptors, NPT, BSPT, BSPP, Metric & SAE",
+      "Operating temperature range from -65°F to 600°F (-54°C to 315°C)",
+      "Compact design suitable for panel mounting or inline installation",
+      "Crimped cap construction to prevent accidental disassembly",
+      "100% factory tested for performance and leak integrity",
+    ],
+  },
+}
