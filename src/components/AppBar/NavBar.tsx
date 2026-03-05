@@ -93,7 +93,7 @@ const Navbar: React.FC = () => {
             { text: "Industries", link: "/industries" },
             { text: "News & Blog", link: "/news" },
             { text: "About Us", link: "/about" },
-            { text: "My Account", link: "/account" },
+            { text: "My Account", link: "/dashboard" },
           ].map(item => (
             <ListItem key={item.text} disablePadding sx={{ borderBottom: "1px solid #f5f5f5" }}>
               <ListItemButton

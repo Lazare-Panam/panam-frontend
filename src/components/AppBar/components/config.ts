@@ -15,7 +15,7 @@ export interface NavConfig {
   industries: NavCategory[]
   about: NavCategory[]
   news: NavCategory[]
-  account: NavCategory[]
+  dashboard: NavCategory[]
 }
 export const navConfig: NavConfig = {
   products: [
@@ -188,7 +188,7 @@ export const navConfig: NavConfig = {
       ],
     },
   ],
-  account: [ // Change the key name here
+  dashboard: [ // Change the key name here
     {
     id: "user-accunt",
     label: "General Enquiry",
@@ -207,7 +207,7 @@ export const navConfig: NavConfig = {
   },{
     id: "user-account",
     label: "Order Tracking",
-    link: "/account",
+    link: "/products",
     items: [
       { name: "Profile",  },
     ],
@@ -217,7 +217,7 @@ export const navConfig: NavConfig = {
     {
     id: "user-acount",
     label: "Techncial Support",
-    link: "/account",
+    link: "/#resources",
     items: [
       { name: "Profile"},
     ],

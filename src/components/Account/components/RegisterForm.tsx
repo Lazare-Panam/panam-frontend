@@ -9,8 +9,8 @@ import {
   Autocomplete,
   CircularProgress
 } from "@mui/material"
-import Grid from "@mui/material/Grid" // Explicitly using Grid2
-import { Link as RouterLink} from "react-router-dom"
+import Grid from "@mui/material/Grid" 
+import { Link as RouterLink } from "react-router-dom"
 import ChevronRightIcon from "@mui/icons-material/ChevronRight"
 
 // API and Store Imports
@@ -42,6 +42,7 @@ const RegisterForm: React.FC = () => {
   
   const [selectedCountry, setSelectedCountry] = useState(countries[0])
   const [loading, setLoading] = useState(false)
+  const [emailError, setEmailError] = useState<string | null>(null) // State for inline error
 
   const [formData, setFormData] = useState<RegisterUserDto>({
     email: "",
@@ -57,11 +58,14 @@ const RegisterForm: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
-    setFormData((prev:any) => ({ ...prev, [name]: value }))
+    // Reset email error as soon as the user starts typing again
+    if (name === "email") setEmailError(null)
+    setFormData((prev: any) => ({ ...prev, [name]: value }))
   }
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
+    setEmailError(null)
 
     if (formData.password !== formData.confirmPassword) {
       showNotification({ message: "Passwords do not match.", severity: "warning" });
@@ -84,13 +88,18 @@ const RegisterForm: React.FC = () => {
         severity: "success" 
       });
       
-      //setTimeout(() => navigate("/login"), 1500);
-      
     } catch (err: any) {
-      showNotification({ 
-        message: err.message || "Registration failed.", 
-        severity: "error" 
-      });
+      const msg = err.response?.data?.message || "";
+      
+      // Target specific "user exists" backend message
+      if (msg.toLowerCase().includes("exists") || msg.toLowerCase().includes("already")) {
+        setEmailError("This email is already registered with Panam Valves.");
+      } else {
+        showNotification({ 
+          message: msg || "Registration failed. Please try again.", 
+          severity: "error" 
+        });
+      }
     } finally {
       setLoading(false)
     }
@@ -133,7 +142,22 @@ const RegisterForm: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="email@company.com"
-            sx={{ mb: 5, "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, "& fieldset": { borderColor: "transparent" } } }}
+            error={Boolean(emailError)}
+            helperText={emailError}
+            sx={{ 
+              mb: 5, 
+              "& .MuiOutlinedInput-root": { 
+                backgroundColor: BRAND_BLUE_LIGHT, 
+                borderRadius: 0, 
+                "& fieldset": { borderColor: "transparent" },
+                "&.Mui-error fieldset": { borderColor: "#d32f2f" }
+              },
+              "& .MuiFormHelperText-root": {
+                fontFamily: PRIMARY_FONT,
+                fontWeight: 600,
+                ml: 0
+              }
+            }}
           />
 
           <Typography variant="subtitle2" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, mb: 2, color: TEXT_MAIN }}>
@@ -209,7 +233,6 @@ const RegisterForm: React.FC = () => {
               type="submit" 
               variant="contained" 
               disabled={loading}
-             
               endIcon={!loading && <ChevronRightIcon />} 
               sx={{ backgroundColor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 8, py: 2, fontWeight: 700, boxShadow: "none", "&:hover": { backgroundColor: BRAND_BLUE_DARK } }}
             >

@@ -1,10 +1,80 @@
-import { Box, Stack } from "@mui/material";
-import ScrollReveal from "../Common/ScrollReveal";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Box, Stack, CircularProgress, Typography } from "@mui/material";
+import { useUserStore } from "../store/useUserStore";
+import Sidebar from "./components/Sidebar";
+import PersonalInformation from "./components/PersonalInformation";
 import OrdersTable from "./components/OrdersTable";
 import QuerySelector from "./components/QuerySelector";
-import Sidebar from "./components/Sidebar";
+import ScrollReveal from "../Common/ScrollReveal";
+import CommunicationPreferences from "./components/CommunicationPreferences";
+import Enquiries from "./components/Enquiries";
 
 const DashBoard = () => {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useUserStore();
+  
+  // 1. Create the state to track the active screen
+  const [activeView, setActiveView] = useState("Personal Information");
+
+  // Auth Guard
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (!isAuthenticated) {
+    return (
+      <Box sx={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center' }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  // 2. Logic to switch screens
+  const renderContent = () => {
+    switch (activeView) {
+      case "Personal Information":
+        return <PersonalInformation />;
+      
+      case "Orders":
+        return (
+          <Box>
+            <ScrollReveal>
+              <QuerySelector />
+            </ScrollReveal>
+            <Box sx={{ p: { xs: 2, md: 6 }, maxWidth: "1400px", mx: "auto" }}>
+              <ScrollReveal>
+                <OrdersTable />
+              </ScrollReveal>
+            </Box>
+          </Box>
+        );
+        case "Communication Preferences":
+        return (
+          <ScrollReveal>
+            <CommunicationPreferences />
+          </ScrollReveal>
+        );
+        case "Enquiries":
+        return (
+          <ScrollReveal>
+            {/* We pass setActiveView so the "New Enquiry" button inside 
+                Enquiries.tsx can navigate to the actual form */}
+            <Enquiries />
+          </ScrollReveal>
+        );
+
+      default:
+        return (
+          <Box sx={{ p: 6 }}>
+            <Typography variant="h5">{activeView} Content Placeholder</Typography>
+          </Box>
+        );
+    }
+  };
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Stack direction="row" sx={{ flexGrow: 1, backgroundColor: "#f4f7f9" }}>
@@ -19,17 +89,13 @@ const DashBoard = () => {
             height: "100vh"
           }}
         >
-          <Sidebar />
+          {/* 3. Pass the state and the setter function to the Sidebar */}
+          <Sidebar activeView={activeView} onSelect={setActiveView} />
         </Box>
-        <Box component="main" sx={{ flexGrow: 1, overflow: "hidden" }}>
-          <ScrollReveal>
-            <QuerySelector />
-          </ScrollReveal>
-          <Box sx={{ p: { xs: 2, md: 6 }, maxWidth: "1400px", mx: "auto" }}>
-            <ScrollReveal>
-              <OrdersTable />
-            </ScrollReveal>
-          </Box>
+
+        <Box component="main" sx={{ flexGrow: 1, overflowY: "auto" }}>
+          {/* 4. Render the active component */}
+          {renderContent()}
         </Box>
       </Stack>
     </Box>

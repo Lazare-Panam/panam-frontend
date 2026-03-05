@@ -19,7 +19,7 @@ const slides = [
   {
     title: "Next-Gen Flow Control",
     subtitle: "Integrating smart technology with heavy-duty mechanical engineering.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1772530175/Carousel_images_lvpbns.jpg",
   },
 ]
 
