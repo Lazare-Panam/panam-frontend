@@ -6,7 +6,6 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ShareIcon from "@mui/icons-material/Share";
 import { blogs } from "./blogData";
 
 // ─── Block type definitions ──────────────────────────────────────────────────
