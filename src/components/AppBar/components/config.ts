@@ -40,6 +40,7 @@ export const navConfig: NavConfig = {
         { name: "37° JIC Fittings", link: "/products/37-jic-fittings" },
         { name: "Pipe Fittings", link: "/products/pipe-fittings" },
         { name: "Weld Fittings", link: "/products/weld-fittings" },
+        { name: "Tube clamps", link: "/products/tube-clamps" },
       ],
     },
     {

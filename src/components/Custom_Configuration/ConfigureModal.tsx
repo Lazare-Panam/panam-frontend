@@ -8,8 +8,9 @@ import SummaryPanel from "./components/SummaryPanel"
 import type { ProductConfig } from "./types/CustomConfigurationtypes"
 import { useCartStore } from "../store/useCartStore"
 import { useNotificationStore } from "../store/useNotficationStore"
-
+import { useNavigate } from "react-router-dom"
 const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
+  const navigate = useNavigate();
     const [orderCertificates, setOrderCertificates] = React.useState(false);
   const [showValidation, setShowValidation] = useState(false)
   const showNotif = useNotificationStore(state => state.showNotification)
@@ -86,7 +87,7 @@ const ConfigModal: React.FC<any> = ({ open, onClose, product }) => {
       </DialogContent>
 
       <DialogActions sx={{ p: 2, borderTop: "1px solid #eee" }}>
-        <ActionButton onClick={onClose} variant="outlined">
+        <ActionButton onClick={()=>navigate("/enquiry")} variant="outlined">
           NEED HELP WITH CONFIGURATION
         </ActionButton>
         <ActionButton onClick={handleSaveClick} variant="contained" sx={{ bgcolor: "#01B0F0" }}>
