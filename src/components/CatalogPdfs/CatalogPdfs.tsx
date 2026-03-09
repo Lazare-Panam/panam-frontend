@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import {
   Box,
@@ -9,15 +9,16 @@ import {
   Button,
   CircularProgress,
   Stack,
-  TextField, // Added TextField
-  InputAdornment, // Added InputAdornment
+  TextField,
+  InputAdornment,
+  ButtonBase,
 } from "@mui/material";
 
 import Grid from "@mui/material/Grid";
 import {
   PictureAsPdf as PdfIcon,
   OpenInNew as OpenIcon,
-  Search as SearchIcon, // Added SearchIcon
+  Search as SearchIcon,
 } from "@mui/icons-material";
 import { getallCatalogPdfs } from "../../api/productApi";
 
@@ -27,7 +28,7 @@ const BORDER_COLOR = "#E2E8F0";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
 const CatalogPdfs = () => {
-  const [searchTerm, setSearchTerm] = useState(""); // 1. State for search
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { data: catalogs, isLoading, isError } = useQuery({
     queryKey: ["catalogs"],
@@ -35,7 +36,6 @@ const CatalogPdfs = () => {
     staleTime: 1000 * 60 * 10,
   });
 
-  // 2. Filter logic (case-insensitive)
   const filteredCatalogs = catalogs?.filter((catalog: any) =>
     catalog.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -76,7 +76,7 @@ const CatalogPdfs = () => {
           </Typography>
         </Box>
 
-        {/* 3. Search Bar Implementation */}
+        {/* Search Bar - Fixed InputProps Deprecation */}
         <Box sx={{ mb: 6 }}>
           <TextField
             fullWidth
@@ -84,27 +84,27 @@ const CatalogPdfs = () => {
             variant="outlined"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon sx={{ color: BRAND_BLUE }} />
-                </InputAdornment>
-              ),
-              sx: {
-                borderRadius: 0,
-                fontFamily: PRIMARY_FONT,
-                fontWeight: 700,
-                letterSpacing: 1,
-                borderWidth: '2px',
-                '& fieldset': { borderColor: BORDER_COLOR },
-                '&:hover fieldset': { borderColor: BRAND_BLUE },
-                '&.Mui-focused fieldset': { borderColor: BRAND_BLUE },
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon sx={{ color: BRAND_BLUE }} />
+                  </InputAdornment>
+                ),
+                sx: {
+                  borderRadius: 0,
+                  fontFamily: PRIMARY_FONT,
+                  fontWeight: 700,
+                  letterSpacing: 1,
+                  '& fieldset': { borderColor: BORDER_COLOR, borderWeight: '2px' },
+                  '&:hover fieldset': { borderColor: BRAND_BLUE },
+                  '&.Mui-focused fieldset': { borderColor: BRAND_BLUE },
+                }
               }
             }}
           />
         </Box>
 
-        {/* 4. Use filteredCatalogs instead of catalogs */}
         <Grid container spacing={4}>
           {filteredCatalogs?.length > 0 ? (
             filteredCatalogs.map((catalog: any) => (
@@ -117,7 +117,6 @@ const CatalogPdfs = () => {
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
-                    position: 'relative', // Added for absolute positioning icon
                     transition: "0.2s ease-in-out",
                     '&:hover': {
                       transform: "translateY(-4px)",
@@ -125,29 +124,49 @@ const CatalogPdfs = () => {
                     }
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    image={catalog.thumbnailUrl}
-                    alt={catalog.title}
+                  {/* Clickable Image Area */}
+                  <ButtonBase
+                    component="a"
+                    href={catalog.blobUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     sx={{
-                      height: 350,
-                      width: "100%",             
+                      width: "100%",
+                      display: "block",
+                      position: "relative",
+                      overflow: "hidden",
+                      "&:hover .MuiCardMedia-root": {
+                        opacity: 0.9,
+                        transform: "scale(1.02)",
+                      },
                     }}
-                  />
-                  <Box sx={{ 
-                    position: 'absolute', 
-                    top: 12, 
-                    right: 12, 
-                    bgcolor: BRAND_BLUE, 
-                    color: "#fff", 
-                    width: 32,
-                    height: 32,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    <PdfIcon fontSize="small" />
-                  </Box>
+                  >
+                    <CardMedia
+                      component="img"
+                      image={catalog.thumbnailUrl}
+                      alt={catalog.title}
+                      sx={{
+                        height: 350,
+                        width: "100%",
+                        transition: "all 0.4s ease-in-out",
+                      }}
+                    />
+                    <Box sx={{ 
+                      position: 'absolute', 
+                      top: 12, 
+                      right: 12, 
+                      bgcolor: BRAND_BLUE, 
+                      color: "#fff", 
+                      width: 32,
+                      height: 32,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      zIndex: 2
+                    }}>
+                      <PdfIcon fontSize="small" />
+                    </Box>
+                  </ButtonBase>
 
                   <CardContent sx={{ p: 3, flexGrow: 1, borderTop: `1px solid ${BORDER_COLOR}` }}>
                     <Typography 
@@ -192,7 +211,6 @@ const CatalogPdfs = () => {
               </Grid>
             ))
           ) : (
-            // No results state
             <Box sx={{ width: '100%', py: 10, textAlign: 'center' }}>
                <Typography sx={{ fontWeight: 700, color: 'text.disabled', letterSpacing: 1 }}>
                  NO CATALOGS MATCHING YOUR SEARCH
@@ -201,7 +219,6 @@ const CatalogPdfs = () => {
           )}
         </Grid>
 
-        {/* Security / System Footer */}
         <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mt: 10, opacity: 0.7 }}>
           <Box sx={{ width: 8, height: 8, bgcolor: BRAND_BLUE, borderRadius: '50%' }} />
           <Typography variant="caption" sx={{ color: BRAND_BLUE, fontWeight: 900, letterSpacing: 1.5, textTransform: 'uppercase' }}>

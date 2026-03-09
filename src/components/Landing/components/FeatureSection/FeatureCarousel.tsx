@@ -7,24 +7,26 @@ import { useNavigate } from "react-router-dom"
 const BRAND_BLUE = "#01B0F0"
 
 const ALL_PRODUCTS = [
-  { name: "Pipe Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1769424835/female_connector_-_tsw_-_jpg_izsfqp.jpg", link: "/products/pipe-fittings" },
-  { name: "Tube Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1769424685/TUBE_CAP_-_TUBE_OD_-_JPG_vp4xzn.jpg", link: "/products/fittings" },
-  { name: "37 JIC Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1769424806/union_-_jpg_x7siq3.jpg", link: "/products/37-jic-fittings" },
-  { name: "Weld Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770636232/REDUCING_UNION_-_TUBE_OD_-_JPG_aiut8d.jpg", link: "/products/weld-fittings" },
-  { name: "High Pressure Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768992887/male_street_tee_-_jpg_da53bn.webp", link: "/products/pipe-fittings-high-pressure" },
-  { name: "Hydrogen Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770305815/Img7247_s2ueis.jpg", link: "/products/hydrogen-valve" },
+  { name: "Pipe Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065185/reducing-hex-couplings-npt_dlncbd.png", link: "/products/pipe-fittings" },
+  { name: "Tube Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065253/UNION-CROSS-IMPERIAL-PUC-04-SS_usickt.png", link: "/products/fittings" },
+  { name: "37 JIC Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065297/union-cross_ktkzxj.png", link: "/products/37-jic-fittings" },
+  { name: "Weld Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065327/male-connector-tube-socket-weld-x-npt_pyqtf0.png", link: "/products/weld-fittings" },
   { name: "Needle Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768296756/11111_e7ywry.webp", link: "/products/needle-valves" },
-  { name: "Check Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1769096692/WITH_SAND_BLASTING_-_JPEG_iqkqwa.jpg", link: "/products/check-valves" },
-  { name: "Ball Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770305964/HP_Ball_Valves_t6ou16.webp", link: "/products/ball-valves" },
-  { name: "Relief Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770306127/PRVH-SS-04-FF-G_-_JPG_w0zmnl.jpg", link: "/products/relief-valves" },
   { name: "Gauge Root Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770306213/final-gauge-root-ff_oforuw.webp", link: "/products/gauge-root-valves" },
-  { name: "2-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768295925/1_edofmn.jpg", link: "/products/2-way-valve-manifold" },
-  { name: "3-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768922283/3VM-SS-8-DM_-_JPG_skitwh.jpg", link: "/products/3-way-valve-manifold" },
-  { name: "5-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768296193/5VM-SS-H_-_JPG_qrcujq.jpg", link: "/products/5-way-valve-manifold" },
-  { name: "Pressure Transmitter", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770726940/PRESSURE_TRANSMITTERS_-_2_-_JPEG_gu0les.jpg", link: "/products/pressure-regulator-transmitter" },
-  { name: "Double Block and bleed valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768835558/mono_flange_-_1_-_JPEG_1_plsmpe.webp", link: "/products/double-block-and-bleed-valves" },
-  { name: "Filters", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768988115/T-TYPE-FILTER-PNG_c9xazu.webp", link: "/products/filters" },
-  { name: "System Integration", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770727010/GRAB-SAMPLING-SYSTEM-PNG_n3glyc.png", link: "/products/system-integration" },
+{ name: "High Pressure Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065950/cross-npt-1_r7ivzj.png", link: "/products/pipe-fittings-high-pressure" },
+ 
+
+  { name: "Check Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773066005/PCV-S-08-OD-PNG-removebg-preview_gfigng.png", link: "/products/check-valves" },
+  
+  { name: "Ball Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065898/PBV-3-S-O4-OD-A_vpgv95.png", link: "/products/ball-valves" },
+  { name: "Relief Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065866/PRVH-SS-08-MF-15K_tnunca.png", link: "/products/relief-valves" },
+  { name: "2-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065762/2VM-SS-8-20M-RM_gviqce.png", link: "/products/2-way-valve-manifold" },
+  { name: "3-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065795/3VM-SS-H_xhzpkr.png", link: "/products/3-way-valve-manifold" },
+  { name: "5-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065822/5VM-SS-H_lnxzwa.png", link: "/products/5-way-valve-manifold" },
+  { name: "Pressure Transmitter", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065582/APC-2000ALW-PNG-removebg-preview_jxvqjx.png", link: "/products/pressure-regulator-transmitter" },
+  { name: "Double Block and bleed valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065511/MONO-FLANGE-1_zo3vzq.png", link: "/products/double-block-and-bleed-valves" },
+  { name: "Filters", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065475/PTF-TC-06-60-SS_qvotij.png", link: "/products/filters" },
+  { name: "System Integration", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065393/Img11695_kst9gv.png", link: "/products/system-integration" },
 ]
 
 const FeatureCarousel: React.FC = () => {
