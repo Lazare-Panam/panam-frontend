@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
           {[
             { text: "Products", link: "/products" },
             { text: "Industries", link: "/industries" },
-            { text: "News & Blog", link: "/news" },
+            { text: "News & Blog", link: "/blog" },
             { text: "About Us", link: "/about" },
             { text: "My Account", link: "/dashboard" },
           ].map(item => (

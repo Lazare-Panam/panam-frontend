@@ -5,9 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 export interface ProductforHomePage {
   name: string
-  link?: string
-  isProduct?: boolean
-  id?: string
+  link: string
   description?: string
 }
 
@@ -16,7 +14,7 @@ interface CategoryButtonProps {
   id: string
   image: string
   products: ProductforHomePage[]
-  onProductClick: (productId: string) => void
+  //onProductClick: (productId: string) => void
 }
 
 const BRAND_BLUE = "#33C1FF"
@@ -64,7 +62,7 @@ const ImageSrc = styled("span")({
   transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
 })
 
-export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image, products, onProductClick }) => {
+export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image, products }) => {
   const navigate = useNavigate()
 
   return (
@@ -108,11 +106,8 @@ export const CategoryButton: React.FC<CategoryButtonProps> = ({ title, id, image
               variant="subtitle2"
               onClick={e => {
                 e.stopPropagation()
-                if (product.isProduct && product.id) {
-                  onProductClick(product.id)
-                } else if (product.link) {
                   navigate(product.link)
-                }
+                
               }}
               sx={{
                 fontWeight: 500,

@@ -18,22 +18,24 @@ interface ProductCatalog {
   description: string
   image: string
   features: string[]
+  detailId?: string
 }
 
 export default function ProductInventory() {
-  const { id } = useParams<{ id: string }>()
+  const { id, subId } = useParams<{ id: string; subId: string }>()
+  const activeId = subId ?? id
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isStaticModalOpen, setIsStaticModalOpen] = useState(false)
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null)
-  const isStaticProduct = selectedProductId ? !!STATIC_PRODUCTS[selectedProductId] : false;
+  const isStaticProduct = selectedProductId ? !!STATIC_PRODUCTS[selectedProductId] : false
   const {
     data: catalog,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["productCategory", id],
-    queryFn: () => getProductCategory(id!),
-    enabled: !!id,
+    queryKey: ["productCategory", activeId],
+    queryFn: () => getProductCategory(activeId!),
+    enabled: !!activeId,
   })
 
   const { data: specification } = useQuery({
@@ -58,12 +60,12 @@ export default function ProductInventory() {
   const selectedProduct = buildSelectedProduct()
 
   const handleOpenModal = (product: Product) => {
-    const productId = product.id;
+    const productId = product.id
     setSelectedProductId(productId)
     if (STATIC_PRODUCTS[productId]) {
-      setIsStaticModalOpen(true);
+      setIsStaticModalOpen(true)
     } else {
-      setIsModalOpen(true);
+      setIsModalOpen(true)
     }
   }
 
@@ -99,7 +101,9 @@ export default function ProductInventory() {
               <ProductCard
                 product={{
                   id: item.type,
+                  detailId: item.detailId,
                   title: item.title,
+
                   description: item.description,
                   imageUrl: item.image,
                 }}
@@ -109,6 +113,7 @@ export default function ProductInventory() {
               <CatelogCard
                 product={{
                   id: item.type,
+                  detailId: item.detailId,
                   title: item.title,
                   description: item.description,
                   imageUrl: item.image,
@@ -122,12 +127,7 @@ export default function ProductInventory() {
       </Grid>
 
       <ConfigModal open={isModalOpen} onClose={handleCloseModal} product={selectedProduct} key={selectedProduct?.id || "no-product"} />
-     <StaticProductModal 
-        open={isStaticModalOpen} 
-        onClose={handleCloseModal} 
-        productId={selectedProductId} 
-        key={`static-${selectedProductId || 'none'}`}
-      />
+      <StaticProductModal open={isStaticModalOpen} onClose={handleCloseModal} productId={selectedProductId} key={`static-${selectedProductId || "none"}`} />
     </Container>
   )
 }

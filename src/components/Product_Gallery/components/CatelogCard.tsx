@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Typography, Button, Card, CardMedia, CardContent, List, ListItem, ListItemText } from "@mui/material"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { type Product } from "../../Custom_Configuration/types/CustomConfigurationtypes"
 import "../styles/ProductCard.css"
 
@@ -11,9 +11,21 @@ interface ProductCardProps {
 
 const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
   const navigate = useNavigate()
+   const { id } = useParams<{ id: string }>() 
   const handleClick = () => {
-    navigate(`/products/${type}`)
+    navigate(`/products/${id}/${type}`)
   }
+
+
+
+
+const handleLearnMore = () => {
+  if (product.detailId) {
+    navigate(`/${product.detailId}`);
+  } else {
+    console.warn("No detailId found for this product");
+  }
+};
 
   const formatFeature = (text: string) => {
     const parts = text.split(/(\*\*.*?\*\*)/g)
@@ -69,7 +81,7 @@ const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
         <Button variant="contained" fullWidth size="small" onClick={handleClick} className="btn-configure">
           SHOW MORE PRODUCTS
         </Button>
-        <Button variant="outlined" fullWidth className="btn-learn-more">
+        <Button variant="outlined" fullWidth className="btn-learn-more" onClick={handleLearnMore}>
           Learn More
         </Button>
       </Box>

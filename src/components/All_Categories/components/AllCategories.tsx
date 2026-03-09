@@ -1,50 +1,11 @@
-import { useState } from "react"
 import { Container, Typography, Box } from "@mui/material"
 import { CategoryButton } from "./CategoryButton"
-import type { Product } from "../../Custom_Configuration/types/CustomConfigurationtypes"
-import { useQuery } from "@tanstack/react-query"
-import { getProductSpecification } from "../../../api/productApi"
-import ConfigModal from "../../Custom_Configuration/ConfigureModal"
 import { CATEGORIES } from "./CategoryData"
 import ScrollReveal from "../../Common/ScrollReveal"
 import QuerySelector from "../../Dashboard/components/QuerySelector"
 
 export default function AllCategories() {
   const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedProductId, setSelectedProductId] = useState<string | null>(null)
-
-  // --- Logic ---
-  const { data: specification } = useQuery({
-    queryKey: ["productSpecification", selectedProductId],
-    queryFn: () => getProductSpecification(selectedProductId!),
-    enabled: isModalOpen && !!selectedProductId,
-  })
-
-  const buildSelectedProduct = (): Product | null => {
-    if (!specification) return null
-    return {
-      id: specification.id || selectedProductId!,
-      title: specification.title,
-      capabilities: specification.capabilities,
-      description: specification.description,
-      imageUrl: specification.imageUrl,
-      configurations: specification.configurations,
-    }
-  }
-
-  const selectedProduct = buildSelectedProduct()
-
-  const handleOpenModal = (productId: string) => {
-    setSelectedProductId(productId)
-    setIsModalOpen(true)
-  }
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-    setSelectedProductId(null)
-  }
-
   return (
     <Box sx={{ width: "100%", bgcolor: "#fff" }}>
       {/* PART 1: THE WRITING (INTRO) */}
@@ -115,14 +76,14 @@ export default function AllCategories() {
               },
             }}>
             {CATEGORIES.map(cat => (
-              <CategoryButton key={cat.id} {...cat} onProductClick={handleOpenModal} />
+              <CategoryButton key={cat.id} {...cat} />
             ))}
           </Box>
         </ScrollReveal>
       </Container>
 
       {/* MODAL */}
-      <ConfigModal open={isModalOpen} onClose={handleCloseModal} product={selectedProduct} key={selectedProduct?.id || "no-product"} />
+     
     </Box>
   )
 }

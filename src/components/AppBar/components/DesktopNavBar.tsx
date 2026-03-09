@@ -179,7 +179,7 @@ export default function DesktopNavbar({
         <Box sx={{ flexGrow: 1, display: "flex", height: "100%", alignItems: "center", position: "relative", overflow: "hidden" }}>
           <Fade in={!isSearchOpen} timeout={400}>
             <Stack direction="row" spacing={3} sx={{ display: { xs: "none", md: isSearchOpen ? "none" : "flex" }, ml: 6 }}>
-              {[{ label: "Products", id: "products" }, { label: "Industries", id: "industries" }, { label: "News & Blog", id: "news" }, { label: "About Us", id: "about" },{ label: "My Account", id: "dashboard", isStatic: true }].map((item) => (
+              {[{ label: "Products", id: "products" }, { label: "Industries", id: "industries" }, { label: "News & Blog", id: "blog" }, { label: "About Us", id: "about" },{ label: "My Account", id: "dashboard", isStatic: true }].map((item) => (
                 <Button
                   key={item.id}
                   onMouseEnter={() => handleMouseEnter(item.id)}

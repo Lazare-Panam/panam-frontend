@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Box, Typography, Stack, IconButton, TextField, Button, Fade, Chip } from "@mui/material"
+import { Box, Typography, Stack, IconButton, TextField, Button, Fade, Chip, Input } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import CloseIcon from "@mui/icons-material/Close"
 import AddIcon from "@mui/icons-material/Add"
@@ -89,21 +89,46 @@ const CartItem = ({ item, onUpdateQuantity, onRemove, onUpdateNotes }: CartItemP
 
         {/* 3. Quantity */}
         <Grid size={{ xs: 3 }}>
-          <Stack direction="row" spacing={3} alignItems="center" justifyContent="center">
-            <Stack direction="row" alignItems="center" sx={{ border: "2px solid #ccc" }}>
-              <IconButton onClick={() => onUpdateQuantity(item.cartItemId, item.hasCertificates, -1)}>
-                <RemoveIcon />
-              </IconButton>
-              <Typography sx={{ width: 40, textAlign: "center", fontWeight: 900 }}>{item.quantity}</Typography>
-              <IconButton onClick={() => onUpdateQuantity(item.cartItemId, item.hasCertificates, 1)}>
-                <AddIcon />
-              </IconButton>
-            </Stack>
-            <IconButton onClick={() => onRemove(item.cartItemId, item.hasCertificates)} sx={{ "&:hover": { color: "#ff4d4d" } }}>
-              <CloseIcon sx={{ fontSize: "2rem" }} />
-            </IconButton>
-          </Stack>
-        </Grid>
+  <Stack direction="row" spacing={3} alignItems="center" justifyContent="center">
+    <Stack direction="row" alignItems="center" sx={{ border: "2px solid #ccc", borderRadius: 1 }}>
+      {/* Minus Button */}
+      <IconButton onClick={() => onUpdateQuantity(item.cartItemId, item.hasCertificates, -1)}>
+        <RemoveIcon />
+      </IconButton>
+
+      {/* Manual Input Field */}
+      <Input
+        value={item.quantity}
+        disableUnderline
+        inputProps={{
+          style: { textAlign: "center", fontWeight: 900, width: 40 },
+          type: "number",
+          min: 1,
+        }}
+        onChange={(e) => {
+          const val = parseInt(e.target.value);
+          // Only update if it's a valid number; you might need a specific handleSetQuantity function
+          if (!isNaN(val)) {
+            onUpdateQuantity(item.cartItemId, item.hasCertificates, val - item.quantity);
+          }
+        }}
+      />
+
+      {/* Plus Button */}
+      <IconButton onClick={() => onUpdateQuantity(item.cartItemId, item.hasCertificates, 1)}>
+        <AddIcon />
+      </IconButton>
+    </Stack>
+
+    {/* Remove Button */}
+    <IconButton 
+      onClick={() => onRemove(item.cartItemId, item.hasCertificates)} 
+      sx={{ "&:hover": { color: "#ff4d4d" } }}
+    >
+      <CloseIcon sx={{ fontSize: "2rem" }} />
+    </IconButton>
+  </Stack>
+</Grid>
       </Grid>
     </Box>
   )

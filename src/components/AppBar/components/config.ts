@@ -181,7 +181,7 @@ export const navConfig: NavConfig = {
     {
       id: "updates",
       label: "Latest News",
-      link: "/news",
+      link: "/blog",
       items: [
         { name: "Product Launches"},
         { name: "Exhibitions 2024"  },

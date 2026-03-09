@@ -8,17 +8,19 @@ import CalculateIcon from "@mui/icons-material/Calculate" // Flow Calculator
 import ArchitectureIcon from "@mui/icons-material/Architecture" // CAD Files
 import SettingsInputComponentIcon from "@mui/icons-material/SettingsInputComponent" // Flow Curve
 import VerifiedIcon from "@mui/icons-material/Verified" // Certifications
+import { useNavigate } from "react-router-dom"
 
 const BRAND_BLUE = "#01B0F0"
 const RESOURCE_GREEN = "#01B0F0"
 
 const ProductResources: React.FC = () => {
+  const navigate = useNavigate()
   const resources = [
-    { icon: <MenuBookIcon fontSize="large" />, label: "Catalog Library" },
-    { icon: <CalculateIcon fontSize="large" />, label: "2D/3D Drawings" },
-    { icon: <ArchitectureIcon fontSize="large" />, label: "CAD Files" },
-    { icon: <SettingsInputComponentIcon fontSize="large" />, label: "Test Type Reports" },
-    { icon: <VerifiedIcon fontSize="large" />, label: "QMS Certifications" },
+    { icon: <MenuBookIcon fontSize="large" />, label: "Catalog Library", path: "/catalogPDFs" },
+    { icon: <CalculateIcon fontSize="large" />, label: "2D/3D Drawings",path: "#" },
+    { icon: <ArchitectureIcon fontSize="large" />, label: "CAD Files", path: "#" },
+    { icon: <SettingsInputComponentIcon fontSize="large" />, label: "Test Type Reports", path: "#" },
+    { icon: <VerifiedIcon fontSize="large" />, label: "QMS Certifications" ,path: "#" },
   ]
 
   return (
@@ -42,6 +44,7 @@ const ProductResources: React.FC = () => {
               <Stack
                 spacing={2}
                 alignItems="center"
+                onClick={() => res.path !== "#" && navigate(res.path)}
                 sx={{
                   cursor: "pointer",
                   "&:hover .icon-box": { transform: "translateY(-5px)" },

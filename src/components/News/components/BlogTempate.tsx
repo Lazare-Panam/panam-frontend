@@ -8,22 +8,6 @@ import Grid from "@mui/material/Grid";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { blogs } from "./blogData";
 
-// ─── Block type definitions ──────────────────────────────────────────────────
-// Each block in post.body must have a `type` field. Supported types:
-//
-//  { type: "paragraph",   text: "..." }
-//  { type: "subheading",  text: "..." }
-//  { type: "image",       url: "...",  caption?: "..." }
-//  { type: "wrap-image",  url: "...",  text: "...",  side?: "left" | "right" }
-//  { type: "quote",       text: "..." }
-//  { type: "list",        items: ["...", "..."] }
-//  { type: "numbered-list", items: ["...", "..."] }
-//  { type: "code",        text: "...",  language?: "..." }
-//  { type: "divider" }
-//
-// post.takeaways?: string[]          — sidebar key takeaways (optional)
-// post.cta?: { heading, body, buttonText, buttonLink }  — custom CTA (optional)
-// ─────────────────────────────────────────────────────────────────────────────
 
 const BlogTemplate: React.FC = () => {
   const { slug } = useParams();

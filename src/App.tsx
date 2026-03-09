@@ -5,6 +5,7 @@ import Layout from "./Layout"
 import CrossReference from "./components/Cross_Reference/CrossReference"
 import RegisterForm from "./components/Account/components/RegisterForm"
 import Login from "./components/Account/Login"
+import CatalogPdfs from "./components/CatalogPdfs/CatalogPdfs"
 const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
 const News = lazy(() => import("./components/News/News"))
 const DashBoard = lazy(() => import("./components/Dashboard/Dashboard"))
@@ -17,7 +18,7 @@ const AuthAndInquiryPage = lazy(() => import("./components/Auth/AuthAndInquiryPa
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
-
+import ProductDetailPage from "./components/Product_Details/ProductDetails"
 export const routes = [
   {
     path: "/",
@@ -49,6 +50,18 @@ export const routes = [
         ),
       },
       {
+    path: "products/:id/:subId",   
+    element: <Suspense fallback={<LoadingScreen />}><ProductGallery /></Suspense>,
+  },
+  {
+        path: ":detailId",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ProductDetailPage />
+          </Suspense>
+        ),
+      },
+      {
         path: "about",
         element: (
           <Suspense fallback={<LoadingScreen />}>
@@ -73,7 +86,7 @@ export const routes = [
         ),
       },
       {
-        path: "news",
+        path: "blog",
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <News />
@@ -134,6 +147,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <CrossReference />
+          </Suspense>
+        ),
+      },
+      {
+        path: "catalogPDFs",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CatalogPdfs />
           </Suspense>
         ),
       },
