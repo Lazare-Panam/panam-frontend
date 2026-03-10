@@ -11,7 +11,7 @@ const FeatureSection = () => {
           Specialized <span>Hydrogen Infrastructure</span> support for large-scale electrolyzer and refueling projects.
         </>
       ),
-      link: "/hydrogen/infrastructure",
+     
     },
     {
       image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_1920,f_auto,q_auto/v1769604874/biel-morro-HCha-UHkIg8-unsplash_pl8qt9.jpg",
@@ -20,7 +20,7 @@ const FeatureSection = () => {
           Advanced <span>Leak-Detection Training</span> and engineering audits for high-pressure H2 storage systems.
         </>
       ),
-      link: "/hydrogen/safety-services",
+     
     },
     {
       image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_1920,f_auto,q_auto/v1769604928/annie-spratt-Iqwnr00mfQM-unsplash_qtpa2u.jpg",
@@ -29,7 +29,7 @@ const FeatureSection = () => {
           A <span>Dedicated H2 Supply Chain</span> ensuring material compatibility and certification across global markets.
         </>
       ),
-      link: "/hydrogen/global-supply",
+      
     },
   ]
 
