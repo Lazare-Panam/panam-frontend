@@ -16,8 +16,8 @@ vi.mock("react-router-dom", async () => {
 const defaultProps: FeatureGridProps = {
   sectionTitle: "Features",
   items: [
-    { image: "test1.jpg", caption: "Caption 1", link: "/path1" },
-    { image: "test2.jpg", caption: "Caption 2", link: "/path2" },
+    { image: "test1.jpg", caption: "Caption 1",  },
+    { image: "test2.jpg", caption: "Caption 2",  },
   ],
   buttonText: "See More",
   onButtonClick: vi.fn(),
