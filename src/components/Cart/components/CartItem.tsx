@@ -36,7 +36,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove, onUpdateNotes }: CartItemP
         {/* 1. Details */}
         <Grid size={{ xs: 5 }}>
           <Stack direction="row" spacing={4} alignItems="center">
-            <Box component="img" src={item.image} sx={{ width: 140, height: 140, objectFit: "contain" }} />
+           
             <Box>
               <Typography variant="h6" fontWeight={600} color={BRAND_BLUE} sx={{ mb: 1 }}>
                 {fullDescription || item.name}

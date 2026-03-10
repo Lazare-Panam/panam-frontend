@@ -5,6 +5,7 @@ import { useCartStore } from "../store/useCartStore"
 import { useUserStore } from "../store/useUserStore"
 import { useNotificationStore } from "../store/useNotficationStore"
 import { requestQuotation } from "../../api/orderApi"
+import { addToCartApi, type CartItemDTO } from "../../api/cartApi" // Ensure this path is correct
 import CartHeader from "./components/CartHeader"
 import CartItem from "./components/CartItem"
 import CartFooter from "./components/CartFooter"
@@ -19,7 +20,9 @@ const CartPage = () => {
   const isHydrated = useCartStore.persist.hasHydrated()
   const { isAuthenticated, firstName, lastName, email, companyName, phoneNumber } = useUserStore()
   const showNotification = useNotificationStore(state => state.showNotification)
-  const { mutate, isPending } = useMutation({
+
+  // 1. Mutation for requesting a quotation
+  const { mutate: submitQuote, isPending: isSubmitting } = useMutation({
     mutationFn: requestQuotation,
     onSuccess: () => {
       showNotification({ message: "Quotation request sent successfully!", severity: "success" })
@@ -29,6 +32,36 @@ const CartPage = () => {
       showNotification({ message: msg, severity: "error" })
     },
   })
+
+  // 2. Mutation for saving the cart to the database
+  const { mutate: saveCart, isPending: isSaving } = useMutation({
+    mutationFn: async () => {
+      const promises = cart.map(item => {
+        const dto: CartItemDTO = {
+          productCode: item.partNumber,
+          productDescription: Object.values(item.specs).filter(v => v).join(", ") || item.name,
+          quantity: item.quantity,
+          notes: item.notes || ""
+        }
+        return addToCartApi(dto)
+      })
+      return Promise.all(promises)
+    },
+    onSuccess: () => {
+      showNotification({ message: "Cart successfully saved to your account!", severity: "success" })
+    },
+    onError: () => {
+      showNotification({ message: "Could not save cart. Please check your connection.", severity: "error" })
+    }
+  })
+
+  const handleSaveAction = () => {
+    if (!isAuthenticated) {
+      navigate("/login?redirect=/cart")
+    } else {
+      saveCart()
+    }
+  }
 
   const handleProceed = () => {
     if (!isAuthenticated) {
@@ -51,8 +84,7 @@ const CartPage = () => {
       })),
     }
 
-    console.log("Submitting Quotation Payload:", payload)
-    mutate(payload)
+    submitQuote(payload)
   }
 
   if (!isHydrated) {
@@ -88,9 +120,13 @@ const CartPage = () => {
           />
         ))}
       </Stack>
+      
       <CartFooter 
         onProceed={handleProceed} 
-        isSubmitting={isPending} 
+        onSave={handleSaveAction}
+        isSaving={isSaving}
+        isSubmitting={isSubmitting} 
+        saveLabel={isAuthenticated ? "Save Cart" : "Login to Save Cart"}
         label={isAuthenticated ? "Proceed to Quote" : "Sign in to Quote"} 
       />
     </Container>

@@ -9,6 +9,7 @@ import QuerySelector from "./components/QuerySelector";
 import ScrollReveal from "../Common/ScrollReveal";
 import CommunicationPreferences from "./components/CommunicationPreferences";
 import Enquiries from "./components/Enquiries";
+import SavedCarts from "./components/SavedCarts";
 
 const DashBoard = () => {
   const navigate = useNavigate();
@@ -60,11 +61,15 @@ const DashBoard = () => {
         case "Enquiries":
         return (
           <ScrollReveal>
-            {/* We pass setActiveView so the "New Enquiry" button inside 
-                Enquiries.tsx can navigate to the actual form */}
             <Enquiries />
           </ScrollReveal>
         );
+        case "Carts":
+      return (
+        <ScrollReveal>
+          <SavedCarts />
+        </ScrollReveal>
+      );
 
       default:
         return (
