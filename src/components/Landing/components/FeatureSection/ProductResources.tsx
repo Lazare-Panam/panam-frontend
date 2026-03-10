@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Container, Typography, Button, Divider, Stack } from "@mui/material"
+import { Box, Container, Typography, Button,  Stack } from "@mui/material"
 import Grid from "@mui/material/Grid"
 
 // Icons that match the technical resource style
@@ -8,22 +8,23 @@ import CalculateIcon from "@mui/icons-material/Calculate" // Flow Calculator
 import ArchitectureIcon from "@mui/icons-material/Architecture" // CAD Files
 import SettingsInputComponentIcon from "@mui/icons-material/SettingsInputComponent" // Flow Curve
 import VerifiedIcon from "@mui/icons-material/Verified" // Certifications
+import { useNavigate } from "react-router-dom"
 
 const BRAND_BLUE = "#01B0F0"
 const RESOURCE_GREEN = "#01B0F0"
 
 const ProductResources: React.FC = () => {
+  const navigate = useNavigate()
   const resources = [
-    { icon: <MenuBookIcon fontSize="large" />, label: "Catalog Library" },
-    { icon: <CalculateIcon fontSize="large" />, label: "2D/3D Drawings" },
-    { icon: <ArchitectureIcon fontSize="large" />, label: "CAD Files" },
-    { icon: <SettingsInputComponentIcon fontSize="large" />, label: "Test Type Reports" },
-    { icon: <VerifiedIcon fontSize="large" />, label: "QMS Certifications" },
+    { icon: <MenuBookIcon fontSize="large" />, label: "Catalog Library", path: "/catalogPDFs" },
+    { icon: <CalculateIcon fontSize="large" />, label: "2D/3D Drawings",path: "#" },
+    { icon: <ArchitectureIcon fontSize="large" />, label: "CAD Files", path: "#" },
+    { icon: <SettingsInputComponentIcon fontSize="large" />, label: "Test Type Reports", path: "#" },
+    { icon: <VerifiedIcon fontSize="large" />, label: "QMS Certifications" ,path: "#" },
   ]
 
   return (
     <Box sx={{ width: "100%", py: 8, backgroundColor: "transparent" }}>
-      <Divider sx={{ mb: 8, borderColor: "rgba(0,0,0,0.08)" }} />
       <Container maxWidth="lg">
         <Typography
           variant="h4"
@@ -34,7 +35,7 @@ const ProductResources: React.FC = () => {
             color: "#333",
             fontFamily: '"Inter", sans-serif',
           }}>
-          Explore Our Product Resources
+         Technical Support
         </Typography>
 
         <Grid container spacing={2} justifyContent="center">
@@ -43,6 +44,7 @@ const ProductResources: React.FC = () => {
               <Stack
                 spacing={2}
                 alignItems="center"
+                onClick={() => res.path !== "#" && navigate(res.path)}
                 sx={{
                   cursor: "pointer",
                   "&:hover .icon-box": { transform: "translateY(-5px)" },

@@ -30,4 +30,5 @@ export interface Product {
   features?: string[]
   configurations?: ProductConfig[]
   capabilities?: ProductCapabilities
+  detailId?: string
 }

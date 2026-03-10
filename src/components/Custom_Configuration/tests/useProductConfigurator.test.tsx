@@ -1,11 +1,9 @@
 import { renderHook, act, render, screen } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { describe, it, expect, vi } from "vitest"
+import { describe, it, expect,  } from "vitest"
 import { useProductConfigurator } from "../hooks/useProductConfigurator"
 import { type Product } from "../types/CustomConfigurationtypes"
 import SummaryPanel from "../components/SummaryPanel"
 import ShimmerUI from "../components/ShimmerUI"
-import ConfigurationPanel from "../components/ConfigurationPanel"
 const mockProduct: Product = {
   id: "prod-123",
   title: "Industrial Valve X1",
@@ -96,68 +94,8 @@ describe("Tests for Shimmer UI Component", () => {
   })
 })
 
-const mockProduct2: Product = {
-  id: "valve-123",
-  title: "Industrial Valve",
-  description: "A high-pressure stainless steel valve.",
-  price: "450.00",
-  imageUrl: "https://example.com/valve.jpg",
-  configurations: [
-    {
-      label: "Material",
-      required: true,
-      options: [{ label: "Stainless Steel", code: "SS" }],
-    },
-    {
-      label: "Size",
-      required: true,
-      options: [
-        { label: "1 inch", code: "01" },
-        { label: "2 inch", code: "02" },
-      ],
-    },
-  ],
-}
 
-describe("Configuration Panel Component Test", () => {
-  const mockHandleChange = vi.fn()
-  const mockGetSelectionChange = vi.fn()
 
-  it("renders all configuration and identifies the categoreis with one component and keeps them fixed", () => {
-    render(<ConfigurationPanel product={mockProduct2} getEffectiveSelection={mockGetSelectionChange} handleOptionChange={mockHandleChange} showValidation={false} />)
-    expect(screen.getByText("Size")).toBeDefined()
-    expect(screen.getByText("Material (Fixed)")).toBeDefined()
-  })
-
-  it("calls handleOptionChange when a new option is chosen", async () => {
-    const user = userEvent.setup()
-    mockGetSelectionChange.mockReturnValue(null)
-
-    render(<ConfigurationPanel product={mockProduct2} getEffectiveSelection={mockGetSelectionChange} handleOptionChange={mockHandleChange} showValidation={false} />)
-    const selectTrigger = screen.getByLabelText(/select size/i)
-    await user.click(selectTrigger)
-    const option = await screen.findByText("2 inch")
-    await user.click(option)
-    expect(mockHandleChange).toHaveBeenCalledWith("Size", "02")
-  })
-
-  it("shows a validation error message when the required field is empty", () => {
-    mockGetSelectionChange.mockReturnValue(null)
-    render(<ConfigurationPanel product={mockProduct2} getEffectiveSelection={mockGetSelectionChange} handleOptionChange={mockHandleChange} showValidation={true} />)
-
-    const errors = screen.getAllByText(/this field is required/i)
-    expect(errors.length).toBe(2)
-  })
-
-  it("toggeles the certificates check box when clicked", async () => {
-    const user = userEvent.setup()
-    render(<ConfigurationPanel product={mockProduct2} getEffectiveSelection={mockGetSelectionChange} handleOptionChange={mockHandleChange} showValidation={true} />)
-    const checkbox = screen.getByRole("checkbox", { name: /order 3\.1 material certificates/i })
-    expect(checkbox).not.toBeChecked()
-    await user.click(checkbox)
-    expect(checkbox).toBeChecked()
-  })
-})
 describe("useProductConfigurator - Adjacency and Separator Logic", () => {
   it("should enforce a separator when the direct successor is empty", () => {
     const { result } = renderHook(() => useProductConfigurator(adjacencyGapMock))

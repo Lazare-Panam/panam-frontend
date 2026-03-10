@@ -10,34 +10,38 @@ import CatelogCard from "./CatelogCard"
 import { PageType } from "../types/pagetypes"
 import { useQuery } from "@tanstack/react-query"
 import ProductInventorySkeleton from "./ProductShimmer"
-
+import { STATIC_PRODUCTS } from "./Static-data"
+import StaticProductModal from "./StaticProductModal"
 interface ProductCatalog {
   type: string
   title: string
   description: string
   image: string
   features: string[]
+  detailId?: string
 }
 
 export default function ProductInventory() {
-  const { id } = useParams<{ id: string }>()
+  const { id, subId } = useParams<{ id: string; subId: string }>()
+  const activeId = subId ?? id
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isStaticModalOpen, setIsStaticModalOpen] = useState(false)
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null)
-
+  const isStaticProduct = selectedProductId ? !!STATIC_PRODUCTS[selectedProductId] : false
   const {
     data: catalog,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["productCategory", id],
-    queryFn: () => getProductCategory(id!),
-    enabled: !!id,
+    queryKey: ["productCategory", activeId],
+    queryFn: () => getProductCategory(activeId!),
+    enabled: !!activeId,
   })
 
   const { data: specification } = useQuery({
     queryKey: ["productSpecification", selectedProductId],
     queryFn: () => getProductSpecification(selectedProductId!),
-    enabled: isModalOpen && !!selectedProductId,
+    enabled: isModalOpen && !!selectedProductId && !isStaticProduct,
   })
 
   const buildSelectedProduct = (): Product | null => {
@@ -56,12 +60,18 @@ export default function ProductInventory() {
   const selectedProduct = buildSelectedProduct()
 
   const handleOpenModal = (product: Product) => {
-    setSelectedProductId(product.id)
-    setIsModalOpen(true)
+    const productId = product.id
+    setSelectedProductId(productId)
+    if (STATIC_PRODUCTS[productId]) {
+      setIsStaticModalOpen(true)
+    } else {
+      setIsModalOpen(true)
+    }
   }
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
+    setIsStaticModalOpen(false)
     setSelectedProductId(null)
   }
 
@@ -91,7 +101,9 @@ export default function ProductInventory() {
               <ProductCard
                 product={{
                   id: item.type,
+                  detailId: item.detailId,
                   title: item.title,
+
                   description: item.description,
                   imageUrl: item.image,
                 }}
@@ -101,6 +113,7 @@ export default function ProductInventory() {
               <CatelogCard
                 product={{
                   id: item.type,
+                  detailId: item.detailId,
                   title: item.title,
                   description: item.description,
                   imageUrl: item.image,
@@ -114,6 +127,7 @@ export default function ProductInventory() {
       </Grid>
 
       <ConfigModal open={isModalOpen} onClose={handleCloseModal} product={selectedProduct} key={selectedProduct?.id || "no-product"} />
+      <StaticProductModal open={isStaticModalOpen} onClose={handleCloseModal} productId={selectedProductId} key={`static-${selectedProductId || "none"}`} />
     </Container>
   )
 }

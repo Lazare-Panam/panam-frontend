@@ -2,6 +2,7 @@ import React from "react"
 import { Box, Typography, Button, Container, Stack } from "@mui/material"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules"
+import { useNavigate } from "react-router-dom"
 const BRAND_BLUE = "#01B0F0"
 
 const slides = [
@@ -18,11 +19,12 @@ const slides = [
   {
     title: "Next-Gen Flow Control",
     subtitle: "Integrating smart technology with heavy-duty mechanical engineering.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1772530175/Carousel_images_lvpbns.jpg",
   },
 ]
 
 const Carousel: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -104,6 +106,7 @@ const Carousel: React.FC = () => {
                     <Button
                       variant="contained"
                       disableElevation
+                      onClick={()=>navigate("/products")}
                       sx={{
                         backgroundColor: BRAND_BLUE,
                         px: { xs: 2, md: 4 },
@@ -116,6 +119,7 @@ const Carousel: React.FC = () => {
                     </Button>
                     <Button
                       variant="outlined"
+                       onClick={()=>navigate("/enquiry")}
                       sx={{
                         color: "white",
                         borderColor: "rgba(255,255,255,0.5)",

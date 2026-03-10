@@ -1,20 +1,30 @@
-import { Box, Fade, InputBase } from "@mui/material"
+import React, { useState } from "react"
+import { Box, Fade, InputBase, IconButton } from "@mui/material"
+import SearchIcon from "@mui/icons-material/Search"
+
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
-import SearchIcon from "@mui/icons-material/Search"
+
 interface SearchBarProps {
   isSearchOpen: boolean
+  onSearch: (query: string) => void
 }
-const SearchBar: React.FC<SearchBarProps> = ({ isSearchOpen }) => {
+
+const SearchBar: React.FC<SearchBarProps> = ({ isSearchOpen, onSearch }) => {
+  const [query, setQuery] = useState("")
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && query.trim()) {
+      onSearch(query)
+    }
+  }
+
   return (
     <Fade in={isSearchOpen} timeout={600}>
       <Box
         sx={{
           position: "absolute",
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
+          top: 0, bottom: 0, left: 0, right: 0,
           backgroundColor: BRAND_BLUE,
           display: isSearchOpen ? "flex" : "none",
           alignItems: "center",
@@ -25,7 +35,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ isSearchOpen }) => {
         }}>
         <InputBase
           autoFocus
-          placeholder="Search by model, part number or keyword"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Search by Swagelok model or Part Number"
           sx={{
             flex: 1,
             color: "white",
@@ -36,9 +49,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ isSearchOpen }) => {
             "& input::placeholder": { color: "rgba(255,255,255,0.8)", opacity: 1 },
           }}
         />
-        <SearchIcon sx={{ color: "white", fontSize: 35, ml: 2 }} />
+        <IconButton onClick={() => query.trim() && onSearch(query)} sx={{ p: 0 }}>
+          <SearchIcon sx={{ color: "white", fontSize: 35, ml: 2 }} />
+        </IconButton>
       </Box>
     </Fade>
   )
 }
+
 export default SearchBar

@@ -36,7 +36,7 @@ const EmptyCartView = () => {
         </Box>
 
         <Typography variant="h4" fontWeight={700} sx={{ color: DARK_NAVY, mb: 2, letterSpacing: "-0.02em" }}>
-          YOUR QUOTE LIST IS EMPTY
+          YOUR CART IS EMPTY
         </Typography>
 
         <Typography variant="body1" sx={{ color: "#666", mb: 5, lineHeight: 1.6, maxWidth: 350 }}>

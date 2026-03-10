@@ -3,7 +3,9 @@ import IntroSection from "./components/Intro/Intro"
 import FeatureSection from "./components/FeatureSection/FeatureSection"
 import PartnersCarousel from "./components/Carousel/PartnersCarousel"
 import ScrollReveal from "../Common/ScrollReveal"
+
 import ProductApplications from "./components/ProductApplications.tsx/ProductApplications"
+import ProductResources from "./components/FeatureSection/ProductResources"
 
 const LandingPage = () => {
   return (
@@ -20,6 +22,11 @@ const LandingPage = () => {
         <ScrollReveal delay={0.2}>
           <ProductApplications />
         </ScrollReveal>
+       <div id="resources" style={{ scrollMarginTop: "80px" }}>
+  <ScrollReveal delay={0.2}>
+    <ProductResources />
+  </ScrollReveal>
+</div>
         <ScrollReveal delay={0.2}>
           <PartnersCarousel />
         </ScrollReveal>

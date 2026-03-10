@@ -20,6 +20,7 @@ const ProductPage = () => {
           description="Explore our full range of high-performance instrumentation valves and fittings. Designed for absolute integrity, Panam components are the backbone of critical flow control systems worldwide."
           backgroundImage="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769772200/encata-pd-SRqJ3eli-4I-unsplash_jgpfgl.jpg"
         />
+        
         <AllCategories />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Typography, Button, Card, CardMedia, CardContent, List, ListItem, ListItemText } from "@mui/material"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { type Product } from "../../Custom_Configuration/types/CustomConfigurationtypes"
 import "../styles/ProductCard.css"
 
@@ -11,9 +11,21 @@ interface ProductCardProps {
 
 const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
   const navigate = useNavigate()
+   const { id } = useParams<{ id: string }>() 
   const handleClick = () => {
-    navigate(`/products/${type}`)
+    navigate(`/products/${id}/${type}`)
   }
+
+
+
+
+const handleLearnMore = () => {
+  if (product.detailId) {
+    navigate(`/${product.detailId}`);
+  } else {
+    console.warn("No detailId found for this product");
+  }
+};
 
   const formatFeature = (text: string) => {
     const parts = text.split(/(\*\*.*?\*\*)/g)
@@ -39,11 +51,11 @@ const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
         flexDirection: "column",
       }}>
       <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
-        <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 150, objectFit: "contain" }} />
+        <CardMedia component="img" image={product.imageUrl} alt={product.title} sx={{ width: "100%", maxWidth: 250, height: 250, objectFit: "contain" }} />
       </Box>
 
       <CardContent sx={{ flexGrow: 1, p: 2, display: "flex", flexDirection: "column" }}>
-        <Typography variant="subtitle2" fontWeight={700} gutterBottom>
+        <Typography variant="subtitle2" fontWeight={700} gutterBottom  sx={{ color: '#01B0F0' }}>
           {product.title}
         </Typography>
         <List dense disablePadding sx={{ color: "text.secondary" }}>
@@ -69,7 +81,7 @@ const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
         <Button variant="contained" fullWidth size="small" onClick={handleClick} className="btn-configure">
           SHOW MORE PRODUCTS
         </Button>
-        <Button variant="outlined" fullWidth className="btn-learn-more">
+        <Button variant="outlined" fullWidth className="btn-learn-more" onClick={handleLearnMore}>
           Learn More
         </Button>
       </Box>
