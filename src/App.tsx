@@ -19,6 +19,7 @@ const ProductGallery = lazy(() => import("./components/Product_Gallery/component
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
 import ProductDetailPage from "./components/Product_Details/ProductDetails"
+const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
     path: "/",
@@ -155,6 +156,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <CatalogPdfs />
+          </Suspense>
+        ),
+      },
+      {
+        path: "reset-password",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ResetPasswordPage />
           </Suspense>
         ),
       },
