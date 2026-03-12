@@ -21,7 +21,7 @@ const CatelogCard: React.FC<ProductCardProps> = ({ product, type }) => {
 
 const handleLearnMore = () => {
   if (product.detailId) {
-    navigate(`/${product.detailId}`);
+    navigate(`/catalogPDFs/${product.detailId}`);
   } else {
     console.warn("No detailId found for this product");
   }

@@ -12,10 +12,10 @@ export interface NavCategory {
 
 export interface NavConfig {
   products: NavCategory[]
-  industries: NavCategory[]
   about: NavCategory[]
-  news: NavCategory[]
+  blog: NavCategory[]
   dashboard: NavCategory[]
+
 }
 export const navConfig: NavConfig = {
   products: [
@@ -114,56 +114,6 @@ export const navConfig: NavConfig = {
       ],
     },
   ],
-  industries: [
-    {
-      id: "marine",
-      label: "Marine & Subsea",
-      link: "/industries/marine-subsea",
-      items: [
-        { name: "Vessel Construction & Integration" },
-        { name: "Marine Propulsion Fluid Control" },
-        { name: "Ballast & Water Management" },
-        { name: "Offshore Platform Instrumentation" }, // Replaced Engine for a broader subsea feel
-        { name: "Deep-Sea Pressure Management" },
-      ],
-    },
-    {
-      id: "oil-gas",
-      label: "Oil & Gas",
-      link: "/industries/oil-gas",
-      items: [{ name: "Upstream Exploration & Production (E&P)" }, { name: "Midstream Pipeline & Storage Infrastructure" }, { name: "Downstream Refining & Petrochemical Processing" }, { name: "Natural Gas Compression & Liquefaction (LNG)" }, { name: "Fugitive Emission & Environmental Control Systems" }],
-    },
-    {
-      id: "Hydrogen",
-      label: "Hydrogen",
-      link: "/industries/hydrogen",
-      items: [
-        { name: "Upstream Exploration" },
-        { name: "Midstream Pipelines" },
-        { name: "Downstream Refining" },
-        { name: "Petrochemical Plants" },
-        { name: "Gas Processing"},
-      ],
-    },
-    {
-      id: "aerospace-defense",
-      label: "Aerospace & Defense",
-      link: "/industries/aerospace-defense",
-      items: [{ name: "PEM & Alkaline Electrolyzer Stack Integration" }, { name: "High-Pressure Hydrogen Storage & Cascade Systems" }, { name: "Cryogenic Liquid Hydrogen (LH2) Fluid Management" }, { name: "Hydrogen Refuelling Station (HRS) Infrastructure" }, { name: "Fuel Cell Power Plant Instrumentation & Control" }, { name: "H2 Pipeline De-blending & Purification Stations" }],
-    },
-    {
-      id: "food-beverages",
-      label: "Food & Beverages",
-      link: "/industries/food-beverages",
-      items: [{ name: "Sanitary Process Automation & Fluid Control" }, { name: "Hygienic Beverage Distribution & Filling Lines" }, { name: "Clean-In-Place (CIP) & Sterilization Systems" }, { name: "High-Polish Instrumentation for Dairy Processing" }, { name: "Automated Ingredient Batching & Mixing Loops" }, { name: "Brewery & Distillery Fermentation Management" }],
-    },
-    {
-      id: "chemicals-petrochemical",
-      label: "Chemicals & Petrochemical",
-      link: "/industries/chemicals-petrochemical",
-      items: [{ name: "Corrosive & Aggressive Media Management Systems" }, { name: "High-Temperature & High-Pressure Process Loops" }, { name: "Hazardous Chemical Refining & Storage Infrastructure" }, { name: "Critical Instrumentation for Batch Reactor Control" }, { name: "Specialty Polymer & Fertilizer Production Lines" }, { name: "Toxic Gas Leak Detection & Fluid Isolation" }],
-    },
-  ],
   about: [
     {
       id: "company",
@@ -172,12 +122,23 @@ export const navConfig: NavConfig = {
       items: [
         { name: "Mission & Vision",  },
         { name: "Manufacturing Excellence", },
-
         { name: "Quality Control" },
       ],
     },
+    {
+      id: "industries-nested",
+      label: "Industries",
+      link: "/industries",
+      items: [
+        { name: "Marine & Subsea", link: "/industries/marine-subsea" },
+        { name: "Oil & Gas", link: "/industries/oil-gas" },
+        { name: "Hydrogen", link: "/industries/hydrogen" },
+        { name: "Aerospace & Defense", link: "/industries/aerospace-defense" },
+        { name: "Food & Beverages", link: "/industries/food-beverages" },
+      ],
+    },
   ],
-  news: [
+  blog: [
     {
       id: "updates",
       label: "Latest News",

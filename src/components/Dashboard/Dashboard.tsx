@@ -10,15 +10,14 @@ import ScrollReveal from "../Common/ScrollReveal";
 import CommunicationPreferences from "./components/CommunicationPreferences";
 import Enquiries from "./components/Enquiries";
 import SavedCarts from "./components/SavedCarts";
+import QuotesHistory from "./components/QuotesHistory";
 
 const DashBoard = () => {
   const navigate = useNavigate();
   const { isAuthenticated } = useUserStore();
   
-  // 1. Create the state to track the active screen
   const [activeView, setActiveView] = useState("Personal Information");
 
-  // Auth Guard
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/login");
@@ -71,6 +70,12 @@ const DashBoard = () => {
         </ScrollReveal>
       );
 
+      case "Quotes":
+    return (
+      <ScrollReveal>
+        <QuotesHistory />
+      </ScrollReveal>
+    );
       default:
         return (
           <Box sx={{ p: 6 }}>

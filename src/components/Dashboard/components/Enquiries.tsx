@@ -22,6 +22,7 @@ import {
   HistoryEdu as EnquiryIcon,
 } from "@mui/icons-material";
 import { getMyEnquiries, type Enquiry } from "../../../api/authApi";
+import EmptyState from "./EmptyState";
 
 const BRAND_BLUE = "#01B0F0";
 const SOFT_BG = "#F8FAFC";
@@ -98,27 +99,12 @@ const Enquiries = () => {
       </Box>
 
       {enquiries.length === 0 ? (
-        <Paper 
-          elevation={0} 
-          sx={{ 
-            p: 8, 
-            textAlign: 'center', 
-            border: `1px dashed ${BORDER_COLOR}`, 
-            bgcolor: SOFT_BG, 
-            borderRadius: 0 
-          }}
-        >
-          <EnquiryIcon sx={{ fontSize: 60, color: BORDER_COLOR, mb: 2 }} />
-          <Typography variant="h6" sx={{ fontWeight: 700, color: "text.secondary" }}>
-            No enquiries logged.
-          </Typography>
-          <Button 
-            onClick={() => navigate('/enquiry')} 
-            sx={{ mt: 2, color: BRAND_BLUE, fontWeight: 800 }}
-          >
-            CREATE FIRST ENTRY
-          </Button>
-        </Paper>
+        <EmptyState 
+    icon={EnquiryIcon}
+    title="No enquiries logged."
+    buttonText="CREATE FIRST ENTRY"
+    onActionClick="/enquiry"
+  />
       ) : (
         <TableContainer 
           component={Paper} 

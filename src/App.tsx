@@ -54,7 +54,7 @@ export const routes = [
     element: <Suspense fallback={<LoadingScreen />}><ProductGallery /></Suspense>,
   },
   {
-        path: ":detailId",
+        path: "catalogPDFs/:detailId",
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <ProductDetailPage />
@@ -158,6 +158,7 @@ export const routes = [
           </Suspense>
         ),
       },
+      
       { path: "*", element: <NotFound /> },
     ],
   },

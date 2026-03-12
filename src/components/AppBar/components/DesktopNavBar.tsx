@@ -176,24 +176,40 @@ export default function DesktopNavbar({
         </Box>
 
         {/* Navigation */}
-        <Box sx={{ flexGrow: 1, display: "flex", height: "100%", alignItems: "center", position: "relative", overflow: "hidden" }}>
-          <Fade in={!isSearchOpen} timeout={400}>
-            <Stack direction="row" spacing={3} sx={{ display: { xs: "none", md: isSearchOpen ? "none" : "flex" }, ml: 6 }}>
-              {[{ label: "Products", id: "products" }, { label: "Industries", id: "industries" }, { label: "News & Blog", id: "blog" }, { label: "About Us", id: "about" },{ label: "My Account", id: "dashboard", isStatic: true }].map((item) => (
-                <Button
-                  key={item.id}
-                  onMouseEnter={() => handleMouseEnter(item.id)}
-                  onClick={() => handleNavigation(`/${item.id}`)}
-                  endIcon={<KeyboardArrowDownIcon sx={{ transition: "0.2s", transform: megaMenuOpen === item.id ? "rotate(180deg)" : "none" }} />}
-                  sx={{ color: "#1A1A1A", textTransform: "none", fontFamily: PRIMARY_FONT, fontWeight: 600 }}
-                >
-                  {item.label}
-                </Button>
-              ))}
-            </Stack>
-          </Fade>
-          <SearchBar isSearchOpen={isSearchOpen} onSearch={handleSearchSubmit} />
-        </Box>
+        {/* Navigation */}
+<Box sx={{ flexGrow: 1, display: "flex", height: "100%", alignItems: "center", position: "relative", overflow: "hidden" }}>
+  <Fade in={!isSearchOpen} timeout={400}>
+    <Stack direction="row" spacing={3} sx={{ display: { xs: "none", md: isSearchOpen ? "none" : "flex" }, ml: 6 }}>
+      {[
+        { label: "Products", id: "products" },
+        { label: "News & Blog", id: "blog" },
+        { label: "About Us", id: "about" },
+        { label: "My Account", id: "dashboard", isStatic: true },
+        { label: "Contact Us", id: "enquiry" },
+      ].map((item) => (
+        <Button
+          key={item.id}
+          // Only trigger the Mega Menu if it's NOT the enquiry/contact button
+          onMouseEnter={() => item.id !== "enquiry" ? handleMouseEnter(item.id) : null}
+          onClick={() => handleNavigation(`/${item.id}`)}
+          
+          // Only show the Down Arrow if it's NOT the enquiry/contact button
+          endIcon={item.id !== "enquiry" && (
+            <KeyboardArrowDownIcon sx={{ 
+              transition: "0.2s", 
+              transform: megaMenuOpen === item.id ? "rotate(180deg)" : "none" 
+            }} />
+          )}
+          
+          sx={{ color: "#1A1A1A", textTransform: "none", fontFamily: PRIMARY_FONT, fontWeight: 600 }}
+        >
+          {item.label}
+        </Button>
+      ))}
+    </Stack>
+  </Fade>
+  <SearchBar isSearchOpen={isSearchOpen} onSearch={handleSearchSubmit} />
+</Box>
 
         {/* Actions */}
         <Stack direction="row" spacing={1} alignItems="center" sx={{ zIndex: 10 }}>

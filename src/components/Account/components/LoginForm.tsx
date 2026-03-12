@@ -7,6 +7,7 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import { loginUser, type LoginDto } from "../../../api/authApi"
 import { useNotificationStore } from "../../store/useNotficationStore"
 import { useUserStore } from "../../store/useUserStore"
+import ForgotPasswordForm from "./ForgotPasswordForm"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const TEXT_MAIN = "#1a1a1a"
@@ -20,12 +21,13 @@ const LoginForm: React.FC = () => {
   const showNotification = useNotificationStore(state => state.showNotification)
   const setUser = useUserStore(state => state.setUser)
   const [loading, setLoading] = useState(false)
+  const [isForgot, setIsForgot] = useState(false)
   const [searchParams] = useSearchParams();
-const redirectTo = searchParams.get("redirect") || "/dashboard";
-  const [credentials, setCredentials] = useState<LoginDto>({
-    email: "",
-    password: ""
-  })
+  const redirectTo = searchParams.get("redirect") || "/dashboard";
+    const [credentials, setCredentials] = useState<LoginDto>({
+      email: "",
+      password: ""
+    })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -68,6 +70,9 @@ const redirectTo = searchParams.get("redirect") || "/dashboard";
     }
   }
 
+  if (isForgot) {
+    return <ForgotPasswordForm onBack={() => setIsForgot(false)} />
+  }
   return (
     <Box sx={{ flex: 1, position: "relative" }}>
       
@@ -118,7 +123,7 @@ const redirectTo = searchParams.get("redirect") || "/dashboard";
           sx={{ mb: 1, "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, "& fieldset": { borderColor: "transparent" } } }}
         />
 
-        <Link href="#" underline="hover" sx={{ display: "inline-block", mb: 4, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, fontWeight: 600, fontSize: "0.9rem" }}>
+        <Link href="#" underline="hover" onClick={() => setIsForgot(true)} sx={{ display: "inline-block", mb: 4, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, fontWeight: 600, fontSize: "0.9rem" }}>
           Forgot your password?
         </Link>
 

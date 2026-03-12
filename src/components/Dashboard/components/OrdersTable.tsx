@@ -1,147 +1,132 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
-  Paper, Box, Container, Button, TextField, InputAdornment, CircularProgress
+  Paper, Box, Container, Button, TextField, InputAdornment, CircularProgress,
+  Drawer, Typography, IconButton, Divider, Stack
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from "@mui/icons-material/Close";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import { useQuery } from "@tanstack/react-query";
 import { getMyOrders } from "../../../api/authApi";
 
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 const BRAND_BLUE = "#01B0F0";
-const TEXT_MAIN = "#1a1a1a";
-const TEXT_SECONDARY = "#555555";
+const BRAND_BLUE_LIGHT = "#E6F7FE";
+const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
 const OrdersTable = () => {
-  const [activeTab, setActiveTab] = useState("ALL LINES");
-  const [deals, setDeals] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [selectedOrder, setSelectedOrder] = useState<any | null>(null);
 
-  useEffect(() => {
-    const fetchDeals = async () => {
-      try {
-        const data = await getMyOrders();
-        setDeals(data);
-      } catch (err) {
-        console.error("Failed to fetch orders", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchDeals();
-  }, []);
-
-  const filteredDeals = deals.filter(d => {
-    const matchesSearch = d.properties.dealName.toLowerCase().includes(search.toLowerCase()) ||
-      d.properties.customer?.toLowerCase().includes(search.toLowerCase());
-    if (activeTab === "IN PROCESS") return matchesSearch && d.properties.dealStage !== "Rejected";
-    if (activeTab === "SHIPPED") return matchesSearch && d.properties.trackingNumber !== null;
-    return matchesSearch;
+  // --- TANSTACK QUERY ---
+  const { data: deals = [], isLoading, isError } = useQuery({
+    queryKey: ["myOrders"],
+    queryFn: getMyOrders,
+    refetchOnWindowFocus: false,
   });
 
-  const tabs = [
-    { label: "ALL LINES", count: deals.length },
-    { label: "IN PROCESS", count: deals.filter(d => d.properties.dealStage !== "Rejected").length },
-    { label: "SHIPPED", count: deals.filter(d => d.properties.trackingNumber !== null).length },
-  ];
-
-  const getStageStyle = (stage: string) => {
-    if (stage === "Rejected") return { color: "#cc0000", bg: "#fff0f0" };
-    if (stage === "Estimate Shared") return { color: "#b07d00", bg: "#fff8e1" };
-    if (stage === "Order Received") return { color: "#1a7a4a", bg: "#e6f4ed" };
-    return { color: BRAND_BLUE, bg: "#e6f7fe" };
+  // --- STAGE MAPPING ---
+  const mapStageName = (stage: string) => {
+    const mapping: Record<string, string> = {
+      "Order Received": "ORDERED",
+      "Shipped on Credit": "SHIPPED ON CREDIT",
+      "Part Paid": "PART PAID",
+      "Fully paid": "FULLY PAID",
+      "Estimate Shared": "QUOTE SENT",
+      "Supplier Quote Awaited": "IN REVIEW",
+      "Rejected": "REJECTED"
+    };
+    return mapping[stage] || stage.toUpperCase();
   };
 
+  const getStageStyle = (stage: string) => {
+    const label = mapStageName(stage);
+    switch (label) {
+      case "REJECTED": return { color: "#cc0000", bg: "#fff0f0" };
+      case "FULLY PAID":
+      case "SHIPPED ON CREDIT": return { color: "#1a7a4a", bg: "#e6f4ed" };
+      case "PART PAID": return { color: "#b07d00", bg: "#fff8e1" };
+      case "ORDERED": return { color: BRAND_BLUE, bg: BRAND_BLUE_LIGHT };
+      default: return { color: "#555", bg: "#f5f5f5" };
+    }
+  };
+
+  // --- FILTERING LOGIC ---
+  const filteredDeals = deals.filter((d: any) => {
+    const p = d.properties;
+    return p.dealName.toLowerCase().includes(search.toLowerCase());
+  });
+
+  if (isError) return <Typography sx={{ p: 4, textAlign: 'center' }}>Error loading orders. Please try again later.</Typography>;
+
   return (
-    <Box sx={{ width: "100%", py: { xs: 4, md: 6 }, backgroundColor: "#ffffff" }}>
+    <Box sx={{ width: "100%", py: 6, backgroundColor: "#fff" }}>
       <Container maxWidth="lg">
-
-        {/* Header */}
-        <Box sx={{ mb: 4, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 2 }}>
-          <Box sx={{ display: "flex", gap: 2 }}>
-            {tabs.map((tab) => (
-              <Button
-                key={tab.label}
-                onClick={() => setActiveTab(tab.label)}
-                variant="outlined"
-                sx={{
-                  borderRadius: 0, px: 3, py: 1,
-                  borderColor: activeTab === tab.label ? BRAND_BLUE : "#eef0f2",
-                  backgroundColor: activeTab === tab.label ? BRAND_BLUE : "transparent",
-                  color: activeTab === tab.label ? "#fff" : TEXT_SECONDARY,
-                  fontFamily: PRIMARY_FONT, fontWeight: 700, fontSize: "0.75rem", letterSpacing: 1,
-                  "&:hover": { borderColor: BRAND_BLUE, backgroundColor: activeTab === tab.label ? BRAND_BLUE : "rgba(1, 176, 240, 0.04)" },
-                  display: "flex", gap: 1.5,
-                }}
-              >
-                {tab.label}
-                <Box component="span" sx={{ backgroundColor: activeTab === tab.label ? "rgba(255,255,255,0.2)" : "#f0f0f0", px: 1, borderRadius: 0, color: activeTab === tab.label ? "#fff" : BRAND_BLUE }}>
-                  {tab.count}
-                </Box>
-              </Button>
-            ))}
-          </Box>
-
+        
+        {/* Search Bar - Positioned to the right */}
+        <Box sx={{ mb: 4, display: "flex", justifyContent: "flex-end" }}>
           <TextField
-            placeholder="Search orders..."
-            variant="standard"
+            placeholder="Search by Order #..."
+            size="small"
             value={search}
-            onChange={e => setSearch(e.target.value)}
-            sx={{
-              width: { xs: "100%", md: "280px" },
-              "& .MuiInput-underline:before": { borderBottomColor: "#eef0f2" },
-              "& .MuiInput-underline:after": { borderBottomColor: BRAND_BLUE },
-              "& input": { fontFamily: PRIMARY_FONT, fontSize: "0.9rem" }
-            }}
+            onChange={(e) => setSearch(e.target.value)}
             InputProps={{
-              startAdornment: <InputAdornment position="start"><SearchIcon sx={{ color: BRAND_BLUE, fontSize: "1.2rem" }} /></InputAdornment>,
+              startAdornment: <InputAdornment position="start"><SearchIcon sx={{ color: BRAND_BLUE }} /></InputAdornment>,
+            }}
+            sx={{ 
+              width: { xs: "100%", sm: 300 },
+              "& .MuiOutlinedInput-root": { borderRadius: 0 } 
             }}
           />
         </Box>
 
-        {/* Table */}
-        {loading ? (
-          <Box sx={{ display: "flex", justifyContent: "center", py: 10 }}>
-            <CircularProgress sx={{ color: BRAND_BLUE }} />
-          </Box>
+        {isLoading ? (
+          <Box sx={{ display: "flex", justifyContent: "center", py: 10 }}><CircularProgress sx={{ color: BRAND_BLUE }} /></Box>
         ) : (
-          <TableContainer component={Paper} sx={{ borderRadius: 0, boxShadow: "0px 20px 50px rgba(0,0,0,0.04)", border: "1px solid #eef0f2" }}>
+          <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #eef0f2", borderRadius: 0 }}>
             <Table>
-              <TableHead>
-                <TableRow sx={{ backgroundColor: BRAND_BLUE }}>
-                  {["Order Number", "Customer", "Amount", "Status", "Details"].map(header => (
-                    <TableCell key={header} sx={{ color: "#ffffff", fontFamily: PRIMARY_FONT, fontWeight: 700, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 1, py: 2.5 }}>
-                      {header}
-                    </TableCell>
-                  ))}
+              <TableHead sx={{ backgroundColor: "#fbfbfb" }}>
+                <TableRow>
+                  <TableCell sx={{ fontWeight: 800, fontSize: '0.75rem', py: 2 }}>ORDER NUMBER</TableCell>
+                  <TableCell sx={{ fontWeight: 800, fontSize: '0.75rem' }}>STATUS</TableCell>
+                  <TableCell sx={{ fontWeight: 800, fontSize: '0.75rem' }}>TOTAL</TableCell>
+                  <TableCell align="right" sx={{ fontWeight: 800, fontSize: '0.75rem' }}>DETAILS</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {filteredDeals.map((deal, i) => {
-                  const p = deal.properties;
-                  const stageStyle = getStageStyle(p.dealStage);
-                  return (
-                    <TableRow key={i} sx={{ "&:hover": { backgroundColor: "rgba(1, 176, 240, 0.02)" }, borderBottom: "1px solid #f9f9f9" }}>
-                      <TableCell sx={{ fontFamily: PRIMARY_FONT, color: TEXT_MAIN, fontWeight: 600 }}>{p.dealName}</TableCell>
-                      <TableCell sx={{ fontFamily: PRIMARY_FONT, color: TEXT_SECONDARY }}>{p.customer ?? "-"}</TableCell>
-                      <TableCell sx={{ fontFamily: PRIMARY_FONT, color: TEXT_MAIN, fontWeight: 500 }}>{p.amount ? `£${p.amount}` : "-"}</TableCell>
-                      <TableCell>
-                        <Box component="span" sx={{ color: stageStyle.color, fontSize: "0.7rem", fontWeight: 800, backgroundColor: stageStyle.bg, px: 1.2, py: 0.5, textTransform: "uppercase" }}>
-                          {p.dealStage}
-                        </Box>
-                      </TableCell>
-                      <TableCell>
-                        <Button variant="outlined" size="small" sx={{ borderRadius: 0, color: BRAND_BLUE, borderColor: BRAND_BLUE, fontWeight: 800, fontSize: "0.7rem", px: 2, "&:hover": { borderColor: BRAND_BLUE, bgcolor: "rgba(1, 176, 240, 0.05)" } }}>
-                          MORE
-                        </Button>
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
-                {!filteredDeals.length && (
+                {filteredDeals.length > 0 ? (
+                  filteredDeals.map((deal: any, i: number) => {
+                    const p = deal.properties;
+                    const style = getStageStyle(p.dealStage);
+                    return (
+                      <TableRow key={i} hover sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                        <TableCell sx={{ fontWeight: 600, fontFamily: PRIMARY_FONT }}>{p.dealName}</TableCell>
+                        <TableCell>
+                          <Box component="span" sx={{ 
+                            color: style.color, bgcolor: style.bg, px: 1.2, py: 0.4, 
+                            fontSize: "0.65rem", fontWeight: 900, letterSpacing: 0.5 
+                          }}>
+                            {mapStageName(p.dealStage)}
+                          </Box>
+                        </TableCell>
+                        <TableCell sx={{ fontWeight: 500 }}>£{p.amount || "0.00"}</TableCell>
+                        <TableCell align="right">
+                          <Button 
+                            size="small" 
+                            onClick={() => setSelectedOrder(deal)}
+                            sx={{ color: BRAND_BLUE, fontWeight: 800, fontSize: '0.7rem' }}
+                          >
+                            VIEW MORE
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    )
+                  })
+                ) : (
                   <TableRow>
-                    <TableCell colSpan={5} sx={{ textAlign: "center", py: 6, color: TEXT_SECONDARY, fontFamily: PRIMARY_FONT }}>
-                      No orders found.
+                    <TableCell colSpan={4} align="center" sx={{ py: 8, color: "text.secondary" }}>
+                      No orders found matching your search.
                     </TableCell>
                   </TableRow>
                 )}
@@ -150,8 +135,78 @@ const OrdersTable = () => {
           </TableContainer>
         )}
       </Container>
+
+      {/* --- MORE DETAILS DRAWER --- */}
+      <Drawer
+        anchor="right"
+        open={!!selectedOrder}
+        onClose={() => setSelectedOrder(null)}
+        PaperProps={{ sx: { width: { xs: "100%", sm: 400 }, p: 4, borderRadius: 0 } }}
+      >
+        {selectedOrder && (
+          <Box sx={{ fontFamily: PRIMARY_FONT }}>
+            <Box sx={{ display: "flex", justifyContent: "space-between", mb: 4 }}>
+              <Typography variant="h6" sx={{ fontWeight: 900, color: BRAND_BLUE, letterSpacing: -0.5 }}>ORDER SUMMARY</Typography>
+              <IconButton onClick={() => setSelectedOrder(null)} size="small"><CloseIcon /></IconButton>
+            </Box>
+
+            <Stack spacing={4}>
+              <Box>
+                <Typography variant="caption" sx={{ fontWeight: 800, color: "text.secondary", textTransform: 'uppercase' }}>Current Progress</Typography>
+                <Box sx={{ mt: 1 }}>
+                    <Box component="span" sx={{ 
+                        color: getStageStyle(selectedOrder.properties.dealStage).color, 
+                        bgcolor: getStageStyle(selectedOrder.properties.dealStage).bg, 
+                        px: 1.5, py: 0.5, fontWeight: 900, fontSize: '0.8rem' 
+                    }}>
+                        {mapStageName(selectedOrder.properties.dealStage)}
+                    </Box>
+                </Box>
+              </Box>
+
+              <Divider />
+
+              <Box>
+                <Typography variant="h6" sx={{ fontSize: '1rem', fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <LocalShippingIcon sx={{ fontSize: 20 }} /> Logistics & Shipping
+                </Typography>
+                <Stack spacing={2}>
+                   <DetailItem label="Tracking Number" value={selectedOrder.properties.tracking_number_waybill || "Awaiting tracking..."} isBold={!!selectedOrder.properties.tracking_number_waybill} />
+                   <DetailItem label="Estimated Dispatch" value={selectedOrder.properties.migrated_shipping_date || "To be confirmed"} />
+                   <DetailItem label="Delivery Date" value={selectedOrder.properties.delivery_date || "Pending shipping"} />
+                </Stack>
+              </Box>
+
+              <Divider />
+
+              <Box>
+                <Typography variant="h6" sx={{ fontSize: '1rem', fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <ReceiptLongIcon sx={{ fontSize: 20 }} /> Financials
+                </Typography>
+                <DetailItem label="Order Total" value={`£${selectedOrder.properties.amount}`} isBold />
+              </Box>
+
+              <Button 
+                fullWidth 
+                variant="contained" 
+                sx={{ bgcolor: BRAND_BLUE, borderRadius: 0, fontWeight: 800, py: 1.5, boxShadow: 'none', "&:hover": { bgcolor: BRAND_BLUE, opacity: 0.9 } }}
+                onClick={() => window.print()}
+              >
+                DOWNLOAD ORDER SUMMARY
+              </Button>
+            </Stack>
+          </Box>
+        )}
+      </Drawer>
     </Box>
   );
 };
+
+const DetailItem = ({ label, value, isBold = false }: { label: string, value: string, isBold?: boolean }) => (
+  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <Typography variant="body2" color="text.secondary">{label}</Typography>
+    <Typography variant="body2" sx={{ fontWeight: isBold ? 800 : 500, color: isBold ? BRAND_BLUE : 'inherit' }}>{value}</Typography>
+  </Box>
+);
 
 export default OrdersTable;

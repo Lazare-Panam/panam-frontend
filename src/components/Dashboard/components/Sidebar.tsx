@@ -17,7 +17,7 @@ const Sidebar = ({ activeView, onSelect }: SidebarProps) => {
       items: [
         { 
           category: "My Preferences", 
-          links: ["Personal Information", "Address Book", "Communication Preferences"] 
+          links: ["Personal Information",  "Communication Preferences"] 
         },
       ],
     },
