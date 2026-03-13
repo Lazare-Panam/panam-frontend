@@ -92,14 +92,12 @@ const RegisterForm: React.FC = () => {
       const msg = err.response?.data?.message || "";
       
       // Target specific "user exists" backend message
-      if (msg.toLowerCase().includes("exists") || msg.toLowerCase().includes("already")) {
-        setEmailError("This email is already registered with Panam Valves.");
-      } else {
+      
         showNotification({ 
           message: msg || "Registration failed. Please try again.", 
           severity: "error" 
         });
-      }
+      
     } finally {
       setLoading(false)
     }

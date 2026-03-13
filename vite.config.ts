@@ -1,8 +1,13 @@
 import { defineConfig } from "vitest/config"
 import react from "@vitejs/plugin-react"
-
+import sitemap from "vite-plugin-sitemap"
 export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react()],
+  plugins: [react(),
+     sitemap({
+       hostname: "https://www.panamvalve.com",
+      dynamicRoutes: ["/", "/products", "/about", "/industries", "/blog",],
+    }),
+  ],
   build: {
     rollupOptions: {
       output: isSsrBuild
