@@ -1,15 +1,6 @@
 import React, { useState } from "react"
-import {
-  Box,
-  Typography,
-  TextField,
-  Button,
-  Link as MuiLink,
-  Stack,
-  Autocomplete,
-  CircularProgress
-} from "@mui/material"
-import Grid from "@mui/material/Grid" 
+import { Box, Typography, TextField, Button, Link as MuiLink, Stack, Autocomplete, CircularProgress } from "@mui/material"
+import Grid from "@mui/material/Grid"
 import { Link as RouterLink } from "react-router-dom"
 import ChevronRightIcon from "@mui/icons-material/ChevronRight"
 
@@ -27,7 +18,7 @@ const BRAND_BLUE_DARK = "#0088BA"
 const countries = [
   { code: "GB", label: "United Kingdom", phone: "44" },
   { code: "US", label: "United States", phone: "1" },
-  
+
   { code: "IN", label: "India", phone: "91" },
   { code: "AE", label: "UAE", phone: "971" },
   { code: "SA", label: "Saudi Arabia", phone: "966" },
@@ -40,11 +31,11 @@ const countries = [
 
 const RegisterForm: React.FC = () => {
   const showNotification = useNotificationStore(state => state.showNotification)
-  
+
   const [selectedCountry, setSelectedCountry] = useState(countries[0])
   const [loading, setLoading] = useState(false)
   const [emailError, setEmailError] = useState<string | null>(null) // State for inline error
-  const [passwordError, setPasswordError] = useState<string | null>(null);
+  const [passwordError, setPasswordError] = useState<string | null>(null)
 
   const [formData, setFormData] = useState<RegisterUserDto>({
     email: "",
@@ -62,6 +53,8 @@ const RegisterForm: React.FC = () => {
     const { name, value } = e.target
     // Reset email error as soon as the user starts typing again
     if (name === "email") setEmailError(null)
+
+    if (name === "password" || name === "confirmPassword") setPasswordError(null)
     setFormData((prev: any) => ({ ...prev, [name]: value }))
   }
 
@@ -69,21 +62,17 @@ const RegisterForm: React.FC = () => {
     e.preventDefault()
     setEmailError(null)
 
-    if (formData.password !== formData.confirmPassword) {
-      showNotification({ message: "Passwords do not match.", severity: "warning" });
-      return;
-    }
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
     if (!passwordRegex.test(formData.password)) {
-      setPasswordError("Password must be at least 8 characters, include an uppercase letter, a number, and a symbol.");
-      return;
+      setPasswordError("Password must be at least 8 characters, include an uppercase letter, a number, and a symbol.")
+      return
     }
 
     // 2. Match Check
     if (formData.password !== formData.confirmPassword) {
-      showNotification({ message: "Passwords do not match.", severity: "warning" });
-      return;
+      showNotification({ message: "Passwords do not match.", severity: "warning" })
+      return
     }
 
     setLoading(true)
@@ -96,22 +85,20 @@ const RegisterForm: React.FC = () => {
       }
 
       await registerUser(finalPayload)
-      
-      showNotification({ 
-        message: "Account created successfully! Redirecting...", 
-        severity: "success" 
-      });
-      
+
+      showNotification({
+        message: "Account created successfully! Redirecting...",
+        severity: "success",
+      })
     } catch (err: any) {
-      const msg = err.response?.data?.message || "";
-      
+      const msg = err.response?.data?.message || ""
+
       // Target specific "user exists" backend message
-      
-        showNotification({ 
-          message: msg || "Registration failed. Please try again.", 
-          severity: "error" 
-        });
-      
+
+      showNotification({
+        message: msg || "Registration failed. Please try again.",
+        severity: "error",
+      })
     } finally {
       setLoading(false)
     }
@@ -119,23 +106,28 @@ const RegisterForm: React.FC = () => {
 
   return (
     <Box sx={{ flex: 1.5, backgroundColor: "#fff", p: { xs: 3, md: 8 }, display: "flex", justifyContent: "center", position: "relative" }}>
-      
       {loading && (
-        <Box sx={{ 
-          position: "absolute", top: 0, left: 0, right: 0, bottom: 0, 
-          bgcolor: "rgba(255,255,255,0.8)", zIndex: 10, 
-          display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-          gap: 2
-        }}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            bgcolor: "rgba(255,255,255,0.8)",
+            zIndex: 10,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 2,
+          }}>
           <CircularProgress sx={{ color: BRAND_BLUE }} />
-          <Typography sx={{ fontFamily: PRIMARY_FONT, fontWeight: 600, color: TEXT_MAIN }}>
-            Wait a few seconds, don't refresh...
-          </Typography>
+          <Typography sx={{ fontFamily: PRIMARY_FONT, fontWeight: 600, color: TEXT_MAIN }}>Wait a few seconds, don't refresh...</Typography>
         </Box>
       )}
 
       <Box sx={{ width: "100%", maxWidth: "900px" }}>
-        
         <Typography variant="h3" sx={{ fontFamily: PRIMARY_FONT, color: BRAND_BLUE, fontWeight: 800, mb: 2, fontSize: { xs: "2.2rem", md: "3rem" }, textAlign: "center" }}>
           Register
         </Typography>
@@ -144,31 +136,31 @@ const RegisterForm: React.FC = () => {
         </Typography>
 
         <Box component="form" onSubmit={handleRegister} noValidate>
-          
           <Typography variant="subtitle2" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, mb: 1, color: TEXT_MAIN, letterSpacing: "0.05em" }}>
             USER ID / EMAIL ADDRESS
           </Typography>
           <TextField
-            fullWidth required
+            fullWidth
+            required
             name="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="email@company.com"
             error={Boolean(emailError)}
             helperText={emailError}
-            sx={{ 
-              mb: 5, 
-              "& .MuiOutlinedInput-root": { 
-                backgroundColor: BRAND_BLUE_LIGHT, 
-                borderRadius: 0, 
+            sx={{
+              mb: 5,
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: BRAND_BLUE_LIGHT,
+                borderRadius: 0,
                 "& fieldset": { borderColor: "transparent" },
-                "&.Mui-error fieldset": { borderColor: "#d32f2f" }
+                "&.Mui-error fieldset": { borderColor: "#d32f2f" },
               },
               "& .MuiFormHelperText-root": {
                 fontFamily: PRIMARY_FONT,
                 fontWeight: 600,
-                ml: 0
-              }
+                ml: 0,
+              },
             }}
           />
 
@@ -194,7 +186,7 @@ const RegisterForm: React.FC = () => {
             <Grid size={{ xs: 12, sm: 6 }}>
               <TextField fullWidth required name="jobTitle" label="Job Title" value={formData.jobTitle} onChange={handleChange} sx={{ "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, "& fieldset": { borderColor: "transparent" } } }} />
             </Grid>
-            
+
             <Grid size={{ xs: 12 }}>
               <Stack direction="row" spacing={0}>
                 <Autocomplete
@@ -213,14 +205,7 @@ const RegisterForm: React.FC = () => {
                   )}
                   renderInput={params => <TextField {...params} label="Code" />}
                 />
-                <TextField 
-                  fullWidth required
-                  name="phoneNumber"
-                  label="Phone Number"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  sx={{ "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, borderTopLeftRadius: 0, borderBottomLeftRadius: 0, "& fieldset": { borderColor: "transparent" } } }} 
-                />
+                <TextField fullWidth required name="phoneNumber" label="Phone Number" value={formData.phoneNumber} onChange={handleChange} sx={{ "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, borderTopLeftRadius: 0, borderBottomLeftRadius: 0, "& fieldset": { borderColor: "transparent" } } }} />
               </Stack>
             </Grid>
           </Grid>
@@ -230,10 +215,50 @@ const RegisterForm: React.FC = () => {
           </Typography>
           <Grid container spacing={3} sx={{ mb: 4 }}>
             <Grid size={{ xs: 12, sm: 6 }}>
-              <TextField fullWidth required name="password" type="password" label="Password" value={formData.password} onChange={handleChange} sx={{ "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, "& fieldset": { borderColor: "transparent" } } }} />
+              <TextField
+                fullWidth
+                required
+                name="password"
+                type="password"
+                label="Password"
+                value={formData.password}
+                onChange={handleChange}
+                error={Boolean(passwordError)}
+                helperText={passwordError}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    backgroundColor: BRAND_BLUE_LIGHT,
+                    borderRadius: 0,
+                    "& fieldset": { borderColor: "transparent" },
+                    "&.Mui-error fieldset": { borderColor: "#d32f2f" },
+                  },
+                  "& .MuiFormHelperText-root": {
+                    fontFamily: PRIMARY_FONT,
+                    fontWeight: 600,
+                    ml: 0,
+                  },
+                }}
+              />
             </Grid>
             <Grid size={{ xs: 12, sm: 6 }}>
-              <TextField fullWidth required name="confirmPassword" type="password" label="Confirm Password" value={formData.confirmPassword} onChange={handleChange} sx={{ "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, "& fieldset": { borderColor: "transparent" } } }} />
+              <TextField
+                fullWidth
+                required
+                name="confirmPassword"
+                type="password"
+                label="Confirm Password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                error={Boolean(passwordError)} // Add this line
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    backgroundColor: BRAND_BLUE_LIGHT,
+                    borderRadius: 0,
+                    "& fieldset": { borderColor: "transparent" },
+                    "&.Mui-error fieldset": { borderColor: "#d32f2f" }, // Ensure border turns red
+                  },
+                }}
+              />
             </Grid>
           </Grid>
 
@@ -241,20 +266,17 @@ const RegisterForm: React.FC = () => {
             <Button component={RouterLink} to="/account" variant="outlined" sx={{ borderColor: BRAND_BLUE, color: BRAND_BLUE, borderRadius: 0, px: 8, py: 2, fontWeight: 700, "&:hover": { backgroundColor: BRAND_BLUE_LIGHT } }}>
               CANCEL
             </Button>
-            <Button 
-              type="submit" 
-              variant="contained" 
-              disabled={loading}
-              endIcon={!loading && <ChevronRightIcon />} 
-              sx={{ backgroundColor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 8, py: 2, fontWeight: 700, boxShadow: "none", "&:hover": { backgroundColor: BRAND_BLUE_DARK } }}
-            >
+            <Button type="submit" variant="contained" disabled={loading} endIcon={!loading && <ChevronRightIcon />} sx={{ backgroundColor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 8, py: 2, fontWeight: 700, boxShadow: "none", "&:hover": { backgroundColor: BRAND_BLUE_DARK } }}>
               {loading ? "CREATING..." : "CREATE ACCOUNT"}
             </Button>
           </Box>
 
           <Typography variant="caption" sx={{ display: "block", mt: 6, color: TEXT_SECONDARY, fontStyle: "italic", textAlign: "center" }}>
             By submitting, I agree to Panam Valves'{" "}
-            <MuiLink component={RouterLink} to="/terms" target="_blank" sx={{ color: BRAND_BLUE, fontWeight: 600 }}>Terms of Use</MuiLink> and Privacy Notice.
+            <MuiLink component={RouterLink} to="/terms" target="_blank" sx={{ color: BRAND_BLUE, fontWeight: 600 }}>
+              Terms of Use
+            </MuiLink>{" "}
+            and Privacy Notice.
           </Typography>
         </Box>
       </Box>
