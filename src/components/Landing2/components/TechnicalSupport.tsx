@@ -14,8 +14,9 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import { useNavigate } from 'react-router-dom';
 
 const BRAND_BLUE = "#01B0F0";
-const navigate = useNavigate();
+
 const TechnicalSupport = () => {
+  const navigate = useNavigate();
   const docs = [
     { icon: <LibraryBooksIcon />, title: "Catalog Library", desc: "Full product catalogue with specifications" },
     { icon: <DesignServicesIcon />, title: "2D/3D Drawings", desc: "CAD files for all standard products" },
