@@ -109,16 +109,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: "5-Valve ", link: "/products/valve-manifolds/5-way-valve-manifold" },
     ],
   },
-  //tubing
-  {
-    title: "Tubing",
-    id: "tubing",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770718728/HP_Tubings_chk8ms.jpg",
-    products: [
-      { name: "Tubing", link: "/products/tubing"},
-      { name: "High Pressure Tubing", link: "/products/tubing"},
-    ],
-  },
   //dbb
   {
     title: "Double Block and Bleed",
@@ -131,6 +121,17 @@ export const CATEGORIES: CategoryData[] = [
     ],
   },
  
+  //tubing
+  {
+    title: "Tubing",
+    id: "tubing",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770718728/HP_Tubings_chk8ms.jpg",
+    products: [
+      { name: "Tubing", link: "/products/tubing"},
+      { name: "High Pressure Tubing", link: "/products/tubing"},
+    ],
+  },
+
   //regulators
   {
     title: "Regulators & Transmitter",
