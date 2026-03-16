@@ -8,6 +8,48 @@ interface CategoryData {
 }
 
 export const CATEGORIES: CategoryData[] = [
+  //Fittings
+  {
+    title: "Instrumentation Fittings",
+    id: "instrumentation-fittings",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769424806/union_-_jpg_x7siq3.jpg",
+    products: [
+      { name: "Tube Fittings", link: "/products/instrumentation-fittings/tube-fittings" },
+      { name: "37 JIC Fittings", link: "/products/instrumentation-fittings/37-jic-fittings" },
+      { name: "Pipe Fittings", link: "/products/instrumentation-fittings/pipe-fittings" },
+      { name: "Weld Fittings", link: "/products/instrumentation-fittings/weld-fittings" },
+      { name: "High Pressure Fittings", link: "/products/instrumentation-fittings/pipe-fittings-high-pressure" },
+    ],
+  },
+  
+  //filters
+  {
+    title: "Filters",
+    id: "filters",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768988107/PTF-TB-04-15-SS_tujkjw.png",
+    products: [
+      { name: "T-Type Filter", link: "/products/filters" },
+      { name: "In-Line Filter", link: "/products/filters" },
+    ],
+  },
+
+  //quick couplings
+  {
+    title: "Quick Coupling & Hoses",
+    id: "quick-coupling-and-hoses",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
+    products: [
+      { name: "ISO-A", link: "/products/quick-coupling-and-hoses" },
+      { name: "ISO 16028", link: "/products/quick-coupling-and-hoses" },
+      { name: "ISO 7241A", link: "/products/quick-coupling-and-hoses" },
+      { name: "ISO 7241B", link: "/products/quick-coupling-and-hoses" },
+      { name: "ISO 5675", link: "/products/quick-coupling-and-hoses" },
+      { name: "SCREW TYPE", link: "/products/quick-coupling-and-hoses" },
+      { name: "Hoses", link: "/products/quick-coupling-and-hoses" },
+    ],
+  },
+
+  //hydrogen
   {
     title: "Hydrogen Fittings & Valves",
     id: "hydrogen",
@@ -40,18 +82,8 @@ export const CATEGORIES: CategoryData[] = [
       },
     ],
   },
-  {
-    title: "Instrumentation Fittings",
-    id: "instrumentation-fittings",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769424806/union_-_jpg_x7siq3.jpg",
-    products: [
-      { name: "Tube Fittings", link: "/products/instrumentation-fittings/tube-fittings" },
-      { name: "37 JIC Fittings", link: "/products/instrumentation-fittings/37-jic-fittings" },
-      { name: "Pipe Fittings", link: "/products/instrumentation-fittings/pipe-fittings" },
-      { name: "Weld Fittings", link: "/products/instrumentation-fittings/weld-fittings" },
-      { name: "High Pressure Fittings", link: "/products/instrumentation-fittings/pipe-fittings-high-pressure" },
-    ],
-  },
+
+  //valves
   {
     title: "Valves",
     id: "valves",
@@ -65,6 +97,8 @@ export const CATEGORIES: CategoryData[] = [
        { name: "Purge Valves", link: "/products/valves/purge-valves" },
     ],
   },
+
+  //manifolds
   {
     title: "Manifolds",
     id: "valve-manifolds",
@@ -75,6 +109,17 @@ export const CATEGORIES: CategoryData[] = [
       { name: "5-Valve ", link: "/products/valve-manifolds/5-way-valve-manifold" },
     ],
   },
+  //tubing
+  {
+    title: "Tubing",
+    id: "tubing",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770718728/HP_Tubings_chk8ms.jpg",
+    products: [
+      { name: "Tubing", link: "/products/tubing"},
+      { name: "High Pressure Tubing", link: "/products/tubing"},
+    ],
+  },
+  //dbb
   {
     title: "Double Block and Bleed",
     id: "double-block-and-bleed-valves",
@@ -85,29 +130,8 @@ export const CATEGORIES: CategoryData[] = [
       { name: "Pipe to Pipe ", link: "/products/double-block-and-bleed-valves"},
     ],
   },
-  {
-    title: "Filters",
-    id: "filters",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768988107/PTF-TB-04-15-SS_tujkjw.png",
-    products: [
-      { name: "T-Type Filter", link: "/products/filters" },
-      { name: "In-Line Filter", link: "/products/filters" },
-    ],
-  },
-  {
-    title: "Quick Coupling & Hoses",
-    id: "quick-coupling-and-hoses",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
-    products: [
-      { name: "ISO-A", link: "/products/quick-coupling-and-hoses" },
-      { name: "ISO 16028", link: "/products/quick-coupling-and-hoses" },
-      { name: "ISO 7241A", link: "/products/quick-coupling-and-hoses" },
-      { name: "ISO 7241B", link: "/products/quick-coupling-and-hoses" },
-      { name: "ISO 5675", link: "/products/quick-coupling-and-hoses" },
-      { name: "SCREW TYPE", link: "/products/quick-coupling-and-hoses" },
-      { name: "Hoses", link: "/products/quick-coupling-and-hoses" },
-    ],
-  },
+ 
+  //regulators
   {
     title: "Regulators & Transmitter",
     id: "pressure-regulator-transmitter",
@@ -116,15 +140,9 @@ export const CATEGORIES: CategoryData[] = [
       { name: "Pressure Transmitter", link: "/products/pressure-transmitter" },
     ],
   },
-  {
-    title: "Tubing",
-    id: "tubing",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770718728/HP_Tubings_chk8ms.jpg",
-    products: [
-      { name: "Tubing", link: "/products/tubing"},
-      { name: "High Pressure Tubing", link: "/products/tubing"},
-    ],
-  },
+
+  
+  //syustem integration
   {
     title: "System Integration",
     id: "system-integration",
