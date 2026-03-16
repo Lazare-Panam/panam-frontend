@@ -19,6 +19,7 @@ const ProductGallery = lazy(() => import("./components/Product_Gallery/component
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
 import ProductDetailPage from "./components/Product_Details/ProductDetails"
+import Landing2 from "./components/Landing2/Landing2"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -164,6 +165,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <ResetPasswordPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "landing2",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <Landing2 />
           </Suspense>
         ),
       },
