@@ -11,9 +11,10 @@ import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import VerifiedIcon from '@mui/icons-material/Verified';
+import { useNavigate } from 'react-router-dom';
 
 const BRAND_BLUE = "#01B0F0";
-
+const navigate = useNavigate();
 const TechnicalSupport = () => {
   const docs = [
     { icon: <LibraryBooksIcon />, title: "Catalog Library", desc: "Full product catalogue with specifications" },
@@ -55,6 +56,7 @@ const TechnicalSupport = () => {
             <Button 
               variant="contained" 
               disableElevation
+              onClick={() => navigate("/catalogPDFs")}
               sx={{ 
                 bgcolor: BRAND_BLUE, 
                 fontWeight: 700, 

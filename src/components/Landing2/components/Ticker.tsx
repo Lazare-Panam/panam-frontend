@@ -2,6 +2,9 @@ import { Box, Typography, Link as MuiLink } from '@mui/material';
 import { keyframes } from '@mui/system';
 
 const BRAND_BLUE = "#01B0F0";
+// A slightly lighter, softer tint of your brand blue
+const LIGHT_BRAND_BLUE = "#E6F7FF"; 
+const DEEP_NAVY = "#003853";
 
 const scroll = keyframes`
   0% { transform: translateX(0); }
@@ -25,28 +28,29 @@ const Ticker = () => {
       sx={{ 
         width: '100%', 
         overflow: 'hidden', 
-        bgcolor: '#FFFFFF', 
-        py: 4,
-        borderTop: '1px solid #E2E8F0',
-        borderBottom: '1px solid #E2E8F0',
+        bgcolor: LIGHT_BRAND_BLUE, // Lightest shade of Panam blue
+        py: 2.5,
+        borderTop: `1px solid ${BRAND_BLUE}`,
+        borderBottom: `1px solid ${BRAND_BLUE}`,
         position: 'relative',
         '&::before, &::after': {
           content: '""',
           position: 'absolute',
           top: 0,
-          width: 120,
+          width: 100,
           height: '100%',
           zIndex: 2,
           pointerEvents: 'none',
         },
-        '&::before': { left: 0, background: 'linear-gradient(to right, white, transparent)' },
-        '&::after': { right: 0, background: 'linear-gradient(to left, white, transparent)' },
+        '&::before': { left: 0, background: `linear-gradient(to right, ${LIGHT_BRAND_BLUE}, transparent)` },
+        '&::after': { right: 0, background: `linear-gradient(to left, ${LIGHT_BRAND_BLUE}, transparent)` },
       }}
     >
       <Box
         sx={{
           display: 'flex',
           width: 'max-content',
+          alignItems: 'center',
           animation: `${scroll} 40s linear infinite`,
           '&:hover': { animationPlayState: 'paused' },
         }}
@@ -60,16 +64,13 @@ const Ticker = () => {
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                px: 6,
+                px: 5,
                 gap: 2,
                 textDecoration: 'none',
-                filter: 'grayscale(100%)',
-                opacity: 0.6,
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                filter: 'grayscale(0%)', 
+                transition: 'all 0.3s ease',
                 '&:hover': {
-                  filter: 'grayscale(0%)',
-                  opacity: 1,
-                  transform: 'scale(1.05)',
+                  transform: 'translateY(-2px)',
                   cursor: 'pointer'
                 }
               }}
@@ -87,22 +88,24 @@ const Ticker = () => {
               <Typography
                 variant="body2"
                 sx={{
-                  fontWeight: 700,
-                  color: '#475569',
+                  fontWeight: 800,
+                  color: DEEP_NAVY, // Dark blue for contrast on light blue
                   whiteSpace: 'nowrap',
                   letterSpacing: 0.5,
+                  fontSize: '0.7rem',
+                  textTransform: 'uppercase'
                 }}
               >
                 {partner.name}
               </Typography>
             </MuiLink>
 
-            {/* Separator sits outside the link to keep the hit-box clean */}
             <Typography 
               sx={{ 
                 color: BRAND_BLUE, 
                 fontSize: '10px',
-                userSelect: 'none'
+                userSelect: 'none',
+                opacity: 0.5
               }}
             >
               &#9670;

@@ -19,13 +19,14 @@ import ScienceIcon from '@mui/icons-material/Science';
 import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-
+import { useNavigate } from 'react-router-dom';
 const BRAND_BLUE = "#01B0F0";
 
 const industryData = [
   {
     id: 'marine',
     label: 'Marine & Subsea',
+    path: '/industries/marine-subsea',
     title: 'Marine & Subsea',
     desc: 'Specialised instrumentation valves and manifolds designed for extreme hydrostatic pressures. We utilise high-grade Duplex materials to prevent corrosion in offshore energy and subsea production systems.',
     img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=75',
@@ -38,6 +39,7 @@ const industryData = [
   {
     id: 'oilgas',
     label: 'Oil & Gas',
+    path: '/industries/oil-gas',
     title: 'Oil & Gas',
     desc: 'High-performance valves and fittings for upstream, midstream and downstream operations. Engineered to withstand extreme pressures and aggressive media in refineries.',
     img: 'https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=75&w=800',
@@ -50,6 +52,7 @@ const industryData = [
   {
     id: 'hydrogen',
     label: 'Hydrogen',
+    path: '/industries/hydrogen',
     title: 'Hydrogen Infrastructure',
     desc: 'Specialised hydrogen infrastructure support for large-scale electrolyser and refuelling projects. Advanced leak-detection and dedicated H2 supply chain.',
     img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/w_800,f_auto,q_auto/v1769604874/biel-morro-HCha-UHkIg8-unsplash_pl8qt9.jpg',
@@ -62,6 +65,7 @@ const industryData = [
   {
     id: 'aerospace',
     label: 'Aerospace',
+    path: '/industries/aerospace-defense',
     title: 'Aerospace & Defence',
     desc: 'JOSCAR-registered precision instrumentation. The highest quality standards with full traceability, material certs and QMS documentation on every order.',
     img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=75',
@@ -74,6 +78,7 @@ const industryData = [
   {
     id: 'chemicals',
     label: 'Chemicals',
+    path: '/industries/chemicals-petrochemical',
     title: 'Chemicals & Petrochemical',
     desc: 'Corrosion-resistant valves and fittings for aggressive chemical environments. Stainless steel and exotic alloy options for demanding process conditions.',
     img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/w_800,f_auto,q_auto/v1769604928/annie-spratt-Iqwnr00mfQM-unsplash_qtpa2u.jpg',
@@ -86,6 +91,7 @@ const industryData = [
   {
     id: 'food',
     label: 'Food & Bev',
+    path: '/industries/food-beverages',
     title: 'Food & Beverages',
     desc: 'Hygienic instrumentation solutions meeting the highest food-grade standards. Electropolished components for clean-in-place (CIP) systems.',
     img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=75',
@@ -99,7 +105,7 @@ const industryData = [
 
 const IndustriesSection = () => {
   const [activeTab, setActiveTab] = useState(0);
-
+const navigate = useNavigate();
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
   setActiveTab(newValue);
 };
@@ -189,6 +195,7 @@ const IndustriesSection = () => {
                     variant="contained" 
                     size="large"
                     endIcon={<ArrowForwardIcon />}
+                    onClick={() => navigate(current.path)}
                     sx={{ 
                       bgcolor: BRAND_BLUE, 
                       fontWeight: 700,
@@ -197,7 +204,7 @@ const IndustriesSection = () => {
                       '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.9) }
                     }}
                   >
-                    Explore {current.label} Products
+                    Explore {current.label}
                   </Button>
                 </Box>
               </Stack>

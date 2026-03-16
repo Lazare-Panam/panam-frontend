@@ -1,4 +1,3 @@
-
 import { 
   Box, 
   Container, 
@@ -9,33 +8,13 @@ import {
   alpha 
 } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useNavigate } from 'react-router-dom';
 
 const BRAND_BLUE = "#01B0F0";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
 const Hero2 = () => {
-  const products = [
-    {
-      tag: "Most Popular",
-      name: "Check Valves — 800 lb Rating",
-      spec: "A105 · A182 F316 · A182 F304L",
-      img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773066005/PCV-S-08-OD-PNG-removebg-preview_gfigng.png",
-      featured: true
-    },
-    {
-      tag: "New",
-      name: "2-Way Valve Manifold",
-      spec: "SS316 · Duplex · Hastelloy",
-      img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065762/2VM-SS-8-20M-RM_gviqce.png"
-    },
-    {
-      tag: "H2 Ready",
-      name: "Double Block & Bleed Valves",
-      spec: "NACE · Full Traceability",
-      img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065511/MONO-FLANGE-1_zo3vzq.png"
-    }
-  ];
-
+  const navigate = useNavigate();
   return (
     <Box 
       component="section" 
@@ -55,7 +34,6 @@ const Hero2 = () => {
         sx={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: "url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1920')", // Modern bright engineering lab
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.15,
@@ -82,7 +60,7 @@ const Hero2 = () => {
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <Box sx={{ width: 10, height: 10, borderRadius: '2px', bgcolor: BRAND_BLUE }} />
                 <Typography variant="overline" sx={{ letterSpacing: 2, fontWeight: 700, color: 'text.secondary' }}>
-                  Precision Instrumentation &middot; UK Manufacturer
+                  Precision Instrumentation 
                 </Typography>
               </Stack>
 
@@ -105,15 +83,27 @@ const Hero2 = () => {
                   variant="contained" 
                   size="large"
                   endIcon={<ArrowForwardIcon />}
+                 
+                  onClick={() => navigate("/products")} 
                   sx={{ 
                     bgcolor: BRAND_BLUE, 
                     color: '#fff', 
-                    fontWeight: 700, 
+                    fontWeight: 800, // Slightly heavier for industrial feel
                     px: 5, 
                     py: 2,
-                    borderRadius:0,
-                    boxShadow: `0 10px 20px ${alpha(BRAND_BLUE, 0.3)}`,
-                    '&:hover': { bgcolor: '#0090C4', boxShadow: `0 12px 25px ${alpha(BRAND_BLUE, 0.4)}` } 
+                    borderRadius: 0, // Keeps the sharp edge you like
+                    textTransform: 'none', // Prevents all-caps if your theme defaults to it
+                    fontSize: '1rem',
+                    boxShadow: `0 8px 16px ${alpha(BRAND_BLUE, 0.25)}`,
+                    transition: 'all 0.2s ease-in-out',
+                    '&:hover': { 
+                      bgcolor: '#0090C4', 
+                      boxShadow: `0 12px 25px ${alpha(BRAND_BLUE, 0.4)}`,
+                      transform: 'translateY(-2px)' // Adds a professional "lift" on hover
+                    },
+                    '&:active': {
+                      transform: 'translateY(0)' // Sinks back down when clicked
+                    }
                   }}
                 >
                   Explore Products
@@ -121,10 +111,25 @@ const Hero2 = () => {
                 <Button 
                   variant="outlined" 
                   size="large"
-                  sx={{ borderColor: '#CBD5E1',  borderRadius:0,color: '#475569', px: 5, fontWeight: 600, '&:hover': { borderColor: BRAND_BLUE, color: BRAND_BLUE } }}
+                  onClick={() => navigate("/enquiry")}
+                  sx={{ 
+                    borderColor: '#CBD5E1', 
+                    borderRadius: 0, 
+                    color: '#475569', 
+                    px: 5, 
+                    py: 2, 
+                    fontWeight: 700, 
+                    textTransform: 'none',
+                    transition: 'all 0.2s ease-in-out',
+                    '&:hover': { 
+                      borderColor: BRAND_BLUE, 
+                      color: BRAND_BLUE,
+                      bgcolor: alpha(BRAND_BLUE, 0.02) 
+                    } 
+                  }}
                 >
-                  Contact Sales
-                </Button>
+                Contact Sales
+              </Button>
               </Stack>
 
               <Grid container spacing={4} sx={{ pt: 4, borderTop: '1px solid #E2E8F0' }}>
@@ -142,52 +147,6 @@ const Hero2 = () => {
               </Grid>
             </Stack>
           </Grid>
-
-          {/* Right Product Grid - Clean White Theme */}
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Grid container spacing={3}>
-              {products.map((product, idx) => (
-                <Grid size={{ xs: 12 }} key={idx}>
-                  <Box sx={{
-                    p: 3,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 3,
-                    borderRadius: '0',
-                    bgcolor: '#FFFFFF',
-                    border: '1px solid #E2E8F0',
-                    boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03)',
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                    cursor: 'pointer',
-                    '&:hover': {
-                      transform: 'translateX(8px)',
-                      borderColor: BRAND_BLUE,
-                      boxShadow: `0 20px 25px -5px ${alpha(BRAND_BLUE, 0.1)}`
-                    }
-                  }}>
-                    <Box 
-                      component="img" 
-                      src={product.img} 
-                      sx={{ width: 80, height: 80, objectFit: 'contain', filter: 'drop-shadow(0 10px 10px rgba(0,0,0,0.1))' }} 
-                    />
-                    <Box sx={{ flex: 1 }}>
-                      <Typography sx={{ color: BRAND_BLUE, fontSize: '0.75rem', fontWeight: 800, mb: 0.5 }}>
-                        {product.tag}
-                      </Typography>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 700, color: '#1E293B', lineHeight: 1.2 }}>
-                        {product.name}
-                      </Typography>
-                      <Typography variant="caption" sx={{ color: '#64748B' }}>
-                        {product.spec}
-                      </Typography>
-                    </Box>
-                    <ArrowForwardIcon sx={{ color: '#CBD5E1', fontSize: 20 }} />
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
-
         </Grid>
       </Container>
     </Box>
