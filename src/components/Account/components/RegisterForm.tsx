@@ -25,8 +25,9 @@ const BRAND_BLUE_LIGHT = "#E6F7FE"
 const BRAND_BLUE_DARK = "#0088BA"
 
 const countries = [
-  { code: "US", label: "United States", phone: "1" },
   { code: "GB", label: "United Kingdom", phone: "44" },
+  { code: "US", label: "United States", phone: "1" },
+  
   { code: "IN", label: "India", phone: "91" },
   { code: "AE", label: "UAE", phone: "971" },
   { code: "SA", label: "Saudi Arabia", phone: "966" },
