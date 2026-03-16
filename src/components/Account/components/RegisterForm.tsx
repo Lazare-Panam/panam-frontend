@@ -263,7 +263,7 @@ const RegisterForm: React.FC = () => {
           </Grid>
 
           <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, justifyContent: "center", gap: 3, mt: 6 }}>
-            <Button component={RouterLink} to="/account" variant="outlined" sx={{ borderColor: BRAND_BLUE, color: BRAND_BLUE, borderRadius: 0, px: 8, py: 2, fontWeight: 700, "&:hover": { backgroundColor: BRAND_BLUE_LIGHT } }}>
+            <Button component={RouterLink} to="/login" variant="outlined" sx={{ borderColor: BRAND_BLUE, color: BRAND_BLUE, borderRadius: 0, px: 8, py: 2, fontWeight: 700, "&:hover": { backgroundColor: BRAND_BLUE_LIGHT } }}>
               CANCEL
             </Button>
             <Button type="submit" variant="contained" disabled={loading} endIcon={!loading && <ChevronRightIcon />} sx={{ backgroundColor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 8, py: 2, fontWeight: 700, boxShadow: "none", "&:hover": { backgroundColor: BRAND_BLUE_DARK } }}>
