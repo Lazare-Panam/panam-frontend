@@ -8,28 +8,31 @@ import {
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
+import { useNavigate } from 'react-router-dom';
 
 const BRAND_BLUE = "#01B0F0";
 
 const ContactBanner = () => {
+  const navigate = useNavigate();
   return (
     <Box 
       component="section" 
       id="contact" 
       sx={{ 
         py: { xs: 8, md: 12 }, 
-        bgcolor: '#111827', // Deep industrial navy
-        color: '#FFFFFF',
+        bgcolor: '#FFFFFF', // Clean white background
+        color: '#1E293B', // Dark slate for text
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        borderTop: '1px solid #F1F5F9' // Optional subtle separator
       }}
     >
-      {/* Subtle geometric background decoration */}
+      {/* Subtle geometric background decoration - adjusted for light bg */}
       <Box sx={{
         position: 'absolute',
         top: 0, left: 0,
         width: '100%', height: '100%',
-        opacity: 0.05,
+        opacity: 0.03, // Lowered opacity for light theme
         background: `linear-gradient(45deg, ${BRAND_BLUE} 25%, transparent 25%) -50px 0,
                      linear-gradient(-45deg, ${BRAND_BLUE} 25%, transparent 25%) -50px 0,
                      linear-gradient(45deg, transparent 75%, ${BRAND_BLUE} 75%),
@@ -45,7 +48,8 @@ const ContactBanner = () => {
             fontWeight: 800, 
             mb: 3, 
             fontSize: { xs: '2.2rem', md: '3.5rem' },
-            lineHeight: 1.1 
+            lineHeight: 1.1,
+            color: '#0F172A' // Nearly black for heading
           }}
         >
           Can’t Find What<br />
@@ -55,7 +59,7 @@ const ContactBanner = () => {
         <Typography 
           variant="body1" 
           sx={{ 
-            color: '#94A3B8', 
+            color: '#64748B', // Slate gray for body
             fontSize: '1.1rem', 
             mb: 6, 
             maxWidth: '700px', 
@@ -76,15 +80,16 @@ const ContactBanner = () => {
           <Button 
             variant="contained" 
             size="large"
-            href="mailto:marketing@panamvalve.com"
+            onClick={() => navigate("/enquiry")}
             startIcon={<EmailIcon />}
             sx={{ 
               bgcolor: BRAND_BLUE, 
+              color: '#FFFFFF',
               fontWeight: 700, 
-              borderRadius: 0, // Sharp corners
+              borderRadius: 0, 
               px: 4, py: 2,
               minWidth: '240px',
-              '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.8) }
+              '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.9) }
             }}
           >
             SUBMIT AN RFQ
@@ -96,10 +101,10 @@ const ContactBanner = () => {
             href="tel:+447369243459"
             startIcon={<PhoneIcon />}
             sx={{ 
-              color: '#FFFFFF', 
-              borderColor: '#FFFFFF', 
+              color: '#1E293B', 
+              borderColor: '#1E293B', 
               fontWeight: 700, 
-              borderRadius: 0, // Sharp corners
+              borderRadius: 0, 
               px: 4, py: 2,
               minWidth: '240px',
               '&:hover': { 

@@ -1,14 +1,11 @@
-
 import { 
   Box, 
   Container, 
   Typography, 
-  Button, 
    Grid, 
   Stack, 
   alpha 
 } from '@mui/material';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const BRAND_BLUE = "#01B0F0";
 
@@ -25,7 +22,7 @@ const PartnersSection = () => {
   ];
 
   return (
-    <Box component="section" sx={{ py: 10, bgcolor: '#FFFFFF' }}>
+    <Box component="section" sx={{ py: 12, bgcolor: BRAND_BLUE, color: '#FFFFFF' }}>
       <Container maxWidth="lg">
         {/* Header Area */}
         <Stack 
@@ -37,40 +34,25 @@ const PartnersSection = () => {
         >
           <Box>
             <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-              <Typography variant="overline" sx={{ fontWeight: 800, color: BRAND_BLUE, letterSpacing: 1.5 }}>
+              <Typography variant="overline" sx={{ fontWeight: 800, color: '#FFFFFF', letterSpacing: 1.5 }}>
                 Our Partners
               </Typography>
-              <Box sx={{ width: 40, height: '2px', bgcolor: BRAND_BLUE }} />
+              <Box sx={{ width: 40, height: '2px', bgcolor: '#FFFFFF' }} />
             </Stack>
             <Typography variant="h2" sx={{ 
               fontWeight: 800, 
-              color: '#1E293B', 
+              color: '#FFFFFF', 
               fontSize: { xs: '2.5rem', md: '3.2rem' },
               lineHeight: 1.1 
             }}>
               Trusted By<br />
-              <Box component="span" sx={{ color: BRAND_BLUE }}>Industry Leaders</Box>
+              <Box component="span" sx={{ color: alpha('#FFFFFF', 0.7) }}>Industry Leaders</Box>
             </Typography>
           </Box>
-
-          <Button 
-            variant="outlined" 
-            endIcon={<ArrowForwardIcon />}
-            sx={{ 
-              borderRadius: 0, 
-              color: '#1E293B', 
-              borderColor: '#E2E8F0',
-              fontWeight: 700,
-              px: 3, py: 1.2,
-              '&:hover': { borderColor: BRAND_BLUE, color: BRAND_BLUE, bgcolor: 'transparent' }
-            }}
-          >
-            View All Partners
-          </Button>
         </Stack>
 
         {/* Partners Grid */}
-        <Grid container spacing={0} sx={{ borderTop: '1px solid #F1F5F9', borderLeft: '1px solid #F1F5F9' }}>
+        <Grid container spacing={0} sx={{ borderTop: '1px solid #E2E8F0', borderLeft: '1px solid #E2E8F0' }}>
           {partners.map((partner, i) => (
             <Grid 
               size={{ xs: 6, sm: 4, md: 3 }} 
@@ -85,42 +67,55 @@ const PartnersSection = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 p: 4,
-                height: 160,
+                height: 180,
                 textDecoration: 'none',
-                bgcolor: '#FFFFFF',
-                borderRight: '1px solid #F1F5F9',
-                borderBottom: '1px solid #F1F5F9',
+                bgcolor: '#FFFFFF', // Set to solid white as default
+                borderRight: '1px solid #E2E8F0',
+                borderBottom: '1px solid #E2E8F0',
                 transition: 'all 0.3s ease',
-                filter: 'grayscale(100%)',
-                opacity: 0.6,
                 '&:hover': { 
-                  filter: 'grayscale(0%)', 
-                  opacity: 1,
-                  bgcolor: alpha(BRAND_BLUE, 0.02),
+                  bgcolor: '#F8FAFC', // Very light grey on hover
                   zIndex: 1,
-                  boxShadow: '0 0 20px rgba(0,0,0,0.05)'
+                  transform: 'translateY(-4px)', // Added a "lift" instead of a color flip
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
                 }
               }}
             >
               <Box 
-                component="img" 
-                src={partner.logo} 
-                alt={partner.name}
                 sx={{ 
-                  maxWidth: '80%', 
-                  maxHeight: '60px', 
-                  objectFit: 'contain',
-                  mb: 2 
+                  width: '100%',
+                  height: '70px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mb: 2
                 }}
-              />
-              <Typography variant="caption" sx={{ fontWeight: 700, color: '#64748B', textAlign: 'center' }}>
+              >
+                <Box 
+                  component="img" 
+                  src={partner.logo} 
+                  alt={partner.name}
+                  sx={{ 
+                    maxWidth: '100%', 
+                    maxHeight: '100%', 
+                    objectFit: 'contain'
+                  }}
+                />
+              </Box>
+              <Typography 
+                variant="caption" 
+                sx={{ 
+                  fontWeight: 800, 
+                  color: BRAND_BLUE, // Defaulted text to blue
+                  textAlign: 'center',
+                  textTransform: 'uppercase',
+                  letterSpacing: 0.5
+                }}
+              >
                 {partner.name}
               </Typography>
             </Grid>
           ))}
-          
-          {/* Placeholder for "Join our network" or extra space */}
-    
         </Grid>
       </Container>
     </Box>
