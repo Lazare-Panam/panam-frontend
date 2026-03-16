@@ -31,7 +31,7 @@ export const routes = [
         index: true,
         element: (
           <Suspense fallback={<LoadingScreen />}>
-            <LandingPage />
+            <Landing2 />
           </Suspense>
         ),
       },
@@ -52,10 +52,14 @@ export const routes = [
         ),
       },
       {
-    path: "products/:id/:subId",   
-    element: <Suspense fallback={<LoadingScreen />}><ProductGallery /></Suspense>,
-  },
-  {
+        path: "products/:id/:subId",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ProductGallery />
+          </Suspense>
+        ),
+      },
+      {
         path: "catalogPDFs/:detailId",
         element: (
           <Suspense fallback={<LoadingScreen />}>
@@ -176,7 +180,7 @@ export const routes = [
           </Suspense>
         ),
       },
-      
+
       { path: "*", element: <NotFound /> },
     ],
   },
