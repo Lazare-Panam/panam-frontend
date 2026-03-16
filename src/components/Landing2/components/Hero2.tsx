@@ -1,109 +1,134 @@
+
 import { 
   Box, 
   Container, 
   Typography, 
   Button, 
-  Grid, 
   Stack, 
   alpha 
-} from '@mui/material';
+} from "@mui/material";
+// Import Grid2 specifically
+import Grid from '@mui/material/Grid'; 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
+// Swiper Core & CSS
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
 
 const BRAND_BLUE = "#01B0F0";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
+const slides = [
+  { image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2000" },
+  { image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770984276/FACTORY-PHOTO-OPTION-1-JPEG_v9hkcn.jpg" },
+  { image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1772530175/Carousel_images_lvpbns.jpg" },
+];
+
 const Hero2 = () => {
   const navigate = useNavigate();
+
   return (
     <Box 
       component="section" 
       sx={{ 
-        position: 'relative', 
-        minHeight: '100vh', 
-        bgcolor: '#F8FAFC', // Light grey/white background
-        color: '#0F172A',   // Dark slate text
-        fontFamily: PRIMARY_FONT,
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center'
+        position: "relative", 
+        width: "100%", 
+        height: { xs: "auto", md: "100vh" }, 
+        minHeight: "700px",
+        overflow: "hidden",
+        bgcolor: "#F8FAFC"
       }}
     >
-      {/* Background Image - Lighter Finish */}
+      {/* --- LAYER 1: SWIPER BACKGROUND --- */}
       <Box 
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.15,
-          zIndex: 0
+        sx={{ 
+          position: "absolute", 
+          inset: 0, 
+          zIndex: 0,
+          "& .swiper": { width: "100%", height: "100%" }
         }}
-      />
-      
-      {/* Soft White Gradient Overlay */}
-      <Box 
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(135deg, #F8FAFC 30%, rgba(248, 250, 252, 0.6) 100%)',
-          zIndex: 1
-        }}
-      />
+      >
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          speed={1500}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          loop
+          style={{ height: "100%", width: "100%" }}
+        >
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              {/* The "zoom-bg" class is handled by the CSS at the bottom */}
+              <Box
+                className="zoom-bg"
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundImage: `linear-gradient(rgba(248, 250, 252, 0.88), rgba(248, 250, 252, 0.75)), url(${slide.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  transition: "transform 12s ease-out",
+                  willChange: "transform",
+                }}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, py: 10 }}>
+      {/* --- LAYER 2: HERO CONTENT OVERLAY (GRID2) --- */}
+      <Container 
+        maxWidth="lg" 
+        sx={{ 
+          position: "relative", 
+          zIndex: 2, 
+          height: "100%", 
+          display: "flex", 
+          alignItems: "center",
+          py: { xs: 12, md: 0 } 
+        }}
+      >
+        {/* Grid2 uses 'container' and 'size' props */}
         <Grid container spacing={8} alignItems="center">
-          
-          {/* Left Content */}
           <Grid size={{ xs: 12, md: 7 }}>
             <Stack spacing={4}>
               <Stack direction="row" spacing={1.5} alignItems="center">
-                <Box sx={{ width: 10, height: 10, borderRadius: '2px', bgcolor: BRAND_BLUE }} />
-                <Typography variant="overline" sx={{ letterSpacing: 2, fontWeight: 700, color: 'text.secondary' }}>
-                  Precision Instrumentation 
+                <Box sx={{ width: 10, height: 10, borderRadius: "2px", bgcolor: BRAND_BLUE }} />
+                <Typography variant="overline" sx={{ letterSpacing: 2, fontWeight: 700, color: "text.secondary" }}>
+                  Precision Instrumentation
                 </Typography>
               </Stack>
 
               <Typography variant="h1" sx={{ 
-                fontSize: { xs: '2.5rem', md: '4.5rem' }, 
+                fontSize: { xs: "2.8rem", md: "4.5rem" }, 
                 fontWeight: 800, 
                 lineHeight: 1.1,
-                color: '#1E293B',
-                '& em': { fontStyle: 'normal', color: BRAND_BLUE }
+                color: "#1E293B",
+                fontFamily: PRIMARY_FONT,
+                "& em": { fontStyle: "normal", color: BRAND_BLUE }
               }}>
                 Engineered<br />for <em>Critical</em><br />Infrastructure.
               </Typography>
 
-              <Typography variant="body1" sx={{ fontSize: '1.15rem', color: '#64748B', maxWidth: 520, lineHeight: 1.6 }}>
+              <Typography variant="body1" sx={{ fontSize: "1.15rem", color: "#475569", maxWidth: 520, lineHeight: 1.6 }}>
                 Every day, industry leaders trust our precision-engineered <strong>hydrogen solutions</strong> and valves to control high-pressure systems in the world's most demanding environments.
               </Typography>
 
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2.5}>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={2.5}>
                 <Button 
                   variant="contained" 
                   size="large"
                   endIcon={<ArrowForwardIcon />}
-                 
                   onClick={() => navigate("/products")} 
                   sx={{ 
                     bgcolor: BRAND_BLUE, 
-                    color: '#fff', 
-                    fontWeight: 800, // Slightly heavier for industrial feel
-                    px: 5, 
-                    py: 2,
-                    borderRadius: 0, // Keeps the sharp edge you like
-                    textTransform: 'none', // Prevents all-caps if your theme defaults to it
-                    fontSize: '1rem',
-                    boxShadow: `0 8px 16px ${alpha(BRAND_BLUE, 0.25)}`,
-                    transition: 'all 0.2s ease-in-out',
-                    '&:hover': { 
-                      bgcolor: '#0090C4', 
-                      boxShadow: `0 12px 25px ${alpha(BRAND_BLUE, 0.4)}`,
-                      transform: 'translateY(-2px)' // Adds a professional "lift" on hover
-                    },
-                    '&:active': {
-                      transform: 'translateY(0)' // Sinks back down when clicked
-                    }
+                    fontWeight: 800, 
+                    px: 5, py: 2,
+                    borderRadius: 0,
+                    textTransform: "none",
+                    boxShadow: `0 8px 20px ${alpha(BRAND_BLUE, 0.2)}`,
+                    "&:hover": { bgcolor: "#0090C4", transform: "translateY(-2px)" }
                   }}
                 >
                   Explore Products
@@ -113,26 +138,20 @@ const Hero2 = () => {
                   size="large"
                   onClick={() => navigate("/enquiry")}
                   sx={{ 
-                    borderColor: '#CBD5E1', 
+                    borderColor: "#CBD5E1", 
                     borderRadius: 0, 
-                    color: '#475569', 
-                    px: 5, 
-                    py: 2, 
+                    color: "#475569", 
+                    px: 5, py: 2, 
                     fontWeight: 700, 
-                    textTransform: 'none',
-                    transition: 'all 0.2s ease-in-out',
-                    '&:hover': { 
-                      borderColor: BRAND_BLUE, 
-                      color: BRAND_BLUE,
-                      bgcolor: alpha(BRAND_BLUE, 0.02) 
-                    } 
+                    textTransform: "none",
+                    "&:hover": { borderColor: BRAND_BLUE, color: BRAND_BLUE, bgcolor: "rgba(1, 176, 240, 0.04)" } 
                   }}
                 >
-                Contact Sales
-              </Button>
+                  Contact Sales
+                </Button>
               </Stack>
 
-              <Grid container spacing={4} sx={{ pt: 4, borderTop: '1px solid #E2E8F0' }}>
+              <Grid container spacing={4} sx={{ pt: 4, borderTop: "1px solid rgba(0,0,0,0.1)" }}>
                 {[
                   { num: "800lb", lbl: "Max Rating" },
                   { num: "UK", lbl: "Manufactured" },
@@ -141,7 +160,7 @@ const Hero2 = () => {
                 ].map((stat, i) => (
                   <Grid size={{ xs: 6, sm: 3 }} key={i}>
                     <Typography variant="h5" sx={{ color: BRAND_BLUE, fontWeight: 800 }}>{stat.num}</Typography>
-                    <Typography variant="caption" sx={{ textTransform: 'uppercase', fontWeight: 600, color: '#94A3B8' }}>{stat.lbl}</Typography>
+                    <Typography variant="caption" sx={{ textTransform: "uppercase", fontWeight: 600, color: "#94A3B8" }}>{stat.lbl}</Typography>
                   </Grid>
                 ))}
               </Grid>
@@ -149,6 +168,29 @@ const Hero2 = () => {
           </Grid>
         </Grid>
       </Container>
+
+      {/* --- STYLES FOR THE ANIMATION --- */}
+      <style>{`
+        /* When the slide becomes active, zoom in slowly */
+        .swiper-slide-active .zoom-bg {
+          transform: scale(1.18);
+        }
+        
+        /* When the slide is not active, reset it immediately to 1.0 */
+        .swiper-slide:not(.swiper-slide-active) .zoom-bg {
+          transform: scale(1);
+          transition: none !important;
+        }
+
+        /* Ensure smooth fade transition */
+        .swiper-fade .swiper-slide {
+          pointer-events: none;
+          transition-property: opacity;
+        }
+        .swiper-fade .swiper-slide-active {
+          pointer-events: auto;
+        }
+      `}</style>
     </Box>
   );
 };

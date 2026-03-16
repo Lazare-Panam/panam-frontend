@@ -109,6 +109,7 @@ export const CATEGORIES: CategoryData[] = [
       { name: "5-Valve ", link: "/products/valve-manifolds/5-way-valve-manifold" },
     ],
   },
+  
   //dbb
   {
     title: "Double Block and Bleed",
@@ -142,7 +143,6 @@ export const CATEGORIES: CategoryData[] = [
     ],
   },
 
-  
   //syustem integration
   {
     title: "System Integration",
