@@ -141,6 +141,7 @@ const LoginForm: React.FC = () => {
         <Button
           fullWidth
           variant="outlined"
+          onClick={()=>navigate("/enquiry")}
           sx={{ mt: 3, borderColor: BRAND_BLUE, color: BRAND_BLUE, py: 1.5, fontWeight: 600, borderRadius: 0, fontFamily: PRIMARY_FONT, "&:hover": { backgroundColor: BRAND_BLUE_LIGHT, borderColor: BRAND_BLUE_DARK } }}
         >
           Request Technical Support
