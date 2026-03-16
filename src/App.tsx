@@ -6,7 +6,7 @@ import CrossReference from "./components/Cross_Reference/CrossReference"
 import RegisterForm from "./components/Account/components/RegisterForm"
 import Login from "./components/Account/Login"
 import CatalogPdfs from "./components/CatalogPdfs/CatalogPdfs"
-const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
+//const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
 const News = lazy(() => import("./components/News/News"))
 const DashBoard = lazy(() => import("./components/Dashboard/Dashboard"))
 const ProductPage = lazy(() => import("./components/All_Categories/ProductPage"))
