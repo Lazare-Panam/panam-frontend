@@ -44,6 +44,7 @@ const RegisterForm: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState(countries[0])
   const [loading, setLoading] = useState(false)
   const [emailError, setEmailError] = useState<string | null>(null) // State for inline error
+  const [passwordError, setPasswordError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<RegisterUserDto>({
     email: "",
@@ -68,6 +69,18 @@ const RegisterForm: React.FC = () => {
     e.preventDefault()
     setEmailError(null)
 
+    if (formData.password !== formData.confirmPassword) {
+      showNotification({ message: "Passwords do not match.", severity: "warning" });
+      return;
+    }
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (!passwordRegex.test(formData.password)) {
+      setPasswordError("Password must be at least 8 characters, include an uppercase letter, a number, and a symbol.");
+      return;
+    }
+
+    // 2. Match Check
     if (formData.password !== formData.confirmPassword) {
       showNotification({ message: "Passwords do not match.", severity: "warning" });
       return;
