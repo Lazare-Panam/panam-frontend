@@ -14,6 +14,7 @@ import ScienceIcon from '@mui/icons-material/Science';
 import SpeedIcon from '@mui/icons-material/Speed';
 import PublicIcon from '@mui/icons-material/Public';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import { Countup } from './Countup';
 
 const BRAND_BLUE = "#01B0F0";
 
@@ -28,9 +29,9 @@ const HydrogenSection = () => {
   ];
 
   const stats = [
-    { num: "350", unit: "bar", label: "MAX RATED PRESSURE" },
+    { num: "60k", unit: "psi", label: "MAX RATED PRESSURE" },
     { num: "100", unit: "%", label: "MATERIAL TESTED" },
-    { num: "3", unit: "", label: "CONTINENTS SERVED" },
+    { num: "52+", unit: "", label: "COUNTRIES SERVED" },
     { num: "24", unit: "h", label: "TECHNICAL RESPONSE" }
   ];
 
@@ -114,32 +115,46 @@ const HydrogenSection = () => {
             </Stack>
           </Grid>
 
-          {/* RIGHT STATS GRID */}
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ 
-              display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', 
-              gap: 0, border: '1px solid rgba(255, 255, 255, 0.2)', position: 'relative', zIndex: 1 
-            }}>
-              {stats.map((stat, i) => (
-                <Box key={i} sx={{ 
-                  p: 4, textAlign: 'center', border: '1px solid rgba(255, 255, 255, 0.2)',
-                  bgcolor: 'rgba(255, 255, 255, 0.05)',
-                  transition: '0.3s',
-                  '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' }
-                }}>
-                  <Typography variant="h3" sx={{ fontWeight: 800, color: '#FFFFFF', display: 'flex', alignItems: 'baseline', justifyContent: 'center' }}>
-                    {stat.num}
-                    <Typography component="span" sx={{ fontSize: '1rem', ml: 0.5, fontWeight: 700, color: 'rgba(255, 255, 255, 0.6)' }}>
-                      {stat.unit}
-                    </Typography>
-                  </Typography>
-                  <Typography variant="caption" sx={{ color: 'rgba(255, 255, 255, 0.8)', fontWeight: 700, letterSpacing: 1, mt: 1, display: 'block' }}>
-                    {stat.label}
-                  </Typography>
-                </Box>
-              ))}
-            </Box>
-          </Grid>
+         
+          {/* RIGHT STATS GRID - UPDATED SECTION */}
+<Grid size={{ xs: 12, md: 5 }}>
+  <Box sx={{ 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(2, 1fr)', 
+    gap: 0, 
+    border: '1px solid rgba(255, 255, 255, 0.2)', 
+    position: 'relative', 
+    zIndex: 1 
+  }}>
+    {stats.map((stat, i) => (
+      <Box key={i} sx={{ 
+        p: 4, textAlign: 'center', border: '1px solid rgba(255, 255, 255, 0.2)',
+        bgcolor: 'rgba(255, 255, 255, 0.05)',
+        transition: '0.3s',
+        '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)', transform: 'translateY(-5px)' } // Added a little lift on hover
+      }}>
+        <Typography variant="h3" sx={{ 
+          fontWeight: 800, 
+          color: '#FFFFFF', 
+          display: 'flex', 
+          alignItems: 'baseline', 
+          justifyContent: 'center',
+          fontVariantNumeric: 'tabular-nums' // Prevents the text from "shaking" while counting
+        }}>
+          {/* THE MAGIC HAPPENS HERE */}
+          <Countup target={stat.num} />
+          
+          <Typography component="span" sx={{ fontSize: '1rem', ml: 0.5, fontWeight: 700, color: 'rgba(255, 255, 255, 0.6)' }}>
+            {stat.unit}
+          </Typography>
+        </Typography>
+        <Typography variant="caption" sx={{ color: 'rgba(255, 255, 255, 0.8)', fontWeight: 700, letterSpacing: 1, mt: 1, display: 'block' }}>
+          {stat.label}
+        </Typography>
+      </Box>
+    ))}
+  </Box>
+</Grid>
 
         </Grid>
       </Container>
