@@ -1,23 +1,26 @@
 export interface NavSubItem {
-  name: string
-  link?: string // The '?' makes the link optional!
+  name: string;
+  link?: string;
 }
+export const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", "Arial", sans-serif';
 
 export interface NavCategory {
-  id: string
-  label: string
-  link: string
-  items: NavSubItem[]
+  id: string;
+  label: string;
+  link: string;
+  items: NavSubItem[];
 }
+// Add this below your navConfig object
+export const NAV_LINKS = [
+  { label: "Products", id: "products", path: "/products", hasMenu: true },
+  { label: "News & Blog", id: "blog", path: "/blog", hasMenu: true },
+  { label: "About Us", id: "about", path: "/about", hasMenu: true },
+  { label: "My Account", id: "dashboard", path: "/dashboard", hasMenu: true },
+  { label: "Contact Us", id: "enquiry", path: "/enquiry", hasMenu: false },
+];
 
-export interface NavConfig {
-  products: NavCategory[]
-  about: NavCategory[]
-  blog: NavCategory[]
-  dashboard: NavCategory[]
-
-}
-export const navConfig: NavConfig = {
+// Defining this as a Record ensures we can access it via navConfig[menuId] safely
+export const navConfig: Record<string, NavCategory[]> = {
   products: [
     {
       id: "hydrogen",
@@ -120,9 +123,9 @@ export const navConfig: NavConfig = {
       label: "Our Company",
       link: "/about",
       items: [
-        { name: "Mission & Vision",  },
-        { name: "Manufacturing Excellence", },
-        { name: "Quality Control" },
+        { name: "Mission & Vision", link: "/about#mission" },
+        { name: "Manufacturing Excellence", link: "/about#manufacturing" },
+        { name: "Quality Control", link: "/about#quality" },
       ],
     },
     {
@@ -134,7 +137,6 @@ export const navConfig: NavConfig = {
         { name: "Oil & Gas", link: "/industries/oil-gas" },
         { name: "Hydrogen", link: "/industries/hydrogen" },
         { name: "Aerospace & Defense", link: "/industries/aerospace-defense" },
-        { name: "Food & Beverages", link: "/industries/food-beverages" },
       ],
     },
   ],
@@ -144,45 +146,36 @@ export const navConfig: NavConfig = {
       label: "Latest News",
       link: "/blog",
       items: [
-        { name: "Product Launches"},
-        { name: "Exhibitions 2024"  },
-        { name: "Corporate Events" },
+        { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
+        
       ],
     },
   ],
-  dashboard: [ // Change the key name here
+  dashboard: [
     {
-    id: "user-accunt",
-    label: "General Enquiry",
-    link: "/enquiry",
-    items: [
-      { name: "Profile",},
-    ],
-  },
-   {
-    id: "component-configuration",
-    label: "Component Configuration",
-    link: "/products",
-    items: [
-      { name: "Profile", },
-    ],
-  },{
-    id: "user-account",
-    label: "Order Tracking",
-    link: "/products",
-    items: [
-      { name: "Profile",  },
-    ],
-  },
-   
+      id: "general-enquiry",
+      label: "General Enquiry",
+      link: "/enquiry",
+      items: [{ name: "New Request", link: "/enquiry" }],
+    },
+    {
+      id: "config-tools",
+      label: "Component Configuration",
+      link: "/products",
+      items: [{ name: "Component Configuration", link: "/products" }],
+    },
+    {
+      id: "order",
+      label: "Order Tracking",
+      link: "/dashboard",
+      items: [{ name: "Track Your Order" }],
+    },
+    {
+      id: "ts",
+      label: "Technical Support",
+      link: "/catalogPDFs",
+      items: [{ name: "Resources" }],
+    },
     
-    {
-    id: "user-acount",
-    label: "Techncial Support",
-    link: "/#resources",
-    items: [
-      { name: "Profile"},
-    ],
-  },
-  ]
-}
+  ],
+};

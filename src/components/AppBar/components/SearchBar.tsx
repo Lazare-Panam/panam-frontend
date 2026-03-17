@@ -25,6 +25,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ isSearchOpen, onSearch }) => {
         sx={{
           position: "absolute",
           top: 0, bottom: 0, left: 0, right: 0,
+          width: isSearchOpen ? "100%" : "auto",
           backgroundColor: BRAND_BLUE,
           display: isSearchOpen ? "flex" : "none",
           alignItems: "center",
@@ -49,8 +50,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ isSearchOpen, onSearch }) => {
             "& input::placeholder": { color: "rgba(255,255,255,0.8)", opacity: 1 },
           }}
         />
-        <IconButton onClick={() => query.trim() && onSearch(query)} sx={{ p: 0 }}>
-          <SearchIcon sx={{ color: "white", fontSize: 35, ml: 2 }} />
+        <IconButton onClick={() => query.trim() && onSearch(query)} sx={{ p: 4 }}>
+          <SearchIcon sx={{ color: "white", fontSize: 35 }} />
         </IconButton>
       </Box>
     </Fade>

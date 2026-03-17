@@ -1,117 +1,58 @@
-import React, { useEffect, useState } from "react";
-import { AppBar, Typography, useScrollTrigger, Box, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { useNavigate, useLocation } from "react-router-dom";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import CloseIcon from "@mui/icons-material/Close";
-import { useCartStore } from "../store/useCartStore";
-import { navConfig } from "./components/config";
+import React from "react";
+import { AppBar, useScrollTrigger } from "@mui/material";
+
+// Components
 import DesktopNavbar from "./components/DesktopNavBar";
 import MegaMenu from "./components/MegaMenu";
+import MobileDrawer from "./components/MobileDrawer";
 
-const BRAND_BLUE = "#01B0F0";
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
+// Hooks & Store
+import { useNavbar } from "./hooks/useNavbar";
+import { useCartStore } from "../store/useCartStore";
+import { navConfig } from "./components/config";
 
 const Navbar: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const [megaMenuOpen, setMegaMenuOpen] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState(navConfig.products[0]);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { state, actions } = useNavbar();
+  const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 30 });
   const cart = useCartStore(state => state.cart);
   const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-
-  useEffect(() => {
-    setMegaMenuOpen(null);
-    setOpenDrawer(false);
-    setIsSearchOpen(false);
-  }, [location]);
-
-  const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 30 });
-
-  const handleMouseEnter = (menuId: string) => {
-    if (isSearchOpen) return;
-    setMegaMenuOpen(menuId);
-    if ((navConfig as any)[menuId]) {
-      setActiveTab((navConfig as any)[menuId][0]);
-    }
-  };
-
-  const handleNavigate = (link: string) => {
-    setMegaMenuOpen(null);
-    navigate(link);
-  };
 
   return (
     <>
       <AppBar
         position="sticky"
         elevation={trigger ? 1 : 0}
-        onMouseLeave={() => setMegaMenuOpen(null)}
+        onMouseLeave={() => actions.setMegaMenuOpen(null)}
         sx={{
           backgroundColor: trigger ? "rgba(255, 255, 255, 0.98)" : "white",
           backdropFilter: "blur(12px)",
           transition: "all 0.3s ease-in-out",
           color: "text.primary",
           borderBottom: trigger ? "none" : "1px solid #E0E0E0",
-        }}>
+          zIndex: 1201 // Higher than default to stay above search overlays
+        }}
+      >
         <DesktopNavbar 
-          isSearchOpen={isSearchOpen} 
-          setIsSearchOpen={setIsSearchOpen} 
-          megaMenuOpen={megaMenuOpen} 
-          handleMouseEnter={handleMouseEnter} 
+          {...state} 
+          {...actions} 
           cartCount={cartCount} 
-          setOpenDrawer={setOpenDrawer} 
-          navigate={handleNavigate} 
         />
-        {megaMenuOpen && !isSearchOpen && (
+
+        {state.megaMenuOpen && !state.isSearchOpen && (
           <MegaMenu 
-            isOpen={Boolean(megaMenuOpen)} 
-            menuData={(navConfig as any)[megaMenuOpen] || []} 
-            activeTab={activeTab} 
-            setActiveTab={setActiveTab} 
-            handleNavigate={handleNavigate} 
+            isOpen={Boolean(state.megaMenuOpen)} 
+            menuData={(navConfig as any)[state.megaMenuOpen] || []} 
+            activeTab={state.activeTab} 
+            setActiveTab={actions.setActiveTab} 
+            handleNavigate={actions.handleNavigate} 
           />
         )}
       </AppBar>
 
-      <Drawer
-        anchor="right"
-        open={openDrawer}
-        onClose={() => setOpenDrawer(false)}
-        slotProps={{ paper: { sx: { width: "100%", maxWidth: 350 } } }}
-      >
-        <Box sx={{ p: 2, display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #eee" }}>
-          <Typography sx={{ fontWeight: 800, color: BRAND_BLUE }}>MENU</Typography>
-          <IconButton onClick={() => setOpenDrawer(false)}>
-            <CloseIcon />
-          </IconButton>
-        </Box>
-        <List sx={{ px: 2 }}>
-          {[
-            { text: "Products", link: "/products" },
-            { text: "Industries", link: "/industries" },
-            { text: "News & Blog", link: "/blog" },
-            { text: "About Us", link: "/about" },
-            { text: "My Account", link: "/dashboard" },
-          ].map(item => (
-            <ListItem key={item.text} disablePadding sx={{ borderBottom: "1px solid #f5f5f5" }}>
-              <ListItemButton
-                onClick={() => {
-                  navigate(item.link);
-                  setOpenDrawer(false);
-                }}
-                sx={{ py: 2 }}>
-                <ListItemText
-                  primary={item.text}
-                  slotProps={{ primary: { sx: { fontFamily: PRIMARY_FONT, fontWeight: 600, fontSize: "1rem" } } }}
-                />
-                <ArrowForwardIcon sx={{ fontSize: 16, color: "#ccc" }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+      <MobileDrawer 
+        open={state.openDrawer} 
+        onClose={() => actions.setOpenDrawer(false)} 
+      />
     </>
   );
 };
