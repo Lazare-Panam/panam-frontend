@@ -203,6 +203,29 @@ const Footer: React.FC = () => {
                 Precision-engineered instrumentation solutions for critical global infrastructure.
               </Typography>
               <SocialIcons />
+              <Box sx={{ mt: 4 }}>
+    <Typography variant="subtitle2" sx={{ ...sectionHeading, mb: 1.5, color: "#ffff" }}>
+      Accreditations
+    </Typography>
+    
+    <Stack spacing={2}>
+      {/* Accreditation Item 1 */}
+      <Stack direction="row" alignItems="center" spacing={1.5}>
+        <Box 
+          component="img"
+          src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743216/BFPA_300-removebg-preview_ee8kgx.png"
+          sx={{ height: 65, width: "auto", }}
+        />
+        <Box 
+          component="img"
+          src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743101/HEA_SumbolAsset-13_etp9iy.svg"
+          sx={{ height: 32, width: "auto" }}
+        />
+        
+      </Stack>
+
+    </Stack>
+  </Box>
             </Grid>
 
             <Grid size={{ md: 2 }}>
