@@ -4,8 +4,6 @@ import { keyframes } from '@mui/system';
 const BRAND_BLUE = "#01B0F0";
 // A slightly lighter, softer tint of your brand blue
 const LIGHT_BRAND_BLUE = "#E6F7FF"; 
-const DEEP_NAVY = "#003853";
-
 const scroll = keyframes`
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -28,7 +26,7 @@ const Ticker = () => {
       sx={{ 
         width: '100%', 
         overflow: 'hidden', 
-        bgcolor: LIGHT_BRAND_BLUE, // Lightest shade of Panam blue
+        bgcolor: BRAND_BLUE, // Lightest shade of Panam blue
         py: 2.5,
         borderTop: `1px solid ${BRAND_BLUE}`,
         borderBottom: `1px solid ${BRAND_BLUE}`,
@@ -89,7 +87,7 @@ const Ticker = () => {
                 variant="body2"
                 sx={{
                   fontWeight: 800,
-                  color: DEEP_NAVY, // Dark blue for contrast on light blue
+                  color: "#ffff", // Dark blue for contrast on light blue
                   whiteSpace: 'nowrap',
                   letterSpacing: 0.5,
                   fontSize: '0.7rem',

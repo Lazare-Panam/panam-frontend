@@ -9,8 +9,8 @@ const BRAND_BLUE = "#01B0F0"
 const BRAND_BLUE_LIGHT = "#E6F7FE"
 
 const Login: React.FC = () => {
-  // State to manage the existing TermsModal
-  const [showTerms, setShowTerms] = useState(false)
+
+  const [showTerms, setShowTerms] = useState(false);
 
   return (
     <Box sx={{ backgroundColor: "#fff", py: { xs: 6, md: 12 } }}>
@@ -61,13 +61,9 @@ const Login: React.FC = () => {
               borderWidth: 1,
             }}
           />
-
-          {/* --- RIGHT: REGISTER INFO --- */}
           <RegisterInfo />
         </Box>
       </Container>
-
-      {/* --- YOUR EXISTING MODAL --- */}
       <TermsModal open={showTerms} onClose={() => setShowTerms(false)} />
     </Box>
   )
