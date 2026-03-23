@@ -7,19 +7,19 @@ import PartnersSection from "./components/PartnersSection"
 import TechnicalSupport from "./components/TechnicalSupport"
 import Ticker from "./components/Ticker"
 const Landing2 = () => {
-    return(
-        <>
-        <title>Panam Valves | High-Pressure Instrumentation & Hydrogen Solutions</title>
-            <meta name="description" content="Global leader in precision instrumentation valves, fittings, and specialized solutions for the Hydrogen, Oil & Gas, and Power industries." />
-        <Hero2/>
-        <Ticker/>
-        <CoreProducts/>
-        <IndustriesSection/>
-        <HydrogenSection/>
-        <TechnicalSupport/>
-        <PartnersSection/>
-        <ContactBanner/>
-        </>
-    )
+  return (
+    <>
+      <title>Top Valve Manufactures in UK - Quality Valve for every fit</title>
+      <meta name="description" content="Global leader in precision instrumentation valves, fittings, and specialized solutions for the Hydrogen, Oil & Gas, and Power industries." />
+      <Hero2 />
+      <Ticker />
+      <CoreProducts />
+      <IndustriesSection />
+      <HydrogenSection />
+      <TechnicalSupport />
+      <PartnersSection />
+      <ContactBanner />
+    </>
+  )
 }
 export default Landing2
