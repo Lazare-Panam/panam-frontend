@@ -17,7 +17,8 @@ const routes = [
   "/industries/aerospace-defense", 
   "/industries/chemicals-petrochemical", 
   "/industries/food-beverages",
-  "/blog/panam-valves-rg-fluid-power-partnership"
+  "/blog/panam-valves-rg-fluid-power-partnership",
+  "/blog/double-blog-and-bleed"
 ];
 const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
 
