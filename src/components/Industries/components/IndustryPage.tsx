@@ -12,14 +12,6 @@ const IndustryPage = () => {
 
   // 3. Handle cases where the ID doesn't exist+
 
-  useEffect(() => {
-    if (data) {
-      document.title = `${data.title} Solutions | Panam Valves`
-    }
-    return () => {
-      document.title = "Panam Valves"
-    }
-  }, [data]) // Runs whenever 'data' changes
 
   if (!data) {
     return <NotFound />
