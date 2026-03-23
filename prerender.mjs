@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
-
+import { minify } from 'html-minifier-terser';
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Routes to prerender - skip dynamic ones like /products/:id
@@ -51,10 +51,18 @@ let html = originalTemplate
       return preloadCount <= 1 ? match : ''; // Keep 1st, delete others
     });
 
+    const minifiedHtml = await minify(html, {
+      collapseWhitespace: true,
+      removeComments: true,
+      minifyCSS: true,      // This shrinks the heavy MUI styles
+      minifyJS: true,
+      removeAttributeQuotes: false // Keeps it safe for React hydration
+    });
+
     const filePath = route === "/" ? path.resolve(__dirname, "dist/index.html") : path.resolve(__dirname, `dist${route}/index.html`)
 
     fs.mkdirSync(path.dirname(filePath), { recursive: true })
-    fs.writeFileSync(filePath, html)
+    fs.writeFileSync(filePath, minifiedHtml)
 
     console.log(`✅ Prerendered: ${route}`)
   } catch (e) {
