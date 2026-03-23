@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
-import { minify } from 'html-minifier-terser';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Routes to prerender - skip dynamic ones like /products/:id
@@ -35,7 +35,7 @@ for (const route of routes) {
     const bodyHtml = appHtml.replace(/<title[^>]*>.*?<\/title>/gs, "").replace(/<meta[^>]*(?:\/>|>)/g, "")
 
     // Put tags in <head>, clean HTML in root div
-let html = originalTemplate
+const html = originalTemplate
   // 1. Use a "Global" and "Case-Insensitive" regex to remove ANY existing title
   .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
   
@@ -44,25 +44,17 @@ let html = originalTemplate
   
   // 3. Keep your root replacement, but ensure it matches correctly
   .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
-
+  
   let preloadCount = 0;
     html = html.replace(/<link rel="preload" as="image" href="https:\/\/res\.cloudinary\.com\/[^>]*\/>/g, (match) => {
       preloadCount++;
       return preloadCount <= 1 ? match : ''; // Keep 1st, delete others
     });
 
-    const minifiedHtml = await minify(html, {
-      collapseWhitespace: true,
-      removeComments: true,
-      minifyCSS: true,      // This shrinks the heavy MUI styles
-      minifyJS: true,
-      removeAttributeQuotes: false // Keeps it safe for React hydration
-    });
-
     const filePath = route === "/" ? path.resolve(__dirname, "dist/index.html") : path.resolve(__dirname, `dist${route}/index.html`)
 
     fs.mkdirSync(path.dirname(filePath), { recursive: true })
-    fs.writeFileSync(filePath, minifiedHtml)
+    fs.writeFileSync(filePath, html)
 
     console.log(`✅ Prerendered: ${route}`)
   } catch (e) {
