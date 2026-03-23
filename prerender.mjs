@@ -23,10 +23,15 @@ for (const route of routes) {
     const bodyHtml = appHtml.replace(/<title[^>]*>.*?<\/title>/gs, "").replace(/<meta[^>]*(?:\/>|>)/g, "")
 
     // Put tags in <head>, clean HTML in root div
- const html = originalTemplate
-  .replace(/<title>[^<]*<\/title>/, '')
-  .replace('<head>', `<head>\n${headTags}`)
-  .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`)
+const html = originalTemplate
+  // 1. Use a "Global" and "Case-Insensitive" regex to remove ANY existing title
+  .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
+  
+  // 2. Use a regex to find the <head> tag even if it has attributes
+  .replace(/<head[^>]*>/i, (match) => `${match}\n${headTags}`)
+  
+  // 3. Keep your root replacement, but ensure it matches correctly
+  .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
 
     const filePath = route === "/" ? path.resolve(__dirname, "dist/index.html") : path.resolve(__dirname, `dist${route}/index.html`)
 
