@@ -44,6 +44,12 @@ const html = originalTemplate
   
   // 3. Keep your root replacement, but ensure it matches correctly
   .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+  
+  let preloadCount = 0;
+    html = html.replace(/<link rel="preload" as="image" href="https:\/\/res\.cloudinary\.com\/[^>]*\/>/g, (match) => {
+      preloadCount++;
+      return preloadCount <= 1 ? match : ''; // Keep 1st, delete others
+    });
 
     const filePath = route === "/" ? path.resolve(__dirname, "dist/index.html") : path.resolve(__dirname, `dist${route}/index.html`)
 
