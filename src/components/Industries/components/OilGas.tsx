@@ -6,7 +6,7 @@ const OilGasPage = () => {
     titleMain: "Fueling the World with",
     titleAccent: "Unmatched Precision",
     titleEnd: "and Safety.",
-    description: "From upstream extraction to downstream refining, Panam provides the critical flow control components that keep the world's energy infrastructure moving safely.",
+    description: "From upstream extraction to downstream refining.",
     backgroundImage: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg",
   }
 

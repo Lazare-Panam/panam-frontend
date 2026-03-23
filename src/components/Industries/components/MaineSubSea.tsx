@@ -6,7 +6,7 @@ const MarineSubseaPage = () => {
     titleMain: "Engineering for the",
     titleAccent: "Deepest Frontiers",
     titleEnd: "on Earth.",
-    description: "Our marine-grade valve solutions are engineered to withstand extreme hydrostatic pressures and corrosive saltwater environments, ensuring uptime for offshore energy and subsea exploration.",
+    description: "Our marine-grade valve solutions are engineered to withstand extreme hydrostatic pressure.",
     backgroundImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80",
   }
 

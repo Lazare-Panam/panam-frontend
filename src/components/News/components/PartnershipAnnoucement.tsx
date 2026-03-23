@@ -24,7 +24,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       {/* SEO TAGS - HARDCODED FOR PRERENDER */}
       <title>Strategic Partnership: Panam Valves & R&G Fluid Power Group</title>
-      <meta name="description" content="Panam Valves and R&G Fluid Power Group announce a new strategic partnership, uniting trusted products, industry expertise, and a shared commitment to reliability." />
+      <meta name="description" content="Panam Valves and R&G Fluid Power Group announce a new strategic partnership." />
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
@@ -56,6 +56,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
         <Box
           component="img"
           src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769789155/WhatsApp_Image_2026-01-30_at_3.43.08_PM_stqorr.jpg"
+          alt="Stratergic Partnership Image"
           sx={{ width: "100%", height: { xs: 300, md: 550 }, objectFit: "cover", borderRadius: "4px", boxShadow: "0 20px 40px rgba(0,0,0,0.05)" }}
         />
       </Container>
