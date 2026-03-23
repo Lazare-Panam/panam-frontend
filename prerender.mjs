@@ -23,9 +23,9 @@ for (const route of routes) {
     const bodyHtml = appHtml.replace(/<title[^>]*>.*?<\/title>/gs, "").replace(/<meta[^>]*(?:\/>|>)/g, "")
 
     // Put tags in <head>, clean HTML in root div
-    const html = originalTemplate
-  .replace(/<title>[^<]*<\/title>/, '')  // 👈 remove fallback title
-  .replace('</head>', `${headTags}\n</head>`)
+ const html = originalTemplate
+  .replace(/<title>[^<]*<\/title>/, '')
+  .replace('<head>', `<head>\n${headTags}`)
   .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`)
 
     const filePath = route === "/" ? path.resolve(__dirname, "dist/index.html") : path.resolve(__dirname, `dist${route}/index.html`)
