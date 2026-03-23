@@ -13,13 +13,18 @@ const ProductPage = lazy(() => import("./components/All_Categories/ProductPage")
 const NotFound = lazy(() => import("./components/Error/NotFound"))
 const CartPage = lazy(() => import("./components/Cart/CartPage"))
 const IndustryPage = lazy(() => import("./components/Industries/components/IndustryPage"))
-const BlogDetail = lazy(() => import("./components/News/components/BlogTempate"))
 const AuthAndInquiryPage = lazy(() => import("./components/Auth/AuthAndInquiryPage"))
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
 import ProductDetailPage from "./components/Product_Details/ProductDetails"
 import Landing2 from "./components/Landing2/Landing2"
+import MarineSubseaPage from "./components/Industries/components/MaineSubSea"
+import OilGasPage from "./components/Industries/components/OilGas"
+import HydrogenPage from "./components/Industries/components/Hydrogen"
+import AerospaceDefensePage from "./components/Industries/components/AeroSpaceDefense"
+import ChemicalsPage from "./components/Industries/components/Chemicals"
+import FoodBeveragePage from "./components/Industries/components/FoodBeverage"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -100,13 +105,53 @@ export const routes = [
         ),
       },
       {
-        path: "blog/:slug",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <BlogDetail />
-          </Suspense>
-        ),
-      },
+    path: "industries/marine-subsea",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <MarineSubseaPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "industries/oil-gas",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <OilGasPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "industries/hydrogen",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <HydrogenPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "industries/aerospace-defense",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <AerospaceDefensePage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "industries/chemicals-petrochemical",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <ChemicalsPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "industries/food-beverages",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <FoodBeveragePage />
+      </Suspense>
+    ),
+  },
       {
         path: "login",
         element: (

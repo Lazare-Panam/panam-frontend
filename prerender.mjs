@@ -5,8 +5,19 @@ import { fileURLToPath } from "url"
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Routes to prerender - skip dynamic ones like /products/:id
-const routes = ["/", "/products", "/about", "/industries", "/blog", "/industries/marine-subsea", "/industries/oil-gas", "/industries/hydrogen", "/industries/aerospace-defense", "/industries/chemicals-petrochemicals"]
-
+const routes = [
+  "/", 
+  "/products", 
+  "/about", 
+  "/industries", 
+  "/blog", 
+  "/industries/marine-subsea", 
+  "/industries/oil-gas", 
+  "/industries/hydrogen", 
+  "/industries/aerospace-defense", 
+  "/industries/chemicals-petrochemical", 
+  "/industries/food-beverages"
+];
 const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
 
 

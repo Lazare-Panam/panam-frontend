@@ -2,7 +2,9 @@ import { Box, Container, Typography, Card, CardContent } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { Link } from "react-router-dom"
-import { industryData } from "./industryData"
+// We still use industryData just to loop through the titles/images for the grid
+import { industryData } from "./industryData" 
+
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
@@ -39,12 +41,13 @@ const IndustriesCards = () => {
         </Box>
 
         <Grid container spacing={4}>
-          {industryData.map(industry => (
-            /* Grid2 Item using the new 'size' prop */
+          {industryData.map((industry) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={industry.id}>
               <Card
                 component={Link}
-                to={`/industries/${industry.id}`}
+                // This now points to the static routes you created
+                // e.g., /industries/marine-subsea
+                to={`/industries/${industry.id}`} 
                 elevation={0}
                 sx={{
                   textDecoration: "none",
@@ -131,7 +134,10 @@ const IndustriesCards = () => {
                       fontSize: "0.875rem",
                     }}>
                     Find out more
-                    <ArrowForwardIcon className="arrow-icon" sx={{ ml: 1, fontSize: "1.2rem", transition: "transform 0.2s" }} />
+                    <ArrowForwardIcon 
+                        className="arrow-icon" 
+                        sx={{ ml: 1, fontSize: "1.2rem", transition: "transform 0.2s" }} 
+                    />
                   </Typography>
                 </CardContent>
               </Card>
