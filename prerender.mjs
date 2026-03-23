@@ -7,7 +7,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // Routes to prerender - skip dynamic ones like /products/:id
 const routes = ["/", "/products", "/about", "/industries", "/blog", "/industries/marine-subsea", "/industries/oil-gas", "/industries/hydrogen", "/industries/aerospace-defense", "/industries/chemicals-petrochemicals"]
 
-const template = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
+const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
+
 
 // Dynamically import the server build
 const { render } = await import("./dist/server/entry-server.js")
