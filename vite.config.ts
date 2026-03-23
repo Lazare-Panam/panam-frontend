@@ -5,7 +5,18 @@ export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(),
      sitemap({
        hostname: "https://www.panamvalve.com",
-      dynamicRoutes: ["/", "/products", "/about", "/industries", "/blog",],
+       dynamicRoutes: [
+    "/",
+    "/products",
+    "/about",
+    "/industries",
+    "/blog",
+    "/industries/marine-subsea",
+    "/industries/oil-gas",
+    "/industries/hydrogen",
+    "/industries/aerospace-defense",
+    "/industries/chemicals-petrochemicals",
+  ],
     }),
   ],
   build: {
