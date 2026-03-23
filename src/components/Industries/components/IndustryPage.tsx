@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom"
 import { industryData } from "./industryData" // The big array we made earlier
 import IndustryTemplate from "./IndustriesTemplate"
 import NotFound from "../../Error/NotFound"
-import { useEffect } from "react"
 const IndustryPage = () => {
   // 1. Grab the :id from the URL (e.g., 'marine-subsea')
   const { id } = useParams()
