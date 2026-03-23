@@ -1,7 +1,7 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/assets/*", "/static/media/*.{png,jpg,gif}", "/css/*", "/about/*", "/products/*", "/industries/*", "/blog/*"]
+    "exclude": ["/assets/*", "/static/media/*.{png,jpg,gif}", "/css/*",  "/about/*"]
   },
   "globalHeaders": {
     "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
@@ -10,38 +10,6 @@
     {
       "route": "/about",
       "rewrite": "/about/index.html"
-    },
-    {
-      "route": "/products",
-      "rewrite": "/products/index.html"
-    },
-    {
-      "route": "/industries",
-      "rewrite": "/industries/index.html"
-    },
-    {
-      "route": "/blog",
-      "rewrite": "/blog/index.html"
-    },
-    {
-      "route": "/industries/marine-subsea",
-      "rewrite": "/industries/marine-subsea/index.html"
-    },
-    {
-      "route": "/industries/oil-gas",
-      "rewrite": "/industries/oil-gas/index.html"
-    },
-    {
-      "route": "/industries/hydrogen",
-      "rewrite": "/industries/hydrogen/index.html"
-    },
-    {
-      "route": "/industries/aerospace-defense",
-      "rewrite": "/industries/aerospace-defense/index.html"
-    },
-    {
-      "route": "/industries/chemicals-petrochemicals",
-      "rewrite": "/industries/chemicals-petrochemicals/index.html"
     },
     {
       "route": "/index.html",
