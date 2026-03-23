@@ -27,6 +27,7 @@ import AerospaceDefensePage from "./components/Industries/components/AeroSpaceDe
 import ChemicalsPage from "./components/Industries/components/Chemicals"
 import FoodBeveragePage from "./components/Industries/components/FoodBeverage"
 import PartnershipAnnouncementPage from "./components/News/components/PartnershipAnnoucement"
+import DoubleBlockBleedBlog from "./components/News/components/DoubleBlockBleedBlog"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -111,6 +112,14 @@ export const routes = [
   element: (
     <Suspense fallback={<LoadingScreen />}>
       <PartnershipAnnouncementPage />
+    </Suspense>
+  ),
+},
+       {
+  path: "blog/double-blog-and-bleed",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <DoubleBlockBleedBlog />
     </Suspense>
   ),
 },

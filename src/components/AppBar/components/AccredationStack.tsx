@@ -1,8 +1,8 @@
-import { Stack, Box } from "@mui/material";
+import { Stack, Box, Typography } from "@mui/material";
 
 const ACCREDITATIONS = [
-  { name: "BFPA", url: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743216/BFPA_300-removebg-preview_ee8kgx.png", height: 85 },
-  { name: "HEA", url: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743101/HEA_SumbolAsset-13_etp9iy.svg", height: 40 },
+  { name: "BFPA", url: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743216/BFPA_300-removebg-preview_ee8kgx.png", height: 125 },
+  { name: "HEA", url: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743101/HEA_SumbolAsset-13_etp9iy.svg", height: 60 },
 ];
 
 const AccreditationStack = () => {
@@ -12,31 +12,45 @@ const AccreditationStack = () => {
       spacing={3} 
       alignItems="center" 
       sx={{ 
-        display: { xs: "none", lg: "flex" }, // Hide on smaller desktop screens to save space
+        display: { xs: "none", lg: "flex" }, 
         mr: 3, 
-        borderRight: "1px solid #E0E0E0", 
+        
         pr: 3 
       }}
     >
       {ACCREDITATIONS.map((logo) => (
-        <Box
-          key={logo.name}
-          component="img"
-          src={logo.url}
-          alt={logo.name}
-          sx={{
-            height: logo.height,
-            width: "auto",
-           
-         
-            transition: "0.3s",
-            "&:hover": {
-              filter: "grayscale(0%)",
-              opacity: 1,
-              transform: "scale(1.1)"
-            },
-          }}
-        />
+        <Stack key={logo.name} direction="row" alignItems="center" spacing={1.5}>
+          <Box
+            component="img"
+            src={logo.url}
+            alt={logo.name}
+            sx={{
+              height: logo.height,
+              width: "auto",
+              transition: "0.3s",
+              "&:hover": {
+                transform: "scale(1.1)"
+              },
+            }}
+          />
+          {/* Conditional text for HEA */}
+          {logo.name === "HEA" && (
+            <Typography 
+              variant="caption" 
+              sx={{ 
+                fontWeight: 700, 
+                color: "#1A1A1A", 
+                lineHeight: 1.2, 
+                maxWidth: "80px", // Keeps it in a neat block
+                textTransform: "uppercase",
+                fontSize: "0.90rem",
+                letterSpacing: "0.05em"
+              }}
+            >
+              Hydrogen Energy Association
+            </Typography>
+          )}
+        </Stack>
       ))}
     </Stack>
   );
