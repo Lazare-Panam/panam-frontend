@@ -16,7 +16,19 @@ for (const route of routes) {
  try {
     const appHtml = await render(route)
 
-    const html = template.replace(`<div id="root"></div>`, `<div id="root">${appHtml}</div>`)
+    const headTags = [...appHtml.matchAll(/<title[^>]*>.*?<\/title>|<meta[^>]*(?:\/>|>)/gs)]
+      .map(m => m[0])
+      .join('\n')
+
+    // Remove them from body
+    const bodyHtml = appHtml
+      .replace(/<title[^>]*>.*?<\/title>/gs, '')
+      .replace(/<meta[^>]*(?:\/>|>)/g, '')
+
+    // Put tags in <head>, clean HTML in root div
+    const html = template
+      .replace('</head>', `${headTags}\n</head>`)
+      .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`)
 
     const filePath = route === "/" ? path.resolve(__dirname, "dist/index.html") : path.resolve(__dirname, `dist${route}/index.html`)
 
