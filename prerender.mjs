@@ -23,7 +23,7 @@ for (const route of routes) {
     const bodyHtml = appHtml.replace(/<title[^>]*>.*?<\/title>/gs, "").replace(/<meta[^>]*(?:\/>|>)/g, "")
 
     // Put tags in <head>, clean HTML in root div
-    const html = template
+    const html = originalTemplate
   .replace(/<title>[^<]*<\/title>/, '')  // 👈 remove fallback title
   .replace('</head>', `${headTags}\n</head>`)
   .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`)
