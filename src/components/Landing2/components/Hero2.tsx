@@ -78,7 +78,7 @@ const Hero2: React.FC = () => {
               <Container maxWidth="lg">
                 <Stack spacing={2} sx={{ maxWidth: { xs: "100%", md: 700 } }}>
                   <Typography
-                    variant="h1"
+                    variant="h2"
                     className="fade-up-1"
                     sx={{
                       fontWeight: 900,

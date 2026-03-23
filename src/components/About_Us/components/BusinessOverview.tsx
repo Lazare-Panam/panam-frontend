@@ -80,7 +80,7 @@ const BusinessOverview = () => {
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
               <SideReveal direction="right" delay={0.2}>
-                <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1770220550/jared-erondu-6Fq2U47SKtE-unsplash_e2hhj9.jpg" alt="Panam Headquarters" sx={imageStyle} />
+                <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1774273085/jared-erondu-6Fq2U47SKtE-unsplash_e2hhj9_2_lgjbdt.jpg" alt="Panam Headquarters" sx={imageStyle} />
               </SideReveal>
             </Grid>
           </Grid>
@@ -140,7 +140,7 @@ const BusinessOverview = () => {
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
               <SideReveal direction="right" delay={0.2}>
-                <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1770222963/hoi-an-and-da-nang-photographer-pEd5UevsexQ-unsplash_oge3vm.jpg" alt="Quality Control" sx={imageStyle} />
+                <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1774272869/hoi-an-and-da-nang-photographer-pEd5UevsexQ-unsplash_oge3vm_1_p0twnv.jpg" alt="Quality Control" sx={imageStyle} />
               </SideReveal>
             </Grid>
           </Grid>

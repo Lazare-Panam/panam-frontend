@@ -78,6 +78,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
               <Box
                 component="img"
                 src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1772714928/6b7891a2-7fb8-4d8b-97fc-5080c08eeca8.png"
+                alt="Partners Logo"
                 sx={{ width: { xs: "100%", sm: "48%" }, float: { sm: "left" }, mb: 2, mr: { sm: 4 }, borderRadius: "4px" }}
               />
               <Typography variant="body1" sx={{ lineHeight: 1.8, fontSize: "1.15rem", color: "#333" }}>
