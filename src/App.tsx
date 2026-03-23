@@ -7,6 +7,7 @@ import RegisterForm from "./components/Account/components/RegisterForm"
 import Login from "./components/Account/Login"
 import CatalogPdfs from "./components/CatalogPdfs/CatalogPdfs"
 //const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
+
 const News = lazy(() => import("./components/News/News"))
 const DashBoard = lazy(() => import("./components/Dashboard/Dashboard"))
 const ProductPage = lazy(() => import("./components/All_Categories/ProductPage"))
@@ -25,6 +26,7 @@ import HydrogenPage from "./components/Industries/components/Hydrogen"
 import AerospaceDefensePage from "./components/Industries/components/AeroSpaceDefense"
 import ChemicalsPage from "./components/Industries/components/Chemicals"
 import FoodBeveragePage from "./components/Industries/components/FoodBeverage"
+import PartnershipAnnouncementPage from "./components/News/components/PartnershipAnnoucement"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -104,6 +106,14 @@ export const routes = [
           </Suspense>
         ),
       },
+       {
+  path: "blog/panam-valves-rg-fluid-power-partnership",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <PartnershipAnnouncementPage />
+    </Suspense>
+  ),
+},
       {
     path: "industries/marine-subsea",
     element: (

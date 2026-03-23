@@ -17,6 +17,7 @@ export default defineConfig(({ isSsrBuild }) => ({
         "/industries/aerospace-defense",
         "/industries/chemicals-petrochemical",
         "/industries/food-beverages",
+        "/blog/panam-valves-rg-fluid-power-partnership"
       ],
     }),
   ],
