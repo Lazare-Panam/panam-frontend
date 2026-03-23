@@ -35,7 +35,7 @@ for (const route of routes) {
     const bodyHtml = appHtml.replace(/<title[^>]*>.*?<\/title>/gs, "").replace(/<meta[^>]*(?:\/>|>)/g, "")
 
     // Put tags in <head>, clean HTML in root div
-const html = originalTemplate
+let html = originalTemplate
   // 1. Use a "Global" and "Case-Insensitive" regex to remove ANY existing title
   .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
   
