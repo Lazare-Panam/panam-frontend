@@ -3,8 +3,8 @@ import NewsCards from "./components/NewsCards"
 const News = () => {
   return (
     <>
-      <meta name="description" content="Explore the latest technical breakthroughs in flow control, extreme-pressure safety updates, and industrial valve innovation from Panam Valves." />
-
+    <title>Technical Insights & Industry News | Panam Valves Blog</title>
+     <meta name="description" content="Explore expert articles on high-pressure instrumentation, valve maintenance, hydrogen safety standards, and the latest innovations from Panam Valves." />
       {/* Social Media Preview Tags (Open Graph) */}
       <meta property="og:title" content="Engineering the Future of Flow Control | Panam Valves" />
       <meta property="og:description" content="Stay informed on technical breakthroughs and regulatory shifts in the valve industry." />

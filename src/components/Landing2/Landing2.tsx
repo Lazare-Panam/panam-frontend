@@ -9,6 +9,8 @@ import Ticker from "./components/Ticker"
 const Landing2 = () => {
     return(
         <>
+        <title>Panam Valves | High-Pressure Instrumentation & Hydrogen Solutions</title>
+            <meta name="description" content="Global leader in precision instrumentation valves, fittings, and specialized solutions for the Hydrogen, Oil & Gas, and Power industries." />
         <Hero2/>
         <Ticker/>
         <CoreProducts/>
