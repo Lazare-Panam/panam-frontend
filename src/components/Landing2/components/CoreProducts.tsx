@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Button, Grid, Stack, alpha } from "@mui/material"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link as RouterLink  } from "react-router-dom"
 
 const BRAND_BLUE = "#01B0F0"
 
@@ -42,9 +42,14 @@ const CoreProducts = () => {
             </Stack>
           </Grid>
           <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { md: "flex-end" } }}>
-            <Button variant="outlined" endIcon={<ArrowForwardIcon />} onClick={()=>navigate("/products")} sx={{ borderColor: "#E2E8F0", color: "#1E293B", fontWeight: 700, px: 3, py: 1.5, "&:hover": { borderColor: BRAND_BLUE, color: BRAND_BLUE } }}>
-              Find All Products
-            </Button>
+            <Stack direction="row" spacing={2}>
+              <Button component={RouterLink} to="/products" variant="outlined" endIcon={<ArrowForwardIcon />} sx={{ borderColor: "#E2E8F0", color: "#1E293B", fontWeight: 700, px: 3, py: 1.5, "&:hover": { borderColor: BRAND_BLUE, color: BRAND_BLUE } }}>
+                Find All Products
+              </Button>
+              <Button component={RouterLink} to="/about" variant="contained" endIcon={<ArrowForwardIcon />} sx={{ bgcolor: BRAND_BLUE, color: "#fff", fontWeight: 700, px: 4, py: 1.5, "&:hover": { bgcolor: "#0090C8" } }}>
+                Learn About Our Journey
+              </Button>
+            </Stack>
           </Grid>
         </Grid>
 
