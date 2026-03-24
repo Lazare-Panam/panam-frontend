@@ -1,19 +1,24 @@
 import { Stack, Box, Typography, Link } from "@mui/material";
 
+
 const ACCREDITATIONS = [
   { 
     name: "BFPA", 
     url: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743216/BFPA_300-removebg-preview_ee8kgx.png", 
     height: 125,
-    website: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774287523/BFPA_Panam_Valves_2026_wijobb.jpg" 
+    website: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774287523/BFPA_Panam_Valves_2026_wijobb.jpg" ,
+    priority: true
   },
   { 
     name: "HEA", 
     url: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743101/HEA_SumbolAsset-13_etp9iy.svg", 
     height: 60,
-    website: "https://ukhea.co.uk/" 
+    website: "https://ukhea.co.uk/" ,
+    priority: true
   },
 ];
+
+
 
 const AccreditationStack = () => {
   return (
@@ -44,6 +49,8 @@ const AccreditationStack = () => {
               component="img"
               src={logo.url}
               alt={logo.name}
+              loading={logo.priority ? "eager" : "lazy"}
+              fetchPriority={logo.priority ? "high" : "auto"}
               sx={{
                 height: logo.height,
                 width: "auto",

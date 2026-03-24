@@ -29,8 +29,11 @@ const DoubleBlockBleedBlog: React.FC = () => {
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       {/* SEO TAGS */}
-      <title>Double Block and Bleed: Achieving Positive Isolation | Panam Valves</title>
-
+      <title>Double Block and Bleed</title>
+      <meta name="description" content="Master Double Block and Bleed (DB&B) vs. DIB valves. Learn to achieve positive isolation, prove zero energy, and select the right testing for critical service." />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href="https://www.panamvalve.com/blog/double-blog-and-bleed" />
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
         <Container maxWidth="md">
