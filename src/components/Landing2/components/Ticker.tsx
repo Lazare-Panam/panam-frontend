@@ -11,7 +11,7 @@ const scroll = keyframes`
 
 const partners = [
   { name: "R & G Group", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769514658/download_pmaswn.jpg", url: "https://www.rgfluidpower.com/" },
-  { name: "Rubix", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516301/download_lwcmhn.png", url: "https://uk.rubix.com/en" },
+  // { name: "Rubix", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516301/download_lwcmhn.png", url: "https://uk.rubix.com/en" },
   { name: "Hydraulic Megastore", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516390/download_1_ixgkup.jpg", url: "https://www.hydraulicmegastore.com/" },
   { name: "Ram Universal", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521921/ram-logo_endebu.png", url: "https://www.ramuniversal.co.uk/" },
   { name: "AC Valves", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521817/eafe29df-39d4-412b-ba55-35534adb2578_b5kiaj.jpg", url: "https://acv-group.com/" },

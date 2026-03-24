@@ -13,7 +13,7 @@ const PartnersSection = () => {
   
   const partners = [
     { name: "R & G Group", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769514658/download_pmaswn.jpg", url: "https://www.rgfluidpower.com/" },
-    { name: "Rubix", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516301/download_lwcmhn.png", url: "https://uk.rubix.com/en" },
+    // { name: "Rubix", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516301/download_lwcmhn.png", url: "https://uk.rubix.com/en" },
     { name: "Hydraulic Megastore", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516390/download_1_ixgkup.jpg", url: "https://www.hydraulicmegastore.com/" },
     { name: "Ram Universal", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521921/ram-logo_endebu.png", url: "https://www.ramuniversal.co.uk/" },
     { name: "OMV", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769522389/49dc2b_94be551593d14559b5895c083a396ec2_mv2_mnpehy.avif", url: "https://www.omv.as/" },
