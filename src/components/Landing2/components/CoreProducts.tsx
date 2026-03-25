@@ -42,14 +42,84 @@ const CoreProducts = () => {
             </Stack>
           </Grid>
           <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { md: "flex-end" } }}>
-            <Stack direction="row" spacing={2}>
-              <Button component={RouterLink} to="/products" variant="outlined" endIcon={<ArrowForwardIcon />} sx={{ borderColor: "#E2E8F0", color: "#1E293B", fontWeight: 700, px: 3, py: 1.5, "&:hover": { borderColor: BRAND_BLUE, color: BRAND_BLUE } }}>
-                Find All Products
-              </Button>
-              <Button component={RouterLink} to="/about" variant="contained" endIcon={<ArrowForwardIcon />} sx={{ bgcolor: BRAND_BLUE, color: "#fff", fontWeight: 700, px: 4, py: 1.5, "&:hover": { bgcolor: "#0090C8" } }}>
-                Learn About Our Journey
-              </Button>
-            </Stack>
+ <Stack 
+  direction={{ xs: 'column', sm: 'row' }} // Stacks on mobile, row on desktop
+  spacing={2} 
+  alignItems="center"
+>
+  <Button 
+    component={RouterLink} 
+    to="/products" 
+    variant="outlined" 
+    endIcon={<ArrowForwardIcon sx={{ fontSize: '1.1rem' }} />} 
+    sx={{ 
+      borderColor: "#E2E8F0", 
+      color: "#475569", 
+      fontWeight: 600, 
+      px: 3, 
+      py: 1, 
+      borderRadius: '8px', // Rounded corners for a modern feel
+      textTransform: 'none', 
+      transition: '0.2s',
+      "&:hover": { 
+        borderColor: BRAND_BLUE, 
+        color: BRAND_BLUE,
+        bgcolor: 'rgba(0, 144, 200, 0.04)' 
+      } 
+    }}
+  >
+    Products
+  </Button>
+
+  <Button 
+    component={RouterLink} 
+    to="/about" 
+    variant="contained" 
+    disableElevation 
+    endIcon={<ArrowForwardIcon sx={{ fontSize: '1.1rem' }} />} 
+    sx={{ 
+      bgcolor: BRAND_BLUE, 
+      color: "#fff", 
+      fontWeight: 600, 
+      px: 3, 
+      py: 1, 
+      borderRadius: '8px',
+      textTransform: 'none',
+      "&:hover": { 
+        bgcolor: "#0090C8",
+        boxShadow: '0 4px 12px rgba(0, 144, 200, 0.2)' 
+      } 
+    }}
+  >
+    Panam
+  </Button>
+
+  <Button 
+    component={RouterLink} 
+    to="/catalogPDFs" 
+    variant="contained" 
+    disableElevation
+    // Using a gold/amber accent to make it "jump out" against the blue
+    endIcon={<ArrowForwardIcon sx={{ fontSize: '1.1rem' }} />} 
+    sx={{ 
+      bgcolor: "#FF6B00", 
+      color: "#fff", 
+      fontWeight: 700, // Slightly bolder
+      px: 3, 
+      py: 1, 
+      borderRadius: '8px',
+      textTransform: 'none',
+      boxShadow: '0 2px 4px rgba(245, 158, 11, 0.2)',
+      "&:hover": { 
+        bgcolor: "#D97706",
+        boxShadow: '0 6px 15px rgba(245, 158, 11, 0.4)',
+        transform: 'scale(1.02)' // Scale effect makes it feel more "interactive"
+      } 
+    }}
+  >
+    Catalogs
+  </Button>
+</Stack>
           </Grid>
         </Grid>
 
