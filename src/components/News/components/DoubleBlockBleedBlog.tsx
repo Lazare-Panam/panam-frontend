@@ -46,14 +46,49 @@ const DoubleBlockBleedBlog: React.FC = () => {
             Double Block & Bleed Done Right: Achieving Positive Isolation
           </Typography>
 
-          <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
-            <Avatar sx={{ bgcolor: "#1A1A1A", width: 40, height: 40 }}>P</Avatar>
+                    <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 4 }}>
+            <Avatar 
+              sx={{ 
+                bgcolor: "#1A1A1A", 
+                width: 48, 
+                height: 48, 
+                fontSize: "1rem", 
+                fontWeight: 700 
+              }}
+            >
+              SR
+            </Avatar>
             <Box>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700, color: "#1A1A1A" }}>
-                Panam Valves
+              <Typography 
+                variant="subtitle1" 
+                sx={{ 
+                  fontWeight: 800, 
+                  color: "#1A1A1A", 
+                  lineHeight: 1.2,
+                  fontSize: "1rem" 
+                }}
+              >
+                Sejal Raina
               </Typography>
-              <Typography variant="caption" sx={{ color: "#777", display: "block" }}>
-                March 23, 2026 • 5 min read
+              <Typography 
+                variant="body2" 
+                sx={{ 
+                  color: "#01B0F0", // Brand color for the title to highlight authority
+                  fontWeight: 600, 
+                  fontSize: "0.85rem",
+                }}
+              >
+                Digital Marketing
+              </Typography>
+              <Typography 
+                variant="caption" 
+                sx={{ 
+                  color: "#777", 
+                  display: "flex", 
+                  alignItems: "center", 
+                }}
+              >
+                 March 25, 2026 • 6 min read
               </Typography>
             </Box>
           </Stack>

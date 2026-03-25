@@ -28,6 +28,7 @@ import ChemicalsPage from "./components/Industries/components/Chemicals"
 import FoodBeveragePage from "./components/Industries/components/FoodBeverage"
 import PartnershipAnnouncementPage from "./components/News/components/PartnershipAnnoucement"
 import DoubleBlockBleedBlog from "./components/News/components/DoubleBlockBleedBlog"
+import CheckValveBlog from "./components/News/components/CheckValveBlog"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -120,6 +121,14 @@ export const routes = [
   element: (
     <Suspense fallback={<LoadingScreen />}>
       <DoubleBlockBleedBlog />
+    </Suspense>
+  ),
+},
+       {
+  path: "blog/check-valves-blog",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <CheckValveBlog />
     </Suspense>
   ),
 },

@@ -147,6 +147,8 @@ export const navConfig: Record<string, NavCategory[]> = {
       link: "/blog",
       items: [
         { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
+        { name: "Double Block And Bleed Valves", link: "/blog/double-blog-and-bleed" },
+        { name: "Check Valves Blog", link: "/blog/check-valves-blog" },
         
       ],
     },

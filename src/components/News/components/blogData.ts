@@ -37,4 +37,14 @@ export const blogs: BlogPost[] = [
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774281930/1a7621c7-a20d-419d-a0e5-a52262f06ff0_lid0um.jpg", // Add your Cloudinary or hosted URL here
     excerpt: "Achieve zero energy and protect your team during shutdowns. This guide provides a safety-led foundation for specifying and executing Double Block and Bleed (DB&B) correctly.",
   },
+  {
+    slug: "check-valves-blog",
+    title: "Industrial Valve Basics: What Do Check Valves Do and Why They Matter",
+    category: "Technical Guide",
+    author: "Steven Kassi",
+    date: "March 25, 2026",
+    readTime: "6 min read",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768297321/PCV-S-08-FF-PNG_ctuujw.png",
+    excerpt: "Explore the mechanics of non-return valves (NRV), from cracking pressure to backflow prevention, and learn why they are the quiet guardians of industrial piping.",
+  },
 ]
