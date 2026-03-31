@@ -3,14 +3,14 @@ import { Box, Container, Divider, Typography, Link } from "@mui/material"
 import LoginForm from "./components/LoginForm"
 import RegisterInfo from "./components/RegisterInfo"
 import TermsModal from "../Auth/Enquiry/AccessTerms"
-
+import { useNavigate } from "react-router-dom"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
 const BRAND_BLUE_LIGHT = "#E6F7FE"
 
 const Login: React.FC = () => {
-
-  const [showTerms, setShowTerms] = useState(false);
+  const [showTerms, setShowTerms] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <Box sx={{ backgroundColor: "#fff", py: { xs: 6, md: 12 } }}>
@@ -49,6 +49,28 @@ const Login: React.FC = () => {
                 Terms of Use
               </Link>{" "}
               and Privacy Notice.
+            </Typography>
+
+            <Typography
+              variant="caption"
+              sx={{
+                display: "block",
+                mt: 2,
+                fontFamily: PRIMARY_FONT,
+                color: "#bbb", // Lighter color to keep it subtle
+              }}>
+              Are you an administrator?{" "}
+              <Link
+                component="button"
+                onClick={() => navigate("/adminLogin")}
+                sx={{
+                  color: "#888",
+                  fontSize: "inherit",
+                  textDecoration: "none",
+                  "&:hover": { textDecoration: "underline", color: BRAND_BLUE },
+                }}>
+                Admin Login
+              </Link>
             </Typography>
           </Box>
 

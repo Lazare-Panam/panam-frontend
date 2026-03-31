@@ -29,6 +29,8 @@ import FoodBeveragePage from "./components/Industries/components/FoodBeverage"
 import PartnershipAnnouncementPage from "./components/News/components/PartnershipAnnoucement"
 import DoubleBlockBleedBlog from "./components/News/components/DoubleBlockBleedBlog"
 import CheckValveBlog from "./components/News/components/CheckValveBlog"
+import AdminLogin from "./components/Admin/components/AdminLogin"
+import AdminDashboard from "./components/Admin/components/AdminDashboard"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -108,78 +110,78 @@ export const routes = [
           </Suspense>
         ),
       },
-       {
-  path: "blog/panam-valves-rg-fluid-power-partnership",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <PartnershipAnnouncementPage />
-    </Suspense>
-  ),
-},
-       {
-  path: "blog/double-blog-and-bleed",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <DoubleBlockBleedBlog />
-    </Suspense>
-  ),
-},
-       {
-  path: "blog/check-valves-blog",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <CheckValveBlog />
-    </Suspense>
-  ),
-},
       {
-    path: "industries/marine-subsea",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <MarineSubseaPage />
-      </Suspense>
-    ),
-  },
-  {
-    path: "industries/oil-gas",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <OilGasPage />
-      </Suspense>
-    ),
-  },
-  {
-    path: "industries/hydrogen",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <HydrogenPage />
-      </Suspense>
-    ),
-  },
-  {
-    path: "industries/aerospace-defense",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <AerospaceDefensePage />
-      </Suspense>
-    ),
-  },
-  {
-    path: "industries/chemicals-petrochemical",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <ChemicalsPage />
-      </Suspense>
-    ),
-  },
-  {
-    path: "industries/food-beverages",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <FoodBeveragePage />
-      </Suspense>
-    ),
-  },
+        path: "blog/panam-valves-rg-fluid-power-partnership",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <PartnershipAnnouncementPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/double-blog-and-bleed",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <DoubleBlockBleedBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/check-valves-blog",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CheckValveBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/marine-subsea",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <MarineSubseaPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/oil-gas",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <OilGasPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/hydrogen",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <HydrogenPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/aerospace-defense",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AerospaceDefensePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/chemicals-petrochemical",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ChemicalsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/food-beverages",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <FoodBeveragePage />
+          </Suspense>
+        ),
+      },
       {
         path: "login",
         element: (
@@ -250,6 +252,22 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <Landing2 />
+          </Suspense>
+        ),
+      },
+      {
+        path: "adminLogin",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AdminLogin />
+          </Suspense>
+        ),
+      },
+      {
+        path: "adminDashboard",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AdminDashboard />
           </Suspense>
         ),
       },
