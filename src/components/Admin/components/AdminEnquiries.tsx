@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import {
   Box, Typography, CircularProgress, Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, Paper, IconButton, Tooltip, Stack, Chip
+  TableContainer, TableHead, TableRow, Paper, IconButton,  Stack, 
 } from "@mui/material";
 import {
   Description as FileIcon,
-  HistoryEdu as EnquiryIcon,
   Business as BusinessIcon
 } from "@mui/icons-material";
 import { getAllAdminEnquiries } from "../../../api/adminClient";

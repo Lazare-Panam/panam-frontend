@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { 
-  Box, Typography, Button, Container, Paper, AppBar, 
-  Toolbar, Tabs, Tab, Stack 
+  Box, Typography, Button, Container, AppBar, 
+  Toolbar, Tabs, Tab, 
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { 
