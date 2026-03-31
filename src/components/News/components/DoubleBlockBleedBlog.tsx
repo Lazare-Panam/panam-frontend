@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Container, Typography, Box, Avatar, Stack, Paper, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
-import Grid from "@mui/material/Grid"
+import Grid from "@mui/material/Grid" // Updated to Grid2
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
 const DoubleBlockBleedBlog: React.FC = () => {
@@ -11,7 +11,7 @@ const DoubleBlockBleedBlog: React.FC = () => {
     window.scrollTo(0, 0)
   }, [])
 
-  // CTA Data
+  // CTA Data matching SEO expert text
   const cta = {
     heading: "Planning a summer outage or a brownfield tie-in where isolation integrity is non-negotiable?",
     body: "Request a PANAM DB&B application review and valve sizing support. Our engineering team will help align seat design, test method, and vent routing to your pressure class, media, and temperature so you can lock out, prove zero, and proceed with confidence.",
@@ -29,15 +29,15 @@ const DoubleBlockBleedBlog: React.FC = () => {
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       {/* SEO TAGS */}
-      <title>Double Block and Bleed</title>
+      <title>Double Block and Bleed Valves for Positive Isolation in Critical Service</title>
       <meta name="description" content="Master Double Block and Bleed (DB&B) vs. DIB valves. Learn to achieve positive isolation, prove zero energy, and select the right testing for critical service." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/double-blog-and-bleed" />
+
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
         <Container maxWidth="md">
-          
           <Typography variant="h1" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: "2rem", md: "3rem" }, color: "#1A1A1A" }}>
             Double Block and Bleed Valves for Positive Isolation in Critical Service
           </Typography>
@@ -46,77 +46,47 @@ const DoubleBlockBleedBlog: React.FC = () => {
             Double Block & Bleed Done Right: Achieving Positive Isolation
           </Typography>
 
-                    <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 4 }}>
-            <Avatar 
-              sx={{ 
-                bgcolor: "#1A1A1A", 
-                width: 48, 
-                height: 48, 
-                fontSize: "1rem", 
-                fontWeight: 700 
-              }}
-            >
+          <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 4 }}>
+            <Avatar sx={{ bgcolor: "#1A1A1A", width: 48, height: 48, fontSize: "1rem", fontWeight: 700 }}>
               SR
             </Avatar>
             <Box>
-              <Typography 
-                variant="subtitle1" 
-                sx={{ 
-                  fontWeight: 800, 
-                  color: "#1A1A1A", 
-                  lineHeight: 1.2,
-                  fontSize: "1rem" 
-                }}
-              >
+              <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#1A1A1A", lineHeight: 1.2, fontSize: "1rem" }}>
                 Sejal Raina
               </Typography>
-              <Typography 
-                variant="body2" 
-                sx={{ 
-                  color: "#01B0F0", // Brand color for the title to highlight authority
-                  fontWeight: 600, 
-                  fontSize: "0.85rem",
-                }}
-              >
+              <Typography variant="body2" sx={{ color: "#01B0F0", fontWeight: 600, fontSize: "0.85rem" }}>
                 Digital Marketing
               </Typography>
-              <Typography 
-                variant="caption" 
-                sx={{ 
-                  color: "#777", 
-                  display: "flex", 
-                  alignItems: "center", 
-                }}
-              >
-                 March 25, 2026 • 6 min read
+              <Typography variant="caption" sx={{ color: "#777" }}>
+                March 25, 2026 • 6 min read
               </Typography>
             </Box>
           </Stack>
         </Container>
       </Box>
 
-      {/* HERO IMAGE SPACE */}
+      {/* HERO IMAGE */}
       <Container maxWidth="lg" sx={{ mb: 8 }}>
-  <Box
-    component="img"
-    src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1774281930/1a7621c7-a20d-419d-a0e5-a52262f06ff0_lid0um.jpg"
-    alt="Double Block and Bleed Valve for critical service isolation"
-    sx={{
-      width: "100%",
-      height: { xs: 200, md: 500 },
-      objectFit: "contain", // Ensures the image fills the area without stretching
-      bgcolor: "#F4F4F4",
-      borderRadius: "4px",
-      display: "flex",
-      boxShadow: "0 10px 30px rgba(0,0,0,0.08)", 
-      border: "1px solid #EEE",
-    }}
-  />
-</Container>
+        <Box
+          component="img"
+          src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1774281930/1a7621c7-a20d-419d-a0e5-a52262f06ff0_lid0um.jpg"
+          alt="Double Block and Bleed Valve"
+          sx={{
+            width: "100%",
+            height: { xs: 200, md: 500 },
+            objectFit: "contain",
+            bgcolor: "#F4F4F4",
+            borderRadius: "4px",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+            border: "1px solid #EEE",
+          }}
+        />
+      </Container>
 
       {/* BODY CONTENT */}
       <Container maxWidth="lg">
         <Grid container spacing={8}>
+          {/* Main Article Content */}
           <Grid size={{ xs: 12, md: 8 }}>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
               Summer shutdowns compress risk into tight windows. When time is short, plant conditions shift, and multiple trades converge, isolation mistakes multiply. This guide provides a safety-led foundation for specifying and executing Double Block and Bleed (DB&B) correctly ensuring you can prove zero energy, protect your team, and return to service with confidence.
@@ -126,43 +96,22 @@ const DoubleBlockBleedBlog: React.FC = () => {
               DB&B vs. DIB: Defining the Core Distinction
             </Typography>
 
-            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem" }}>
+            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
               Understanding the mechanical differences between these arrangements is vital for site safety and P&ID accuracy:
             </Typography>
 
-            <Box component="ul" sx={{ mb: 6, pl: 2, listStyle: "none" }}>
-              <Box component="li" sx={{ mb: 3 }}>
-                <Typography sx={{ fontWeight: 700, display: "inline" }}>Double Block and Bleed (DB&B): </Typography>
-                <Typography sx={{ display: "inline" }}>Two seating elements in series that isolate a single pressure source with a bleed in between. It is primarily used to isolate the downstream side from upstream pressure.</Typography>
-              </Box>
-              <Box component="li" sx={{ mb: 3 }}>
-                <Typography sx={{ fontWeight: 700, display: "inline" }}>Double Isolation and Bleed (DIB): </Typography>
-                <Typography sx={{ display: "inline" }}>Two seating elements capable of bidirectional isolation.</Typography>
-              </Box>
-              <Box component="li" sx={{ pl: 4, mb: 1 }}>
-                <Typography sx={{ fontWeight: 700 }}>DIB-1: One seat seals in both directions; the other is unidirectional.</Typography>
-              </Box>
-              <Box component="li" sx={{ pl: 4, mb: 1 }}>
-                <Typography sx={{ fontWeight: 700 }}>DIB-2: Both seats are bidirectional, offering the highest integrity against pressure from either side.</Typography>
+            <Box sx={{ mb: 6 }}>
+              <Typography sx={{ mb: 2 }}>
+                <strong>Double Block and Bleed (DB&B):</strong> Two seating elements in series that isolate a single pressure source with a bleed in between. It is primarily used to isolate the downstream side from upstream pressure.
+              </Typography>
+              <Typography sx={{ mb: 2 }}>
+                <strong>Double Isolation and Bleed (DIB):</strong> Two seating elements capable of bidirectional isolation.
+              </Typography>
+              <Box sx={{ pl: 3 }}>
+                <Typography sx={{ mb: 1 }}>• <strong>DIB-1:</strong> One seat seals in both directions; the other is unidirectional.</Typography>
+                <Typography sx={{ mb: 1 }}>• <strong>DIB-2:</strong> Both seats are bidirectional, offering the highest integrity against pressure from either side.</Typography>
               </Box>
             </Box>
-
-            {/* SECOND IMAGE SPACE */}
-            <Box
-  component="img"
-  src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1774282154/f4d43105-d977-44e6-8cdd-08164a6ce3f6_hw7qz1.jpg"
-  alt="Technical diagram illustrating the difference between Double Block and Bleed (DB&B) and Double Isolation and Bleed (DIB) seating configurations"
-  sx={{
-    width: "100%",
-    height: 300,
-    objectFit: "contain", // "contain" is usually better for technical diagrams to ensure no labels are cut off
-    bgcolor: "#F4F4F4",
-    mb: 6,
-    borderRadius: "4px",
-    display: "flex",
-    border: "1px solid #EEE",
-  }}
-/>
 
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
               Common DB&B Frequently Asked Questions
@@ -170,33 +119,23 @@ const DoubleBlockBleedBlog: React.FC = () => {
 
             <Stack spacing={4} sx={{ mb: 6 }}>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                  What is the purpose of a block and bleed valve?
-                </Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>What is the purpose of a block and bleed valve?</Typography>
                 <Typography variant="body1">To isolate process pressure and provide a controlled bleed so you can vent, drain, and verify zero energy before maintenance.</Typography>
               </Box>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                  When should you use a double block and bleed?
-                </Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>When should you use a double block and bleed?</Typography>
                 <Typography variant="body1">Use it when you need testable isolation with a measurable cavity, especially in gas service, custody transfer, hydrogen systems, and high-pressure headers during short shutdowns.</Typography>
               </Box>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                  What are the advantages of a double block and bleed valve?
-                </Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>What are the advantages of a double block and bleed valve?</Typography>
                 <Typography variant="body1">It offers verifiable isolation, faster maintenance, fewer potential leak paths with compact bodies, and safer handling of minor seat leakage via the bleed to a safe vent.</Typography>
               </Box>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                  What is positive isolation versus double block and bleed?
-                </Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>What is positive isolation versus double block and bleed?</Typography>
                 <Typography variant="body1">Positive isolation removes any credible leakage path, typically with a blind or spool removal. DB&B is valve-based, testable isolation; it is strong but still relies on seat integrity. Use risk assessment or standards to choose.</Typography>
               </Box>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                  How do double block and bleed valves work?
-                </Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>How do double block and bleed valves work?</Typography>
                 <Typography variant="body1">Two isolation elements close in series, creating a cavity. Opening the bleed relieves and exposes any leakage, letting you confirm pressure is at zero before work.</Typography>
               </Box>
             </Stack>
@@ -204,10 +143,11 @@ const DoubleBlockBleedBlog: React.FC = () => {
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
               Proving Zero Energy & Critical Testing
             </Typography>
-            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
+            <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8 }}>
               A DB&B arrangement is only as good as its vent path. Bleed ports must lead to a safe location, such as flare headers for hydrogen skids or closed containment for liquids.
             </Typography>
 
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>Selection & Testing Matrix</Typography>
             <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #EEE", mb: 4 }}>
               <Table>
                 <TableHead sx={{ bgcolor: "#F8F9FA" }}>
@@ -237,35 +177,10 @@ const DoubleBlockBleedBlog: React.FC = () => {
               Summary and Next Step
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              DB&B done right is a disciplined practice, not a symbol on a P&ID. Select the correct seat technology, define sealing direction, route bleeds to safe locations, and prove zero every time. Reserve positive isolation for high-hazard work and follow company standards backed by a clear risk assessment. For hydrogen skids, refinery measurement manifolds, high-pressure gas headers, and
-              custody transfer systems, the right DB&B choice protects people, equipment, and schedules.
+              DB&B done right is a disciplined practice, not a symbol on a P&ID. Select the correct seat technology, define sealing direction, route bleeds to safe locations, and prove zero every time. Reserve positive isolation for high-hazard work and follow company standards backed by a clear risk assessment. For hydrogen skids, refinery measurement manifolds, high-pressure gas headers, and custody transfer systems, the right DB&B choice protects people, equipment, and schedules.
             </Typography>
 
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 700,
-                lineHeight: 1.4,
-                color: "#1A1A1A",
-                mb: 3,
-                fontSize: { xs: "1.25rem", md: "1.75rem" },
-              }}>
-              Planning a summer outage or a brownfield tie-in where isolation integrity is non-negotiable?
-            </Typography>
-
-            <Typography
-              variant="body1"
-              sx={{
-                lineHeight: 1.8,
-                fontSize: "1.15rem",
-                color: "#444",
-                mb: 4,
-              }}>
-              Request a <strong>PANAM DB&B application review</strong> and valve sizing support. Our engineering team will help align seat design, test method, and vent routing to your pressure class, media, and temperature so you can
-              <strong> lock out, prove zero, and proceed with confidence.</strong>
-            </Typography>
-
-            {/* CTA */}
+            {/* CTA Section using provided text */}
             <Paper elevation={0} sx={{ mt: 10, p: { xs: 4, md: 6 }, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px" }}>
               <Typography variant="h4" sx={{ fontWeight: 800, mb: 2, fontSize: "1.5rem" }}>
                 {cta.heading}
@@ -273,13 +188,18 @@ const DoubleBlockBleedBlog: React.FC = () => {
               <Typography variant="body1" sx={{ color: "#666", mb: 4 }}>
                 {cta.body}
               </Typography>
-              <Button variant="contained" onClick={() => navigate(cta.buttonLink)} endIcon={<ArrowForwardIcon />} sx={{ bgcolor: "#01B0F0", color: "white", px: 4, py: 1.5, borderRadius: "4px", fontWeight: 700 }}>
-                Request a Review
+              <Button 
+                variant="contained" 
+                onClick={() => navigate(cta.buttonLink)} 
+                endIcon={<ArrowForwardIcon />} 
+                sx={{ bgcolor: "#01B0F0", color: "white", px: 4, py: 1.5, borderRadius: "4px", fontWeight: 700 }}
+              >
+                Request Technical Support
               </Button>
             </Paper>
           </Grid>
 
-          {/* SIDEBAR */}
+          {/* Sidebar */}
           <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ position: "sticky", top: 40 }}>
               <Typography variant="h6" sx={{ mb: 3, fontWeight: 800 }}>
