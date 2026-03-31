@@ -7,7 +7,7 @@ export default defineConfig(({ isSsrBuild }) => ({
     sitemap({
       hostname: "https://www.panamvalve.com",
       generateRobotsTxt: true,
-      dynamicRoutes: ["/", "/products", "/about", "/industries", "/blog", "/industries/marine-subsea", "/industries/oil-gas", "/industries/hydrogen", "/industries/aerospace-defense", "/industries/chemicals-petrochemical", "/industries/food-beverages", "/blog/panam-valves-rg-fluid-power-partnership", "/blog/double-blog-and-bleed"],
+      dynamicRoutes: ["/", "/products", "/about", "/industries", "/blog", "/industries/marine-subsea", "/industries/oil-gas", "/industries/hydrogen", "/industries/aerospace-defense", "/industries/chemicals-petrochemical", "/industries/food-beverages", "/blog/panam-valves-rg-fluid-power-partnership", "/blog/double-blog-and-bleed","/blog/hydrogen-blog"]
     }),
   ],
   build: {

@@ -47,4 +47,14 @@ export const blogs: BlogPost[] = [
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768297321/PCV-S-08-FF-PNG_ctuujw.png",
     excerpt: "Explore the mechanics of non-return valves (NRV), from cracking pressure to backflow prevention, and learn why they are the quiet guardians of industrial piping.",
   },
+  {
+    slug: "hydrogen-blog",
+    title: "Hydrogen Valves: Engineering for High-Pressure Net-Zero Infrastructure",
+    category: "Technical Guide",
+    author: "Panam Valves",
+    date: "March 31, 2026",
+    readTime: "5 min read",
+    image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=80&w=1200",
+    excerpt: "As the global energy sector pivots toward H₂, specialized valving is critical. Learn about the material science and engineering required to mitigate embrittlement and leakage in high-pressure hydrogen systems.",
+  }
 ]

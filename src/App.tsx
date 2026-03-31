@@ -31,6 +31,7 @@ import DoubleBlockBleedBlog from "./components/News/components/DoubleBlockBleedB
 import CheckValveBlog from "./components/News/components/CheckValveBlog"
 import AdminLogin from "./components/Admin/components/AdminLogin"
 import AdminDashboard from "./components/Admin/components/AdminDashboard"
+import HydrogenValvesBlog from "./components/News/components/HydrogenBlog"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -131,6 +132,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <CheckValveBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/hydrogen-blog",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <HydrogenValvesBlog />
           </Suspense>
         ),
       },
