@@ -32,6 +32,8 @@ import CheckValveBlog from "./components/News/components/CheckValveBlog"
 import AdminLogin from "./components/Admin/components/AdminLogin"
 import AdminDashboard from "./components/Admin/components/AdminDashboard"
 import HydrogenValvesBlog from "./components/News/components/HydrogenBlog"
+//import SearchResults from "./components/SearchResults/SearchResults"
+import PartNumberDetail from "./components/ProductDetail/PartNumberDetail"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -280,6 +282,14 @@ export const routes = [
           </Suspense>
         ),
       },
+{
+  path: "partNumber/:partNumber",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <PartNumberDetail />
+    </Suspense>
+  ),
+},
 
       { path: "*", element: <NotFound /> },
     ],

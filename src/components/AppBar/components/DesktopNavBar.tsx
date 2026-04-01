@@ -1,6 +1,6 @@
 import { Box, Container, Toolbar, Stack, Fade } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-// import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar";
 import { NavLink } from "./NavLink";
 import { ActionStack } from "./ActionStack";
 import { NAV_LINKS } from "../components/config"; 
@@ -12,7 +12,6 @@ const DesktopNavbar = (props: any) => {
     isSearchOpen, 
     megaMenuOpen, 
     handleMouseEnter, 
-    // handleSearchSubmit, 
     cartCount, 
     setOpenDrawer, 
     setIsSearchOpen 
@@ -24,30 +23,18 @@ const DesktopNavbar = (props: any) => {
     <Container maxWidth="xl">
       <Toolbar disableGutters sx={{ height: 90, justifyContent: "space-between" }}>
         
-        {/* LOGO SECTION */}
         <Box 
           onClick={() => navigate("/")} 
-          sx={{ 
-            cursor: "pointer", 
-            zIndex: 10,
-            display: "flex", 
-            alignItems: "center",
-            flexShrink: 0 
-          }}
+          sx={{ cursor: "pointer", zIndex: 10, display: "flex", alignItems: "center", flexShrink: 0 }}
         >
           <Box 
             component="img" 
             src={LOGO_URL} 
             alt="Logo"
-            sx={{ 
-              height: 70, 
-              width: "auto",
-              objectFit: "contain" 
-            }} 
+            sx={{ height: 70, width: "auto", objectFit: "contain" }} 
           />
         </Box>
 
-        {/* CENTER NAVIGATION & SEARCH AREA */}
         <Box sx={{ 
           flexGrow: 1, 
           display: "flex", 
@@ -74,20 +61,20 @@ const DesktopNavbar = (props: any) => {
               ))}
             </Stack>
           </Fade>
-          {/* <SearchBar 
-            isSearchOpen={isSearchOpen} 
-            onSearch={handleSearchSubmit} 
-          /> */}
+          <SearchBar
+            isSearchOpen={isSearchOpen}
+            onClose={() => setIsSearchOpen(false)}
+          />
         </Box>
+
         {!isSearchOpen && <AccreditationStack />}
-        {/* ACTION BUTTONS SECTION */}
+        
         <ActionStack 
           isSearchOpen={isSearchOpen}
           setIsSearchOpen={setIsSearchOpen}
           cartCount={cartCount}
           setOpenDrawer={setOpenDrawer}
         />
-
       </Toolbar>
     </Container>
   );
