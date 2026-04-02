@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Box, Typography, Button, CircularProgress, Table, TableBody, TableCell,
@@ -10,7 +10,7 @@ import {
   KeyboardArrowDown, KeyboardArrowUp, Send as SendIcon
 } from "@mui/icons-material";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { getMyEnquiries, type Enquiry } from "../../../api/authApi";
+import { getMyEnquiries} from "../../../api/authApi";
 import { getReplies, addReply, type EnquiryReply } from "../../../api/enquiryClient";
 import EmptyState from "./EmptyState";
 
