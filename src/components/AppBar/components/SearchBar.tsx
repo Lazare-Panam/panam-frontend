@@ -12,9 +12,7 @@ interface SearchBarProps {
   isSearchOpen: boolean
   onClose: () => void
 }
-const CATEGORY_ROUTES: Record<number, string> = {
-  1: "/products/valve-manifolds", // ← replace with your actual manifolds config URL
-}
+
 const highlightMatch = (text: string | null, term: string) => {
   if (!text || !term) return <span>{text}</span>
   const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi")
