@@ -55,3 +55,18 @@ export const getAllAdminRFQs = async (): Promise<AdminRFQ[]> => {
   const response = await axiosClient.get<AdminRFQ[]>("/api/admin/rfqs");
   return response.data;
 };
+
+export interface CreateRFQLineItemDTO {
+  productCode: string;
+  productDescription: string;
+  quantity: number;
+  notes?: string;
+}
+
+export interface CreateRFQForCustomerDTO {
+  rfqLineItemDTOs: CreateRFQLineItemDTO[];
+}
+
+export const createRFQForCustomer = async (customerId: string, payload: CreateRFQForCustomerDTO): Promise<void> => {
+  await axiosClient.post(`${ADMIN_BASE_PATH}/create-rfq-for-customer/${customerId}`, payload);
+};
