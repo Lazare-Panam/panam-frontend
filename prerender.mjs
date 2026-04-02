@@ -19,7 +19,8 @@ const routes = [
   "/industries/food-beverages",
   "/blog/panam-valves-rg-fluid-power-partnership",
   "/blog/double-blog-and-bleed",
-  "/blog/hydrogen-blog"
+  "/blog/hydrogen-blog",
+  "/blog/swivel-gauge-blog"
 ];
 const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
 

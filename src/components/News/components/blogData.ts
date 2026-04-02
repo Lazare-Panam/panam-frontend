@@ -56,5 +56,15 @@ export const blogs: BlogPost[] = [
     readTime: "5 min read",
     image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=80&w=1200",
     excerpt: "As the global energy sector pivots toward H₂, specialized valving is critical. Learn about the material science and engineering required to mitigate embrittlement and leakage in high-pressure hydrogen systems.",
-  }
+  },
+  {
+  slug: "swivel-gauge-blog",
+  title: "Swivel Gauge Adapters – Essential Guide to Pressure Gauge Positioning",
+  category: "Technical Guide",
+  author: "Panam Valves",
+  date: "April 2026",
+  readTime: "6 min read",
+  image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775120836/04e7b43f-e3d8-44a1-ad76-99451d32f0bd_nfmfdu.jpg",
+  excerpt: "In precision instrumentation, the reliability of a pressure measurement system depends on every component in the connection chain. Learn how swivel gauge adapters enable 360° positioning, prevent mechanical stress, and ensure measurement accuracy in demanding industrial environments.",
+}
 ]

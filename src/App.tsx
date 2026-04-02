@@ -34,6 +34,8 @@ import AdminDashboard from "./components/Admin/components/AdminDashboard"
 import HydrogenValvesBlog from "./components/News/components/HydrogenBlog"
 //import SearchResults from "./components/SearchResults/SearchResults"
 import PartNumberDetail from "./components/ProductDetail/PartNumberDetail"
+import AdminCreateRFQ from "./components/Admin/components/AdminCreateRFQ"
+import SwivelGaugeAdaptersBlog from "./components/News/components/SwivelGaugeBlog"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -142,6 +144,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <HydrogenValvesBlog />
+          </Suspense>
+        ),
+      },
+       {
+        path: "blog/swivel-gauge-blog",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <SwivelGaugeAdaptersBlog />
           </Suspense>
         ),
       },
@@ -287,6 +297,14 @@ export const routes = [
   element: (
     <Suspense fallback={<LoadingScreen />}>
       <PartNumberDetail />
+    </Suspense>
+  ),
+},
+{
+  path: "adminDashboard/create-rfq/:enquiryId",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <AdminCreateRFQ />
     </Suspense>
   ),
 },

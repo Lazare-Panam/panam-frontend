@@ -14,22 +14,30 @@ const HydrogenValvesBlog: React.FC = () => {
   const cta = {
     heading: "Building the next generation of Hydrogen Infrastructure?",
     body: "Ensuring zero-leakage in high-pressure hydrogen service requires precise metallurgy and specialized valve architecture. Request a technical consultation with PANAM's hydrogen experts to review your system's pressure ratings, material compatibility, and safety compliance.",
-    buttonText: "Request Technical Support",
     buttonLink: "/enquiry",
   };
 
   const matrixData = [
-    { feature: "Max Pressure Rating", spec: "Up to 60,000 psi (4,136 bar)", why: "Covers storage to ultra-high pressure testing" },
-    { feature: "Valve Typologies", spec: "Needle, Ball, Check (Non-Return)", why: "Full range of isolation, metering and non-return functions" },
-    { feature: "Metallurgy", spec: "SS316, Inconel, Hastelloy, Monel", why: "Stabilizes austenitic phase to prevent Embrittlement" },
-    { feature: "Compliance", spec: "ISO 19880-3, ASME B31.12 (Hydrogen Piping/Pipelines)", why: "Meets global hydrogen piping & component standards" },
-    { feature: "Primary Applications", spec: "Storage, Fuel Cell Infrastructure, Chemical Processing", why: "Engineered for net-zero energy vectors" },
+    { feature: "Max Pressure Rating — Needle Valve", spec: "60,000 psi (4,134 bar)" },
+    { feature: "Max Pressure Rating — Ball Valve", spec: "20,000 psi (1,378 bar)" },
+    { feature: "Max Pressure Rating — Check Valve", spec: "10,000 psi (689 bar)" },
+    { feature: "Valve Typologies", spec: "Needle, Ball (2-way / 3-way), Check (Non-Return)" },
+    { feature: "Connection Size Range", spec: '1/4" to 1" (valve range); 1/16" to 2" (fittings)' },
+    { feature: "Connection Types", spec: "NPT, BSPT, BSPP, Medium/High-Pressure Cone-and-Thread" },
+    { feature: "Metallurgy (Wetted Parts)", spec: "SS 316/316L, Monel, Hastelloy, Duplex SS" },
+    { feature: "Bonnet Material (Needle Valve)", spec: "C63000 Aluminium Bronze" },
+    { feature: "Packing / Sealing Materials", spec: "Glass-filled PTFE (to 121°C), Grafoil (to 648°C)" },
+    { feature: "Check Valve Cracking Pressures", spec: "1/3, 1, 5, 10, 25, 50, 75, 100 psi (selectable)" },
+    { feature: "Ball Valve Actuation", spec: "Quarter-turn (90°) with positive mechanical stop" },
+    { feature: "NACE Compliance", spec: "NACE MR0175 & MR0103 (all product families)" },
+    { feature: "Primary Standards / Codes", spec: "ISO 19880-3, ASME B31.12, ASTM A182" },
+    { feature: "Primary Applications", spec: "Storage, Fuel Cell Infrastructure, Compression, Chemical Processing" },
   ];
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>High-Pressure Hydrogen Valves | Net-Zero Infrastructure</title>
-      <meta name="description" content="Explore technical requirements for high-pressure hydrogen valves. Learn about Hydrogen Embrittlement (HE), material science, and valve typologies for net-zero infrastructure." />
+      <title>Hydrogen Valves – High-Pressure Hydrogen Valving Systems for Net-Zero Infrastructure</title>
+      <meta name="description" content="Technical analysis of high-pressure hydrogen valves. Material science, embrittlement mitigation, and valve typologies for net-zero infrastructure." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/hydrogen-valves-high-pressure" />
@@ -37,7 +45,7 @@ const HydrogenValvesBlog: React.FC = () => {
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
         <Container maxWidth="md">
           <Typography variant="h1" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: "2rem", md: "3rem" }, color: "#1A1A1A" }}>
-            Hydrogen Valves: Engineering for High-Pressure Net-Zero Infrastructure
+            Hydrogen Valves – High-Pressure Hydrogen Valving Systems for Net-Zero Infrastructure
           </Typography>
           <Typography variant="h4" sx={{ fontWeight: 600, mb: 4, color: "#555", fontSize: "1.5rem" }}>
             Mitigating Leakage and Degradation in Hydrogen Service
@@ -65,90 +73,109 @@ const HydrogenValvesBlog: React.FC = () => {
       <Container maxWidth="lg">
         <Grid container spacing={8}>
           <Grid size={{ xs: 12, md: 8 }}>
+
+            {/* Abstract */}
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              As the global energy sector pivots toward a decarbonized economy, hydrogen (H₂) has solidified its position as a primary energy vector for power generation, heavy transport, and industrial feedstock. However, the physical and chemical properties of H₂ necessitate highly specialized flow-control components.
+              As the global energy sector pivots toward a decarbonised economy, hydrogen (H₂) has solidified its position as a primary energy vector for power generation, heavy transport, and industrial feedstock. However, the physical and chemical properties of H₂ — including its extremely low molecular weight (2.016 g/mol), wide flammability range (4–75% in air), and propensity to induce metallic embrittlement — necessitate highly specialised flow-control components. This article analyses the technical requirements and material science behind the latest generation of high-pressure hydrogen valves designed to mitigate leakage and structural degradation, with specific reference to the Panam Valves product range.
             </Typography>
 
+            {/* Critical Engineering Challenges */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Critical Engineering Challenges
+              Critical Engineering Challenges in H₂ Service
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem" }}>
-              Standard industrial valves are often insufficient for hydrogen service due to three specific phenomena:
+              Standard industrial valves are insufficient for hydrogen service due to the following specific phenomena:
             </Typography>
 
             <Box component="ul" sx={{ mb: 6, pl: 2, listStyle: "none" }}>
               <Box component="li" sx={{ mb: 3 }}>
                 <Typography sx={{ fontWeight: 700, display: "inline" }}>Atomic Permeation: </Typography>
-                <Typography sx={{ display: "inline" }}>Due to its extremely small molecular radius, hydrogen can permeate through microscopic crystalline defects and seal interfaces, leading to significant fugitive emissions.</Typography>
+                <Typography sx={{ display: "inline" }}>Due to its extremely small molecular radius (kinetic diameter ≈ 2.89 Å), hydrogen can permeate through microscopic crystalline defects and seal interfaces at rates far exceeding those of conventional industrial gases, leading to significant fugitive emissions. Sealing geometries must achieve metal-to-metal contact wherever possible, with polymer seal materials — where used — selected for low H₂ permeability, such as PTFE and PEEK.</Typography>
               </Box>
               <Box component="li" sx={{ mb: 3 }}>
                 <Typography sx={{ fontWeight: 700, display: "inline" }}>Hydrogen Embrittlement (HE): </Typography>
-                <Typography sx={{ display: "inline" }}>The diffusion of atomic hydrogen into metal lattices causes a loss of ductility and fracture toughness. To counteract this, alloys such as Monel, Hastelloy, and specifically 316/316L Stainless Steel (with high nickel content) are utilized to stabilize the austenitic phase.</Typography>
+                <Typography sx={{ display: "inline" }}>The diffusion of atomic hydrogen into metal lattices causes a progressive loss of ductility and fracture toughness — a phenomenon that can result in sub-critical crack growth and catastrophic brittle fracture at stresses well below the nominal yield strength. To counteract this, Panam specifies austenitic alloys as standard for all hydrogen-wetted parts:</Typography>
+                <Box component="ul" sx={{ mt: 1, pl: 3 }}>
+                  <Box component="li" sx={{ mb: 1 }}>
+                    <Typography sx={{ fontWeight: 700, display: "inline" }}>316/316L Stainless Steel — </Typography>
+                    <Typography sx={{ display: "inline" }}>elevated nickel content (10–14%) stabilises the face-centred cubic (FCC) austenitic lattice, reducing hydrogen diffusivity by approximately an order of magnitude versus ferritic grades and providing superior corrosion resistance across the full hydrogen pressure range.</Typography>
+                  </Box>
+                  <Box component="li">
+                    <Typography sx={{ fontWeight: 700, display: "inline" }}>Monel, Hastelloy, and Duplex SS — </Typography>
+                    <Typography sx={{ display: "inline" }}>specified for aggressive or sour-gas hydrogen environments, including H₂S-containing streams encountered in Steam Methane Reforming and other industrial hydrogen production processes.</Typography>
+                  </Box>
+                </Box>
               </Box>
               <Box component="li" sx={{ mb: 3 }}>
                 <Typography sx={{ fontWeight: 700, display: "inline" }}>High-Pressure Dynamics: </Typography>
-                <Typography sx={{ display: "inline" }}>Operational environments often range from 350 bar to 700 bar (up to 60,000 psi in specialized testing/storage), requiring robust mechanical integrity and high safety factors.</Typography>
+                <Typography sx={{ display: "inline" }}>Operational hydrogen environments span an extreme pressure range. Fuel cell vehicle refuelling cycles between near-vacuum and 700 bar (10,150 psi), while stationary cascade storage systems can operate up to 900 bar (13,050 psi). Panam's needle valve range extends to 60,000 psi (4,134 bar) for specialised compression and R&D applications. Each pressure cycle imposes fatigue loading on valve bodies, stem seals, and seat interfaces — demanding components that are designed with generous safety factors and validated through rigorous cyclic pressure testing.</Typography>
               </Box>
             </Box>
 
+            {/* Ball Valves */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Specialized Valve Typologies
+              Hydrogen Ball Valves — Isolation & Directional Control
             </Typography>
+            <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8 }}>
+              Ball valves are utilized for high-cycle isolation. In service, the stem seal assembly is the primary failure point.
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 1 }}><strong>Trunnion-Mounted Design:</strong> Distributes fluid load to the bearings rather than the seats, ensuring consistent torque and seat integrity under high differential pressures.</Typography>
+            <Typography variant="body1" sx={{ mb: 6 }}><strong>Configurations:</strong> Available in 2-way and 3-way (diverter) geometries to facilitate complex process flow paths.</Typography>
 
-            <Stack spacing={4} sx={{ mb: 6 }}>
+            {/* Check Valves */}
+            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
+              Hydrogen Check Valves — Non-Return Systems
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
+              In compression trains, refuelling stations, and electrolyser buffer systems, check valves prevent backflow and protect upstream instrumentation from reverse pressure transients. The dynamic pressure fluctuations inherent to piston and diaphragm compressors impose cyclic mechanical loading on check valve internals, demanding robust fatigue-resistant design.
+            </Typography>
+            <Stack spacing={3} sx={{ mb: 6 }}>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                  Hydrogen Ball Valves (Isolation & Directional Control)
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 1 }}>Ball valves are utilized for high-cycle isolation. In hydrogen service, the stem seal assembly is the primary failure point.</Typography>
-                <Typography variant="body1" sx={{ mb: 0.5 }}><strong>Trunnion-Mounted Design:</strong> Distributes fluid load to the bearings rather than the seats, ensuring consistent torque and seat integrity under high differential pressures.</Typography>
-                <Typography variant="body1"><strong>Configurations:</strong> Available in 2-way and 3-way (diverter) geometries to facilitate complex process flow paths.</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Material Fatigue Considerations</Typography>
+                <Typography variant="body1">Standard spring-loaded poppet designs utilise strain-hardened spring materials that are highly susceptible to Hydrogen Embrittlement under cyclic loading. Progressive loss of spring preload leads to reduced cracking pressure and, ultimately, to unseated leakage. Panam check valves are rated to 10,000 psi (689 bar) with connection sizes up to 1″, available in Male and Female NPT, BSPT, BSPP, Metric, and PANAM tube fitting connections, with full NACE MR0175 and MR0103 compliance for sour-service hydrogen environments.</Typography>
               </Box>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                  Hydrogen Check Valves (Non-Return)
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 1 }}>In compression and refuelling modules, check valves prevent backflow and protect upstream instrumentation.</Typography>
-                <Typography variant="body1" sx={{ mb: 0.5 }}><strong>Material Fatigue:</strong> Standard springs in check valves often utilize strain-hardened materials susceptible to HE.</Typography>
-                <Typography variant="body1"><strong>Ball-Check Optimization:</strong> A ball-check architecture is preferred over spring-loaded poppets to reduce mechanical complexity and minimize reliance on high-stress spring components, ensuring a reliable seal under dynamic pressure fluctuations.</Typography>
-              </Box>
-              <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                  Hydrogen Needle Valves (Precision Metering)
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 1 }}>Needle valves provide fine flow adjustment but face risks of seat deformation under the high seating forces required for gas-tight shut-off.</Typography>
-                <Typography variant="body1" sx={{ mb: 0.5 }}><strong>Material Specification:</strong> Constructed from high-grade ASTM A182 316 SS to provide superior corrosion resistance and structural stability.</Typography>
-                <Typography variant="body1"><strong>Pressure Rating:</strong> Engineered to maintain seat integrity at pressures exceeding 700 bar, ensuring full compatibility with hydrogen-rated compression fittings to eliminate potential leak paths.</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Ball-Check Architecture</Typography>
+                <Typography variant="body1">A ball-check design is preferred over spring-loaded poppets in hydrogen service. By eliminating high-stress spring components, the ball-check architecture significantly reduces mechanical complexity and minimises reliance on components susceptible to HE. Cracking pressures are selectable across eight discrete set-points — 1/3, 1, 5, 10, 25, 50, 75, and 100 psi — allowing precise tuning of the valve's opening threshold to match the differential pressure characteristics of the upstream compression equipment, preventing valve chatter and ensuring a reliable seal under dynamic pressure fluctuations.</Typography>
               </Box>
             </Stack>
 
+            {/* Needle Valves */}
+            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
+              Hydrogen Needle Valves — Precision Metering
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8 }}>
+              Needle valves provide fine flow adjustment but face risks of seat deformation under the high seating forces required for gas-tight shut-off.
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 1 }}><strong>Material Specification:</strong> Constructed from high-grade ASTM A182 316 SS to provide superior corrosion resistance and structural stability.</Typography>
+            <Typography variant="body1" sx={{ mb: 6 }}><strong>Pressure Rating:</strong> Engineered to maintain seat integrity at pressures exceeding 700 bar, ensuring full compatibility with hydrogen-rated compression fittings to eliminate potential leak paths.</Typography>
+
+            {/* Matrix */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
               Technical Specifications Matrix
             </Typography>
-
             <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #EEE", mb: 4 }}>
               <Table>
-                <TableHead sx={{ bgcolor: "#F8F9FA" }}>
+                <TableHead sx={{ bgcolor: "#1A3A5C" }}>
                   <TableRow>
-                    <TableCell sx={{ fontWeight: 700 }}>Feature</TableCell>
-                    <TableCell sx={{ fontWeight: 700 }}>Requirement</TableCell>
-                    <TableCell sx={{ fontWeight: 700 }}>Significance</TableCell>
+                    <TableCell sx={{ fontWeight: 700, color: "#fff" }}>Feature</TableCell>
+                    <TableCell sx={{ fontWeight: 700, color: "#fff" }}>Specification / Requirement</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {matrixData.map((row, i) => (
-                    <TableRow key={i}>
+                    <TableRow key={i} sx={{ bgcolor: i % 2 === 0 ? "#fff" : "#F4F8FB" }}>
                       <TableCell sx={{ fontWeight: 600 }}>{row.feature}</TableCell>
                       <TableCell>{row.spec}</TableCell>
-                      <TableCell>{row.why}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
             </TableContainer>
 
+            {/* Manufacturing */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Manufacturing Excellence & QA
+              Manufacturing Excellence and Quality Assurance
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
               Panam utilizes precision CNC machining to achieve stringent tolerances and superior surface finishes, which are essential for minimizing interfacial leakage in gas service. With over 25 years of metallurgical expertise, the manufacturing process incorporates:
