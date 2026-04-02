@@ -54,26 +54,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ isSearchOpen, onClose }) => {
     debounceRef.current = setTimeout(() => setDebouncedQuery(val), 300)
   }
 
-  const handleEnter = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && query.trim()) {
-      // Check if we have results to determine the category context
-      if (results.length > 0) {
-        const firstItem = results[0];
-        const categoryId = firstItem.categoryId;
-        const route = CATEGORY_ROUTES[categoryId];
 
-        // Navigate to the specific category route if it exists, otherwise standard results
-        navigate(route ?? `/search/results?q=${encodeURIComponent(query.trim())}&categoryId=${categoryId}`);
-      } else {
-        // Fallback for when no autocomplete results have loaded yet
-        navigate(`/search/results?q=${encodeURIComponent(query.trim())}`);
-      }
-      
-      setQuery("");
-      setDebouncedQuery("");
-      onClose();
-    }
-  }
 
   const handlePartNumberClick = (partNumber: string) => {
     setQuery("")
@@ -81,14 +62,21 @@ const SearchBar: React.FC<SearchBarProps> = ({ isSearchOpen, onClose }) => {
     navigate(`/partNumber/${partNumber}`)
     onClose()
   }
+const handleViewAll = (categoryId: number) => {
+  setQuery("")
+  setDebouncedQuery("")
+  navigate(`/search/results?q=${encodeURIComponent(query)}&categoryId=${categoryId}`)
+  onClose()
+}
 
-  const handleViewAll = (categoryId: number) => {
+const handleEnter = (e: React.KeyboardEvent) => {
+  if (e.key === "Enter" && query.trim()) {
+    navigate(`/search/results?q=${encodeURIComponent(query.trim())}`)
     setQuery("")
     setDebouncedQuery("")
-    const route = CATEGORY_ROUTES[categoryId]
-    navigate(route ?? `/search/results?q=${encodeURIComponent(query)}&categoryId=${categoryId}`)
     onClose()
   }
+}
 
   const grouped = results.reduce<Record<string, AutocompleteResultDTO[]>>((acc, item) => {
     if (!acc[item.categoryName]) acc[item.categoryName] = []
@@ -173,7 +161,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ isSearchOpen, onClose }) => {
                         fontWeight: 600,
                         "&:hover": { textDecoration: "underline" },
                       }}>
-                      Configure →
+                      Show all →
                     </Typography>
                   </Tooltip>
                 </Box>

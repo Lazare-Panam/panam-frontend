@@ -4,6 +4,7 @@ import Hero2 from "./components/Hero2"
 import HydrogenSection from "./components/HydrogenSection"
 import IndustriesSection from "./components/IndustriesSection"
 import PartnersSection from "./components/PartnersSection"
+import SEOSection from "./components/SEOSection"
 import TechnicalSupport from "./components/TechnicalSupport"
 import Ticker from "./components/Ticker"
 const Landing2 = () => {
@@ -13,6 +14,7 @@ const Landing2 = () => {
       <meta name="description" content="Global leader in precision instrumentation valves, fittings, and specialized solutions for the Hydrogen, Oil & Gas, and Power industries." />
       <Hero2 />
       <Ticker />
+      <SEOSection/>
       <CoreProducts />
       <IndustriesSection />
       <HydrogenSection />

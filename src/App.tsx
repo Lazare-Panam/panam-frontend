@@ -32,7 +32,7 @@ import CheckValveBlog from "./components/News/components/CheckValveBlog"
 import AdminLogin from "./components/Admin/components/AdminLogin"
 import AdminDashboard from "./components/Admin/components/AdminDashboard"
 import HydrogenValvesBlog from "./components/News/components/HydrogenBlog"
-//import SearchResults from "./components/SearchResults/SearchResults"
+import SearchResults from "./components/SearchResults/SearchResults"
 import PartNumberDetail from "./components/ProductDetail/PartNumberDetail"
 import AdminCreateRFQ from "./components/Admin/components/AdminCreateRFQ"
 import SwivelGaugeAdaptersBlog from "./components/News/components/SwivelGaugeBlog"
@@ -292,6 +292,14 @@ export const routes = [
           </Suspense>
         ),
       },
+      {
+  path: "search/results",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <SearchResults />
+    </Suspense>
+  ),
+},
 {
   path: "partNumber/:partNumber",
   element: (
