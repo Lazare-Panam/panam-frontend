@@ -13,10 +13,12 @@ export interface NavCategory {
 // Add this below your navConfig object
 export const NAV_LINKS = [
   { label: "Products", id: "products", path: "/products", hasMenu: true },
+   { label: "Catalogs", id: "catalogs", path: "/catalogPdfs", hasMenu: false },
   { label: "News & Blog", id: "blog", path: "/blog", hasMenu: true },
   { label: "About Us", id: "about", path: "/about", hasMenu: true },
   { label: "My Account", id: "dashboard", path: "/dashboard", hasMenu: true },
   { label: "Contact Us", id: "enquiry", path: "/enquiry", hasMenu: false },
+  
 ];
 
 // Defining this as a Record ensures we can access it via navConfig[menuId] safely
