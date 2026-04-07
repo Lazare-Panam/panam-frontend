@@ -13,7 +13,7 @@ export interface NavCategory {
 // Add this below your navConfig object
 export const NAV_LINKS = [
   { label: "Products", id: "products", path: "/products", hasMenu: true },
-   { label: "Catalogs", id: "catalogs", path: "/catalogPdfs", hasMenu: false },
+  { label: "Resource", id: "resources", path: "/resources", hasMenu: true },
   { label: "News & Blog", id: "blog", path: "/blog", hasMenu: true },
   { label: "About Us", id: "about", path: "/about", hasMenu: true },
   { label: "My Account", id: "dashboard", path: "/dashboard", hasMenu: true },
@@ -182,4 +182,20 @@ export const navConfig: Record<string, NavCategory[]> = {
     },
     
   ],
+  resources: [
+    {
+      id: "certificates",
+      label: "Certificates",
+      link: "/certificates",
+      items: [{ name: "All Certificates", link: "/certificates" }],
+    },
+    {
+      id: "catalogs",
+      label: "Catalogs",
+      link: "/catalogPdfs",
+      items: [{ name: "All Catalogs", link: "/catalogPdfs" }],
+    },
+    
+    
+  ]
 };

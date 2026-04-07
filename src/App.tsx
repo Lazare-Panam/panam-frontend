@@ -36,6 +36,8 @@ import SearchResults from "./components/SearchResults/SearchResults"
 import PartNumberDetail from "./components/ProductDetail/PartNumberDetail"
 import AdminCreateRFQ from "./components/Admin/components/AdminCreateRFQ"
 import SwivelGaugeAdaptersBlog from "./components/News/components/SwivelGaugeBlog"
+import ResourcesPage from "./components/Resources/ResourcesPage"
+import CertificationsPage from "./components/Resources/components/Certifications"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -313,6 +315,22 @@ export const routes = [
   element: (
     <Suspense fallback={<LoadingScreen />}>
       <AdminCreateRFQ />
+    </Suspense>
+  ),
+},
+{
+  path: "resources",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <ResourcesPage />
+    </Suspense>
+  ),
+},
+{
+  path: "certificates",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <CertificationsPage />
     </Suspense>
   ),
 },
