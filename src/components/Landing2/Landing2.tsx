@@ -3,6 +3,7 @@ import CoreProducts from "./components/CoreProducts"
 import Hero2 from "./components/Hero2"
 import HydrogenSection from "./components/HydrogenSection"
 import IndustriesSection from "./components/IndustriesSection"
+import MovingBanner from "./components/LiveInventory"
 import PartnersSection from "./components/PartnersSection"
 import SEOSection from "./components/SEOSection"
 import TechnicalSupport from "./components/TechnicalSupport"
@@ -15,6 +16,7 @@ const Landing2 = () => {
       <Hero2 />
       <Ticker />
       <SEOSection/>
+      <MovingBanner/>
       <CoreProducts />
       <IndustriesSection />
       <HydrogenSection />
