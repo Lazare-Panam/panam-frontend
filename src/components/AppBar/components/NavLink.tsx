@@ -40,6 +40,7 @@ export const NavLink: React.FC<NavLinkProps> = ({ item, isOpen, onHover, onClick
       color: "#1A1A1A",
       textTransform: "none",
       fontFamily: PRIMARY_FONT,
+      fontSize: "0.775rem",
       fontWeight: 600,
       px: 2,
       "&:hover": { color: BRAND_BLUE },

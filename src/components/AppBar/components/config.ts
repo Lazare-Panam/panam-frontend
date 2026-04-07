@@ -13,7 +13,7 @@ export interface NavCategory {
 // Add this below your navConfig object
 export const NAV_LINKS = [
   { label: "Products", id: "products", path: "/products", hasMenu: true },
-  { label: "Resource", id: "resources", path: "/resources", hasMenu: true },
+  { label: "Resources", id: "resources", path: "/resources", hasMenu: true },
   { label: "News & Blog", id: "blog", path: "/blog", hasMenu: true },
   { label: "About Us", id: "about", path: "/about", hasMenu: true },
   { label: "My Account", id: "dashboard", path: "/dashboard", hasMenu: true },
