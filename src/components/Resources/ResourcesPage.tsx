@@ -22,7 +22,7 @@ const ResourcesPage: React.FC = () => {
     {
       title: "QUALITY & CERTIFICATIONS",
       description: "View and download our safety certifications, ISO standards, and compliance documentation for global operations.",
-      path: "/certifications",
+      path: "/certificates",
       icon: <VerifiedUserIcon sx={{ fontSize: 40, color: BRAND_BLUE }} />,
     }
   ];
