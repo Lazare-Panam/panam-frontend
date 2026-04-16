@@ -3,9 +3,9 @@ import { Box, Typography, Button, Container, AppBar, Toolbar, Tabs, Tab } from "
 import { useNavigate } from "react-router-dom"
 import { LogoutOutlined, DashboardOutlined, HistoryEdu as EnquiryIcon, Assignment as RFSIcon } from "@mui/icons-material"
 import AdminEnquiriesList from "./AdminEnquiries" // The component we just built
-import AdminRFQList from "./AdminRfq"
 import AdminUsersList from "./AdminUsers"
 import PeopleIcon from "@mui/icons-material/PeopleAltOutlined"
+import AdminRFQListNew from "./AdminRFQ/AdminRfqListNew"
 const BRAND_BLUE = "#01B0F0"
 
 const AdminDashboard: React.FC = () => {
@@ -79,7 +79,7 @@ const AdminDashboard: React.FC = () => {
 
         {activeTab === 1 && (
           <Box>
-            <AdminRFQList />
+            <AdminRFQListNew />
           </Box>
         )}
         {activeTab === 2 && (

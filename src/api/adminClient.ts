@@ -35,6 +35,7 @@ export interface RFQLineItem {
   productDescription: string
   quantity: number
   notes: string
+  unitPrice: number | null
 }
 
 export interface AdminRFQ {
@@ -61,6 +62,7 @@ export interface CreateRFQLineItemDTO {
   productDescription: string
   quantity: number
   notes?: string
+  unitPrice?: number | null
 }
 
 export interface CreateRFQForCustomerDTO {
@@ -85,4 +87,51 @@ export interface UserSummary {
 export const getAllAdminUsers = async (): Promise<UserSummary[]> => {
   const response = await axiosClient.get<UserSummary[]>(`${ADMIN_BASE_PATH}/users`)
   return response.data
+}
+export const updateLineItemPrice = async (lineItemId: string, price: number | null): Promise<void> => {
+  await axiosClient.patch(`${ADMIN_BASE_PATH}/rfq-line-item/${lineItemId}/price`, price, {
+    headers: { "Content-Type": "application/json" },
+  })
+}
+export interface HubSpotProduct {
+  id: string
+  name: string
+  description: string
+  price: number | null
+}
+
+export const searchProductsRFQ = async (q: string): Promise<HubSpotProduct[]> => {
+  const response = await axiosClient.get<HubSpotProduct[]>(`${ADMIN_BASE_PATH}/products/search`, { params: { q } })
+  return response.data
+}
+
+export interface UpdateLineItemDTO {
+  productCode: string
+  productDescription: string
+  quantity: number
+  notes?: string
+  unitPrice?: number | null
+}
+
+export const updateLineItem = async (lineItemId: string, dto: UpdateLineItemDTO): Promise<void> => {
+  await axiosClient.put(`${ADMIN_BASE_PATH}/rfq-line-item/${lineItemId}`, dto)
+}
+
+export const deleteLineItem = async (lineItemId: string): Promise<void> => {
+  await axiosClient.delete(`${ADMIN_BASE_PATH}/rfq-line-item/${lineItemId}`)
+}
+
+export const addLineItemsToRFQ = async (rfqId: string, items: RFQLineItemDTO[]): Promise<void> => {
+  await axiosClient.post(`${ADMIN_BASE_PATH}/rfq/${rfqId}/line-items`, items)
+}
+
+export interface RFQLineItemDTO {
+  productCode: string
+  productDescription: string
+  quantity: number
+  notes?: string
+  unitPrice?: number | null
+}
+export const notifyQuotationReady = async (rfqId: string): Promise<void> => {
+  await axiosClient.post(`${ADMIN_BASE_PATH}/rfq/${rfqId}/notify-ready`)
 }

@@ -149,7 +149,7 @@ export const routes = [
           </Suspense>
         ),
       },
-       {
+      {
         path: "blog/swivel-gauge-blog",
         element: (
           <Suspense fallback={<LoadingScreen />}>
@@ -295,45 +295,45 @@ export const routes = [
         ),
       },
       {
-  path: "search/results",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <SearchResults />
-    </Suspense>
-  ),
-},
-{
-  path: "partNumber/:partNumber",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <PartNumberDetail />
-    </Suspense>
-  ),
-},
-{
-  path: "adminDashboard/create-rfq/:enquiryId",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <AdminCreateRFQ />
-    </Suspense>
-  ),
-},
-{
-  path: "resources",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <ResourcesPage />
-    </Suspense>
-  ),
-},
-{
-  path: "certificates",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <CertificationsPage />
-    </Suspense>
-  ),
-},
+        path: "search/results",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <SearchResults />
+          </Suspense>
+        ),
+      },
+      {
+        path: "partNumber/:partNumber",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <PartNumberDetail />
+          </Suspense>
+        ),
+      },
+      {
+        path: "adminDashboard/create-rfq/:enquiryId",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AdminCreateRFQ />
+          </Suspense>
+        ),
+      },
+      {
+        path: "resources",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ResourcesPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "certificates",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CertificationsPage />
+          </Suspense>
+        ),
+      },
 
       { path: "*", element: <NotFound /> },
     ],
