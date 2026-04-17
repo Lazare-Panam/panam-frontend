@@ -40,7 +40,7 @@ const HydrogenValvesBlog: React.FC = () => {
       <meta name="description" content="Technical analysis of high-pressure hydrogen valves. Material science, embrittlement mitigation, and valve typologies for net-zero infrastructure." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://www.panamvalve.com/blog/hydrogen-valves-high-pressure" />
+      <link rel="canonical" href="https://www.panamvalve.com/blog/hydrogen-blog" />
 
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
         <Container maxWidth="md">

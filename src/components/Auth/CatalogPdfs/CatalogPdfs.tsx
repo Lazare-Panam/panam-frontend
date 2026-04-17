@@ -46,6 +46,15 @@ const CatalogPdfs = () => {
   }
 
   return (
+    <>
+    <title>Product Catalogs | Panam Valve</title>
+      <meta name="description" content="Access Panam Valve's full range of technical product catalogs and engineering documentation. Registered partners get full access to high-resolution PDFs." />
+      <link rel="canonical" href="https://www.panamvalve.com/catalogPdfs" />
+      <meta property="og:title" content="Product Catalogs | Panam Valve" />
+      <meta property="og:description" content="Technical catalogs and engineering specs for Panam Valve's full product range." />
+      <meta property="og:url" content="https://www.panamvalve.com/catalogPdfs" />
+      <meta property="og:type" content="website" />
+      <meta name="robots" content="noindex, nofollow" />
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh", pb: 10, position: "relative" }}>
       <Box sx={{ p: { xs: 3, md: 8 }, maxWidth: "1200px", margin: "0 auto" }}>
         {/* Header Section */}
@@ -223,6 +232,8 @@ const CatalogPdfs = () => {
         </Stack>
       </Box>
     </Box>
+    </>
+    
   )
 }
 

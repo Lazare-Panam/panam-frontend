@@ -34,7 +34,7 @@ const CheckValveBlog: React.FC = () => {
       <meta name="description" content="Explore what check valves (NRV) do, the mechanics behind their operation, and why they remain essential in modern industrial infrastructure." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://www.panamvalve.com/blog/check-valves-blogs" />
+      <link rel="canonical" href="https://www.panamvalve.com/blog/check-valves-blog" />
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
