@@ -5,7 +5,7 @@ interface StatusStyle {
   color: string
   border: string
   label: string
-}
+} 
 
 const RFQ_STATUS_MAP: Record<string, StatusStyle> = {
   Submitted: { bg: "#FFFBEB", color: "#B45309", border: "#FDE68A", label: "SUBMITTED" },
