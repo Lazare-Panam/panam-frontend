@@ -72,7 +72,7 @@ export default function AllCategories() {
                 sm: "repeat(2, 1fr)",
                 md: "repeat(3, 1fr)",
                 lg: "repeat(4, 1fr)",
-                xl: "repeat(5, 1fr)",
+                xl: "repeat(4, 1fr)",
               },
             }}>
             {CATEGORIES.map(cat => (

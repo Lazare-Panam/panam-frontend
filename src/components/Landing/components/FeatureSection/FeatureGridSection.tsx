@@ -1,13 +1,12 @@
 import React from "react"
 import { Box, Container, Typography, Button, Divider } from "@mui/material"
 import Grid from "@mui/material/Grid"
-import { useNavigate } from "react-router-dom"
 
 // Define the shape of each feature item
 interface FeatureItem {
   image: string
   caption: React.ReactNode // ReactNode allows us to pass bolded text/links easily
-  link: string
+  
 }
 
 export interface FeatureGridProps {
@@ -18,8 +17,6 @@ export interface FeatureGridProps {
 }
 
 const FeatureGridSection: React.FC<FeatureGridProps> = ({ sectionTitle, items, buttonText, onButtonClick }) => {
-  const navigate = useNavigate()
-
   return (
     <Box sx={{ width: "100%", py: 8 }}>
       {/* Visual Divider to separate from previous sections */}
@@ -39,7 +36,8 @@ const FeatureGridSection: React.FC<FeatureGridProps> = ({ sectionTitle, items, b
 
         <Grid container spacing={4}>
           {items.map((item, index) => (
-            <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }} sx={{ cursor: "pointer" }} onClick={() => navigate(item.link)} role="button" aria-label={`View ${item.caption}`}>
+            /* Removed onClick, navigate, cursor, and role */
+            <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }}>
               <Box
                 sx={{
                   width: "100%",
@@ -59,8 +57,7 @@ const FeatureGridSection: React.FC<FeatureGridProps> = ({ sectionTitle, items, b
                     maxWidth: "100%",
                     maxHeight: "100%",
                     objectFit: "contain", // Keeps proportions perfect
-                    transition: "transform 0.3s ease",
-                    "&:hover": { transform: "scale(1.1)" },
+                    /* Removed transition and scale hover effect */
                   }}
                 />
               </Box>

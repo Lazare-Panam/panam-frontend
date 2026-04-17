@@ -5,20 +5,40 @@ import Layout from "./Layout"
 import CrossReference from "./components/Cross_Reference/CrossReference"
 import RegisterForm from "./components/Account/components/RegisterForm"
 import Login from "./components/Account/Login"
-import CatalogPdfs from "./components/CatalogPdfs/CatalogPdfs"
-const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
+import CatalogPdfs from "./components/Auth/CatalogPdfs/CatalogPdfs"
+//const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
+
 const News = lazy(() => import("./components/News/News"))
 const DashBoard = lazy(() => import("./components/Dashboard/Dashboard"))
 const ProductPage = lazy(() => import("./components/All_Categories/ProductPage"))
 const NotFound = lazy(() => import("./components/Error/NotFound"))
 const CartPage = lazy(() => import("./components/Cart/CartPage"))
 const IndustryPage = lazy(() => import("./components/Industries/components/IndustryPage"))
-const BlogDetail = lazy(() => import("./components/News/components/BlogTempate"))
 const AuthAndInquiryPage = lazy(() => import("./components/Auth/AuthAndInquiryPage"))
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
 import ProductDetailPage from "./components/Product_Details/ProductDetails"
+import Landing2 from "./components/Landing2/Landing2"
+import MarineSubseaPage from "./components/Industries/components/MaineSubSea"
+import OilGasPage from "./components/Industries/components/OilGas"
+import HydrogenPage from "./components/Industries/components/Hydrogen"
+import AerospaceDefensePage from "./components/Industries/components/AeroSpaceDefense"
+import ChemicalsPage from "./components/Industries/components/Chemicals"
+import FoodBeveragePage from "./components/Industries/components/FoodBeverage"
+import PartnershipAnnouncementPage from "./components/News/components/PartnershipAnnoucement"
+import DoubleBlockBleedBlog from "./components/News/components/DoubleBlockBleedBlog"
+import CheckValveBlog from "./components/News/components/CheckValveBlog"
+import AdminLogin from "./components/Admin/components/AdminLogin"
+import AdminDashboard from "./components/Admin/components/AdminDashboard"
+import HydrogenValvesBlog from "./components/News/components/HydrogenBlog"
+import SearchResults from "./components/SearchResults/SearchResults"
+import PartNumberDetail from "./components/ProductDetail/PartNumberDetail"
+
+import SwivelGaugeAdaptersBlog from "./components/News/components/SwivelGaugeBlog"
+import ResourcesPage from "./components/Resources/ResourcesPage"
+import CertificationsPage from "./components/Resources/components/Certifications"
+const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
     path: "/",
@@ -29,7 +49,7 @@ export const routes = [
         index: true,
         element: (
           <Suspense fallback={<LoadingScreen />}>
-            <LandingPage />
+            <Landing2 />
           </Suspense>
         ),
       },
@@ -50,11 +70,15 @@ export const routes = [
         ),
       },
       {
-    path: "products/:id/:subId",   
-    element: <Suspense fallback={<LoadingScreen />}><ProductGallery /></Suspense>,
-  },
-  {
-        path: ":detailId",
+        path: "products/:id/:subId",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ProductGallery />
+          </Suspense>
+        ),
+      },
+      {
+        path: "catalogPDFs/:detailId",
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <ProductDetailPage />
@@ -94,10 +118,90 @@ export const routes = [
         ),
       },
       {
-        path: "blog/:slug",
+        path: "blog/panam-valves-rg-fluid-power-partnership",
         element: (
           <Suspense fallback={<LoadingScreen />}>
-            <BlogDetail />
+            <PartnershipAnnouncementPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/double-blog-and-bleed",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <DoubleBlockBleedBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/check-valves-blog",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CheckValveBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/hydrogen-blog",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <HydrogenValvesBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/swivel-gauge-blog",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <SwivelGaugeAdaptersBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/marine-subsea",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <MarineSubseaPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/oil-gas",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <OilGasPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/hydrogen",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <HydrogenPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/aerospace-defense",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AerospaceDefensePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/chemicals-petrochemical",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ChemicalsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "industries/food-beverages",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <FoodBeveragePage />
           </Suspense>
         ),
       },
@@ -120,6 +224,14 @@ export const routes = [
 
       {
         path: "dashboard",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <DashBoard />
+          </Suspense>
+        ),
+      },
+      {
+        path: "dashboard/:section",
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <DashBoard />
@@ -158,6 +270,72 @@ export const routes = [
           </Suspense>
         ),
       },
+      {
+        path: "reset-password",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ResetPasswordPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "landing2",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <Landing2 />
+          </Suspense>
+        ),
+      },
+      {
+        path: "adminLogin",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AdminLogin />
+          </Suspense>
+        ),
+      },
+      {
+        path: "adminDashboard",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <AdminDashboard />
+          </Suspense>
+        ),
+      },
+      {
+        path: "search/results",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <SearchResults />
+          </Suspense>
+        ),
+      },
+      {
+        path: "partNumber/:partNumber",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <PartNumberDetail />
+          </Suspense>
+        ),
+      },
+
+      {
+        path: "resources",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ResourcesPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "certificates",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CertificationsPage />
+          </Suspense>
+        ),
+      },
+
       { path: "*", element: <NotFound /> },
     ],
   },

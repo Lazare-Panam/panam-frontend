@@ -1,157 +1,115 @@
-import React from "react"
-import { Box, Fade, Container, Stack, Typography } from "@mui/material"
-// Import Grid2 specifically
-import Grid from "@mui/material/Grid"
+import React from "react";
+import { Box, Container, Typography, Fade } from "@mui/material";
+import Grid from "@mui/material/Grid"; // Ensure you are using Grid2
+import { type NavCategory , PRIMARY_FONT} from "./config";
 
-const BRAND_BLUE = "#01B0F0"
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
+const BRAND_BLUE = "#01B0F0";
 
 interface MegaMenuProps {
-  isOpen: boolean
-  menuData: any[]
-  activeTab: any
-  setActiveTab: (tab: any) => void
-  handleNavigate: (link: string) => void
+  isOpen: boolean;
+  menuData: NavCategory[];
+  activeTab: NavCategory | null;
+  setActiveTab: (tab: NavCategory) => void;
+  handleNavigate: (link: string) => void;
 }
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, menuData, activeTab, setActiveTab, handleNavigate }) => {
+const MegaMenu: React.FC<MegaMenuProps> = ({ 
+  isOpen, 
+  menuData, 
+  activeTab, 
+  setActiveTab, 
+  handleNavigate 
+}) => {
+  if (!menuData || menuData.length === 0) return null;
+
   return (
     <Fade in={isOpen}>
       <Box
         sx={{
           position: "absolute",
-          top: { xs: 70, md: 90 },
+          top: 90, 
           left: 0,
           right: 0,
-          backgroundColor: "white",
-          borderBottom: "1px solid #E0E0E0",
-          boxShadow: "0px 15px 30px rgba(0,0,0,0.1)",
-          zIndex: 4,
-        }}>
+          bgcolor: "white",
+          boxShadow: "0px 20px 40px rgba(0,0,0,0.1)",
+          zIndex: 5,
+          borderTop: "1px solid #F0F0F0",
+          fontFamily: PRIMARY_FONT
+        }}
+      >
         <Container maxWidth="xl" sx={{ p: 0 }}>
-          {/* Main Grid Container using Grid2 */}
-          <Grid container>
+          <Grid container sx={{ minHeight: 500 }}>
             
-            {/* LEFT SIDEBAR: Categories */}
-            <Grid 
-              size={{ md: 3 }} 
-              sx={{ 
-                backgroundColor: "white", 
-                py: 4, 
-                borderRight: "1px solid #F0F0F0",
-                minHeight: '450px' 
-              }}
-            >
-              <Stack spacing={0.5}>
-                {menuData.map((cat: any) => (
-                  <Box
-                    key={cat.id}
-                    onMouseEnter={() => setActiveTab(cat)}
-                    // Main category redirect if link exists
-                    onClick={() => cat.link && handleNavigate(cat.link)}
-                    sx={{
-                      px: 4,
-                      py: 2,
-                      cursor: "pointer",
-                      fontFamily: PRIMARY_FONT,
-                      fontWeight: activeTab?.id === cat.id ? 700 : 500,
-                      color: activeTab?.id === cat.id ? BRAND_BLUE : "#4A4A4A",
-                      backgroundColor: activeTab?.id === cat.id ? "#F4FBFF" : "transparent",
-                      transition: "all 0.2s ease",
-                      borderLeft: activeTab?.id === cat.id ? `4px solid ${BRAND_BLUE}` : "4px solid transparent",
-                      "&:hover": {
-                        backgroundColor: "#F4FBFF",
-                        color: BRAND_BLUE,
-                      }
-                    }}>
-                    {cat.label}
-                  </Box>
-                ))}
-              </Stack>
+            {/* LEFT SIDEBAR */}
+            <Grid size={{ md: 3 }} sx={{ borderRight: "1px solid #F0F0F0", py: 4, bgcolor: "#FAFAFA" }}>
+              {menuData.map((cat) => (
+                <Box
+                  key={cat.id}
+                  onMouseEnter={() => setActiveTab(cat)}
+                  onClick={() => handleNavigate(cat.link)}
+                  sx={{
+                    px: 4,
+                    py: 1.5,
+                    cursor: "pointer",
+                    transition: "0.2s",
+                    fontWeight: activeTab?.id === cat.id ? 700 : 500,
+                    color: activeTab?.id === cat.id ? BRAND_BLUE : "#4A4A4A",
+                    bgcolor: activeTab?.id === cat.id ? "#F4FBFF" : "transparent",
+                    borderLeft: `4px solid ${activeTab?.id === cat.id ? BRAND_BLUE : "transparent"}`,
+                    "&:hover": { color: BRAND_BLUE, bgcolor: "#F4FBFF" }
+                  }}
+                >
+                  {cat.label}
+                </Box>
+              ))}
             </Grid>
 
-            {/* RIGHT SIDE: Sub-Items Content */}
-            <Grid 
-              size={{ md: 9 }} 
-              sx={{ backgroundColor: "#F9FAFB", py: 5, px: 6 }}
-            >
+            {/* RIGHT CONTENT AREA */}
+            <Grid size={{ md: 9 }} sx={{ p: 6 }}>
+              {/* Active Category Header */}
               <Typography 
                 variant="overline" 
                 sx={{ 
                   color: BRAND_BLUE, 
                   fontWeight: 800, 
-                  letterSpacing: 1.5, 
-                  mb: 3, 
-                  display: 'block',
-                  opacity: 0.8 
+                  mb: 4, 
+                  display: 'block', 
+                  letterSpacing: 1.5,
+                  fontSize: "0.75rem"
                 }}
               >
-                {activeTab?.label || "Select a Category"}
+                {activeTab?.label}
               </Typography>
-
-              {/* Nested Grid2 for sub-items */}
-              <Grid container spacing={1}>
-                {activeTab?.items?.map((item: any) => {
-                  const isClickable = !!item.link;
-
-                  return (
-                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={item.name}>
-                      <Box
-                        onClick={() => isClickable && handleNavigate(item.link)}
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          py: 1.5,
-                          px: 2,
-                          borderRadius: "6px",
-                          cursor: isClickable ? "pointer" : "default",
-                          color: "#333",
-                          fontFamily: PRIMARY_FONT,
-                          fontSize: "0.875rem",
-                          fontWeight: 500,
-                          transition: "all 0.2s ease",
-                          border: "1px solid transparent",
-                          // Hover logic only triggers if link exists
-                          "&:hover": isClickable ? {
-                            backgroundColor: "white",
-                            color: BRAND_BLUE,
-                            boxShadow: "0px 4px 12px rgba(0,0,0,0.06)",
-                            transform: "translateX(4px)",
-                            borderColor: "#E0E0E0"
-                          } : {},
-                        }}
-                      >
-                        <Typography sx={{ fontSize: 'inherit', fontWeight: 'inherit' }}>
-                          {item.name}
-                        </Typography>
-                        
-                        {isClickable && (
-                          <Box 
-                            component="span" 
-                            className="arrow-icon"
-                            sx={{ 
-                              fontSize: '1rem', 
-                              opacity: 0.3, 
-                              transition: '0.2s',
-                              // Shows blue arrow and full opacity on parent hover
-                              '.MuiBox-root:hover &': { opacity: 1, color: BRAND_BLUE } 
-                            }}
-                          >
-                            →
-                          </Box>
-                        )}
-                      </Box>
-                    </Grid>
-                  );
-                })}
+              
+              {/* Nested Grid for Items */}
+              <Grid container spacing={3}>
+                {activeTab?.items?.map((item) => (
+                  <Grid size={{ xs: 12, sm: 6, md: 4 }} key={item.name}>
+                    <Box
+                      onClick={() => item.link && handleNavigate(item.link)}
+                      sx={{
+                        fontSize: "0.9rem",
+                        color: "#555",
+                        cursor: item.link ? "pointer" : "default",
+                        transition: "0.2s",
+                        "&:hover": item.link ? {
+                          color: BRAND_BLUE,
+                          transform: "translateX(8px)",
+                        } : {},
+                      }}
+                    >
+                      {item.name}
+                    </Box>
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
+
           </Grid>
         </Container>
       </Box>
     </Fade>
-  )
-}
+  );
+};
 
-export default MegaMenu
+export default MegaMenu;

@@ -25,6 +25,16 @@ export interface Enquiry {
 export interface RegisterWithEnquiryDto extends RegisterUserDto {
   enquiryMessage: string
 }
+
+export interface ForgotPasswordDto {
+  email: string
+}
+
+export interface ResetPasswordDto {
+  email: string
+  token: string
+  newPassword?: string 
+}
 export const registerUser = async (payload: RegisterUserDto): Promise<any> => {
   const url = `${USER_BASE_PATH}/register`
   const response = await axiosClient.post(url, payload)
@@ -56,10 +66,7 @@ export const getDealsByNames = async (dealNames: string[]): Promise<any> => {
   return response.data
 }
 
-export const getMyOrders = async (): Promise<any> => {
-  const response = await axiosClient.get(`${USER_BASE_PATH}/me/orders`)
-  return response.data
-}
+
 
 export const registerWithEnquiry = async (payload: RegisterWithEnquiryDto, file?: File): Promise<any> => {
   const url = `${USER_BASE_PATH}/register-with-enquiry`
@@ -96,3 +103,14 @@ export const getMyEnquiries = async (): Promise<Enquiry[]> => {
   console.log("Enquiries", response.data)
   return response.data;
 };
+export const forgotPassword = async (email: string): Promise<any> => {
+  const url = `${USER_BASE_PATH}/forgot-password`
+  const response = await axiosClient.post(url, { email })
+  return response.data
+}
+
+export const resetPassword = async (payload: ResetPasswordDto): Promise<any> => {
+  const url = `${USER_BASE_PATH}/reset-password`
+  const response = await axiosClient.post(url, payload)
+  return response.data
+}

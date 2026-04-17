@@ -17,19 +17,19 @@ const Sidebar = ({ activeView, onSelect }: SidebarProps) => {
       items: [
         { 
           category: "My Preferences", 
-          links: ["Personal Information", "Address Book", "Communication Preferences"] 
+          links: ["Personal Information",  "Communication Preferences"] 
         },
       ],
     },
     {
-      title: "Workspace",
-      items: [
-        { 
-          category: "My Transactions", 
-          links: ["Carts", "Quotes", "Orders", "Enquiries"] 
-        },
-      ],
+  title: "Workspace",
+  items: [
+    {
+      category: "My Transactions",
+      links: ["Carts", "Requested Quotes", "Received Quotes", "Enquiries"]
     },
+  ],
+},
   ];
 
   return (

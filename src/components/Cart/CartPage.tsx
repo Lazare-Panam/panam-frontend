@@ -4,7 +4,6 @@ import { useMutation } from "@tanstack/react-query"
 import { useCartStore } from "../store/useCartStore"
 import { useUserStore } from "../store/useUserStore"
 import { useNotificationStore } from "../store/useNotficationStore"
-import { requestQuotation } from "../../api/orderApi"
 import { addToCartApi, type CartItemDTO } from "../../api/cartApi" // Ensure this path is correct
 import CartHeader from "./components/CartHeader"
 import CartItem from "./components/CartItem"
@@ -18,20 +17,9 @@ const CartPage = () => {
   const navigate = useNavigate()
   const { cart, removeItem, updateQuantity, updateNotes } = useCartStore()
   const isHydrated = useCartStore.persist.hasHydrated()
-  const { isAuthenticated, firstName, lastName, email, companyName, phoneNumber } = useUserStore()
+  const { isAuthenticated } = useUserStore()
   const showNotification = useNotificationStore(state => state.showNotification)
 
-  // 1. Mutation for requesting a quotation
-  const { mutate: submitQuote, isPending: isSubmitting } = useMutation({
-    mutationFn: requestQuotation,
-    onSuccess: () => {
-      showNotification({ message: "Quotation request sent successfully!", severity: "success" })
-    },
-    onError: (error: any) => {
-      const msg = error.response?.data?.message || "Failed to send request. Please try again."
-      showNotification({ message: msg, severity: "error" })
-    },
-  })
 
   // 2. Mutation for saving the cart to the database
   const { mutate: saveCart, isPending: isSaving } = useMutation({
@@ -63,29 +51,7 @@ const CartPage = () => {
     }
   }
 
-  const handleProceed = () => {
-    if (!isAuthenticated) {
-      navigate("/login?redirect=/cart")
-      return
-    }
 
-    const payload = {
-      customerName: `${firstName} ${lastName}`,
-      customerEmail: email,
-      customerCompany: companyName,
-      customerPhone: phoneNumber || "Not Provided",
-      orderNumber: `PV-${Math.floor(1000 + Math.random() * 9000)}`,
-      items: cart.map(item => ({
-        description: Object.values(item.specs).filter(v => v).join(", ") || item.name,
-        partNumber: item.partNumber,
-        quantity: item.quantity,
-        notes: item.notes || "",
-        hasCertificates: item.hasCertificates ?? false
-      })),
-    }
-
-    submitQuote(payload)
-  }
 
   if (!isHydrated) {
     return (
@@ -122,12 +88,10 @@ const CartPage = () => {
       </Stack>
       
       <CartFooter 
-        onProceed={handleProceed} 
         onSave={handleSaveAction}
         isSaving={isSaving}
-        isSubmitting={isSubmitting} 
         saveLabel={isAuthenticated ? "Save Cart" : "Login to Save Cart"}
-        label={isAuthenticated ? "Proceed to Quote" : "Sign in to Quote"} 
+       
       />
     </Container>
   )

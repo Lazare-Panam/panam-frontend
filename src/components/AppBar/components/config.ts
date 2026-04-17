@@ -1,23 +1,28 @@
 export interface NavSubItem {
-  name: string
-  link?: string // The '?' makes the link optional!
+  name: string;
+  link?: string;
 }
+export const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", "Arial", sans-serif';
 
 export interface NavCategory {
-  id: string
-  label: string
-  link: string
-  items: NavSubItem[]
+  id: string;
+  label: string;
+  link: string;
+  items: NavSubItem[];
 }
+// Add this below your navConfig object
+export const NAV_LINKS = [
+  { label: "Products", id: "products", path: "/products", hasMenu: true },
+  { label: "Resources", id: "resources", path: "/resources", hasMenu: true },
+  { label: "News & Blog", id: "blog", path: "/blog", hasMenu: true },
+  { label: "About Us", id: "about", path: "/about", hasMenu: true },
+  { label: "My Account", id: "dashboard", path: "/dashboard", hasMenu: true },
+  { label: "Contact Us", id: "enquiry", path: "/enquiry", hasMenu: false },
+  
+];
 
-export interface NavConfig {
-  products: NavCategory[]
-  industries: NavCategory[]
-  about: NavCategory[]
-  news: NavCategory[]
-  dashboard: NavCategory[]
-}
-export const navConfig: NavConfig = {
+// Defining this as a Record ensures we can access it via navConfig[menuId] safely
+export const navConfig: Record<string, NavCategory[]> = {
   products: [
     {
       id: "hydrogen",
@@ -114,114 +119,83 @@ export const navConfig: NavConfig = {
       ],
     },
   ],
-  industries: [
-    {
-      id: "marine",
-      label: "Marine & Subsea",
-      link: "/industries/marine-subsea",
-      items: [
-        { name: "Vessel Construction & Integration" },
-        { name: "Marine Propulsion Fluid Control" },
-        { name: "Ballast & Water Management" },
-        { name: "Offshore Platform Instrumentation" }, // Replaced Engine for a broader subsea feel
-        { name: "Deep-Sea Pressure Management" },
-      ],
-    },
-    {
-      id: "oil-gas",
-      label: "Oil & Gas",
-      link: "/industries/oil-gas",
-      items: [{ name: "Upstream Exploration & Production (E&P)" }, { name: "Midstream Pipeline & Storage Infrastructure" }, { name: "Downstream Refining & Petrochemical Processing" }, { name: "Natural Gas Compression & Liquefaction (LNG)" }, { name: "Fugitive Emission & Environmental Control Systems" }],
-    },
-    {
-      id: "Hydrogen",
-      label: "Hydrogen",
-      link: "/industries/hydrogen",
-      items: [
-        { name: "Upstream Exploration" },
-        { name: "Midstream Pipelines" },
-        { name: "Downstream Refining" },
-        { name: "Petrochemical Plants" },
-        { name: "Gas Processing"},
-      ],
-    },
-    {
-      id: "aerospace-defense",
-      label: "Aerospace & Defense",
-      link: "/industries/aerospace-defense",
-      items: [{ name: "PEM & Alkaline Electrolyzer Stack Integration" }, { name: "High-Pressure Hydrogen Storage & Cascade Systems" }, { name: "Cryogenic Liquid Hydrogen (LH2) Fluid Management" }, { name: "Hydrogen Refuelling Station (HRS) Infrastructure" }, { name: "Fuel Cell Power Plant Instrumentation & Control" }, { name: "H2 Pipeline De-blending & Purification Stations" }],
-    },
-    {
-      id: "food-beverages",
-      label: "Food & Beverages",
-      link: "/industries/food-beverages",
-      items: [{ name: "Sanitary Process Automation & Fluid Control" }, { name: "Hygienic Beverage Distribution & Filling Lines" }, { name: "Clean-In-Place (CIP) & Sterilization Systems" }, { name: "High-Polish Instrumentation for Dairy Processing" }, { name: "Automated Ingredient Batching & Mixing Loops" }, { name: "Brewery & Distillery Fermentation Management" }],
-    },
-    {
-      id: "chemicals-petrochemical",
-      label: "Chemicals & Petrochemical",
-      link: "/industries/chemicals-petrochemical",
-      items: [{ name: "Corrosive & Aggressive Media Management Systems" }, { name: "High-Temperature & High-Pressure Process Loops" }, { name: "Hazardous Chemical Refining & Storage Infrastructure" }, { name: "Critical Instrumentation for Batch Reactor Control" }, { name: "Specialty Polymer & Fertilizer Production Lines" }, { name: "Toxic Gas Leak Detection & Fluid Isolation" }],
-    },
-  ],
   about: [
     {
       id: "company",
       label: "Our Company",
       link: "/about",
       items: [
-        { name: "Mission & Vision",  },
-        { name: "Manufacturing Excellence", },
-
-        { name: "Quality Control" },
+        { name: "Mission & Vision", link: "/about#mission" },
+        { name: "Manufacturing Excellence", link: "/about#manufacturing" },
+        { name: "Quality Control", link: "/about#quality" },
+      ],
+    },
+    {
+      id: "industries-nested",
+      label: "Industries",
+      link: "/industries",
+      items: [
+        { name: "Marine & Subsea", link: "/industries/marine-subsea" },
+        { name: "Oil & Gas", link: "/industries/oil-gas" },
+        { name: "Hydrogen", link: "/industries/hydrogen" },
+        { name: "Aerospace & Defense", link: "/industries/aerospace-defense" },
       ],
     },
   ],
-  news: [
+  blog: [
     {
       id: "updates",
       label: "Latest News",
       link: "/blog",
       items: [
-        { name: "Product Launches"},
-        { name: "Exhibitions 2024"  },
-        { name: "Corporate Events" },
+        { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
+        { name: "Double Block And Bleed Valves", link: "/blog/double-blog-and-bleed" },
+        { name: "Check Valves Blog", link: "/blog/check-valves-blog" },
+        
       ],
     },
   ],
-  dashboard: [ // Change the key name here
+  dashboard: [
     {
-    id: "user-accunt",
-    label: "General Enquiry",
-    link: "/enquiry",
-    items: [
-      { name: "Profile",},
-    ],
-  },
-   {
-    id: "component-configuration",
-    label: "Component Configuration",
-    link: "/products",
-    items: [
-      { name: "Profile", },
-    ],
-  },{
-    id: "user-account",
-    label: "Order Tracking",
-    link: "/products",
-    items: [
-      { name: "Profile",  },
-    ],
-  },
-   
+      id: "general-enquiry",
+      label: "General Enquiry",
+      link: "/enquiry",
+      items: [{ name: "New Request", link: "/enquiry" }],
+    },
+    {
+      id: "config-tools",
+      label: "Component Configuration",
+      link: "/products",
+      items: [{ name: "Component Configuration", link: "/products" }],
+    },
+    {
+      id: "order",
+      label: "Order Tracking",
+      link: "/dashboard",
+      items: [{ name: "Track Your Order" }],
+    },
+    {
+      id: "ts",
+      label: "Technical Support",
+      link: "/catalogPDFs",
+      items: [{ name: "Resources" }],
+    },
     
+  ],
+  resources: [
     {
-    id: "user-acount",
-    label: "Techncial Support",
-    link: "/#resources",
-    items: [
-      { name: "Profile"},
-    ],
-  },
+      id: "certificates",
+      label: "Certificates",
+      link: "/certificates",
+      items: [{ name: "All Certificates", link: "/certificates" }],
+    },
+    {
+      id: "catalogs",
+      label: "Catalogs",
+      link: "/catalogPdfs",
+      items: [{ name: "All Catalogs", link: "/catalogPdfs" }],
+    },
+    
+    
   ]
-}
+};
