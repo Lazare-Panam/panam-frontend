@@ -66,10 +66,7 @@ export const getDealsByNames = async (dealNames: string[]): Promise<any> => {
   return response.data
 }
 
-export const getMyOrders = async (): Promise<any> => {
-  const response = await axiosClient.get(`${USER_BASE_PATH}/me/orders`)
-  return response.data
-}
+
 
 export const registerWithEnquiry = async (payload: RegisterWithEnquiryDto, file?: File): Promise<any> => {
   const url = `${USER_BASE_PATH}/register-with-enquiry`

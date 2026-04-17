@@ -1,40 +1,33 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import {
-  Box, Typography, Button, CircularProgress, Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, Paper, IconButton, Tooltip, Stack,
-  Collapse, TextField, Divider
-} from "@mui/material";
-import {
-  Add as AddIcon, Description as FileIcon, HistoryEdu as EnquiryIcon,
-  KeyboardArrowDown, KeyboardArrowUp, Send as SendIcon
-} from "@mui/icons-material";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { getMyEnquiries} from "../../../api/authApi";
-import { getReplies, addReply, type EnquiryReply } from "../../../api/enquiryClient";
-import EmptyState from "./EmptyState";
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { Box, Typography, Button, CircularProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Tooltip, Stack, Collapse, TextField, Divider } from "@mui/material"
+import { Add as AddIcon, Description as FileIcon, HistoryEdu as EnquiryIcon, KeyboardArrowDown, KeyboardArrowUp, Send as SendIcon } from "@mui/icons-material"
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
+import { getMyEnquiries } from "../../../api/authApi"
+import { getReplies, addReply, type EnquiryReply } from "../../../api/enquiryClient"
+import EmptyState from "./shared/EmptyState"
 
-const BRAND_BLUE = "#01B0F0";
-const SOFT_BG = "#F8FAFC";
-const BORDER_COLOR = "#E2E8F0";
-const TEXT_MAIN = "#1a1a1a";
+const BRAND_BLUE = "#01B0F0"
+const SOFT_BG = "#F8FAFC"
+const BORDER_COLOR = "#E2E8F0"
+const TEXT_MAIN = "#1a1a1a"
 
 const ThreadView = ({ enquiryId, originalMessage }: { enquiryId: number; originalMessage: string }) => {
-  const [replyText, setReplyText] = useState("");
-  const queryClient = useQueryClient();
+  const [replyText, setReplyText] = useState("")
+  const queryClient = useQueryClient()
 
   const { data: replies = [], isLoading } = useQuery({
     queryKey: ["replies", enquiryId],
     queryFn: () => getReplies(enquiryId),
-  });
+  })
 
   const mutation = useMutation({
     mutationFn: (message: string) => addReply(enquiryId, message),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["replies", enquiryId] });
-      setReplyText("");
+      queryClient.invalidateQueries({ queryKey: ["replies", enquiryId] })
+      setReplyText("")
     },
-  });
+  })
 
   return (
     <Box sx={{ p: 3, bgcolor: "#F0F9FF", borderTop: `2px solid ${BRAND_BLUE}` }}>
@@ -52,11 +45,13 @@ const ThreadView = ({ enquiryId, originalMessage }: { enquiryId: number; origina
       {isLoading ? (
         <CircularProgress size={20} sx={{ color: BRAND_BLUE }} />
       ) : replies.length === 0 ? (
-        <Typography variant="caption" sx={{ color: "text.disabled" }}>No replies yet.</Typography>
+        <Typography variant="caption" sx={{ color: "text.disabled" }}>
+          No replies yet.
+        </Typography>
       ) : (
         <Stack spacing={1.5} sx={{ mb: 2 }}>
           {replies.map((reply: EnquiryReply) => {
-            const isAdmin = reply.senderRole === "Admin";
+            const isAdmin = reply.senderRole === "Admin"
             return (
               <Box key={reply.id} sx={{ display: "flex", justifyContent: isAdmin ? "flex-start" : "flex-end" }}>
                 <Box
@@ -67,8 +62,7 @@ const ThreadView = ({ enquiryId, originalMessage }: { enquiryId: number; origina
                     color: isAdmin ? TEXT_MAIN : "#fff",
                     border: `1px solid ${isAdmin ? BORDER_COLOR : BRAND_BLUE}`,
                     borderRadius: 2,
-                  }}
-                >
+                  }}>
                   <Typography variant="caption" sx={{ fontWeight: 700, display: "block", mb: 0.5, opacity: 0.8 }}>
                     {isAdmin ? "Panam Valves" : "You"}
                   </Typography>
@@ -78,50 +72,36 @@ const ThreadView = ({ enquiryId, originalMessage }: { enquiryId: number; origina
                   </Typography>
                 </Box>
               </Box>
-            );
+            )
           })}
         </Stack>
       )}
 
       <Stack direction="row" spacing={1} alignItems="flex-end" sx={{ mt: 2 }}>
-        <TextField
-          fullWidth
-          multiline
-          maxRows={4}
-          size="small"
-          placeholder="Type a reply..."
-          value={replyText}
-          onChange={(e) => setReplyText(e.target.value)}
-          sx={{ bgcolor: "#fff" }}
-        />
-        <Button
-          variant="contained"
-          disabled={!replyText.trim() || mutation.isPending}
-          onClick={() => mutation.mutate(replyText.trim())}
-          sx={{ bgcolor: BRAND_BLUE, minWidth: 44, px: 1.5 }}
-        >
+        <TextField fullWidth multiline maxRows={4} size="small" placeholder="Type a reply..." value={replyText} onChange={e => setReplyText(e.target.value)} sx={{ bgcolor: "#fff" }} />
+        <Button variant="contained" disabled={!replyText.trim() || mutation.isPending} onClick={() => mutation.mutate(replyText.trim())} sx={{ bgcolor: BRAND_BLUE, minWidth: 44, px: 1.5 }}>
           <SendIcon fontSize="small" />
         </Button>
       </Stack>
     </Box>
-  );
-};
+  )
+}
 
 const Enquiries = () => {
-  const navigate = useNavigate();
-  const [openRow, setOpenRow] = useState<number | null>(null);
+  const navigate = useNavigate()
+  const [openRow, setOpenRow] = useState<number | null>(null)
 
   const { data: enquiries = [], isLoading } = useQuery({
     queryKey: ["my-enquiries"],
     queryFn: getMyEnquiries,
-  });
+  })
 
   if (isLoading) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60vh" }}>
         <CircularProgress sx={{ color: BRAND_BLUE }} />
       </Box>
-    );
+    )
   }
 
   return (
@@ -140,12 +120,15 @@ const Enquiries = () => {
           startIcon={<AddIcon />}
           onClick={() => navigate("/enquiry")}
           sx={{
-            bgcolor: BRAND_BLUE, borderRadius: 0, fontWeight: 800, px: 4, py: 1.5,
+            bgcolor: BRAND_BLUE,
+            borderRadius: 0,
+            fontWeight: 800,
+            px: 4,
+            py: 1.5,
             boxShadow: `4px 4px 0px ${BORDER_COLOR}`,
             "&:hover": { bgcolor: BRAND_BLUE, transform: "translate(2px, 2px)", boxShadow: "none" },
-            transition: "0.2s all"
-          }}
-        >
+            transition: "0.2s all",
+          }}>
           NEW REQUEST
         </Button>
       </Box>
@@ -165,42 +148,26 @@ const Enquiries = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {enquiries.map((item) => (
+              {enquiries.map(item => (
                 <>
-                  <TableRow
-                    key={item.id}
-                    onClick={() => setOpenRow(openRow === item.id ? null : item.id)}
-                    sx={{ cursor: "pointer", "&:hover": { bgcolor: "#f1f5f9" }, transition: "0.2s", "& td": { borderBottom: `1px solid ${BORDER_COLOR}` } }}
-                  >
-                    <TableCell sx={{ fontWeight: 800, color: BRAND_BLUE }}>
-                      #ENQ-{item.id.toString().padStart(4, "0")}
-                    </TableCell>
-                    <TableCell sx={{ color: "text.secondary", fontWeight: 600 }}>
-                      {new Date(item.createdAt).toLocaleDateString()}
-                    </TableCell>
-                    <TableCell sx={{ fontWeight: 500, color: TEXT_MAIN, lineHeight: 1.5 }}>
-                      {item.message.length > 120 ? `${item.message.substring(0, 120)}...` : item.message}
-                    </TableCell>
+                  <TableRow key={item.id} onClick={() => setOpenRow(openRow === item.id ? null : item.id)} sx={{ cursor: "pointer", "&:hover": { bgcolor: "#f1f5f9" }, transition: "0.2s", "& td": { borderBottom: `1px solid ${BORDER_COLOR}` } }}>
+                    <TableCell sx={{ fontWeight: 800, color: BRAND_BLUE }}>#ENQ-{item.id.toString().padStart(4, "0")}</TableCell>
+                    <TableCell sx={{ color: "text.secondary", fontWeight: 600 }}>{new Date(item.createdAt).toLocaleDateString()}</TableCell>
+                    <TableCell sx={{ fontWeight: 500, color: TEXT_MAIN, lineHeight: 1.5 }}>{item.message.length > 120 ? `${item.message.substring(0, 120)}...` : item.message}</TableCell>
                     <TableCell sx={{ textAlign: "center" }}>
                       {item.attachmentPath ? (
                         <Tooltip title="View Technical Attachment">
-                          <IconButton
-                            href={item.attachmentPath}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            sx={{ color: BRAND_BLUE, "&:hover": { bgcolor: BRAND_BLUE, color: "#fff" } }}
-                          >
+                          <IconButton href={item.attachmentPath} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} sx={{ color: BRAND_BLUE, "&:hover": { bgcolor: BRAND_BLUE, color: "#fff" } }}>
                             <FileIcon fontSize="small" />
                           </IconButton>
                         </Tooltip>
                       ) : (
-                        <Typography variant="caption" sx={{ color: "text.disabled" }}>—</Typography>
+                        <Typography variant="caption" sx={{ color: "text.disabled" }}>
+                          —
+                        </Typography>
                       )}
                     </TableCell>
-                    <TableCell sx={{ textAlign: "center" }}>
-                      {openRow === item.id ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{openRow === item.id ? <KeyboardArrowUp /> : <KeyboardArrowDown />}</TableCell>
                   </TableRow>
 
                   <TableRow key={`thread-${item.id}`}>
@@ -224,7 +191,7 @@ const Enquiries = () => {
         </Typography>
       </Stack>
     </Box>
-  );
-};
+  )
+}
 
-export default Enquiries;
+export default Enquiries

@@ -1,19 +1,17 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   Box, Typography, CircularProgress, Table, TableBody, TableCell,
   TableContainer, TableHead, TableRow, Paper, IconButton, Stack,
-  Collapse, TextField, Button, Divider
+  Collapse, TextField, Button, Divider, Chip, Select, MenuItem,
+  FormControl, Dialog, DialogTitle, DialogContent, DialogContentText,
+  DialogActions
 } from "@mui/material";
 import {
-  Description as FileIcon,
-  Business as BusinessIcon,
-  KeyboardArrowDown,
-  KeyboardArrowUp,
-  Send as SendIcon
+  Description as FileIcon, Business as BusinessIcon,
+  KeyboardArrowDown, KeyboardArrowUp, Send as SendIcon
 } from "@mui/icons-material";
-import { getAllAdminEnquiries } from "../../../api/adminClient";
+import { getAllAdminEnquiries, updateEnquiryStatus } from "../../../api/adminClient";
 import { getReplies, addReply, type EnquiryReply } from "../../../api/enquiryClient";
 
 const BRAND_BLUE = "#01B0F0";
@@ -21,8 +19,25 @@ const SOFT_BG = "#F8FAFC";
 const BORDER_COLOR = "#E2E8F0";
 const TEXT_MAIN = "#1a1a1a";
 
-const ThreadView = ({ enquiryId, originalMessage }: { enquiryId: number; originalMessage: string }) => {
+const ENQUIRY_STATUSES = [
+  { value: 1, label: "Open" },
+  { value: 2, label: "RFQ Created" },
+  { value: 3, label: "Closed" },
+]
+
+const getStatusChip = (status: number) => {
+  switch (status) {
+    case 1: return <Chip label="OPEN" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#FFFBEB", color: "#B45309", border: "1px solid #FDE68A" }} />
+    case 2: return <Chip label="RFQ CREATED" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#EFF6FF", color: "#1D4ED8", border: "1px solid #BFDBFE" }} />
+    case 3: return <Chip label="CLOSED" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#F1F5F9", color: "#475569", border: "1px solid #CBD5E1" }} />
+    default: return null
+  }
+}
+
+const ThreadView = ({ enquiryId, enquiryStatus, originalMessage }: { enquiryId: number; enquiryStatus: number; originalMessage: string }) => {
   const [replyText, setReplyText] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState(enquiryStatus)
+  const [confirmOpen, setConfirmOpen] = useState(false)
   const queryClient = useQueryClient();
 
   const { data: replies = [], isLoading } = useQuery({
@@ -30,13 +45,21 @@ const ThreadView = ({ enquiryId, originalMessage }: { enquiryId: number; origina
     queryFn: () => getReplies(enquiryId),
   });
 
-  const mutation = useMutation({
+  const replyMutation = useMutation({
     mutationFn: (message: string) => addReply(enquiryId, message),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["replies", enquiryId] });
       setReplyText("");
     },
   });
+
+  const statusMutation = useMutation({
+    mutationFn: (status: number) => updateEnquiryStatus(enquiryId, status),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin", "enquiries"] })
+      setConfirmOpen(false)
+    },
+  })
 
   return (
     <Box sx={{ p: 3, bgcolor: "#F0F9FF", borderTop: `2px solid ${BRAND_BLUE}` }}>
@@ -61,15 +84,13 @@ const ThreadView = ({ enquiryId, originalMessage }: { enquiryId: number; origina
             const isAdmin = reply.senderRole === "Admin";
             return (
               <Box key={reply.id} sx={{ display: "flex", justifyContent: isAdmin ? "flex-end" : "flex-start" }}>
-                <Box
-                  sx={{
-                    maxWidth: "70%", p: 1.5,
-                    bgcolor: isAdmin ? BRAND_BLUE : "#fff",
-                    color: isAdmin ? "#fff" : TEXT_MAIN,
-                    border: `1px solid ${isAdmin ? BRAND_BLUE : BORDER_COLOR}`,
-                    borderRadius: 2,
-                  }}
-                >
+                <Box sx={{
+                  maxWidth: "70%", p: 1.5,
+                  bgcolor: isAdmin ? BRAND_BLUE : "#fff",
+                  color: isAdmin ? "#fff" : TEXT_MAIN,
+                  border: `1px solid ${isAdmin ? BRAND_BLUE : BORDER_COLOR}`,
+                  borderRadius: 2,
+                }}>
                   <Typography variant="caption" sx={{ fontWeight: 700, display: "block", mb: 0.5, opacity: 0.8 }}>
                     {reply.senderName} · {isAdmin ? "Admin" : "Customer"}
                   </Typography>
@@ -84,7 +105,7 @@ const ThreadView = ({ enquiryId, originalMessage }: { enquiryId: number; origina
         </Stack>
       )}
 
-      <Stack direction="row" spacing={1} alignItems="flex-end">
+      <Stack direction="row" spacing={1} alignItems="flex-end" sx={{ mb: 3 }}>
         <TextField
           fullWidth multiline maxRows={4} size="small"
           placeholder="Type a reply..."
@@ -94,37 +115,79 @@ const ThreadView = ({ enquiryId, originalMessage }: { enquiryId: number; origina
         />
         <Button
           variant="contained"
-          disabled={!replyText.trim() || mutation.isPending}
-          onClick={() => mutation.mutate(replyText.trim())}
+          disabled={!replyText.trim() || replyMutation.isPending}
+          onClick={() => replyMutation.mutate(replyText.trim())}
           sx={{ bgcolor: BRAND_BLUE, minWidth: 44, px: 1.5 }}
         >
           <SendIcon fontSize="small" />
         </Button>
       </Stack>
+
+      <Divider sx={{ mb: 2 }} />
+
+      <Stack direction="row" spacing={2} alignItems="center" justifyContent="flex-end">
+        <FormControl size="small">
+          <Select
+            value={selectedStatus}
+            onChange={e => setSelectedStatus(Number(e.target.value))}
+            sx={{ borderRadius: 0, fontWeight: 700, fontSize: "0.8rem", minWidth: 150 }}
+          >
+            {ENQUIRY_STATUSES.map(s => (
+              <MenuItem key={s.value} value={s.value} sx={{ fontWeight: 600, fontSize: "0.8rem" }}>
+                {s.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <Button
+          size="small"
+          variant="contained"
+          disabled={selectedStatus === enquiryStatus || statusMutation.isPending}
+          onClick={() => setConfirmOpen(true)}
+          sx={{ bgcolor: BRAND_BLUE, borderRadius: 0, fontWeight: 700, boxShadow: "none" }}
+        >
+          SAVE STATUS
+        </Button>
+      </Stack>
+
+      <Dialog open={confirmOpen} onClose={() => setConfirmOpen(false)}>
+        <DialogTitle sx={{ fontWeight: 800 }}>Update Status</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Update this enquiry status? This will be reflected across the system.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setConfirmOpen(false)} sx={{ color: "text.secondary" }}>Cancel</Button>
+          <Button
+            onClick={() => statusMutation.mutate(selectedStatus)}
+            variant="contained"
+            disabled={statusMutation.isPending}
+            sx={{ bgcolor: BRAND_BLUE, borderRadius: 0, fontWeight: 700, "&:hover": { bgcolor: "#0099d4" } }}
+          >
+            {statusMutation.isPending ? "Saving..." : "Update"}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
 
 const AdminEnquiriesList = () => {
   const [openRow, setOpenRow] = useState<number | null>(null);
-  const navigate = useNavigate();
 
   const { data: enquiries = [], isLoading, isError } = useQuery({
     queryKey: ["admin", "enquiries"],
     queryFn: getAllAdminEnquiries,
   });
 
-  if (isLoading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60vh" }}>
-        <CircularProgress sx={{ color: BRAND_BLUE }} />
-      </Box>
-    );
-  }
+  if (isLoading) return (
+    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60vh" }}>
+      <CircularProgress sx={{ color: BRAND_BLUE }} />
+    </Box>
+  );
 
-  if (isError) {
-    return <Typography color="error">Failed to load enquiries from Panam Cloud.</Typography>;
-  }
+  if (isError) return <Typography color="error">Failed to load enquiries from Panam Cloud.</Typography>;
 
   return (
     <Box sx={{ p: { xs: 2, md: 4 } }}>
@@ -145,7 +208,7 @@ const AdminEnquiriesList = () => {
               <TableCell sx={{ fontWeight: 900 }}>CUSTOMER / COMPANY</TableCell>
               <TableCell sx={{ fontWeight: 900 }}>SPECIFICATION</TableCell>
               <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>FILE</TableCell>
-              <TableCell sx={{ fontWeight: 900 }}>ACTIONS</TableCell>
+              <TableCell sx={{ fontWeight: 900 }}>STATUS</TableCell>
               <TableCell />
             </TableRow>
           </TableHead>
@@ -171,9 +234,7 @@ const AdminEnquiriesList = () => {
                     </Typography>
                     <Stack direction="row" spacing={0.5} alignItems="center">
                       <BusinessIcon sx={{ fontSize: 14, color: "text.disabled" }} />
-                      <Typography variant="caption" sx={{ color: "text.secondary" }}>
-                        {item.userCompany}
-                      </Typography>
+                      <Typography variant="caption" sx={{ color: "text.secondary" }}>{item.userCompany}</Typography>
                     </Stack>
                   </TableCell>
                   <TableCell sx={{ fontSize: "0.85rem", color: TEXT_MAIN }}>
@@ -190,22 +251,7 @@ const AdminEnquiriesList = () => {
                     )}
                   </TableCell>
                   <TableCell onClick={(e) => e.stopPropagation()}>
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      onClick={() => navigate(`/adminDashboard/create-rfq/${item.id}`, {
-                        state: {
-                          userId: item.userId,
-                          userFirstName: item.userFirstName,
-                          userLastName: item.userLastName,
-                          userEmail: item.userEmail,
-                          userCompany: item.userCompany,
-                        }
-                      })}
-                      sx={{ borderColor: BRAND_BLUE, color: BRAND_BLUE, borderRadius: 0, fontWeight: 700, fontSize: "0.7rem" }}
-                    >
-                      CREATE RFQ
-                    </Button>
+                    {getStatusChip(item.status)}
                   </TableCell>
                   <TableCell sx={{ textAlign: "center" }}>
                     {openRow === item.id ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
@@ -215,7 +261,11 @@ const AdminEnquiriesList = () => {
                 <TableRow key={`thread-${item.id}`}>
                   <TableCell colSpan={6} sx={{ p: 0, border: 0 }}>
                     <Collapse in={openRow === item.id} unmountOnExit>
-                      <ThreadView enquiryId={item.id} originalMessage={item.message} />
+                      <ThreadView
+                        enquiryId={item.id}
+                        enquiryStatus={item.status}
+                        originalMessage={item.message}
+                      />
                     </Collapse>
                   </TableCell>
                 </TableRow>

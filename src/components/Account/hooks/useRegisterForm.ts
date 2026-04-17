@@ -46,7 +46,16 @@ export const useRegisterForm = () => {
   };
 
   const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
+     e.preventDefault();
+    const requiredFields = ["email", "firstName", "lastName", "companyName", "jobTitle", "phoneNumber", "password", "confirmPassword"] as const
+
+    for (const field of requiredFields) {
+      if (!formData[field]?.trim()) {
+        showNotification({ message: "Please fill in all required fields.", severity: "warning" })
+        return
+      }
+    }
+   
     setEmailError(null);
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;

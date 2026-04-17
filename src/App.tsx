@@ -5,7 +5,7 @@ import Layout from "./Layout"
 import CrossReference from "./components/Cross_Reference/CrossReference"
 import RegisterForm from "./components/Account/components/RegisterForm"
 import Login from "./components/Account/Login"
-import CatalogPdfs from "./components/CatalogPdfs/CatalogPdfs"
+import CatalogPdfs from "./components/Auth/CatalogPdfs/CatalogPdfs"
 //const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
 
 const News = lazy(() => import("./components/News/News"))
@@ -34,7 +34,7 @@ import AdminDashboard from "./components/Admin/components/AdminDashboard"
 import HydrogenValvesBlog from "./components/News/components/HydrogenBlog"
 import SearchResults from "./components/SearchResults/SearchResults"
 import PartNumberDetail from "./components/ProductDetail/PartNumberDetail"
-import AdminCreateRFQ from "./components/Admin/components/AdminCreateRFQ"
+
 import SwivelGaugeAdaptersBlog from "./components/News/components/SwivelGaugeBlog"
 import ResourcesPage from "./components/Resources/ResourcesPage"
 import CertificationsPage from "./components/Resources/components/Certifications"
@@ -231,6 +231,14 @@ export const routes = [
         ),
       },
       {
+        path: "dashboard/:section",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <DashBoard />
+          </Suspense>
+        ),
+      },
+      {
         path: "cart",
         element: (
           <Suspense fallback={<LoadingScreen />}>
@@ -310,14 +318,7 @@ export const routes = [
           </Suspense>
         ),
       },
-      {
-        path: "adminDashboard/create-rfq/:enquiryId",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <AdminCreateRFQ />
-          </Suspense>
-        ),
-      },
+
       {
         path: "resources",
         element: (

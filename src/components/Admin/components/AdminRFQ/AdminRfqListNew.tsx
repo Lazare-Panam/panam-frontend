@@ -6,36 +6,27 @@ import {
   DialogContent, DialogContentText, DialogActions, Button
 } from "@mui/material"
 import { ExpandMore as ExpandMoreIcon, Business as BusinessIcon } from "@mui/icons-material"
-import { getAllAdminRFQs, notifyQuotationReady, type RFQLineItem, type HubSpotProduct } from "../../../../api/adminClient"
+import { getAllAdminRFQs, notifyQuotationReady } from "../../../../api/adminClient"
 import { RFQLineItems } from "./components/RFQLineItems"
-import { usePriceMutation, useSaveEditsMutation, useDeleteLineItemMutation } from "./components/hooks"
-import type { EditableItem, ConfirmDialogState } from "./components/types"
+import { useUpdateStatusMutation } from "./components/hooks"
+import type { ConfirmDialogState } from "./components/types"
 
 const BRAND_BLUE = "#01B0F0"
 
-const getRFQPriceStatus = (items: RFQLineItem[]) => {
-  const allPriced = items.every(i => i.unitPrice != null)
-  const somePriced = items.some(i => i.unitPrice != null)
-  if (allPriced) return "full"
-  if (somePriced) return "partial"
-  return "pending"
-}
-
-const RFQStatusChip = ({ items }: { items: RFQLineItem[] }) => {
-  const status = getRFQPriceStatus(items)
-  if (status === "full") return <Chip label="FULLY QUOTED" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#F0FDF4", color: "#166534", border: "1px solid #BBF7D0" }} />
-  if (status === "partial") return <Chip label="PARTIALLY QUOTED" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#EFF6FF", color: "#1D4ED8", border: "1px solid #BFDBFE" }} />
-  return <Chip label="PENDING QUOTE" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#FFFBEB", color: "#B45309", border: "1px solid #FDE68A" }} />
+const getStatusChip = (status: number) => {
+  switch (status) {
+    case 1: return <Chip label="SUBMITTED" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#FFFBEB", color: "#B45309", border: "1px solid #FDE68A" }} />
+    case 2: return <Chip label="UNDER REVIEW" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#EFF6FF", color: "#1D4ED8", border: "1px solid #BFDBFE" }} />
+    case 3: return <Chip label="QUOTED BACK" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#F0FDF4", color: "#166534", border: "1px solid #BBF7D0" }} />
+    case 4: return <Chip label="ACCEPTED" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#F0FDF4", color: "#166534", border: "1px solid #BBF7D0" }} />
+    case 5: return <Chip label="REJECTED" size="small" sx={{ borderRadius: 0, fontWeight: 900, fontSize: "0.65rem", bgcolor: "#FEF2F2", color: "#991B1B", border: "1px solid #FECACA" }} />
+    default: return null
+  }
 }
 
 const AdminRFQListNew = () => {
-  const [priceInputs, setPriceInputs] = useState<Record<string, string>>({})
-  const [savedItems, setSavedItems] = useState<Record<string, boolean>>({})
-  const [failedItems, setFailedItems] = useState<Record<string, boolean>>({})
-  const [editingRfqId, setEditingRfqId] = useState<string | null>(null)
-  const [editableItems, setEditableItems] = useState<EditableItem[]>([])
   const [confirmDialog, setConfirmDialog] = useState<ConfirmDialogState>({
-    open: false, lineItemId: "", action: "save-price"
+    open: false, rfqId: "", action: "update-status"
   })
 
   const { data: rfqs, isLoading, isError } = useQuery({
@@ -43,69 +34,19 @@ const AdminRFQListNew = () => {
     queryFn: getAllAdminRFQs,
   })
 
-  const priceMutation = usePriceMutation(setSavedItems, setFailedItems)
-  const saveEditsMutation = useSaveEditsMutation(setEditingRfqId, setEditableItems)
-  const deleteItemMutation = useDeleteLineItemMutation()
-
-  const handleStartEdit = (rfq: NonNullable<typeof rfqs>[0]) => {
-    setEditingRfqId(rfq.id)
-    setEditableItems(rfq.lineItems.map(item => ({
-      id: item.id,
-      productCode: item.productCode,
-      productDescription: item.productDescription,
-      quantity: item.quantity,
-      notes: item.notes || "",
-      unitPrice: item.unitPrice != null ? String(item.unitPrice) : "",
-    })))
-  }
-
-  const handleEditField = (index: number, field: keyof EditableItem, value: string | number) => {
-    setEditableItems(prev => {
-      const updated = [...prev]
-      updated[index] = { ...updated[index], [field]: value }
-      return updated
-    })
-  }
-
-  const handleAddProduct = (product: HubSpotProduct) => {
-    setEditableItems(prev => [...prev, {
-      id: `new-${Date.now()}`,
-      productCode: product.name,
-      productDescription: product.description,
-      quantity: 1,
-      notes: "",
-      unitPrice: product.price != null ? String(product.price) : "",
-      isNew: true,
-    }])
-  }
-
-  const handleRemoveEditItem = (index: number, item: EditableItem) => {
-    if (item.isNew) {
-      setEditableItems(prev => prev.filter((_, i) => i !== index))
-    } else {
-      setConfirmDialog({ open: true, lineItemId: item.id, action: "delete-item" })
-    }
-  }
+  const updateStatusMutation = useUpdateStatusMutation()
 
   const handleConfirm = () => {
-    const { action, lineItemId, price, rfqId } = confirmDialog
-    if (action === "save-price") {
-      priceMutation.mutate({ lineItemId, price: price! })
-    } else if (action === "delete-price") {
-      priceMutation.mutate({ lineItemId, price: null })
-      setPriceInputs(prev => ({ ...prev, [lineItemId]: "" }))
-    } else if (action === "save-edits" && rfqId) {
-      saveEditsMutation.mutate({ rfqId, items: editableItems })
-    } else if (action === "delete-item") {
-      deleteItemMutation.mutate(lineItemId)
-      setEditableItems(prev => prev.filter(i => i.id !== lineItemId))
-    } else if (action === "notify" && rfqId) {
+    const { action, rfqId, status } = confirmDialog
+    if (action === "update-status" && status !== undefined) {
+      updateStatusMutation.mutate({ rfqId, status })
+    } else if (action === "notify") {
       notifyQuotationReady(rfqId)
     }
-    setConfirmDialog({ open: false, lineItemId: "", action: "save-price" })
+    setConfirmDialog({ open: false, rfqId: "", action: "update-status" })
   }
 
-  const handleDialogClose = () => setConfirmDialog({ open: false, lineItemId: "", action: "save-price" })
+  const handleDialogClose = () => setConfirmDialog({ open: false, rfqId: "", action: "update-status" })
 
   if (isLoading) return <Box sx={{ display: "flex", justifyContent: "center", py: 10 }}><CircularProgress sx={{ color: BRAND_BLUE }} /></Box>
   if (isError) return <Typography color="error">Error loading RFQs.</Typography>
@@ -134,7 +75,7 @@ const AdminRFQListNew = () => {
                   <Typography variant="caption" sx={{ color: "text.secondary", fontWeight: 600 }}>{rfq.userCompany}</Typography>
                 </Stack>
               </Box>
-              <RFQStatusChip items={rfq.lineItems} />
+              {getStatusChip(rfq.status)}
             </Stack>
           </AccordionSummary>
 
@@ -142,27 +83,10 @@ const AdminRFQListNew = () => {
             <RFQLineItems
               rfqId={rfq.id}
               rfqEmail={rfq.userEmail}
+              rfqStatus={rfq.status}
               lineItems={rfq.lineItems}
-              isEditing={editingRfqId === rfq.id}
-              editableItems={editableItems}
-              priceInputs={priceInputs}
-              savedItems={savedItems}
-              failedItems={failedItems}
-              isPriceSaving={priceMutation.isPending}
-              priceSavingId={priceMutation.variables?.lineItemId}
-              isSaveEditsPending={saveEditsMutation.isPending}
-              onStartEdit={() => handleStartEdit(rfq)}
-              onCancelEdit={() => { setEditingRfqId(null); setEditableItems([]) }}
-              onEditField={handleEditField}
-              onAddProduct={handleAddProduct}
-              onRemoveEditItem={handleRemoveEditItem}
-              onPriceChange={(id, val) => {
-                setPriceInputs(prev => ({ ...prev, [id]: val }))
-                setSavedItems(prev => ({ ...prev, [id]: false }))
-                setFailedItems(prev => ({ ...prev, [id]: false }))
-              }}
               onConfirm={(state) => setConfirmDialog({ ...state, open: true })}
-              onNotify={() => setConfirmDialog({ open: true, lineItemId: "", action: "notify", rfqId: rfq.id })}
+              onNotify={() => setConfirmDialog({ open: true, rfqId: rfq.id, action: "notify" })}
             />
           </AccordionDetails>
         </Accordion>
@@ -170,34 +94,20 @@ const AdminRFQListNew = () => {
 
       <Dialog open={confirmDialog.open} onClose={handleDialogClose}>
         <DialogTitle sx={{ fontWeight: 800 }}>
-          {confirmDialog.action === "save-price" && "Confirm Price"}
-          {confirmDialog.action === "delete-price" && "Remove Price"}
-          {confirmDialog.action === "save-edits" && "Save Changes"}
-          {confirmDialog.action === "delete-item" && "Remove Line Item"}
+          {confirmDialog.action === "update-status" && "Update Status"}
           {confirmDialog.action === "notify" && "Send Quotation Email"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            {confirmDialog.action === "save-price" && `Set unit price to £${confirmDialog.price?.toFixed(2)}? This will be visible to the customer.`}
-            {confirmDialog.action === "delete-price" && "Remove this price? It will show as pending on the customer's end."}
-            {confirmDialog.action === "save-edits" && "Save all changes to this RFQ? The customer will see the updated information."}
-            {confirmDialog.action === "delete-item" && "Permanently remove this line item from the RFQ?"}
+            {confirmDialog.action === "update-status" && "Update the status of this RFQ? The customer will see this change."}
             {confirmDialog.action === "notify" && "This will send an email to the customer notifying them their quote is ready. Are you sure?"}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleDialogClose} sx={{ color: "text.secondary" }}>Cancel</Button>
           <Button onClick={handleConfirm} variant="contained"
-            sx={{
-              bgcolor: ["delete-price", "delete-item"].includes(confirmDialog.action) ? "#EF4444" : BRAND_BLUE,
-              borderRadius: 0, fontWeight: 700,
-              "&:hover": { bgcolor: ["delete-price", "delete-item"].includes(confirmDialog.action) ? "#DC2626" : "#0099d4" }
-            }}>
-            {confirmDialog.action === "save-price" && "Confirm"}
-            {confirmDialog.action === "delete-price" && "Remove"}
-            {confirmDialog.action === "save-edits" && "Save"}
-            {confirmDialog.action === "delete-item" && "Remove"}
-            {confirmDialog.action === "notify" && "Send"}
+            sx={{ bgcolor: BRAND_BLUE, borderRadius: 0, fontWeight: 700, "&:hover": { bgcolor: "#0099d4" } }}>
+            {confirmDialog.action === "update-status" ? "Update" : "Send"}
           </Button>
         </DialogActions>
       </Dialog>

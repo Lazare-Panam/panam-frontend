@@ -22,14 +22,14 @@ const Sidebar = ({ activeView, onSelect }: SidebarProps) => {
       ],
     },
     {
-      title: "Workspace",
-      items: [
-        { 
-          category: "My Transactions", 
-          links: ["Carts", "Quotes", "Orders", "Enquiries"] 
-        },
-      ],
+  title: "Workspace",
+  items: [
+    {
+      category: "My Transactions",
+      links: ["Carts", "Requested Quotes", "Received Quotes", "Enquiries"]
     },
+  ],
+},
   ];
 
   return (

@@ -10,8 +10,7 @@ export interface EditableItem {
 
 export interface ConfirmDialogState {
   open: boolean
-  lineItemId: string
-  action: "save-price" | "delete-price" | "save-edits" | "delete-item" | "notify"
-  price?: number
-  rfqId?: string
+  rfqId: string
+  action: "update-status" | "notify"
+  status?: number
 }

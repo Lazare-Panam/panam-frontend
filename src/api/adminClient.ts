@@ -1,11 +1,10 @@
 import axiosClient from "./axiosClient"
 
 const ADMIN_BASE_PATH = "/api/admin"
-
 interface AdminLoginDto {
   email: string
   password: string
-} // Or your specific Admin interface
+}
 
 export const loginAdmin = async (credentials: AdminLoginDto): Promise<any> => {
   const url = `${ADMIN_BASE_PATH}/login`
@@ -22,6 +21,7 @@ interface AdminEnquiry {
   userFirstName: string
   userLastName: string
   userCompany: string
+  status: number
 }
 
 export const getAllAdminEnquiries = async (): Promise<AdminEnquiry[]> => {
@@ -57,21 +57,6 @@ export const getAllAdminRFQs = async (): Promise<AdminRFQ[]> => {
   return response.data
 }
 
-export interface CreateRFQLineItemDTO {
-  productCode: string
-  productDescription: string
-  quantity: number
-  notes?: string
-  unitPrice?: number | null
-}
-
-export interface CreateRFQForCustomerDTO {
-  rfqLineItemDTOs: CreateRFQLineItemDTO[]
-}
-
-export const createRFQForCustomer = async (customerId: string, payload: CreateRFQForCustomerDTO): Promise<void> => {
-  await axiosClient.post(`${ADMIN_BASE_PATH}/create-rfq-for-customer/${customerId}`, payload)
-}
 export interface UserSummary {
   id: string
   email: string
@@ -88,42 +73,6 @@ export const getAllAdminUsers = async (): Promise<UserSummary[]> => {
   const response = await axiosClient.get<UserSummary[]>(`${ADMIN_BASE_PATH}/users`)
   return response.data
 }
-export const updateLineItemPrice = async (lineItemId: string, price: number | null): Promise<void> => {
-  await axiosClient.patch(`${ADMIN_BASE_PATH}/rfq-line-item/${lineItemId}/price`, price, {
-    headers: { "Content-Type": "application/json" },
-  })
-}
-export interface HubSpotProduct {
-  id: string
-  name: string
-  description: string
-  price: number | null
-}
-
-export const searchProductsRFQ = async (q: string): Promise<HubSpotProduct[]> => {
-  const response = await axiosClient.get<HubSpotProduct[]>(`${ADMIN_BASE_PATH}/products/search`, { params: { q } })
-  return response.data
-}
-
-export interface UpdateLineItemDTO {
-  productCode: string
-  productDescription: string
-  quantity: number
-  notes?: string
-  unitPrice?: number | null
-}
-
-export const updateLineItem = async (lineItemId: string, dto: UpdateLineItemDTO): Promise<void> => {
-  await axiosClient.put(`${ADMIN_BASE_PATH}/rfq-line-item/${lineItemId}`, dto)
-}
-
-export const deleteLineItem = async (lineItemId: string): Promise<void> => {
-  await axiosClient.delete(`${ADMIN_BASE_PATH}/rfq-line-item/${lineItemId}`)
-}
-
-export const addLineItemsToRFQ = async (rfqId: string, items: RFQLineItemDTO[]): Promise<void> => {
-  await axiosClient.post(`${ADMIN_BASE_PATH}/rfq/${rfqId}/line-items`, items)
-}
 
 export interface RFQLineItemDTO {
   productCode: string
@@ -134,4 +83,56 @@ export interface RFQLineItemDTO {
 }
 export const notifyQuotationReady = async (rfqId: string): Promise<void> => {
   await axiosClient.post(`${ADMIN_BASE_PATH}/rfq/${rfqId}/notify-ready`)
+}
+export interface HubSpotDealLineItem {
+  name: string
+  description: string
+  unitPrice: number | null
+  quantity: number
+}
+
+export interface HubSpotDeal {
+  id: string
+  properties: {
+    dealName: string
+    amount: string
+    dealStage: string
+    customer: string
+    shippingDate: string
+    trackingNumber: string
+    deliveryDate: string
+  }
+  lineItems: HubSpotDealLineItem[]
+}
+
+export const getDealsByEmail = async (email: string): Promise<HubSpotDeal[]> => {
+  const response = await axiosClient.get<HubSpotDeal[]>(`${ADMIN_BASE_PATH}/hubspot/deals/${email}`)
+  return response.data
+}
+export const updateRFQStatus = async (rfqId: string, status: number): Promise<void> => {
+  await axiosClient.patch(`${ADMIN_BASE_PATH}/rfq/${rfqId}/status`, status, {
+    headers: { "Content-Type": "application/json" },
+  })
+}
+
+export const updateEnquiryStatus = async (enquiryId: number, status: number): Promise<void> => {
+  await axiosClient.patch(`${ADMIN_BASE_PATH}/enquiry/${enquiryId}/status`, status, {
+    headers: { "Content-Type": "application/json" },
+  })
+}
+export const adminPreviewDealPdf = async (dealName: string, email: string): Promise<string> => {
+  const response = await axiosClient.get(`${ADMIN_BASE_PATH}/hubspot/deals/${encodeURIComponent(dealName)}/pdf`, { params: { email }, responseType: "blob" })
+  return window.URL.createObjectURL(new Blob([response.data], { type: "application/pdf" }))
+}
+
+export const adminDownloadDealPdf = async (dealName: string, email: string): Promise<void> => {
+  const response = await axiosClient.get(`${ADMIN_BASE_PATH}/hubspot/deals/${encodeURIComponent(dealName)}/pdf`, { params: { email }, responseType: "blob" })
+  const url = window.URL.createObjectURL(new Blob([response.data]))
+  const link = document.createElement("a")
+  link.href = url
+  link.setAttribute("download", `${dealName}-estimate.pdf`)
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+  window.URL.revokeObjectURL(url)
 }
