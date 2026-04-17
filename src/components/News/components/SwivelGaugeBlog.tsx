@@ -53,7 +53,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
       <meta name="description" content="Complete technical guide to Panam swivel gauge adapters. 360° rotational positioning, dual seal configurations, and ten alloy grades rated to 10,000 psi." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://www.panamvalve.com/blog/swivel-gauge-adapters" />
+      <link rel="canonical" href="https://www.panamvalve.com/blog/swivel-gauge-blog" />
 
       {/* Hero */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
