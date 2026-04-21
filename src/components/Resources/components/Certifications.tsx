@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Box, Typography, Container, Stack, InputAdornment, TextField } from "@mui/material";
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import SearchIcon from '@mui/icons-material/Search';
-import { useSearchParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { certsByTab } from "./Cert";
 
 const BRAND_BLUE = "#01B0F0";
@@ -34,26 +34,19 @@ const HighlightedText: React.FC<{ text: string; query: string }> = ({ text, quer
 };
 
 const CertificationsPage: React.FC = () => {
-  const [searchParams] = useSearchParams();
-const [activeTab, setActiveTab] = useState(searchParams.get("tab") ?? "qms");
-
-useEffect(() => {
-  const tab = searchParams.get("tab");
-  if (tab) setActiveTab(tab);
-}, [searchParams]);
-
+  const { tab } = useParams<{ tab: string }>();
+  const activeTab = tabs.find((t) => t.key === tab)?.key ?? "qms";
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
 
-  const allCerts = Object.entries(certsByTab).flatMap(([tab, certs]) =>
-    certs.map((cert) => ({ ...cert, tab }))
+  const allCerts = Object.entries(certsByTab).flatMap(([t, certs]) =>
+    certs.map((cert) => ({ ...cert, tab: t }))
   );
 
   const isSearching = search.trim().length > 0;
 
   const filteredCerts = isSearching
-    ? allCerts.filter((cert) =>
-        cert.title.toLowerCase().includes(search.toLowerCase())
-      )
+    ? allCerts.filter((cert) => cert.title.toLowerCase().includes(search.toLowerCase()))
     : (certsByTab[activeTab] ?? []).map((cert) => ({ ...cert, tab: activeTab }));
 
   return (
@@ -109,15 +102,15 @@ useEffect(() => {
         </Container>
       </Box>
 
-      {/* Tabs — hidden when searching */}
+      {/* Tabs */}
       {!isSearching && (
         <Box sx={{ backgroundColor: "#fff", borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
           <Container maxWidth="lg">
             <Stack direction="row" spacing={0} sx={{ overflowX: "auto" }}>
-              {tabs.map((tab) => (
+              {tabs.map((t) => (
                 <Box
-                  key={tab.key}
-                  onClick={() => setActiveTab(tab.key)}
+                  key={t.key}
+                  onClick={() => navigate(`/certificates/${t.key}`)}
                   sx={{
                     py: 2,
                     px: 3,
@@ -127,13 +120,13 @@ useEffect(() => {
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                     whiteSpace: "nowrap",
-                    color: activeTab === tab.key ? BRAND_BLUE : "#64748B",
-                    borderBottom: activeTab === tab.key ? `2px solid ${BRAND_BLUE}` : "2px solid transparent",
+                    color: activeTab === t.key ? BRAND_BLUE : "#64748B",
+                    borderBottom: activeTab === t.key ? `2px solid ${BRAND_BLUE}` : "2px solid transparent",
                     transition: "all 0.15s ease",
                     "&:hover": { color: BRAND_BLUE },
                   }}
                 >
-                  {tab.label}
+                  {t.label}
                 </Box>
               ))}
             </Stack>
@@ -216,7 +209,6 @@ useEffect(() => {
           </Box>
         )}
 
-        {/* Footer Notice */}
         <Box
           sx={{
             mt: 8,

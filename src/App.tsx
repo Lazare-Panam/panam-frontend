@@ -334,6 +334,14 @@ export const routes = [
             <CertificationsPage />
           </Suspense>
         ),
+      },  
+      {
+        path: "certificates/:tab",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CertificationsPage />
+          </Suspense>
+        ),
       },
 
       { path: "*", element: <NotFound /> },
