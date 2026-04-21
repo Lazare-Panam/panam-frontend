@@ -20,7 +20,11 @@ const routes = [
   "/blog/panam-valves-rg-fluid-power-partnership",
   "/blog/double-blog-and-bleed",
   "/blog/hydrogen-blog",
-  "/blog/swivel-gauge-blog"
+  "/blog/swivel-gauge-blog",
+  "/certificates",
+  "/certificates/qms",
+  "/certificates/type-reports",
+  "/certificates/registrations",
 ];
 const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
 
