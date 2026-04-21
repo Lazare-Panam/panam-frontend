@@ -3,27 +3,27 @@ export const certsByTab: Record<string, { title: string; subtitle: string; image
     {
       title: "ISO 9001:2015",
       subtitle: "Quality Management System",
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775560746/1fc73a96-6be8-4f07-b669-995c757244e7_nvlomw.jpg",
+      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776764557/1_1_u97lpn.png",
     },
     {
       title: "ISO 14001:2015",
       subtitle: "Environmental Management",
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775560757/fac05a42-dc4f-42a3-ba05-f19db55fd180_hfjugm.jpg",
+      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776764706/3_xurcml.png",
     },
     {
       title: "ISO 45001:2018",
       subtitle: "Occupational Health & Safety Management System",
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775560749/7b59e985-6f05-4afe-95de-4fe95df9c821_wtjbyp.jpg",
+      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776764670/2_knxgwy.png",
     },
     {
       title: "ISO 9001:2015",
       subtitle: "Environmental Management System Standard",
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775560757/fac05a42-dc4f-42a3-ba05-f19db55fd180_hfjugm.jpg",
+      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776764750/4_fmj1rs.png",
     },
     {
       title: "MFG. Facility Approval Letter from ABS Industrial",
       subtitle: "ABS Industrial Approval",
-      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776759076/ABS_INDUSTRIAL_-_JPEG_1_pwqq7j.jpg",
+      image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776764808/5_rstd34.png",
     },
   ],
   "type-reports": [
