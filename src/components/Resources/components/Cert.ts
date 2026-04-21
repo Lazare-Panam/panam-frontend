@@ -30,57 +30,81 @@ export const certsByTab: Record<string, { title: string; subtitle: string; image
   {
     title: "ASTM F1387-99 6MO-UNS 31254",
     subtitle: "Tube Fittings Certificiation",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776759863/ASTM_F1387-99_6MO-UNS_31254_-_JPEG_ctclai.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766016/ASTM_F1387-99_6MO-UNS_31254_hsyawp.png",
   },
  {
     title: "ASTM F1387-99 SS 316",
     subtitle: "Tube Fittings Certificiation",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776760053/ASTM_F1387-99_SS_316_-_JPEG_ihu8me.jpg",
-  },
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766096/ASTM_F1387-99_6MO-UNS_31254_o9pp3p.png",
+},
  {
     title: "ASTM F1387-99 UNS 32750",
     subtitle: "Tube Fittings Certification",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776760308/ASTM_F1387-99_UNS_32750_-_JPEG_eqdtqh.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766147/ASTM_F1387-99_UNS_32750_r75l9h.png",
   },
  {
     title: "ASTM F1387-99 UNS N04400",
     subtitle: "Tube Fittings",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776760411/ASTM_F1387-99_UNS_N04400_-_JPEG_uimmgk.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766220/ASTM_F1387-99_UNS_N04400_qojbue.png",
   },
+
    {
     title: "Torsion, High Impact Shock & Fire Test as per ASTM F-1387-99 For Tube Fittings",
     subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776760743/TORSION_-_ASTM_F_1387-99_-_JPEG_1_aly74t.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766403/TORSION_-_ASTM_F_1387-99_bh0xg8.png",
   },
-//   {
-//     title: "CE-PED Cert For Fittings & Valves",
-//     subtitle: "Type Test Report",
-//     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776760743/TORSION_-_ASTM_F_1387-99_-_JPEG_1_aly74t.jpg",
-//   }
-
+  {
+    title: "CE-PED Cert For Fittings & Valves",
+    subtitle: "Type Test Report",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766339/CE-PED_MARKING_TUV_iau1dl.png",
+  }
+,
 
   //ask CE-PED and Atex panam india has multiple and we dont' 
   {
     title: "Atex Cert for Fittings And Valves",
     subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776761304/ATEX_-_JPEG_1_ccnbhu.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766300/ATEX_xtczz3.png",
   },
+
+
+
+
+
 
   {
     title: "INTERCHANGEABILITY WITH SWAGELOK - TUBE FITTINGS",
     subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776761459/INTERCHANGEABILITY_WITH_SWAGELOK_-_TUBE_FITTINGS_-_JPEG_1_sd6p3q.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766536/INTERCHANGEABILITY_WITH_SWAGELOK_-_TUBE_FITTINGS_czztrn.png",
   },
 
   {
     title: "INTERCHANGEABILITY WITH PARKER",
     subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776761587/INTERCHANGEABILITY_WITH_PARKER_-_JPEG_1_jgy4cm.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766478/INTERCHANGEABILITY_WITH_PARKER_bvgdro.png",
   },
+
+  {
+    title: "CRYOGENIC TEST REPORT",
+    subtitle: "Type Test Report",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766913/CRYOGENIC_TEST_REPORT_q69dvk.png",
+  },
+
+    {
+        title: "DNV-GL Valves Valves Manifolds",
+        subtitle: "Type Test Report",
+        image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776767079/DNV-GL_Valves_Manifolds_mkuhkn.png",
+    },
+      {
+        title: "DNV-GL Valves Fittings",
+        subtitle: "Type Test Report",
+        image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776767177/DNV-GL_FITTINGS_gvzvuz.png",
+    },
+
 {
     title: "FIRE SAFE FOR DBB VALVES BY DNV-GL",
     subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776761754/FIRE_SAFE_BY_DNV-GL_-_JPEG_1_dsua1t.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776766684/FIRE_SAFE_BY_DNV-GL_ajfg3e.png",
   },
 
   {
@@ -120,24 +144,15 @@ export const certsByTab: Record<string, { title: string; subtitle: string; image
   {
     title: "MSS SP-99-2016a TYPE TEST CERTIFICATES - JPEG",
     subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776763184/MSS_SP-99-2016a_TYPE_TEST_CERTIFICATES_-_JPEG_1_bsiplb.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776767297/MSS_SP-99-2016a_TYPE_TEST_CERTIFICATES_kkvkx0.png",
   },
 
   {
-    title: "LLYODS APPROVAL FOR Tube Fittings - 1 ",
+    title: "LLYODS APPROVAL FOR Tube Fittings",
     subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776763444/LLYODS_APPROVAL_FOR_TF_-_PAGE_1_-_JPEG_1_irxyyq.jpg",
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776767239/LLYODS_APPROVAL_FOR_TF_p6y7k7.png",
   },
-  {
-    title: "LLYODS APPROVAL FOR Tube Fittings  2",
-    subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776763483/LLYODS_APPROVAL_FOR_TF_-_PAGE_2_-_JPEG_xeykrw.jpg",
-  },
-  {
-    title: "LLYODS APPROVAL FOR Tube Fittings  3",
-    subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776763483/LLYODS_APPROVAL_FOR_TF_-_PAGE_2_-_JPEG_xeykrw.jpg",
-  },
+
 
 ],
 "registrations": [

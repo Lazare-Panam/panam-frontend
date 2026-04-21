@@ -1,14 +1,14 @@
 export interface NavSubItem {
-  name: string;
-  link?: string;
+  name: string
+  link?: string
 }
-export const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", "Arial", sans-serif';
+export const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", "Arial", sans-serif'
 
 export interface NavCategory {
-  id: string;
-  label: string;
-  link: string;
-  items: NavSubItem[];
+  id: string
+  label: string
+  link: string
+  items: NavSubItem[]
 }
 // Add this below your navConfig object
 export const NAV_LINKS = [
@@ -18,8 +18,7 @@ export const NAV_LINKS = [
   { label: "About Us", id: "about", path: "/about", hasMenu: true },
   { label: "My Account", id: "dashboard", path: "/dashboard", hasMenu: true },
   { label: "Contact Us", id: "enquiry", path: "/enquiry", hasMenu: false },
-  
-];
+]
 
 // Defining this as a Record ensures we can access it via navConfig[menuId] safely
 export const navConfig: Record<string, NavCategory[]> = {
@@ -151,7 +150,6 @@ export const navConfig: Record<string, NavCategory[]> = {
         { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
         { name: "Double Block And Bleed Valves", link: "/blog/double-blog-and-bleed" },
         { name: "Check Valves Blog", link: "/blog/check-valves-blog" },
-        
       ],
     },
   ],
@@ -180,26 +178,23 @@ export const navConfig: Record<string, NavCategory[]> = {
       link: "/catalogPDFs",
       items: [{ name: "Resources" }],
     },
-    
   ],
   resources: [
-   {
-  id: "certificates",
-  label: "Certificates",
-  link: "/certificates",
-  items: [
-  { name: "QMS Certifications", link: "/certificates/qms" },
-  { name: "Type Test Reports", link: "/certificates/type-reports" },
-  { name: "Registrations & Approvals", link: "/certificates/registrations" },
-],
-},
+    {
+      id: "certificates",
+      label: "Certificates",
+      link: "/certificates",
+      items: [
+        { name: "QMS Certifications", link: "/certificates/qms" },
+        { name: "Type Test Reports", link: "/certificates/type-reports" },
+        { name: "Registrations & Approvals", link: "/certificates/registrations" },
+      ],
+    },
     {
       id: "catalogs",
       label: "Catalogs",
       link: "/catalogPdfs",
       items: [{ name: "All Catalogs", link: "/catalogPdfs" }],
     },
-    
-    
-  ]
-};
+  ],
+}
