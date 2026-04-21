@@ -180,7 +180,7 @@ export const certsByTab: Record<string, { title: string; subtitle: string; image
   },
 
 
-
+ 
 ],
 "registrations": [
      {
