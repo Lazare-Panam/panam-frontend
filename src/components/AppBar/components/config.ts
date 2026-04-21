@@ -183,12 +183,17 @@ export const navConfig: Record<string, NavCategory[]> = {
     
   ],
   resources: [
-    {
-      id: "certificates",
-      label: "Certificates",
-      link: "/certificates",
-      items: [{ name: "All Certificates", link: "/certificates" }],
-    },
+   {
+  id: "certificates",
+  label: "Certificates",
+  link: "/certificates",
+  items: [
+    
+    { name: "QMS Certifications", link: "/certificates?tab=qms" },
+    { name: "Type Test Reports", link: "/certificates?tab=type-reports" },
+    { name: "Registrations & Approvals", link: "/certificates?tab=registrations" },
+  ],
+},
     {
       id: "catalogs",
       label: "Catalogs",
