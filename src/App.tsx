@@ -38,6 +38,7 @@ import PartNumberDetail from "./components/ProductDetail/PartNumberDetail"
 import SwivelGaugeAdaptersBlog from "./components/News/components/SwivelGaugeBlog"
 import ResourcesPage from "./components/Resources/ResourcesPage"
 import CertificationsPage from "./components/Resources/components/Certifications"
+import TwoWayManifoldPage from "./TwoVMGrid/TwoVmGrid"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -343,6 +344,14 @@ export const routes = [
           </Suspense>
         ),
       },
+      {
+  path: "product-grid/2-way-manifolds",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <TwoWayManifoldPage />
+    </Suspense>
+  ),
+},
 
       { path: "*", element: <NotFound /> },
     ],
