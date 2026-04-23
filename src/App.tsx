@@ -39,6 +39,7 @@ import SwivelGaugeAdaptersBlog from "./components/News/components/SwivelGaugeBlo
 import ResourcesPage from "./components/Resources/ResourcesPage"
 import CertificationsPage from "./components/Resources/components/Certifications"
 import TwoWayManifoldPage from "./TwoVMGrid/TwoVmGrid"
+import PipeFittingPage from "./PipeFittings/PipeFittings"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -352,6 +353,12 @@ export const routes = [
     </Suspense>
   ),
 },
+{ path: '/product-grid/pipe-fittings', element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <PipeFittingPage />
+    </Suspense>
+  ), },
+
 
       { path: "*", element: <NotFound /> },
     ],

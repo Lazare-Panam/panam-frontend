@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 const BRAND_BLUE = "#01B0F0"
 
 const ALL_PRODUCTS = [
-  { name: "Pipe Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065185/reducing-hex-couplings-npt_dlncbd.png", link: "/products/pipe-fittings" },
+  { name: "Pipe Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065185/reducing-hex-couplings-npt_dlncbd.png", link: "product-grid/pipe-fittings" },
   { name: "Tube Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065253/UNION-CROSS-IMPERIAL-PUC-04-SS_usickt.png", link: "/products/fittings" },
   { name: "37 JIC Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065297/union-cross_ktkzxj.png", link: "/products/37-jic-fittings" },
   { name: "Weld Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065327/male-connector-tube-socket-weld-x-npt_pyqtf0.png", link: "/products/weld-fittings" },
