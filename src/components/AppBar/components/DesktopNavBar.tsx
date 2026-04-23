@@ -17,7 +17,7 @@ const DesktopNavbar = (props: any) => {
     setIsSearchOpen 
   } = props;
 
-  const LOGO_URL = "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png";
+  const LOGO_URL = "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/websitemedia/PANAM%20LOGO%20-%20PNG%20(1).png";
 
   return (
     <Container maxWidth="xl">
