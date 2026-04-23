@@ -5,14 +5,14 @@ import { useNavigate, Link as RouterLink  } from "react-router-dom"
 const BRAND_BLUE = "#01B0F0"
 
 const productData = [
-  { name: "Hydrogen Fittings", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065950/cross-npt-1_r7ivzj.png", path: "/products/hydrogen/pipe-fittings-hydrogen" },
-  { name: "Double Block & Bleed", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065511/MONO-FLANGE-1_zo3vzq.png", path: "/products/double-block-and-bleed-valves" },
-  { name: "Filters", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065475/PTF-TC-06-60-SS_qvotij.png", path: "/products/filters" },
-  { name: "System Integration", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065393/Img11695_kst9gv.png", path: "/products/system-integration" },
-  { name: "Check Valves", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773066005/PCV-S-08-OD-PNG-removebg-preview_gfigng.png", path: "/products/valves/check-valves" },
-  { name: "2-Way Valve Manifold", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065762/2VM-SS-8-20M-RM_gviqce.png", path: "/products/valve-manifolds/2-way-valve-manifold" },
-  { name: "3-Way Valve Manifold", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065795/3VM-SS-H_xhzpkr.png", path: "/products/valve-manifolds/3-way-valve-manifold" },
-  { name: "Pipe Fittings", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065185/reducing-hex-couplings-npt_dlncbd.png", path: "/products/instrumentation-fittings/pipe-fittings" },
+  { name: "Hydrogen Fittings", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/high-pressure/adapters_-_npt_x_npt_-_jpg-removebg-preview.png", path: "/products/hydrogen/pipe-fittings-hydrogen" },
+  { name: "Double Block & Bleed", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/dbb/block___bleed_-_flange_x_flange_-_JPEG-removebg-preview.png", path: "/products/double-block-and-bleed-valves" },
+  { name: "Filters", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/filters/PIF-IA-02-2-SS_-_JPG-removebg-preview.png", path: "/products/filters" },
+  { name: "System Integration", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/system-integration/Img11695-removebg-preview.png", path: "/products/system-integration" },
+  { name: "Check Valves", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/check-valves/PCV%20S%2004%20OD%2001.png", path: "/products/valves/check-valves" },
+  { name: "2-Way Valve Manifold", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/2VM/2VM-SS-8-RM_-_JPG__1_-removebg-preview.png", path: "/products/valve-manifolds/2-way-valve-manifold" },
+  { name: "3-Way Valve Manifold", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/3VM/3VM-SS-8-RM_-_JPG-removebg-preview.png", path: "/products/valve-manifolds/3-way-valve-manifold" },
+  { name: "Pipe Fittings", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/cross/cross_-_jpg-removebg-preview.png", path: "/products/instrumentation-fittings/pipe-fittings" },
 ]
 const CoreProducts = () => {
   const navigate = useNavigate()
