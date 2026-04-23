@@ -12,7 +12,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "Instrumentation Fittings",
     id: "instrumentation-fittings",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769424806/union_-_jpg_x7siq3.jpg",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/weld-fittings/union_elbow_-_jpg-removebg-preview.png",
     products: [
       { name: "Tube Fittings", link: "/products/instrumentation-fittings/tube-fittings" },
       { name: "37 JIC Fittings", link: "/products/instrumentation-fittings/37-jic-fittings" },
@@ -26,7 +26,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "Filters",
     id: "filters",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768988107/PTF-TB-04-15-SS_tujkjw.png",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/filters/PTF-TB-04-15-SS_JPG-removebg-preview.png",
     products: [
       { name: "T-Type Filter", link: "/products/filters" },
       { name: "In-Line Filter", link: "/products/filters" },
@@ -37,7 +37,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "Quick Coupling & Hoses",
     id: "quick-coupling-and-hoses",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/quick-connector/PQC4-04-OD-F-SS.png",
     products: [
       { name: "ISO-A", link: "/products/quick-coupling-and-hoses" },
       { name: "ISO 16028", link: "/products/quick-coupling-and-hoses" },
@@ -53,7 +53,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "Hydrogen Fittings & Valves",
     id: "hydrogen",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835400/street_elbow_-_bspp_-_jpg_hdsoes.jpg",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/hydrogen/1-removebg-preview.png",
     products: [
       {
         name: "Hydrogen Valves",
@@ -87,7 +87,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "Valves",
     id: "valves",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835251/PBV-HB-S-M12-OD_-_JPG_uj1uay.jpg",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/ball-valves/PBV-2-S-04-FF_-_JPG-removebg-preview.png",
     products: [
       { name: "Needle Valves", link: "/products/valves/needle-valves" },
       { name: "Ball Valves", link: "/products/valves/ball-valves" },
@@ -102,7 +102,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "Manifolds",
     id: "valve-manifolds",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768834959/3VM-SS-8-T_-_JPG_1_olp12u.jpg",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/5VM/5VM-SS-8-R_-_JPG-removebg-preview.png",
     products: [
       { name: "2-Valve ", link: "/products/valve-manifolds/2-way-valve-manifold" }, // Modal
       { name: "3-Valve ", link: "/products/valve-manifolds/3-way-valve-manifold" },
@@ -114,7 +114,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "Double Block and Bleed",
     id: "double-block-and-bleed-valves",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768835558/mono_flange_-_1_-_JPEG_1_plsmpe.webp",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/dbb/dbb-fire-safe-removebg.png",
     products: [
       { name: "Flange to Flange ", link: "/products/double-block-and-bleed-valves" },
       { name: "Flange to Pipe ", link: "/products/double-block-and-bleed-valves"},
@@ -126,7 +126,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "Tubing",
     id: "tubing",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770718728/HP_Tubings_chk8ms.jpg",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/tubing/TUBING_-_2-removebg-preview.png",
     products: [
       { name: "Tubing", link: "/products/tubing"},
       { name: "High Pressure Tubing", link: "/products/tubing"},
@@ -137,7 +137,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "Regulators & Transmitter",
     id: "pressure-regulator-transmitter",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770726940/PRESSURE_TRANSMITTERS_-_2_-_JPEG_gu0les.jpg",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pressure-transmitters/DPT-5-removebg-preview.png",
     products: [
       { name: "Pressure Transmitter", link: "/products/pressure-transmitter" },
     ],
@@ -147,7 +147,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: "System Integration",
     id: "system-integration",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770727010/GRAB-SAMPLING-SYSTEM-PNG_n3glyc.png",
+    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/system-integration/Img11695-removebg-preview.png",
     products: [
       { name: "Grab Sampling System", link:"/products/system-integration"},
       { name: "Air Header", link:"/products/system-integration" },

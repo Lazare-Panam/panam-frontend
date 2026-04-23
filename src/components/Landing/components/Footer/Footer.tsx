@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
           <Box>
             {/* Brand block */}
             <Box sx={{ mb: 5 }}>
-              <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png" alt="Panam Valves Logo" sx={{ height: 65, width: "auto", mb: 2, filter: "brightness(0) invert(1)", display: "block" }} />
+              <Box component="img" src="https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/websitemedia/PANAM%20LOGO%20-%20PNG%20(1).png" alt="Panam Valves Logo" sx={{ height: 65, width: "auto", mb: 2, filter: "brightness(0) invert(1)", display: "block" }} />
               <Typography sx={{ ...bodyText, mb: 2, fontSize: "0.78rem" }}>Precision-engineered instrumentation solutions for critical global infrastructure.</Typography>
               <SocialIcons />
             </Box>
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
           <Box>
             {/* Row 1: Logo + tagline side by side */}
             <Box sx={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 5, alignItems: "flex-start", mb: 6 }}>
-              <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png" alt="Panam Valves Logo" sx={{ height: 85, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
+              <Box component="img" src="https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/websitemedia/PANAM%20LOGO%20-%20PNG%20(1).png" alt="Panam Valves Logo" sx={{ height: 85, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 900, mb: 1, fontSize: "1rem", fontFamily: '"Inter", sans-serif' }}>
                   PANAM <span style={{ color: BRAND_BLUE }}>VALVES</span>
@@ -173,7 +173,7 @@ const Footer: React.FC = () => {
         {!isMobile && !isTablet && (
           <Grid container spacing={3} sx={{ mb: 6 }}>
             <Grid size={{ md: 2 }}>
-              <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png" alt="Panam Valves Logo" sx={{ height: 110, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
+              <Box component="img" src="https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/websitemedia/PANAM%20LOGO%20-%20PNG%20(1).png" alt="Panam Valves Logo" sx={{ height: 110, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
             </Grid>
 
             <Grid size={{ md: 2.5 }}>
@@ -186,8 +186,8 @@ const Footer: React.FC = () => {
                 <Stack spacing={2}>
                   {/* Accreditation Item 1 */}
                   <Stack direction="row" alignItems="center" spacing={1.5}>
-                    <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743216/BFPA_300-removebg-preview_ee8kgx.png" sx={{ height: 85, width: "auto", filter: "brightness(0) invert(1) opacity(0.8)" }} />
-                    <Box component="img" src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1773743101/HEA_SumbolAsset-13_etp9iy.svg" sx={{ height: 40, width: "auto", filter: "brightness(0) invert(1) opacity(0.8)" }} />
+                    {/* <Box component="img" src="https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/bfpa-logo.jpg" sx={{ height: 85, width: "auto", filter: "brightness(0) invert(1) opacity(0.8)" }} /> */}
+                    <Box component="img" src="https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/HEA_SumbolAsset-13%20(1).png" sx={{ height: 40, width: "auto", filter: "brightness(0) invert(1) opacity(0.8)" }} />
                   </Stack>
                 </Stack>
               </Box>
