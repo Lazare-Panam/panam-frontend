@@ -50,10 +50,7 @@ export default function PipeFittingPage() {
           bgcolor: 'background.paper'
         }}>
           <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
-            Instrumentation Pipe Fittings{' '}
-            <Box component="span" sx={{ color: 'text.primary', fontWeight: 400 }}>
-              — 316 Stainless Steel
-            </Box>
+            Pipe Fittings{' '}
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>
             NPT, ISO Tapered, ISO Parallel, Metric and SAE/MS thread standards.
