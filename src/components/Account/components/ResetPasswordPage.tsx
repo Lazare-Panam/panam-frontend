@@ -44,18 +44,26 @@ const ResetPasswordPage: React.FC = () => {
     }
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (newPassword !== confirmPassword) {
-      showNotification({ message: "Passwords do not match.", severity: "warning" })
-      return
-    }
-    if (newPassword.length < 6) {
-      showNotification({ message: "Password must be at least 6 characters.", severity: "warning" })
-      return
-    }
-    mutate({ email, token, newPassword })
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault()
+  if (newPassword.length < 8) {
+    showNotification({ message: "Password must be at least 8 characters.", severity: "warning" })
+    return
   }
+  if (!/[A-Z]/.test(newPassword)) {
+    showNotification({ message: "Password must contain at least one uppercase letter.", severity: "warning" })
+    return
+  }
+  if (!/[0-9]/.test(newPassword)) {
+    showNotification({ message: "Password must contain at least one number.", severity: "warning" })
+    return
+  }
+  if (newPassword !== confirmPassword) {
+    showNotification({ message: "Passwords do not match.", severity: "warning" })
+    return
+  }
+  mutate({ email, token, newPassword })
+}
 
   return (
     <Box sx={{ 
