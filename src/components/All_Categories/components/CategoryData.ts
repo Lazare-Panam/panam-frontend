@@ -16,7 +16,7 @@ export const CATEGORIES: CategoryData[] = [
     products: [
       { name: "Tube Fittings", link: "/products/instrumentation-fittings/tube-fittings" },
       { name: "37 JIC Fittings", link: "/products/instrumentation-fittings/37-jic-fittings" },
-      { name: "Pipe Fittings", link: "/products/instrumentation-fittings/pipe-fittings" },
+      { name: "Pipe Fittings", link: "/product-grid/pipe-fittings" },
       { name: "Weld Fittings", link: "/products/instrumentation-fittings/weld-fittings" },
       { name: "High Pressure Fittings", link: "/products/instrumentation-fittings/pipe-fittings-high-pressure" },
     ],
@@ -90,7 +90,7 @@ export const CATEGORIES: CategoryData[] = [
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/ball-valves/PBV-2-S-04-FF_-_JPG-removebg-preview.png",
     products: [
       { name: "Needle Valves", link: "/products/valves/needle-valves" },
-      { name: "Ball Valves", link: "/products/valves/ball-valves" },
+      { name: "Ball Valves", link: "/product-grid/ball-valves" },
       { name: "Check Valves", link: "/products/valves/check-valves" },
       { name: "Relief Valves", link: "/products/valves/relief-valves" },
       { name: "Gauge Root Valves", link: "/products/valves/gauge-root-valves" },
@@ -104,7 +104,7 @@ export const CATEGORIES: CategoryData[] = [
     id: "valve-manifolds",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/5VM/5VM-SS-8-R_-_JPG-removebg-preview.png",
     products: [
-      { name: "2-Valve ", link: "/products/valve-manifolds/2-way-valve-manifold" }, // Modal
+      { name: "2-Valve ", link: "/product-grid/2-way-manifolds" }, // Modal
       { name: "3-Valve ", link: "/products/valve-manifolds/3-way-valve-manifold" },
       { name: "5-Valve ", link: "/products/valve-manifolds/5-way-valve-manifold" },
     ],
