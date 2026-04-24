@@ -3,7 +3,10 @@ import { Box, Container, Typography, TextField, Button, CircularProgress, Paper 
 import { useSearchParams, useNavigate } from "react-router-dom"
 import { useMutation } from "@tanstack/react-query"
 import ChevronRightIcon from "@mui/icons-material/ChevronRight"
-
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { resetPassword } from "../../../api/authApi"
 import { useNotificationStore } from "../../store/useNotficationStore"
 
@@ -16,7 +19,8 @@ const ResetPasswordPage: React.FC = () => {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const showNotification = useNotificationStore(state => state.showNotification)
-
+const [showNewPassword, setShowNewPassword] = useState(false);
+const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const email = searchParams.get("email") || ""
   const token = searchParams.get("token") || ""
   const [newPassword, setNewPassword] = useState("")
@@ -100,26 +104,43 @@ const handleSubmit = (e: React.FormEvent) => {
               NEW PASSWORD
             </Typography>
             <TextField
-              fullWidth required
-              type="password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              variant="outlined"
-              sx={{ mb: 4, "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, "& fieldset": { borderColor: "transparent" } } }}
-            />
+  fullWidth required
+  type={showNewPassword ? "text" : "password"}
+  value={newPassword}
+  onChange={(e) => setNewPassword(e.target.value)}
+  variant="outlined"
+  sx={{ mb: 4, "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, "& fieldset": { borderColor: "transparent" } } }}
+  InputProps={{
+    endAdornment: (
+      <InputAdornment position="end">
+        <IconButton onClick={() => setShowNewPassword(p => !p)} edge="end">
+          {showNewPassword ? <VisibilityOff /> : <Visibility />}
+        </IconButton>
+      </InputAdornment>
+    ),
+  }}
+/>
 
             <Typography variant="subtitle2" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, mb: 1, color: "#1a1a1a" }}>
               CONFIRM PASSWORD
             </Typography>
-            <TextField
-              fullWidth required
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              variant="outlined"
-              sx={{ mb: 6, "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, "& fieldset": { borderColor: "transparent" } } }}
-            />
-
+           <TextField
+  fullWidth required
+  type={showConfirmPassword ? "text" : "password"}
+  value={confirmPassword}
+  onChange={(e) => setConfirmPassword(e.target.value)}
+  variant="outlined"
+  sx={{ mb: 6, "& .MuiOutlinedInput-root": { backgroundColor: BRAND_BLUE_LIGHT, borderRadius: 0, "& fieldset": { borderColor: "transparent" } } }}
+  InputProps={{
+    endAdornment: (
+      <InputAdornment position="end">
+        <IconButton onClick={() => setShowConfirmPassword(p => !p)} edge="end">
+          {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+        </IconButton>
+      </InputAdornment>
+    ),
+  }}
+/>
             <Button
               fullWidth
               type="submit"

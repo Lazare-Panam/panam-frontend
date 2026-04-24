@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Box, Typography, TextField, Button, Link as MuiLink, Stack, Autocomplete, CircularProgress } from "@mui/material";
+import { Box, Typography, TextField, Button, Link as MuiLink, Stack, Autocomplete, CircularProgress, InputAdornment, IconButton } from "@mui/material";
 import Grid from "@mui/material/Grid"; // Note: MUI recommends Grid2 for newer versions
 import { Link as RouterLink } from "react-router-dom";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useRegisterForm, countries } from "../hooks/useRegisterForm";
 import TermsModal from "../../Auth/Enquiry/AccessTerms";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 const TEXT_MAIN = "#1a1a1a";
 const TEXT_SECONDARY = "#555555";
 const BRAND_BLUE = "#01B0F0";
@@ -23,7 +25,8 @@ const fieldSx = {
 };
 
 const RegisterForm: React.FC = () => {
-  
+  const [showPassword, setShowPassword] = useState(false);
+const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const {
     formData,
     loading,
@@ -106,15 +109,50 @@ const [termsOpen, setTermsOpen] = useState(false);
             </Grid>
           </Grid>
 
-          <Typography variant="subtitle2" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, mb: 2, color: TEXT_MAIN }}>ACCOUNT SECURITY</Typography>
-          <Grid container spacing={3} sx={{ mb: 4 }}>
-            <Grid size={{ xs: 12, sm: 6 }}>
-              <TextField fullWidth required name="password" type="password" label="Password" value={formData.password} onChange={handleChange} error={Boolean(passwordError)} helperText={passwordError} sx={fieldSx} />
-            </Grid>
-            <Grid size={{ xs: 12, sm: 6 }}>
-              <TextField fullWidth required name="confirmPassword" type="password" label="Confirm Password" value={formData.confirmPassword} onChange={handleChange} error={Boolean(passwordError)} sx={fieldSx} />
-            </Grid>
-          </Grid>
+         <Typography variant="subtitle2" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, mb: 2, color: TEXT_MAIN }}>ACCOUNT SECURITY</Typography>
+<Grid container spacing={3} sx={{ mb: 4 }}>
+  <Grid size={{ xs: 12, sm: 6 }}>
+    <TextField
+      fullWidth required name="password"
+      type={showPassword ? "text" : "password"}
+      label="Password"
+      value={formData.password}
+      onChange={handleChange}
+      error={Boolean(passwordError)}
+      helperText={passwordError}
+      sx={fieldSx}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton onClick={() => setShowPassword(p => !p)} edge="end">
+              {showPassword ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
+    />
+  </Grid>
+  <Grid size={{ xs: 12, sm: 6 }}>
+    <TextField
+      fullWidth required name="confirmPassword"
+      type={showConfirmPassword ? "text" : "password"}
+      label="Confirm Password"
+      value={formData.confirmPassword}
+      onChange={handleChange}
+      error={Boolean(passwordError)}
+      sx={fieldSx}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton onClick={() => setShowConfirmPassword(p => !p)} edge="end">
+              {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
+    />
+  </Grid>
+</Grid>
 
           <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, justifyContent: "center", gap: 3, mt: 6 }}>
             <Button component={RouterLink} to="/login" variant="outlined" sx={{ borderColor: BRAND_BLUE, color: BRAND_BLUE, borderRadius: 0, px: 8, py: 2, fontWeight: 700, "&:hover": { backgroundColor: BRAND_BLUE_LIGHT } }}>CANCEL</Button>

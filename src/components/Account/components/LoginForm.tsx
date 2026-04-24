@@ -3,7 +3,11 @@ import { Box, Typography, TextField, Button, Link, CircularProgress } from "@mui
 import ChevronRightIcon from "@mui/icons-material/ChevronRight"
 import ForgotPasswordForm from "./ForgotPasswordForm"
 import { useLoginForm } from "../hooks/useLoginForm"
-
+import InputAdornment from "@mui/material/InputAdornment"
+import IconButton from "@mui/material/IconButton"
+import Visibility from "@mui/icons-material/Visibility"
+import VisibilityOff from "@mui/icons-material/VisibilityOff"
+import { useState } from "react"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const TEXT_MAIN = "#1a1a1a"
 const TEXT_SECONDARY = "#555555"
@@ -30,7 +34,7 @@ const labelSx = {
 
 const LoginForm: React.FC = () => {
   const { credentials, loading, isForgot, setIsForgot, handleChange, handleLogin, navigate } = useLoginForm()
-
+  const [showPassword, setShowPassword] = useState(false)
   if (isForgot) {
     return <ForgotPasswordForm onBack={() => setIsForgot(false)} />
   }
@@ -78,7 +82,24 @@ const LoginForm: React.FC = () => {
         <Typography variant="subtitle2" sx={labelSx}>
           PASSWORD
         </Typography>
-        <TextField fullWidth required name="password" type="password" value={credentials.password} onChange={handleChange} sx={{ ...inputSx, mb: 1 }} />
+        <TextField
+          fullWidth
+          required
+          name="password"
+          type={showPassword ? "text" : "password"}
+          value={credentials.password}
+          onChange={handleChange}
+          sx={{ ...inputSx, mb: 1 }}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton onClick={() => setShowPassword(p => !p)} edge="end">
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
 
         <Link component="button" type="button" onClick={() => setIsForgot(true)} sx={{ display: "inline-block", mb: 4, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, fontWeight: 600, fontSize: "0.9rem", border: "none", background: "none", cursor: "pointer", padding: 0 }}>
           Forgot your password?
