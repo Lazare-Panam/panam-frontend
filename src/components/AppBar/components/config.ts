@@ -53,7 +53,7 @@ export const navConfig: Record<string, NavCategory[]> = {
       link: "/products/valves",
       items: [
         { name: "Needle Valves", link: "/products/needle-valves" },
-        { name: "Ball Valves", link: "/products/ball-valves" },
+        { name: "Ball Valves", link: "/product-grid/ball-valves" },
         { name: "Check Valves", link: "/products/check-valves" },
         { name: "Relief Valves", link: "/products/relief-valves" },
         { name: "Gauge Root Valves", link: "/products/gauge-root-valves" },

@@ -18,7 +18,7 @@ const ALL_PRODUCTS = [
 
   { name: "Check Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773066005/PCV-S-08-OD-PNG-removebg-preview_gfigng.png", link: "/products/check-valves" },
   
-  { name: "Ball Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065898/PBV-3-S-O4-OD-A_vpgv95.png", link: "/products/ball-valves" },
+  { name: "Ball Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065898/PBV-3-S-O4-OD-A_vpgv95.png", link: "/product-grid/ball-valves" },
   { name: "Relief Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065866/PRVH-SS-08-MF-15K_tnunca.png", link: "/products/relief-valves" },
   { name: "2-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065762/2VM-SS-8-20M-RM_gviqce.png", link: "/products/2-way-valve-manifold" },
   { name: "3-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065795/3VM-SS-H_xhzpkr.png", link: "/products/3-way-valve-manifold" },

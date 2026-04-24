@@ -40,6 +40,7 @@ import ResourcesPage from "./components/Resources/ResourcesPage"
 import CertificationsPage from "./components/Resources/components/Certifications"
 import TwoWayManifoldPage from "./TwoVMGrid/TwoVmGrid"
 import PipeFittingPage from "./PipeFittings/PipeFittings"
+import BallValvePage from "./components/BallValves/BallValves"
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 export const routes = [
   {
@@ -358,6 +359,7 @@ export const routes = [
       <PipeFittingPage />
     </Suspense>
   ), },
+  { path: '/product-grid/ball-valves', element: <BallValvePage /> },
 
 
       { path: "*", element: <NotFound /> },
