@@ -10,12 +10,12 @@ const scroll = keyframes`
 `;
 
 const partners = [
-  { name: "R & G Group", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769514658/download_pmaswn.jpg", url: "https://www.rgfluidpower.com/" },
+  { name: "R & G Group", img: "https://pblol2.blob.core.windows.net/panam-images/brands/logo.png", url: "https://www.rgfluidpower.com/" },
   // { name: "Rubix", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516301/download_lwcmhn.png", url: "https://uk.rubix.com/en" },
-  { name: "Hydraulic Megastore", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516390/download_1_ixgkup.jpg", url: "https://www.hydraulicmegastore.com/" },
-  { name: "Ram Universal", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521921/ram-logo_endebu.png", url: "https://www.ramuniversal.co.uk/" },
-  { name: "AC Valves", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521817/eafe29df-39d4-412b-ba55-35534adb2578_b5kiaj.jpg", url: "https://acv-group.com/" },
-  { name: "Andro Mach", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769522584/67802ddc81f9ad5db58223d2_logo-svg-shape_jiketc.svg", url: "http://andromach.space/" },
+  { name: "Hydraulic Megastore", img: "https://pblol2.blob.core.windows.net/panam-images/brands/hydraulic-logo-white-320x79.webp", url: "https://www.hydraulicmegastore.com/" },
+  { name: "Ram Universal", img: "https://pblol2.blob.core.windows.net/panam-images/brands/ram-logo.png", url: "https://www.ramuniversal.co.uk/" },
+  { name: "AC Valves", img: "https://pblol2.blob.core.windows.net/panam-images/brands/acv-white-logo.svg", url: "https://acv-group.com/" },
+  { name: "Andro Mach", img: "https://pblol2.blob.core.windows.net/panam-images/brands/download.png", url: "http://andromach.space/" },
 ];
 
 const Ticker = () => {

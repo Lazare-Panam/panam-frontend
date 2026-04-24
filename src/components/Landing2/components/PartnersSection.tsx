@@ -11,15 +11,14 @@ const BRAND_BLUE = "#01B0F0";
 
 const PartnersSection = () => {
   
-  const partners = [
-    { name: "R & G Group", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769514658/download_pmaswn.jpg", url: "https://www.rgfluidpower.com/" },
-    // { name: "Rubix", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516301/download_lwcmhn.png", url: "https://uk.rubix.com/en" },
-    { name: "Hydraulic Megastore", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516390/download_1_ixgkup.jpg", url: "https://www.hydraulicmegastore.com/" },
-    { name: "Ram Universal", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521921/ram-logo_endebu.png", url: "https://www.ramuniversal.co.uk/" },
-    { name: "OMV", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769522389/49dc2b_94be551593d14559b5895c083a396ec2_mv2_mnpehy.avif", url: "https://www.omv.as/" },
-    { name: "AC Valves", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521817/eafe29df-39d4-412b-ba55-35534adb2578_b5kiaj.jpg", url: "https://acv-group.com/" },
-    { name: "Andro Mach", logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769522584/67802ddc81f9ad5db58223d2_logo-svg-shape_jiketc.svg", url: "https://www.andromach.space/" },
-  ];
+const partners = [
+  { name: "R & G Group", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/logo.png", url: "https://www.rgfluidpower.com/" },
+  // { name: "Rubix", img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516301/download_lwcmhn.png", url: "https://uk.rubix.com/en" },
+  { name: "Hydraulic Megastore", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/hydraulic-logo-white-320x79.webp", url: "https://www.hydraulicmegastore.com/" },
+  { name: "Ram Universal", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/ram-logo.png", url: "https://www.ramuniversal.co.uk/" },
+  { name: "AC Valves", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/download.jpg", url: "https://acv-group.com/" },
+  { name: "Andro Mach", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/download.png", url: "http://andromach.space/" },
+];
 
   return (
     <Box component="section" sx={{ py: 12, bgcolor: BRAND_BLUE, color: '#FFFFFF' }}>

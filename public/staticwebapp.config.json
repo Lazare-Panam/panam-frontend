@@ -4,7 +4,8 @@
     "exclude": ["/assets/*", "/static/media/*.{png,jpg,gif}", "/css/*",  "/about/*"]
   },
   "globalHeaders": {
-    "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "Content-Security-Policy": "frame-src 'self' https://www.youtube.com https://youtube.com;"
   },
   "routes": [
     {

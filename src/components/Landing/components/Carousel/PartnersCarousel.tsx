@@ -6,7 +6,7 @@ import { Autoplay, FreeMode } from "swiper/modules"
 const BRAND_BLUE = "#01B0F0"
 
 const partnerSlides = [
-  { name: "R & G Group", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769514658/download_pmaswn.jpg", url: "https://www.rgfluidpower.com/" },
+  { name: "R & G Group", image: "https://pblol2.blob.core.windows.net/panam-images/brands/logo.png", url: "https://www.rgfluidpower.com/" },
   // { name: "Rubix", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516301/download_lwcmhn.png", url: "https://uk.rubix.com/en" },
   { name: "Hydraulic Megastore", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769516390/download_1_ixgkup.jpg", url: "https://www.hydraulicmegastore.com/" },
   { name: "Ram Universal", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769521921/ram-logo_endebu.png", url: "https://www.ramuniversal.co.uk/" },

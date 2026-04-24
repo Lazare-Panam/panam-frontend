@@ -17,7 +17,7 @@ const DesktopNavbar = (props: any) => {
     setIsSearchOpen 
   } = props;
 
-  const LOGO_URL = "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/websitemedia/PANAM%20LOGO%20-%20PNG%20(1).png";
+  const LOGO_URL = "https://pblol2.blob.core.windows.net/panam-images/website-media/panam-logo";
 
   return (
     <Container maxWidth="xl">

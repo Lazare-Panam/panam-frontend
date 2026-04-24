@@ -14,12 +14,12 @@ const slides = [
   {
     title: "Global Infrastructure, Local Expertise",
     subtitle: "UK-manufactured solutions built to withstand extreme pressures and ensure total operational safety.",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1770984276/FACTORY-PHOTO-OPTION-1-JPEG_v9hkcn.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/website-media/hero-banners/IMG-20170817-WA0012.jpg",
   },
   {
     title: "H² Ready: The Future of Energy",
     subtitle: "Pioneering hydrogen-compatible technologies to power the next generation of clean energy infrastructure.",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1772530175/Carousel_images_lvpbns.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/website-media/hero-banners/FACTORY-PHOTO-OPTION-1-JPEG.jpg",
   },
 ]
 
