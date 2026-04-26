@@ -29,7 +29,7 @@ const CheckValveBlog: React.FC = () => {
 
   return (
     <>
-      <title>What Do Check Valves Do and Why They Matter | Panam Valves Blog</title>
+      <title  key="title">What Do Check Valves Do and Why They Matter | Panam Valves Blog</title>
     <meta name="description" content="Explore what check valves (NRV) do, the mechanics behind their operation, and why they remain essential in modern industrial infrastructure." />
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="What Do Check Valves Do and Why They Matter | Panam Valves" />
