@@ -3,8 +3,8 @@ import { Stack, IconButton, Badge, Avatar, Menu, MenuItem } from "@mui/material"
 import { useNavigate } from "react-router-dom";
 
 // Icons
-import SearchIcon from "@mui/icons-material/Search";
-import CloseIcon from "@mui/icons-material/Close";
+// import SearchIcon from "@mui/icons-material/Search";
+// import CloseIcon from "@mui/icons-material/Close";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -15,7 +15,7 @@ import { useUserStore } from "../../store/useUserStore";
 
 const BRAND_BLUE = "#01B0F0";
 
-export const ActionStack = ({ isSearchOpen, setIsSearchOpen, 
+export const ActionStack = ({ //isSearchOpen, setIsSearchOpen, 
  cartCount, 
  setOpenDrawer }: any) => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ export const ActionStack = ({ isSearchOpen, setIsSearchOpen,
     <Stack direction="row" spacing={0.5} alignItems="center" sx={{ zIndex: 10 }}>
       
       {/* Search Toggle */}
-      <IconButton
+      {/* <IconButton
         onClick={() => setIsSearchOpen(!isSearchOpen)}
         sx={{
           color: isSearchOpen ? "white" : BRAND_BLUE,
@@ -44,7 +44,7 @@ export const ActionStack = ({ isSearchOpen, setIsSearchOpen,
         }}
       >
         {isSearchOpen ? <CloseIcon sx={{ fontSize: 32 }} /> : <SearchIcon sx={{ fontSize: 28 }} />}
-      </IconButton>
+      </IconButton> */}
 
       {/* Profile / Login */}
       <IconButton onClick={(e) => isAuthenticated ? setAnchorEl(e.currentTarget) : navigate("/login")} sx={{ color: BRAND_BLUE }}>
