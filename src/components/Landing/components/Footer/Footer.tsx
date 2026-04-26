@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
           <Box>
             {/* Brand block */}
             <Box sx={{ mb: 5 }}>
-              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/website-media/panam-resize.jpg" alt="Panam Valves Logo" sx={{ height: 65, width: "auto", mb: 2, filter: "brightness(0) invert(1)", display: "block" }} />
+              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/website-media/panam-no-bg.png" alt="Panam Valves Logo" sx={{ height: 65, width: "auto", mb: 2, filter: "brightness(0) invert(1)", display: "block" }} />
               <Typography sx={{ ...bodyText, mb: 2, fontSize: "0.78rem" }}>Precision-engineered instrumentation solutions for critical global infrastructure.</Typography>
               <SocialIcons />
             </Box>
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
           <Box>
             {/* Row 1: Logo + tagline side by side */}
             <Box sx={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 5, alignItems: "flex-start", mb: 6 }}>
-              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/website-media/panam-resize.jpg" alt="Panam Valves Logo" sx={{ height: 85, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
+              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/website-media/panam-no-bg.png" alt="Panam Valves Logo" sx={{ height: 85, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 900, mb: 1, fontSize: "1rem", fontFamily: '"Inter", sans-serif' }}>
                   PANAM <span style={{ color: BRAND_BLUE }}>VALVES</span>
@@ -173,7 +173,7 @@ const Footer: React.FC = () => {
         {!isMobile && !isTablet && (
           <Grid container spacing={3} sx={{ mb: 6 }}>
             <Grid size={{ md: 2 }}>
-              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/website-media/panam-resize.jpg" alt="Panam Valves Logo" sx={{ height: 110, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
+              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/website-media/panam-no-bg.png" alt="Panam Valves Logo" sx={{ height: 110, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
             </Grid>
 
             <Grid size={{ md: 2.5 }}>

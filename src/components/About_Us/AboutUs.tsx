@@ -14,14 +14,14 @@ const AboutUs = () => {
       {/* Open Graph / Social Media */}
       <meta property="og:title" content="Engineering a Sustainable Tomorrow | Panam Valves" />
       <meta property="og:description" content="Bridging the gap between traditional industry and the renewable future with high-precision valve solutions." />
-      <meta property="og:image" content="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769618379/igal-ness-wQfV9njQxW4-unsplash_cyolxm.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/about/hero-image" />
       <HeroSection
         overline="THE FUTURE OF FLOW CONTROL"
         titleMain="Engineering a"
         titleAccent="Sustainable"
         titleEnd="Tomorrow."
         description="Bridging the gap between traditional industry and the renewable future. Panam Valves provides the critical precision required for the global transition to Hydrogen and clean energy."
-        backgroundImage="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769618379/igal-ness-wQfV9njQxW4-unsplash_cyolxm.jpg"
+        backgroundImage="https://pblol2.blob.core.windows.net/panam-images/about/hero-image"
       />
       <ScrollReveal>
         <BusinessOverview />
