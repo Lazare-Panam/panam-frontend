@@ -28,13 +28,18 @@ const CheckValveBlog: React.FC = () => {
   ]
 
   return (
+    <>
+      <title>What Do Check Valves Do and Why They Matter | Panam Valves Blog</title>
+    <meta name="description" content="Explore what check valves (NRV) do, the mechanics behind their operation, and why they remain essential in modern industrial infrastructure." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="What Do Check Valves Do and Why They Matter | Panam Valves" />
+    <meta property="og:description" content="A deep dive into check valve mechanics, types, and industrial applications." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.panamvalve.com/blog/check-valves-blog" />
+    <link rel="canonical" href="https://www.panamvalve.com/blog/check-valves-blog" />
+
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       {/* SEO TAGS */}
-      <title>What Do Check Valves Do and Why They Matter | Panam Valves Blog</title>
-      <meta name="description" content="Explore what check valves (NRV) do, the mechanics behind their operation, and why they remain essential in modern industrial infrastructure." />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://www.panamvalve.com/blog/check-valves-blog" />
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
@@ -366,6 +371,8 @@ const CheckValveBlog: React.FC = () => {
       </Container>
       <Box sx={{ py: 10 }} />
     </Box>
+    </>
+    
   )
 }
 
