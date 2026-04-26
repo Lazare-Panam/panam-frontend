@@ -1,13 +1,12 @@
 import { lazy, Suspense } from "react"
-import LoadingScreen from "./components/Loading/LoadingScreen"
-import ErrorPage from "./components/Error/ErrorPage"
-import Layout from "./Layout"
-import CrossReference from "./components/Cross_Reference/CrossReference"
-import RegisterForm from "./components/Account/components/RegisterForm"
-import Login from "./components/Account/Login"
-import CatalogPdfs from "./components/Auth/CatalogPdfs/CatalogPdfs"
-//const LandingPage = lazy(() => import("./components/Landing/LandingPage"))
 
+const LoadingScreen = lazy(() => import("./components/Loading/LoadingScreen"))
+const ErrorPage = lazy(() => import("./components/Error/ErrorPage"))
+const Layout = lazy(() => import("./Layout"))
+const CrossReference = lazy(() => import("./components/Cross_Reference/CrossReference"))
+const RegisterForm = lazy(() => import("./components/Account/components/RegisterForm"))
+const Login = lazy(() => import("./components/Account/Login"))
+const CatalogPdfs = lazy(() => import("./components/Auth/CatalogPdfs/CatalogPdfs"))
 const News = lazy(() => import("./components/News/News"))
 const DashBoard = lazy(() => import("./components/Dashboard/Dashboard"))
 const ProductPage = lazy(() => import("./components/All_Categories/ProductPage"))
@@ -18,30 +17,29 @@ const AuthAndInquiryPage = lazy(() => import("./components/Auth/AuthAndInquiryPa
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
-import ProductDetailPage from "./components/Product_Details/ProductDetails"
-import Landing2 from "./components/Landing2/Landing2"
-import MarineSubseaPage from "./components/Industries/components/MaineSubSea"
-import OilGasPage from "./components/Industries/components/OilGas"
-import HydrogenPage from "./components/Industries/components/Hydrogen"
-import AerospaceDefensePage from "./components/Industries/components/AeroSpaceDefense"
-import ChemicalsPage from "./components/Industries/components/Chemicals"
-import FoodBeveragePage from "./components/Industries/components/FoodBeverage"
-import PartnershipAnnouncementPage from "./components/News/components/PartnershipAnnoucement"
-import DoubleBlockBleedBlog from "./components/News/components/DoubleBlockBleedBlog"
-import CheckValveBlog from "./components/News/components/CheckValveBlog"
-import AdminLogin from "./components/Admin/components/AdminLogin"
-import AdminDashboard from "./components/Admin/components/AdminDashboard"
-import HydrogenValvesBlog from "./components/News/components/HydrogenBlog"
-import SearchResults from "./components/SearchResults/SearchResults"
-import PartNumberDetail from "./components/ProductDetail/PartNumberDetail"
-
-import SwivelGaugeAdaptersBlog from "./components/News/components/SwivelGaugeBlog"
-import ResourcesPage from "./components/Resources/ResourcesPage"
-import CertificationsPage from "./components/Resources/components/Certifications"
-import TwoWayManifoldPage from "./TwoVMGrid/TwoVmGrid"
-import PipeFittingPage from "./PipeFittings/PipeFittings"
-import BallValvePage from "./components/BallValves/BallValves"
+const ProductDetailPage = lazy(() => import("./components/Product_Details/ProductDetails"))
+const MarineSubseaPage = lazy(() => import("./components/Industries/components/MaineSubSea"))
+const OilGasPage = lazy(() => import("./components/Industries/components/OilGas"))
+const HydrogenPage = lazy(() => import("./components/Industries/components/Hydrogen"))
+const AerospaceDefensePage = lazy(() => import("./components/Industries/components/AeroSpaceDefense"))
+const ChemicalsPage = lazy(() => import("./components/Industries/components/Chemicals"))
+const FoodBeveragePage = lazy(() => import("./components/Industries/components/FoodBeverage"))
+const PartnershipAnnouncementPage = lazy(() => import("./components/News/components/PartnershipAnnoucement"))
+const DoubleBlockBleedBlog = lazy(() => import("./components/News/components/DoubleBlockBleedBlog"))
+const CheckValveBlog = lazy(() => import("./components/News/components/CheckValveBlog"))
+const AdminLogin = lazy(() => import("./components/Admin/components/AdminLogin"))
+const AdminDashboard = lazy(() => import("./components/Admin/components/AdminDashboard"))
+const HydrogenValvesBlog = lazy(() => import("./components/News/components/HydrogenBlog"))
+const SearchResults = lazy(() => import("./components/SearchResults/SearchResults"))
+const PartNumberDetail = lazy(() => import("./components/ProductDetail/PartNumberDetail"))
+const SwivelGaugeAdaptersBlog = lazy(() => import("./components/News/components/SwivelGaugeBlog"))
+const ResourcesPage = lazy(() => import("./components/Resources/ResourcesPage"))
+const CertificationsPage = lazy(() => import("./components/Resources/components/Certifications"))
+const TwoWayManifoldPage = lazy(() => import("./TwoVMGrid/TwoVmGrid"))
+const PipeFittingPage = lazy(() => import("./PipeFittings/PipeFittings"))
+const BallValvePage = lazy(() => import("./components/BallValves/BallValves"))
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
+import Landing2 from "./components/Landing2/Landing2"
 export const routes = [
   {
     path: "/",
