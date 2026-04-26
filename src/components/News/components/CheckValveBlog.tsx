@@ -39,7 +39,7 @@ const CheckValveBlog: React.FC = () => {
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
         <Container maxWidth="md">
-          <Typography variant="h1" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: "2rem", md: "3rem" }, color: "#1A1A1A" }}>
+          <Typography component="h1" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: "2rem", md: "3rem" }, color: "#1A1A1A" }}>
             Industrial Valve Basics: What Do Check Valves Do and Why They Matter
           </Typography>
 
