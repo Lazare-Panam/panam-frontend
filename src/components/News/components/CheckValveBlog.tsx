@@ -92,7 +92,7 @@ const CheckValveBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1768297321/PCV-S-08-FF-PNG_ctuujw.png"
+          src="https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c-cover.png"
           alt="Industrial Check Valve for backflow prevention"
           sx={{
             width: "100%",
@@ -189,7 +189,7 @@ const CheckValveBlog: React.FC = () => {
             {/* SECOND IMAGE SPACE */}
             <Box
               component="img"
-              src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1774451543/7ea7fc2c-7adc-4df2-9e84-fe077ab93c75.png"
+              src="https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png"
               alt="Diagram of Check Valve Mechanics"
               sx={{
                 width: "100%",

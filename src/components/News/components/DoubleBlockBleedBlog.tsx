@@ -69,7 +69,7 @@ const DoubleBlockBleedBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1774281930/1a7621c7-a20d-419d-a0e5-a52262f06ff0_lid0um.jpg"
+          src="https://pblol2.blob.core.windows.net/panam-images/products/double-block-and-bleeed/dbb_flange_x_flange.png"
           alt="Double Block and Bleed Valve"
           sx={{
             width: "100%",

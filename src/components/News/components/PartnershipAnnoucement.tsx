@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import {
-  Container, Typography, Box, Breadcrumbs, Avatar,
-  Stack, Paper, Button, 
-} from "@mui/material";
-import Grid from "@mui/material/Grid";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import React, { useEffect } from "react"
+import { useNavigate, Link } from "react-router-dom"
+import { Container, Typography, Box, Breadcrumbs, Avatar, Stack, Paper, Button } from "@mui/material"
+import Grid from "@mui/material/Grid"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
 const PartnershipAnnouncementPage: React.FC = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   // CTA Data
   const cta = {
@@ -18,7 +17,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
     body: "Speak with our engineering team today to discuss your specific high-pressure requirements.",
     buttonText: "Contact Our Experts",
     buttonLink: "/enquiry",
-  };
+  }
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
@@ -30,8 +29,12 @@ const PartnershipAnnouncementPage: React.FC = () => {
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
         <Container maxWidth="md">
           <Breadcrumbs sx={{ mb: 4 }}>
-            <Link to="/" style={{ textDecoration: "none", color: "#999", fontSize: "0.75rem", letterSpacing: "0.1em", fontWeight: 600 }}>HOME</Link>
-            <Link to="/blog" style={{ textDecoration: "none", color: "#999", fontSize: "0.75rem", letterSpacing: "0.1em", fontWeight: 600 }}>RESOURCES</Link>
+            <Link to="/" style={{ textDecoration: "none", color: "#999", fontSize: "0.75rem", letterSpacing: "0.1em", fontWeight: 600 }}>
+              HOME
+            </Link>
+            <Link to="/blog" style={{ textDecoration: "none", color: "#999", fontSize: "0.75rem", letterSpacing: "0.1em", fontWeight: 600 }}>
+              RESOURCES
+            </Link>
             <Typography sx={{ fontSize: "0.75rem", letterSpacing: "0.1em", fontWeight: 700, color: "#01B0F0" }}>NEWS</Typography>
           </Breadcrumbs>
 
@@ -42,7 +45,9 @@ const PartnershipAnnouncementPage: React.FC = () => {
           <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
             <Avatar sx={{ bgcolor: "#1A1A1A", width: 40, height: 40, fontSize: "1rem" }}>P</Avatar>
             <Box>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700, color: "#1A1A1A" }}>Panam Valves</Typography>
+              <Typography variant="subtitle2" sx={{ fontWeight: 700, color: "#1A1A1A" }}>
+                Panam Valves
+              </Typography>
               <Typography variant="caption" sx={{ color: "#777", display: "block" }}>
                 March 5, 2026 • 4 min read
               </Typography>
@@ -53,19 +58,13 @@ const PartnershipAnnouncementPage: React.FC = () => {
 
       {/* HERO IMAGE */}
       <Container maxWidth="lg" sx={{ mb: 8 }}>
-        <Box
-          component="img"
-          src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769789155/WhatsApp_Image_2026-01-30_at_3.43.08_PM_stqorr.jpg"
-          alt="Stratergic Partnership Image"
-          sx={{ width: "100%", height: { xs: 300, md: 550 }, objectFit: "cover", borderRadius: "4px", boxShadow: "0 20px 40px rgba(0,0,0,0.05)" }}
-        />
+        <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/about/leadership-image.jpeg" alt="Stratergic Partnership Image" sx={{ width: "100%", height: { xs: 300, md: 550 }, objectFit: "cover", borderRadius: "4px", boxShadow: "0 20px 40px rgba(0,0,0,0.05)" }} />
       </Container>
 
       {/* BODY CONTENT */}
       <Container maxWidth="lg">
         <Grid container spacing={8}>
           <Grid size={{ xs: 12, md: 8 }}>
-            
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.15rem", color: "#333" }}>
               We are pleased to announce a new strategic partnership between Panam Valves and R&G Fluid Power Group. Through this collaboration, Panam Valves will supply its Instrumentation Fittings Product to R&G Fluid Power Group, enhancing their portfolio with proven, high-performance solutions engineered for demanding industrial applications.
             </Typography>
@@ -75,12 +74,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
             </Typography>
 
             <Box sx={{ mb: 6, display: "flow-root" }}>
-              <Box
-                component="img"
-                src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1772714928/6b7891a2-7fb8-4d8b-97fc-5080c08eeca8.png"
-                alt="Partners Logo"
-                sx={{ width: { xs: "100%", sm: "48%" }, float: { sm: "left" }, mb: 2, mr: { sm: 4 }, borderRadius: "4px" }}
-              />
+              
               <Typography variant="body1" sx={{ lineHeight: 1.8, fontSize: "1.15rem", color: "#333" }}>
                 R&G Fluid Power Group is a group of UK based businesses with four divisions of expertise: Industrial, Hydraulics, Gaskets and Sealing, and Engineering. The hydraulics Division is made up of 8 hydraulic companies. Established for more than 50 years, R&G are now one of the largest specialists in the UK.
               </Typography>
@@ -95,12 +89,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
             </Typography>
 
             <Box component="ul" sx={{ mb: 6, pl: 2, listStyle: "none" }}>
-              {[
-                "High-performance hose products proven in demanding industrial applications",
-                "A dependable supply partner committed to consistent, long-term delivery",
-                "Enhanced system capability through integrated solutions",
-                "Strengthened technical credibility for complex systems"
-              ].map((item, i) => (
+              {["High-performance hose products proven in demanding industrial applications", "A dependable supply partner committed to consistent, long-term delivery", "Enhanced system capability through integrated solutions", "Strengthened technical credibility for complex systems"].map((item, i) => (
                 <Box component="li" key={i} sx={{ display: "flex", mb: 2 }}>
                   <Box sx={{ color: "#01B0F0", mr: 2, fontWeight: "bold" }}>—</Box>
                   <Typography sx={{ fontSize: "1.1rem", color: "#444" }}>{item}</Typography>
@@ -117,14 +106,13 @@ const PartnershipAnnouncementPage: React.FC = () => {
 
             {/* CTA */}
             <Paper elevation={0} sx={{ mt: 10, p: { xs: 4, md: 6 }, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px" }}>
-              <Typography variant="h4" sx={{ fontWeight: 800, mb: 2 }}>{cta.heading}</Typography>
-              <Typography variant="body1" sx={{ color: "#666", mb: 4 }}>{cta.body}</Typography>
-              <Button
-                variant="contained"
-                onClick={() => navigate(cta.buttonLink)}
-                endIcon={<ArrowForwardIcon />}
-                sx={{ bgcolor: "#01B0F0", color: "white", px: 4, py: 1.5, borderRadius: "4px", fontWeight: 700 }}
-              >
+              <Typography variant="h4" sx={{ fontWeight: 800, mb: 2 }}>
+                {cta.heading}
+              </Typography>
+              <Typography variant="body1" sx={{ color: "#666", mb: 4 }}>
+                {cta.body}
+              </Typography>
+              <Button variant="contained" onClick={() => navigate(cta.buttonLink)} endIcon={<ArrowForwardIcon />} sx={{ bgcolor: "#01B0F0", color: "white", px: 4, py: 1.5, borderRadius: "4px", fontWeight: 700 }}>
                 {cta.buttonText}
               </Button>
             </Paper>
@@ -133,15 +121,15 @@ const PartnershipAnnouncementPage: React.FC = () => {
           {/* SIDEBAR */}
           <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ position: "sticky", top: 40 }}>
-              <Typography variant="h6" sx={{ mb: 3, fontWeight: 800 }}>Key Takeaways</Typography>
+              <Typography variant="h6" sx={{ mb: 3, fontWeight: 800 }}>
+                Key Takeaways
+              </Typography>
               <Stack spacing={2}>
-                {[
-                  "Panam Valves joins R&G's trusted distribution network",
-                  "50+ years of hydraulic expertise behind the partnership",
-                  "Integrated solutions for high-pressure applications"
-                ].map((text) => (
+                {["Panam Valves joins R&G's trusted distribution network", "50+ years of hydraulic expertise behind the partnership", "Integrated solutions for high-pressure applications"].map(text => (
                   <Box key={text} sx={{ pb: 2, borderBottom: "1px solid #EEE" }}>
-                    <Typography variant="body2" sx={{ fontWeight: 500, color: "#555" }}>• {text}</Typography>
+                    <Typography variant="body2" sx={{ fontWeight: 500, color: "#555" }}>
+                      • {text}
+                    </Typography>
                   </Box>
                 ))}
               </Stack>
@@ -151,7 +139,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
       </Container>
       <Box sx={{ py: 10 }} />
     </Box>
-  );
-};
+  )
+}
 
-export default PartnershipAnnouncementPage;
+export default PartnershipAnnouncementPage

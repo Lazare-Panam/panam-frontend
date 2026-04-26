@@ -76,7 +76,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769424943/PSGA-8N-SS-MM_-_JPG_hfxuqx.jpg"
+          src="https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg"
           alt="Panam swivel gauge adapters for pressure instrumentation"
           sx={{ width: "100%", height: { xs: 100, md: 500 }, objectFit: "contain", bgcolor: "#F4F4F4", borderRadius: "4px", boxShadow: "0 10px 30px rgba(0,0,0,0.08)", border: "1px solid #EEE" }}
         />

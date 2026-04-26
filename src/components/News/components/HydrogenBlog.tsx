@@ -64,7 +64,7 @@ const HydrogenValvesBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1774964492/1fae1e27-f370-4bec-b33e-1184eb87a0d7.png"
+          src="https://pblol2.blob.core.windows.net/panam-images/blog/karsten-wurth-ZKWgoRUYuMk-unsplash (1).jpg"
           alt="High-pressure hydrogen infrastructure and valve systems"
           sx={{ width: "100%", height: { xs: 200, md: 500 }, objectFit: "cover", bgcolor: "#F4F4F4", borderRadius: "4px", boxShadow: "0 10px 30px rgba(0,0,0,0.08)", border: "1px solid #EEE" }}
         />
