@@ -23,6 +23,7 @@ export default defineConfig(({ isSsrBuild }) => ({
         "/blog/double-blog-and-bleed",
         "/blog/hydrogen-blog",
         "/blog/swivel-gauge-blog",
+        "/blog/check-valves-blog"
       ],
     }),
   ],

@@ -21,6 +21,7 @@ const routes = [
   "/blog/double-blog-and-bleed",
   "/blog/hydrogen-blog",
   "/blog/swivel-gauge-blog",
+  "/blog/check-valves-blog"
 ];
 const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
 
