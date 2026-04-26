@@ -308,25 +308,7 @@ const CheckValveBlog: React.FC = () => {
               </Box>
             </Box>
 
-            {/* THIRD IMAGE SPACE */}
-            <Box
-              component="img"
-              src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1774451582/f632d27e-8684-4e8c-8326-87c9d8f0e5d0.png"
-              alt="Actuators in Valve Systems"
-              sx={{
-                width: "100%",
-                height: 300,
-                objectFit: "contain",
-                bgcolor: "#F4F4F4",
-                mb: 1,
-                borderRadius: "4px",
-                display: "flex",
-                border: "1px solid #EEE",
-              }}
-            />
-            <Typography variant="caption" sx={{ display: "block", mb: 6, textAlign: "center", color: "#888" }}>
-              (Source: https://spacpneumatic.com)
-            </Typography>
+
 
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
               Conclusion
