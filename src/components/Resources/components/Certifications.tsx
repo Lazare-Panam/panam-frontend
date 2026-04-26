@@ -38,7 +38,8 @@ const CertificationsPage: React.FC = () => {
   const activeTab = tabs.find((t) => t.key === tab)?.key ?? "qms";
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
-
+const canonicalBase = "https://www.panamvalve.com/certificates";
+const canonicalUrl = tab ? `${canonicalBase}/${tab}` : canonicalBase;
   const allCerts = Object.entries(certsByTab).flatMap(([t, certs]) =>
     certs.map((cert) => ({ ...cert, tab: t }))
   );
@@ -50,6 +51,17 @@ const CertificationsPage: React.FC = () => {
     : (certsByTab[activeTab] ?? []).map((cert) => ({ ...cert, tab: activeTab }));
 
   return (
+    <>
+        <title>Official Certifications | Panam Valves – QMS, Type Test & Approvals</title>
+    <meta name="description" content="Browse Panam Valves' official certifications including QMS certifications, type test reports, and registrations & approvals for industrial valves and fittings." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Official Certifications | Panam Valves" />
+    <meta property="og:description" content="QMS certifications, type test reports, and registrations for Panam Valves' industrial valve products." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <link rel="canonical" href={canonicalUrl} />
+
+
     <Box sx={{ backgroundColor: "#F2F4F7", minHeight: "100vh", fontFamily: PRIMARY_FONT }}>
       {/* Header */}
       <Box sx={{ backgroundColor: BRAND_BLUE, color: "white", py: { xs: 8, md: 10 } }}>
@@ -208,6 +220,66 @@ const CertificationsPage: React.FC = () => {
             ))}
           </Box>
         )}
+        {/* Internal Links for SEO */}
+<Box sx={{ mt: 8 }}>
+  <Typography sx={{ fontWeight: 900, fontSize: "0.75rem", letterSpacing: "0.15em", color: "#64748B", textTransform: "uppercase", mb: 3 }}>
+    Browse by Category
+  </Typography>
+  <Stack direction="row" flexWrap="wrap" gap={2} sx={{ mb: 6 }}>
+    {tabs.map((t) => (
+      <Box
+        key={t.key}
+        component="a"
+        href={`/certificates/${t.key}`}
+        onClick={(e) => { e.preventDefault(); navigate(`/certificates/${t.key}`); }}
+        sx={{
+          px: 3, py: 1.5,
+          border: `1px solid ${activeTab === t.key ? BRAND_BLUE : "rgba(0,0,0,0.15)"}`,
+          color: activeTab === t.key ? BRAND_BLUE : "#0A121A",
+          fontWeight: 600, fontSize: "0.8rem",
+          textTransform: "uppercase", letterSpacing: "0.05em",
+          textDecoration: "none",
+          transition: "all 0.15s ease",
+          "&:hover": { borderColor: BRAND_BLUE, color: BRAND_BLUE },
+        }}
+      >
+        {t.label} ({certsByTab[t.key]?.length ?? 0})
+      </Box>
+    ))}
+  </Stack>
+
+  <Typography sx={{ fontWeight: 900, fontSize: "0.75rem", letterSpacing: "0.15em", color: "#64748B", textTransform: "uppercase", mb: 3 }}>
+    Related Pages
+  </Typography>
+  <Stack direction="row" flexWrap="wrap" gap={2}>
+    {[
+      { label: "Products", href: "/products" },
+      { label: "Resources", href: "/resources" },
+      { label: "Industries", href: "/industries" },
+      { label: "About Us", href: "/about" },
+      { label: "Blog", href: "/blog" },
+    ].map((link) => (
+      <Box
+        key={link.href}
+        component="a"
+        href={link.href}
+        onClick={(e) => { e.preventDefault(); navigate(link.href); }}
+        sx={{
+          px: 3, py: 1.5,
+          border: "1px solid rgba(0,0,0,0.15)",
+          color: "#0A121A",
+          fontWeight: 600, fontSize: "0.8rem",
+          textTransform: "uppercase", letterSpacing: "0.05em",
+          textDecoration: "none",
+          transition: "all 0.15s ease",
+          "&:hover": { borderColor: BRAND_BLUE, color: BRAND_BLUE },
+        }}
+      >
+        {link.label}
+      </Box>
+    ))}
+  </Stack>
+</Box>
 
         <Box
           sx={{
@@ -227,6 +299,8 @@ const CertificationsPage: React.FC = () => {
         </Box>
       </Container>
     </Box>
+    </>
+    
   );
 };
 
