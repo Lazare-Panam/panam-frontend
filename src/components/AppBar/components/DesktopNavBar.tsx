@@ -17,7 +17,7 @@ const DesktopNavbar = (props: any) => {
     setIsSearchOpen 
   } = props;
 
-  const LOGO_URL = "https://pblol2.blob.core.windows.net/panam-images/website-media/panam-logo";
+  const LOGO_URL = "https://pblol2.blob.core.windows.net/panam-images/website-media/panam-resize.jpg";
 
   return (
     <Container maxWidth="xl">

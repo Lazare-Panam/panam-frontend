@@ -6,7 +6,7 @@ const ACCREDITATIONS = [
     name: "BFPA", 
     url: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/bfpa-logo.jpg", 
     height: 55,
-    website: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774287523/BFPA_Panam_Valves_2026_wijobb.jpg" ,
+    website: "https://bfpa.co.uk/" ,
     priority: true
   },
   { 
