@@ -66,9 +66,9 @@ const CatalogPdfs = () => {
             borderLeft: `6px solid ${BRAND_BLUE}`,
             pl: 3,
           }}>
-          <Typography variant="h3" sx={{ fontWeight: 900, color: BRAND_BLUE, fontSize: "2.25rem", letterSpacing: -1, fontFamily: PRIMARY_FONT }}>
-            PRODUCT CATALOGS
-          </Typography>
+         <Typography component="h1" variant="h3" sx={{ fontWeight: 900, color: BRAND_BLUE, fontSize: "2.25rem", letterSpacing: -1, fontFamily: PRIMARY_FONT }}>
+  PRODUCT CATALOGS
+</Typography>
           <Typography variant="body2" sx={{ color: "text.secondary", fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, fontFamily: PRIMARY_FONT }}>
             CENTRALIZED TECHNICAL DOCUMENTATION
           </Typography>
