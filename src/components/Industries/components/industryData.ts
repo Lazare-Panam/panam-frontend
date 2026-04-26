@@ -21,14 +21,14 @@ export const industryData = [
   {
     id: "oil-gas",
     title: "Oil & Gas",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/industries/david-thielen-R5Ob28wpWzo-unsplash.jpg",
     hero: {
       overline: "SECTORS WE SERVE",
       titleMain: "Fueling the World with",
       titleAccent: "Unmatched Precision",
       titleEnd: "and Safety.",
       description: "From upstream extraction to downstream refining, Panam provides the critical flow control components that keep the world's energy infrastructure moving safely.",
-      backgroundImage: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg",
+      backgroundImage: "https://pblol2.blob.core.windows.net/panam-images/industries/david-thielen-R5Ob28wpWzo-unsplash.jpg",
     },
     content: {
       subHeading: "OIL & GAS SOLUTIONS",

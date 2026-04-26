@@ -24,7 +24,7 @@ const APPLICATIONS_DATA = [
     label: "Oil & Gas",
     title: "Oil & Gas Solutions",
     description: "Critical flow control components meeting API and ASME standards. We specialize in Double Block and Bleed (DBB) solutions and fugitive emission-certified components for global refineries and drilling platforms.",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/industries/david-thielen-R5Ob28wpWzo-unsplash.jpg",
   },
   {
     id: "hydrogen",
@@ -135,8 +135,6 @@ const ProductApplications = () => {
                 <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.8)", mb: 5, lineHeight: 1.9, fontSize: "1.15rem", maxWidth: "550px" }}>
                   {current.description}
                 </Typography>
-
-                
               </Box>
 
               {/* Smaller Image Container - Flex 0.8 */}

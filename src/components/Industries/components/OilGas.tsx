@@ -7,7 +7,7 @@ const OilGasPage = () => {
     titleAccent: "Unmatched Precision",
     titleEnd: "and Safety.",
     description: "From upstream extraction to downstream refining.",
-    backgroundImage: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769616666/zbynek-burival-GrmwVnVSSdU-unsplash_eruerc.jpg",
+    backgroundImage: "https://pblol2.blob.core.windows.net/panam-images/industries/david-thielen-R5Ob28wpWzo-unsplash.jpg",
   }
 
   const content = {
