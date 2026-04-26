@@ -28,6 +28,15 @@ const ResourcesPage: React.FC = () => {
   ];
 
   return (
+      <>
+    <title>Technical Resources | Panam Valves – Catalogues & Certifications</title>
+    <meta name="description" content="Access Panam Valves' technical resources including product catalogues, ISO certifications, safety documentation and compliance records for industrial valve applications." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Technical Resources | Panam Valves" />
+    <meta property="og:description" content="Product catalogues, ISO certifications, and compliance documentation for industrial valves and fittings." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.panamvalve.com/resources" />
+    <link rel="canonical" href="https://www.panamvalve.com/resources" />
     <Box sx={{ backgroundColor: "#F2F4F7", minHeight: "100vh", fontFamily: PRIMARY_FONT }}>
       {/* Header Section: Solid Deep Navy/Charcoal */}
       <Box 
@@ -213,6 +222,7 @@ const ResourcesPage: React.FC = () => {
         </Box>
       </Container>
     </Box>
+    </>
   );
 };
 

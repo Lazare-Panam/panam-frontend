@@ -36,6 +36,13 @@ const HighlightedText: React.FC<{ text: string; query: string }> = ({ text, quer
 const CertificationsPage: React.FC = () => {
   const { tab } = useParams<{ tab: string }>()
   const activeTab = tabs.find(t => t.key === tab)?.key ?? "qms"
+  const tabTitles: Record<string, string> = {
+  "qms": "QMS Certifications | Panam Valves – ISO & Quality Management",
+  "type-reports": "Type Test Reports | Panam Valves – CE, ATEX, DNV-GL & More",
+  "registrations": "Registrations & Approvals | Panam Valves – BFPA & Industry Bodies",
+}
+
+const pageTitle = tabTitles[activeTab] ?? "Official Certifications | Panam Valves – QMS, Type Test & Approvals"
   const navigate = useNavigate()
   const [search, setSearch] = useState("")
   const canonicalBase = "https://www.panamvalve.com/certificates"
@@ -48,7 +55,7 @@ const CertificationsPage: React.FC = () => {
 
   return (
     <>
-      <title>Official Certifications | Panam Valves – QMS, Type Test & Approvals</title>
+      <title>{pageTitle}</title>
       <meta name="description" content="Browse Panam Valves' official certifications including QMS certifications, type test reports, and registrations & approvals for industrial valves and fittings." />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Official Certifications | Panam Valves" />

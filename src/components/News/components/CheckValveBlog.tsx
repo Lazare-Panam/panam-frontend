@@ -30,7 +30,7 @@ const CheckValveBlog: React.FC = () => {
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       {/* SEO TAGS */}
-      
+      <title>What Do Check Valves Do and Why They Matter | Panam Valves Blog</title>
       <meta name="description" content="Explore what check valves (NRV) do, the mechanics behind their operation, and why they remain essential in modern industrial infrastructure." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
