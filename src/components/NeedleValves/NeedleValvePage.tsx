@@ -152,7 +152,7 @@ export default function NeedleValvesPage() {
         sx={{
           position: "relative", width: "100%", minHeight: { xs: "60vh", md: "75vh" },
           display: "flex", alignItems: "center", overflow: "hidden",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/website-media/banners/danil-shostak-AChwtt3tBPU-unsplash.jpg")`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/website-media/hero-banners/needle-valves-banner.jpeg")`,
           backgroundSize: "cover", backgroundPosition: "center", py: { xs: 8, md: 12 },
         }}
       >

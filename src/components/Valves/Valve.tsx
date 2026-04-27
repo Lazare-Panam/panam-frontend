@@ -17,7 +17,7 @@ const BRAND_BLUE = "#01B0F0";
 // ── EDIT VALVE ROUTES HERE ────────────────────────────────────────────────
 const VALVE_ROUTES: Record<string, string> = {
   "needle-valves":      "/needle-valves",
-  "ball-valves":        "/products/valves/ball-valves",
+  "ball-valves":        "/product-grid/ball-valves",
   "relief-valves":      "/products/valves/relief-valves",
   "check-valves":       "/products/valves/check-valves",
   "gauge-root-valves":  "/products/valves/gauge-root-valves",
@@ -236,7 +236,7 @@ export default function ValvesPage() {
           display: "flex",
           alignItems: "center",
           overflow: "hidden",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/website-media/banners/danil-shostak-AChwtt3tBPU-unsplash.jpg")`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/website-media/hero-banners/atieh-khoshraftar-l4PrMpT_DuY-unsplash.jpg")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           py: { xs: 8, md: 12 },
