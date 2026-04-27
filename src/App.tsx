@@ -40,6 +40,14 @@ const PipeFittingPage = lazy(() => import("./PipeFittings/PipeFittings"))
 const BallValvePage = lazy(() => import("./components/BallValves/BallValves"))
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 import Landing2 from "./components/Landing2/Landing2"
+import NeedleValveHBPage from "./components/NeedleValves/NeedleValveGrid/HBGrid/HBGridPage"
+import NeedleValveIBPage from "./components/NeedleValves/NeedleValveGrid/IBGrid/NeedleValveIBPage"
+import NeedleValveHPPage from "./components/NeedleValves/NeedleValveGrid/HPGrid/NeedleValvesHPPage"
+import ProductPage2 from "./components/AllCategoriesNew/ProductPage2"
+import NeedleValvesPage from "./components/NeedleValves/NeedleValvePage"
+import NeedleValveSBPage from "./components/NeedleValves/NeedleValveGrid/SBGrid/SBGrid"
+import MiniValvePage from "./components/NeedleValves/NeedleValveGrid/MiniGrid/MiniValves"
+import ValvesPage from "./components/Valves/Valve"
 export const routes = [
   {
     path: "/",
@@ -55,10 +63,18 @@ export const routes = [
         ),
       },
       {
-        path: "products",
+        path: "products2",
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <ProductPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "products",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ProductPage2 />
           </Suspense>
         ),
       },
@@ -335,7 +351,7 @@ export const routes = [
             <CertificationsPage />
           </Suspense>
         ),
-      },  
+      },
       {
         path: "certificates/:tab",
         element: (
@@ -345,21 +361,29 @@ export const routes = [
         ),
       },
       {
-  path: "product-grid/2-way-manifolds",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <TwoWayManifoldPage />
-    </Suspense>
-  ),
-},
-{ path: '/product-grid/pipe-fittings', element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <PipeFittingPage />
-    </Suspense>
-  ), },
-  { path: '/product-grid/ball-valves', element: <BallValvePage /> },
-
-
+        path: "product-grid/2-way-manifolds",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <TwoWayManifoldPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/product-grid/pipe-fittings",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <PipeFittingPage />
+          </Suspense>
+        ),
+      },
+      { path: "/product-grid/ball-valves", element: <BallValvePage /> },
+      { path: "/needle-valves/needle-valves-ib", element: <NeedleValveIBPage /> },
+      { path: "/needle-valves/needle-valves-hb", element: <NeedleValveHBPage /> },
+      { path: "/needle-valves/needle-valves-hp", element: <NeedleValveHPPage /> },
+      { path: "/needle-valves/needle-valves-sb", element: <NeedleValveSBPage /> },
+      { path: "/needle-valves/needle-valves-mini", element: <MiniValvePage /> },
+      { path: "/needle-valves", element: <NeedleValvesPage /> },
+      { path: "/valves", element: <ValvesPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
