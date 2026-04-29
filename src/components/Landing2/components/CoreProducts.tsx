@@ -12,7 +12,7 @@ const productData = [
   { name: "Check Valves", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/check-valves/PCV%20S%2004%20OD%2001.png", path: "/products/valves/check-valves" },
   { name: "2-Way Valve Manifold", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/2VM/2VM-SS-8-RM_-_JPG__1_-removebg-preview.png", path: "/products/valve-manifolds/2-way-valve-manifold" },
   { name: "3-Way Valve Manifold", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/3VM/3VM-SS-8-RM_-_JPG-removebg-preview.png", path: "/products/valve-manifolds/3-way-valve-manifold" },
-  { name: "Pipe Fittings", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/cross/cross_-_jpg-removebg-preview.png", path: "/products/instrumentation-fittings/pipe-fittings" },
+  { name: "Pipe Fittings", img: "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/male-tee.png", path: "/products/instrumentation-fittings/pipe-fittings" },
 ]
 const CoreProducts = () => {
   const navigate = useNavigate()
