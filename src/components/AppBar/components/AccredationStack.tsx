@@ -3,14 +3,14 @@ import { Stack, Box, Typography, Link } from "@mui/material";
 
 const ACCREDITATIONS = [
   { 
-    name: "BFPA", 
+    name: "Logo with a grey swirling abstract symbol on the left and bold blue letters ‘BFPA’ on the right. Beneath the letters, smaller grey text reads ‘Representing Hydraulic & Pneumatic Industries.", 
     url: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/bfpa-logo.jpg", 
     height: 55,
     website: "https://bfpa.co.uk/" ,
     priority: true
   },
   { 
-    name: "Logo with a grey swirling abstract symbol on the left and bold blue letters ‘BFPA’ on the right. Beneath the letters, smaller grey text reads ‘Representing Hydraulic & Pneumatic Industries.", 
+    name: "Abstract geometric design made of paired circular shapes arranged in a spiralling pattern, transitioning from green on the left to blue on the right.", 
     url: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/HEA_SumbolAsset-13%20(1).png", 
     height: 60,
     website: "https://ukhea.co.uk/" ,
