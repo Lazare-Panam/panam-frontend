@@ -16,7 +16,7 @@ const DesktopNavbar = (props: any) => {
     <Container maxWidth="xl">
       <Toolbar disableGutters sx={{ height: 90, justifyContent: "space-between" }}>
         <Box onClick={() => navigate("/")} sx={{ cursor: "pointer", zIndex: 10, display: "flex", alignItems: "center", flexShrink: 0 }}>
-          <Box component="img" src={LOGO_URL} alt="Logo" sx={{ height: 70, width: "auto", objectFit: "contain" }} />
+          <Box component="img" src={LOGO_URL} alt="Logo featuring a stylized blue letter ‘P’ inside a square outline, followed by the word ‘PANAM’ in bold blue uppercase letters. Beneath it, the tagline ‘Engineering Beyond Limits’ appears in smaller grey uppercase text." sx={{ height: 70, width: "auto", objectFit: "contain" }} />
         </Box>
 
         <Box

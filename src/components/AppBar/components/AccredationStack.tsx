@@ -10,7 +10,7 @@ const ACCREDITATIONS = [
     priority: true
   },
   { 
-    name: "HEA", 
+    name: "Logo with a grey swirling abstract symbol on the left and bold blue letters ‘BFPA’ on the right. Beneath the letters, smaller grey text reads ‘Representing Hydraulic & Pneumatic Industries.", 
     url: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/HEA_SumbolAsset-13%20(1).png", 
     height: 60,
     website: "https://ukhea.co.uk/" ,
