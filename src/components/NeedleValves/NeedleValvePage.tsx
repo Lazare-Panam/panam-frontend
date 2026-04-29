@@ -74,16 +74,6 @@ const NEEDLE_VALVE_SERIES = [
   },
 ];
 
-const SPECS = [
-  { label: "Max Working Pressure", value: "Up to 20,000 psig (1,379 bar)" },
-  { label: "Size Range", value: '1/8" to 1"' },
-  { label: "Materials", value: "SS316, Duplex, Monel, Hastelloy" },
-  { label: "Construction", value: "Forged & Bar Stock" },
-  { label: "Stem Design", value: "Non-rotating Vee-tip / Ball-tip" },
-  { label: "Gland Packing", value: "PTFE standard · Graphoil to 538°C" },
-  { label: "End Connections", value: "NPT, BSPP, BSPT, ISO Tapered, PANAM® Tube Fitting" },
-  { label: "Certification", value: "NACE MR0175 available on request" },
-];
 
 type SeriesItem = (typeof NEEDLE_VALVE_SERIES)[0];
 
