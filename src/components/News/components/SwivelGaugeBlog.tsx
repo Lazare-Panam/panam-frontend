@@ -49,7 +49,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>Swivel Gauge Adapters – Essential Guide to Pressure Gauge Positioning</title>
+      <title>Swivel Gauge Adapters!</title>
       <meta name="description" content="Complete technical guide to Panam swivel gauge adapters. 360° rotational positioning, dual seal configurations, and ten alloy grades rated to 10,000 psi." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />

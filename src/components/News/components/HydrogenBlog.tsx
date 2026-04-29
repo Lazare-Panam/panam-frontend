@@ -36,7 +36,7 @@ const HydrogenValvesBlog: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>Hydrogen Valves – High-Pressure Hydrogen Valving Systems for Net-Zero Infrastructure</title>
+      <title>Hydrogen Valve Systems</title>
       <meta name="description" content="Technical analysis of high-pressure hydrogen valves. Material science, embrittlement mitigation, and valve typologies for net-zero infrastructure." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
