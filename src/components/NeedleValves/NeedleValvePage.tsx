@@ -199,34 +199,22 @@ export default function NeedleValvesPage() {
 
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
         {/* ── INTRO ── */}
-        <Grid container spacing={8} sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 7 }}>
-            <Typography variant="h2" sx={{ fontSize: { xs: 26, md: 34 }, fontWeight: 800, mb: 3, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
-              Precision metering.<br />Repeatable shut-off.
-            </Typography>
-            <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
-              PANAM® Needle Valves are engineered for applications where fine flow control and positive isolation are non-negotiable. The non-rotating Vee-tip or ball-tip stem design eliminates seat damage under cycling, delivering consistent performance across thousands of open/close operations.
-            </Typography>
-            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>
-              Five series cover the full spectrum — from compact Mini valves in tight panel installations to heavy-duty forged HP bodies handling extreme pressure and temperature simultaneously. All series are available with full heat-code traceability and NACE certification on request.
-            </Typography>
-          </Grid>
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
-              <Typography sx={{ fontWeight: 700, mb: 2.5, fontSize: 14, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: 0.5, textTransform: "uppercase" }}>
-                Technical Specifications
-              </Typography>
-              {SPECS.map((spec) => (
-                <Box key={spec.label} sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", py: 1.2, borderBottom: "1px solid #e4f2fa", gap: 2 }}>
-                  <Typography sx={{ fontSize: 13, fontWeight: 600, color: "#444", fontFamily: PRIMARY_FONT, flexShrink: 0 }}>{spec.label}</Typography>
-                  <Typography sx={{ fontSize: 13, color: "#666", fontFamily: PRIMARY_FONT, textAlign: "right" }}>{spec.value}</Typography>
-                </Box>
-              ))}
-            </Box>
-          </Grid>
-        </Grid>
+        <Grid size={{ xs: 12, md: 7 }}>
+  <Typography variant="h2" sx={{ fontSize: { xs: 26, md: 34 }, fontWeight: 800, mb: 3, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
+    Precision metering.<br />Repeatable shut-off.
+  </Typography>
+  <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
+    PANAM® Needle Valves are available across multiple series—including IB, HB, HP (20K), HP (60K), SB, and Mini Series—to meet a wide range of pressure and flow‑control requirements. Manufactured in SS316, Duplex, Monel, and Hastelloy using both forged and bar‑stock construction, these valves deliver exceptional corrosion resistance and durability in demanding industrial environments.
+  </Typography>
+  <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
+    A broad selection of end‑connection options is offered, including male and female NPT, BSPP, BSPT, ISO tapered pipe ends, and PANAM® tube‑fitting connections. The valves support maximum working pressures up to 20,000 psig (1,379 bar) and are available in sizes from 1/8" to 1". Standard PTFE gland packing ensures smooth operation, with optional Graphoil packing for high‑temperature service up to 538°C (1000°F).
+  </Typography>
+  <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>
+    The non‑rotating vee‑tip or ball‑tip stem design provides reliable, repetitive, leak‑tight shut‑off, even under high‑pressure cycling. NACE certification is available upon request, and full heat‑code traceability ensures complete material verification and quality assurance.
+  </Typography>
+</Grid>
 
-        <Divider sx={{ mb: 10 }} />
+        <Divider sx={{ mt:5,mb: 5 }} />
 
         {/* ── SERIES GRID ── */}
         <Box id="series" sx={{ mb: 10 }}>
