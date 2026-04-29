@@ -21,7 +21,7 @@ export const CATEGORIES: CategoryData[] = [
       { name: "High Pressure Fittings", link: "/products/instrumentation-fittings/pipe-fittings-high-pressure" },
     ],
   },
-  
+
   //filters
   {
     title: "Filters",
@@ -91,10 +91,10 @@ export const CATEGORIES: CategoryData[] = [
     products: [
       { name: "Needle Valves", link: "/products/valves/needle-valves" },
       { name: "Ball Valves", link: "/product-grid/ball-valves" },
-      { name: "Check Valves", link: "/products/valves/check-valves" },
+      { name: "Check Valves", link: "valves/relief-valves" },
       { name: "Relief Valves", link: "/products/valves/relief-valves" },
       { name: "Gauge Root Valves", link: "/products/valves/gauge-root-valves" },
-       { name: "Purge Valves", link: "/products/valves/purge-valves" },
+      { name: "Purge Valves", link: "/products/valves/purge-valves" },
     ],
   },
 
@@ -109,7 +109,7 @@ export const CATEGORIES: CategoryData[] = [
       { name: "5-Valve ", link: "/products/valve-manifolds/5-way-valve-manifold" },
     ],
   },
-  
+
   //dbb
   {
     title: "Double Block and Bleed",
@@ -117,19 +117,19 @@ export const CATEGORIES: CategoryData[] = [
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/dbb/dbb-fire-safe-removebg.png",
     products: [
       { name: "Flange to Flange ", link: "/products/double-block-and-bleed-valves" },
-      { name: "Flange to Pipe ", link: "/products/double-block-and-bleed-valves"},
-      { name: "Pipe to Pipe ", link: "/products/double-block-and-bleed-valves"},
+      { name: "Flange to Pipe ", link: "/products/double-block-and-bleed-valves" },
+      { name: "Pipe to Pipe ", link: "/products/double-block-and-bleed-valves" },
     ],
   },
- 
+
   //tubing
   {
     title: "Tubing",
     id: "tubing",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/tubing/TUBING_-_2-removebg-preview.png",
     products: [
-      { name: "Tubing", link: "/products/tubing"},
-      { name: "High Pressure Tubing", link: "/products/tubing"},
+      { name: "Tubing", link: "/products/tubing" },
+      { name: "High Pressure Tubing", link: "/products/tubing" },
     ],
   },
 
@@ -138,9 +138,7 @@ export const CATEGORIES: CategoryData[] = [
     title: "Regulators & Transmitter",
     id: "pressure-regulator-transmitter",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pressure-transmitters/DPT-5-removebg-preview.png",
-    products: [
-      { name: "Pressure Transmitter", link: "/products/pressure-transmitter" },
-    ],
+    products: [{ name: "Pressure Transmitter", link: "/products/pressure-transmitter" }],
   },
 
   //syustem integration
@@ -149,10 +147,10 @@ export const CATEGORIES: CategoryData[] = [
     id: "system-integration",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/system-integration/Img11695-removebg-preview.png",
     products: [
-      { name: "Grab Sampling System", link:"/products/system-integration"},
-      { name: "Air Header", link:"/products/system-integration" },
-      { name: "Condensate Pots", link:"/products/system-integration"},
-      { name: "Flange Adaptors", link:"/products/system-integration" },
+      { name: "Grab Sampling System", link: "/products/system-integration" },
+      { name: "Air Header", link: "/products/system-integration" },
+      { name: "Condensate Pots", link: "/products/system-integration" },
+      { name: "Flange Adaptors", link: "/products/system-integration" },
     ],
   },
 ]

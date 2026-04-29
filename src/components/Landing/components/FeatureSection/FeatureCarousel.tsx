@@ -13,13 +13,12 @@ const ALL_PRODUCTS = [
   { name: "Weld Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065327/male-connector-tube-socket-weld-x-npt_pyqtf0.png", link: "/products/weld-fittings" },
   { name: "Needle Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768296756/11111_e7ywry.webp", link: "/products/needle-valves" },
   { name: "Gauge Root Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770306213/final-gauge-root-ff_oforuw.webp", link: "/products/gauge-root-valves" },
-{ name: "High Pressure Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065950/cross-npt-1_r7ivzj.png", link: "/products/pipe-fittings-high-pressure" },
- 
+  { name: "High Pressure Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065950/cross-npt-1_r7ivzj.png", link: "/products/pipe-fittings-high-pressure" },
 
   { name: "Check Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773066005/PCV-S-08-OD-PNG-removebg-preview_gfigng.png", link: "/valves/pcv" },
-  
+
   { name: "Ball Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065898/PBV-3-S-O4-OD-A_vpgv95.png", link: "/product-grid/ball-valves" },
-  { name: "Relief Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065866/PRVH-SS-08-MF-15K_tnunca.png", link: "/products/relief-valves" },
+  { name: "Relief Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065866/PRVH-SS-08-MF-15K_tnunca.png", link: "/valves/relief-valves" },
   { name: "2-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065762/2VM-SS-8-20M-RM_gviqce.png", link: "/products/2-way-valve-manifold" },
   { name: "3-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065795/3VM-SS-H_xhzpkr.png", link: "/products/3-way-valve-manifold" },
   { name: "5-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065822/5VM-SS-H_lnxzwa.png", link: "/products/5-way-valve-manifold" },
