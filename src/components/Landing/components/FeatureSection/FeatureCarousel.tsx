@@ -16,7 +16,7 @@ const ALL_PRODUCTS = [
 { name: "High Pressure Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065950/cross-npt-1_r7ivzj.png", link: "/products/pipe-fittings-high-pressure" },
  
 
-  { name: "Check Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773066005/PCV-S-08-OD-PNG-removebg-preview_gfigng.png", link: "/products/check-valves" },
+  { name: "Check Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773066005/PCV-S-08-OD-PNG-removebg-preview_gfigng.png", link: "/valves/pcv" },
   
   { name: "Ball Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065898/PBV-3-S-O4-OD-A_vpgv95.png", link: "/product-grid/ball-valves" },
   { name: "Relief Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065866/PRVH-SS-08-MF-15K_tnunca.png", link: "/products/relief-valves" },

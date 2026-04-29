@@ -29,7 +29,7 @@ const DoubleBlockBleedBlog: React.FC = () => {
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       {/* SEO TAGS */}
-      <title>DBB Valves</title>
+      <title>DBB Valve Solutions | Panam Valve</title>
       <meta name="description" content="Master Double Block and Bleed (DB&B) vs. DIB valves." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />

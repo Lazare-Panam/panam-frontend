@@ -19,7 +19,7 @@ const VALVE_ROUTES: Record<string, string> = {
   "needle-valves":      "/needle-valves",
   "ball-valves":        "/product-grid/ball-valves",
   "relief-valves":      "/products/valves/relief-valves",
-  "check-valves":       "/products/valves/check-valves",
+  "check-valves":       "/valves/pcv",
   "gauge-root-valves":  "/products/valves/gauge-root-valves",
   "purge-valves":       "/products/valves/purge-valves",
   "toggle-valves":      "/products/valves/toggle-valves",

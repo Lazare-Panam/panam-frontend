@@ -48,6 +48,7 @@ import NeedleValvesPage from "./components/NeedleValves/NeedleValvePage"
 import NeedleValveSBPage from "./components/NeedleValves/NeedleValveGrid/SBGrid/SBGrid"
 import MiniValvePage from "./components/NeedleValves/NeedleValveGrid/MiniGrid/MiniValves"
 import ValvesPage from "./components/Valves/Valve"
+import PCVPage from "./components/CheckValvesGrid/CheckValves"
 export const routes = [
   {
     path: "/",
@@ -384,6 +385,7 @@ export const routes = [
       { path: "/needle-valves/needle-valves-mini", element: <MiniValvePage /> },
       { path: "/needle-valves", element: <NeedleValvesPage /> },
       { path: "/valves", element: <ValvesPage /> },
+      { path: "/valves/pcv", element: <PCVPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
