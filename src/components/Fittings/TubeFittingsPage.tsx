@@ -46,6 +46,18 @@ const TUBE_FITTING_SERIES = [
     tag: "Tube Fittings",
     link: "/fittings/union",
   },
+   {
+  id: "tube-fitting-reducer",
+  title: "Reducers",
+  subtitle: "Straight, Elbow & Bulkhead Configurations",
+  description:
+    "Single and double ferrule tube fitting reducers in straight, elbow, and bulkhead configurations. Available in Imperial, Metric, and mixed Metric × Imperial sizes for transitioning between tube ODs in instrumentation and process systems.",
+  image:
+    "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg",
+  pressure: "High Pressure",
+  tag: "Tube Fittings",
+  link: "/fittings/reducer",
+},
 ];
 
 type SeriesItem = (typeof TUBE_FITTING_SERIES)[0];

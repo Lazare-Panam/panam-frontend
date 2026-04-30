@@ -54,6 +54,7 @@ import ConnectorElbowPage from "./components/TubeFittingsGrid/TubeFittingsGrid"
 import UnionPage from "./components/UnionGrid/UnionPage"
 import FittingsPage from "./components/Fittings/Fittings"
 import TubeFittingsPage from "./components/Fittings/TubeFittingsPage"
+import ReducerPage from "./components/ReducerGrid/ReducerGrid"
 export const routes = [
   {
     path: "/",
@@ -396,6 +397,7 @@ export const routes = [
       { path: "/fittings/union", element: <UnionPage /> },
       { path: "/fittings", element: <FittingsPage /> },
        { path: "/tube-fittings", element: <TubeFittingsPage /> },
+       { path: "/fittings/reducer", element: <ReducerPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
