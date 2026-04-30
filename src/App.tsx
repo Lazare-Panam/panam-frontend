@@ -50,6 +50,8 @@ import MiniValvePage from "./components/NeedleValves/NeedleValveGrid/MiniGrid/Mi
 import ValvesPage from "./components/Valves/Valve"
 import PCVPage from "./components/CheckValvesGrid/CheckValves"
 import ReliefValvePage from "./components/ReliefValvesGrid/ReliefValvesGrid"
+import ConnectorElbowPage from "./components/TubeFittingsGrid/TubeFittingsGrid"
+import UnionPage from "./components/UnionGrid/UnionPage"
 export const routes = [
   {
     path: "/",
@@ -388,6 +390,8 @@ export const routes = [
       { path: "/valves", element: <ValvesPage /> },
       { path: "/valves/pcv", element: <PCVPage /> },
       { path: "/valves/relief-valves", element: <ReliefValvePage /> },
+      { path: "/fittings/connectors", element: <ConnectorElbowPage /> },
+      { path: "/fittings/union", element: <UnionPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
