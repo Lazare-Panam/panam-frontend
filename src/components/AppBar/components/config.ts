@@ -38,9 +38,9 @@ export const navConfig: Record<string, NavCategory[]> = {
     {
       id: "instrumentation",
       label: "Instrumentation Fittings",
-      link: "/products/instrumentation-fittings",
+      link: "/fittings",
       items: [
-        { name: "Tube Fittings", link: "/products/tube-fittings" },
+        { name: "Tube Fittings", link: "/tube-fittings" },
         { name: "37° JIC Fittings", link: "/products/37-jic-fittings" },
         { name: "Pipe Fittings", link: "product-grid/pipe-fittings" },
         { name: "Weld Fittings", link: "/products/weld-fittings" },

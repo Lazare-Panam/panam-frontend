@@ -52,6 +52,8 @@ import PCVPage from "./components/CheckValvesGrid/CheckValves"
 import ReliefValvePage from "./components/ReliefValvesGrid/ReliefValvesGrid"
 import ConnectorElbowPage from "./components/TubeFittingsGrid/TubeFittingsGrid"
 import UnionPage from "./components/UnionGrid/UnionPage"
+import FittingsPage from "./components/Fittings/Fittings"
+import TubeFittingsPage from "./components/Fittings/TubeFittingsPage"
 export const routes = [
   {
     path: "/",
@@ -392,6 +394,8 @@ export const routes = [
       { path: "/valves/relief-valves", element: <ReliefValvePage /> },
       { path: "/fittings/connectors", element: <ConnectorElbowPage /> },
       { path: "/fittings/union", element: <UnionPage /> },
+      { path: "/fittings", element: <FittingsPage /> },
+       { path: "/tube-fittings", element: <TubeFittingsPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
