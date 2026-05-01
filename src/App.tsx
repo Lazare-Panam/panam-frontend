@@ -55,6 +55,10 @@ import UnionPage from "./components/UnionGrid/UnionPage"
 import FittingsPage from "./components/Fittings/Fittings"
 import TubeFittingsPage from "./components/Fittings/TubeFittingsPage"
 import ReducerPage from "./components/ReducerGrid/ReducerGrid"
+import AdapterPage from "./components/AdapterGrid/AdapaterGridPage"
+import PortConnectorPage from "./components/PortConnectorGrid/PortConnector"
+import WeldGaugeConnectorPage from "./components/WeldConnectorGrid/WeldConnectorGrid"
+import AccessoryPage from "./components/AccessoriesGrid/AccessoryPage"
 export const routes = [
   {
     path: "/",
@@ -398,6 +402,10 @@ export const routes = [
       { path: "/fittings", element: <FittingsPage /> },
        { path: "/tube-fittings", element: <TubeFittingsPage /> },
        { path: "/fittings/reducer", element: <ReducerPage /> },
+        { path: "/fittings/adapter", element: <AdapterPage /> },
+        { path: "/fittings/port-connector", element: <PortConnectorPage /> },
+        { path: "/fittings/weld-gauge", element: <WeldGaugeConnectorPage /> },
+         { path: "/fittings/accessories", element: <AccessoryPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },

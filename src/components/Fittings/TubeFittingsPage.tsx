@@ -28,8 +28,7 @@ const TUBE_FITTING_SERIES = [
     subtitle: "Straight & Elbow Configurations",
     description:
       "Single and double ferrule tube fitting connectors in straight, elbow, and reducing configurations. Designed for secure, leak-tight connections in high-pressure instrumentation and process systems.",
-    image:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/fittings/connectors",
@@ -40,25 +39,67 @@ const TUBE_FITTING_SERIES = [
     subtitle: "Inline & Bulkhead Unions",
     description:
       "Single and double ferrule tube fitting unions for inline and bulkhead installations. Provide reliable, repositionable leak-tight joints for instrumentation tubing systems.",
-    image:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/union-cross.png",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/union-cross.png",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/fittings/union",
   },
-   {
-  id: "tube-fitting-reducer",
-  title: "Reducers",
-  subtitle: "Straight, Elbow & Bulkhead Configurations",
-  description:
-    "Single and double ferrule tube fitting reducers in straight, elbow, and bulkhead configurations. Available in Imperial, Metric, and mixed Metric × Imperial sizes for transitioning between tube ODs in instrumentation and process systems.",
-  image:
-    "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg",
-  pressure: "High Pressure",
-  tag: "Tube Fittings",
-  link: "/fittings/reducer",
-},
-];
+  {
+    id: "tube-fitting-reducer",
+    title: "Reducers",
+    subtitle: "Straight, Elbow & Bulkhead Configurations",
+    description:
+      "Single and double ferrule tube fitting reducers in straight, elbow, and bulkhead configurations. Available in Imperial, Metric, and mixed Metric × Imperial sizes for transitioning between tube ODs.",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg",
+    pressure: "High Pressure",
+    tag: "Tube Fittings",
+    link: "/fittings/reducer",
+  },
+  {
+    id: "tube-fitting-adapters",
+    title: "Adapters",
+    subtitle: "Male & Female Thread Configurations",
+    description:
+      "Male and female adapter fittings connecting tube OD to NPT, BSPT, BSPP, RP, RG and SAE/MS threads. Available in Imperial and Metric tube OD with a wide range of thread sizes.",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male_adaptor.jpg",
+    pressure: "High Pressure",
+    tag: "Tube Fittings",
+    link: "/fittings/adapter",
+  },
+  {
+    id: "tube-fitting-port-connectors",
+    title: "Port Connectors",
+    subtitle: "Standard & Reducing Configurations",
+    description:
+      "Port connectors and reducing port connectors for direct tube-to-port connections. Available in Imperial and Metric tube OD for secure, leak-tight instrument port connections.",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg",
+    pressure: "High Pressure",
+    tag: "Tube Fittings",
+    link: "/fittings/port-connector",
+  },
+  {
+    id: "tube-fitting-weld-gauge",
+    title: "Weld & Gauge Connectors",
+    subtitle: "Pipe Weld, Socket Weld & Gauge",
+    description:
+      "Male pipe weld connectors, male pipe weld elbows, tube socket weld connectors, tube socket weld elbows and gauge connectors. Covers butt weld, socket weld and BSPP/Metric gauge connections.",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg",
+    pressure: "High Pressure",
+    tag: "Tube Fittings",
+    link: "/fittings/weld-gauge",
+  },
+  {
+    id: "tube-fitting-accessories",
+    title: "Accessories",
+    subtitle: "Plugs, Caps, Nuts & Ferrules",
+    description:
+      "Tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts. Essential accessories for completing and maintaining tube fitting assemblies in Imperial and Metric sizes.",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/tube_plug.jpg",
+    pressure: "High Pressure",
+    tag: "Tube Fittings",
+    link: "/fittings/accessories",
+  },
+]
 
 type SeriesItem = (typeof TUBE_FITTING_SERIES)[0];
 
