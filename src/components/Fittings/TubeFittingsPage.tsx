@@ -99,6 +99,17 @@ const TUBE_FITTING_SERIES = [
     tag: "Tube Fittings",
     link: "/fittings/accessories",
   },
+  {
+    id: "tube-fitting-dielectric",
+    title: "Dielectric Fittings & Gaskets",
+    subtitle: "Union & Male Connector Configurations",
+    description:
+      "Stainless steel dielectric tube fittings designed to isolate instruments from electric currents, voltage and static discharges. Polyamideimide insulation rated to 5000 PSI and -40°C to 93°C.",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/dielectric-fittings.jpg",
+    pressure: "High Pressure",
+    tag: "Tube Fittings",
+    link: "/fittings/die-electric",
+  },
 ]
 
 type SeriesItem = (typeof TUBE_FITTING_SERIES)[0];

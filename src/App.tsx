@@ -59,6 +59,7 @@ import AdapterPage from "./components/AdapterGrid/AdapaterGridPage"
 import PortConnectorPage from "./components/PortConnectorGrid/PortConnector"
 import WeldGaugeConnectorPage from "./components/WeldConnectorGrid/WeldConnectorGrid"
 import AccessoryPage from "./components/AccessoriesGrid/AccessoryPage"
+import DielectricGasketPage from "./components/DieElectricGrid/DieElectricPage"
 export const routes = [
   {
     path: "/",
@@ -400,12 +401,13 @@ export const routes = [
       { path: "/fittings/connectors", element: <ConnectorElbowPage /> },
       { path: "/fittings/union", element: <UnionPage /> },
       { path: "/fittings", element: <FittingsPage /> },
-       { path: "/tube-fittings", element: <TubeFittingsPage /> },
-       { path: "/fittings/reducer", element: <ReducerPage /> },
-        { path: "/fittings/adapter", element: <AdapterPage /> },
-        { path: "/fittings/port-connector", element: <PortConnectorPage /> },
-        { path: "/fittings/weld-gauge", element: <WeldGaugeConnectorPage /> },
-         { path: "/fittings/accessories", element: <AccessoryPage /> },
+      { path: "/tube-fittings", element: <TubeFittingsPage /> },
+      { path: "/fittings/reducer", element: <ReducerPage /> },
+      { path: "/fittings/adapter", element: <AdapterPage /> },
+      { path: "/fittings/port-connector", element: <PortConnectorPage /> },
+      { path: "/fittings/weld-gauge", element: <WeldGaugeConnectorPage /> },
+      { path: "/fittings/accessories", element: <AccessoryPage /> },
+      { path: "/fittings/die-electric", element: <DielectricGasketPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
