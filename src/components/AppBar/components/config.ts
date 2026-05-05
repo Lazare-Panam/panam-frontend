@@ -150,6 +150,8 @@ export const navConfig: Record<string, NavCategory[]> = {
         { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
         { name: "Double Block And Bleed Valves", link: "/blog/double-blog-and-bleed" },
         { name: "Check Valves Blog", link: "/blog/check-valves-blog" },
+         { name: "Needle Valves Blog", link: "/blog/hp-series-needle-valves-high-pressure-flow-control" },
+          { name: "Ball Valves Blog", link: "/blog/three-way-valve-l-port-t-port-guide" },
       ],
     },
   ],
