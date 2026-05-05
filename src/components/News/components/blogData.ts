@@ -77,4 +77,14 @@ export const blogs: BlogPost[] = [
   image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
   excerpt: "Get the porting right and you reduce leak paths, speed up maintenance and cut panel space. This guide breaks down L-port vs T-port internals, typical flow paths and real-world applications — plus a full specifying checklist and commissioning tips to avoid the most common mistakes.",
 },
+{
+  slug: "hp-series-needle-valves-high-pressure-flow-control",
+  title: "Built for Extreme Pressure: A Closer Look at the PANAM HP Series Needle Valves",
+  category: "Technical Guide",
+  author: "Sejal Raina",
+  date: "May 5, 2026",
+  readTime: "8 min read",
+  image: "https://pblol2.blob.core.windows.net/panam-images/blog/needle-valve-blog.jpeg",
+  excerpt: "When pressure climbs past 30,000 PSI, ordinary flow control hardware stops being an option. This guide breaks down the PANAM HP Series — five pressure tiers up to 60,000 PSI, stem tip selection, materials, packing, and where these valves earn their keep in oil and gas, hydraulics, and instrumentation.",
+},
 ]

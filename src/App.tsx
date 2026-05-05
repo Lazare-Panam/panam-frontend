@@ -67,6 +67,7 @@ import AdaptersPlugs from "./PipeFittings/pages/AdaptersPlugs"
 import TeesCross from "./PipeFittings/pages/TeesCross"
 import PipeFittingsIndexPage from "./PipeFittings/PipeFittingsIndexPage"
 import ThreeWayValveBlog from "./components/News/components/ThreeWayBlog"
+import NeedleValveBlog from "./components/News/components/NeedleValveBlog"
 export const routes = [
   {
     path: "/",
@@ -170,6 +171,14 @@ export const routes = [
         ),
       },
       {
+        path: "blog/hp-series-needle-valves-high-pressure-flow-control",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <NeedleValveBlog />
+          </Suspense>
+        ),
+      },
+      {
         path: "blog/check-valves-blog",
         element: (
           <Suspense fallback={<LoadingScreen />}>
@@ -177,7 +186,7 @@ export const routes = [
           </Suspense>
         ),
       },
-       { path: "/blog/three-way-valve-l-port-t-port-guide", element: <ThreeWayValveBlog /> },
+      { path: "/blog/three-way-valve-l-port-t-port-guide", element: <ThreeWayValveBlog /> },
       {
         path: "blog/hydrogen-blog",
         element: (
@@ -397,7 +406,7 @@ export const routes = [
         ),
       },
       { path: "/product-grid/ball-valves", element: <BallValvePage /> },
-       
+
       { path: "/needle-valves/needle-valves-ib", element: <NeedleValveIBPage /> },
       { path: "/needle-valves/needle-valves-hb", element: <NeedleValveHBPage /> },
       { path: "/needle-valves/needle-valves-hp", element: <NeedleValveHPPage /> },
