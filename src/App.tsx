@@ -36,7 +36,7 @@ const SwivelGaugeAdaptersBlog = lazy(() => import("./components/News/components/
 const ResourcesPage = lazy(() => import("./components/Resources/ResourcesPage"))
 const CertificationsPage = lazy(() => import("./components/Resources/components/Certifications"))
 const TwoWayManifoldPage = lazy(() => import("./TwoVMGrid/TwoVmGrid"))
-const PipeFittingPage = lazy(() => import("./PipeFittings/PipeFittings"))
+//const PipeFittingPage = lazy(() => import("./PipeFittings/PipeFittings"))
 const BallValvePage = lazy(() => import("./components/BallValves/BallValves"))
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 import Landing2 from "./components/Landing2/Landing2"
@@ -60,6 +60,12 @@ import PortConnectorPage from "./components/PortConnectorGrid/PortConnector"
 import WeldGaugeConnectorPage from "./components/WeldConnectorGrid/WeldConnectorGrid"
 import AccessoryPage from "./components/AccessoriesGrid/AccessoryPage"
 import DielectricGasketPage from "./components/DieElectricGrid/DieElectricPage"
+import NipplesCouplings from "./PipeFittings/pages/PipeFittingsNipplesCouplings"
+import Elbows from "./PipeFittings/pages/Elbows"
+import UnionsConnectors from "./PipeFittings/pages/UnionsConnectors"
+import AdaptersPlugs from "./PipeFittings/pages/AdaptersPlugs"
+import TeesCross from "./PipeFittings/pages/TeesCross"
+import PipeFittingsIndexPage from "./PipeFittings/PipeFittingsIndexPage"
 export const routes = [
   {
     path: "/",
@@ -381,10 +387,10 @@ export const routes = [
         ),
       },
       {
-        path: "/product-grid/pipe-fittings",
+        path: "/pipe-fittings",
         element: (
           <Suspense fallback={<LoadingScreen />}>
-            <PipeFittingPage />
+            <PipeFittingsIndexPage />
           </Suspense>
         ),
       },
@@ -408,6 +414,11 @@ export const routes = [
       { path: "/fittings/weld-gauge", element: <WeldGaugeConnectorPage /> },
       { path: "/fittings/accessories", element: <AccessoryPage /> },
       { path: "/fittings/die-electric", element: <DielectricGasketPage /> },
+      { path: "/pipe-fittings/nipples-couplings", element: <NipplesCouplings /> },
+      { path: "/pipe-fittings/adapters-plugs", element: <AdaptersPlugs /> },
+      { path: "/pipe-fittings/unions-connectors", element: <UnionsConnectors /> },
+      { path: "/pipe-fittings/elbows", element: <Elbows /> },
+      { path: "/pipe-fittings/tees-cross", element: <TeesCross /> },
       { path: "*", element: <NotFound /> },
     ],
   },

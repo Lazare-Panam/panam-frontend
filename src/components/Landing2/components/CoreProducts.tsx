@@ -1,18 +1,18 @@
 import { Box, Container, Typography, Button, Grid, Stack, alpha } from "@mui/material"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
-import { useNavigate, Link as RouterLink  } from "react-router-dom"
+import { useNavigate, Link as RouterLink } from "react-router-dom"
 
 const BRAND_BLUE = "#01B0F0"
 
 const productData = [
   { name: "Hydrogen Fittings", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/high-pressure/adapters_-_npt_x_npt_-_jpg-removebg-preview.png", path: "/products/hydrogen/pipe-fittings-hydrogen" },
-  { name: "Pipe Fittings", img: "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/male-tee.png", path: "/products/instrumentation-fittings/pipe-fittings" },
+  { name: "Pipe Fittings", img: "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/male-tee.png", path: "/pipe-fittings" },
   { name: "Filters", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/filters/PIF-IA-02-2-SS_-_JPG-removebg-preview.png", path: "/products/filters" },
   { name: "Check Valves", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/check-valves/PCV%20S%2004%20OD%2001.png", path: "/valves/pcv" },
   { name: "Double Block & Bleed", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/dbb/block___bleed_-_flange_x_flange_-_JPEG-removebg-preview.png", path: "/products/double-block-and-bleed-valves" },
   { name: "2-Way Valve Manifold", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/2VM/2VM-SS-8-RM_-_JPG__1_-removebg-preview.png", path: "/products/valve-manifolds/2-way-valve-manifold" },
   { name: "3-Way Valve Manifold", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/3VM/3VM-SS-8-RM_-_JPG-removebg-preview.png", path: "/products/valve-manifolds/3-way-valve-manifold" },
-    { name: "System Integration", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/system-integration/Img11695-removebg-preview.png", path: "/products/system-integration" },
+  { name: "System Integration", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/system-integration/Img11695-removebg-preview.png", path: "/products/system-integration" },
 ]
 const CoreProducts = () => {
   const navigate = useNavigate()
@@ -42,84 +42,80 @@ const CoreProducts = () => {
             </Stack>
           </Grid>
           <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { md: "flex-end" } }}>
- <Stack 
-  direction={{ xs: 'column', sm: 'row' }} // Stacks on mobile, row on desktop
-  spacing={2} 
-  alignItems="center"
->
-  <Button 
-    component={RouterLink} 
-    to="/products" 
-    variant="outlined" 
-    endIcon={<ArrowForwardIcon sx={{ fontSize: '1.1rem' }} />} 
-    sx={{ 
-      borderColor: "#E2E8F0", 
-      color: "#475569", 
-      fontWeight: 600, 
-      px: 3, 
-      py: 1, 
-      borderRadius: '8px', // Rounded corners for a modern feel
-      textTransform: 'none', 
-      transition: '0.2s',
-      "&:hover": { 
-        borderColor: BRAND_BLUE, 
-        color: BRAND_BLUE,
-        bgcolor: 'rgba(0, 144, 200, 0.04)' 
-      } 
-    }}
-  >
-    Products
-  </Button>
+            <Stack
+              direction={{ xs: "column", sm: "row" }} // Stacks on mobile, row on desktop
+              spacing={2}
+              alignItems="center">
+              <Button
+                component={RouterLink}
+                to="/products"
+                variant="outlined"
+                endIcon={<ArrowForwardIcon sx={{ fontSize: "1.1rem" }} />}
+                sx={{
+                  borderColor: "#E2E8F0",
+                  color: "#475569",
+                  fontWeight: 600,
+                  px: 3,
+                  py: 1,
+                  borderRadius: "8px", // Rounded corners for a modern feel
+                  textTransform: "none",
+                  transition: "0.2s",
+                  "&:hover": {
+                    borderColor: BRAND_BLUE,
+                    color: BRAND_BLUE,
+                    bgcolor: "rgba(0, 144, 200, 0.04)",
+                  },
+                }}>
+                Products
+              </Button>
 
-  <Button 
-    component={RouterLink} 
-    to="/about" 
-    variant="contained" 
-    disableElevation 
-    endIcon={<ArrowForwardIcon sx={{ fontSize: '1.1rem' }} />} 
-    sx={{ 
-      bgcolor: BRAND_BLUE, 
-      color: "#fff", 
-      fontWeight: 600, 
-      px: 3, 
-      py: 1, 
-      borderRadius: '8px',
-      textTransform: 'none',
-      "&:hover": { 
-        bgcolor: "#0090C8",
-        boxShadow: '0 4px 12px rgba(0, 144, 200, 0.2)' 
-      } 
-    }}
-  >
-    Panam
-  </Button>
+              <Button
+                component={RouterLink}
+                to="/about"
+                variant="contained"
+                disableElevation
+                endIcon={<ArrowForwardIcon sx={{ fontSize: "1.1rem" }} />}
+                sx={{
+                  bgcolor: BRAND_BLUE,
+                  color: "#fff",
+                  fontWeight: 600,
+                  px: 3,
+                  py: 1,
+                  borderRadius: "8px",
+                  textTransform: "none",
+                  "&:hover": {
+                    bgcolor: "#0090C8",
+                    boxShadow: "0 4px 12px rgba(0, 144, 200, 0.2)",
+                  },
+                }}>
+                Panam
+              </Button>
 
-  <Button 
-    component={RouterLink} 
-    to="/catalogPDFs" 
-    variant="contained" 
-    disableElevation
-    // Using a gold/amber accent to make it "jump out" against the blue
-    endIcon={<ArrowForwardIcon sx={{ fontSize: '1.1rem' }} />} 
-    sx={{ 
-      bgcolor: "#FF6B00", 
-      color: "#fff", 
-      fontWeight: 700, // Slightly bolder
-      px: 3, 
-      py: 1, 
-      borderRadius: '8px',
-      textTransform: 'none',
-      boxShadow: '0 2px 4px rgba(245, 158, 11, 0.2)',
-      "&:hover": { 
-        bgcolor: "#D97706",
-        boxShadow: '0 6px 15px rgba(245, 158, 11, 0.4)',
-        transform: 'scale(1.02)' // Scale effect makes it feel more "interactive"
-      } 
-    }}
-  >
-    Catalogs
-  </Button>
-</Stack>
+              <Button
+                component={RouterLink}
+                to="/catalogPDFs"
+                variant="contained"
+                disableElevation
+                // Using a gold/amber accent to make it "jump out" against the blue
+                endIcon={<ArrowForwardIcon sx={{ fontSize: "1.1rem" }} />}
+                sx={{
+                  bgcolor: "#FF6B00",
+                  color: "#fff",
+                  fontWeight: 700, // Slightly bolder
+                  px: 3,
+                  py: 1,
+                  borderRadius: "8px",
+                  textTransform: "none",
+                  boxShadow: "0 2px 4px rgba(245, 158, 11, 0.2)",
+                  "&:hover": {
+                    bgcolor: "#D97706",
+                    boxShadow: "0 6px 15px rgba(245, 158, 11, 0.4)",
+                    transform: "scale(1.02)", // Scale effect makes it feel more "interactive"
+                  },
+                }}>
+                Catalogs
+              </Button>
+            </Stack>
           </Grid>
         </Grid>
 

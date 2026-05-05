@@ -3,6 +3,7 @@ import {
   Box, Typography, CircularProgress,
   useMediaQuery, Drawer, IconButton
 } from '@mui/material'
+import { alpha } from '@mui/material/styles'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import { usePipeFittingFilterOptions, usePipeFittings } from './hooks/usePipeFittings'
 import { PipeFittingSidebar } from './components/PipeFittingSidebar'
@@ -12,9 +13,12 @@ import { type PipeFittingFilters, EMPTY_PIPE_FITTING_FILTERS } from './hooks/typ
 
 const BRAND_BLUE = '#01B0F0'
 
-export default function PipeFittingPage() {
+export default function PipeFittingPage({ defaultFittingTypes }: { defaultFittingTypes?: string[] } = {}) {
   const isMobile = useMediaQuery('(max-width:1200px)')
-  const [filters, setFilters] = useState<PipeFittingFilters>(EMPTY_PIPE_FITTING_FILTERS)
+  const [filters, setFilters] = useState<PipeFittingFilters>({
+    ...EMPTY_PIPE_FITTING_FILTERS,
+    fittingTypes: defaultFittingTypes ?? [],
+  })
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const { data: filterOptions, isLoading: filtersLoading } = usePipeFittingFilterOptions()
@@ -29,61 +33,68 @@ export default function PipeFittingPage() {
     filters.p2Types.length +
     filters.lengthVariants.length
 
-  const sidebar = (
-    <PipeFittingSidebar
-      filters={filters}
-      setFilters={setFilters}
-      filterOptions={filterOptions}
-      filtersLoading={filtersLoading}
-      activeCount={activeCount}
-    />
-  )
-
   return (
-    <Box sx={{ display: 'flex', alignItems: 'flex-start', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      {!isMobile && sidebar}
-      <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
-
-      <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-        <Box sx={{
-          p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)',
-          bgcolor: 'background.paper'
-        }}>
-          <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
-            Pipe Fittings{' '}
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>
-            NPT, ISO Tapered, ISO Parallel, Metric and SAE/MS thread standards.
-            Filter by fitting type, size and thread. Expand any row for full specs and to request a quote.
-          </Typography>
-        </Box>
-
-        <Box sx={{ p: { xs: 2, md: 4 } }}>
-          {isMobile && (
-            <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}>
-              <FilterListIcon />
-            </IconButton>
-          )}
-
-          <PipeFittingActiveFilters filters={filters} setFilters={setFilters} />
-
-          <Typography variant="caption" fontWeight={700} color="text.disabled"
-            sx={{ display: 'block', mb: 2 }}>
-            {isFetching && !isLoading
-              ? 'UPDATING...'
-              : isLoading
-              ? 'LOADING...'
-              : `${models.length} CONFIGURATIONS`}
-          </Typography>
-
-          {isLoading ? (
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 10 }}>
-              <CircularProgress sx={{ color: BRAND_BLUE }} />
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
+      <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
+        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
+          Pipe Fittings
+        </Typography>
+        <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
+          NPT, ISO Tapered, ISO Parallel, Metric and SAE/MS thread standards.
+          Filter by fitting type, size and thread. Expand any row for full specs and to add to quote.
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+          {['SS316', 'NPT / BSPT / BSPP', 'Metric / SAE', '1/16" – 2"'].map(s => (
+            <Box key={s} sx={{
+              px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600,
+              bgcolor: alpha(BRAND_BLUE, 0.08), color: '#0277BD',
+              border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`,
+            }}>
+              {s}
             </Box>
-          ) : (
-            <PipeFittingTable models={models} isFetching={isFetching} />
-          )}
+          ))}
         </Box>
+      </Box>
+
+      <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
+        {isMobile && (
+          <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}>
+            <FilterListIcon />
+          </IconButton>
+        )}
+
+        <PipeFittingActiveFilters filters={filters} setFilters={setFilters} />
+
+        <Typography variant="caption" fontWeight={700} color="text.disabled" sx={{ display: 'block', mb: 1 }}>
+          {isFetching && !isLoading ? 'UPDATING...' : isLoading ? 'LOADING...' : `${models.length} CONFIGURATIONS`}
+        </Typography>
+
+        {isLoading ? (
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 300 }}>
+            <CircularProgress sx={{ color: BRAND_BLUE }} />
+          </Box>
+        ) : (
+          <PipeFittingTable
+            models={models}
+            isFetching={isFetching}
+            filters={filters}
+            setFilters={setFilters}
+            filterOptions={filterOptions}
+            filtersLoading={filtersLoading}
+            activeCount={activeCount}
+            isMobile={isMobile}
+          />
+        )}
+
+        <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>
+          <PipeFittingSidebar
+            filters={filters}
+            setFilters={setFilters}
+            filterOptions={filterOptions}
+            filtersLoading={filtersLoading}
+            activeCount={activeCount}
+          />
+        </Drawer>
       </Box>
     </Box>
   )

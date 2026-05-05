@@ -42,7 +42,7 @@ export const navConfig: Record<string, NavCategory[]> = {
       items: [
         { name: "Tube Fittings", link: "/tube-fittings" },
         { name: "37° JIC Fittings", link: "/products/37-jic-fittings" },
-        { name: "Pipe Fittings", link: "product-grid/pipe-fittings" },
+        { name: "Pipe Fittings", link: "/pipe-fittings" },
         { name: "Weld Fittings", link: "/products/weld-fittings" },
         { name: "Tube clamps", link: "/products/tube-clamps" },
       ],
