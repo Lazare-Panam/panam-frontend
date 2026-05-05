@@ -66,5 +66,15 @@ export const blogs: BlogPost[] = [
   readTime: "6 min read",
   image: "https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
   excerpt: "In precision instrumentation, the reliability of a pressure measurement system depends on every component in the connection chain. Learn how swivel gauge adapters enable 360° positioning, prevent mechanical stress, and ensure measurement accuracy in demanding industrial environments.",
-}
+},
+{
+  slug: "three-way-valve-l-port-t-port-guide",
+  title: "Three-Way Valves Made Simple: Functions, Flow Paths and Real-World Uses",
+  category: "Technical Guide",
+  author: "Steven Kassi",
+  date: "April 24, 2026",
+  readTime: "7 min read",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
+  excerpt: "Get the porting right and you reduce leak paths, speed up maintenance and cut panel space. This guide breaks down L-port vs T-port internals, typical flow paths and real-world applications — plus a full specifying checklist and commissioning tips to avoid the most common mistakes.",
+},
 ]

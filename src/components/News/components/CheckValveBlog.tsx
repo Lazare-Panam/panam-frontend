@@ -313,10 +313,19 @@ const CheckValveBlog: React.FC = () => {
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
               Conclusion
             </Typography>
-            <Typography variant="body1" sx={{ mb: 10, lineHeight: 1.8 }}>
-              Check valves are the quiet guardians of industrial piping. By enforcing a strict one-way street for fluids, they ensure that systems remain safe, efficient, and cost-effective. Whether you are designing a new system or maintaining an existing one, choosing the right material—such as <strong>316 stainless steels</strong> for corrosion resistance—and the right valve type is essential
-              for long-term success.
-            </Typography>
+          <Typography variant="body1" sx={{ mb: 10, lineHeight: 1.8 }}>
+  Check valves are the quiet guardians of industrial piping. By enforcing a strict one-way street for fluids, they ensure that systems remain safe, efficient, and cost-effective. Whether you are designing a new system or maintaining an existing one, choosing the right material — such as <strong>316 stainless steel</strong> for corrosion resistance — and the right valve type is essential for long-term success. PANAM supplies a range of{" "}
+  <Box
+    component="a"
+    href="https://www.panamvalve.com/valves/pcv"
+    target="_blank"
+    rel="noopener noreferrer"
+    sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+  >
+    stainless steel check valves
+  </Box>
+  {" "}engineered for high-pressure and corrosive service across oil and gas, chemical and water treatment applications.
+</Typography>
 
             {/* CTA */}
             <Paper elevation={0} sx={{ p: { xs: 4, md: 6 }, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px" }}>
