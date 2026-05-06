@@ -16,9 +16,9 @@ const BRAND_BLUE = "#01B0F0";
 
 const LINKS = {
   heroExplore: "#series",
-  heroQuote: "/contact",
+  heroQuote: "/enquiry",
   ctaEmail: "mailto:sales@panamvalves.com",
-  ctaQuote: "/contact",
+  ctaQuote: "/enquiry",
 };
 
 const NEEDLE_VALVE_SERIES = [

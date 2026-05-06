@@ -9,9 +9,9 @@ const BRAND_BLUE = '#01B0F0'
 
 const LINKS = {
   heroExplore: '#categories',
-  heroQuote: '/contact',
+  heroQuote: '/enquiry',
   ctaEmail: 'mailto:sales@panamvalves.com',
-  ctaQuote: '/contact',
+  ctaQuote: '/enquiry',
 }
 
 const CATEGORIES = [

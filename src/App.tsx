@@ -68,6 +68,11 @@ import TeesCross from "./PipeFittings/pages/TeesCross"
 import PipeFittingsIndexPage from "./PipeFittings/PipeFittingsIndexPage"
 import ThreeWayValveBlog from "./components/News/components/ThreeWayBlog"
 import NeedleValveBlog from "./components/News/components/NeedleValveBlog"
+import JICFittingPage from "./components/JICFittingsGrid/JICFittingsGrid"
+import JICUnionsSwivel from "./components/JICFittingsGrid/components/JICUnionsSwivel"
+import JICConnectors from "./components/JICFittingsGrid/components/JICConnectors"
+import JICAdaptersReducers from "./components/JICFittingsGrid/components/JICAdaptersReducers"
+import JICFittingsIndexPage from "./components/JICFittingsGrid/components/JICFittingsIndexPage"
 export const routes = [
   {
     path: "/",
@@ -431,6 +436,11 @@ export const routes = [
       { path: "/pipe-fittings/unions-connectors", element: <UnionsConnectors /> },
       { path: "/pipe-fittings/elbows", element: <Elbows /> },
       { path: "/pipe-fittings/tees-cross", element: <TeesCross /> },
+      { path: '/jic-fittings', element: <JICFittingsIndexPage /> },
+      { path: "/jic-fittings/all", element: <JICFittingPage /> },
+      { path: "/jic-fittings/connectors", element: <JICConnectors /> },
+      { path: "/jic-fittings/unions-swivel", element: <JICUnionsSwivel /> },
+      { path: "/jic-fittings/adapters-reducers", element: <JICAdaptersReducers /> },
       { path: "*", element: <NotFound /> },
     ],
   },

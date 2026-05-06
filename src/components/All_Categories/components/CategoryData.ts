@@ -15,7 +15,7 @@ export const CATEGORIES: CategoryData[] = [
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/weld-fittings/union_elbow_-_jpg-removebg-preview.png",
     products: [
       { name: "Tube Fittings", link: "/products/instrumentation-fittings/tube-fittings" },
-      { name: "37 JIC Fittings", link: "/products/instrumentation-fittings/37-jic-fittings" },
+      { name: "37 JIC Fittings", link: "/jic-fittings" },
       { name: "Pipe Fittings", link: "/pipe-fittings" },
       { name: "Weld Fittings", link: "/products/instrumentation-fittings/weld-fittings" },
       { name: "High Pressure Fittings", link: "/pipe-fittings-high-pressure" },

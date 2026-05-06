@@ -269,7 +269,7 @@ export default function ValvesPage() {
             <Button
               variant="outlined"
               size="large"
-              href="/contact"
+              href="/enquiry"
               sx={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" } }}
             >
               Request Quote
@@ -409,7 +409,7 @@ export default function ValvesPage() {
             <Button
               variant="outlined"
               size="large"
-              href="/contact"
+              href="/enquiry"
               sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}
             >
               Request Quote
