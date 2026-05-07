@@ -42,6 +42,33 @@ const CATEGORIES = [
     tag: '37° Flared Tube Fittings',
     link: '/jic-fittings/adapters-reducers',
   },
+  {
+    id: 'elbows',
+    title: 'Elbows',
+    subtitle: 'Male, 45°, Female, Union & Swivel Elbows',
+    description: 'Male elbows, 45° male elbows, female elbows, union elbows, swivel union elbows and adjustable male elbows in 37° JIC flare. Available in JIC x NPT, BSPT, BSPP, SAE/MS and JIC Swivel.',
+    image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-elbow.jpg',
+    tag: '37° Flared Tube Fittings',
+    link: '/jic-fittings/elbows',
+  },
+  {
+    id: 'tees',
+    title: 'Tees',
+    subtitle: 'Male, Female, Union, Swivel & Run Tees',
+    description: 'Male branch tees, female branch tees, female run tees, union tees, swivel union tees, swivel run tees, swivel branch tees and union cross in 37° JIC flare.',
+    image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-branch-tees.jpg',
+    tag: '37° Flared Tube Fittings',
+    link: '/jic-fittings/tees',
+  },
+  {
+    id: 'plugs-caps-nuts',
+    title: 'Plugs, Caps & Nuts',
+    subtitle: 'Nuts, Tube Caps, Cap Assembly & Plugs',
+    description: 'Nuts, tube caps, tube cap assemblies and tube plugs in 37° JIC flare. Used for terminating and capping tube end connections across a full size range.',
+    image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/tube-plug.jpg',
+    tag: '37° Flared Tube Fittings',
+    link: '/jic-fittings/plugs-caps-nuts',
+  },
 ]
 
 type CategoryItem = (typeof CATEGORIES)[0]
@@ -248,7 +275,7 @@ export default function JICFittingsIndexPage() {
             fontSize: { xs: 26, md: 32 }, fontWeight: 800, mb: 1.5,
             fontFamily: PRIMARY_FONT, color: '#1a1a1a', letterSpacing: '-0.02em',
           }}>
-            Three categories. Full coverage.
+            Six categories. Full coverage.
           </Typography>
           <Typography sx={{
             color: '#666', fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8,

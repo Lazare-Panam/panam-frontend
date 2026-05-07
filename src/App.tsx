@@ -73,6 +73,9 @@ import JICUnionsSwivel from "./components/JICFittingsGrid/components/JICUnionsSw
 import JICConnectors from "./components/JICFittingsGrid/components/JICConnectors"
 import JICAdaptersReducers from "./components/JICFittingsGrid/components/JICAdaptersReducers"
 import JICFittingsIndexPage from "./components/JICFittingsGrid/components/JICFittingsIndexPage"
+import JICElbows from "./components/JICFittingsGrid/components/JICElbows"
+import JICTees from "./components/JICFittingsGrid/components/JICTees"
+import JICPlugsCapsNuts from "./components/JICFittingsGrid/components/JICPlugsCapsNuts"
 export const routes = [
   {
     path: "/",
@@ -436,11 +439,14 @@ export const routes = [
       { path: "/pipe-fittings/unions-connectors", element: <UnionsConnectors /> },
       { path: "/pipe-fittings/elbows", element: <Elbows /> },
       { path: "/pipe-fittings/tees-cross", element: <TeesCross /> },
-      { path: '/jic-fittings', element: <JICFittingsIndexPage /> },
+      { path: "/jic-fittings", element: <JICFittingsIndexPage /> },
       { path: "/jic-fittings/all", element: <JICFittingPage /> },
       { path: "/jic-fittings/connectors", element: <JICConnectors /> },
       { path: "/jic-fittings/unions-swivel", element: <JICUnionsSwivel /> },
       { path: "/jic-fittings/adapters-reducers", element: <JICAdaptersReducers /> },
+      { path: "/jic-fittings/elbows", element: <JICElbows /> },
+      { path: "/jic-fittings/tees", element: <JICTees /> },
+      { path: "/jic-fittings/plugs-caps-nuts", element: <JICPlugsCapsNuts /> },
       { path: "*", element: <NotFound /> },
     ],
   },
