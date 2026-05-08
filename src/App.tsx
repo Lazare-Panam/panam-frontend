@@ -76,6 +76,7 @@ import JICFittingsIndexPage from "./components/JICFittingsGrid/components/JICFit
 import JICElbows from "./components/JICFittingsGrid/components/JICElbows"
 import JICTees from "./components/JICFittingsGrid/components/JICTees"
 import JICPlugsCapsNuts from "./components/JICFittingsGrid/components/JICPlugsCapsNuts"
+import WeldFittingPage from "./components/WeldFittingsGrid/components/WeldFittingsAll"
 export const routes = [
   {
     path: "/",
@@ -447,6 +448,7 @@ export const routes = [
       { path: "/jic-fittings/elbows", element: <JICElbows /> },
       { path: "/jic-fittings/tees", element: <JICTees /> },
       { path: "/jic-fittings/plugs-caps-nuts", element: <JICPlugsCapsNuts /> },
+      { path: "/weld-fittings/all", element: <WeldFittingPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
