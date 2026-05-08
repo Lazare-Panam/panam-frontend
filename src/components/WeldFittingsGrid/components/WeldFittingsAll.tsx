@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import  { useState } from "react"
 import { Box, Typography, CircularProgress, ToggleButton, ToggleButtonGroup } from "@mui/material"
 import { alpha } from "@mui/material/styles"
 import { useWeldFittingFilterOptions, useWeldFittings } from "../hooks/useWeldFittings"
