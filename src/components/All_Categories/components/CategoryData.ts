@@ -17,7 +17,7 @@ export const CATEGORIES: CategoryData[] = [
       { name: "Tube Fittings", link: "/products/instrumentation-fittings/tube-fittings" },
       { name: "37 JIC Fittings", link: "/jic-fittings" },
       { name: "Pipe Fittings", link: "/pipe-fittings" },
-      { name: "Weld Fittings", link: "/products/instrumentation-fittings/weld-fittings" },
+      { name: "Weld Fittings", link: "/weld-fittings" },
       { name: "High Pressure Fittings", link: "/products/instrumentation-fittings/pipe-fittings-high-pressure" },
     ],
   },
