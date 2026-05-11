@@ -80,6 +80,7 @@ import WeldFittingPage from "./components/WeldFittingsGrid/components/WeldFittin
 import WeldFittingsIndexPage from "./components/WeldFittingsGrid/components/WeldFittingsIndex"
 import WeldFittingConnectors from "./components/WeldFittingsGrid/components/WeldFittingConnectors"
 import WeldFittingElbows from "./components/WeldFittingsGrid/components/WeldFittingElbows"
+import WeldFittingTees from "./components/WeldFittingsGrid/components/WeldFittingTees"
 export const routes = [
   {
     path: "/",
@@ -455,6 +456,7 @@ export const routes = [
       { path: '/weld-fittings', element: <WeldFittingsIndexPage /> },
 { path: '/weld-fittings/connectors', element: <WeldFittingConnectors /> },
 { path: '/weld-fittings/elbows', element: <WeldFittingElbows /> },
+{ path: '/weld-fittings/tees', element: <WeldFittingTees /> },
       { path: "*", element: <NotFound /> },
     ],
   },

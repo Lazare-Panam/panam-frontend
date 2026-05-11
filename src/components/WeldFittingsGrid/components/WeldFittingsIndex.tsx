@@ -33,6 +33,15 @@ const CATEGORIES = [
     tag: 'Weld Fittings',
     link: '/weld-fittings/elbows',
   },
+  {
+    id: 'tees',
+    title: 'Tees',
+    subtitle: 'Male Run & Branch Tees',
+    description: 'Male run and branch tees in tube socket weld configuration. Available across NPT thread standards in fractional inch tube OD sizes from 1/8" to 2".',
+    image: 'https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/male-run-tee-weld.jpg',
+    tag: 'Weld Fittings',
+    link: '/weld-fittings/tees',
+  },
 ]
 
 type CategoryItem = (typeof CATEGORIES)[0]
