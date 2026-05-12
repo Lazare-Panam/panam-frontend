@@ -5,13 +5,13 @@ import { useNavigate, Link as RouterLink } from "react-router-dom"
 const BRAND_BLUE = "#01B0F0"
 
 const productData = [
-  { name: "Hydrogen Fittings", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/high-pressure/adapters_-_npt_x_npt_-_jpg-removebg-preview.png", path: "/products/hydrogen/pipe-fittings-hydrogen" },
-  { name: "Pipe Fittings", img: "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/male-tee.png", path: "/pipe-fittings" },
-  { name: "Filters", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/filters/PIF-IA-02-2-SS_-_JPG-removebg-preview.png", path: "/products/filters" },
-  { name: "Check Valves", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/check-valves/PCV%20S%2004%20OD%2001.png", path: "/valves/pcv" },
+  { name: "Hydrogen", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/high-pressure/adapters_-_npt_x_npt_-_jpg-removebg-preview.png", path: "/products/hydrogen/pipe-fittings-hydrogen" },
+  { name: "Instrumenation Fittings", img: "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/male-tee.png", path: "/pipe-fittings" },
+  { name: " Valves", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/check-valves/PCV%20S%2004%20OD%2001.png", path: "/valves/pcv" },
+  { name: "Manifolds", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/2VM/2VM-SS-8-RM_-_JPG__1_-removebg-preview.png", path: "/product-grid/2-way-manifolds" },
   { name: "Double Block & Bleed", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/dbb/block___bleed_-_flange_x_flange_-_JPEG-removebg-preview.png", path: "/products/double-block-and-bleed-valves" },
-  { name: "2-Way Valve Manifold", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/2VM/2VM-SS-8-RM_-_JPG__1_-removebg-preview.png", path: "/product-grid/2-way-manifolds" },
-  { name: "3-Way Valve Manifold", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/3VM/3VM-SS-8-RM_-_JPG-removebg-preview.png", path: "/products/valve-manifolds/3-way-valve-manifold" },
+  { name: "Filters", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/filters/PIF-IA-02-2-SS_-_JPG-removebg-preview.png", path: "/products/filters" },
+  { name: "Quick Coupling", img: "https://pblol2.blob.core.windows.net/panam-images/products/quick-coupling/iso-a", path: "/products/quick-coupling-and-hoses" },
   { name: "System Integration", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/system-integration/Img11695-removebg-preview.png", path: "/products/system-integration" },
 ]
 const CoreProducts = () => {
