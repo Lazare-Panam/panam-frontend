@@ -37,7 +37,6 @@ const ResourcesPage = lazy(() => import("./components/Resources/ResourcesPage"))
 const CertificationsPage = lazy(() => import("./components/Resources/components/Certifications"))
 const TwoWayManifoldPage = lazy(() => import("./TwoVMGrid/TwoVmGrid"))
 //const PipeFittingPage = lazy(() => import("./PipeFittings/PipeFittings"))
-const BallValvePage = lazy(() => import("./components/BallValves/BallValves"))
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 import Landing2 from "./components/Landing2/Landing2"
 import NeedleValveHBPage from "./components/NeedleValves/NeedleValveGrid/HBGrid/HBGridPage"
