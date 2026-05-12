@@ -11,6 +11,7 @@ const FITTING_ROUTES: Record<string, string> = {
   "pipe-fittings": "/pipe-fittings",
   "weld-fittings": "/weld-fittings",
   "swivel-gauge-adaptors": "/products/instrumentation-fittings/swivel-gague-adaptors",
+  'tube-clamps': '/tube-clamps',
 }
 // ─────────────────────────────────────────────────────────────────────────
 
@@ -60,6 +61,15 @@ const FITTINGS = [
     size: "Multiple thread sizes",
     materials: "SS316 · Duplex · Monel · NACE alloys",
   },
+  {
+  type: 'tube-clamps',
+  title: 'Tube Clamps',
+  description: 'Twin, single layer, double layer and heavy series tube clamps in DIN Groups 1–10. Covers pipe OD from 4mm to 219mm with M6 through M30 bolt sizes. PP jaws included in every set.',
+  image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Twin-Series-Tube-Clamp.jpeg',
+  pressure: 'DIN Groups 1–10',
+  size: '4mm – 219mm OD',
+  materials: 'SS · PP Jaws · M6 – M30 Bolts',
+},
 ]
 
 const SPECS = [

@@ -81,6 +81,11 @@ import WeldFittingsIndexPage from "./components/WeldFittingsGrid/components/Weld
 import WeldFittingConnectors from "./components/WeldFittingsGrid/components/WeldFittingConnectors"
 import WeldFittingElbows from "./components/WeldFittingsGrid/components/WeldFittingElbows"
 import WeldFittingTees from "./components/WeldFittingsGrid/components/WeldFittingTees"
+import TwinSeriesTubeClampPage from "./components/TubClampGrid/TwinSeries/TwinSeriesTubeClampPage"
+import SingleLayerTubeClampPage from "./components/TubClampGrid/SingleLayer/SingleLayerTubeClampPage"
+import DoubleLayerTubeClampPage from "./components/TubClampGrid/DoubleLayer/DoubleLayerTubeClampPage"
+import HeavySeriesTubeClampPage from "./components/TubClampGrid/HeavySeries/HeavySeriesTubeClampPage"
+import TubeClampIndexPage from "./components/TubClampGrid/TubeClampGrid"
 export const routes = [
   {
     path: "/",
@@ -419,7 +424,6 @@ export const routes = [
         ),
       },
       { path: "/product-grid/ball-valves", element: <BallValvePage /> },
-
       { path: "/needle-valves/needle-valves-ib", element: <NeedleValveIBPage /> },
       { path: "/needle-valves/needle-valves-hb", element: <NeedleValveHBPage /> },
       { path: "/needle-valves/needle-valves-hp", element: <NeedleValveHPPage /> },
@@ -454,9 +458,14 @@ export const routes = [
       { path: "/jic-fittings/plugs-caps-nuts", element: <JICPlugsCapsNuts /> },
       { path: "/weld-fittings/all", element: <WeldFittingPage /> },
       { path: '/weld-fittings', element: <WeldFittingsIndexPage /> },
-{ path: '/weld-fittings/connectors', element: <WeldFittingConnectors /> },
-{ path: '/weld-fittings/elbows', element: <WeldFittingElbows /> },
-{ path: '/weld-fittings/tees', element: <WeldFittingTees /> },
+      { path: '/weld-fittings/connectors', element: <WeldFittingConnectors /> },
+      { path: '/weld-fittings/elbows', element: <WeldFittingElbows /> },
+      { path: '/weld-fittings/tees', element: <WeldFittingTees /> },
+      { path: '/tube-clamps/twin-series', element: <TwinSeriesTubeClampPage /> },
+      { path: '/tube-clamps/single-layer', element: <SingleLayerTubeClampPage /> },
+      { path: '/tube-clamps/double-layer', element: <DoubleLayerTubeClampPage /> },
+      { path: '/tube-clamps/heavy', element: <HeavySeriesTubeClampPage /> },
+      { path: '/tube-clamps', element: <TubeClampIndexPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },

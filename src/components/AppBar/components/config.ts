@@ -46,6 +46,7 @@ export const navConfig: Record<string, NavCategory[]> = {
         { name: "Weld Fittings", link: "/weld-fittings" },
         { name: "Tube clamps", link: "/products/tube-clamps" },
         { name: "High Pressure Fittings", link: "/products/instrumentation-fittings/pipe-fittings-high-pressure" },
+         { name: "Tube Clamps", link: "/tube-clamps" },
       ],
     },
     {
