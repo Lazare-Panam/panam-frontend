@@ -86,6 +86,7 @@ import SingleLayerTubeClampPage from "./components/TubClampGrid/SingleLayer/Sing
 import DoubleLayerTubeClampPage from "./components/TubClampGrid/DoubleLayer/DoubleLayerTubeClampPage"
 import HeavySeriesTubeClampPage from "./components/TubClampGrid/HeavySeries/HeavySeriesTubeClampPage"
 import TubeClampIndexPage from "./components/TubClampGrid/TubeClampGrid"
+import HeavySeriesDoubleLayerPage from "./components/TubClampGrid/HeavySeriesDoubleLayer/HeavySeriesDoubleLayerPage"
 export const routes = [
   {
     path: "/",
@@ -464,7 +465,8 @@ export const routes = [
       { path: '/tube-clamps/twin-series', element: <TwinSeriesTubeClampPage /> },
       { path: '/tube-clamps/single-layer', element: <SingleLayerTubeClampPage /> },
       { path: '/tube-clamps/double-layer', element: <DoubleLayerTubeClampPage /> },
-      { path: '/tube-clamps/heavy', element: <HeavySeriesTubeClampPage /> },
+      { path: '/tube-clamps/heavy-single-layer', element: <HeavySeriesTubeClampPage /> },
+      { path: '/tube-clamps/heavy-double-layer', element: <HeavySeriesDoubleLayerPage /> },
       { path: '/tube-clamps', element: <TubeClampIndexPage /> },
       { path: "*", element: <NotFound /> },
     ],

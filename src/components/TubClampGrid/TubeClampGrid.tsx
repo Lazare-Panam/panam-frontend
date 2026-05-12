@@ -37,7 +37,7 @@ const CATEGORIES = [
   },
   {
     id: 'double-layer',
-    title: 'Double Layer',
+    title: 'Double Layer, Standard Series',
     subtitle: 'Tube Clamps',
     description: 'Double layer tube clamps in DIN Groups 1–6. Covers pipe OD from 4mm to 50.8mm. Each set includes one top plate, one bottom plate, 2 hex bolts, two pairs of PP jaws, 2 stacking bolts, and 1 locking plate.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Double-Layer-Tube-Clamp.jpeg',
@@ -47,13 +47,23 @@ const CATEGORIES = [
   },
   {
     id: 'heavy',
-    title: 'Heavy Series',
+    title: 'Heavy Series, Single Layer',
     subtitle: 'Tube Clamps',
     description: 'Heavy duty tube clamps in DIN Groups 1–10. Covers pipe OD from 6mm to 219mm. Each set includes one top plate, one bottom plate, 2 hex bolts (4.6 Grades), and one pair of PP jaws.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Heavy-Series-Tube-Clamp.jpeg',
     tag: 'Tube Clamps',
-    link: '/tube-clamps/heavy',
+    link: '/tube-clamps/heavy-single-layer',
     specs: ['DIN Groups 1–10', '6mm – 219mm OD', 'M10 – M30 Bolts'],
+  },
+  {
+    id: 'heavy-double-layer',
+    title: 'Heavy Series, Double Layer',
+    subtitle: 'Tube Clamps',
+    description: 'Heavy series double layer tube clamps DIN 3015 in DIN Groups 1–8. Covers pipe OD from 6mm to 219mm. Each set includes top plate, bottom plate, locking plate, 2 stacking bolts, 2 hex bolts, and 2 set PP jaws.',
+    image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Heavy-Series-Tube-Clamp.jpeg',
+    tag: 'Tube Clamps',
+    link: '/tube-clamps/heavy-double-layer',
+    specs: ['DIN 3015', 'DIN Groups 1–8', '6mm – 219mm OD'],
   },
 ]
 
@@ -196,7 +206,7 @@ export default function TubeClampIndexPage() {
           {[1, 2].map(i => (
             <Box key={i} sx={{ display: 'flex', gap: 6, pr: 6 }}>
               {[
-                'Twin Series · Single Layer · Double Layer · Heavy Series',
+                'Twin · Single Layer · Double Layer · Heavy Series',
                 'DIN Groups 1–10',
                 '4mm to 219mm Pipe OD',
                 'M6 through M30 Bolt Sizes',
@@ -230,7 +240,7 @@ export default function TubeClampIndexPage() {
               fontSize: { xs: 26, md: 34 }, fontWeight: 800, mb: 3,
               fontFamily: PRIMARY_FONT, color: '#1a1a1a', letterSpacing: '-0.02em',
             }}>
-              Four series. Every installation requirement.
+              Five series. Every installation requirement.
             </Typography>
             <Typography sx={{ color: '#555', lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
               PANAM® Tube Clamps cover the full range of pipe support configurations required
@@ -263,7 +273,7 @@ export default function TubeClampIndexPage() {
             fontSize: { xs: 26, md: 32 }, fontWeight: 800, mb: 1.5,
             fontFamily: PRIMARY_FONT, color: '#1a1a1a', letterSpacing: '-0.02em',
           }}>
-            Four series. One source.
+            Five series. One source.
           </Typography>
           <Typography sx={{
             color: '#666', fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8,
@@ -272,7 +282,7 @@ export default function TubeClampIndexPage() {
           </Typography>
           <Grid container spacing={3}>
             {CATEGORIES.map(c => (
-              <Grid key={c.id} size={{ xs: 12, sm: 6, md: 3 }}>
+              <Grid key={c.id} size={{ xs: 12, sm: 6, md: 4 }}>
                 <CategoryCard {...c} />
               </Grid>
             ))}
@@ -293,11 +303,11 @@ export default function TubeClampIndexPage() {
             color: '#666', lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT,
           }}>
             Complete sets supplied as standard — no sourcing individual components.
-            DIN group sizing for straightforward selection across all four series.
+            DIN group sizing for straightforward selection across all five series.
           </Typography>
           <Grid container spacing={2}>
             {[
-              'Four series — Twin, Single Layer, Double Layer, Heavy',
+              'Five series — Twin, Single Layer, Double Layer, Heavy Single and Heavy Double',
               'DIN Groups 1–10 across the full range',
               'Pipe OD coverage from 4mm to 219mm',
               'M6 through M30 bolt sizes',
