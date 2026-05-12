@@ -90,7 +90,7 @@ export const CATEGORIES: CategoryData[] = [
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/ball-valves/PBV-2-S-04-FF_-_JPG-removebg-preview.png",
     products: [
       { name: "Needle Valves", link: "/products/valves/needle-valves" },
-      { name: "Ball Valves", link: "/product-grid/ball-valves" },
+      { name: "Ball Valves", link: "/ball-valves" },
       { name: "Check Valves", link: "valves/relief-valves" },
       { name: "Relief Valves", link: "/products/valves/relief-valves" },
       { name: "Gauge Root Valves", link: "/products/valves/gauge-root-valves" },

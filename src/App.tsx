@@ -87,6 +87,10 @@ import DoubleLayerTubeClampPage from "./components/TubClampGrid/DoubleLayer/Doub
 import HeavySeriesTubeClampPage from "./components/TubClampGrid/HeavySeries/HeavySeriesTubeClampPage"
 import TubeClampIndexPage from "./components/TubClampGrid/TubeClampGrid"
 import HeavySeriesDoubleLayerPage from "./components/TubClampGrid/HeavySeriesDoubleLayer/HeavySeriesDoubleLayerPage"
+import BallValvesIndexPage from "./components/BallValves/BallValvesIndexPage"
+import TwoWayBallValves from "./components/BallValves/pages/TwoWayBallValves"
+import ThreeWayBallValves from "./components/BallValves/pages/ThreeWayBallValves"
+import HighBoreBallValves from "./components/BallValves/pages/HighBoreBallValves"
 export const routes = [
   {
     path: "/",
@@ -424,7 +428,10 @@ export const routes = [
           </Suspense>
         ),
       },
-      { path: "/product-grid/ball-valves", element: <BallValvePage /> },
+      { path: "/ball-valves", element: <BallValvesIndexPage /> },
+      { path: "/ball-valves/two-way", element: <TwoWayBallValves /> },
+      { path: "/ball-valves/three-way", element: <ThreeWayBallValves /> },
+      { path: "/ball-valves/high-bore", element: <HighBoreBallValves/> },
       { path: "/needle-valves/needle-valves-ib", element: <NeedleValveIBPage /> },
       { path: "/needle-valves/needle-valves-hb", element: <NeedleValveHBPage /> },
       { path: "/needle-valves/needle-valves-hp", element: <NeedleValveHPPage /> },

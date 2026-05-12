@@ -367,7 +367,6 @@ export default function TubeClampIndexPage() {
             </Button>
           </Box>
         </Box>
-
       </Container>
     </Box>
   )

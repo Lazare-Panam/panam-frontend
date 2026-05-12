@@ -5,7 +5,6 @@ import {
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { type BallValveFilters, EMPTY_BALL_VALVE_FILTERS, SERIES_LABELS, BODY_MATERIAL_LABELS } from './types'
-
 import { type BallValveFilterOptions } from '../../../api/ballValveApi'
 
 const BRAND_BLUE = '#01B0F0'
@@ -87,12 +86,11 @@ export function BallValveSidebar({ filters, setFilters, filterOptions, filtersLo
 
   return (
     <Box sx={{
-      width: 280, minHeight: '100vh', p: 3,
+      width: 240, flexShrink: 0, p: 2,
       borderRight: '1px solid', borderColor: 'divider',
       bgcolor: 'background.paper', position: 'sticky', top: 0,
       alignSelf: 'flex-start', maxHeight: '100vh',
-      overflowY: 'auto', overflowX: 'hidden',
-      flexShrink: 0, boxSizing: 'border-box',
+      overflowY: 'auto', boxSizing: 'border-box',
     }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
         <Typography variant="caption" fontWeight={900} letterSpacing={1} color="text.secondary">
