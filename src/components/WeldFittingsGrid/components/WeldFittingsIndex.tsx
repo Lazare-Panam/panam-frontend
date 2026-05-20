@@ -22,7 +22,7 @@ const CATEGORIES = [
     description: 'Male and female weld connectors in tube socket weld configuration. Available across NPT thread standards in fractional inch and metric tube OD sizes.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/male-connector-weld.jpg',
     tag: 'Weld Fittings',
-    link: '/weld-fittings/connectors',
+    link: '/instrumentation-fittings/weld-fittings/connectors',
   },
   {
     id: 'elbows',
@@ -31,7 +31,7 @@ const CATEGORIES = [
     description: 'Male and female weld elbows in tube socket weld configuration. Available across NPT thread standards in fractional inch tube OD sizes from 1/8" to 1-1/2".',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/elbow-weld.jpg',
     tag: 'Weld Fittings',
-    link: '/weld-fittings/elbows',
+    link: '/instrumentation-fittings/weld-fittings/elbows',
   },
   {
     id: 'tees',
@@ -40,7 +40,7 @@ const CATEGORIES = [
     description: 'Male run and branch tees in tube socket weld configuration. Available across NPT thread standards in fractional inch tube OD sizes from 1/8" to 2".',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/male-run-tee-weld.jpg',
     tag: 'Weld Fittings',
-    link: '/weld-fittings/tees',
+    link: '/instrumentation-fittings/weld-fittings/tees',
   },
 ]
 

@@ -419,14 +419,7 @@ export const routes = [
           </Suspense>
         ),
       },
-      {
-        path: "/pipe-fittings",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <PipeFittingsIndexPage />
-          </Suspense>
-        ),
-      },
+      
       { path: "/ball-valves", element: <BallValvesIndexPage /> },
       { path: "/ball-valves/two-way", element: <TwoWayBallValves /> },
       { path: "/ball-valves/three-way", element: <ThreeWayBallValves /> },
@@ -453,6 +446,8 @@ export const routes = [
       { path: "/instrumentation-fittings/tube-fittings/accessories", element: <AccessoryPage /> },
       { path: "/instrumentation-fittings/tube-fittings/die-electric", element: <DielectricGasketPage /> },
 
+
+      //Jic
       { path: "/instrumentation-fittings/jic-fittings", element: <JICFittingsIndexPage /> },
       { path: "/instrumentation-fittings/jic-fittings/all", element: <JICFittingPage /> },
       { path: "/instrumentation-fittings/jic-fittings/connectors", element: <JICConnectors /> },
@@ -462,23 +457,33 @@ export const routes = [
       { path: "/instrumentation-fittings/jic-fittings/tees", element: <JICTees /> },
       { path: "/instrumentation-fittings/jic-fittings/plugs-caps-nuts", element: <JICPlugsCapsNuts /> },
 
-      { path: "/pipe-fittings/nipples-couplings", element: <NipplesCouplings /> },
-      { path: "/pipe-fittings/adapters-plugs", element: <AdaptersPlugs /> },
-      { path: "/pipe-fittings/unions-connectors", element: <UnionsConnectors /> },
-      { path: "/pipe-fittings/elbows", element: <Elbows /> },
-      { path: "/pipe-fittings/tees-cross", element: <TeesCross /> },
+      //Pipe
+      { path: "/instrumentation-fittings/pipe-fittings",element: (<Suspense fallback={<LoadingScreen />}><PipeFittingsIndexPage /></Suspense>),},
+      { path: "/instrumentation-fittings/pipe-fittings/nipples-couplings", element: <NipplesCouplings /> },
+      { path: "/instrumentation-fittings/pipe-fittings/adapters-plugs", element: <AdaptersPlugs /> },
+      { path: "/instrumentation-fittings/pipe-fittings/unions-connectors", element: <UnionsConnectors /> },
+      { path: "/instrumentation-fittings/pipe-fittings/elbows", element: <Elbows /> },
+      { path: "/instrumentation-fittings/pipe-fittings/tees-cross", element: <TeesCross /> },
 
-      { path: "/weld-fittings/all", element: <WeldFittingPage /> },
-      { path: "/weld-fittings", element: <WeldFittingsIndexPage /> },
-      { path: "/weld-fittings/connectors", element: <WeldFittingConnectors /> },
-      { path: "/weld-fittings/elbows", element: <WeldFittingElbows /> },
-      { path: "/weld-fittings/tees", element: <WeldFittingTees /> },
-      { path: "/tube-clamps/twin-series", element: <TwinSeriesTubeClampPage /> },
-      { path: "/tube-clamps/single-layer", element: <SingleLayerTubeClampPage /> },
-      { path: "/tube-clamps/double-layer", element: <DoubleLayerTubeClampPage /> },
-      { path: "/tube-clamps/heavy-single-layer", element: <HeavySeriesTubeClampPage /> },
-      { path: "/tube-clamps/heavy-double-layer", element: <HeavySeriesDoubleLayerPage /> },
-      { path: "/tube-clamps", element: <TubeClampIndexPage /> },
+
+      //Jic
+      { path: "/instrumentation-fittings/weld-fittings/all", element: <WeldFittingPage /> },
+      { path: "/instrumentation-fittings/weld-fittings", element: <WeldFittingsIndexPage /> },
+      { path: "/instrumentation-fittings/weld-fittings/connectors", element: <WeldFittingConnectors /> },
+      { path: "/instrumentation-fittings/weld-fittings/elbows", element: <WeldFittingElbows /> },
+      { path: "/instrumentation-fittings/weld-fittings/tees", element: <WeldFittingTees /> },
+
+
+      //Tube Clamps
+      { path: "/instrumentation-fittings/tube-clamps/twin-series", element: <TwinSeriesTubeClampPage /> },
+      { path: "/instrumentation-fittings/tube-clamps/single-layer", element: <SingleLayerTubeClampPage /> },
+      { path: "/instrumentation-fittings/tube-clamps/double-layer", element: <DoubleLayerTubeClampPage /> },
+      { path: "/instrumentation-fittings/tube-clamps/heavy-single-layer", element: <HeavySeriesTubeClampPage /> },
+      { path: "/instrumentation-fittings/tube-clamps/heavy-double-layer", element: <HeavySeriesDoubleLayerPage /> },
+      { path: "/instrumentation-fittings/tube-clamps", element: <TubeClampIndexPage /> },
+
+
+      
       { path: "*", element: <NotFound /> },
     ],
   },

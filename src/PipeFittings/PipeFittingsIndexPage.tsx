@@ -22,7 +22,7 @@ const CATEGORIES = [
     description: 'Hex nipples, hex long nipples, hex reducing nipples, close nipples, long pipe nipples, hex couplings and reducing hex couplings. Available in NPT, BSPT and BSPP thread standards across a wide size range.',
     image: 'https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pipe-fittings/hex%20nipples%20-%20bspp%20x%20bspp%20-%20png.png',
     tag: 'Pipe Fittings',
-    link: '/pipe-fittings/nipples-couplings',
+    link: '/instrumentation-fittings/pipe-fittings/nipples-couplings',
   },
   {
     id: 'adapters-plugs',
@@ -31,7 +31,7 @@ const CATEGORIES = [
     description: 'Adapters, reducing adapters, reducing bushings, hex plugs, hollow hex plugs and pipe caps. Full range of thread combinations across NPT, BSPT, BSPP, SAE/MS and Metric standards.',
     image: 'https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pipe-fittings/adaptors.jpg',
     tag: 'Pipe Fittings',
-    link: '/pipe-fittings/adapters-plugs',
+    link: '/instrumentation-fittings/pipe-fittings/adapters-plugs',
   },
   {
     id: 'unions-connectors',
@@ -40,7 +40,7 @@ const CATEGORIES = [
     description: 'Standard unions, bulkhead unions, swivel unions, swivel connectors and union elbows. Designed for repositionable, leak-tight connections in instrumentation and process piping systems.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/union-bspt-final.png',
     tag: 'Pipe Fittings',
-    link: '/pipe-fittings/unions-connectors',
+    link: '/instrumentation-fittings/pipe-fittings/unions-connectors',
   },
   {
     id: 'elbows',
@@ -49,7 +49,7 @@ const CATEGORIES = [
     description: 'Female elbows, male elbows, street elbows and swivel union elbows in NPT, BSPT and BSPP thread standards. Available in straight and 45° configurations across a full size range.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/female-elbow-bspp.png',
     tag: 'Pipe Fittings',
-    link: '/pipe-fittings/elbows',
+    link: '/instrumentation-fittings/pipe-fittings/elbows',
   },
   {
     id: 'tees-cross',
@@ -58,7 +58,7 @@ const CATEGORIES = [
     description: 'Female tees, male tees, female branch tees, female run tees, street tees, branch tees, run tees, union tees and crosses. Full range of thread standards and configurations for complex piping layouts.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/female-tee-bspp.png',
     tag: 'Pipe Fittings',
-    link: '/pipe-fittings/tees-cross',
+    link: '/instrumentation-fittings/pipe-fittings/tees-cross',
   },
 ]
 

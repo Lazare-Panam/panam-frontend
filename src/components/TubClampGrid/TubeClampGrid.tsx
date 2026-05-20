@@ -22,7 +22,7 @@ const CATEGORIES = [
     description: 'Twin series tube clamps in DIN Groups 1–5. Covers pipe OD from 6mm to 42mm. Each set includes one top plate, one bottom plate, one hex bolt, and one pair of PP jaws.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Twin-Series-Tube-Clamp.jpeg',
     tag: 'Tube Clamps',
-    link: '/tube-clamps/twin-series',
+    link: '/instrumentation-fittings/tube-clamps/twin-series',
     specs: ['DIN Groups 1–5', '6mm – 42mm OD', 'M6 / M8 Bolts'],
   },
   {
@@ -32,7 +32,7 @@ const CATEGORIES = [
     description: 'Single layer tube clamps in DIN Groups 1–10. Covers pipe OD from 6mm to 42mm. Each set includes one top plate, one bottom plate, 2 hex bolts, and one pair of PP jaws.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Single-Layer-Tube-Clamp.jpeg',
     tag: 'Tube Clamps',
-    link: '/tube-clamps/single-layer',
+    link: '/instrumentation-fittings/tube-clamps/single-layer',
     specs: ['DIN Groups 1–10', '6mm – 42mm OD', 'M6 Bolts'],
   },
   {
@@ -42,7 +42,7 @@ const CATEGORIES = [
     description: 'Double layer tube clamps in DIN Groups 1–6. Covers pipe OD from 4mm to 50.8mm. Each set includes one top plate, one bottom plate, 2 hex bolts, two pairs of PP jaws, 2 stacking bolts, and 1 locking plate.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Double-Layer-Tube-Clamp.jpeg',
     tag: 'Tube Clamps',
-    link: '/tube-clamps/double-layer',
+    link: '/instrumentation-fittings/tube-clamps/double-layer',
     specs: ['DIN Groups 1–6', '4mm – 50.8mm OD', 'M6 Bolts'],
   },
   {
@@ -52,7 +52,7 @@ const CATEGORIES = [
     description: 'Heavy duty tube clamps in DIN Groups 1–10. Covers pipe OD from 6mm to 219mm. Each set includes one top plate, one bottom plate, 2 hex bolts (4.6 Grades), and one pair of PP jaws.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Heavy-Series-Tube-Clamp.jpeg',
     tag: 'Tube Clamps',
-    link: '/tube-clamps/heavy-single-layer',
+    link: '/instrumentation-fittings/tube-clamps/heavy-single-layer',
     specs: ['DIN Groups 1–10', '6mm – 219mm OD', 'M10 – M30 Bolts'],
   },
   {
@@ -62,7 +62,7 @@ const CATEGORIES = [
     description: 'Heavy series double layer tube clamps DIN 3015 in DIN Groups 1–8. Covers pipe OD from 6mm to 219mm. Each set includes top plate, bottom plate, locking plate, 2 stacking bolts, 2 hex bolts, and 2 set PP jaws.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Heavy-Series-Tube-Clamp.jpeg',
     tag: 'Tube Clamps',
-    link: '/tube-clamps/heavy-double-layer',
+    link: '/instrumentation-fittings/tube-clamps/heavy-double-layer',
     specs: ['DIN 3015', 'DIN Groups 1–8', '6mm – 219mm OD'],
   },
 ]

@@ -8,10 +8,10 @@ const BRAND_BLUE = "#01B0F0"
 const FITTING_ROUTES: Record<string, string> = {
   "tube-fittings": "/instrumentation-fittings/tube-fittings",
   "37-jic-fittings": "/instrumentation-fittings/jic-fittings",
-  "pipe-fittings": "/pipe-fittings",
-  "weld-fittings": "/weld-fittings",
+  "pipe-fittings": "/instrumentation-fittings/pipe-fittings",
+  "weld-fittings": "/instrumentation-fittings/weld-fittings",
   "swivel-gauge-adaptors": "/products/instrumentation-fittings/swivel-gague-adaptors",
-  'tube-clamps': '/tube-clamps',
+  'tube-clamps': '/instrumentation-fittings/tube-clamps',
 }
 // ─────────────────────────────────────────────────────────────────────────
 
