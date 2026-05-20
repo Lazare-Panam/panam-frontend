@@ -30,7 +30,7 @@ const NEEDLE_VALVE_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/ib.jpg",
     pressure: "6,000 psig",
     tag: "IB Series",
-    link: "/needle-valves/needle-valves-ib",
+    link: "/valves/needle-valves/needle-valves-ib",
   },
   {
     id: "sb-series-needle-valves",
@@ -40,7 +40,7 @@ const NEEDLE_VALVE_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/sb.jpg",
     pressure: "10,000 psig",
     tag: "SB Series",
-    link: "/needle-valves/needle-valves-sb",
+    link: "/valves/needle-valves/needle-valves-sb",
   },
   {
     id: "hb-series-needle-valves",
@@ -50,7 +50,7 @@ const NEEDLE_VALVE_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/hb.jpg",
     pressure: "10,000 psig",
     tag: "HB Series",
-    link: "/needle-valves/needle-valves-hb",
+    link: "/valves/needle-valves/needle-valves-hb",
   },
   {
     id: "hp-series-needle-valves",
@@ -60,7 +60,7 @@ const NEEDLE_VALVE_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/hp.jpg",
     pressure: "10,000 psig",
     tag: "HP Series",
-    link: "/needle-valves/needle-valves-hp",
+    link: "/valves/needle-valves/needle-valves-hp",
   },
   {
     id: "mini-series-needle-valves",
@@ -70,7 +70,7 @@ const NEEDLE_VALVE_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/mini.jpg",
     pressure: "3,000 psig",
     tag: "Mini Series",
-    link: "/needle-valves/needle-valves-mini",
+    link: "/valves/needle-valves/needle-valves-mini",
   },
 ];
 

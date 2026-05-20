@@ -94,7 +94,7 @@ export const CATEGORIES2: CategoryData2[] = [
     id: "valves",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/ball-valves/PBV-2-S-04-FF_-_JPG-removebg-preview.png",
     products: [
-      { name: "Needle Valves", link: "/needle-valves" },
+      { name: "Needle Valves", link: "/valves/needle-valves" },
       { name: "Ball Valves", link: "/ball-valves" },
       { name: "Check Valves", link: "/valves" },
       { name: "Relief Valves", link: "/valves/relief-valves" },

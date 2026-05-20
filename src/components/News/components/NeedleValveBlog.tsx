@@ -114,7 +114,7 @@ const NeedleValveBlog: React.FC = () => {
               This is where a needle valve stops being a commodity and starts being a precision component. Browse the full{" "}
               <Box
                 component="a"
-                href="https://www.panamvalve.com/needle-valves"
+                href="https://www.panamvalve.com/valves/needle-valves"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
@@ -295,7 +295,7 @@ const NeedleValveBlog: React.FC = () => {
               For the full range of configurations, pressure tiers and connection options, visit the{" "}
               <Box
                 component="a"
-                href="https://www.panamvalve.com/needle-valves"
+                href="https://www.panamvalve.com/valves/needle-valves"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
@@ -351,7 +351,7 @@ const NeedleValveBlog: React.FC = () => {
               {/* Sidebar product card */}
               <Box
                 component="a"
-                href="https://www.panamvalve.com/needle-valves"
+                href="https://www.panamvalve.com/valves/needle-valves"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ textDecoration: "none", display: "block", mt: 6 }}

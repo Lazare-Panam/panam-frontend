@@ -419,20 +419,29 @@ export const routes = [
           </Suspense>
         ),
       },
-      
+
+      //valves-url
+      { path: "/valves", element: <ValvesPage /> },
+
+      //needle-valves-url
+      { path: "/valves/needle-valves", element: <NeedleValvesPage /> },
+      { path: "/valves/needle-valves/needle-valves-ib", element: <NeedleValveIBPage /> },
+      { path: "/valves/needle-valves/needle-valves-hb", element: <NeedleValveHBPage /> },
+      { path: "/valves/needle-valves/needle-valves-hp", element: <NeedleValveHPPage /> },
+      { path: "/valves/needle-valves/needle-valves-sb", element: <NeedleValveSBPage /> },
+      { path: "/valves/needle-valves/needle-valves-mini", element: <MiniValvePage /> },
+
+
+      { path: "/valves/pcv", element: <PCVPage /> },
+      { path: "/valves/relief-valves", element: <ReliefValvePage /> },
       { path: "/ball-valves", element: <BallValvesIndexPage /> },
       { path: "/ball-valves/two-way", element: <TwoWayBallValves /> },
       { path: "/ball-valves/three-way", element: <ThreeWayBallValves /> },
       { path: "/ball-valves/high-bore", element: <HighBoreBallValves /> },
-      { path: "/needle-valves/needle-valves-ib", element: <NeedleValveIBPage /> },
-      { path: "/needle-valves/needle-valves-hb", element: <NeedleValveHBPage /> },
-      { path: "/needle-valves/needle-valves-hp", element: <NeedleValveHPPage /> },
-      { path: "/needle-valves/needle-valves-sb", element: <NeedleValveSBPage /> },
-      { path: "/needle-valves/needle-valves-mini", element: <MiniValvePage /> },
-      { path: "/needle-valves", element: <NeedleValvesPage /> },
-      { path: "/valves", element: <ValvesPage /> },
-      { path: "/valves/pcv", element: <PCVPage /> },
-      { path: "/valves/relief-valves", element: <ReliefValvePage /> },
+
+
+      
+
 
       { path: "/instrumentation-fittings", element: <FittingsPage /> },
       //Tube Fittings
@@ -483,7 +492,7 @@ export const routes = [
       { path: "/instrumentation-fittings/tube-clamps", element: <TubeClampIndexPage /> },
 
 
-      
+
       { path: "*", element: <NotFound /> },
     ],
   },
