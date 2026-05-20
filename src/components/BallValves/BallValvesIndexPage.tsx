@@ -22,7 +22,7 @@ const CATEGORIES = [
     description: 'Two-way floating ball valves for reliable on/off shut-off in instrumentation and process lines. Rated to 10,000 psig with full range of end connections including NPT, BSPP, BSPT and PANAM® tube-fitting connections. Seat materials include Delrin, PTFE, PEEK and KEL-F.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png',
     tag: 'Ball Valves',
-    link: '/ball-valves/two-way',
+    link: '/valves/ball-valves/two-way',
   },
   {
     id: 'three-way',
@@ -31,7 +31,7 @@ const CATEGORIES = [
     description: 'Three-way floating ball valves with T-port and L-port flow paths for diverting, mixing and selector service. Rated to 6,000 psig in sizes 1/8" through 1". Lever-handle and panel-mounting options available across selected sizes.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png',
     tag: 'Ball Valves',
-    link: '/ball-valves/three-way',
+    link: '/valves/ball-valves/three-way',
   },
   {
     id: 'high-bore',
@@ -40,7 +40,7 @@ const CATEGORIES = [
     description: 'High bore series with full-port ball geometry for maximum flow coefficient and minimal pressure drop. Ideal for sampling, drain and bypass applications where flow capacity is critical. Available in sizes 1/4" through 2" with full material options.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-HB-S-08-FF.png',
     tag: 'Ball Valves',
-    link: '/ball-valves/high-bore',
+    link: '/valves/ball-valves/high-bore',
   },
 ]
 

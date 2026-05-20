@@ -17,9 +17,9 @@ const BRAND_BLUE = "#01B0F0";
 // ── EDIT VALVE ROUTES HERE ────────────────────────────────────────────────
 const VALVE_ROUTES: Record<string, string> = {
   "needle-valves":      "/valves/needle-valves",
-  "ball-valves":        "/ball-valves",
+  "ball-valves":        "/valves/ball-valves",
   "relief-valves":      "/valves/relief-valves",
-  "check-valves":       "/valves/pcv",
+  "check-valves":       "/valves/check-valves",
   "gauge-root-valves":  "/products/valves/gauge-root-valves",
   "purge-valves":       "/products/valves/purge-valves",
   "toggle-valves":      "/products/valves/toggle-valves",

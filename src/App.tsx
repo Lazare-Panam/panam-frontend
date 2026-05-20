@@ -430,14 +430,14 @@ export const routes = [
       { path: "/valves/needle-valves/needle-valves-hp", element: <NeedleValveHPPage /> },
       { path: "/valves/needle-valves/needle-valves-sb", element: <NeedleValveSBPage /> },
       { path: "/valves/needle-valves/needle-valves-mini", element: <MiniValvePage /> },
-
-
-      { path: "/valves/pcv", element: <PCVPage /> },
+      //ball-valves-url
+      { path: "/valves/ball-valves", element: <BallValvesIndexPage /> },
+      { path: "/valves/ball-valves/two-way", element: <TwoWayBallValves /> },
+      { path: "/valves/ball-valves/three-way", element: <ThreeWayBallValves /> },
+      { path: "/valves/ball-valves/high-bore", element: <HighBoreBallValves /> },
+      //check-and-relif-valves
+      { path: "/valves/check-valves", element: <PCVPage /> },
       { path: "/valves/relief-valves", element: <ReliefValvePage /> },
-      { path: "/ball-valves", element: <BallValvesIndexPage /> },
-      { path: "/ball-valves/two-way", element: <TwoWayBallValves /> },
-      { path: "/ball-valves/three-way", element: <ThreeWayBallValves /> },
-      { path: "/ball-valves/high-bore", element: <HighBoreBallValves /> },
 
 
       
