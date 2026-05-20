@@ -26,6 +26,13 @@ export default function NeedleValveHBPage() {
   const sidebar = <HBSidebar filters={filters} setFilters={setFilters} filterOptions={filterOptions} filtersLoading={filtersLoading} activeCount={activeCount} />
 
   return (
+    <>
+    <title>PANAM® HB Series Block & Bleed Needle Valves | 10,000 psig | PANAM®</title>
+    <meta name="description" content="PANAM® HB Series block and bleed needle valves rated to 10,000 psig. Non-rotating Vee-tip stem, SS316, Duplex, Monel and Hastelloy. NACE MR0175 available. NPT, BSPP and tube fitting ends." />
+    <meta name="keywords" content="block and bleed needle valve, HB series needle valve, 10000 psi needle valve, instrumentation block bleed valve, NACE MR0175 block bleed valve, SS316 block bleed valve, high pressure block bleed valve" />
+    <meta property="og:title" content="HB Series Block & Bleed Needle Valves | PANAM®" />
+    <meta property="og:description" content="High-pressure block and bleed needle valves to 10,000 psig. Non-rotating Vee-tip, full traceability, NACE certified options." />
+    <meta property="og:type" content="website" />
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       {/* Header */}
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
@@ -94,5 +101,7 @@ export default function NeedleValveHBPage() {
         </Drawer>
       </Box>
     </Box>
+    </>
+
   )
 }

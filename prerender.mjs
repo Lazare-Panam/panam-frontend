@@ -6,23 +6,37 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Routes to prerender - skip dynamic ones like /products/:id
 const routes = [
-  "/", 
-  "/products", 
-  "/about", 
-  "/industries", 
-  "/blog", 
-  "/industries/marine-subsea", 
-  "/industries/oil-gas", 
-  "/industries/hydrogen", 
-  "/industries/aerospace-defense", 
-  "/industries/chemicals-petrochemical", 
+  "/",
+  "/products",
+  "/about",
+  "/industries",
+  "/blog",
+  "/industries/marine-subsea",
+  "/industries/oil-gas",
+  "/industries/hydrogen",
+  "/industries/aerospace-defense",
+  "/industries/chemicals-petrochemical",
   "/industries/food-beverages",
   "/blog/panam-valves-rg-fluid-power-partnership",
   "/blog/double-blog-and-bleed",
   "/blog/hydrogen-blog",
   "/blog/swivel-gauge-blog",
   "/blog/check-valves-blog",
-  "/catalogPDFs"
+  "/catalogPDFs",
+  // valves
+  "/valves",
+  "/valves/needle-valves",
+  "/valves/needle-valves/needle-valves-ib",
+  "/valves/needle-valves/needle-valves-hb",
+  "/valves/needle-valves/needle-valves-hp",
+  "/valves/needle-valves/needle-valves-sb",
+  "/valves/needle-valves/needle-valves-mini",
+  "/valves/ball-valves",
+  "/valves/ball-valves/two-way",
+  "/valves/ball-valves/three-way",
+  "/valves/ball-valves/high-bore",
+  "/valves/check-valves",
+  "/valves/relief-valves",
 ];
 const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
 

@@ -25,73 +25,82 @@ export default function NeedleValveIBPage() {
   const sidebar = <IBSidebar filters={filters} setFilters={setFilters} filterOptions={filterOptions} filtersLoading={filtersLoading} activeCount={activeCount} />
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
+    <>
+      <title>PANAM IB Series Integral Bonnet Needle Valves | 6,000 psig | PANAM®</title>
+      <meta name="description" content="PANAM® IB Series integral bonnet needle valves rated to 6,000 psig. SS316, Duplex and Monel. NPT, BSPP, BSPT and PANAM® tube fitting ends. NACE MR0175 available on request." />
+      <meta name="keywords" content="integral bonnet needle valve, IB series needle valve, 6000 psi needle valve, instrumentation needle valve, SS316 integral bonnet valve, Duplex needle valve, Monel needle valve, NACE MR0175 needle valve, NPT needle valve, tube fitting needle valve" />
+      <meta property="og:title" content="IB Series Integral Bonnet Needle Valves | 6,000 psig | PANAM®" />
+      <meta property="og:description" content="Integral bonnet needle valves to 6,000 psig. SS316, Duplex and Monel. Multiple end connections. NACE MR0175 available." />
+      <meta property="og:type" content="website" />
+      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       {/* Header */}
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
-          {title}
-        </Typography>
-        <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
-          {description}
-        </Typography>
-        <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-          {specs.map(s => (
-            <Box
-              key={s}
-              sx={{
-                px: 1.5,
-                py: 0.5,
-                borderRadius: "20px",
-                fontSize: "0.75rem",
-                fontWeight: 600,
-                bgcolor: alpha(BRAND_BLUE, 0.08),
-                color: "#0277BD",
-                border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`,
-              }}>
-              {s}
-            </Box>
-          ))}
+      <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
+      {title}
+      </Typography>
+      <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
+      {description}
+      </Typography>
+      <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+      {specs.map(s => (
+        <Box
+          key={s}
+          sx={{
+            px: 1.5,
+            py: 0.5,
+            borderRadius: "20px",
+            fontSize: "0.75rem",
+            fontWeight: 600,
+            bgcolor: alpha(BRAND_BLUE, 0.08),
+            color: "#0277BD",
+            border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`,
+          }}>
+          {s}
         </Box>
+      ))}
+      </Box>
       </Box>
 
       {/* Content */}
       <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
-        {isMobile && (
-          <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}>
-            <FilterListIcon />
-          </IconButton>
-        )}
+      {isMobile && (
+      <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}>
+        <FilterListIcon />
+      </IconButton>
+      )}
 
-        <IBActiveFilters filters={filters} setFilters={setFilters} />
+      <IBActiveFilters filters={filters} setFilters={setFilters} />
 
-        <Typography variant="caption" fontWeight={700} color="text.disabled" sx={{ display: "block", mb: 1 }}>
-          {isFetching && !isLoading ? "UPDATING..." : isLoading ? "LOADING..." : `${models.length} CONFIGURATIONS`}
-        </Typography>
+      <Typography variant="caption" fontWeight={700} color="text.disabled" sx={{ display: "block", mb: 1 }}>
+      {isFetching && !isLoading ? "UPDATING..." : isLoading ? "LOADING..." : `${models.length} CONFIGURATIONS`}
+      </Typography>
 
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "flex-start",
-            border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`,
-            borderRadius: "8px",
-            overflow: "hidden",
-            bgcolor: "background.paper",
-          }}>
-          {!isMobile && sidebar}
+      <Box
+      sx={{
+        display: "flex",
+        alignItems: "flex-start",
+        border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`,
+        borderRadius: "8px",
+        overflow: "hidden",
+        bgcolor: "background.paper",
+      }}>
+      {!isMobile && sidebar}
 
-          {isLoading ? (
-            <Box sx={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center", minHeight: 300 }}>
-              <CircularProgress sx={{ color: BRAND_BLUE }} />
-            </Box>
-          ) : (
-            <IBTable models={models} isFetching={isFetching} />
-          )}
+      {isLoading ? (
+        <Box sx={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center", minHeight: 300 }}>
+          <CircularProgress sx={{ color: BRAND_BLUE }} />
         </Box>
-
-        <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>
-          {sidebar}
-        </Drawer>
+      ) : (
+        <IBTable models={models} isFetching={isFetching} />
+      )}
       </Box>
-    </Box>
+
+      <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>
+      {sidebar}
+      </Drawer>
+      </Box>
+      </Box>
+    </>
+
   )
 }

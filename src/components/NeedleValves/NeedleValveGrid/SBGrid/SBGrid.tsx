@@ -36,7 +36,14 @@ export default function NeedleValveSBPage() {
   )
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
+    <>
+    <title>PANAM® SB Series Heavy-Duty Bar Stock Needle Valves | 10,000 psig | </title>
+<meta name="description" content="PANAM® SB Series heavy-duty bar stock needle valves rated to 10,000 psig. Metal and soft seat options. SS316, Duplex, Monel and Hastelloy. NPT, BSPP, BSPT and tube fitting ends. NACE MR0175 available." />
+<meta name="keywords" content="bar stock needle valve, SB series needle valve, 10000 psi needle valve, heavy duty needle valve, metal seat needle valve, soft seat needle valve, SS316 bar stock valve, high pressure bar stock valve, instrumentation needle valve NACE" />
+<meta property="og:title" content="SB Series Bar Stock Needle Valves | 10,000 psig | PANAM®" />
+<meta property="og:description" content="Heavy-duty bar stock needle valves to 10,000 psig. Metal and soft seat. SS316, Duplex, Monel, Hastelloy. NACE MR0175 available." />
+<meta property="og:type" content="website" />
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
           {title}
@@ -78,6 +85,7 @@ export default function NeedleValveSBPage() {
         </Box>
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
-    </Box>
+    </Box></>
+
   )
 }

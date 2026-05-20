@@ -225,6 +225,13 @@ const ValveCard: React.FC<ValveItem> = ({
 
 export default function ValvesPage() {
   return (
+    <>
+    <title>Instrumentation Valves | Needle, Ball & Relief Valves | PANAM®</title>
+    <meta name="description" content="PANAM® instrumentation valves — needle, ball, relief, check, gauge root, purge and toggle valves rated to 20,000 psig. SS316, Duplex, Monel and Hastelloy. NACE MR0175 available." />
+    <meta name="keywords" content="instrumentation valves, needle valves, ball valves, relief valves, check valves, high pressure valves, 20000 psi valves, SS316 valves, NACE MR0175 valves, Duplex valves, Hastelloy valves, gauge root valves" />
+    <meta property="og:title" content="Instrumentation Valves | PANAM® Valve Range" />
+    <meta property="og:description" content="Seven instrumentation valve families rated 4,000–20,000 psig. Full material traceability. NACE certified options. NPT, BSPP, BSPT and tube fitting ends." />
+    <meta property="og:type" content="website" />
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
 
       {/* ── HERO ── */}
@@ -419,5 +426,7 @@ export default function ValvesPage() {
 
       </Container>
     </Box>
+    </>
+    
   );
 }
