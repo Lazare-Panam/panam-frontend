@@ -9,7 +9,7 @@ const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
 // ── EDIT ROUTES HERE ──────────────────────────────────────────────────────
 const CATEGORY_ROUTES: Record<string, string> = {
-  "instrumentation-fittings":       "/fittings",
+  "instrumentation-fittings":       "/instrumentation-fittings",
   "filters":                        "/products/filters",
   "quick-coupling-and-hoses":       "/products/quick-coupling-and-hoses",
   "hydrogen":                       "/products/hydrogen",

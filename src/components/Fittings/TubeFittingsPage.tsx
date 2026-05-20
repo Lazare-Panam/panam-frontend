@@ -31,7 +31,7 @@ const TUBE_FITTING_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
-    link: "/fittings/connectors",
+    link: "/instrumentation-fittings/tube-fittings/connectors",
   },
   {
     id: "tube-fitting-unions",
@@ -42,7 +42,7 @@ const TUBE_FITTING_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/union-cross.png",
     pressure: "High Pressure",
     tag: "Tube Fittings",
-    link: "/fittings/union",
+    link: "/instrumentation-fittings/tube-fittings/union",
   },
   {
     id: "tube-fitting-reducer",
@@ -53,7 +53,7 @@ const TUBE_FITTING_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
-    link: "/fittings/reducer",
+    link: "/instrumentation-fittings/tube-fittings/reducer",
   },
   {
     id: "tube-fitting-adapters",
@@ -64,7 +64,7 @@ const TUBE_FITTING_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male_adaptor.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
-    link: "/fittings/adapter",
+    link: "/instrumentation-fittings/tube-fittings/adapter",
   },
   {
     id: "tube-fitting-port-connectors",
@@ -75,7 +75,7 @@ const TUBE_FITTING_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
-    link: "/fittings/port-connector",
+    link: "/instrumentation-fittings/tube-fittings/port-connector",
   },
   {
     id: "tube-fitting-weld-gauge",
@@ -86,7 +86,7 @@ const TUBE_FITTING_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
-    link: "/fittings/weld-gauge",
+    link: "/instrumentation-fittings/tube-fittings/weld-gauge",
   },
   {
     id: "tube-fitting-accessories",
@@ -97,7 +97,7 @@ const TUBE_FITTING_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/tube_plug.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
-    link: "/fittings/accessories",
+    link: "/instrumentation-fittings/tube-fittings/accessories",
   },
   {
     id: "tube-fitting-dielectric",
@@ -108,7 +108,7 @@ const TUBE_FITTING_SERIES = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/dielectric-fittings.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
-    link: "/fittings/die-electric",
+    link: "/instrumentation-fittings/tube-fittings/die-electric",
   },
 ]
 

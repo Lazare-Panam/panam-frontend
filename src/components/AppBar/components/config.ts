@@ -38,10 +38,10 @@ export const navConfig: Record<string, NavCategory[]> = {
     {
       id: "instrumentation",
       label: "Instrumentation Fittings",
-      link: "/fittings",
+      link: "/instrumentation-fittings",
       items: [
-        { name: "Tube Fittings", link: "/tube-fittings" },
-        { name: "37° JIC Fittings", link: "/jic-fittings" },
+        { name: "Tube Fittings", link: "/instrumentation-fittings/tube-fittings" },
+        { name: "37° JIC Fittings", link: "/instrumentation-fittings/jic-fittings" },
         { name: "Pipe Fittings", link: "/pipe-fittings" },
         { name: "Weld Fittings", link: "/weld-fittings" },
         { name: "High Pressure Fittings", link: "/products/instrumentation-fittings/pipe-fittings-high-pressure" },

@@ -22,7 +22,7 @@ const CATEGORIES = [
     description: 'Male and female connectors in 37° JIC flare. Available in JIC x NPT, JIC x BSPT, JIC x BSPP, JIC x SAE/MS and JIC Swivel configurations across a full size range.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-connector-jic.jpg',
     tag: '37° Flared Tube Fittings',
-    link: '/jic-fittings/connectors',
+    link: '/instrumentation-fittings/jic-fittings/connectors',
   },
   {
     id: 'unions-swivel',
@@ -31,7 +31,7 @@ const CATEGORIES = [
     description: 'Standard unions, large hex unions, swivel unions, bulkhead unions and bulkhead lock nuts in 37° JIC flare. Designed for secure, repositionable connections in instrumentation tubing systems.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/Union.jpg',
     tag: '37° Flared Tube Fittings',
-    link: '/jic-fittings/unions-swivel',
+    link: '/instrumentation-fittings/jic-fittings/unions-swivel',
   },
   {
     id: 'adapters-reducers',
@@ -40,7 +40,7 @@ const CATEGORIES = [
     description: 'Reducing adapters and sleeves for transitioning between tube OD sizes in 37° JIC flare. Available in a full range of size combinations in both JIC and Metric tube OD.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/reducing-adaptors.jpg',
     tag: '37° Flared Tube Fittings',
-    link: '/jic-fittings/adapters-reducers',
+    link: '/instrumentation-fittings/jic-fittings/adapters-reducers',
   },
   {
     id: 'elbows',
@@ -49,7 +49,7 @@ const CATEGORIES = [
     description: 'Male elbows, 45° male elbows, female elbows, union elbows, swivel union elbows and adjustable male elbows in 37° JIC flare. Available in JIC x NPT, BSPT, BSPP, SAE/MS and JIC Swivel.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-elbow.jpg',
     tag: '37° Flared Tube Fittings',
-    link: '/jic-fittings/elbows',
+    link: '/instrumentation-fittings/jic-fittings/elbows',
   },
   {
     id: 'tees',
@@ -58,7 +58,7 @@ const CATEGORIES = [
     description: 'Male branch tees, female branch tees, female run tees, union tees, swivel union tees, swivel run tees, swivel branch tees and union cross in 37° JIC flare.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-branch-tees.jpg',
     tag: '37° Flared Tube Fittings',
-    link: '/jic-fittings/tees',
+    link: '/instrumentation-fittings/jic-fittings/tees',
   },
   {
     id: 'plugs-caps-nuts',
@@ -67,7 +67,7 @@ const CATEGORIES = [
     description: 'Nuts, tube caps, tube cap assemblies and tube plugs in 37° JIC flare. Used for terminating and capping tube end connections across a full size range.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/tube-plug.jpg',
     tag: '37° Flared Tube Fittings',
-    link: '/jic-fittings/plugs-caps-nuts',
+    link: '/instrumentation-fittings/jic-fittings/plugs-caps-nuts',
   },
 ]
 

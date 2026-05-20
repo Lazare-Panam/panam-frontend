@@ -9,7 +9,7 @@ const BRAND_BLUE = "#01B0F0"
 const ALL_PRODUCTS = [
   { name: "Pipe Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065185/reducing-hex-couplings-npt_dlncbd.png", link: "product-grid/pipe-fittings" },
   { name: "Tube Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065253/UNION-CROSS-IMPERIAL-PUC-04-SS_usickt.png", link: "/products/fittings" },
-  { name: "37 JIC Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065297/union-cross_ktkzxj.png", link: "/jic-fittings" },
+  { name: "37 JIC Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065297/union-cross_ktkzxj.png", link: "/instrumentation-fittings/jic-fittings" },
   { name: "Weld Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065327/male-connector-tube-socket-weld-x-npt_pyqtf0.png", link: "/products/weld-fittings" },
   { name: "Needle Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768296756/11111_e7ywry.webp", link: "/products/needle-valves" },
   { name: "Gauge Root Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770306213/final-gauge-root-ff_oforuw.webp", link: "/products/gauge-root-valves" },
