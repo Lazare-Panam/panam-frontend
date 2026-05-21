@@ -71,21 +71,20 @@ const IntroSection: React.FC = () => {
                 backgroundColor: "#000",
                 border: "1px solid rgba(0,0,0,0.05)",
               }}>
-              <iframe
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  border: 0,
-                }}
-                src="https://www.youtube.com/embed/HRFxY37P0Lg"
-                referrerPolicy="strict-origin-when-cross-origin"
-                title="Panam Valves Product Showcase"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+             <iframe
+  style={{
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    border: 0,
+  }}
+  src="https://www.youtube.com/embed/HRFxY37P0Lg?enablejsapi=1"
+  title="Panam Valves Product Showcase"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowFullScreen
+/>
             </Box>
           </Grid>
         </Grid>
