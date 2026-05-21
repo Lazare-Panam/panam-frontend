@@ -4,6 +4,7 @@
     "exclude": ["/assets/*", "/static/media/*.{png,jpg,gif}", "/css/*",  "/about/*"]
   },
   "globalHeaders": {
+     "Referrer-Policy": "strict-origin-when-cross-origin",
     "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
     "Content-Security-Policy": "frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com;"
   },
