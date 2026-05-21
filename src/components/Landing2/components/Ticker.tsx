@@ -78,7 +78,7 @@ const Ticker = () => {
                 src={partner.img}
                 alt={partner.name}
                 sx={{
-                  height: 32,
+                  height: 72,
                   width: 'auto',
                   objectFit: 'contain',
                 }}
