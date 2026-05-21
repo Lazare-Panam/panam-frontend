@@ -24,7 +24,7 @@ const ALL_PRODUCTS = [
   { name: "5-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065822/5VM-SS-H_lnxzwa.png", link: "/products/5-way-valve-manifold" },
   { name: "Pressure Transmitter", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065582/APC-2000ALW-PNG-removebg-preview_jxvqjx.png", link: "/products/pressure-regulator-transmitter" },
   { name: "Double Block and bleed valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065511/MONO-FLANGE-1_zo3vzq.png", link: "/products/double-block-and-bleed-valves" },
-  { name: "Filters", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065475/PTF-TC-06-60-SS_qvotij.png", link: "/products/filters" },
+  { name: "Filters", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065475/PTF-TC-06-60-SS_qvotij.png", link: "/filters" },
   { name: "System Integration", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065393/Img11695_kst9gv.png", link: "/products/system-integration" },
 ]
 

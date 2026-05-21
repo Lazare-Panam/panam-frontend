@@ -83,10 +83,10 @@ export const navConfig: Record<string, NavCategory[]> = {
     {
       id: "filters",
       label: "Filters",
-      link: "/products/filters",
+      link: "/filters",
       items: [
-        { name: "T-Type Filter", link: "/products/filters" },
-        { name: "In-Line Filter", link: "/products/filters" },
+        { name: "T-Type Filter", link: "/filters/t-type" },
+        { name: "In-Line Filter", link: "/filters/i-type" },
       ],
     },
     {

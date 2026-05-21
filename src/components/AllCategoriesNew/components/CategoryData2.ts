@@ -33,8 +33,8 @@ export const CATEGORIES2: CategoryData2[] = [
     id: "filters",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/filters/PTF-TB-04-15-SS_JPG-removebg-preview.png",
     products: [
-      { name: "T-Type Filter", link: "/products/filters" },
-      { name: "In-Line Filter", link: "/products/filters" },
+      { name: "T-Type Filter", link: "/filters/t-type" },
+      { name: "In-Line Filter", link: "/filters/i-type" },
     ],
   },
 

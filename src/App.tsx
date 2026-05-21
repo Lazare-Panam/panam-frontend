@@ -90,6 +90,9 @@ import BallValvesIndexPage from "./components/BallValves/BallValvesIndexPage"
 import TwoWayBallValves from "./components/BallValves/pages/TwoWayBallValves"
 import ThreeWayBallValves from "./components/BallValves/pages/ThreeWayBallValves"
 import HighBoreBallValves from "./components/BallValves/pages/HighBoreBallValves"
+import PTFFiltersPage from "./components/Filters/Filters"
+import PIFFiltersPage from "./components/Filters/IFilters"
+import FiltersIndexPage from "./components/Filters/FiltersIndex"
 export const routes = [
   {
     path: "/",
@@ -487,6 +490,10 @@ export const routes = [
       { path: "/instrumentation-fittings/tube-clamps/heavy-double-layer", element: <HeavySeriesDoubleLayerPage /> },
       { path: "/instrumentation-fittings/tube-clamps", element: <TubeClampIndexPage /> },
 
+        // filters
+      { path: "/filters", element: <FiltersIndexPage /> },
+      { path: "/filters/t-type", element: <PTFFiltersPage /> },
+      { path: "/filters/i-type", element: <PIFFiltersPage /> },
 
 
       { path: "*", element: <NotFound /> },
