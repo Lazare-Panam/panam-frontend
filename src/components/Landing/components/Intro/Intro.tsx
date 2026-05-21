@@ -80,7 +80,7 @@ const IntroSection: React.FC = () => {
     height: "100%",
     border: 0,
   }}
-  src="https://www.youtube.com/embed/HRFxY37P0Lg?enablejsapi=1"
+  src="https://www.youtube.com/embed/HRFxY37P0Lg?enablejsapi=1&origin=https://www.panamvalve.com"
   title="Panam Valves Product Showcase"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowFullScreen
