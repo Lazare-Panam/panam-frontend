@@ -17,6 +17,7 @@ const partners = [
   { name: "AC Valves", img: "https://pblol2.blob.core.windows.net/panam-images/brands/acv-white-logo.svg", url: "https://acv-group.com/" },
   { name: "Andro Mach", img: "https://pblol2.blob.core.windows.net/panam-images/brands/download.png", url: "http://andromach.space/" },
 ];
+//chore
 
 const Ticker = () => {
   const duplicatedPartners = [...partners, ...partners];
