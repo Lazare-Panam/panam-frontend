@@ -14,7 +14,7 @@ const CATEGORY_ROUTES: Record<string, string> = {
   "quick-coupling-and-hoses":       "/products/quick-coupling-and-hoses",
   "hydrogen":                       "/products/hydrogen",
   "valves":                         "/valves",
-  "valve-manifolds":                "/products/valve-manifolds",
+  "valve-manifolds":                "/manifolds",
   "double-block-and-bleed-valves":  "/products/double-block-and-bleed-valves",
   "tubing":                         "/products/tubing",
   "pressure-regulator-transmitter": "/products/pressure-regulator-transmitter",

@@ -63,11 +63,11 @@ export const navConfig: Record<string, NavCategory[]> = {
     {
       id: "manifolds",
       label: "Manifolds",
-      link: "/products/valve-manifolds",
+      link: "/manifolds",
       items: [
-        { name: "2-Valve Manifolds", link: "/product-grid/2-way-manifolds" },
-        { name: "3-Valve Manifolds", link: "/products/3-way-valve-manifold" },
-        { name: "5-Valve Manifolds", link: "/products/5-way-valve-manifold" },
+        { name: "2-Valve Manifolds", link: "/manifolds/2VM" },
+        { name: "3-Valve Manifolds", link: "/manifolds/3VM" },
+        { name: "5-Valve Manifolds", link: "/manifolds/5VM" },
       ],
     },
     {

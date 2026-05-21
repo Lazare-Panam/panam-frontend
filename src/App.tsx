@@ -93,6 +93,10 @@ import HighBoreBallValves from "./components/BallValves/pages/HighBoreBallValves
 import PTFFiltersPage from "./components/Filters/Filters"
 import PIFFiltersPage from "./components/Filters/IFilters"
 import FiltersIndexPage from "./components/Filters/FiltersIndex"
+import TwoVMManifoldsPage from "./components/Manifolds/TwoWay/TwoWay"
+import Manifolds3VMPage from "./components/Manifolds/ThreeWay/ThreeWay"
+import Manifolds5VMPage from "./components/Manifolds/FiveWay/FiveWay"
+import ManifoldsIndexPage from "./components/Manifolds/Manifold"
 export const routes = [
   {
     path: "/",
@@ -454,7 +458,6 @@ export const routes = [
       { path: "/instrumentation-fittings/tube-fittings/accessories", element: <AccessoryPage /> },
       { path: "/instrumentation-fittings/tube-fittings/die-electric", element: <DielectricGasketPage /> },
 
-
       //Jic
       { path: "/instrumentation-fittings/jic-fittings", element: <JICFittingsIndexPage /> },
       { path: "/instrumentation-fittings/jic-fittings/all", element: <JICFittingPage /> },
@@ -466,13 +469,19 @@ export const routes = [
       { path: "/instrumentation-fittings/jic-fittings/plugs-caps-nuts", element: <JICPlugsCapsNuts /> },
 
       //Pipe
-      { path: "/instrumentation-fittings/pipe-fittings",element: (<Suspense fallback={<LoadingScreen />}><PipeFittingsIndexPage /></Suspense>),},
+      {
+        path: "/instrumentation-fittings/pipe-fittings",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <PipeFittingsIndexPage />
+          </Suspense>
+        ),
+      },
       { path: "/instrumentation-fittings/pipe-fittings/nipples-couplings", element: <NipplesCouplings /> },
       { path: "/instrumentation-fittings/pipe-fittings/adapters-plugs", element: <AdaptersPlugs /> },
       { path: "/instrumentation-fittings/pipe-fittings/unions-connectors", element: <UnionsConnectors /> },
       { path: "/instrumentation-fittings/pipe-fittings/elbows", element: <Elbows /> },
       { path: "/instrumentation-fittings/pipe-fittings/tees-cross", element: <TeesCross /> },
-
 
       //Jic
       { path: "/instrumentation-fittings/weld-fittings/all", element: <WeldFittingPage /> },
@@ -480,7 +489,6 @@ export const routes = [
       { path: "/instrumentation-fittings/weld-fittings/connectors", element: <WeldFittingConnectors /> },
       { path: "/instrumentation-fittings/weld-fittings/elbows", element: <WeldFittingElbows /> },
       { path: "/instrumentation-fittings/weld-fittings/tees", element: <WeldFittingTees /> },
-
 
       //Tube Clamps
       { path: "/instrumentation-fittings/tube-clamps/twin-series", element: <TwinSeriesTubeClampPage /> },
@@ -490,12 +498,16 @@ export const routes = [
       { path: "/instrumentation-fittings/tube-clamps/heavy-double-layer", element: <HeavySeriesDoubleLayerPage /> },
       { path: "/instrumentation-fittings/tube-clamps", element: <TubeClampIndexPage /> },
 
-        // filters
+      // filters
       { path: "/filters", element: <FiltersIndexPage /> },
       { path: "/filters/t-type", element: <PTFFiltersPage /> },
       { path: "/filters/i-type", element: <PIFFiltersPage /> },
 
-
+      //manifolds
+      { path: "/manifolds/2VM", element: <TwoVMManifoldsPage /> },
+      { path: "/manifolds/3VM", element: <Manifolds3VMPage /> },
+      { path: "/manifolds/5VM", element: <Manifolds5VMPage /> },
+      { path: "/manifolds", element: <ManifoldsIndexPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },

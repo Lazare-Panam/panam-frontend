@@ -109,9 +109,9 @@ export const CATEGORIES2: CategoryData2[] = [
     id: "valve-manifolds",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/5VM/5VM-SS-8-R_-_JPG-removebg-preview.png",
     products: [
-      { name: "2-Valve ", link: "/product-grid/2-way-manifolds" }, // Modal
-      { name: "3-Valve ", link: "/products/valve-manifolds/3-way-valve-manifold" },
-      { name: "5-Valve ", link: "/products/valve-manifolds/5-way-valve-manifold" },
+      { name: "2-Valve ", link: "/manifolds/2VM" }, // Modal
+      { name: "3-Valve ", link: "/manifolds/3VM" },
+      { name: "5-Valve ", link: "/manifolds/5VM" },
     ],
   },
 
