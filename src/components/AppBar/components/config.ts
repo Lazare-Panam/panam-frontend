@@ -73,11 +73,11 @@ export const navConfig: Record<string, NavCategory[]> = {
     {
       id: "dbb",
       label: "Double Block and Bleed",
-      link: "/products/double-block-and-bleed-valves",
+      link: "/double-block-and-bleed-valves",
       items: [
-        { name: "Flange to Flange", link: "/products/double-block-and-bleed-valves" },
-        { name: "Flange to Pipe", link: "/products/double-block-and-bleed-valves" },
-        { name: "Pipe to Pipe", link: "/products/double-block-and-bleed-valves" },
+        { name: "Flange to Flange", link: "/double-block-and-bleed-valves/flange-to-flange" },
+        { name: "Flange to Pipe", link: "/double-block-and-bleed-valves/flange-to-pipe" },
+        { name: "Pipe to Pipe", link: "/double-block-and-bleed-valves/pipe-to-pipe" },
       ],
     },
     {

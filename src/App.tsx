@@ -98,6 +98,10 @@ import Manifolds3VMPage from "./components/Manifolds/ThreeWay/ThreeWay"
 import Manifolds5VMPage from "./components/Manifolds/FiveWay/FiveWay"
 import ManifoldsIndexPage from "./components/Manifolds/Manifold"
 import SwivelGaugeAdaptorsPage from "./components/SwivelGauge-Grid/SwivelGaugeGrid"
+import FlangexFlangeDBB from "./components/DBB/Flange-to-Flange/Flange-to-Flange"
+import FlangexPipeDBB from "./components/DBB/Flange-to-Pipe/Flange-to-Pipe"
+import PipexPipeDBB from "./components/DBB/Pipe-to-Pipe/Pipe-to-Pipe"
+import DBBIndexPage from "./components/DBB/DBBPage"
 export const routes = [
   {
     path: "/",
@@ -511,6 +515,12 @@ export const routes = [
       { path: "/manifolds/3VM", element: <Manifolds3VMPage /> },
       { path: "/manifolds/5VM", element: <Manifolds5VMPage /> },
       { path: "/manifolds", element: <ManifoldsIndexPage /> },
+
+      //double block and bleed valves
+       { path: "/double-block-and-bleed-valves/pipe-to-pipe", element: <PipexPipeDBB /> },
+      { path: "/double-block-and-bleed-valves/flange-to-pipe", element: <FlangexPipeDBB /> },
+      { path: "/double-block-and-bleed-valves/flange-to-flange", element: <FlangexFlangeDBB /> },
+      { path: "/double-block-and-bleed-valves", element: < DBBIndexPage/> },
       { path: "*", element: <NotFound /> },
     ],
   },

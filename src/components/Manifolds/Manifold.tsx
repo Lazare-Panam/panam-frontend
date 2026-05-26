@@ -15,8 +15,7 @@ const MANIFOLDS = [
   {
     type: "2vm",
     title: "2-Valve Manifolds",
-    description:
-      "Two-valve isolation manifolds for gauge and absolute pressure transmitters. Type A (Angular) configuration in stainless steel 316. Covers 1/4\" to 1/2\" NPT, BSPT, BSPP, M20x1.5, and tube fittings. Standard 6000 psi and high-pressure 10000 psi ratings with full NACE MR-01-75 sour gas certification available.",
+    description: 'Two-valve isolation manifolds for gauge and absolute pressure transmitters. Type A (Angular) configuration in stainless steel 316. Covers 1/4" to 1/2" NPT, BSPT, BSPP, M20x1.5, and tube fittings. Standard 6000 psi and high-pressure 10000 psi ratings with full NACE MR-01-75 sour gas certification available.',
     image: "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/2VM/2VM_Cover.jpg",
     pressure: "6000 – 10000 psi",
     size: '1/4" – 1/2" · NPT, BSPT, BSPP, M20, Tube',
@@ -26,8 +25,7 @@ const MANIFOLDS = [
   {
     type: "3vm",
     title: "3-Valve Manifolds",
-    description:
-      "Three-valve manifolds for differential pressure transmitters in process measurement, equalization, and isolation applications. Type A (Angular) configuration in stainless steel 316. Standard 6000 psi and 10000 psi high-pressure ratings with NACE MR-01-75 sour gas, bleed valve, large bore, and temperature service options.",
+    description: "Three-valve manifolds for differential pressure transmitters in process measurement, equalization, and isolation applications. Type A (Angular) configuration in stainless steel 316. Standard 6000 psi and 10000 psi high-pressure ratings with NACE MR-01-75 sour gas, bleed valve, large bore, and temperature service options.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/3VM/3VM_Cover.jpg",
     pressure: "6000 – 10000 psi",
     size: '1/4" – 1/2" · NPT, BSPT, BSPP, M20, Tube',
@@ -37,8 +35,7 @@ const MANIFOLDS = [
   {
     type: "5vm",
     title: "5-Valve Manifolds",
-    description:
-      "Five-valve manifolds for differential pressure transmitters with independent vent and equalizer valves. Type A (Angular) configuration in stainless steel 316. Standard 6000 psi and 10000 psi high-pressure ratings. Power Configuration (2 Vent – 1 Equalizer – 2 Isolation), NACE MR-01-75, large bore (soft seat), and temperature service options.",
+    description: "Five-valve manifolds for differential pressure transmitters with independent vent and equalizer valves. Type A (Angular) configuration in stainless steel 316. Standard 6000 psi and 10000 psi high-pressure ratings. Power Configuration (2 Vent – 1 Equalizer – 2 Isolation), NACE MR-01-75, large bore (soft seat), and temperature service options.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM_Cover.jpg",
     pressure: "6000 – 10000 psi",
     size: '1/4" – 1/2" · NPT, BSPT, BSPP, M20, Tube',
@@ -59,7 +56,7 @@ const SPECS = [
 
 type ManifoldItem = (typeof MANIFOLDS)[0]
 
-const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image, pressure,  material, valves }) => {
+const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image, pressure, material, valves }) => {
   const href = MANIFOLD_ROUTES[type] ?? `/manifolds/${type}`
 
   return (
@@ -73,8 +70,7 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
         border: "1px solid #e8e8e8",
         transition: "box-shadow 0.2s",
         "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" },
-      }}
-    >
+      }}>
       <Box
         sx={{
           display: "flex",
@@ -84,28 +80,16 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
           p: 3,
           borderBottom: "1px solid #f0f0f0",
           minHeight: 220,
-        }}
-      >
-        <CardMedia
-          component="img"
-          image={image}
-          alt={title}
-          sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }}
-        />
+        }}>
+        <CardMedia component="img" image={image} alt={title} sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
       </Box>
 
       <CardContent sx={{ flexGrow: 1, p: 3 }}>
-        <Typography
-          variant="overline"
-          sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}
-        >
+        <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}>
           PANAM® Manifolds
         </Typography>
 
-        <Typography
-          variant="h6"
-          sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, color: "#1a1a1a", mt: 0.5, mb: 1, fontSize: "1.05rem" }}
-        >
+        <Typography variant="h6" sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, color: "#1a1a1a", mt: 0.5, mb: 1, fontSize: "1.05rem" }}>
           {title}
         </Typography>
 
@@ -119,13 +103,8 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
               borderRadius: 0.5,
               px: 1.2,
               py: 0.3,
-            }}
-          >
-            <Typography
-              sx={{ fontSize: 11, fontWeight: 700, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, letterSpacing: 0.5 }}
-            >
-              {pressure} MAX
-            </Typography>
+            }}>
+            <Typography sx={{ fontSize: 11, fontWeight: 700, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, letterSpacing: 0.5 }}>{pressure} MAX</Typography>
           </Box>
           <Box
             sx={{
@@ -136,24 +115,16 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
               borderRadius: 0.5,
               px: 1.2,
               py: 0.3,
-            }}
-          >
-            <Typography sx={{ fontSize: 11, fontWeight: 600, color: "#555", fontFamily: PRIMARY_FONT }}>
-              {valves}
-            </Typography>
+            }}>
+            <Typography sx={{ fontSize: 11, fontWeight: 600, color: "#555", fontFamily: PRIMARY_FONT }}>{valves}</Typography>
           </Box>
         </Box>
 
-        <Typography
-          variant="body2"
-          sx={{ color: "#666", lineHeight: 1.75, fontSize: "0.88rem", fontFamily: PRIMARY_FONT, mb: 1.5 }}
-        >
+        <Typography variant="body2" sx={{ color: "#666", lineHeight: 1.75, fontSize: "0.88rem", fontFamily: PRIMARY_FONT, mb: 1.5 }}>
           {description}
         </Typography>
 
-        <Typography sx={{ fontSize: 11, color: "#999", fontFamily: PRIMARY_FONT, letterSpacing: 0.3 }}>
-          {material}
-        </Typography>
+        <Typography sx={{ fontSize: 11, color: "#999", fontFamily: PRIMARY_FONT, letterSpacing: 0.3 }}>{material}</Typography>
       </CardContent>
 
       <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
@@ -171,8 +142,7 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
             letterSpacing: 1,
             py: 1,
             "&:hover": { bgcolor: "#0090c8" },
-          }}
-        >
+          }}>
           VIEW RANGE
         </Button>
         <Button
@@ -189,8 +159,7 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
             letterSpacing: 1,
             py: 1,
             "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" },
-          }}
-        >
+          }}>
           REQUEST QUOTE
         </Button>
       </Box>
@@ -214,13 +183,9 @@ export default function ManifoldsIndexPage() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           py: { xs: 8, md: 12 },
-        }}
-      >
+        }}>
         <Container maxWidth="lg">
-          <Typography
-            variant="overline"
-            sx={{ color: BRAND_BLUE, letterSpacing: 3, fontSize: 11, fontWeight: 700, fontFamily: PRIMARY_FONT }}
-          >
+          <Typography variant="overline" sx={{ color: BRAND_BLUE, letterSpacing: 3, fontSize: 11, fontWeight: 700, fontFamily: PRIMARY_FONT }}>
             PANAM® Instrumentation
           </Typography>
           <Typography
@@ -235,8 +200,7 @@ export default function ManifoldsIndexPage() {
               maxWidth: 750,
               fontFamily: PRIMARY_FONT,
               letterSpacing: "-0.03em",
-            }}
-          >
+            }}>
             Valve Manifolds
             <br />
             <span style={{ color: BRAND_BLUE }}>Built to Perform.</span>
@@ -249,10 +213,8 @@ export default function ManifoldsIndexPage() {
               mb: 5,
               lineHeight: 1.75,
               fontFamily: PRIMARY_FONT,
-            }}
-          >
-            Three manifold families — 2-Valve, 3-Valve, and 5-Valve — covering the full DP transmitter and gauge
-            pressure range. SS316 construction, tested to 10000 psi (689 bar), with full NACE sour gas certification.
+            }}>
+            Three manifold families — 2-Valve, 3-Valve, and 5-Valve — covering the full DP transmitter and gauge pressure range. SS316 construction, tested to 10000 psi (689 bar), with full NACE sour gas certification.
           </Typography>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
             <Button
@@ -268,8 +230,7 @@ export default function ManifoldsIndexPage() {
                 fontWeight: 700,
                 fontFamily: PRIMARY_FONT,
                 "&:hover": { bgcolor: "#0090c8" },
-              }}
-            >
+              }}>
               Explore Range
             </Button>
             <Button
@@ -285,8 +246,7 @@ export default function ManifoldsIndexPage() {
                 fontWeight: 600,
                 fontFamily: PRIMARY_FONT,
                 "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" },
-              }}
-            >
+              }}>
               Request Quote
             </Button>
           </Box>
@@ -302,20 +262,10 @@ export default function ManifoldsIndexPage() {
             width: "max-content",
             animation: "marquee 30s linear infinite",
             "&:hover": { animationPlayState: "paused" },
-          }}
-        >
+          }}>
           {[1, 2].map(i => (
             <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-              {[
-                "Tested to 10000 psi (689 bar)",
-                "Stainless Steel 316 construction",
-                "NACE MR-01-75 Sour Gas Certified",
-                "2-Valve · 3-Valve · 5-Valve families",
-                "NPT · BSPT · BSPP · M20 · Tube connections",
-                "Type A (Angular) configuration",
-                "Power Configuration available on 5VM",
-                "Large Bore · Bleed Valve · Temperature Service options",
-              ].map(item => (
+              {["Tested to 10000 psi (689 bar)", "Stainless Steel 316 construction", "NACE MR-01-75 Sour Gas Certified", "2-Valve · 3-Valve · 5-Valve families", "NPT · BSPT · BSPP · M20 · Tube connections", "Type A (Angular) configuration", "Power Configuration available on 5VM", "Large Bore · Bleed Valve · Temperature Service options"].map(item => (
                 <Typography
                   key={item}
                   sx={{
@@ -326,8 +276,7 @@ export default function ManifoldsIndexPage() {
                     alignItems: "center",
                     gap: 1.5,
                     fontFamily: PRIMARY_FONT,
-                  }}
-                >
+                  }}>
                   <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
                   {item}
                 </Typography>
@@ -350,22 +299,15 @@ export default function ManifoldsIndexPage() {
                 fontFamily: PRIMARY_FONT,
                 color: "#1a1a1a",
                 letterSpacing: "-0.02em",
-              }}
-            >
+              }}>
               One source.
               <br />
               Every manifold you need.
             </Typography>
             <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
-              PANAM® Valve Manifolds cover the full instrumentation and process spectrum — 2-valve, 3-valve, and
-              5-valve configurations engineered for DP transmitter isolation, equalization, and venting. All three
-              families share the same SS316 construction and 6000 psi standard test rating, with high-pressure 10000
-              psi variants across the range.
+              PANAM® Valve Manifolds cover the full instrumentation and process spectrum — 2-valve, 3-valve, and 5-valve configurations engineered for DP transmitter isolation, equalization, and venting. All three families share the same SS316 construction and 6000 psi standard test rating, with high-pressure 10000 psi variants across the range.
             </Typography>
-            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>
-              Every manifold family is available with NACE MR-01-75 sour gas certification, multiple drain hole sizes,
-              and a full connection size matrix covering NPT, BSPT, BSPP, M20x1.5, and PANAM® tube fittings.
-            </Typography>
+            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Every manifold family is available with NACE MR-01-75 sour gas certification, multiple drain hole sizes, and a full connection size matrix covering NPT, BSPT, BSPP, M20x1.5, and PANAM® tube fittings.</Typography>
           </Grid>
           <Grid size={{ xs: 12, md: 5 }}>
             <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
@@ -378,8 +320,7 @@ export default function ManifoldsIndexPage() {
                   color: "#1a1a1a",
                   letterSpacing: 0.5,
                   textTransform: "uppercase",
-                }}
-              >
+                }}>
                 Technical Specifications
               </Typography>
               {SPECS.map(spec => (
@@ -392,16 +333,9 @@ export default function ManifoldsIndexPage() {
                     py: 1.2,
                     borderBottom: "1px solid #e4f2fa",
                     gap: 2,
-                  }}
-                >
-                  <Typography
-                    sx={{ fontSize: 13, fontWeight: 600, color: "#444", fontFamily: PRIMARY_FONT, flexShrink: 0 }}
-                  >
-                    {spec.label}
-                  </Typography>
-                  <Typography sx={{ fontSize: 13, color: "#666", fontFamily: PRIMARY_FONT, textAlign: "right" }}>
-                    {spec.value}
-                  </Typography>
+                  }}>
+                  <Typography sx={{ fontSize: 13, fontWeight: 600, color: "#444", fontFamily: PRIMARY_FONT, flexShrink: 0 }}>{spec.label}</Typography>
+                  <Typography sx={{ fontSize: 13, color: "#666", fontFamily: PRIMARY_FONT, textAlign: "right" }}>{spec.value}</Typography>
                 </Box>
               ))}
             </Box>
@@ -422,8 +356,7 @@ export default function ManifoldsIndexPage() {
               fontFamily: PRIMARY_FONT,
               display: "block",
               mb: 1,
-            }}
-          >
+            }}>
             Product Range
           </Typography>
           <Typography
@@ -435,14 +368,10 @@ export default function ManifoldsIndexPage() {
               fontFamily: PRIMARY_FONT,
               color: "#1a1a1a",
               letterSpacing: "-0.02em",
-            }}
-          >
+            }}>
             Three Families. One Standard.
           </Typography>
-          <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8 }}>
-            Each manifold family is purpose-built for a specific transmitter type and application. Select by valve
-            count, connection size, or special service requirement.
-          </Typography>
+          <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8 }}>Each manifold family is purpose-built for a specific transmitter type and application. Select by valve count, connection size, or special service requirement.</Typography>
           <Grid container spacing={3}>
             {MANIFOLDS.map(m => (
               <Grid key={m.type} size={{ xs: 12, sm: 6, md: 4 }}>
@@ -456,16 +385,10 @@ export default function ManifoldsIndexPage() {
 
         {/* ── KEY FEATURES ── */}
         <Box sx={{ mb: 10 }}>
-          <Typography
-            variant="h3"
-            sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}
-          >
+          <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
             Why specify PANAM® Manifolds
           </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>
-            All three manifold families are built to the same engineering standard — consistent materials, construction,
-            and test procedures across the entire range.
-          </Typography>
+          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>All three manifold families are built to the same engineering standard — consistent materials, construction, and test procedures across the entire range.</Typography>
           <Grid container spacing={2}>
             {[
               "Three manifold families from a single trusted manufacturer",
@@ -483,12 +406,8 @@ export default function ManifoldsIndexPage() {
             ].map(feat => (
               <Grid key={feat} size={{ xs: 12, sm: 6, md: 6 }}>
                 <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
-                  <Box
-                    sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0, mt: "6px" }}
-                  />
-                  <Typography sx={{ fontSize: 14, color: "#555", fontFamily: PRIMARY_FONT, lineHeight: 1.7 }}>
-                    {feat}
-                  </Typography>
+                  <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0, mt: "6px" }} />
+                  <Typography sx={{ fontSize: 14, color: "#555", fontFamily: PRIMARY_FONT, lineHeight: 1.7 }}>{feat}</Typography>
                 </Box>
               </Grid>
             ))}
@@ -499,16 +418,10 @@ export default function ManifoldsIndexPage() {
 
         {/* ── CTA ── */}
         <Box sx={{ textAlign: "center", py: 6 }}>
-          <Typography
-            variant="h3"
-            sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}
-          >
+          <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
             Specify your manifold
           </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>
-            Send us your valve count, connection size, pressure rating, and any special service requirements. Our
-            technical team responds to instrumentation enquiries within 24 hours.
-          </Typography>
+          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>Send us your valve count, connection size, pressure rating, and any special service requirements. Our technical team responds to instrumentation enquiries within 24 hours.</Typography>
           <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
             <Button
               variant="contained"
@@ -523,8 +436,7 @@ export default function ManifoldsIndexPage() {
                 fontWeight: 700,
                 fontFamily: PRIMARY_FONT,
                 "&:hover": { bgcolor: "#0090c8" },
-              }}
-            >
+              }}>
               Email Technical Sales
             </Button>
             <Button
@@ -540,8 +452,7 @@ export default function ManifoldsIndexPage() {
                 fontWeight: 600,
                 fontFamily: PRIMARY_FONT,
                 "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE },
-              }}
-            >
+              }}>
               Request Quote
             </Button>
           </Box>

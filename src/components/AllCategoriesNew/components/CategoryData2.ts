@@ -121,9 +121,9 @@ export const CATEGORIES2: CategoryData2[] = [
     id: "double-block-and-bleed-valves",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/dbb/dbb-fire-safe-removebg.png",
     products: [
-      { name: "Flange to Flange ", link: "/products/double-block-and-bleed-valves" },
-      { name: "Flange to Pipe ", link: "/products/double-block-and-bleed-valves" },
-      { name: "Pipe to Pipe ", link: "/products/double-block-and-bleed-valves" },
+      { name: "Flange to Flange ", link: "/double-block-and-bleed-valves/flange-to-flange" },
+      { name: "Flange to Pipe ", link: "/double-block-and-bleed-valves/flange-to-pipe" },
+      { name: "Pipe to Pipe ", link: "/double-block-and-bleed-valves/pipe-to-pipe" },
     ],
   },
 
