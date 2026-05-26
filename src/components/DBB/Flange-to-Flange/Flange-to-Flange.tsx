@@ -14,7 +14,7 @@ import {
 } from "../Flange-to-Pipe/hooks/types"
 
 const BRAND_BLUE = "#01B0F0"
-
+//
 function applyFilters(data: DBBValveDTO[], filters: DBBValveFilters, exclude: keyof DBBValveFilters | ''): DBBValveDTO[] {
   return data.filter(c => {
     if (exclude !== 'constructionTypes' && filters.constructionTypes.length && !filters.constructionTypes.includes(c.constructionType)) return false
