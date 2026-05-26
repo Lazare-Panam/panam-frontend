@@ -29,7 +29,7 @@ const DBB_PRODUCTS = [
     material: "SS316 · RF / RTJ / BS · NACE Options",
     tag: "Connection Types 2 & 4",
     href: "/double-block-and-bleed-valves/flange-to-flange",
-  },
+  },//aded
   {
     type: "pxp",
     title: "DBB — Pipe to Pipe",
