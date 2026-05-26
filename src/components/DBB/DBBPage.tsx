@@ -16,7 +16,7 @@ const DBB_PRODUCTS = [
     connection: "Flange to Pipe · Integral & Three Piece",
     material: "SS316 · NACE / Fire Safe Options",
     tag: "Connection Types 1 & 3",
-    href: "/double-block-bleed-valves/flange-to-pipe",
+    href: "/double-block-and-bleed-valves/flange-to-pipe",
   },
   {
     type: "fxf",
@@ -28,7 +28,7 @@ const DBB_PRODUCTS = [
     connection: "Flange to Flange · Integral & Three Piece",
     material: "SS316 · RF / RTJ / BS · NACE Options",
     tag: "Connection Types 2 & 4",
-    href: "/double-block-bleed-valves/flange-to-flange",
+    href: "/double-block-and-bleed-valves/flange-to-flange",
   },
   {
     type: "pxp",
@@ -40,7 +40,7 @@ const DBB_PRODUCTS = [
     connection: "Pipe to Pipe · Compact Body",
     material: "SS316 · NACE / Fire Safe Options",
     tag: "Connection Type 6",
-    href: "/double-block-bleed-valves/pipe-to-pipe",
+    href: "/double-block-and-bleed-valves/pipe-to-pipe",
   },
 ]
 
