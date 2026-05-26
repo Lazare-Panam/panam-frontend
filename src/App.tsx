@@ -97,6 +97,7 @@ import TwoVMManifoldsPage from "./components/Manifolds/TwoWay/TwoWay"
 import Manifolds3VMPage from "./components/Manifolds/ThreeWay/ThreeWay"
 import Manifolds5VMPage from "./components/Manifolds/FiveWay/FiveWay"
 import ManifoldsIndexPage from "./components/Manifolds/Manifold"
+import SwivelGaugeAdaptorsPage from "./components/SwivelGauge-Grid/SwivelGaugeGrid"
 export const routes = [
   {
     path: "/",
@@ -497,6 +498,8 @@ export const routes = [
       { path: "/instrumentation-fittings/tube-clamps/heavy-single-layer", element: <HeavySeriesTubeClampPage /> },
       { path: "/instrumentation-fittings/tube-clamps/heavy-double-layer", element: <HeavySeriesDoubleLayerPage /> },
       { path: "/instrumentation-fittings/tube-clamps", element: <TubeClampIndexPage /> },
+
+      { path: "/instrumentation-fittings/swivel-gauge-adaptors", element: <SwivelGaugeAdaptorsPage /> },
 
       // filters
       { path: "/filters", element: <FiltersIndexPage /> },

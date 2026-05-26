@@ -10,7 +10,7 @@ const FITTING_ROUTES: Record<string, string> = {
   "37-jic-fittings": "/instrumentation-fittings/jic-fittings",
   "pipe-fittings": "/instrumentation-fittings/pipe-fittings",
   "weld-fittings": "/instrumentation-fittings/weld-fittings",
-  "swivel-gauge-adaptors": "/products/instrumentation-fittings/swivel-gague-adaptors",
+  "swivel-gauge-adaptors": "/instrumentation-fittings/swivel-gauge-adaptors",
   'tube-clamps': '/instrumentation-fittings/tube-clamps',
 }
 // ─────────────────────────────────────────────────────────────────────────
