@@ -141,10 +141,10 @@ export const CATEGORIES: CategoryData[] = [
     id: "system-integration",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/system-integration/Img11695-removebg-preview.png",
     products: [
-      { name: "Grab Sampling System", link: "/products/system-integration" },
-      { name: "Air Header", link: "/products/system-integration" },
-      { name: "Condensate Pots", link: "/products/system-integration" },
-      { name: "Flange Adaptors", link: "/products/system-integration" },
+      { name: "Grab Sampling System", link: "/system-integration" },
+      { name: "Air Header", link: "/system-integration" },
+      { name: "Condensate Pots", link: "/system-integration" },
+      { name: "Flange Adaptors", link: "/system-integration" },
     ],
   },
 ]

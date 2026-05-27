@@ -17,8 +17,8 @@ const CATEGORY_ROUTES: Record<string, string> = {
   "valve-manifolds":                "/manifolds",
   "double-block-and-bleed-valves":  "/double-block-and-bleed-valves",
   "tubing":                         "/quick-coupling-and-tubing/tubing",
-  "pressure-regulator-transmitter": "/products/pressure-regulator-transmitter",
-  "system-integration":             "/products/system-integration",
+  "pressure-regulator-transmitter": "/system-integration",
+  "system-integration":             "/system-integration",
 };
 // ─────────────────────────────────────────────────────────────────────────
 

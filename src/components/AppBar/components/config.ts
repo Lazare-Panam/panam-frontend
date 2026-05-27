@@ -101,10 +101,10 @@ export const navConfig: Record<string, NavCategory[]> = {
     {
       id: "regulators",
       label: "Regulator And Transmitter",
-      link: "/products/pressure-regulator-transmitter",
+      link: "/system-integration",
       items: [
-        { name: "Pressure Regulators", link: "/products/pressure-regulator" },
-        { name: "Pressure Transmitter", link: "/products/pressure-transmitter" },
+        { name: "Pressure Regulators", link: "/system-integration" },
+        { name: "Pressure Transmitter", link: "/system-integration" },
       ],
     },
   ],

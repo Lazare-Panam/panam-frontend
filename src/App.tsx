@@ -106,6 +106,7 @@ import QuickCouplingIndexPage from "./components/Quick_Coupling/components/QCInd
 import QuickCouplingPage from "./components/Quick_Coupling/Quick_Coupling"
 import NPTBSPPBSPTBlog from "./components/News/components/ThreadTypesBlog"
 import TubingPage from "./components/Tubing/TubePage"
+import SystemIntegrationIndexPage from "./components/SystemIntegration/SystemIntegration"
 export const routes = [
   {
     path: "/",
@@ -536,6 +537,7 @@ export const routes = [
       { path: "/quick-coupling-and-tubing", element: < QuickCouplingIndexPage/> },
       { path: "/quick-coupling-and-tubing/quick-coupling", element: < QuickCouplingPage/> },
       { path: "/quick-coupling-and-tubing/tubing", element: < TubingPage/> },
+            { path: "/system-integration", element: < SystemIntegrationIndexPage/> },
       { path: "*", element: <NotFound /> },
     ],
   },
