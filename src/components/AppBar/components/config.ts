@@ -98,7 +98,6 @@ export const navConfig: Record<string, NavCategory[]> = {
       { name: "SS Tubing", link: "/quick-coupling-and-tubing/tubing" },
     ],
     },
-    
     {
       id: "regulators",
       label: "Regulator And Transmitter",

@@ -1,7 +1,6 @@
 import { useState, useMemo } from 'react'
-import { Box, Typography, useMediaQuery, IconButton } from '@mui/material'
+import { Box, Typography  } from '@mui/material'
 import { alpha } from '@mui/material/styles'
-import FilterListIcon from '@mui/icons-material/FilterList'
 import {
   TUBING_DATA, TUBING_DESCRIPTION,
   type TubingFilters, EMPTY_TUBING_FILTERS,
