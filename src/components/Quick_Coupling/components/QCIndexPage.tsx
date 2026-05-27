@@ -117,7 +117,7 @@ export default function QuickCouplingIndexPage() {
         <Divider sx={{ mb: 10 }} />
 
         {/* ── SINGLE CARD ── */}
-        <Box id="range" sx={{ mb: 10 }}>
+        <Box sx={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
           <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 3, fontSize: 11, fontFamily: PRIMARY_FONT, display: "block", mb: 1 }}>
             Product Range
           </Typography>
@@ -127,7 +127,7 @@ export default function QuickCouplingIndexPage() {
           <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8 }}>
             All six coupling series — filterable by ISO standard, thread type, connection size, and configuration — in a single product range.
           </Typography>
-
+{/* QC card — existing */}
           <Box sx={{ maxWidth: 360 }}>
             <Card variant="outlined" sx={{ borderRadius: 0, border: "1px solid #e8e8e8", transition: "box-shadow 0.2s", "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" } }}>
               <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 220 }}>
@@ -159,6 +159,48 @@ export default function QuickCouplingIndexPage() {
               </CardContent>
               <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
                 <Button variant="contained" fullWidth size="small" href="/quick-coupling-and-tubing/quick-coupling"
+                  sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
+                  VIEW RANGE
+                </Button>
+                <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.com"
+                  sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
+                  REQUEST QUOTE
+                </Button>
+              </Box>
+            </Card>
+          </Box>
+           {/* Tubing card — new */}
+          <Box sx={{ maxWidth: 360, mt: 4 }}>
+            <Card variant="outlined" sx={{ borderRadius: 0, border: "1px solid #e8e8e8", transition: "box-shadow 0.2s", "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" } }}>
+              <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 220 }}>
+                <CardMedia
+                  component="img"
+                  image="https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg"
+                  alt="Seamless Tubing"
+                  sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }}
+                />
+              </Box>
+              <CardContent sx={{ p: 3 }}>
+                <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}>
+                  PANAM® Tubing
+                </Typography>
+                <Typography variant="h6" sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, color: "#1a1a1a", mt: 0.5, mb: 1, fontSize: "1.05rem" }}>
+                  Seamless Tubing — Full Range
+                </Typography>
+                <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
+                  {["Standard", "High Pressure", "Imperial", "Metric"].map(s => (
+                    <Box key={s} sx={{ display: "inline-flex", alignItems: "center", bgcolor: "#e8f7fd", border: "1px solid #b3e5f7", borderRadius: 0.5, px: 1.2, py: 0.3 }}>
+                      <Typography sx={{ fontSize: 10, fontWeight: 700, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>{s}</Typography>
+                    </Box>
+                  ))}
+                </Box>
+                <Typography variant="body2" sx={{ color: "#666", lineHeight: 1.75, fontSize: "0.88rem", fontFamily: PRIMARY_FONT, mb: 1.5 }}>
+                  Seamless tubing in SS 316, Monel, Duplex, Inconel, 6Mo and Hastelloy. Imperial 1/16" to 2" and metric 3mm to 12mm. Standard and high-pressure ratings across 900+ configurations.
+                </Typography>
+                <Typography sx={{ fontSize: 11, color: "#999", fontFamily: PRIMARY_FONT }}>SS 316 · Monel · Duplex · Inconel · 6Mo · Hastelloy</Typography>
+              </CardContent>
+              <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
+                <Button variant="contained" fullWidth size="small" href="/quick-coupling-and-tubing/tubing"
                   sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
                   VIEW RANGE
                 </Button>
