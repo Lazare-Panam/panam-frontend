@@ -137,7 +137,7 @@ export default function SystemIntegrationIndexPage() {
                     transition: "box-shadow 0.2s",
                     "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" },
                   }}>
-                    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#fafafa", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 200 }}>
+                    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 200 }}>
                       <CardMedia component="img" image={product.image} alt={product.title}
                         sx={{ width: "100%", maxWidth: 180, height: 160, objectFit: "contain" }} />
                     </Box>
