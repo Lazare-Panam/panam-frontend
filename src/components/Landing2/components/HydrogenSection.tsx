@@ -87,7 +87,7 @@ const HydrogenSection = () => {
               <Button 
                 variant="contained" 
                 disableElevation
-                onClick={() => navigate('/products/hydrogen')}
+                onClick={() => navigate('/high-pressure')}
                 endIcon={<ArrowForwardIcon />}
                 sx={{ 
                   bgcolor: '#FFFFFF', 

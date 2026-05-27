@@ -107,6 +107,12 @@ import QuickCouplingPage from "./components/Quick_Coupling/Quick_Coupling"
 import NPTBSPPBSPTBlog from "./components/News/components/ThreadTypesBlog"
 import TubingPage from "./components/Tubing/TubePage"
 import SystemIntegrationIndexPage from "./components/SystemIntegration/SystemIntegration"
+import HPNeedleValvePage from "./components/High_Pressure/HP_NV/HP_NV"
+import HPDBBPage from "./components/High_Pressure/HP_DBB/HP_DBB"
+import HPBallValvePage from "./components/High_Pressure/HP_BV/HP_BV"
+import HPNipplePage from "./components/High_Pressure/HP_TN/HP_TN"
+import HPManifoldPage from "./components/High_Pressure/HP_VM/HP_VM"
+import HighPressureIndexPage from "./components/High_Pressure/High_Pressure"
 export const routes = [
   {
     path: "/",
@@ -537,7 +543,17 @@ export const routes = [
       { path: "/quick-coupling-and-tubing", element: < QuickCouplingIndexPage/> },
       { path: "/quick-coupling-and-tubing/quick-coupling", element: < QuickCouplingPage/> },
       { path: "/quick-coupling-and-tubing/tubing", element: < TubingPage/> },
-            { path: "/system-integration", element: < SystemIntegrationIndexPage/> },
+      { path: "/system-integration", element: < SystemIntegrationIndexPage/> },
+
+
+      //high pressure
+      { path: "/high-pressure/needle-valves", element: <HPNeedleValvePage/> },
+      { path: "/high-pressure/double-block-and-valves", element: <HPDBBPage/> },
+      { path: "/high-pressure/ball-valves", element: <HPBallValvePage/> },
+      { path: "/high-pressure/cones-threaded-nipples", element: <HPNipplePage/> },
+      { path: "/high-pressure/2-valve-manifolds", element: <HPManifoldPage/> },
+      { path: "/high-pressure", element: <HighPressureIndexPage/> },
+      
       { path: "*", element: <NotFound /> },
     ],
   },

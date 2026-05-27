@@ -31,7 +31,7 @@ const VALVES = [
     type: "needle-valves",
     title: "Needle Valves",
     description: "Precision needle valves designed for accurate flow control in high-pressure applications.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/cover-needle.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg",
     pressure: "20,000 psig",
     size: '1/8" to 1"',
     materials: "SS316 · Duplex · Monel · Hastelloy",

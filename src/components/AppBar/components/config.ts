@@ -25,14 +25,14 @@ export const navConfig: Record<string, NavCategory[]> = {
   products: [
     {
       id: "hydrogen",
-      label: "Hydrogen",
-      link: "/products/hydrogen",
+      label: "Hydrogen / High Pressure",
+      link: "/high-pressure",
       items: [
-        { name: "Hydrogen Valves", link: "/products/hydrogen-valves" },
-        { name: "Hydrogen Manifolds", link: "/products/hydrogen-manifolds" },
-        { name: "Hydrogen Block & Bleed", link: "/products/hydrogen-double-block-and-bleed" },
-        { name: "Hydrogen Filters", link: "/products/hydrogen-filters" },
-        { name: "Hydrogen HP Fittings", link: "/products/pipe-fittings-hydrogen" },
+        { name: "High Pressure Needle Valves", link: "/high-pressure/needle-valves" },
+        { name: "HP Double Block & Bleed", link: "/high-pressure/double-block-and-valves" },
+        { name: "HP Ball Valves", link: "/high-pressure/ball-valves" },
+        { name: "HP Cone & Threaded Nipples", link: "/high-pressure/cones-threaded-nipples" },
+        { name: "HP 2-Valve Manifolds", link: "/high-pressure/2-valve-manifolds" },
       ],
     },
     {

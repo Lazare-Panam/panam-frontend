@@ -49,38 +49,38 @@ export const CATEGORIES2: CategoryData2[] = [
   },
 
   //hydrogen
-  {
-    title: "Hydrogen Fittings & Valves",
-    id: "hydrogen",
-    image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/hydrogen/1-removebg-preview.png",
-    products: [
-      {
-        name: "Hydrogen Valves",
-        link: "/products/hydrogen/hydrogen-valves",
-        description: "High-precision pressure control solutions designed to manage high-flow hydrogen systems with maximum safety and stability.",
-      },
-      {
-        name: "Hydrogen Manifolds",
-        link: "/products/hydrogen/hydrogen-manifolds",
-        description: "Durable, leak-proof shut-off and check valves engineered specifically to handle the unique diffusion characteristics of hydrogen gas.",
-      },
-      {
-        name: "Hydrogen Block & Bleed",
-        link: "/products/hydrogen/hydrogen-double-block-and-bleed",
-        description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
-      },
-      {
-        name: "Hydrogen Filters",
-        link: "/products/hydrogen/hydrogen-filters",
-        description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
-      },
-      {
-        name: "Hydrogen HP Fittings",
-        link: "/products/hydrogen/pipe-fittings-hydrogen",
-        description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
-      },
-    ],
-  },
+ {
+  title: "Hydrogen Fittings & Valves",
+  id: "hydrogen",
+  image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/hydrogen/1-removebg-preview.png",
+  products: [
+    {
+      name: "Hydrogen Valves",
+      link: "/high-pressure/needle-valves",
+      description: "High-precision pressure control solutions designed to manage high-flow hydrogen systems with maximum safety and stability.",
+    },
+    {
+      name: "Hydrogen Manifolds",
+      link: "/high-pressure/2-valve-manifolds",
+      description: "Durable, leak-proof shut-off and check valves engineered specifically to handle the unique diffusion characteristics of hydrogen gas.",
+    },
+    {
+      name: "Hydrogen Block & Bleed",
+      link: "/high-pressure/double-block-and-valves",
+      description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
+    },
+    {
+      name: "Hydrogen Filters",
+      link: "/high-pressure/cones-threaded-nipples",
+      description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
+    },
+    {
+      name: "Hydrogen HP Fittings",
+      link: "/high-pressure/ball-valves",
+      description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
+    },
+  ],
+},
 
   //valves
   {
