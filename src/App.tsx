@@ -102,6 +102,8 @@ import FlangexFlangeDBB from "./components/DBB/Flange-to-Flange/Flange-to-Flange
 import FlangexPipeDBB from "./components/DBB/Flange-to-Pipe/Flange-to-Pipe"
 import PipexPipeDBB from "./components/DBB/Pipe-to-Pipe/Pipe-to-Pipe"
 import DBBIndexPage from "./components/DBB/DBBPage"
+import QuickCouplingIndexPage from "./components/Quick_Coupling/components/QCIndexPage"
+import QuickCouplingPage from "./components/Quick_Coupling/Quick_Coupling"
 export const routes = [
   {
     path: "/",
@@ -521,6 +523,8 @@ export const routes = [
       { path: "/double-block-and-bleed-valves/flange-to-pipe", element: <FlangexPipeDBB /> },
       { path: "/double-block-and-bleed-valves/flange-to-flange", element: <FlangexFlangeDBB /> },
       { path: "/double-block-and-bleed-valves", element: < DBBIndexPage/> },
+      { path: "/quick-coupling-and-hoses", element: < QuickCouplingIndexPage/> },
+      { path: "/quick-coupling-and-hoses/quick-coupling", element: < QuickCouplingPage/> },
       { path: "*", element: <NotFound /> },
     ],
   },

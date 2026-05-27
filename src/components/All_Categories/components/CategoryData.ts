@@ -39,13 +39,7 @@ export const CATEGORIES: CategoryData[] = [
     id: "quick-coupling-and-hoses",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/quick-connector/PQC4-04-OD-F-SS.png",
     products: [
-      { name: "ISO-A", link: "/products/quick-coupling-and-hoses" },
-      { name: "ISO 16028", link: "/products/quick-coupling-and-hoses" },
-      { name: "ISO 7241A", link: "/products/quick-coupling-and-hoses" },
-      { name: "ISO 7241B", link: "/products/quick-coupling-and-hoses" },
-      { name: "ISO 5675", link: "/products/quick-coupling-and-hoses" },
-      { name: "SCREW TYPE", link: "/products/quick-coupling-and-hoses" },
-      { name: "Hoses", link: "/products/quick-coupling-and-hoses" },
+      { name: "Copulings", link: "/quick-coupling-and-hoses/quick-couplings" },
     ],
   },
 

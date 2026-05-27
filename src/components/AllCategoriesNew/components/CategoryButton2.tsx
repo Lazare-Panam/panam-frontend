@@ -11,7 +11,7 @@ const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 const CATEGORY_ROUTES: Record<string, string> = {
   "instrumentation-fittings":       "/instrumentation-fittings",
   "filters":                        "/filters",
-  "quick-coupling-and-hoses":       "/products/quick-coupling-and-hoses",
+  "quick-coupling-and-hoses":       "/quick-coupling-and-hoses",
   "hydrogen":                       "/products/hydrogen",
   "valves":                         "/valves",
   "valve-manifolds":                "/manifolds",

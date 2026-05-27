@@ -92,13 +92,10 @@ export const navConfig: Record<string, NavCategory[]> = {
     {
       id: "couplings",
       label: "Hose & Quick Coupling",
-      link: "/products/quick-coupling-and-hoses",
-      items: [
-        { name: "ISO-A & ISO-B", link: "/products/quick-coupling-and-hoses" },
-        { name: "ISO 16028 Flat Face", link: "/products/quick-coupling-and-hoses" },
-        { name: "Screw Type Couplers", link: "/products/quick-coupling-and-hoses" },
-        { name: "High Pressure Hoses", link: "/products/quick-coupling-and-hoses" },
-      ],
+      link: "/quick-coupling-and-hoses",
+        items: [
+      { name: "Copulings", link: "/quick-coupling-and-hoses/quick-couplings" },
+    ],
     },
     {
       id: "tubing",
