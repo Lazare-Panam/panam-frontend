@@ -1,5 +1,5 @@
 import { Stack, Chip, Typography } from '@mui/material'
-import { type QuickCouplingFilters, EMPTY_QC_FILTERS } from '../hooks/quickCouplingData'
+import { type QuickCouplingFilters } from '../hooks/quickCouplingData'
 
 const BRAND_BLUE = '#01B0F0'
 
