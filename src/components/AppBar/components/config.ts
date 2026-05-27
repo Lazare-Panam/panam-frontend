@@ -144,13 +144,16 @@ export const navConfig: Record<string, NavCategory[]> = {
       id: "updates",
       label: "Latest News",
       link: "/blog",
-      items: [
-        { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
-        { name: "Double Block And Bleed Valves", link: "/blog/double-blog-and-bleed" },
-        { name: "Check Valves Blog", link: "/blog/check-valves-blog" },
-         { name: "Needle Valves Blog", link: "/blog/hp-series-needle-valves-high-pressure-flow-control" },
-          { name: "Ball Valves Blog", link: "/blog/three-way-valve-l-port-t-port-guide" },
-      ],
+       items: [
+      { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
+      { name: "Double Block And Bleed Valves", link: "/blog/double-blog-and-bleed" },
+      { name: "Check Valves Blog", link: "/blog/check-valves-blog" },
+      { name: "Hydrogen Valves Blog", link: "/blog/hydrogen-blog" },
+      { name: "Swivel Gauge Adapters Blog", link: "/blog/swivel-gauge-blog" },
+      { name: "Ball Valves Blog", link: "/blog/three-way-valve-l-port-t-port-guide" },
+      { name: "Needle Valves Blog", link: "/blog/hp-series-needle-valves-high-pressure-flow-control" },
+      { name: "NPT vs BSPP vs BSPT Blog", link: "/blog/npt-vs-bspp-vs-bspt-thread-standards" },
+    ],
     },
   ],
   dashboard: [

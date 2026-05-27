@@ -14,6 +14,16 @@ export interface BlogPost {
 }
 
 export const blogs: BlogPost[] = [
+  {
+  "slug": "npt-vs-bspp-vs-bspt-thread-standards",
+  "title": "NPT vs BSPP vs BSPT Threads for Instrumentation Fittings",
+  "category": "Technical Guide",
+  "author": "Steven Kassi",
+  "date": "May 27, 2026",
+  "readTime": "8 min read",
+  "image": "https://pblol2.blob.core.windows.net/panam-images/website-media/thread-thumbnail.jpg",
+  "excerpt": "This guide explains how NPT, BSPP and BSPT pipe threads differ in form, taper and sealing so you can identify them quickly in the field. It covers practical steps for thread ID, proven seal methods, common compatibility myths, and when to use adapters."
+},
 
   // ─── POST 5 ───────────────────────────────────────────────────────────────
   {

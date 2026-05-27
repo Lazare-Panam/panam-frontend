@@ -104,6 +104,7 @@ import PipexPipeDBB from "./components/DBB/Pipe-to-Pipe/Pipe-to-Pipe"
 import DBBIndexPage from "./components/DBB/DBBPage"
 import QuickCouplingIndexPage from "./components/Quick_Coupling/components/QCIndexPage"
 import QuickCouplingPage from "./components/Quick_Coupling/Quick_Coupling"
+import NPTBSPPBSPTBlog from "./components/News/components/ThreadTypesBlog"
 export const routes = [
   {
     path: "/",
@@ -228,6 +229,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <HydrogenValvesBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/blog/npt-vs-bspp-vs-bspt-thread-standards",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <NPTBSPPBSPTBlog />
           </Suspense>
         ),
       },
