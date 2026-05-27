@@ -44,7 +44,7 @@ export default function QuickCouplingIndexPage() {
             Six coupling series — ISO-A, ISO 16028, ISO 7241A, ISO 7241B, ISO 5675, and Screw Type — covering the full range of hydraulic connection applications. Carbon Steel construction with BSPP and NPT threads from 1/4" to 1".
           </Typography>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-            <Button variant="contained" size="large" href="/quick-coupling-and-hoses/quick-coupling"
+            <Button variant="contained" size="large" href="/quick-coupling-and-tubing/quick-coupling"
               sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
               Browse Range
             </Button>
@@ -158,7 +158,7 @@ export default function QuickCouplingIndexPage() {
                 <Typography sx={{ fontSize: 11, color: "#999", fontFamily: PRIMARY_FONT }}>Carbon Steel · BSPP & NPT · Socket · Plug · Set</Typography>
               </CardContent>
               <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
-                <Button variant="contained" fullWidth size="small" href="/quick-coupling-and-hoses/quick-coupling"
+                <Button variant="contained" fullWidth size="small" href="/quick-coupling-and-tubing/quick-coupling"
                   sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
                   VIEW RANGE
                 </Button>

@@ -11,12 +11,12 @@ const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 const CATEGORY_ROUTES: Record<string, string> = {
   "instrumentation-fittings":       "/instrumentation-fittings",
   "filters":                        "/filters",
-  "quick-coupling-and-hoses":       "/quick-coupling-and-hoses",
+  "quick-coupling-and-tubing":       "/quick-coupling-and-tubing",
   "hydrogen":                       "/products/hydrogen",
   "valves":                         "/valves",
   "valve-manifolds":                "/manifolds",
   "double-block-and-bleed-valves":  "/double-block-and-bleed-valves",
-  "tubing":                         "/products/tubing",
+  "tubing":                         "/quick-coupling-and-tubing/tubing",
   "pressure-regulator-transmitter": "/products/pressure-regulator-transmitter",
   "system-integration":             "/products/system-integration",
 };

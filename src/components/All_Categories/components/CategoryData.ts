@@ -35,7 +35,7 @@ export const CATEGORIES: CategoryData[] = [
 
   //quick couplings
   {
-    title: "Quick Coupling & Hoses",
+    title: "Quick Coupling & Tubing",
     id: "quick-coupling-and-hoses",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/quick-connector/PQC4-04-OD-F-SS.png",
     products: [

@@ -105,6 +105,7 @@ import DBBIndexPage from "./components/DBB/DBBPage"
 import QuickCouplingIndexPage from "./components/Quick_Coupling/components/QCIndexPage"
 import QuickCouplingPage from "./components/Quick_Coupling/Quick_Coupling"
 import NPTBSPPBSPTBlog from "./components/News/components/ThreadTypesBlog"
+import TubingPage from "./components/Tubing/TubePage"
 export const routes = [
   {
     path: "/",
@@ -532,8 +533,9 @@ export const routes = [
       { path: "/double-block-and-bleed-valves/flange-to-pipe", element: <FlangexPipeDBB /> },
       { path: "/double-block-and-bleed-valves/flange-to-flange", element: <FlangexFlangeDBB /> },
       { path: "/double-block-and-bleed-valves", element: < DBBIndexPage/> },
-      { path: "/quick-coupling-and-hoses", element: < QuickCouplingIndexPage/> },
-      { path: "/quick-coupling-and-hoses/quick-coupling", element: < QuickCouplingPage/> },
+      { path: "/quick-coupling-and-tubing", element: < QuickCouplingIndexPage/> },
+      { path: "/quick-coupling-and-tubing/quick-coupling", element: < QuickCouplingPage/> },
+      { path: "/quick-coupling-and-tubing/tubing", element: < TubingPage/> },
       { path: "*", element: <NotFound /> },
     ],
   },

@@ -91,21 +91,14 @@ export const navConfig: Record<string, NavCategory[]> = {
     },
     {
       id: "couplings",
-      label: "Hose & Quick Coupling",
-      link: "/quick-coupling-and-hoses",
+      label: "Tubing & Quick Coupling",
+      link: "/quick-coupling-and-tubing",
         items: [
-      { name: "Copulings", link: "/quick-coupling-and-hoses/quick-couplings" },
+      { name: "Quick Coupling", link: "/quick-coupling-and-tubing/quick-coupling" },
+      { name: "SS Tubing", link: "/quick-coupling-and-tubing/tubing" },
     ],
     },
-    {
-      id: "tubing",
-      label: "Tubing and Integrated Systems",
-      link: "/products/tubing",
-      items: [
-        { name: "Tubing", link: "/products/tubing" },
-        { name: "High Pressure Tubing", link: "/products/tubing" },
-      ],
-    },
+    
     {
       id: "regulators",
       label: "Regulator And Transmitter",
