@@ -34,6 +34,13 @@ const PRODUCTS = [
   pressure: "10,000 – 15,000 psi",
   link: "/high-pressure/pipe-fittings/elbows",
 },
+{
+  title: "Tees & Crosses",
+  description: "Female Tees, Male Tees, Swivel Union Tees and Female Crosses in SS 316. NPT and ISO Parallel thread connections. 10,000 to 15,000 psi. Sizes from 1/8\" to 1 1/4\".",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/female-tee.png",
+  pressure: "10,000 – 15,000 psi",
+  link: "/high-pressure/pipe-fittings/tees-crosses",
+},
 ]
 
 const SPECS = [
