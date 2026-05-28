@@ -252,7 +252,7 @@ const ManifoldValvesBlog: React.FC = () => {
               Minimise impulse line length with close-coupled mounting. Compact monoflanges and transmitter-direct manifolds cut volume and thermal gradients. For hydrogen service, PANAM provides{" "}
               <Box
                 component="a"
-                href="https://www.panamvalve.com/products/hydrogen"
+                href="https://www.panamvalve.com/high-pressure"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
