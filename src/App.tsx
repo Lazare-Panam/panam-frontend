@@ -126,6 +126,7 @@ import HPPipeFittingsIndexPage from "./components/High_Pressure/HP_PF/HP_PF"
 import PipeAdapterPage from "./components/High_Pressure/HP_PF/HP_Adapters/HP_Adapters"
 import PipeElbowPage from "./components/High_Pressure/HP_PF/HP_Elbows/HP_Elbow"
 import PipeTeeCrossPage from "./components/High_Pressure/HP_PF/HP_Tees_Cross/HP_Tess_Cross"
+import PipeEndFittingPage from "./components/High_Pressure/HP_PF/HP_End_Connection/HP_End_Connection"
 
 export const routes = [
   {
@@ -585,6 +586,7 @@ export const routes = [
       { path: "/high-pressure/pipe-fittings/adapters", element: <PipeAdapterPage/> },
       { path: "/high-pressure/pipe-fittings/elbows", element: <PipeElbowPage/> },
       { path: "/high-pressure/pipe-fittings/tees-crosses", element: <PipeTeeCrossPage/> },
+      { path: "/high-pressure/pipe-fittings/plugs-caps", element: <PipeEndFittingPage/> },
       { path: "*", element: <NotFound /> },
     ],
   },

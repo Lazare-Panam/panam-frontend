@@ -41,6 +41,13 @@ const PRODUCTS = [
   pressure: "10,000 – 15,000 psi",
   link: "/high-pressure/pipe-fittings/tees-crosses",
 },
+{
+  title: "Plugs & Caps",
+  description: "Hex Plugs, Tube Plugs and Pipe Caps in SS 316. NPT, ISO Parallel and 37° JIC thread connections. 10,000 to 15,000 psi. Sizes from 1/8\" to 2\".",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/pipe-cap-hp.jpg",
+  pressure: "10,000 – 15,000 psi",
+  link: "/high-pressure/pipe-fittings/plugs-caps",
+},
 ]
 
 const SPECS = [
