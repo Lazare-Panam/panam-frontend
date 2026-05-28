@@ -35,7 +35,6 @@ const PartNumberDetail = lazy(() => import("./components/ProductDetail/PartNumbe
 const SwivelGaugeAdaptersBlog = lazy(() => import("./components/News/components/SwivelGaugeBlog"))
 const ResourcesPage = lazy(() => import("./components/Resources/ResourcesPage"))
 const CertificationsPage = lazy(() => import("./components/Resources/components/Certifications"))
-const TwoWayManifoldPage = lazy(() => import("./TwoVMGrid/TwoVmGrid"))
 //const PipeFittingPage = lazy(() => import("./PipeFittings/PipeFittings"))
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 import Landing2 from "./components/Landing2/Landing2"
