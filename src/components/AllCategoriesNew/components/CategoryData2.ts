@@ -26,6 +26,11 @@ export const CATEGORIES2: CategoryData2[] = [
           description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
         },
         {
+          name: "High Pressure Pipe Fittings",
+          link: "/high-pressure/pipe-fittings",
+          description: "High pressure pipe fittings in SS 316 — hex nipples, reducing hex nipples, couplings and adapters. NPT, ISO Parallel and 37° JIC. 10,000 to 15,000 psi.",
+        },
+        {
           name: "High Pressure Needle Valves",
           link: "/high-pressure/needle-valves",
           description: "High-precision pressure control solutions designed to manage high-flow hydrogen systems with maximum safety and stability.",
@@ -40,11 +45,7 @@ export const CATEGORIES2: CategoryData2[] = [
           link: "/high-pressure/double-block-and-valves",
           description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
         },
-        {
-          name: "HP Pipe Fittings",
-          link: "/high-pressure/pipe-fittings",
-          description: "High pressure pipe fittings in SS 316 — hex nipples, reducing hex nipples, couplings and adapters. NPT, ISO Parallel and 37° JIC. 10,000 to 15,000 psi.",
-        },
+        
       ],
   },
 
