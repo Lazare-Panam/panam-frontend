@@ -27,6 +27,13 @@ const PRODUCTS = [
     pressure: "10,000 – 15,000 psi",
     link: "/high-pressure/pipe-fittings/adapters",
   },
+  {
+  title: "Elbows",
+  description: "Male, Female, Street, Swivel Male and Swivel Union Elbows in SS 316. NPT and ISO Parallel thread connections. 10,000 to 15,000 psi. Sizes from 1/8\" to 1 1/2\".",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/male-elbow-hp.png",
+  pressure: "10,000 – 15,000 psi",
+  link: "/high-pressure/pipe-fittings/elbows",
+},
 ]
 
 const SPECS = [

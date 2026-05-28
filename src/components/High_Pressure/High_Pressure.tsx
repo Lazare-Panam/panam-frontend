@@ -7,21 +7,21 @@ const BRAND_BLUE = "#01B0F0"
 //
 const PRODUCTS = [
   {
-  title: "HP Cone & Thread Fittings",
+  title: "High Presssure Cone & Thread Fittings",
   description: "Six categories of high pressure fittings in SS 316 — connectors, unions, adapters, elbows, tees, crosses, hex nipples, caps, plugs, glands and collars. Medium Pressure at 20,000 psi and High Pressure at 60,000 psi across tube ODs from 1/4\" to 1\".",
   image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/PMC-4MF-4N-SS.jpg",
   pressure: "10,000 – 60,000 psi",
   link: "/high-pressure/fittings",
 },
 {
-  title: "HP Pipe Fittings",
+  title: "High Pressure Pipe Fittings",
   description: "High pressure pipe fittings in SS 316 — hex nipples, reducing hex nipples, couplings, and adapters across NPT, ISO Parallel, and 37° JIC. 10,000 to 15,000 psi. Sizes from 1/8\" to 2\".",
   image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/hex-nipples.jpg",
   pressure: "10,000 – 15,000 psi",
   link: "/high-pressure/pipe-fittings",
 },
   {
-    title: "HP Needle Valves",
+    title: "High Presssure Needle Valves",
     subtitle: "10,000 – 60,000 psi",
     description: "Panam HP Needle Valves in SS 316 across five pressure series — HP (10,000 psi), HP1 (15,000 psi), HP2 (20,000 psi), HP3 (30,000 psi), and HP6 (60,000 psi). NPT, MP Cone, and HP Cone thread connections. Straight, Angle, 3-Way, and 2-Stem Manifold configurations.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg",
@@ -29,7 +29,7 @@ const PRODUCTS = [
     link: "/high-pressure/needle-valves",
   },
   {
-    title: "HP Double Block & Bleed Valves",
+    title: "High Presssure Double Block & Bleed Valves",
     subtitle: "15,000 – 20,000 psi",
     description: "Panam HP Double Block & Bleed Valves in SS 316 for pressures up to 20,000 psi. Ball-Needle-Ball at 15,000 psi and Needle-Needle at 20,000 psi. NPT Female and MP Cone & Thread Female connections.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-dbb.jpg",
@@ -37,7 +37,7 @@ const PRODUCTS = [
     link: "/high-pressure/double-block-and-valves",
   },
   {
-    title: "HP Ball Valves",
+    title: "High Presssure Ball Valves",
     subtitle: "10,000 – 20,000 psi",
     description: "Panam HP Ball Valves in SS 316 across three pressure series — HP (10,000 psi), HP1 (15,000 psi), and HP2 (20,000 psi). 2-Way, 3-Way 180° Turn, and 3-Way 90° Turn Diverter configurations.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-bv.jpg",
@@ -45,7 +45,7 @@ const PRODUCTS = [
     link: "/high-pressure/ball-valves",
   },
   {
-    title: "HP Cone & Threaded Nipples",
+    title: "High Presssure Cone & Threaded Nipples",
     subtitle: "20,000 – 60,000 psi",
     description: "Panam HP Cone & Threaded Nipples in SS 316. MP Cone & Thread at 20,000 psi and HP Cone & Thread at 60,000 psi. Available in 1/4\", 3/8\", 9/16\", 3/4\" and 1\" OD across multiple lengths.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-cone.png",
@@ -53,7 +53,7 @@ const PRODUCTS = [
     link: "/high-pressure/cones-threaded-nipples",
   },
   {
-    title: "2-Valve Manifolds",
+    title: "High Presssure 2-Valve Manifolds",
     subtitle: "15,000 – 20,000 psi",
     description: "Panam 2-Valve Manifolds in SS 316 for high pressure gauge and absolute pressure transmitter applications. 15,000 psi with NPT Female and 20,000 psi with MP Cone & Thread Female connections.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/cover-needle.jpg",

@@ -124,6 +124,7 @@ import PipeNipplePage from "./components/High_Pressure/HP_PF/Hex_Nipples/PipeNip
 import PipeCouplingPage from "./components/High_Pressure/HP_PF/Hex_Couplings/HPCouplings"
 import HPPipeFittingsIndexPage from "./components/High_Pressure/HP_PF/HP_PF"
 import PipeAdapterPage from "./components/High_Pressure/HP_PF/HP_Adapters/HP_Adapters"
+import PipeElbowPage from "./components/High_Pressure/HP_PF/HP_Elbows/HP_Elbow"
 
 export const routes = [
   {
@@ -574,10 +575,14 @@ export const routes = [
       { path: "/high-pressure/fittings/end-connections", element: <HPEndFittingPage/> },
       { path: "/high-pressure/fittings/seals-glads", element: <HPSealPage/> },
       { path: "/high-pressure", element: <HighPressureIndexPage/> },
+
+
+      //pipe fittings
+      { path: "/high-pressure/pipe-fittings", element: <HPPipeFittingsIndexPage/> },
       { path: "/high-pressure/pipe-fittings/hex-nipples", element: <PipeNipplePage/> },
       { path: "/high-pressure/pipe-fittings/hex-couplings", element: <PipeCouplingPage/> },
       { path: "/high-pressure/pipe-fittings/adapters", element: <PipeAdapterPage/> },
-      { path: "/high-pressure/pipe-fittings", element: <HPPipeFittingsIndexPage/> },
+      { path: "/high-pressure/pipe-fittings/elbows", element: <PipeElbowPage/> },
       { path: "*", element: <NotFound /> },
     ],
   },
