@@ -66,7 +66,7 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 }
 
 const IMG_ELBOW = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-elbow.png'
-const IMG_TEE   = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-union.png'
+const IMG_TEE   = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-tees.jpg'
 const IMG_CROSS = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-cross.jpg'
 const IMG_HN    = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-hn.png'
 
@@ -142,7 +142,6 @@ export const HP_JUNCTION_DATA: HPJunctionDTO[] = [
   make('PHN-9MM-SS',        'Hex Nipple', '9/16"', 'Medium Pressure Male', '9/16"', 'Medium Pressure Male', '20,000 psi', 20000, IMG_HN),
   make('PHN-12MM-4MM-SS',   'Hex Nipple', '3/4"',  'Medium Pressure Male', '1/4"',  'Medium Pressure Male', '20,000 psi', 20000, IMG_HN),
   make('PHN-12MM-6MM-SS',   'Hex Nipple', '3/4"',  'Medium Pressure Male', '3/8"',  'Medium Pressure Male', '20,000 psi', 20000, IMG_HN),
-  make('PHN-12MM-6MM-SS',   'Hex Nipple', '3/4"',  'Medium Pressure Male', '9/16"', 'Medium Pressure Male', '20,000 psi', 20000, IMG_HN),
   make('PHN-12MM-SS',       'Hex Nipple', '3/4"',  'Medium Pressure Male', '3/4"',  'Medium Pressure Male', '20,000 psi', 20000, IMG_HN),
   make('PHN-16MM-4MM-SS',   'Hex Nipple', '1"',    'Medium Pressure Male', '1/4"',  'Medium Pressure Male', '20,000 psi', 20000, IMG_HN),
   make('PHN-16MM-6MM-SS',   'Hex Nipple', '1"',    'Medium Pressure Male', '3/8"',  'Medium Pressure Male', '20,000 psi', 20000, IMG_HN),

@@ -55,7 +55,7 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
   return counts
 }
 
-const IMG_AVG    = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-cap.png'
+const IMG_AVG    = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-avg.png'
 const IMG_GLAND  = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-glands.png'
 const IMG_COLLAR = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-collar.png'
 
