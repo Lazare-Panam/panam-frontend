@@ -7,6 +7,13 @@ const BRAND_BLUE = "#01B0F0"
 
 const PRODUCTS = [
   {
+  title: "HP Cone & Thread Fittings",
+  description: "Six categories of high pressure fittings in SS 316 — connectors, unions, adapters, elbows, tees, crosses, hex nipples, caps, plugs, glands and collars. Medium Pressure at 20,000 psi and High Pressure at 60,000 psi across tube ODs from 1/4\" to 1\".",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/PMC-4MF-4N-SS.jpg",
+  pressure: "10,000 – 60,000 psi",
+  link: "/high-pressure/fittings",
+},
+  {
     title: "HP Needle Valves",
     subtitle: "10,000 – 60,000 psi",
     description: "Panam HP Needle Valves in SS 316 across five pressure series — HP (10,000 psi), HP1 (15,000 psi), HP2 (20,000 psi), HP3 (30,000 psi), and HP6 (60,000 psi). NPT, MP Cone, and HP Cone thread connections. Straight, Angle, 3-Way, and 2-Stem Manifold configurations.",
@@ -105,11 +112,11 @@ export default function HighPressureIndexPage() {
   return (
     <>    
     <title>PANAM® High Pressure Valves & Fittings | 10,000 – 60,000 psi | Hydrogen Ready</title>
-<meta name="description" content="Panam high pressure valves and fittings rated 10,000 to 60,000 psi — needle valves, double block & bleed, ball valves, cone & threaded nipples, and 2-valve manifolds. SS 316, NACE MR0175. Hydrogen compatible." />
-<meta name="keywords" content="high pressure needle valves, high pressure ball valves, double block and bleed valves, cone threaded nipples, 2-valve manifolds, hydrogen valves, 60000 psi valves, SS316 high pressure fittings, NACE MR0175" />
-<meta property="og:title" content="PANAM® High Pressure Valves & Fittings | Hydrogen Ready | 10,000 – 60,000 psi" />
-<meta property="og:description" content="Five high pressure product families — needle valves, DBB, ball valves, nipples, and manifolds — rated from 10,000 to 60,000 psi in SS 316. NACE certified. Hydrogen compatible." />
-<meta property="og:type" content="website" />
+    <meta name="description" content="Panam high pressure valves and fittings rated 10,000 to 60,000 psi — needle valves, double block & bleed, ball valves, cone & threaded nipples, and 2-valve manifolds. SS 316, NACE MR0175. Hydrogen compatible." />
+    <meta name="keywords" content="high pressure needle valves, high pressure ball valves, double block and bleed valves, cone threaded nipples, 2-valve manifolds, hydrogen valves, 60000 psi valves, SS316 high pressure fittings, NACE MR0175" />
+    <meta property="og:title" content="PANAM® High Pressure Valves & Fittings | Hydrogen Ready | 10,000 – 60,000 psi" />
+    <meta property="og:description" content="Five high pressure product families — needle valves, DBB, ball valves, nipples, and manifolds — rated from 10,000 to 60,000 psi in SS 316. NACE certified. Hydrogen compatible." />
+    <meta property="og:type" content="website" />
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
 
       {/* ── HERO ── */}

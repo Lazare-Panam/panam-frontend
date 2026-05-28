@@ -33,6 +33,7 @@ export const navConfig: Record<string, NavCategory[]> = {
         { name: "HP Ball Valves", link: "/high-pressure/ball-valves" },
         { name: "HP Cone & Threaded Nipples", link: "/high-pressure/cones-threaded-nipples" },
         { name: "HP 2-Valve Manifolds", link: "/high-pressure/2-valve-manifolds" },
+        { name: "High Pressure Fittings", link: "/high-pressure/fittings" },
       ],
     },
     {
@@ -44,7 +45,7 @@ export const navConfig: Record<string, NavCategory[]> = {
         { name: "37° JIC Fittings", link: "/instrumentation-fittings/jic-fittings" },
         { name: "Pipe Fittings", link: "/instrumentation-fittings/pipe-fittings" },
         { name: "Weld Fittings", link: "/instrumentation-fittings/weld-fittings" },
-        { name: "High Pressure Fittings", link: "/products/instrumentation-fittings/pipe-fittings-high-pressure" },
+       
          { name: "Tube Clamps", link: "/instrumentation-fittings/tube-clamps" },
       ],
     },
