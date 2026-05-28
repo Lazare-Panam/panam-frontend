@@ -1,27 +1,30 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
+import { useNotificationStore } from "./useNotficationStore"
 
 export interface CartItem {
-  cartItemId: string 
-  id: string 
+  cartItemId: string
+  id: string
   name: string
   image?: string
   quantity: number
-  partNumber: string 
+  partNumber: string
   notes?: string
   specs: Record<string, string>
-  hasCertificates?: boolean // <--- Step 1: Add this optional property
+  hasCertificates?: boolean
 }
 
 interface CartStore {
   cart: CartItem[]
   addItem: (item: CartItem) => void
-  // Step 1: Update these signatures to accept the optional boolean
   removeItem: (cartItemId: string, hasCertificates?: boolean) => void
   updateQuantity: (cartItemId: string, hasCertificates: boolean | undefined, delta: number) => void
   updateNotes: (cartItemId: string, hasCertificates: boolean | undefined, notes: string) => void
   clearCart: () => void
 }
+
+const notify = (message: string, severity: "success" | "error" | "info" | "warning", partNumber?: string) =>
+  useNotificationStore.getState().showNotification({ message, severity, partNumber })
 
 export const useCartStore = create<CartStore>()(
   persist(
@@ -30,7 +33,6 @@ export const useCartStore = create<CartStore>()(
 
       addItem: (newItem) =>
         set((state) => {
-          // We treat 'undefined' or 'null' as 'false' for comparison
           const existingIndex = state.cart.findIndex(
             (item) =>
               item.cartItemId === newItem.cartItemId &&
@@ -40,25 +42,36 @@ export const useCartStore = create<CartStore>()(
           if (existingIndex > -1) {
             const newCart = [...state.cart]
             newCart[existingIndex].quantity += newItem.quantity
+            notify("Quantity updated", "success", newItem.partNumber)
             return { cart: newCart }
           }
+
+          notify("Added to cart", "success", newItem.partNumber)
           return { cart: [...state.cart, newItem] }
         }),
 
       removeItem: (cartItemId, hasCertificates) =>
-        set((state) => ({
-          cart: state.cart.filter(
-            (i) => !(i.cartItemId === cartItemId && (i.hasCertificates ?? false) === (hasCertificates ?? false))
-          ),
-        })),
+        set((state) => {
+          const item = state.cart.find(
+            (i) => i.cartItemId === cartItemId && (i.hasCertificates ?? false) === (hasCertificates ?? false)
+          )
+          if (item) notify("Removed from cart", "info", item.partNumber)
+          return {
+            cart: state.cart.filter(
+              (i) => !(i.cartItemId === cartItemId && (i.hasCertificates ?? false) === (hasCertificates ?? false))
+            ),
+          }
+        }),
 
       updateQuantity: (cartItemId, hasCertificates, delta) =>
         set((state) => ({
-          cart: state.cart.map((item) =>
-            item.cartItemId === cartItemId && (item.hasCertificates ?? false) === (hasCertificates ?? false)
-              ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-              : item
-          ),
+          cart: state.cart.map((item) => {
+            if (item.cartItemId === cartItemId && (item.hasCertificates ?? false) === (hasCertificates ?? false)) {
+              notify("Quantity updated", "success", item.partNumber)
+              return { ...item, quantity: Math.max(1, item.quantity + delta) }
+            }
+            return item
+          }),
         })),
 
       updateNotes: (cartItemId, hasCertificates, notes) =>
@@ -70,7 +83,10 @@ export const useCartStore = create<CartStore>()(
           ),
         })),
 
-      clearCart: () => set({ cart: [] }),
+      clearCart: () => {
+        notify("Cart cleared", "info")
+        set({ cart: [] })
+      },
     }),
     { name: "panam-cart-storage" }
   )
