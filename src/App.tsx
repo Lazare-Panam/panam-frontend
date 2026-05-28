@@ -120,6 +120,10 @@ import HPEndFittingPage from "./components/High_Pressure/HP_Fittings/EndConnecti
 import HPSealPage from "./components/High_Pressure/Seals-Glands/HPSealPage"
 import HPFittingsIndexPage from "./components/High_Pressure/HP_Fittings/HP_Fittings"
 import ManifoldValvesBlog from "./components/News/components/ManifoldsBlog"
+import PipeNipplePage from "./components/High_Pressure/HP_PF/Hex_Nipples/PipeNipplePage"
+import PipeCouplingPage from "./components/High_Pressure/HP_PF/Hex_Couplings/HPCouplings"
+import HPPipeFittingsIndexPage from "./components/High_Pressure/HP_PF/HP_PF"
+import PipeAdapterPage from "./components/High_Pressure/HP_PF/HP_Adapters/HP_Adapters"
 
 export const routes = [
   {
@@ -566,11 +570,14 @@ export const routes = [
       { path: "/high-pressure/fittings/connectors", element: <HPFittingConnectorsPage/> },
       { path: "/high-pressure/fittings/unions", element: <HPUnionPage/> },
       { path: "/high-pressure/fittings/adaptors", element: <HPAdapterPage/> },
-       { path: "/high-pressure/fittings/elbows-tees-cross", element: <HPJunctionPage/> },
-       { path: "/high-pressure/fittings/end-connections", element: <HPEndFittingPage/> },
-       { path: "/high-pressure/fittings/seals-glads", element: <HPSealPage/> },
+      { path: "/high-pressure/fittings/elbows-tees-cross", element: <HPJunctionPage/> },
+      { path: "/high-pressure/fittings/end-connections", element: <HPEndFittingPage/> },
+      { path: "/high-pressure/fittings/seals-glads", element: <HPSealPage/> },
       { path: "/high-pressure", element: <HighPressureIndexPage/> },
-      
+      { path: "/high-pressure/pipe-fittings/hex-nipples", element: <PipeNipplePage/> },
+      { path: "/high-pressure/pipe-fittings/hex-couplings", element: <PipeCouplingPage/> },
+      { path: "/high-pressure/pipe-fittings/adapters", element: <PipeAdapterPage/> },
+      { path: "/high-pressure/pipe-fittings", element: <HPPipeFittingsIndexPage/> },
       { path: "*", element: <NotFound /> },
     ],
   },

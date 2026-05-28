@@ -59,7 +59,7 @@ export const CATEGORIES: CategoryData[] = [
       description: "Durable, leak-proof shut-off and check valves engineered specifically to handle the unique diffusion characteristics of hydrogen gas.",
     },
     {
-      name: "Hydrogen Block & Bleed",
+      name: "High Pressure Double Block & Bleed",
       link: "/high-pressure/double-block-and-valves",
       description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
     },
@@ -69,7 +69,7 @@ export const CATEGORIES: CategoryData[] = [
       description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
     },
     {
-      name: "Hydrogen HP Fittings",
+      name: "High Pressure Fittings",
       link: "/high-pressure/ball-valves",
       description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
     },

@@ -13,6 +13,13 @@ const PRODUCTS = [
   pressure: "10,000 – 60,000 psi",
   link: "/high-pressure/fittings",
 },
+{
+  title: "HP Pipe Fittings",
+  description: "High pressure pipe fittings in SS 316 — hex nipples, reducing hex nipples, couplings, and adapters across NPT, ISO Parallel, and 37° JIC. 10,000 to 15,000 psi. Sizes from 1/8\" to 2\".",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/hex-nipples.jpg",
+  pressure: "10,000 – 15,000 psi",
+  link: "/high-pressure/pipe-fittings",
+},
   {
     title: "HP Needle Valves",
     subtitle: "10,000 – 60,000 psi",

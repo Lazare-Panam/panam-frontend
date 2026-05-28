@@ -21,7 +21,7 @@ export const CATEGORIES2: CategoryData2[] = [
       image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/hydrogen/1-removebg-preview.png",
       products: [
         {
-          name: "Hydrogen HP Fittings",
+          name: "High Pressure Fittings",
           link: "/high-pressure/fittings",
           description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
         },
@@ -36,9 +36,14 @@ export const CATEGORIES2: CategoryData2[] = [
           description: "Durable, leak-proof shut-off and check valves engineered specifically to handle the unique diffusion characteristics of hydrogen gas.",
         },
         {
-          name: "Hydrogen Block & Bleed",
+          name: "High Pressure DBB",
           link: "/high-pressure/double-block-and-valves",
           description: "High-integrity connectors and adapters featuring specialized seals to ensure secure, vibration-resistant joins in hydrogen fuel lines.",
+        },
+        {
+          name: "HP Pipe Fittings",
+          link: "/high-pressure/pipe-fittings",
+          description: "High pressure pipe fittings in SS 316 — hex nipples, reducing hex nipples, couplings and adapters. NPT, ISO Parallel and 37° JIC. 10,000 to 15,000 psi.",
         },
       ],
   },

@@ -34,6 +34,7 @@ export const navConfig: Record<string, NavCategory[]> = {
         { name: "HP Cone & Threaded Nipples", link: "/high-pressure/cones-threaded-nipples" },
         { name: "HP 2-Valve Manifolds", link: "/high-pressure/2-valve-manifolds" },
         { name: "High Pressure Fittings", link: "/high-pressure/fittings" },
+        { name: "High Pressure Pipe Fittings", link: "/high-pressure/pipe-fittings" },
       ],
     },
     {
