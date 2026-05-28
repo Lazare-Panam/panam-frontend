@@ -214,7 +214,7 @@ const ThreeWayValveBlog: React.FC = () => {
               PANAM 3-way ball valves are available in 316 Stainless Steel with 6,000 PSI ratings, actuator-ready mounting and PTFE seats as standard. Browse the full range on our{" "}
               <Box
                 component="a"
-                href="https://www.panamvalve.com/product-grid/ball-valves"
+                href="https://www.panamvalve.com/valves/ball-valves"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
@@ -309,7 +309,7 @@ const ThreeWayValveBlog: React.FC = () => {
               For help selecting a 3-way ball valve or building a matched package of valves and fittings, browse our{" "}
               <Box
                 component="a"
-                href="https://www.panamvalve.com/product-grid/ball-valves"
+                href="https://www.panamvalve.com/valves/ball-valves"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
@@ -364,7 +364,7 @@ const ThreeWayValveBlog: React.FC = () => {
               {/* Sidebar product link card */}
               <Box
                 component="a"
-                href="https://www.panamvalve.com/product-grid/ball-valves"
+                href="https://www.panamvalve.com/valves/ball-valves"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ textDecoration: "none", display: "block", mt: 6 }}

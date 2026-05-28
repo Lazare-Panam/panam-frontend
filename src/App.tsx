@@ -120,6 +120,7 @@ import HPJunctionPage from "./components/High_Pressure/HP_Fittings/JunctionFitti
 import HPEndFittingPage from "./components/High_Pressure/HP_Fittings/EndConnections/HPEndFittingPage"
 import HPSealPage from "./components/High_Pressure/Seals-Glands/HPSealPage"
 import HPFittingsIndexPage from "./components/High_Pressure/HP_Fittings/HP_Fittings"
+import ManifoldValvesBlog from "./components/News/components/ManifoldsBlog"
 
 export const routes = [
   {
@@ -261,6 +262,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <SwivelGaugeAdaptersBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/manifold-valves-for-accurate-safe-instrumentation",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ManifoldValvesBlog />
           </Suspense>
         ),
       },
@@ -450,14 +459,7 @@ export const routes = [
           </Suspense>
         ),
       },
-      {
-        path: "product-grid/2-way-manifolds",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <TwoWayManifoldPage />
-          </Suspense>
-        ),
-      },
+     
 
       //valves-url
       { path: "/valves", element: <ValvesPage /> },

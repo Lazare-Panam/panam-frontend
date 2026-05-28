@@ -15,14 +15,24 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
-  "slug": "npt-vs-bspp-vs-bspt-thread-standards",
-  "title": "NPT vs BSPP vs BSPT Threads for Instrumentation Fittings",
-  "category": "Technical Guide",
-  "author": "Steven Kassi",
-  "date": "May 27, 2026",
-  "readTime": "8 min read",
-  "image": "https://pblol2.blob.core.windows.net/panam-images/website-media/thread-thumbnail.jpg",
-  "excerpt": "This guide explains how NPT, BSPP and BSPT pipe threads differ in form, taper and sealing so you can identify them quickly in the field. It covers practical steps for thread ID, proven seal methods, common compatibility myths, and when to use adapters."
+  slug: "manifold-valves-for-accurate-safe-instrumentation",
+  title: "Smarter Instrumentation: Choosing the Right Manifolds for Accurate, Safe Measurement",
+  category: "Technical Guide",
+  author: "Steven Kassi",
+  date: "May 25, 2026",
+  readTime: "8 min read",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM_Cover.jpg",
+  excerpt: "This guide explains how to choose and install manifolds for reliable DP flow, level, and pressure measurements. It compares 2-, 3-, and 5-valve configurations, monoflange versus traditional builds, and integral double block and bleed options. You'll also learn hydrogen and gas-specific considerations, installation best practices, and how close-coupled mounting and standardised architectures can boost accuracy and reduce maintenance effort.",
+},
+  {
+  slug: "npt-vs-bspp-vs-bspt-thread-standards",
+  title: "NPT vs BSPP vs BSPT Threads for Instrumentation Fittings",
+  category: "Technical Guide",
+  author: "Steven Kassi",
+  date: "May 27, 2026",
+  readTime: "8 min read",
+  image: "https://pblol2.blob.core.windows.net/panam-images/website-media/thread-thumbnail.jpg",
+  excerpt: "This guide explains how NPT, BSPP and BSPT pipe threads differ in form, taper and sealing so you can identify them quickly in the field. It covers practical steps for thread ID, proven seal methods, common compatibility myths, and when to use adapters."
 },
 
   // ─── POST 5 ───────────────────────────────────────────────────────────────
