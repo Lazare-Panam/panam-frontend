@@ -28,6 +28,21 @@ export default function WeldFittingPage({ defaultFittingTypes }: { defaultFittin
   const activeCount = Object.values(filters).reduce((acc, v) => acc + v.length, 0)
 
   return (
+    <>{/* /instrumentation-fittings/weld-fittings/all */}
+<title>All Weld Fittings | Socket & Butt Weld | PANAM®</title>
+<meta name="description" content={'Browse the full PANAM® weld fitting range — connectors, elbows & tees in socket & butt weld. SS316, Duplex, Monel & Hastelloy. Rated to 10,000 psig.'} />
+<link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/weld-fittings/all" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Panam Valves" />
+<meta property="og:title" content="All Weld Fittings | Socket & Butt Weld | PANAM®" />
+<meta property="og:description" content={'Full PANAM® weld fitting range — connectors, elbows & tees. Socket & butt weld. SS316, Duplex, Monel & Hastelloy.'} />
+<meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/weld-fittings/all" />
+<meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/connector-weld.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="All Weld Fittings | Socket & Butt Weld | PANAM®" />
+<meta name="twitter:description" content={'Full PANAM® weld fitting range — connectors, elbows & tees. Socket & butt weld. SS316, Duplex, Monel & Hastelloy.'} />
+<meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/connector-weld.jpg" />
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid #eee", bgcolor: "#fff" }}>
         <Box sx={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: 2 }}>
@@ -110,5 +125,7 @@ export default function WeldFittingPage({ defaultFittingTypes }: { defaultFittin
         )}
       </Box>
     </Box>
+</>
+
   )
 }
