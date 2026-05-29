@@ -130,7 +130,25 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 
 export default function PipeFittingsIndexPage() {
   return (
-    <Box sx={{ bgcolor: '#fff', minHeight: '100vh' }}>
+    <>
+          <title>Pipe Fittings | High-Pressure Instrumentation | PANAM®</title>
+      <meta name="description" content={'PANAM® pipe fittings — nipples, couplings, adapters, unions, elbows, tees & crosses for extreme service: hydrogen, fuel cell, aerospace & cryogenic. To 15,000 psig.'} />
+      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/pipe-fittings" />
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="Pipe Fittings | High-Pressure Instrumentation | PANAM®" />
+      <meta property="og:description" content={'PANAM® pipe fittings for extreme service — hydrogen, fuel cell, aerospace & cryogenic. SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig.'} />
+      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/pipe-fittings" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/swivel-run-tee.png" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Pipe Fittings | High-Pressure Instrumentation | PANAM®" />
+      <meta name="twitter:description" content={'PANAM® pipe fittings for extreme service — hydrogen, fuel cell, aerospace & cryogenic. SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig.'} />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/swivel-run-tee.png" />
+
+        <Box sx={{ bgcolor: '#fff', minHeight: '100vh' }}>
 
       {/* ── HERO ── */}
       <Box sx={{
@@ -362,5 +380,7 @@ export default function PipeFittingsIndexPage() {
 
       </Container>
     </Box>
+    </>
+
   )
 }
