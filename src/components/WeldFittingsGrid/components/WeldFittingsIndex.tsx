@@ -3,7 +3,7 @@ import {
   Box, Container, Typography, Grid, Divider, Button,
   Card, CardMedia, CardContent,
 } from '@mui/material'
-
+import { Link as RouterLink } from "react-router-dom"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = '#01B0F0'
 
@@ -112,6 +112,24 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 
 export default function WeldFittingsIndexPage() {
   return (
+    <>
+      <title>Weld Fittings | Socket & Butt Weld | PANAM®</title>
+      <meta name="description" content={'PANAM® weld fittings in socket & butt weld configurations for permanent, high-integrity connections in hydrogen systems, chemical processing & industrial gas. To 10,000 psig.'} />
+      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/weld-fittings" />
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="Weld Fittings | Socket & Butt Weld | PANAM®" />
+      <meta property="og:description" content={'PANAM® socket & butt weld fittings for permanent, high-integrity connections in hydrogen, chemical & industrial gas systems. SS316, Duplex, Monel & Hastelloy.'} />
+      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/weld-fittings" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/connector-weld.jpg" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Weld Fittings | Socket & Butt Weld | PANAM®" />
+      <meta name="twitter:description" content={'PANAM® socket & butt weld fittings for permanent, high-integrity connections in hydrogen, chemical & industrial gas systems. SS316, Duplex, Monel & Hastelloy.'} />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/connector-weld.jpg" />
+
     <Box sx={{ bgcolor: '#fff', minHeight: '100vh' }}>
 
       {/* HERO */}
@@ -147,13 +165,19 @@ export default function WeldFittingsIndexPage() {
             Available across NPT, BSPT and BSPP thread standards in fractional inch and metric sizes.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-            <Button variant="contained" size="large" href={LINKS.heroExplore} sx={{
-              bgcolor: BRAND_BLUE, color: '#fff', borderRadius: 0,
-              px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT,
-              '&:hover': { bgcolor: '#0090c8' },
-            }}>
-              Explore Range
-            </Button>
+<Button
+  component={RouterLink}
+  to="/instrumentation-fittings/weld-fittings/all"
+  variant="contained"
+  size="large"
+  sx={{
+    bgcolor: BRAND_BLUE, color: '#fff', borderRadius: 0,
+    px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT,
+    '&:hover': { bgcolor: '#0090c8' },
+  }}
+>
+  Explore Range
+</Button>
             <Button variant="outlined" size="large" href={LINKS.heroQuote} sx={{
               borderColor: 'rgba(255,255,255,0.5)', color: '#fff', borderRadius: 0,
               px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT,
@@ -345,5 +369,7 @@ export default function WeldFittingsIndexPage() {
 
       </Container>
     </Box>
+    </>
+
   )
 }

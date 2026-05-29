@@ -3,7 +3,7 @@ import {
   Box, Container, Typography, Grid, Divider, Button,
   Card, CardMedia, CardContent,
 } from '@mui/material'
-
+import { Link as RouterLink } from "react-router-dom"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = '#01B0F0'
 
@@ -139,6 +139,24 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 
 export default function JICFittingsIndexPage() {
   return (
+    <>
+      <title>37° JIC Flare Fittings | Connectors, Elbows & Tees | PANAM®</title>
+      <meta name="description" content={'PANAM® 37° JIC flare fittings — connectors, elbows, tees, plugs, caps & nuts for critical hydrogen, chemical & industrial gas systems. SS316, Duplex, Monel. To 10,000 psig.'} />
+      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/jic-fittings" />
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="37° JIC Flare Fittings | Connectors, Elbows & Tees | PANAM®" />
+      <meta property="og:description" content={'PANAM® 37° JIC flare fittings for critical hydrogen, chemical & industrial gas systems. SS316, Duplex, Monel & Hastelloy. Rated to 10,000 psig.'} />
+      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/jic-fittings" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-connector-jic.jpg" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="37° JIC Flare Fittings | Connectors, Elbows & Tees | PANAM®" />
+      <meta name="twitter:description" content={'PANAM® 37° JIC flare fittings for critical hydrogen, chemical & industrial gas systems. SS316, Duplex, Monel & Hastelloy. Rated to 10,000 psig.'} />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-connector-jic.jpg" />
+
     <Box sx={{ bgcolor: '#fff', minHeight: '100vh' }}>
 
       {/* ── HERO ── */}
@@ -174,13 +192,19 @@ export default function JICFittingsIndexPage() {
             Available across NPT, BSPT, BSPP, SAE/MS and Metric thread standards in SS316.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-            <Button variant="contained" size="large" href={LINKS.heroExplore} sx={{
-              bgcolor: BRAND_BLUE, color: '#fff', borderRadius: 0,
-              px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT,
-              '&:hover': { bgcolor: '#0090c8' },
-            }}>
-              Explore Range
-            </Button>
+<Button
+  component={RouterLink}
+  to="/instrumentation-fittings/jic-fittings/all"
+  variant="contained"
+  size="large"
+  sx={{
+    bgcolor: BRAND_BLUE, color: '#fff', borderRadius: 0,
+    px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT,
+    '&:hover': { bgcolor: '#0090c8' },
+  }}
+>
+  Explore Range
+</Button>
             <Button variant="outlined" size="large" href={LINKS.heroQuote} sx={{
               borderColor: 'rgba(255,255,255,0.5)', color: '#fff', borderRadius: 0,
               px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT,
@@ -372,5 +396,7 @@ export default function JICFittingsIndexPage() {
 
       </Container>
     </Box>
+    </>
+
   )
 }
