@@ -37,6 +37,24 @@ export default function AdapterPage() {
   )
 
   return (
+    <>
+    <title>Tube Fitting Adapters | Male & Female Thread | PANAM®</title>
+      <meta name="description" content={'Stainless steel male & female tube fitting adapters from PANAM®. Imperial & Metric tube OD with NPT, BSPT, BSPP, RP, RG & SAE/MS thread types.'} />
+      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/adapter" />
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="Tube Fitting Adapters | Male & Female Thread | PANAM®" />
+      <meta property="og:description" content={'Stainless steel male & female tube fitting adapters. Imperial & Metric tube OD with NPT, BSPT, BSPP, RP, RG & SAE/MS threads.'} />
+      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/adapter" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male_adaptor.jpg" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Tube Fitting Adapters | Male & Female Thread | PANAM®" />
+      <meta name="twitter:description" content={'Stainless steel male & female tube fitting adapters. Imperial & Metric tube OD with NPT, BSPT, BSPP, RP, RG & SAE/MS threads.'} />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male_adaptor.jpg" />
+
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
@@ -86,6 +104,7 @@ export default function AdapterPage() {
           {sidebar}
         </Drawer>
       </Box>
-    </Box>
+    </Box></>
+
   )
 }

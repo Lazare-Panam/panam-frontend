@@ -257,7 +257,25 @@ export default function WeldGaugeConnectorPage() {
   const sidebar = <Sidebar filters={filters} setFilters={setFilters} activeCount={activeCount} />
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
+    <> 
+          <title>Weld & Gauge Connectors | Socket & Pipe Weld | PANAM®</title>
+      <meta name="description" content={'PANAM® male pipe weld connectors & elbows, tube socket weld connectors & elbows and gauge connectors. Butt weld, socket weld & BSPP/Metric gauge connections.'} />
+      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/weld-gauge" />
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="Weld & Gauge Connectors | Socket & Pipe Weld | PANAM®" />
+      <meta property="og:description" content={'PANAM® pipe weld & socket weld connectors, elbows and gauge connectors. Butt weld, socket weld & BSPP/Metric gauge connections.'} />
+      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/weld-gauge" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Weld & Gauge Connectors | Socket & Pipe Weld | PANAM®" />
+      <meta name="twitter:description" content={'PANAM® pipe weld & socket weld connectors, elbows and gauge connectors. Butt weld, socket weld & BSPP/Metric gauge connections.'} />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg" />
+
+      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           Tube Fittings — Weld & Gauge Connectors
@@ -326,5 +344,7 @@ export default function WeldGaugeConnectorPage() {
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
     </Box>
+    </>
+
   )
 }

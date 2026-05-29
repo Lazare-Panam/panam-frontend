@@ -179,6 +179,25 @@ const FittingCard: React.FC<FittingItem> = ({ type, title, description, image, p
 
 export default function FittingsPage() {
   return (
+    <>    
+          <title>Instrumentation Fittings | Tube, JIC, Pipe & Weld | PANAM®</title>
+      <meta name="description" content="PANAM® instrumentation fittings: tube, 37° JIC, pipe, weld & swivel gauge adaptors in SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig. Request a quote." />
+      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings" />
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="Instrumentation Fittings | Tube, JIC, Pipe & Weld | PANAM®" />
+      <meta property="og:description" content="PANAM® instrumentation fittings: tube, 37° JIC, pipe, weld & swivel gauge adaptors in SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig." />
+      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Instrumentation Fittings | Tube, JIC, Pipe & Weld | PANAM®" />
+      <meta name="twitter:description" content="PANAM® instrumentation fittings: tube, 37° JIC, pipe, weld & swivel gauge adaptors in SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig." />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg" />
+
+
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
       {/* ── HERO ── */}
       <Box
@@ -329,5 +348,7 @@ export default function FittingsPage() {
         </Box>
       </Container>
     </Box>
+    </>
+
   )
 }

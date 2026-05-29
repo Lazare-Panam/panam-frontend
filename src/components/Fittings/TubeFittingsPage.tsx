@@ -260,6 +260,24 @@ const SeriesCard: React.FC<SeriesItem> = ({
 
 export default function TubeFittingsPage() {
   return (
+    <> 
+      <title>Tube Fittings | Single & Double Ferrule | PANAM®</title>
+      <meta name="description" content={'PANAM® tube fittings in single and double ferrule designs — connectors, unions, reducers, adapters & more. SS316, Duplex, Monel, Hastelloy & Brass. 1/16" to 2" OD.'} />
+      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings" />
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="Tube Fittings | Single & Double Ferrule | PANAM®" />
+      <meta property="og:description" content="PANAM® tube fittings in single and double ferrule designs — connectors, unions, reducers, adapters & more. SS316, Duplex, Monel, Hastelloy & Brass." />
+      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Tube Fittings | Single & Double Ferrule | PANAM®" />
+      <meta name="twitter:description" content="PANAM® tube fittings in single and double ferrule designs — connectors, unions, reducers, adapters & more. SS316, Duplex, Monel, Hastelloy & Brass." />
+        <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg" />
+
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
       {/* ── HERO ── */}
       <Box
@@ -653,5 +671,7 @@ export default function TubeFittingsPage() {
         </Box>
       </Container>
     </Box>
+    </>
+
   );
 }

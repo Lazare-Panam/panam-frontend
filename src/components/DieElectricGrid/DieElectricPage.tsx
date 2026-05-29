@@ -329,6 +329,20 @@ export default function DielectricGasketPage() {
   const gSidebar = <GasketSidebar filters={gFilters} setFilters={setGFilters} activeCount={gActiveCount} />
 
   return (
+    <>
+          <title>Dielectric Tube Fittings & Gaskets | PANAM®</title>
+      <meta name="description" content={'PANAM® stainless steel dielectric tube fittings isolate instruments from electric currents, voltage & static. Polyamideimide insulation, rated to 5000 PSI, -40°C to 93°C.'} />
+      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/die-electric" />
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="Dielectric Tube Fittings & Gaskets | PANAM®" />
+      <meta property="og:description" content={'PANAM® dielectric tube fittings isolate instruments from electric currents, voltage & static. Polyamideimide insulation, rated to 5000 PSI.'} />
+      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/die-electric" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/dielectric-fittings.jpg" />
+
+
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
@@ -453,6 +467,7 @@ export default function DielectricGasketPage() {
           </>
         )}
       </Box>
-    </Box>
+    </Box></>
+
   )
 }

@@ -231,6 +231,22 @@ export default function PortConnectorPage() {
   const sidebar = <Sidebar filters={filters} setFilters={setFilters} activeCount={activeCount} />
 
   return (
+    <>      <title>Tube Fitting Port Connectors | Imperial & Metric | PANAM®</title>
+      <meta name="description" content={'PANAM® tube fitting port connectors & reducing port connectors for direct tube-to-port connections. Imperial & Metric tube OD. Secure, leak-tight SS316.'} />
+      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/port-connector" />
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="Tube Fitting Port Connectors | Imperial & Metric | PANAM®" />
+      <meta property="og:description" content={'PANAM® tube fitting port connectors & reducing port connectors for tube-to-port connections. Imperial & Metric tube OD.'} />
+      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/port-connector" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Tube Fitting Port Connectors | Imperial & Metric | PANAM®" />
+      <meta name="twitter:description" content={'PANAM® tube fitting port connectors & reducing port connectors for tube-to-port connections. Imperial & Metric tube OD.'} />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg" />
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
@@ -299,5 +315,7 @@ export default function PortConnectorPage() {
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
     </Box>
+    </>
+
   )
 }
