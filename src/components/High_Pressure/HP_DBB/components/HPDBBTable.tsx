@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -28,6 +29,7 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function HPDBBRow({ row }: { row: HPDBBValveDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
   const isHP20 = row.pressurePsi === 20000
 
@@ -40,25 +42,29 @@ function HPDBBRow({ row }: { row: HPDBBValveDTO }) {
       quantity: 1,
       partNumber: row.partNumber,
       specs: {
-        'Part Number': row.partNumber,
-        'Pressure Rating': row.pressureRating,
-        'Configuration': row.configuration,
-        'Material': row.material,
+        'Part Number':       row.partNumber,
+        'Pressure Rating':   row.pressureRating,
+        'Configuration':     row.configuration,
+        'Material':          row.material,
         'Inlet/Outlet Size': row.inletOutletSize,
         'Inlet/Outlet Type': row.inletOutletType,
-        'Vent Size': row.ventSize,
-        'Vent Type': row.ventType,
+        'Vent Size':         row.ventSize,
+        'Vent Type':         row.ventType,
       },
     })
   }
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: 'pointer',
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
-        '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/high-pressure/dbb/${row.partNumber}`)}
+        sx={{
+          cursor: 'pointer',
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
+          '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -96,19 +102,25 @@ function HPDBBRow({ row }: { row: HPDBBValveDTO }) {
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6, fontFamily: PRIMARY_FONT }}>{row.description}</Typography>
                     <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: 'block', mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>SPECIFICATIONS</Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number" value={row.partNumber} />
-                      <Spec label="Pressure Rating" value={row.pressureRating} />
-                      <Spec label="Configuration" value={row.configuration} />
-                      <Spec label="Material" value={row.material} />
+                      <Spec label="Part Number"       value={row.partNumber} />
+                      <Spec label="Pressure Rating"   value={row.pressureRating} />
+                      <Spec label="Configuration"     value={row.configuration} />
+                      <Spec label="Material"          value={row.material} />
                       <Spec label="Inlet/Outlet Size" value={row.inletOutletSize} />
                       <Spec label="Inlet/Outlet Type" value={row.inletOutletType} />
-                      <Spec label="Vent Size" value={row.ventSize} />
-                      <Spec label="Vent Type" value={row.ventType} />
+                      <Spec label="Vent Size"         value={row.ventSize} />
+                      <Spec label="Vent Type"         value={row.ventType} />
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToCart}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" spacing={1}>
+                      <Button variant="contained" onClick={e => { e.stopPropagation(); handleAddToCart() }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined" onClick={e => { e.stopPropagation(); navigate(`/high-pressure/dbb/${row.partNumber}`) }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) }, fontFamily: PRIMARY_FONT }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -169,13 +181,13 @@ export default function HPDBBTable({ models, filters, setFilters, availableCount
               <TableRow>
                 <TableCell sx={{ ...headerSx, width: 40 }} />
                 {([
-                  { key: 'partNumber' as SortKey,    label: 'Part Number' },
-                  { key: 'pressureRating' as SortKey, label: 'Pressure' },
-                  { key: 'configuration' as SortKey,  label: 'Configuration' },
-                  { key: 'inletOutletSize' as SortKey,label: 'Size' },
-                  { key: 'inletOutletType' as SortKey,label: 'Connection Type' },
-                  { key: null,                         label: 'Vent' },
-                  { key: null,                         label: 'Quote' },
+                  { key: 'partNumber' as SortKey,     label: 'Part Number' },
+                  { key: 'pressureRating' as SortKey,  label: 'Pressure' },
+                  { key: 'configuration' as SortKey,   label: 'Configuration' },
+                  { key: 'inletOutletSize' as SortKey, label: 'Size' },
+                  { key: 'inletOutletType' as SortKey, label: 'Connection Type' },
+                  { key: null,                          label: 'Vent' },
+                  { key: null,                          label: 'Quote' },
                 ]).map((h, i) => (
                   <TableCell key={i} sx={headerSx}>
                     {h.key

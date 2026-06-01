@@ -127,6 +127,17 @@ import PipeAdapterPage from "./components/High_Pressure/HP_PF/HP_Adapters/HP_Ada
 import PipeElbowPage from "./components/High_Pressure/HP_PF/HP_Elbows/HP_Elbow"
 import PipeTeeCrossPage from "./components/High_Pressure/HP_PF/HP_Tees_Cross/HP_Tess_Cross"
 import PipeEndFittingPage from "./components/High_Pressure/HP_PF/HP_End_Connection/HP_End_Connection"
+import HPBallValveProductPage from "./components/High_Pressure/HP_BV/components/HPBallValveProductPage"
+import HPDBBProductPage from "./components/High_Pressure/HP_DBB/components/HPDBBProductPage"
+import HPNippleProductPage from "./components/High_Pressure/HP_TN/components/HPNippleProductPage"
+import HPNeedleValveProductPage from "./components/High_Pressure/HP_NV/components/HPNeedleValveProductPage"
+import HPManifoldProductPage from "./components/High_Pressure/HP_VM/components/HPManifoldProductPage"
+import HPAdapterProductPage from "./components/High_Pressure/HP_Fittings/Adaptors/components/HPAdapterProductPage"
+import HPFittingProductPage from "./components/High_Pressure/HP_Fittings/Connectors/components/HPFittingProductPage"
+import HPUnionProductPage from "./components/High_Pressure/HP_Fittings/Union/components/HPUnionProductPage"
+import HPJunctionProductPage from "./components/High_Pressure/HP_Fittings/JunctionFittigs/components/HPJunctionProductPage"
+import HPEndFittingProductPage from "./components/High_Pressure/HP_Fittings/EndConnections/components/HPEndFittingProductPage"
+import HPSealProductPage from "./components/High_Pressure/Seals-Glands/components/HPSealProductPage"
 
 export const routes = [
   {
@@ -564,18 +575,29 @@ export const routes = [
 
       //high pressure
       { path: "/high-pressure/needle-valves", element: <HPNeedleValvePage/> },
+      { path: "/high-pressure/needle-valves/:partNumber", element: <HPNeedleValveProductPage /> },
       { path: "/high-pressure/double-block-and-valves", element: <HPDBBPage/> },
+      { path: "/high-pressure/double-block-and-valves/:partNumber", element: <HPDBBProductPage /> },
       { path: "/high-pressure/ball-valves", element: <HPBallValvePage/> },
+      { path: "/high-pressure/ball-valves/:partNumber", element: <HPBallValveProductPage /> },
       { path: "/high-pressure/cones-threaded-nipples", element: <HPNipplePage/> },
+      { path: "/high-pressure/cones-threaded-nipples/:partNumber", element: <HPNippleProductPage /> },
       { path: "/high-pressure/2-valve-manifolds", element: <HPManifoldPage/> },
+      { path: "/high-pressure/2-valve-manifolds/:partNumber", element: <HPManifoldProductPage /> },
       
       { path: "/high-pressure/fittings", element: <HPFittingsIndexPage/> },
       { path: "/high-pressure/fittings/connectors", element: <HPFittingConnectorsPage/> },
+      { path: "/high-pressure/fittings/connectors/:partNumber", element: <HPFittingProductPage /> },
       { path: "/high-pressure/fittings/unions", element: <HPUnionPage/> },
+      { path: "/high-pressure/fittings/unions/:partNumber", element: <HPUnionProductPage /> },
       { path: "/high-pressure/fittings/adaptors", element: <HPAdapterPage/> },
+      { path: "/high-pressure/fittings/adaptors/:partNumber", element: <HPAdapterProductPage /> },
       { path: "/high-pressure/fittings/elbows-tees-cross", element: <HPJunctionPage/> },
+      { path: "/high-pressure/fittings/elbows-tees-cross/:partNumber", element: <HPJunctionProductPage /> },
       { path: "/high-pressure/fittings/end-connections", element: <HPEndFittingPage/> },
+      { path: "/high-pressure/fittings/end-connections/:partNumber", element: <HPEndFittingProductPage /> },
       { path: "/high-pressure/fittings/seals-glads", element: <HPSealPage/> },
+      { path: "/high-pressure/fittings/seals-glads/:partNumber", element: <HPSealProductPage /> },
       { path: "/high-pressure", element: <HighPressureIndexPage/> },
 
 

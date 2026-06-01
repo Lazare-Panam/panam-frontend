@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -28,8 +29,10 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function HPNippleRow({ row }: { row: HPNippleDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
   const isHP = row.pressurePsi === 60000
+  const chipColor = isHP ? '#FF6B35' : BRAND_BLUE
 
   const handleAddToCart = () => {
     addItem({
@@ -40,24 +43,28 @@ function HPNippleRow({ row }: { row: HPNippleDTO }) {
       quantity: 1,
       partNumber: row.partNumber,
       specs: {
-        'Part Number': row.partNumber,
+        'Part Number':     row.partNumber,
         'Connection Type': row.connectionType,
-        'Tube OD': row.tubeOD,
-        'Tube ID': row.tubeID,
-        'Length': row.length,
+        'Tube OD':         row.tubeOD,
+        'Tube ID':         row.tubeID,
+        'Length':          row.length,
         'Pressure Rating': row.pressureRating,
-        'Material': row.material,
+        'Material':        row.material,
       },
     })
   }
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: 'pointer',
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
-        '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/high-pressure/cones-threaded-nipples/${row.partNumber}`)}
+        sx={{
+          cursor: 'pointer',
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
+          '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -66,7 +73,7 @@ function HPNippleRow({ row }: { row: HPNippleDTO }) {
         <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_BLUE, fontSize: '0.78rem', py: 1 }}>{row.partNumber}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.pressureRating} size="small"
-            sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(isHP ? '#FF6B35' : BRAND_BLUE, 0.12), color: isHP ? '#FF6B35' : '#0277BD' }} />
+            sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(chipColor, 0.12), color: chipColor }} />
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{row.connectionType}</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{row.tubeOD}</TableCell>
@@ -95,18 +102,24 @@ function HPNippleRow({ row }: { row: HPNippleDTO }) {
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6, fontFamily: PRIMARY_FONT }}>{row.description}</Typography>
                     <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: 'block', mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>SPECIFICATIONS</Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number" value={row.partNumber} />
+                      <Spec label="Part Number"     value={row.partNumber} />
                       <Spec label="Connection Type" value={row.connectionType} />
-                      <Spec label="Tube OD" value={row.tubeOD} />
-                      <Spec label="Tube ID" value={row.tubeID} />
-                      <Spec label="Length" value={row.length} />
+                      <Spec label="Tube OD"         value={row.tubeOD} />
+                      <Spec label="Tube ID"         value={row.tubeID} />
+                      <Spec label="Length"          value={row.length} />
                       <Spec label="Pressure Rating" value={row.pressureRating} />
-                      <Spec label="Material" value={row.material} />
+                      <Spec label="Material"        value={row.material} />
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToCart}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" spacing={1}>
+                      <Button variant="contained" onClick={e => { e.stopPropagation(); handleAddToCart() }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined" onClick={e => { e.stopPropagation(); navigate(`/high-pressure/cones-threaded-nipples/${row.partNumber}`) }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) }, fontFamily: PRIMARY_FONT }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>

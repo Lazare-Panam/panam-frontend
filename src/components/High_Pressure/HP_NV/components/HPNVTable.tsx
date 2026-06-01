@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -15,7 +16,7 @@ import { useCartStore } from '../../../store/useCartStore'
 const BRAND_BLUE = '#01B0F0'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
-const PRESSURE_COLORS: Record<string, string> = {
+const SERIES_COLORS: Record<string, string> = {
   'HP':  '#01B0F0',
   'HP1': '#7B61FF',
   'HP2': '#FF6B35',
@@ -36,8 +37,9 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function HPNVRow({ row }: { row: HPNeedleValveDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
-  const color = PRESSURE_COLORS[row.series] ?? BRAND_BLUE
+  const color = SERIES_COLORS[row.series] ?? BRAND_BLUE
 
   const handleAddToCart = () => {
     addItem({
@@ -48,24 +50,28 @@ function HPNVRow({ row }: { row: HPNeedleValveDTO }) {
       quantity: 1,
       partNumber: row.partNumber,
       specs: {
-        'Part Number': row.partNumber,
-        'Series': row.series,
+        'Part Number':     row.partNumber,
+        'Series':          row.series,
         'Pressure Rating': row.pressureRating,
-        'Material': row.material,
+        'Material':        row.material,
         'Connection Size': row.connectionSize,
         'Connection Type': row.connectionType,
-        'Configuration': row.configuration,
+        'Configuration':   row.configuration,
       },
     })
   }
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: 'pointer',
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
-        '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/high-pressure/needle-valves/${row.partNumber}`)}
+        sx={{
+          cursor: 'pointer',
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
+          '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -106,18 +112,24 @@ function HPNVRow({ row }: { row: HPNeedleValveDTO }) {
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6, fontFamily: PRIMARY_FONT }}>{row.description}</Typography>
                     <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: 'block', mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>SPECIFICATIONS</Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number" value={row.partNumber} />
-                      <Spec label="Series" value={row.series} />
+                      <Spec label="Part Number"     value={row.partNumber} />
+                      <Spec label="Series"          value={row.series} />
                       <Spec label="Pressure Rating" value={row.pressureRating} />
-                      <Spec label="Material" value={row.material} />
+                      <Spec label="Material"        value={row.material} />
                       <Spec label="Connection Size" value={row.connectionSize} />
                       <Spec label="Connection Type" value={row.connectionType} />
-                      <Spec label="Configuration" value={row.configuration} />
+                      <Spec label="Configuration"   value={row.configuration} />
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToCart}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" spacing={1}>
+                      <Button variant="contained" onClick={e => { e.stopPropagation(); handleAddToCart() }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined" onClick={e => { e.stopPropagation(); navigate(`/high-pressure/needle-valves/${row.partNumber}`) }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) }, fontFamily: PRIMARY_FONT }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
