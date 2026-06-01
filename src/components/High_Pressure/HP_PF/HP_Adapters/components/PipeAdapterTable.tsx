@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -33,6 +34,7 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function PipeAdapterRow({ row }: { row: PipeAdapterDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
   const color = PRESSURE_COLOR[row.pressureRating] ?? BRAND_BLUE
 
@@ -45,25 +47,29 @@ function PipeAdapterRow({ row }: { row: PipeAdapterDTO }) {
       quantity: 1,
       partNumber: row.partNumber,
       specs: {
-        'Part Number': row.partNumber,
-        'Fitting Type': row.fittingType,
-        'P1 Size': row.p1Size,
-        'P1 Thread': row.p1Thread,
-        'P2 Size': row.p2Size,
-        'P2 Thread': row.p2Thread,
+        'Part Number':     row.partNumber,
+        'Fitting Type':    row.fittingType,
+        'P1 Size':         row.p1Size,
+        'P1 Thread':       row.p1Thread,
+        'P2 Size':         row.p2Size,
+        'P2 Thread':       row.p2Thread,
         'Pressure Rating': row.pressureRating,
-        'Material': row.material,
+        'Material':        row.material,
       },
     })
   }
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: 'pointer',
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
-        '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/high-pressure/pipe-fittings/adapters/${row.partNumber}`)}
+        sx={{
+          cursor: 'pointer',
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
+          '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -100,19 +106,25 @@ function PipeAdapterRow({ row }: { row: PipeAdapterDTO }) {
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6, fontFamily: PRIMARY_FONT }}>{row.description}</Typography>
                     <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: 'block', mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>SPECIFICATIONS</Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number" value={row.partNumber} />
-                      <Spec label="Fitting Type" value={row.fittingType} />
-                      <Spec label="P1 Size" value={row.p1Size} />
-                      <Spec label="P1 Thread" value={row.p1Thread} />
-                      <Spec label="P2 Size" value={row.p2Size} />
-                      <Spec label="P2 Thread" value={row.p2Thread} />
+                      <Spec label="Part Number"     value={row.partNumber} />
+                      <Spec label="Fitting Type"    value={row.fittingType} />
+                      <Spec label="P1 Size"         value={row.p1Size} />
+                      <Spec label="P1 Thread"       value={row.p1Thread} />
+                      <Spec label="P2 Size"         value={row.p2Size} />
+                      <Spec label="P2 Thread"       value={row.p2Thread} />
                       <Spec label="Pressure Rating" value={row.pressureRating} />
-                      <Spec label="Material" value={row.material} />
+                      <Spec label="Material"        value={row.material} />
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToCart}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" spacing={1}>
+                      <Button variant="contained" onClick={e => { e.stopPropagation(); handleAddToCart() }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined" onClick={e => { e.stopPropagation(); navigate(`/high-pressure/pipe-fittings/adapters/${row.partNumber}`) }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) }, fontFamily: PRIMARY_FONT }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>

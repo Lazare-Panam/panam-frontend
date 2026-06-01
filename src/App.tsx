@@ -138,6 +138,12 @@ import HPUnionProductPage from "./components/High_Pressure/HP_Fittings/Union/com
 import HPJunctionProductPage from "./components/High_Pressure/HP_Fittings/JunctionFittigs/components/HPJunctionProductPage"
 import HPEndFittingProductPage from "./components/High_Pressure/HP_Fittings/EndConnections/components/HPEndFittingProductPage"
 import HPSealProductPage from "./components/High_Pressure/Seals-Glands/components/HPSealProductPage"
+import PipeNippleProductPage from "./components/High_Pressure/HP_PF/Hex_Nipples/components/PipeNippleProductPage"
+import PipeCouplingProductPage from "./components/High_Pressure/HP_PF/Hex_Couplings/components/PipeCouplingProductPage"
+import PipeAdapterProductPage from "./components/High_Pressure/HP_PF/HP_Adapters/components/PipeAdapterProductPage"
+import PipeElbowProductPage from "./components/High_Pressure/HP_PF/HP_Elbows/components/PipeElbowProductPage"
+import PipeTeeCrossProductPage from "./components/High_Pressure/HP_PF/HP_Tees_Cross/components/PipeTeeCrossProductPage"
+import PipeEndFittingProductPage from "./components/High_Pressure/HP_PF/HP_End_Connection/components/PipeEndFittingProductPage"
 
 export const routes = [
   {
@@ -604,11 +610,17 @@ export const routes = [
       //pipe fittings
       { path: "/high-pressure/pipe-fittings", element: <HPPipeFittingsIndexPage/> },
       { path: "/high-pressure/pipe-fittings/hex-nipples", element: <PipeNipplePage/> },
+      { path: "/high-pressure/pipe-fittings/hex-nipples/:partNumber", element: <PipeNippleProductPage /> },
       { path: "/high-pressure/pipe-fittings/hex-couplings", element: <PipeCouplingPage/> },
+      { path: "/high-pressure/pipe-fittings/hex-couplings/:partNumber", element: <PipeCouplingProductPage /> },
       { path: "/high-pressure/pipe-fittings/adapters", element: <PipeAdapterPage/> },
+      { path: "/high-pressure/pipe-fittings/adapters/:partNumber", element: <PipeAdapterProductPage /> },
       { path: "/high-pressure/pipe-fittings/elbows", element: <PipeElbowPage/> },
+      { path: "/high-pressure/pipe-fittings/elbows/:partNumber", element: <PipeElbowProductPage /> },
       { path: "/high-pressure/pipe-fittings/tees-crosses", element: <PipeTeeCrossPage/> },
+      { path: "/high-pressure/pipe-fittings/tees-crosses/:partNumber", element: <PipeTeeCrossProductPage /> },
       { path: "/high-pressure/pipe-fittings/plugs-caps", element: <PipeEndFittingPage/> },
+      { path: "/high-pressure/pipe-fittings/plugs-caps/:partNumber", element: <PipeEndFittingProductPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
