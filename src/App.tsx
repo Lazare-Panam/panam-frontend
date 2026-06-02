@@ -146,6 +146,7 @@ import PipeEndFittingProductPage from "./components/High_Pressure/HP_PF/HP_End_C
 import IBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/IBGrid/components/IBNeedleValveProductPage"
 import HBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/HBGrid/components/HBNeedleValveProductPage"
 import SBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/SBGrid/components/SBNeedleValveProductPage"
+import MiniValveProductPage from "./components/NeedleValves/NeedleValveGrid/MiniGrid/components/MiniValveProductPage"
 
 export const routes = [
   {
@@ -498,10 +499,9 @@ export const routes = [
       { path: "/valves/needle-valves/needle-valves-hp", element: <NeedleValveHPPage /> },
       { path: "/valves/needle-valves/needle-valves-hp/:partNumber", element: <HPNeedleValveProductPage /> },
       { path: "/valves/needle-valves/needle-valves-sb", element: <NeedleValveSBPage /> },
-     
       { path: "/valves/needle-valves/needle-valves-sb/:partNumber", element: <SBNeedleValveProductPage /> },
-     
       { path: "/valves/needle-valves/needle-valves-mini", element: <MiniValvePage /> },
+      { path: "/valves/needle-valves/needle-valves-mini/:partNumber", element: <MiniValveProductPage /> },
       //ball-valves-url
       { path: "/valves/ball-valves", element: <BallValvesIndexPage /> },
       { path: "/valves/ball-valves/two-way", element: <TwoWayBallValves /> },
