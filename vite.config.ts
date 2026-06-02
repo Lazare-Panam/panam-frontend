@@ -1,6 +1,8 @@
 import { defineConfig } from "vitest/config"
 import react from "@vitejs/plugin-react"
 import sitemap from "vite-plugin-sitemap"
+import { PRODUCT_ROUTES } from "./src/productRoutes"
+
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [
     react(),
@@ -90,6 +92,7 @@ export default defineConfig(({ isSsrBuild }) => ({
         "/double-block-and-bleed-valves/pipe-to-pipe",
         "/double-block-and-bleed-valves/flange-to-pipe",
         "/double-block-and-bleed-valves/flange-to-flange",
+        ...PRODUCT_ROUTES,
       ],
     }),
   ],

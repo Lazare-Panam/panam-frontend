@@ -1,11 +1,12 @@
 import fs from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
+const { PRODUCT_ROUTES } = await import("./src/productRoutes.ts")
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Routes to prerender - skip dynamic ones like /products/:id
-const routes = [
+const staticRoutes = [
   "/",
   "/products",
   "/about",
@@ -89,6 +90,8 @@ const routes = [
   "/double-block-and-bleed-valves/flange-to-pipe",
   "/double-block-and-bleed-valves/flange-to-flange",
 ];
+const routes = [...staticRoutes, ...PRODUCT_ROUTES]
+
 const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
 
 
