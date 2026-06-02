@@ -67,7 +67,16 @@ export default function ProductDetailPage({
   const addItem  = useCartStore(s => s.addItem)
 
   return (
-    <Box sx={{ bgcolor: '#f8f9fa', minHeight: '100vh' }}>
+    <>  
+        <title>{`PANAM® ${partNumber} | ${title} | Panam Valves`}</title>
+    <meta name="description" content={`${title}. ${specs.map(s => `${s.label}: ${s.value}`).join(' · ')}.`} />
+    <meta name="keywords" content={`${partNumber}, ${specs.map(s => s.value).join(', ')}, Panam Valves, high pressure valves, SS 316`} />
+    <meta property="og:title" content={`PANAM® ${partNumber} | ${title}`} />
+    <meta property="og:description" content={`${title}. ${specs.map(s => `${s.label}: ${s.value}`).join(' · ')}.`} />
+    <meta property="og:image" content={image} />
+    <meta property="og:type" content="product" />
+    <meta name="robots" content="index, follow" />
+      <Box sx={{ bgcolor: '#f8f9fa', minHeight: '100vh' }}>
 
       {/* ── BACK BAR ── */}
       <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid rgba(0,0,0,0.07)', px: { xs: 2, md: 5 }, py: 1.5 }}>
@@ -224,6 +233,7 @@ export default function ProductDetailPage({
           </Box>
         )}
       </Box>
-    </Box>
+    </Box></>
+
   )
 }
