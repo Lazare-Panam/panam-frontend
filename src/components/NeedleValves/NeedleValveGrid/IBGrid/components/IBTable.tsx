@@ -1,9 +1,10 @@
 'use client'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
-  IconButton, Button
+  IconButton, Button,
 } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
@@ -27,19 +28,20 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function Row({ model }: { model: NeedleValveIBDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
 
   const specs: Record<string, string> = {
-    'Part Number': model.partNumber,
-    'Body Material': BODY_MATERIAL_LABELS[model.bodyMaterial] ?? model.bodyMaterial,
-    'Thread Type': model.threadType,
+    'Part Number':    model.partNumber,
+    'Body Material':  BODY_MATERIAL_LABELS[model.bodyMaterial] ?? model.bodyMaterial,
+    'Thread Type':    model.threadType,
     'End Connection': END_CONNECTION_LABELS[model.endConnection] ?? model.endConnection,
     'Connection Size': model.connectionSize,
-    'Configuration': model.configuration,
-    'Stem Seal': model.stemSeal,
-    'Step Tip': model.stepTip,
-    'Handle': model.handle,
-    'Options': model.options,
+    'Configuration':  model.configuration,
+    'Stem Seal':      model.stemSeal,
+    'Step Tip':       model.stepTip,
+    'Handle':         model.handle,
+    'Options':        model.options,
   }
 
   const handleAddToQuote = () => addItem({
@@ -54,11 +56,15 @@ function Row({ model }: { model: NeedleValveIBDTO }) {
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: 'pointer',
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
-        '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/valves/needle-valves/needle-valves-ib/${model.partNumber}`, { state: { model } })}
+        sx={{
+          cursor: 'pointer',
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
+          '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -109,10 +115,16 @@ function Row({ model }: { model: NeedleValveIBDTO }) {
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       {Object.entries(specs).map(([k, val]) => <Spec key={k} label={k} value={val} />)}
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" spacing={1}>
+                      <Button variant="contained" onClick={e => { e.stopPropagation(); handleAddToQuote() }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined" onClick={e => { e.stopPropagation(); navigate(`/valves/needle-valves/needle-valves-ib/${model.partNumber}`, { state: { model } }) }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -174,7 +186,7 @@ export default function IBTable({ models, isFetching }: { models: NeedleValveIBD
                 { key: 'bodyMaterial' as SortKey,  label: 'Material' },
                 { key: 'threadType' as SortKey,    label: 'Thread' },
                 { key: 'endConnection' as SortKey, label: 'End Connection' },
-                { key: 'connectionSize' as SortKey,label: 'Size' },
+                { key: 'connectionSize' as SortKey, label: 'Size' },
                 { key: 'configuration' as SortKey, label: 'Config' },
                 { key: 'stemSeal' as SortKey,      label: 'Stem Seal' },
                 { key: null,                        label: 'Step Tip' },

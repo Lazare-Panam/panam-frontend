@@ -1,5 +1,4 @@
 import { lazy, Suspense } from "react"
-
 const LoadingScreen = lazy(() => import("./components/Loading/LoadingScreen"))
 const ErrorPage = lazy(() => import("./components/Error/ErrorPage"))
 const Layout = lazy(() => import("./Layout"))
@@ -144,6 +143,9 @@ import PipeAdapterProductPage from "./components/High_Pressure/HP_PF/HP_Adapters
 import PipeElbowProductPage from "./components/High_Pressure/HP_PF/HP_Elbows/components/PipeElbowProductPage"
 import PipeTeeCrossProductPage from "./components/High_Pressure/HP_PF/HP_Tees_Cross/components/PipeTeeCrossProductPage"
 import PipeEndFittingProductPage from "./components/High_Pressure/HP_PF/HP_End_Connection/components/PipeEndFittingProductPage"
+import IBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/IBGrid/components/IBNeedleValveProductPage"
+import HBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/HBGrid/components/HBNeedleValveProductPage"
+import SBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/SBGrid/components/SBNeedleValveProductPage"
 
 export const routes = [
   {
@@ -490,9 +492,15 @@ export const routes = [
       //needle-valves-url
       { path: "/valves/needle-valves", element: <NeedleValvesPage /> },
       { path: "/valves/needle-valves/needle-valves-ib", element: <NeedleValveIBPage /> },
+      { path: "/valves/needle-valves/needle-valves-ib/:partNumber", element: <IBNeedleValveProductPage /> },
       { path: "/valves/needle-valves/needle-valves-hb", element: <NeedleValveHBPage /> },
+      { path: "/valves/needle-valves/needle-valves-hb/:partNumber", element: <HBNeedleValveProductPage /> },
       { path: "/valves/needle-valves/needle-valves-hp", element: <NeedleValveHPPage /> },
+      { path: "/valves/needle-valves/needle-valves-hp/:partNumber", element: <HPNeedleValveProductPage /> },
       { path: "/valves/needle-valves/needle-valves-sb", element: <NeedleValveSBPage /> },
+     
+      { path: "/valves/needle-valves/needle-valves-sb/:partNumber", element: <SBNeedleValveProductPage /> },
+     
       { path: "/valves/needle-valves/needle-valves-mini", element: <MiniValvePage /> },
       //ball-valves-url
       { path: "/valves/ball-valves", element: <BallValvesIndexPage /> },

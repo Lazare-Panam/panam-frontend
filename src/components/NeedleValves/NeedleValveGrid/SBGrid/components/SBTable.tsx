@@ -1,18 +1,16 @@
 'use client'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
-  IconButton, Button
+  IconButton, Button,
 } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useCartStore } from '../../../../store/useCartStore'
-import {
-  BODY_MATERIAL_LABELS, END_CONNECTION_LABELS,
-  VALVE_TYPE_LABELS, SB_SEAT_LABELS,
-} from '../../hooks/types'
+import { BODY_MATERIAL_LABELS, END_CONNECTION_LABELS, VALVE_TYPE_LABELS, SB_SEAT_LABELS } from '../../hooks/types'
 import { type NeedleValveSBDTO } from '../../../../../api/needleValveApi'
 
 const BRAND_BLUE = '#01B0F0'
@@ -30,18 +28,19 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function Row({ model }: { model: NeedleValveSBDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
 
   const specs: Record<string, string> = {
-    'Part Number': model.partNumber,
-    'Valve Type': VALVE_TYPE_LABELS[model.valveType] ?? model.valveType,
-    'Seat': SB_SEAT_LABELS[model.seat] ?? model.seat,
-    'Body Material': BODY_MATERIAL_LABELS[model.bodyMaterial] ?? model.bodyMaterial,
-    'Thread Type': model.threadType,
-    'End Connection': END_CONNECTION_LABELS[model.endConnection] ?? model.endConnection,
-    'Connection Size': model.connectionSize,
+    'Part Number':      model.partNumber,
+    'Valve Type':       VALVE_TYPE_LABELS[model.valveType] ?? model.valveType,
+    'Seat':             SB_SEAT_LABELS[model.seat] ?? model.seat,
+    'Body Material':    BODY_MATERIAL_LABELS[model.bodyMaterial] ?? model.bodyMaterial,
+    'Thread Type':      model.threadType,
+    'End Connection':   END_CONNECTION_LABELS[model.endConnection] ?? model.endConnection,
+    'Connection Size':  model.connectionSize,
     'Working Pressure': model.workingPressure,
-    'Options': model.options,
+    'Options':          model.options,
   }
 
   const handleAddToQuote = () => addItem({
@@ -59,11 +58,15 @@ function Row({ model }: { model: NeedleValveSBDTO }) {
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: 'pointer',
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
-        '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/valves/needle-valves/needle-valves-sb/${model.partNumber}`, { state: { model } })}
+        sx={{
+          cursor: 'pointer',
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
+          '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -117,10 +120,16 @@ function Row({ model }: { model: NeedleValveSBDTO }) {
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       {Object.entries(specs).map(([k, val]) => <Spec key={k} label={k} value={val} />)}
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" spacing={1}>
+                      <Button variant="contained" onClick={e => { e.stopPropagation(); handleAddToQuote() }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined" onClick={e => { e.stopPropagation(); navigate(`/valves/needle-valves/needle-valves-sb/${model.partNumber}`, { state: { model } }) }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
