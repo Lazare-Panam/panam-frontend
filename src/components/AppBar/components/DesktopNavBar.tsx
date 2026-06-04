@@ -1,6 +1,6 @@
 import { Box, Container, Toolbar, Stack, Fade } from "@mui/material"
 import { useNavigate } from "react-router-dom"
-//import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar"
 import { NavLink } from "./NavLink"
 import { ActionStack } from "./ActionStack"
 import { NAV_LINKS } from "../components/config"
@@ -36,16 +36,16 @@ const DesktopNavbar = (props: any) => {
               ))}
             </Stack>
           </Fade>
-          {/* <SearchBar
+          <SearchBar
             isSearchOpen={isSearchOpen}
             onClose={() => setIsSearchOpen(false)}
-          /> */}
+          />
         </Box>
 
         {!isSearchOpen && <AccreditationStack />}
 
         <ActionStack
-          //isSearchOpen={isSearchOpen}
+          isSearchOpen={isSearchOpen}
           setIsSearchOpen={setIsSearchOpen}
           cartCount={cartCount}
           setOpenDrawer={setOpenDrawer}

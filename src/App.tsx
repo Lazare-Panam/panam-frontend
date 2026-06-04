@@ -29,8 +29,8 @@ const CheckValveBlog = lazy(() => import("./components/News/components/CheckValv
 const AdminLogin = lazy(() => import("./components/Admin/components/AdminLogin"))
 const AdminDashboard = lazy(() => import("./components/Admin/components/AdminDashboard"))
 const HydrogenValvesBlog = lazy(() => import("./components/News/components/HydrogenBlog"))
-const SearchResults = lazy(() => import("./components/SearchResults/SearchResults"))
-const PartNumberDetail = lazy(() => import("./components/ProductDetail/PartNumberDetail"))
+
+
 const SwivelGaugeAdaptersBlog = lazy(() => import("./components/News/components/SwivelGaugeBlog"))
 const ResourcesPage = lazy(() => import("./components/Resources/ResourcesPage"))
 const CertificationsPage = lazy(() => import("./components/Resources/components/Certifications"))
@@ -147,6 +147,7 @@ import IBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/
 import HBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/HBGrid/components/HBNeedleValveProductPage"
 import SBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/SBGrid/components/SBNeedleValveProductPage"
 import MiniValveProductPage from "./components/NeedleValves/NeedleValveGrid/MiniGrid/components/MiniValveProductPage"
+import SearchPage from "./components/SearchResults/SearchPage"
 
 export const routes = [
   {
@@ -444,23 +445,7 @@ export const routes = [
           </Suspense>
         ),
       },
-      {
-        path: "search/results",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <SearchResults />
-          </Suspense>
-        ),
-      },
-      {
-        path: "partNumber/:partNumber",
-        element: (
-          <Suspense fallback={<LoadingScreen />}>
-            <PartNumberDetail />
-          </Suspense>
-        ),
-      },
-
+      { path: "/search", element: <SearchPage /> },
       {
         path: "resources",
         element: (
