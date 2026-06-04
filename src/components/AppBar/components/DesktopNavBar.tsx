@@ -1,4 +1,4 @@
-import { Box, Container, Toolbar, Stack, Fade } from "@mui/material"
+import { Box, Container, Toolbar, Stack } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import SearchBar from "./SearchBar"
 import { NavLink } from "./NavLink"
@@ -8,50 +8,45 @@ import AccreditationStack from "./AccredationStack"
 
 const DesktopNavbar = (props: any) => {
   const navigate = useNavigate()
-  const { isSearchOpen, megaMenuOpen, handleMouseEnter, cartCount, setOpenDrawer, setIsSearchOpen } = props
+  const { megaMenuOpen, handleMouseEnter, cartCount, setOpenDrawer } = props
 
   const LOGO_URL = "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg"
 
   return (
-    <Container maxWidth="xl">
-      <Toolbar disableGutters sx={{ height: 90, justifyContent: "space-between" }}>
-        <Box onClick={() => navigate("/")} sx={{ cursor: "pointer", zIndex: 10, display: "flex", alignItems: "center", flexShrink: 0 }}>
-          <Box component="img" src={LOGO_URL} alt="Logo featuring a stylized blue letter ‘P’ inside a square outline, followed by the word ‘PANAM’ in bold blue uppercase letters. Beneath it, the tagline ‘Engineering Beyond Limits’ appears in smaller grey uppercase text." sx={{ height: 70, width: "auto", objectFit: "contain" }} />
-        </Box>
+    <Box sx={{ position: 'relative' }}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters sx={{ height: 90, justifyContent: "space-between" }}>
+          
+          <Box onClick={() => navigate("/")} sx={{ cursor: "pointer", zIndex: 10, display: "flex", alignItems: "center", flexShrink: 0 }}>
+            <Box component="img" src={LOGO_URL} alt="Panam logo" sx={{ height: 70, width: "auto", objectFit: "contain" }} />
+          </Box>
 
-        <Box
-          sx={{
-            flexGrow: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-start",
-            position: "relative",
-            height: "100%",
-            mx: 2,
-          }}>
-          <Fade in={!isSearchOpen} timeout={400} unmountOnExit>
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", mx: 2 }}>
             <Stack direction="row" spacing={1} sx={{ display: { xs: "none", md: "flex" } }}>
               {NAV_LINKS.map(item => (
-                <NavLink key={item.id} item={item} isOpen={megaMenuOpen === item.id} onHover={() => item.hasMenu && handleMouseEnter(item.id)} onClick={() => navigate(item.path)} />
+                <NavLink
+                  key={item.id}
+                  item={item}
+                  isOpen={megaMenuOpen === item.id}
+                  onHover={() => item.hasMenu && handleMouseEnter(item.id)}
+                  onClick={() => navigate(item.path)}
+                />
               ))}
             </Stack>
-          </Fade>
-          <SearchBar
-            isSearchOpen={isSearchOpen}
-            onClose={() => setIsSearchOpen(false)}
+          </Box>
+
+          <AccreditationStack />
+
+          <ActionStack
+            cartCount={cartCount}
+            setOpenDrawer={setOpenDrawer}
           />
-        </Box>
+        </Toolbar>
+      </Container>
 
-        {!isSearchOpen && <AccreditationStack />}
-
-        <ActionStack
-          isSearchOpen={isSearchOpen}
-          setIsSearchOpen={setIsSearchOpen}
-          cartCount={cartCount}
-          setOpenDrawer={setOpenDrawer}
-        />
-      </Toolbar>
-    </Container>
+      {/* Always visible search bar */}
+      <SearchBar />
+    </Box>
   )
 }
 
