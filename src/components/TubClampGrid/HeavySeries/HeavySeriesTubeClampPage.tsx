@@ -243,6 +243,14 @@ export default function HeavySeriesTubeClampPage() {
   const sidebar = <Sidebar filters={filters} setFilters={setFilters} activeCount={activeCount} />
 
   return (
+    <>
+          <title>Heavy Series Tube Clamps | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® Heavy Series Tube Clamps — DIN Groups 1 to 10, 6mm to 219mm OD, M10 to M30 bolts, PP jaws included. Each set includes top plate, bottom plate, 2 hex bolts (4.6 Grade), and PP jaws. Request a quote." />
+      <meta name="keywords" content="heavy series tube clamps, DIN tube clamps, large bore pipe clamps, heavy duty instrumentation clamps, PP jaw clamps" />
+      <meta property="og:title" content="Heavy Series Tube Clamps | PANAM® Instrumentation" />
+      <meta property="og:description" content="Heavy duty tube clamps in DIN Groups 1 to 10. 6mm to 219mm OD, M10 to M30 bolts, PP jaws included." />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
@@ -334,5 +342,7 @@ export default function HeavySeriesTubeClampPage() {
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
     </Box>
+    </>
+
   )
 }

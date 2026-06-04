@@ -154,6 +154,16 @@ const DBBCard: React.FC<DBBItem> = ({ title, description, image, pressure, mater
 
 export default function DBBIndexPage() {
   return (
+    <>  
+      <title>Double Block & Bleed Valves | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® DBB Valves — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe. SS316, ANSI 150–2500 Class, NACE MR-0175 certified." />
+      <meta name="keywords" content="double block bleed valve, DBB valve, instrument isolation valve, NACE valve, SS316 valve" />
+      <meta property="og:title" content="Double Block & Bleed Valves | PANAM® Instrumentation" />
+      <meta property="og:description" content="Three connection families. One standard. PANAM® DBB Valves for primary isolation, transmitter mounting, and process bleed." />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/DBB/dbb-cover.jpg" />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
+
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
       {/* ── HERO ── */}
       <Box
@@ -442,5 +452,7 @@ export default function DBBIndexPage() {
         </Box>
       </Container>
     </Box>
+    </>
+
   )
 }

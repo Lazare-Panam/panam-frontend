@@ -139,7 +139,16 @@ const FilterCard: React.FC<FilterItem> = ({ type, title, description, image, pre
 
 export default function FiltersIndexPage() {
   return (
-    <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
+    <>
+          <title>Instrumentation Filters | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® Instrumentation Filters — T-Type and In-Line configurations, SS316, sintered and mesh elements 0.5 to 440 micron, tested to 1000 psi. 3mm to 12mm tube, 1/8 to 1/2 inch thread. 624+ configurations. Request a quote." />
+      <meta name="keywords" content="instrumentation filters, inline filters, T-type filters, SS316 filters, sintered filter elements, high pressure filters, PTF PIF filters" />
+      <meta property="og:title" content="Instrumentation Filters | PANAM® Instrumentation" />
+      <meta property="og:description" content="Two filter families, one standard. PANAM® T-Type and In-Line Filters in SS316, 0.5 to 440 micron, tested to 1000 psi." />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/filters/filters-hero.jpg" />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
+        <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
       {/* ── HERO ── */}
       <Box
         sx={{
@@ -298,6 +307,7 @@ export default function FiltersIndexPage() {
           </Box>
         </Box>
       </Container>
-    </Box>
+    </Box></>
+
   )
 }

@@ -241,7 +241,15 @@ export default function HeavySeriesDoubleLayerPage() {
   const sidebar = <Sidebar filters={filters} setFilters={setFilters} activeCount={activeCount} />
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
+    <>
+          <title>Heavy Series Double Layer Tube Clamps | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® Heavy Series Double Layer Tube Clamps DIN 3015 — DIN Groups 1 to 8, 6mm to 219mm OD, M10 to M30 bolts, 2 sets PP jaws included. Each set includes top plate, bottom plate, locking plate, 2 stacking bolts, 2 hex bolts, and 2 sets PP jaws. Request a quote." />
+      <meta name="keywords" content="heavy series double layer tube clamps, DIN 3015 tube clamps, stacking pipe clamps, heavy duty instrumentation clamps, DIN 3015 Part 2" />
+      <meta property="og:title" content="Heavy Series Double Layer Tube Clamps | PANAM® Instrumentation" />
+      <meta property="og:description" content="Heavy series double layer tube clamps DIN 3015, Groups 1 to 8. 6mm to 219mm OD, M10 to M30 bolts, PP jaws included." />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
+       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           Heavy Series Double Layer Tube Clamps
@@ -332,6 +340,7 @@ export default function HeavySeriesDoubleLayerPage() {
 
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
-    </Box>
+    </Box></>
+   
   )
 }

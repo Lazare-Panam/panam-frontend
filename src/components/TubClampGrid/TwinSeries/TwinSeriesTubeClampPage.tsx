@@ -235,6 +235,14 @@ export default function TwinSeriesTubeClampPage() {
   const sidebar = <Sidebar filters={filters} setFilters={setFilters} activeCount={activeCount} />
 
   return (
+    <>
+         <title>Twin Series Tube Clamps | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® Twin Series Tube Clamps — DIN Groups 1 to 5, 6mm to 42mm OD, M6 and M8 bolts, PP jaws included. Each set includes top plate, bottom plate, hex bolt, and PP jaws. Request a quote." />
+      <meta name="keywords" content="twin series tube clamps, DIN tube clamps, instrumentation tube clamps, pipe clamps DIN, PP jaw clamps" />
+      <meta property="og:title" content="Twin Series Tube Clamps | PANAM® Instrumentation" />
+      <meta property="og:description" content="Precision tube clamps in DIN Groups 1 to 5. 6mm to 42mm OD, M6 and M8 bolts, PP jaws included." />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
@@ -324,5 +332,7 @@ export default function TwinSeriesTubeClampPage() {
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
     </Box>
+    </>
+
   )
 }

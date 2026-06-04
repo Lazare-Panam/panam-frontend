@@ -104,6 +104,14 @@ export default function Manifolds5VMPage() {
   )
 
   return (
+    <>
+          <title>5-Valve Manifolds | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® 5-Valve Manifolds — multiple connection types, mountings, and drain hole sizes. NACE MR-0175 and fire-safe options available. Configure and request a quote within 24 hours." />
+      <meta name="keywords" content="5 valve manifold, five valve manifold, instrument manifold, DP transmitter manifold, NACE manifold, SS316 manifold" />
+      <meta property="og:title" content="5-Valve Manifolds | PANAM® Instrumentation" />
+      <meta property="og:description" content="Configure PANAM® 5-Valve Manifolds by connection type, mounting, drain hole size, and special service." />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
@@ -150,5 +158,7 @@ export default function Manifolds5VMPage() {
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
     </Box>
+    </>
+
   )
 }

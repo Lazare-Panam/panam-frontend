@@ -23,6 +23,14 @@ export default function JICFittingPage({ defaultFittingTypes }: { defaultFitting
   const activeCount = Object.values(filters).reduce((acc, v) => acc + v.length, 0)
 
   return (
+    <>
+          <title>37° Flared JIC Fittings | PANAM® Instrumentation</title>
+     <meta name="description" content="PANAM® 37° JIC Male and Female Connectors — SS316, NPT, BSPT, BSPP, SAE/MS and Metric threads, 1/8 to 2 inch. Request a quote." />
+      <meta name="keywords" content="JIC fittings, 37 degree flare fittings, SS316 JIC, NPT BSPP BSPT fittings, instrumentation tube fittings" />
+      <meta property="og:title" content="37° Flared JIC Fittings | PANAM® Instrumentation" />
+      <meta property="og:description" content="Configure PANAM® 37° JIC Fittings by type, thread standard, and size. SS316 construction, full range of connectors, unions, elbows, tees and adapters." />
+      <meta property="og:type" content="product" />
+       <meta name="twitter:card" content="summary_large_image" />
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
@@ -79,5 +87,7 @@ export default function JICFittingPage({ defaultFittingTypes }: { defaultFitting
         </Drawer>
       </Box>
     </Box>
+    </>
+
   )
 }

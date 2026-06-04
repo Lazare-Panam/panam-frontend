@@ -45,6 +45,15 @@ export default function SwivelGaugeAdaptorsPage() {
   )
 
   return (
+    <>
+      <title>Swivel Gauge Adaptors | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® Swivel Gauge Adaptors — SS316, NPT and BSPP thread options. Configure by type, inlet, and outlet. Request a quote within 24 hours." />
+      <meta name="keywords" content="swivel gauge adaptors, gauge adaptors, instrumentation fittings, SS316 gauge adaptors, NPT BSPP gauge adaptors" />
+      <meta property="og:title" content="Swivel Gauge Adaptors | PANAM® Instrumentation" />
+      <meta property="og:description" content="Configure PANAM® Swivel Gauge Adaptors by type, inlet, and outlet thread standard." />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
+
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
 
       {/* HEADER */}
@@ -105,6 +114,7 @@ export default function SwivelGaugeAdaptorsPage() {
           {sidebar}
         </Drawer>
       </Box>
-    </Box>
+    </Box></>
+
   )
 }

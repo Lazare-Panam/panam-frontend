@@ -243,6 +243,14 @@ export default function SingleLayerTubeClampPage() {
   const sidebar = <Sidebar filters={filters} setFilters={setFilters} activeCount={activeCount} />
 
   return (
+    <>
+          <title>Single Layer Tube Clamps | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® Single Layer Tube Clamps — DIN Groups 1 to 10, 6mm to 42mm OD, M6 bolts, PP jaws included. Each set includes top plate, bottom plate, 2 hex bolts, and PP jaws. Request a quote." />
+      <meta name="keywords" content="single layer tube clamps, DIN tube clamps, instrumentation tube clamps, pipe clamps DIN, PP jaw clamps" />
+      <meta property="og:title" content="Single Layer Tube Clamps | PANAM® Instrumentation" />
+      <meta property="og:description" content="Precision single layer tube clamps in DIN Groups 1 to 10. 6mm to 42mm OD, M6 bolts, PP jaws included." />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
@@ -333,6 +341,7 @@ export default function SingleLayerTubeClampPage() {
 
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
-    </Box>
+    </Box></>
+
   )
 }

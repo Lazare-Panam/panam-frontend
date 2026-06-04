@@ -77,6 +77,14 @@ export default function PIFFiltersPage() {
   )
 
   return (
+    <>
+          <title>In-Line Filters (PIF) | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® PIF In-Line Filters — SS316, sintered and mesh elements 0.5 to 440 micron, tested to 1000 psi. Series IA, IB, IC, ID. 3mm to 12mm tube, 1/8 to 1/2 inch thread. Request a quote." />
+      <meta name="keywords" content="inline filters, PIF filters, instrumentation filters, SS316 filters, sintered filter elements, high pressure filters" />
+      <meta property="og:title" content="In-Line Filters (PIF) | PANAM® Instrumentation" />
+      <meta property="og:description" content="Configure PANAM® PIF In-Line Filters by series, thread standard, pore size, and end connection. SS316, tested to 1000 psi." />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
@@ -122,6 +130,7 @@ export default function PIFFiltersPage() {
 
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
-    </Box>
+    </Box></>
+
   )
 }

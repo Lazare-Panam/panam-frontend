@@ -123,6 +123,15 @@ export default function PipexPipeDBB() {
   )
 
   return (
+    <>
+      <title>DBB Pipe-to-Pipe Valves | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® DBB Pipe-to-Pipe valves — NPT, BSPP, and BSPT thread forms, SS316, NACE MR-0175 certified. Compact instrument isolation and process bleed. Configure and request a quote." />
+      <meta name="keywords" content="DBB pipe to pipe valve, double block bleed valve, threaded instrument isolation valve, NPT BSPP BSPT valve, NACE SS316 valve" />
+      <meta property="og:title" content="DBB Pipe-to-Pipe Valves | PANAM® Instrumentation" />
+      <meta property="og:description" content="Configure PANAM® DBB Pipe-to-Pipe valves by thread type, bore size, configuration, and special service." />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg" />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
@@ -168,6 +177,7 @@ export default function PipexPipeDBB() {
 
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
-    </Box>
+    </Box></>
+
   )
 }

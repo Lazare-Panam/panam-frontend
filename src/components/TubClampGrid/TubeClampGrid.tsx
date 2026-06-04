@@ -139,6 +139,15 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 
 export default function TubeClampIndexPage() {
   return (
+    <>
+          <title>Tube Clamps | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® Tube Clamps — Twin, Single Layer, Double Layer, Heavy Single and Heavy Double series. DIN Groups 1 to 10, 4mm to 219mm pipe OD, M6 to M30 bolts, PP jaws included. Request a quote." />
+      <meta name="keywords" content="tube clamps, DIN tube clamps, instrumentation pipe clamps, twin series clamps, heavy series tube clamps, DIN 3015" />
+      <meta property="og:title" content="Tube Clamps | PANAM® Instrumentation" />
+      <meta property="og:description" content="Five series of tube clamps from one source. DIN Groups 1 to 10, 4mm to 219mm OD, complete sets supplied as standard." />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/tube-clamps-hero.jpg" />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
     <Box sx={{ bgcolor: '#fff', minHeight: '100vh' }}>
 
       {/* HERO */}
@@ -369,5 +378,7 @@ export default function TubeClampIndexPage() {
         </Box>
       </Container>
     </Box>
+    </>
+
   )
 }

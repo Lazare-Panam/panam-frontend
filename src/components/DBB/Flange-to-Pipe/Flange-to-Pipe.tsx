@@ -139,7 +139,16 @@ const sealMaterialOptions = useMemo(
   )
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
+    <>
+      <title>DBB Flange-to-Pipe Valves | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® DBB Flange-to-Pipe valves — Integral and Three Piece construction, ANSI 150–2500 Class, SS316, NACE MR-0175 certified. Configure and request a quote." />
+      <meta name="keywords" content="DBB flange to pipe valve, double block bleed valve, instrument isolation valve, NACE valve, SS316 instrumentation valve" />
+      <meta property="og:title" content="DBB Flange-to-Pipe Valves | PANAM® Instrumentation" />
+      <meta property="og:description" content="Configure PANAM® DBB Flange-to-Pipe valves by construction, pressure class, bore size, and special service." />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxp.jpg" />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
           {DBB_DESCRIPTION.title}
@@ -185,5 +194,7 @@ const sealMaterialOptions = useMemo(
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
     </Box>
+    </>
+
   )
 }

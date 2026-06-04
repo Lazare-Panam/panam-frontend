@@ -128,6 +128,14 @@ export default function TwoVMManifoldsPage() {
   )
 
   return (
+    <>
+          <title>2-Valve Manifolds | PANAM® Instrumentation</title>
+      <meta name="description" content="PANAM® 2-Valve Manifolds — SS316, CS, Monel, Hastelloy, Duplex and Super Duplex. Multiple connection types, mountings, and configurations. NACE MR-0175 and fire-safe options. Request a quote." />
+      <meta name="keywords" content="2 valve manifold, two valve manifold, instrument manifold, SS316 manifold, NACE manifold, DP transmitter manifold" />
+      <meta property="og:title" content="2-Valve Manifolds | PANAM® Instrumentation" />
+      <meta property="og:description" content="Configure PANAM® 2-Valve Manifolds by material, connection type, mounting, and special service." />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:card" content="summary_large_image" />
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
@@ -173,6 +181,7 @@ export default function TwoVMManifoldsPage() {
 
         <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       </Box>
-    </Box>
+    </Box></>
+
   )
 }
