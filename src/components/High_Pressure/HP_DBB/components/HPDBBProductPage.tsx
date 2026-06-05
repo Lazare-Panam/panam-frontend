@@ -32,7 +32,7 @@ export default function HPDBBProductPage() {
       partNumber: r.partNumber,
       label: `${r.inletOutletSize} — ${r.inletOutletType}`,
       image: r.imageUrl,
-      href: `/high-pressure/dbb/${r.partNumber}`,
+      href: `/high-pressure/double-block-and-valves/${r.partNumber}`,
       chipLabel: r.pressureRating,
       chipColor: PRESSURE_COLORS[r.pressurePsi] ?? '#01B0F0',
     }))

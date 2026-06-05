@@ -58,7 +58,7 @@ function HPDBBRow({ row }: { row: HPDBBValveDTO }) {
     <>
       <TableRow
         hover
-        onClick={() => navigate(`/high-pressure/dbb/${row.partNumber}`)}
+        onClick={() => navigate(`/high-pressure/double-block-and-valves/${row.partNumber}`)}
         sx={{
           cursor: 'pointer',
           bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
@@ -116,7 +116,7 @@ function HPDBBRow({ row }: { row: HPDBBValveDTO }) {
                         sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
                         Add to Quote
                       </Button>
-                      <Button variant="outlined" onClick={e => { e.stopPropagation(); navigate(`/high-pressure/dbb/${row.partNumber}`) }}
+                      <Button variant="outlined" onClick={e => { e.stopPropagation(); navigate(`/high-pressure/double-block-and-bleed/${row.partNumber}`) }}
                         sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) }, fontFamily: PRIMARY_FONT }}>
                         View Full Page
                       </Button>

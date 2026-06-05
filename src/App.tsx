@@ -30,7 +30,6 @@ const AdminLogin = lazy(() => import("./components/Admin/components/AdminLogin")
 const AdminDashboard = lazy(() => import("./components/Admin/components/AdminDashboard"))
 const HydrogenValvesBlog = lazy(() => import("./components/News/components/HydrogenBlog"))
 
-
 const SwivelGaugeAdaptersBlog = lazy(() => import("./components/News/components/SwivelGaugeBlog"))
 const ResourcesPage = lazy(() => import("./components/Resources/ResourcesPage"))
 const CertificationsPage = lazy(() => import("./components/Resources/components/Certifications"))
@@ -47,16 +46,16 @@ import MiniValvePage from "./components/NeedleValves/NeedleValveGrid/MiniGrid/Mi
 import ValvesPage from "./components/Valves/Valve"
 import PCVPage from "./components/CheckValvesGrid/CheckValves"
 import ReliefValvePage from "./components/ReliefValvesGrid/ReliefValvesGrid"
-import ConnectorElbowPage from "./components/TubeFittingsGrid/TubeFittingsGrid"
-import UnionPage from "./components/UnionGrid/UnionPage"
+import ConnectorElbowPage from "./components/ProductGrids/TubeFittingsGrids/ConnectorElbowsGrid/ConnectorElbowPage"
+import UnionPage from "./components/ProductGrids/TubeFittingsGrids/UnionGrid/UnionPage"
 import FittingsPage from "./components/Fittings/Fittings"
 import TubeFittingsPage from "./components/Fittings/TubeFittingsPage"
-import ReducerPage from "./components/ReducerGrid/ReducerGrid"
-import AdapterPage from "./components/AdapterGrid/AdapaterGridPage"
-import PortConnectorPage from "./components/PortConnectorGrid/PortConnector"
-import WeldGaugeConnectorPage from "./components/WeldConnectorGrid/WeldConnectorGrid"
-import AccessoryPage from "./components/AccessoriesGrid/AccessoryPage"
-import DielectricGasketPage from "./components/DieElectricGrid/DieElectricPage"
+import ReducerPage from "./components/ProductGrids/TubeFittingsGrids/ReducerGrid/ReducerGrid"
+import AdapterPage from "./components/ProductGrids/TubeFittingsGrids/AdapterGrid/AdapaterGridPage"
+import PortConnectorPage from "./components/ProductGrids/TubeFittingsGrids/PortConnectorGrid/PortConnector"
+import WeldGaugeConnectorPage from "./components/ProductGrids/TubeFittingsGrids/WeldConnectorGrid/WeldConnectorGrid"
+import AccessoryPage from "./components/ProductGrids/TubeFittingsGrids/AccessoriesGrid/AccessoryPage"
+import DielectricGasketPage from "./components/ProductGrids/TubeFittingsGrids/DieElectricGrid/DieElectricPage"
 import NipplesCouplings from "./PipeFittings/pages/PipeFittingsNipplesCouplings"
 import Elbows from "./PipeFittings/pages/Elbows"
 import UnionsConnectors from "./PipeFittings/pages/UnionsConnectors"
@@ -148,6 +147,15 @@ import HBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/
 import SBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/SBGrid/components/SBNeedleValveProductPage"
 import MiniValveProductPage from "./components/NeedleValves/NeedleValveGrid/MiniGrid/components/MiniValveProductPage"
 import SearchPage from "./components/SearchResults/SearchPage"
+import ConnectorElbowProductPage from "./components/ProductGrids/TubeFittingsGrids/ConnectorElbowsGrid/components/ConnectorElbowProductPage"
+import UnionProductPage from "./components/ProductGrids/TubeFittingsGrids/UnionGrid/components/UnionProductPage"
+import ReducerProductPage from "./components/ProductGrids/TubeFittingsGrids/ReducerGrid/components/ReducerProductPage"
+import AdapterProductPage from "./components/ProductGrids/TubeFittingsGrids/AdapterGrid/components/AdapterProductPage"
+import PortConnectorProductPage from "./components/ProductGrids/TubeFittingsGrids/PortConnectorGrid/PortConnectorProductPage"
+import WeldGaugeProductPage from "./components/ProductGrids/TubeFittingsGrids/WeldConnectorGrid/WeldGaugeProductPage"
+import AccessoryProductPage from "./components/ProductGrids/TubeFittingsGrids/AccessoriesGrid/AccessoryProductPage"
+import DielectricProductPage from "./components/ProductGrids/TubeFittingsGrids/DieElectricGrid/DielectricProductPage"
+import GasketProductPage from "./components/ProductGrids/TubeFittingsGrids/DieElectricGrid/GasketProductPage"
 
 export const routes = [
   {
@@ -470,7 +478,6 @@ export const routes = [
           </Suspense>
         ),
       },
-     
 
       //valves-url
       { path: "/valves", element: <ValvesPage /> },
@@ -500,13 +507,22 @@ export const routes = [
       //Tube Fittings
       { path: "/instrumentation-fittings/tube-fittings", element: <TubeFittingsPage /> },
       { path: "/instrumentation-fittings/tube-fittings/connectors", element: <ConnectorElbowPage /> },
+      { path: "/instrumentation-fittings/tube-fittings/connectors/:partNumber", element: <ConnectorElbowProductPage /> },
       { path: "/instrumentation-fittings/tube-fittings/union", element: <UnionPage /> },
+      { path: "/instrumentation-fittings/tube-fittings/union/:partNumber", element: <UnionProductPage /> },
       { path: "/instrumentation-fittings/tube-fittings/reducer", element: <ReducerPage /> },
+      { path: "/instrumentation-fittings/tube-fittings/reducer/:partNumber", element: <ReducerProductPage /> },
       { path: "/instrumentation-fittings/tube-fittings/adapter", element: <AdapterPage /> },
+      { path: "/instrumentation-fittings/tube-fittings/adapter/:partNumber", element: <AdapterProductPage /> },
       { path: "/instrumentation-fittings/tube-fittings/port-connector", element: <PortConnectorPage /> },
+      { path: "/instrumentation-fittings/tube-fittings/port-connector/:partNumber", element: <PortConnectorProductPage /> },
       { path: "/instrumentation-fittings/tube-fittings/weld-gauge", element: <WeldGaugeConnectorPage /> },
+      { path: "/instrumentation-fittings/tube-fittings/weld-gauge/:partNumber", element: <WeldGaugeProductPage /> },
       { path: "/instrumentation-fittings/tube-fittings/accessories", element: <AccessoryPage /> },
+      { path: "/instrumentation-fittings/tube-fittings/accessories/:partNumber", element: <AccessoryProductPage /> },
       { path: "/instrumentation-fittings/tube-fittings/die-electric", element: <DielectricGasketPage /> },
+      { path: "/instrumentation-fittings/tube-fittings/die-electric/:partNumber", element: <DielectricProductPage /> },
+      { path: "/instrumentation-fittings/tube-fittings/die-electric/gasket/:partNumber", element: <GasketProductPage /> },
 
       //Jic
       { path: "/instrumentation-fittings/jic-fittings", element: <JICFittingsIndexPage /> },
@@ -562,57 +578,55 @@ export const routes = [
       { path: "/manifolds", element: <ManifoldsIndexPage /> },
 
       //double block and bleed valves
-       { path: "/double-block-and-bleed-valves/pipe-to-pipe", element: <PipexPipeDBB /> },
+      { path: "/double-block-and-bleed-valves/pipe-to-pipe", element: <PipexPipeDBB /> },
       { path: "/double-block-and-bleed-valves/flange-to-pipe", element: <FlangexPipeDBB /> },
       { path: "/double-block-and-bleed-valves/flange-to-flange", element: <FlangexFlangeDBB /> },
-      { path: "/double-block-and-bleed-valves", element: < DBBIndexPage/> },
-      { path: "/quick-coupling-and-tubing", element: < QuickCouplingIndexPage/> },
-      { path: "/quick-coupling-and-tubing/quick-coupling", element: < QuickCouplingPage/> },
-      { path: "/quick-coupling-and-tubing/tubing", element: < TubingPage/> },
-      { path: "/system-integration", element: < SystemIntegrationIndexPage/> },
-
+      { path: "/double-block-and-bleed-valves", element: <DBBIndexPage /> },
+      { path: "/quick-coupling-and-tubing", element: <QuickCouplingIndexPage /> },
+      { path: "/quick-coupling-and-tubing/quick-coupling", element: <QuickCouplingPage /> },
+      { path: "/quick-coupling-and-tubing/tubing", element: <TubingPage /> },
+      { path: "/system-integration", element: <SystemIntegrationIndexPage /> },
 
       //high pressure
-      { path: "/high-pressure/needle-valves", element: <HPNeedleValvePage/> },
+      { path: "/high-pressure/needle-valves", element: <HPNeedleValvePage /> },
       { path: "/high-pressure/needle-valves/:partNumber", element: <HPNeedleValveProductPage /> },
-      { path: "/high-pressure/double-block-and-valves", element: <HPDBBPage/> },
+      { path: "/high-pressure/double-block-and-valves", element: <HPDBBPage /> },
       { path: "/high-pressure/double-block-and-valves/:partNumber", element: <HPDBBProductPage /> },
-      { path: "/high-pressure/ball-valves", element: <HPBallValvePage/> },
+      { path: "/high-pressure/ball-valves", element: <HPBallValvePage /> },
       { path: "/high-pressure/ball-valves/:partNumber", element: <HPBallValveProductPage /> },
-      { path: "/high-pressure/cones-threaded-nipples", element: <HPNipplePage/> },
+      { path: "/high-pressure/cones-threaded-nipples", element: <HPNipplePage /> },
       { path: "/high-pressure/cones-threaded-nipples/:partNumber", element: <HPNippleProductPage /> },
-      { path: "/high-pressure/2-valve-manifolds", element: <HPManifoldPage/> },
+      { path: "/high-pressure/2-valve-manifolds", element: <HPManifoldPage /> },
       { path: "/high-pressure/2-valve-manifolds/:partNumber", element: <HPManifoldProductPage /> },
-      
-      { path: "/high-pressure/fittings", element: <HPFittingsIndexPage/> },
-      { path: "/high-pressure/fittings/connectors", element: <HPFittingConnectorsPage/> },
-      { path: "/high-pressure/fittings/connectors/:partNumber", element: <HPFittingProductPage /> },
-      { path: "/high-pressure/fittings/unions", element: <HPUnionPage/> },
-      { path: "/high-pressure/fittings/unions/:partNumber", element: <HPUnionProductPage /> },
-      { path: "/high-pressure/fittings/adaptors", element: <HPAdapterPage/> },
-      { path: "/high-pressure/fittings/adaptors/:partNumber", element: <HPAdapterProductPage /> },
-      { path: "/high-pressure/fittings/elbows-tees-cross", element: <HPJunctionPage/> },
-      { path: "/high-pressure/fittings/elbows-tees-cross/:partNumber", element: <HPJunctionProductPage /> },
-      { path: "/high-pressure/fittings/end-connections", element: <HPEndFittingPage/> },
-      { path: "/high-pressure/fittings/end-connections/:partNumber", element: <HPEndFittingProductPage /> },
-      { path: "/high-pressure/fittings/seals-glads", element: <HPSealPage/> },
-      { path: "/high-pressure/fittings/seals-glads/:partNumber", element: <HPSealProductPage /> },
-      { path: "/high-pressure", element: <HighPressureIndexPage/> },
 
+      { path: "/high-pressure/fittings", element: <HPFittingsIndexPage /> },
+      { path: "/high-pressure/fittings/connectors", element: <HPFittingConnectorsPage /> },
+      { path: "/high-pressure/fittings/connectors/:partNumber", element: <HPFittingProductPage /> },
+      { path: "/high-pressure/fittings/unions", element: <HPUnionPage /> },
+      { path: "/high-pressure/fittings/unions/:partNumber", element: <HPUnionProductPage /> },
+      { path: "/high-pressure/fittings/adaptors", element: <HPAdapterPage /> },
+      { path: "/high-pressure/fittings/adaptors/:partNumber", element: <HPAdapterProductPage /> },
+      { path: "/high-pressure/fittings/elbows-tees-cross", element: <HPJunctionPage /> },
+      { path: "/high-pressure/fittings/elbows-tees-cross/:partNumber", element: <HPJunctionProductPage /> },
+      { path: "/high-pressure/fittings/end-connections", element: <HPEndFittingPage /> },
+      { path: "/high-pressure/fittings/end-connections/:partNumber", element: <HPEndFittingProductPage /> },
+      { path: "/high-pressure/fittings/seals-glads", element: <HPSealPage /> },
+      { path: "/high-pressure/fittings/seals-glads/:partNumber", element: <HPSealProductPage /> },
+      { path: "/high-pressure", element: <HighPressureIndexPage /> },
 
       //pipe fittings
-      { path: "/high-pressure/pipe-fittings", element: <HPPipeFittingsIndexPage/> },
-      { path: "/high-pressure/pipe-fittings/hex-nipples", element: <PipeNipplePage/> },
+      { path: "/high-pressure/pipe-fittings", element: <HPPipeFittingsIndexPage /> },
+      { path: "/high-pressure/pipe-fittings/hex-nipples", element: <PipeNipplePage /> },
       { path: "/high-pressure/pipe-fittings/hex-nipples/:partNumber", element: <PipeNippleProductPage /> },
-      { path: "/high-pressure/pipe-fittings/hex-couplings", element: <PipeCouplingPage/> },
+      { path: "/high-pressure/pipe-fittings/hex-couplings", element: <PipeCouplingPage /> },
       { path: "/high-pressure/pipe-fittings/hex-couplings/:partNumber", element: <PipeCouplingProductPage /> },
-      { path: "/high-pressure/pipe-fittings/adapters", element: <PipeAdapterPage/> },
+      { path: "/high-pressure/pipe-fittings/adapters", element: <PipeAdapterPage /> },
       { path: "/high-pressure/pipe-fittings/adapters/:partNumber", element: <PipeAdapterProductPage /> },
-      { path: "/high-pressure/pipe-fittings/elbows", element: <PipeElbowPage/> },
+      { path: "/high-pressure/pipe-fittings/elbows", element: <PipeElbowPage /> },
       { path: "/high-pressure/pipe-fittings/elbows/:partNumber", element: <PipeElbowProductPage /> },
-      { path: "/high-pressure/pipe-fittings/tees-crosses", element: <PipeTeeCrossPage/> },
+      { path: "/high-pressure/pipe-fittings/tees-crosses", element: <PipeTeeCrossPage /> },
       { path: "/high-pressure/pipe-fittings/tees-crosses/:partNumber", element: <PipeTeeCrossProductPage /> },
-      { path: "/high-pressure/pipe-fittings/plugs-caps", element: <PipeEndFittingPage/> },
+      { path: "/high-pressure/pipe-fittings/plugs-caps", element: <PipeEndFittingPage /> },
       { path: "/high-pressure/pipe-fittings/plugs-caps/:partNumber", element: <PipeEndFittingProductPage /> },
       { path: "*", element: <NotFound /> },
     ],
