@@ -9,6 +9,11 @@ export interface SearchRequest {
   configuration?: string
   connectionSize?: string
   connectionType?: string
+  category?: string
+  tubeSize?: string
+  tubeUnit?: string
+  portThread?: string
+  portSize?: string
   page?: number
   hitsPerPage?: number
 }
@@ -18,13 +23,17 @@ export interface ProductDocument {
   partNumber: string
   productFamily: string
   category: string
-  series: string
-  pressureRating: string
-  pressurePsi: number
-  configuration: string
+  series?: string
+  pressureRating?: string
+  pressurePsi?: number
+  configuration?: string
   material: string
-  connectionSize: string
-  connectionType: string
+  connectionSize?: string
+  connectionType?: string
+  tubeSize?: string
+  tubeUnit?: string
+  portSize?: string
+  portThread?: string
   productUrl: string
   imageUrl: string
   description: string

@@ -17,18 +17,23 @@ const BRAND_BLUE = '#01B0F0'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
 const FACET_LABELS: Record<string, string> = {
+  category: 'Category',
   productFamily: 'Product Family',
   series: 'Series',
   pressureRating: 'Pressure Rating',
   configuration: 'Configuration',
   connectionSize: 'Connection Size',
   connectionType: 'Connection Type',
+  tubeSize: 'Tube Size',
+  tubeUnit: 'Tube Unit',
+  portThread: 'Port Thread',
+  portSize: 'Port Size',
 }
 
 type Filters = Omit<SearchRequest, 'q' | 'page' | 'hitsPerPage'>
 
-function highlightMatch(text: string, query: string) {
-  if (!text || !query.trim()) return <span>{text}</span>
+function highlightMatch(text: string | null | undefined, query: string) {
+  if (!text || !query.trim()) return <span>{text ?? ''}</span>
   const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
   const parts = text.split(regex)
   return (
@@ -147,6 +152,16 @@ function ProductCard({ product, query }: { product: ProductDocument; query: stri
     navigate(path)
   }
 
+const descriptionLine = [
+  product.tubeSize && `${product.tubeSize}${product.tubeUnit === 'Metric' ? 'mm' : '"'}`,
+  product.portThread,
+  product.portSize,
+  product.configuration,
+  product.connectionSize,
+  product.connectionType,
+  product.pressureRating,
+].filter(Boolean).join(' · ')
+
   return (
     <Card
       onClick={handleClick}
@@ -210,6 +225,13 @@ function ProductCard({ product, query }: { product: ProductDocument; query: stri
               sx={{ fontSize: 11, height: 20 }}
             />
           )}
+          {product.category && (
+            <Chip
+              label={product.category}
+              size="small"
+              sx={{ fontSize: 11, height: 20, backgroundColor: 'rgba(0,0,0,0.05)' }}
+            />
+          )}
         </Box>
         <Typography
           variant="caption"
@@ -217,7 +239,7 @@ function ProductCard({ product, query }: { product: ProductDocument; query: stri
           display="block"
           sx={{ mt: 1, fontFamily: PRIMARY_FONT, lineHeight: 1.6 }}
         >
-          {highlightMatch(product.configuration, query)} · {highlightMatch(product.connectionSize, query)} · {highlightMatch(product.connectionType, query)}
+          {highlightMatch(descriptionLine, query)}
         </Typography>
       </CardContent>
     </Card>
@@ -233,7 +255,6 @@ export default function SearchPage() {
   const [page, setPage] = useState(1)
   const HITS_PER_PAGE = 18
 
-  // Sync query when URL changes (navbar search)
   useEffect(() => {
     const q = searchParams.get('q') ?? ''
     setQuery(q)
@@ -379,7 +400,7 @@ export default function SearchPage() {
               value ? (
                 <Chip
                   key={key}
-                  label={`${FACET_LABELS[key]}: ${value}`}
+                  label={`${FACET_LABELS[key] ?? key}: ${value}`}
                   onDelete={() => updateFilter(key, value)}
                   size="small"
                   sx={{
