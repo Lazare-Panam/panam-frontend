@@ -7,12 +7,12 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
 import { DIELECTRIC_DATA, GASKET_DATA, type DielectricItem, type GasketItem } from "./dielectricGasketData"
 import { useCartStore } from "../../../store/useCartStore"
-import { ActiveFilters } from "../Common/ActiveFilters"
-import { ProductSidebar } from "../Common/ProductSidebar"
-import { FilterGroup } from "../Common/FilterGroup"
-import { SmartCheckList } from "../Common/SmartCheckList"
-import { ProductTable } from "../Common/ProductTable"
-import { countBy } from "../Common/filterUtils"
+import { ActiveFilters } from "../../Common/ActiveFilters"
+import { ProductSidebar } from "../../Common/ProductSidebar"
+import { FilterGroup } from "../../Common/FilterGroup"
+import { SmartCheckList } from "../../Common/SmartCheckList"
+import { ProductTable } from "../../Common/ProductTable"
+import { countBy } from "../../Common/filterUtils"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -21,7 +21,10 @@ const GASKET_TYPES = ["PRS — ISO Parallel (G)", "PRS — Metric Parallel", "PR
 
 // ── DIELECTRIC ────────────────────────────────────────────────
 
-interface DielectricFilters { fittingTypes: string[]; tubeODUnits: string[] }
+interface DielectricFilters {
+  fittingTypes: string[]
+  tubeODUnits: string[]
+}
 const EMPTY_DFILTERS: DielectricFilters = { fittingTypes: [], tubeODUnits: [] }
 
 function filterDielectric(data: DielectricItem[], filters: DielectricFilters, skip?: string) {
@@ -36,8 +39,12 @@ function Spec({ label, value }: { label: string; value?: string }) {
   if (!value) return null
   return (
     <Box>
-      <Typography variant="caption" color="text.secondary" fontWeight={700} sx={{ display: "block", textTransform: "uppercase", mb: 0.25, fontFamily: PRIMARY_FONT }}>{label}</Typography>
-      <Typography variant="body2" fontWeight={600} sx={{ fontFamily: PRIMARY_FONT }}>{value}</Typography>
+      <Typography variant="caption" color="text.secondary" fontWeight={700} sx={{ display: "block", textTransform: "uppercase", mb: 0.25, fontFamily: PRIMARY_FONT }}>
+        {label}
+      </Typography>
+      <Typography variant="body2" fontWeight={600} sx={{ fontFamily: PRIMARY_FONT }}>
+        {value}
+      </Typography>
     </Box>
   )
 }
@@ -50,9 +57,9 @@ function DielectricRow({ row }: { row: DielectricItem }) {
   const detailHref = `/instrumentation-fittings/tube-fittings/die-electric/${row.partNumber}`
 
   const specs: Record<string, string> = {
-    "Part Number":  row.partNumber,
+    "Part Number": row.partNumber,
     "Fitting Type": row.fittingType,
-    "Tube OD":      `${row.tubeOD} ${unitFull}`,
+    "Tube OD": `${row.tubeOD} ${unitFull}`,
     ...(row.pipeNPT ? { "NPT Thread": row.pipeNPT } : {}),
   }
 
@@ -60,28 +67,43 @@ function DielectricRow({ row }: { row: DielectricItem }) {
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)}
-        sx={{ cursor: "pointer", bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit", "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` } }}>
+      <TableRow hover onClick={() => setOpen(o => !o)} sx={{ cursor: "pointer", bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit", "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` } }}>
         <TableCell sx={{ width: 40, py: 1 }}>
-          <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
+          <IconButton
+            size="small"
+            onClick={e => {
+              e.stopPropagation()
+              setOpen(o => !o)
+            }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
           </IconButton>
         </TableCell>
         <TableCell sx={{ fontFamily: "monospace", fontWeight: 700, py: 1 }}>
-          <a href={detailHref} onClick={e => e.stopPropagation()} style={{ color: BRAND_BLUE, textDecoration: "none", fontSize: "0.8rem", fontWeight: 700 }}>{row.partNumber}</a>
+          <a href={detailHref} onClick={e => e.stopPropagation()} style={{ color: BRAND_BLUE, textDecoration: "none", fontSize: "0.8rem", fontWeight: 700 }}>
+            {row.partNumber}
+          </a>
         </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.fittingType} size="small" sx={{ fontSize: "0.65rem", fontWeight: 700, bgcolor: alpha(BRAND_BLUE, 0.1), color: "#0277BD" }} />
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>
-          {row.tubeOD}<Typography component="span" variant="caption" color="text.secondary" sx={{ ml: 0.5 }}>({unitShort})</Typography>
+          {row.tubeOD}
+          <Typography component="span" variant="caption" color="text.secondary" sx={{ ml: 0.5 }}>
+            ({unitShort})
+          </Typography>
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.pipeNPT ?? "—"}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.tubeODUnit} size="small" sx={{ fontSize: "0.65rem", fontWeight: 600, bgcolor: alpha("#4CAF50", 0.1), color: "#2E7D32" }} />
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); addItem(cartItem) }}
+          <Button
+            size="small"
+            variant="contained"
+            onClick={e => {
+              e.stopPropagation()
+              addItem(cartItem)
+            }}
             sx={{ fontSize: "0.7rem", fontWeight: 700, py: 0.5, px: 1.5, borderRadius: "4px", textTransform: "none", whiteSpace: "nowrap", bgcolor: BRAND_BLUE, boxShadow: "none", fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0199d4", boxShadow: "none" } }}>
             Add to Quote
           </Button>
@@ -97,24 +119,24 @@ function DielectricRow({ row }: { row: DielectricItem }) {
                     <img src={row.imageUrl} alt={row.partNumber} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
                   </Box>
                   <Box sx={{ flex: 1 }}>
-                    <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>SPECIFICATIONS</Typography>
+                    <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+                      SPECIFICATIONS
+                    </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number"     value={row.partNumber} />
-                      <Spec label="Fitting Type"    value={row.fittingType} />
-                      <Spec label="Tube OD"         value={`${row.tubeOD} ${unitFull}`} />
+                      <Spec label="Part Number" value={row.partNumber} />
+                      <Spec label="Fitting Type" value={row.fittingType} />
+                      <Spec label="Tube OD" value={`${row.tubeOD} ${unitFull}`} />
                       {row.pipeNPT && <Spec label="NPT Thread" value={row.pipeNPT} />}
-                      <Spec label="Unit System"     value={row.tubeODUnit === "Imperial" ? "Imperial (inch)" : "Metric (mm)"} />
-                      <Spec label="Material"        value="SS316 + Polyamideimide Insulator" />
+                      <Spec label="Unit System" value={row.tubeODUnit === "Imperial" ? "Imperial (inch)" : "Metric (mm)"} />
+                      <Spec label="Material" value="SS316 + Polyamideimide Insulator" />
                       <Spec label="Pressure Rating" value="34.47 MPa (5000 PSI)" />
-                      <Spec label="Temp Rating"     value="-40°C to 93°C" />
+                      <Spec label="Temp Rating" value="-40°C to 93°C" />
                     </Stack>
                     <Stack direction="row" spacing={1}>
-                      <Button variant="contained" onClick={() => addItem(cartItem)}
-                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0199d4" } }}>
+                      <Button variant="contained" onClick={() => addItem(cartItem)} sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0199d4" } }}>
                         Add to Quote
                       </Button>
-                      <Button variant="outlined" component="a" href={detailHref}
-                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
+                      <Button variant="outlined" component="a" href={detailHref} sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
                         View Full Page
                       </Button>
                     </Stack>
@@ -131,7 +153,10 @@ function DielectricRow({ row }: { row: DielectricItem }) {
 
 // ── GASKET ────────────────────────────────────────────────────
 
-interface GasketFilters { gasketTypes: string[]; threadUnits: string[] }
+interface GasketFilters {
+  gasketTypes: string[]
+  threadUnits: string[]
+}
 const EMPTY_GFILTERS: GasketFilters = { gasketTypes: [], threadUnits: [] }
 
 function filterGasket(data: GasketItem[], filters: GasketFilters, skip?: string) {
@@ -148,25 +173,31 @@ function GasketRow({ row }: { row: GasketItem }) {
   const detailHref = `/instrumentation-fittings/tube-fittings/die-electric/gasket/${row.partNumber}`
 
   const specs: Record<string, string> = {
-    "Part Number (SS316)":        row.partNumber,
+    "Part Number (SS316)": row.partNumber,
     ...(row.carbonSteelPN ? { "Part Number (Carbon Steel)": row.carbonSteelPN } : {}),
-    "Gasket Type":  row.gasketType,
-    "Thread Size":  row.threadSize,
+    "Gasket Type": row.gasketType,
+    "Thread Size": row.threadSize,
   }
 
   const cartItem = { cartItemId: row.partNumber, id: String(row.id), name: `Gasket ${row.gasketType} — ${row.partNumber}`, image: row.imageUrl, quantity: 1, partNumber: row.partNumber, specs }
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)}
-        sx={{ cursor: "pointer", bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit", "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` } }}>
+      <TableRow hover onClick={() => setOpen(o => !o)} sx={{ cursor: "pointer", bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit", "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` } }}>
         <TableCell sx={{ width: 40, py: 1 }}>
-          <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
+          <IconButton
+            size="small"
+            onClick={e => {
+              e.stopPropagation()
+              setOpen(o => !o)
+            }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
           </IconButton>
         </TableCell>
         <TableCell sx={{ fontFamily: "monospace", fontWeight: 700, py: 1 }}>
-          <a href={detailHref} onClick={e => e.stopPropagation()} style={{ color: BRAND_BLUE, textDecoration: "none", fontSize: "0.8rem", fontWeight: 700 }}>{row.partNumber}</a>
+          <a href={detailHref} onClick={e => e.stopPropagation()} style={{ color: BRAND_BLUE, textDecoration: "none", fontSize: "0.8rem", fontWeight: 700 }}>
+            {row.partNumber}
+          </a>
         </TableCell>
         <TableCell sx={{ fontFamily: "monospace", fontSize: "0.78rem", py: 1, color: "text.secondary" }}>{row.carbonSteelPN ?? "—"}</TableCell>
         <TableCell sx={{ py: 1 }}>
@@ -177,7 +208,13 @@ function GasketRow({ row }: { row: GasketItem }) {
           <Chip label={row.threadUnit} size="small" sx={{ fontSize: "0.65rem", fontWeight: 600, bgcolor: alpha("#4CAF50", 0.1), color: "#2E7D32" }} />
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); addItem(cartItem) }}
+          <Button
+            size="small"
+            variant="contained"
+            onClick={e => {
+              e.stopPropagation()
+              addItem(cartItem)
+            }}
             sx={{ fontSize: "0.7rem", fontWeight: 700, py: 0.5, px: 1.5, borderRadius: "4px", textTransform: "none", whiteSpace: "nowrap", bgcolor: BRAND_BLUE, boxShadow: "none", fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0199d4", boxShadow: "none" } }}>
             Add to Quote
           </Button>
@@ -193,22 +230,22 @@ function GasketRow({ row }: { row: GasketItem }) {
                     <img src={row.imageUrl} alt={row.partNumber} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
                   </Box>
                   <Box sx={{ flex: 1 }}>
-                    <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>SPECIFICATIONS</Typography>
+                    <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+                      SPECIFICATIONS
+                    </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number (SS316)"        value={row.partNumber} />
+                      <Spec label="Part Number (SS316)" value={row.partNumber} />
                       {row.carbonSteelPN && <Spec label="Part Number (Carbon Steel)" value={row.carbonSteelPN} />}
-                      <Spec label="Gasket Type"  value={row.gasketType} />
-                      <Spec label="Thread Size"  value={row.threadSize} />
-                      <Spec label="Thread Unit"  value={row.threadUnit} />
-                      <Spec label="Material"     value="SS316 / Carbon Steel / Copper" />
+                      <Spec label="Gasket Type" value={row.gasketType} />
+                      <Spec label="Thread Size" value={row.threadSize} />
+                      <Spec label="Thread Unit" value={row.threadUnit} />
+                      <Spec label="Material" value="SS316 / Carbon Steel / Copper" />
                     </Stack>
                     <Stack direction="row" spacing={1}>
-                      <Button variant="contained" onClick={() => addItem(cartItem)}
-                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0199d4" } }}>
+                      <Button variant="contained" onClick={() => addItem(cartItem)} sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0199d4" } }}>
                         Add to Quote
                       </Button>
-                      <Button variant="outlined" component="a" href={detailHref}
-                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
+                      <Button variant="outlined" component="a" href={detailHref} sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
                         View Full Page
                       </Button>
                     </Stack>
@@ -235,33 +272,33 @@ export default function DielectricGasketPage() {
   const filteredD = useMemo(() => filterDielectric(DIELECTRIC_DATA, dFilters), [dFilters])
   const filteredG = useMemo(() => filterGasket(GASKET_DATA, gFilters), [gFilters])
 
-  const dCounts = useMemo(() => ({
-    fittingTypes: countBy(filterDielectric(DIELECTRIC_DATA, dFilters, "fittingTypes"), r => r.fittingType),
-    tubeODUnits:  countBy(filterDielectric(DIELECTRIC_DATA, dFilters, "tubeODUnits"),  r => r.tubeODUnit),
-  }), [dFilters])
+  const dCounts = useMemo(
+    () => ({
+      fittingTypes: countBy(filterDielectric(DIELECTRIC_DATA, dFilters, "fittingTypes"), r => r.fittingType),
+      tubeODUnits: countBy(filterDielectric(DIELECTRIC_DATA, dFilters, "tubeODUnits"), r => r.tubeODUnit),
+    }),
+    [dFilters]
+  )
 
-  const gCounts = useMemo(() => ({
-    gasketTypes: countBy(filterGasket(GASKET_DATA, gFilters, "gasketTypes"), r => r.gasketType),
-    threadUnits: countBy(filterGasket(GASKET_DATA, gFilters, "threadUnits"), r => r.threadUnit),
-  }), [gFilters])
+  const gCounts = useMemo(
+    () => ({
+      gasketTypes: countBy(filterGasket(GASKET_DATA, gFilters, "gasketTypes"), r => r.gasketType),
+      threadUnits: countBy(filterGasket(GASKET_DATA, gFilters, "threadUnits"), r => r.threadUnit),
+    }),
+    [gFilters]
+  )
 
   const dAllOptions = {
     fittingTypes: [...new Set(DIELECTRIC_DATA.map(r => r.fittingType))],
-    tubeODUnits:  [...new Set(DIELECTRIC_DATA.map(r => r.tubeODUnit))],
+    tubeODUnits: [...new Set(DIELECTRIC_DATA.map(r => r.tubeODUnit))],
   }
 
   const dActiveCount = dFilters.fittingTypes.length + dFilters.tubeODUnits.length
   const gActiveCount = gFilters.gasketTypes.length + gFilters.threadUnits.length
 
-  const dChips = [
-    ...dFilters.fittingTypes.map(v => ({ label: v, onDelete: () => setDFilters(p => ({ ...p, fittingTypes: p.fittingTypes.filter(x => x !== v) })) })),
-    ...dFilters.tubeODUnits.map(v => ({ label: v, onDelete: () => setDFilters(p => ({ ...p, tubeODUnits: p.tubeODUnits.filter(x => x !== v) })) })),
-  ]
+  const dChips = [...dFilters.fittingTypes.map(v => ({ label: v, onDelete: () => setDFilters(p => ({ ...p, fittingTypes: p.fittingTypes.filter(x => x !== v) })) })), ...dFilters.tubeODUnits.map(v => ({ label: v, onDelete: () => setDFilters(p => ({ ...p, tubeODUnits: p.tubeODUnits.filter(x => x !== v) })) }))]
 
-  const gChips = [
-    ...gFilters.gasketTypes.map(v => ({ label: v, onDelete: () => setGFilters(p => ({ ...p, gasketTypes: p.gasketTypes.filter(x => x !== v) })) })),
-    ...gFilters.threadUnits.map(v => ({ label: v, onDelete: () => setGFilters(p => ({ ...p, threadUnits: p.threadUnits.filter(x => x !== v) })) })),
-  ]
+  const gChips = [...gFilters.gasketTypes.map(v => ({ label: v, onDelete: () => setGFilters(p => ({ ...p, gasketTypes: p.gasketTypes.filter(x => x !== v) })) })), ...gFilters.threadUnits.map(v => ({ label: v, onDelete: () => setGFilters(p => ({ ...p, threadUnits: p.threadUnits.filter(x => x !== v) })) }))]
 
   const dSidebar = (
     <ProductSidebar activeCount={dActiveCount} onClearAll={() => setDFilters(EMPTY_DFILTERS)}>
@@ -310,13 +347,20 @@ export default function DielectricGasketPage() {
           </Typography>
           <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
             {["SS316", "5000 PSI", "Polyamideimide Insulator", "ISO Parallel", "Metric Thread", "Copper Gaskets"].map(s => (
-              <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: "20px", fontSize: "0.75rem", fontWeight: 600, bgcolor: alpha(BRAND_BLUE, 0.08), color: "#0277BD", border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`, fontFamily: PRIMARY_FONT }}>{s}</Box>
+              <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: "20px", fontSize: "0.75rem", fontWeight: 600, bgcolor: alpha(BRAND_BLUE, 0.08), color: "#0277BD", border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`, fontFamily: PRIMARY_FONT }}>
+                {s}
+              </Box>
             ))}
           </Box>
         </Box>
 
         <Box sx={{ bgcolor: "background.paper", borderBottom: "1px solid rgba(0,0,0,0.08)", px: 4 }}>
-          <Tabs value={tab} onChange={(_, v) => { setTab(v); setMobileOpen(false) }}
+          <Tabs
+            value={tab}
+            onChange={(_, v) => {
+              setTab(v)
+              setMobileOpen(false)
+            }}
             sx={{ "& .MuiTab-root": { fontFamily: PRIMARY_FONT, fontWeight: 700, textTransform: "none", fontSize: "0.9rem" }, "& .Mui-selected": { color: `${BRAND_BLUE} !important` }, "& .MuiTabs-indicator": { bgcolor: BRAND_BLUE } }}>
             <Tab label={`Dielectric Fittings (${filteredD.length})`} />
             <Tab label={`Gaskets (${filteredG.length})`} />
@@ -324,7 +368,11 @@ export default function DielectricGasketPage() {
         </Box>
 
         <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
-          {isMobile && <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}><FilterListIcon /></IconButton>}
+          {isMobile && (
+            <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}>
+              <FilterListIcon />
+            </IconButton>
+          )}
 
           {tab === 0 && (
             <>
@@ -334,21 +382,11 @@ export default function DielectricGasketPage() {
               </Typography>
               <Box sx={{ display: "flex", alignItems: "stretch", border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`, borderRadius: "8px", overflow: "hidden", bgcolor: "background.paper" }}>
                 {!isMobile && dSidebar}
-                <ProductTable
-                  models={filteredD}
-                  defaultSortKey="partNumber"
-                  columns={[
-                    { key: "partNumber", label: "Part Number" },
-                    { key: "fittingType", label: "Type" },
-                    { key: "tubeOD", label: "Tube OD" },
-                    { label: "NPT Thread" },
-                    { key: "tubeODUnit", label: "Unit" },
-                    { label: "Quote" },
-                  ]}
-                  renderRow={row => <DielectricRow key={row.id} row={row} />}
-                />
+                <ProductTable models={filteredD} defaultSortKey="partNumber" columns={[{ key: "partNumber", label: "Part Number" }, { key: "fittingType", label: "Type" }, { key: "tubeOD", label: "Tube OD" }, { label: "NPT Thread" }, { key: "tubeODUnit", label: "Unit" }, { label: "Quote" }]} renderRow={row => <DielectricRow key={row.id} row={row} />} />
               </Box>
-              <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{dSidebar}</Drawer>
+              <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>
+                {dSidebar}
+              </Drawer>
             </>
           )}
 
@@ -363,18 +401,13 @@ export default function DielectricGasketPage() {
                 <ProductTable
                   models={filteredG}
                   defaultSortKey="partNumber"
-                  columns={[
-                    { key: "partNumber", label: "Part No. (SS316)" },
-                    { key: "carbonSteelPN", label: "Part No. (Carbon Steel)" },
-                    { key: "gasketType", label: "Gasket Type" },
-                    { key: "threadSize", label: "Thread Size" },
-                    { key: "threadUnit", label: "Unit" },
-                    { label: "Quote" },
-                  ]}
+                  columns={[{ key: "partNumber", label: "Part No. (SS316)" }, { key: "carbonSteelPN", label: "Part No. (Carbon Steel)" }, { key: "gasketType", label: "Gasket Type" }, { key: "threadSize", label: "Thread Size" }, { key: "threadUnit", label: "Unit" }, { label: "Quote" }]}
                   renderRow={row => <GasketRow key={row.id} row={row} />}
                 />
               </Box>
-              <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{gSidebar}</Drawer>
+              <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>
+                {gSidebar}
+              </Drawer>
             </>
           )}
         </Box>

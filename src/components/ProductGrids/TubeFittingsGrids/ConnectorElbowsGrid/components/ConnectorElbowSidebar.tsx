@@ -1,9 +1,9 @@
 import { Divider, ToggleButtonGroup, ToggleButton } from "@mui/material"
 import { type ConnectorElbowFilters, EMPTY_CONNECTOR_ELBOW_FILTERS, FITTING_TYPE_LABELS, THREAD_TYPE_LABELS, IMPERIAL_ODS, METRIC_ODS } from "../hooks/types"
-import { ProductSidebar } from "../../Common/ProductSidebar"
-import { FilterGroup } from "../../Common/FilterGroup"
-import { SmartCheckList } from "../../Common/SmartCheckList"
-import { UnitToggle } from "../../Common/UnitToggle"
+import { ProductSidebar } from "../../../Common/ProductSidebar"
+import { FilterGroup } from "../../../Common/FilterGroup"
+import { SmartCheckList } from "../../../Common/SmartCheckList"
+import { UnitToggle } from "../../../Common/UnitToggle"
 
 const toggleSx = {
   "& .MuiToggleButton-root": { fontSize: "0.7rem", py: 0.5, px: 1, textTransform: "none" },
@@ -30,9 +30,7 @@ export function ConnectorElbowSidebar({ filters, setFilters, filterOptions, coun
   const toggle = (key: keyof ConnectorElbowFilters, val: string) =>
     setFilters(prev => ({
       ...prev,
-      [key]: (prev[key] as string[]).includes(val)
-        ? (prev[key] as string[]).filter(v => v !== val)
-        : [...(prev[key] as string[]), val],
+      [key]: (prev[key] as string[]).includes(val) ? (prev[key] as string[]).filter(v => v !== val) : [...(prev[key] as string[]), val],
     }))
 
   const selectedUnit = filters.tubeODUnits[0] ?? "all"
@@ -58,9 +56,15 @@ export function ConnectorElbowSidebar({ filters, setFilters, filterOptions, coun
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />
       <FilterGroup title="POSITIONABLE">
-        <ToggleButtonGroup exclusive size="small" sx={{ mt: 0.5, ...toggleSx }}
+        <ToggleButtonGroup
+          exclusive
+          size="small"
+          sx={{ mt: 0.5, ...toggleSx }}
           value={filters.isPositionable === null ? "all" : filters.isPositionable ? "yes" : "no"}
-          onChange={(_, val) => { if (!val) return; setFilters(prev => ({ ...prev, isPositionable: val === "all" ? null : val === "yes" })) }}>
+          onChange={(_, val) => {
+            if (!val) return
+            setFilters(prev => ({ ...prev, isPositionable: val === "all" ? null : val === "yes" }))
+          }}>
           <ToggleButton value="all">All</ToggleButton>
           <ToggleButton value="no">Standard</ToggleButton>
           <ToggleButton value="yes">Positionable</ToggleButton>
@@ -68,9 +72,15 @@ export function ConnectorElbowSidebar({ filters, setFilters, filterOptions, coun
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />
       <FilterGroup title="O-RING SEAL">
-        <ToggleButtonGroup exclusive size="small" sx={{ mt: 0.5, ...toggleSx }}
+        <ToggleButtonGroup
+          exclusive
+          size="small"
+          sx={{ mt: 0.5, ...toggleSx }}
           value={filters.hasORingSeal === null ? "all" : filters.hasORingSeal ? "yes" : "no"}
-          onChange={(_, val) => { if (!val) return; setFilters(prev => ({ ...prev, hasORingSeal: val === "all" ? null : val === "yes" })) }}>
+          onChange={(_, val) => {
+            if (!val) return
+            setFilters(prev => ({ ...prev, hasORingSeal: val === "all" ? null : val === "yes" }))
+          }}>
           <ToggleButton value="all">All</ToggleButton>
           <ToggleButton value="no">Standard</ToggleButton>
           <ToggleButton value="yes">With O-Ring</ToggleButton>

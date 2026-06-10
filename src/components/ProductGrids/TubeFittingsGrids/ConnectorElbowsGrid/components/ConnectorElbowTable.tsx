@@ -6,7 +6,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
 import { type ConnectorElbowDto } from "../../../../../api/tubefittingApi"
 import { FITTING_TYPE_LABELS, THREAD_TYPE_LABELS, TUBE_OD_UNIT_LABELS } from "../hooks/types"
 import { useCartStore } from "../../../../store/useCartStore"
-import { ProductTable } from "../../Common/ProductTable"
+import { ProductTable } from "../../../Common/ProductTable"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -15,8 +15,12 @@ function Spec({ label, value }: { label: string; value?: string }) {
   if (!value) return null
   return (
     <Box>
-      <Typography variant="caption" color="text.secondary" fontWeight={700} sx={{ display: "block", textTransform: "uppercase", mb: 0.25, fontFamily: PRIMARY_FONT }}>{label}</Typography>
-      <Typography variant="body2" fontWeight={600} sx={{ fontFamily: PRIMARY_FONT }}>{value}</Typography>
+      <Typography variant="caption" color="text.secondary" fontWeight={700} sx={{ display: "block", textTransform: "uppercase", mb: 0.25, fontFamily: PRIMARY_FONT }}>
+        {label}
+      </Typography>
+      <Typography variant="body2" fontWeight={600} sx={{ fontFamily: PRIMARY_FONT }}>
+        {value}
+      </Typography>
     </Box>
   )
 }
@@ -60,13 +64,18 @@ function ConnectorElbowRow({ row }: { row: ConnectorElbowDto }) {
         }}
         sx={{ cursor: "pointer", bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit", "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` }, textDecoration: "none", display: "table-row" }}>
         <TableCell sx={{ width: 40, py: 1 }}>
-          <IconButton size="small" onClick={e => { e.preventDefault(); e.stopPropagation(); setOpen(o => !o) }}>
+          <IconButton
+            size="small"
+            onClick={e => {
+              e.preventDefault()
+              e.stopPropagation()
+              setOpen(o => !o)
+            }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
           </IconButton>
         </TableCell>
         <TableCell sx={{ fontFamily: "monospace", fontWeight: 700, py: 1 }}>
-          <a href={detailHref} onClick={e => e.stopPropagation()}
-            style={{ color: BRAND_BLUE, textDecoration: "none", fontSize: "0.8rem", fontWeight: 700 }}>
+          <a href={detailHref} onClick={e => e.stopPropagation()} style={{ color: BRAND_BLUE, textDecoration: "none", fontSize: "0.8rem", fontWeight: 700 }}>
             {row.partNumber}
           </a>
         </TableCell>
@@ -88,8 +97,14 @@ function ConnectorElbowRow({ row }: { row: ConnectorElbowDto }) {
           </Stack>
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Button size="small" variant="contained"
-            onClick={e => { e.preventDefault(); e.stopPropagation(); addItem(cartItem) }}
+          <Button
+            size="small"
+            variant="contained"
+            onClick={e => {
+              e.preventDefault()
+              e.stopPropagation()
+              addItem(cartItem)
+            }}
             sx={{ fontSize: "0.7rem", fontWeight: 700, py: 0.5, px: 1.5, borderRadius: "4px", textTransform: "none", whiteSpace: "nowrap", bgcolor: BRAND_BLUE, boxShadow: "none", fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0199d4", boxShadow: "none" } }}>
             Add to Quote
           </Button>
@@ -108,7 +123,9 @@ function ConnectorElbowRow({ row }: { row: ConnectorElbowDto }) {
                     </Box>
                   )}
                   <Box sx={{ flex: 1 }}>
-                    <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>SPECIFICATIONS</Typography>
+                    <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+                      SPECIFICATIONS
+                    </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       <Spec label="Part Number" value={row.partNumber} />
                       <Spec label="Fitting Type" value={FITTING_TYPE_LABELS[row.fittingType] ?? row.fittingType} />
@@ -119,12 +136,10 @@ function ConnectorElbowRow({ row }: { row: ConnectorElbowDto }) {
                       {row.hasORingSeal && <Spec label="O-Ring Seal" value="Yes" />}
                     </Stack>
                     <Stack direction="row" spacing={1}>
-                      <Button variant="contained" onClick={() => addItem(cartItem)}
-                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0199d4" } }}>
+                      <Button variant="contained" onClick={() => addItem(cartItem)} sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0199d4" } }}>
                         Add to Quote
                       </Button>
-                      <Button variant="outlined" component="a" href={detailHref}
-                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
+                      <Button variant="outlined" component="a" href={detailHref} sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
                         View Full Page
                       </Button>
                     </Stack>
@@ -145,15 +160,7 @@ export default function ConnectorElbowTable({ models, isFetching }: { models: Co
       models={models}
       isFetching={isFetching}
       defaultSortKey="partNumber"
-      columns={[
-        { key: "partNumber", label: "Part Number" },
-        { key: "fittingType", label: "Fitting Type" },
-        { key: "tubeOD", label: "Tube OD" },
-        { key: "threadDimension", label: "Thread Dim." },
-        { key: "threadType", label: "Thread Type" },
-        { label: "Options" },
-        { label: "Quote" },
-      ]}
+      columns={[{ key: "partNumber", label: "Part Number" }, { key: "fittingType", label: "Fitting Type" }, { key: "tubeOD", label: "Tube OD" }, { key: "threadDimension", label: "Thread Dim." }, { key: "threadType", label: "Thread Type" }, { label: "Options" }, { label: "Quote" }]}
       renderRow={row => <ConnectorElbowRow key={row.id} row={row} />}
     />
   )

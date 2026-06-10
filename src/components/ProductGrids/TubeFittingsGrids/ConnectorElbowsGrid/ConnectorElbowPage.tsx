@@ -4,10 +4,10 @@ import { alpha } from "@mui/material/styles"
 import FilterListIcon from "@mui/icons-material/FilterList"
 import { getConnectorElbows, type ConnectorElbowDto } from "../../../../api/tubefittingApi"
 import { ConnectorElbowSidebar } from "./components/ConnectorElbowSidebar"
-import { ActiveFilters } from "../Common/ActiveFilters"
+import { ActiveFilters } from "../../Common/ActiveFilters"
 import ConnectorElbowTable from "./components/ConnectorElbowTable"
 import { type ConnectorElbowFilters, EMPTY_CONNECTOR_ELBOW_FILTERS, FITTING_TYPE_LABELS, THREAD_TYPE_LABELS, TUBE_OD_UNIT_LABELS } from "./hooks/types"
-import { countBy } from "../Common/filterUtils"
+import { countBy } from "../../Common/filterUtils"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -39,32 +39,31 @@ export default function ConnectorElbowPage() {
     })
   }, [])
 
-  const allOptions = useMemo(() => ({
-    fittingTypes:     [...new Set(allData.map(r => r.fittingType))].sort(),
-    tubeODs:          [...new Set(allData.map(r => r.tubeOD))].sort(),
-    tubeODUnits:      [...new Set(allData.map(r => r.tubeODUnit))].sort(),
-    threadDimensions: [...new Set(allData.map(r => r.threadDimension))].sort(),
-    threadTypes:      [...new Set(allData.map(r => r.threadType))].sort(),
-  }), [allData])
+  const allOptions = useMemo(
+    () => ({
+      fittingTypes: [...new Set(allData.map(r => r.fittingType))].sort(),
+      tubeODs: [...new Set(allData.map(r => r.tubeOD))].sort(),
+      tubeODUnits: [...new Set(allData.map(r => r.tubeODUnit))].sort(),
+      threadDimensions: [...new Set(allData.map(r => r.threadDimension))].sort(),
+      threadTypes: [...new Set(allData.map(r => r.threadType))].sort(),
+    }),
+    [allData]
+  )
 
   const models = useMemo(() => filterData(allData, filters), [allData, filters])
 
-  const counts = useMemo(() => ({
-    fittingTypes:     countBy(filterData(allData, filters, "fittingTypes"),    r => r.fittingType),
-    tubeODs:          countBy(filterData(allData, filters, "tubeODs"),          r => r.tubeOD),
-    tubeODUnits:      countBy(filterData(allData, filters, "tubeODUnits"),      r => r.tubeODUnit),
-    threadDimensions: countBy(filterData(allData, filters, "threadDimensions"), r => r.threadDimension),
-    threadTypes:      countBy(filterData(allData, filters, "threadTypes"),      r => r.threadType),
-  }), [allData, filters])
+  const counts = useMemo(
+    () => ({
+      fittingTypes: countBy(filterData(allData, filters, "fittingTypes"), r => r.fittingType),
+      tubeODs: countBy(filterData(allData, filters, "tubeODs"), r => r.tubeOD),
+      tubeODUnits: countBy(filterData(allData, filters, "tubeODUnits"), r => r.tubeODUnit),
+      threadDimensions: countBy(filterData(allData, filters, "threadDimensions"), r => r.threadDimension),
+      threadTypes: countBy(filterData(allData, filters, "threadTypes"), r => r.threadType),
+    }),
+    [allData, filters]
+  )
 
-  const activeCount =
-    filters.fittingTypes.length +
-    filters.tubeODs.length +
-    filters.tubeODUnits.length +
-    filters.threadDimensions.length +
-    filters.threadTypes.length +
-    (filters.isPositionable !== null ? 1 : 0) +
-    (filters.hasORingSeal !== null ? 1 : 0)
+  const activeCount = filters.fittingTypes.length + filters.tubeODs.length + filters.tubeODUnits.length + filters.threadDimensions.length + filters.threadTypes.length + (filters.isPositionable !== null ? 1 : 0) + (filters.hasORingSeal !== null ? 1 : 0)
 
   const chips = [
     ...filters.fittingTypes.map(v => ({ label: FITTING_TYPE_LABELS[v] ?? v, onDelete: () => setFilters(p => ({ ...p, fittingTypes: p.fittingTypes.filter(x => x !== v) })) })),
@@ -76,15 +75,7 @@ export default function ConnectorElbowPage() {
     ...(filters.hasORingSeal !== null ? [{ label: filters.hasORingSeal ? "With O-Ring" : "No O-Ring", onDelete: () => setFilters(p => ({ ...p, hasORingSeal: null })) }] : []),
   ]
 
-  const sidebar = (
-    <ConnectorElbowSidebar
-      filters={filters}
-      setFilters={setFilters}
-      filterOptions={allOptions}
-      counts={counts}
-      activeCount={activeCount}
-    />
-  )
+  const sidebar = <ConnectorElbowSidebar filters={filters} setFilters={setFilters} filterOptions={allOptions} counts={counts} activeCount={activeCount} />
 
   return (
     <>

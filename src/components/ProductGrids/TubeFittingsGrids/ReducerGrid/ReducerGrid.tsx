@@ -4,10 +4,10 @@ import { alpha } from "@mui/material/styles"
 import FilterListIcon from "@mui/icons-material/FilterList"
 import { getReducers, type ReducerDto } from "../../../../api/tubefittingApi"
 import { ReducerSidebar } from "./components/ReducerSidebar"
-import { ActiveFilters } from "../Common/ActiveFilters"
+import { ActiveFilters } from "../../Common/ActiveFilters"
 import ReducerTable from "./components/ReducerTable"
 import { type ReducerFilters, EMPTY_REDUCER_FILTERS, FITTING_TYPE_LABELS, TUBE_OD_UNIT_LABELS } from "./hook/types"
-import { countBy } from "../Common/filterUtils"
+import { countBy } from "../../Common/filterUtils"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -37,30 +37,31 @@ export default function ReducerPage() {
     })
   }, [])
 
-  const allOptions = useMemo(() => ({
-    fittingTypes: [...new Set(allData.map(r => r.fittingType))].sort(),
-    tubeODs:      [...new Set(allData.map(r => r.tubeOD))].sort(),
-    tubeODUnits:  [...new Set(allData.map(r => r.tubeODUnit))].sort(),
-    tubeOD2s:     [...new Set(allData.map(r => r.tubeOD2))].sort(),
-    tubeOD2Units: [...new Set(allData.map(r => r.tubeOD2Unit))].sort(),
-  }), [allData])
+  const allOptions = useMemo(
+    () => ({
+      fittingTypes: [...new Set(allData.map(r => r.fittingType))].sort(),
+      tubeODs: [...new Set(allData.map(r => r.tubeOD))].sort(),
+      tubeODUnits: [...new Set(allData.map(r => r.tubeODUnit))].sort(),
+      tubeOD2s: [...new Set(allData.map(r => r.tubeOD2))].sort(),
+      tubeOD2Units: [...new Set(allData.map(r => r.tubeOD2Unit))].sort(),
+    }),
+    [allData]
+  )
 
   const models = useMemo(() => filterData(allData, filters), [allData, filters])
 
-  const counts = useMemo(() => ({
-    fittingTypes: countBy(filterData(allData, filters, "fittingTypes"), r => r.fittingType),
-    tubeODs:      countBy(filterData(allData, filters, "tubeODs"),      r => r.tubeOD),
-    tubeODUnits:  countBy(filterData(allData, filters, "tubeODUnits"),  r => r.tubeODUnit),
-    tubeOD2s:     countBy(filterData(allData, filters, "tubeOD2s"),     r => r.tubeOD2),
-    tubeOD2Units: countBy(filterData(allData, filters, "tubeOD2Units"), r => r.tubeOD2Unit),
-  }), [allData, filters])
+  const counts = useMemo(
+    () => ({
+      fittingTypes: countBy(filterData(allData, filters, "fittingTypes"), r => r.fittingType),
+      tubeODs: countBy(filterData(allData, filters, "tubeODs"), r => r.tubeOD),
+      tubeODUnits: countBy(filterData(allData, filters, "tubeODUnits"), r => r.tubeODUnit),
+      tubeOD2s: countBy(filterData(allData, filters, "tubeOD2s"), r => r.tubeOD2),
+      tubeOD2Units: countBy(filterData(allData, filters, "tubeOD2Units"), r => r.tubeOD2Unit),
+    }),
+    [allData, filters]
+  )
 
-  const activeCount =
-    filters.fittingTypes.length +
-    filters.tubeODs.length +
-    filters.tubeODUnits.length +
-    filters.tubeOD2s.length +
-    filters.tubeOD2Units.length
+  const activeCount = filters.fittingTypes.length + filters.tubeODs.length + filters.tubeODUnits.length + filters.tubeOD2s.length + filters.tubeOD2Units.length
 
   const chips = [
     ...filters.fittingTypes.map(v => ({ label: FITTING_TYPE_LABELS[v] ?? v, onDelete: () => setFilters(p => ({ ...p, fittingTypes: p.fittingTypes.filter(x => x !== v) })) })),
@@ -70,15 +71,7 @@ export default function ReducerPage() {
     ...filters.tubeOD2Units.map(v => ({ label: `OD2 Unit: ${TUBE_OD_UNIT_LABELS[v] ?? v}`, onDelete: () => setFilters(p => ({ ...p, tubeOD2Units: p.tubeOD2Units.filter(x => x !== v) })) })),
   ]
 
-  const sidebar = (
-    <ReducerSidebar
-      filters={filters}
-      setFilters={setFilters}
-      filterOptions={allOptions}
-      counts={counts}
-      activeCount={activeCount}
-    />
-  )
+  const sidebar = <ReducerSidebar filters={filters} setFilters={setFilters} filterOptions={allOptions} counts={counts} activeCount={activeCount} />
 
   return (
     <>

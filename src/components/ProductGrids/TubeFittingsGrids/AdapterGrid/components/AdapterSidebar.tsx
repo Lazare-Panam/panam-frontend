@@ -1,9 +1,9 @@
 import { Divider } from "@mui/material"
 import { type AdapterFilters, EMPTY_ADAPTER_FILTERS, FITTING_TYPE_LABELS, THREAD_TYPE_LABELS, IMPERIAL_ODS, METRIC_ODS } from "../hooks/types"
-import { ProductSidebar } from "../../Common/ProductSidebar"
-import { FilterGroup } from "../../Common/FilterGroup"
-import { SmartCheckList } from "../../Common/SmartCheckList"
-import { UnitToggle } from "../../Common/UnitToggle"
+import { ProductSidebar } from "../../../Common/ProductSidebar"
+import { FilterGroup } from "../../../Common/FilterGroup"
+import { SmartCheckList } from "../../../Common/SmartCheckList"
+import { UnitToggle } from "../../../Common/UnitToggle"
 
 interface FilterOptions {
   fittingTypes: string[]
@@ -25,9 +25,7 @@ export function AdapterSidebar({ filters, setFilters, filterOptions, counts, act
   const toggle = (key: keyof AdapterFilters, val: string) =>
     setFilters(prev => ({
       ...prev,
-      [key]: (prev[key] as string[]).includes(val)
-        ? (prev[key] as string[]).filter(v => v !== val)
-        : [...(prev[key] as string[]), val],
+      [key]: (prev[key] as string[]).includes(val) ? (prev[key] as string[]).filter(v => v !== val) : [...(prev[key] as string[]), val],
     }))
 
   const selectedUnit = filters.tubeODUnits[0] ?? "all"

@@ -1,9 +1,9 @@
 import { Divider, ToggleButtonGroup, ToggleButton } from "@mui/material"
 import { type ReducerFilters, EMPTY_REDUCER_FILTERS, FITTING_TYPE_LABELS, IMPERIAL_ODS, METRIC_ODS } from "../hook/types"
-import { ProductSidebar } from "../../Common/ProductSidebar"
-import { FilterGroup } from "../../Common/FilterGroup"
-import { SmartCheckList } from "../../Common/SmartCheckList"
-import { UnitToggle } from "../../Common/UnitToggle"
+import { ProductSidebar } from "../../../Common/ProductSidebar"
+import { FilterGroup } from "../../../Common/FilterGroup"
+import { SmartCheckList } from "../../../Common/SmartCheckList"
+import { UnitToggle } from "../../../Common/UnitToggle"
 
 const toggleSx = {
   "& .MuiToggleButton-root": { fontSize: "0.7rem", py: 0.5, px: 1, textTransform: "none" },
@@ -30,9 +30,7 @@ export function ReducerSidebar({ filters, setFilters, filterOptions, counts, act
   const toggle = (key: keyof ReducerFilters, val: string) =>
     setFilters(prev => ({
       ...prev,
-      [key]: (prev[key] as string[]).includes(val)
-        ? (prev[key] as string[]).filter(v => v !== val)
-        : [...(prev[key] as string[]), val],
+      [key]: (prev[key] as string[]).includes(val) ? (prev[key] as string[]).filter(v => v !== val) : [...(prev[key] as string[]), val],
     }))
 
   const selectedUnit = filters.tubeODUnits[0] ?? "all"
@@ -54,9 +52,15 @@ export function ReducerSidebar({ filters, setFilters, filterOptions, counts, act
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />
       <FilterGroup title="OD 2 UNIT" count={filters.tubeOD2Units.length || undefined}>
-        <ToggleButtonGroup exclusive size="small" sx={{ mt: 0.5, ...toggleSx }}
+        <ToggleButtonGroup
+          exclusive
+          size="small"
+          sx={{ mt: 0.5, ...toggleSx }}
           value={filters.tubeOD2Units[0] ?? "all"}
-          onChange={(_, val) => { if (!val) return; setFilters(prev => ({ ...prev, tubeOD2Units: val === "all" ? [] : [val] })) }}>
+          onChange={(_, val) => {
+            if (!val) return
+            setFilters(prev => ({ ...prev, tubeOD2Units: val === "all" ? [] : [val] }))
+          }}>
           <ToggleButton value="all">All</ToggleButton>
           <ToggleButton value="Imperial">Imperial</ToggleButton>
           <ToggleButton value="Metric">Metric</ToggleButton>

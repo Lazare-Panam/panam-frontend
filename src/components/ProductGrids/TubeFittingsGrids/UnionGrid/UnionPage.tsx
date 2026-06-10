@@ -4,10 +4,10 @@ import { alpha } from "@mui/material/styles"
 import FilterListIcon from "@mui/icons-material/FilterList"
 import { getUnions, type UnionDto } from "../../../../api/tubefittingApi"
 import { UnionSidebar } from "./components/UnionSidebar"
-import { ActiveFilters } from "../Common/ActiveFilters"
+import { ActiveFilters } from "../../Common/ActiveFilters"
 import UnionTable from "./components/UnionTable"
 import { type UnionFilters, EMPTY_UNION_FILTERS, FITTING_TYPE_LABELS, TUBE_OD_UNIT_LABELS } from "./hooks/types"
-import { countBy } from "../Common/filterUtils"
+import { countBy } from "../../Common/filterUtils"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -37,30 +37,37 @@ export default function UnionPage() {
     })
   }, [])
 
-  const allOptions = useMemo(() => ({
-    fittingTypes: [...new Set(allData.map(r => r.fittingType))].sort(),
-    tubeODs:      [...new Set(allData.map(r => r.tubeOD))].sort(),
-    tubeODUnits:  [...new Set(allData.map(r => r.tubeODUnit))].sort(),
-    tubeOD2s:     [...new Set(allData.map(r => r.tubeOD2).filter(Boolean) as string[])].sort(),
-    tubeOD3s:     [...new Set(allData.map(r => r.tubeOD3).filter(Boolean) as string[])].sort(),
-  }), [allData])
+  const allOptions = useMemo(
+    () => ({
+      fittingTypes: [...new Set(allData.map(r => r.fittingType))].sort(),
+      tubeODs: [...new Set(allData.map(r => r.tubeOD))].sort(),
+      tubeODUnits: [...new Set(allData.map(r => r.tubeODUnit))].sort(),
+      tubeOD2s: [...new Set(allData.map(r => r.tubeOD2).filter(Boolean) as string[])].sort(),
+      tubeOD3s: [...new Set(allData.map(r => r.tubeOD3).filter(Boolean) as string[])].sort(),
+    }),
+    [allData]
+  )
 
   const models = useMemo(() => filterData(allData, filters), [allData, filters])
 
-  const counts = useMemo(() => ({
-    fittingTypes: countBy(filterData(allData, filters, "fittingTypes"), r => r.fittingType),
-    tubeODs:      countBy(filterData(allData, filters, "tubeODs"),      r => r.tubeOD),
-    tubeODUnits:  countBy(filterData(allData, filters, "tubeODUnits"),  r => r.tubeODUnit),
-    tubeOD2s:     countBy(filterData(allData, filters, "tubeOD2s").filter(r => r.tubeOD2), r => r.tubeOD2!),
-    tubeOD3s:     countBy(filterData(allData, filters, "tubeOD3s").filter(r => r.tubeOD3), r => r.tubeOD3!),
-  }), [allData, filters])
+  const counts = useMemo(
+    () => ({
+      fittingTypes: countBy(filterData(allData, filters, "fittingTypes"), r => r.fittingType),
+      tubeODs: countBy(filterData(allData, filters, "tubeODs"), r => r.tubeOD),
+      tubeODUnits: countBy(filterData(allData, filters, "tubeODUnits"), r => r.tubeODUnit),
+      tubeOD2s: countBy(
+        filterData(allData, filters, "tubeOD2s").filter(r => r.tubeOD2),
+        r => r.tubeOD2!
+      ),
+      tubeOD3s: countBy(
+        filterData(allData, filters, "tubeOD3s").filter(r => r.tubeOD3),
+        r => r.tubeOD3!
+      ),
+    }),
+    [allData, filters]
+  )
 
-  const activeCount =
-    filters.fittingTypes.length +
-    filters.tubeODs.length +
-    filters.tubeODUnits.length +
-    filters.tubeOD2s.length +
-    filters.tubeOD3s.length
+  const activeCount = filters.fittingTypes.length + filters.tubeODs.length + filters.tubeODUnits.length + filters.tubeOD2s.length + filters.tubeOD3s.length
 
   const chips = [
     ...filters.fittingTypes.map(v => ({ label: FITTING_TYPE_LABELS[v] ?? v, onDelete: () => setFilters(p => ({ ...p, fittingTypes: p.fittingTypes.filter(x => x !== v) })) })),
@@ -70,15 +77,7 @@ export default function UnionPage() {
     ...filters.tubeOD3s.map(v => ({ label: `OD3: ${v}`, onDelete: () => setFilters(p => ({ ...p, tubeOD3s: p.tubeOD3s.filter(x => x !== v) })) })),
   ]
 
-  const sidebar = (
-    <UnionSidebar
-      filters={filters}
-      setFilters={setFilters}
-      filterOptions={allOptions}
-      counts={counts}
-      activeCount={activeCount}
-    />
-  )
+  const sidebar = <UnionSidebar filters={filters} setFilters={setFilters} filterOptions={allOptions} counts={counts} activeCount={activeCount} />
 
   return (
     <>

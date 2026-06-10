@@ -36,13 +36,13 @@ const CertificationsPage = lazy(() => import("./components/Resources/components/
 //const PipeFittingPage = lazy(() => import("./PipeFittings/PipeFittings"))
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
 import Landing2 from "./components/Landing2/Landing2"
-import NeedleValveHBPage from "./components/NeedleValves/NeedleValveGrid/HBGrid/HBGridPage"
-import NeedleValveIBPage from "./components/NeedleValves/NeedleValveGrid/IBGrid/NeedleValveIBPage"
-import NeedleValveHPPage from "./components/NeedleValves/NeedleValveGrid/HPGrid/NeedleValvesHPPage"
+import NeedleValveHBPage from "./components/ProductGrids/NeedleValveGrid/HBGrid/HBGridPage"
+import NeedleValveIBPage from "./components/ProductGrids/NeedleValveGrid/IBGrid/NeedleValveIBPage"
+import NeedleValveHPPage from "./components/ProductGrids/NeedleValveGrid/HPGrid/NeedleValvesHPPage"
 import ProductPage2 from "./components/AllCategoriesNew/ProductPage2"
 import NeedleValvesPage from "./components/NeedleValves/NeedleValvePage"
-import NeedleValveSBPage from "./components/NeedleValves/NeedleValveGrid/SBGrid/SBGrid"
-import MiniValvePage from "./components/NeedleValves/NeedleValveGrid/MiniGrid/MiniValves"
+import NeedleValveSBPage from "./components/ProductGrids/NeedleValveGrid/SBGrid/SBGrid"
+import MiniValvePage from "./components/ProductGrids/NeedleValveGrid/MiniGrid/MiniValves"
 import ValvesPage from "./components/Valves/Valve"
 import PCVPage from "./components/CheckValvesGrid/CheckValves"
 import ReliefValvePage from "./components/ReliefValvesGrid/ReliefValvesGrid"
@@ -142,10 +142,10 @@ import PipeAdapterProductPage from "./components/High_Pressure/HP_PF/HP_Adapters
 import PipeElbowProductPage from "./components/High_Pressure/HP_PF/HP_Elbows/components/PipeElbowProductPage"
 import PipeTeeCrossProductPage from "./components/High_Pressure/HP_PF/HP_Tees_Cross/components/PipeTeeCrossProductPage"
 import PipeEndFittingProductPage from "./components/High_Pressure/HP_PF/HP_End_Connection/components/PipeEndFittingProductPage"
-import IBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/IBGrid/components/IBNeedleValveProductPage"
-import HBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/HBGrid/components/HBNeedleValveProductPage"
-import SBNeedleValveProductPage from "./components/NeedleValves/NeedleValveGrid/SBGrid/components/SBNeedleValveProductPage"
-import MiniValveProductPage from "./components/NeedleValves/NeedleValveGrid/MiniGrid/components/MiniValveProductPage"
+import IBNeedleValveProductPage from "./components/ProductGrids/NeedleValveGrid/IBGrid/components/IBNeedleValveProductPage"
+import HBNeedleValveProductPage from "./components/ProductGrids/NeedleValveGrid/HBGrid/components/HBNeedleValveProductPage"
+import SBNeedleValveProductPage from "./components/ProductGrids/NeedleValveGrid/SBGrid/components/SBNeedleValveProductPage"
+import MiniValveProductPage from "./components/ProductGrids/NeedleValveGrid/MiniGrid/components/MiniValveProductPage"
 import SearchPage from "./components/SearchResults/SearchPage"
 import ConnectorElbowProductPage from "./components/ProductGrids/TubeFittingsGrids/ConnectorElbowsGrid/components/ConnectorElbowProductPage"
 import UnionProductPage from "./components/ProductGrids/TubeFittingsGrids/UnionGrid/components/UnionProductPage"
@@ -482,7 +482,7 @@ export const routes = [
       //valves-url
       { path: "/valves", element: <ValvesPage /> },
 
-      //needle-valves-url
+      //needle-valves-url//
       { path: "/valves/needle-valves", element: <NeedleValvesPage /> },
       { path: "/valves/needle-valves/needle-valves-ib", element: <NeedleValveIBPage /> },
       { path: "/valves/needle-valves/needle-valves-ib/:partNumber", element: <IBNeedleValveProductPage /> },
