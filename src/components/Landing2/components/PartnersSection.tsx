@@ -18,6 +18,7 @@ const partners = [
   { name: "Ram Universal", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/ram-logo.png", url: "https://www.ramuniversal.co.uk/" },
   { name: "AC Valves", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/download.jpg", url: "https://acv-group.com/" },
   { name: "Andro Mach", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/download.png", url: "http://andromach.space/" },
+  { name: "UK Atomic Energy Authority", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/ukaea-logo.png", url: "https://www.ukaea.org/" },
 ];
 
   return (
