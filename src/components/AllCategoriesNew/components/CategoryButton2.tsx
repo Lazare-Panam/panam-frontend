@@ -1,13 +1,11 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import { Box, ButtonBase, Typography, Stack } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Box, Typography, Stack } from "@mui/material";
 import { type CategoryData2 } from "./CategoryData2";
 
 const BRAND_BLUE = "#01B0F0";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
-// ── EDIT ROUTES HERE ──────────────────────────────────────────────────────
 const CATEGORY_ROUTES: Record<string, string> = {
   "instrumentation-fittings":       "/instrumentation-fittings",
   "filters":                        "/filters",
@@ -20,7 +18,6 @@ const CATEGORY_ROUTES: Record<string, string> = {
   "pressure-regulator-transmitter": "/system-integration",
   "system-integration":             "/system-integration",
 };
-// ─────────────────────────────────────────────────────────────────────────
 
 const RootCard = styled(Box)({
   height: "100%",
@@ -37,14 +34,17 @@ const RootCard = styled(Box)({
   },
 });
 
-const ImageWrapper = styled(ButtonBase)({
+const ImageLink = styled("a")({
   position: "relative",
   height: 240,
   width: "100%",
-  borderRadius: 0,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   overflow: "hidden",
   backgroundColor: "#fcfcfc",
   borderBottom: "1px solid rgba(0, 0, 0, 0.05)",
+  textDecoration: "none",
   "& img": {
     width: "75%",
     height: "75%",
@@ -63,19 +63,21 @@ export const CategoryButton2: React.FC<CategoryData2> = ({
   products,
   seoDescription,
 }) => {
-  const navigate = useNavigate();
   const route = CATEGORY_ROUTES[id] ?? `/products/${id}`;
 
   return (
     <RootCard>
-      <ImageWrapper onClick={() => navigate(route)}>
+      <ImageLink href={route}>
         <img src={image} alt={`${title} industrial component`} />
-      </ImageWrapper>
+      </ImageLink>
 
       <Box sx={{ p: 3, flexGrow: 1 }}>
         <Typography
+          component="a"
+          href={route}
           variant="h6"
           sx={{
+            display: "block",
             fontWeight: 800,
             textTransform: "uppercase",
             color: BRAND_BLUE,
@@ -83,6 +85,8 @@ export const CategoryButton2: React.FC<CategoryData2> = ({
             fontSize: "0.95rem",
             letterSpacing: "0.05em",
             mb: 1,
+            textDecoration: "none",
+            "&:hover": { textDecoration: "underline" },
           }}
         >
           {title}
@@ -119,16 +123,15 @@ export const CategoryButton2: React.FC<CategoryData2> = ({
           {products?.map((product, index) => (
             <Typography
               key={`${id}-prod-${index}`}
-              onClick={(e: React.MouseEvent) => {
-                e.stopPropagation();
-                navigate(product.link);
-              }}
+              component="a"
+              href={product.link}
               sx={{
                 fontWeight: 500,
                 color: "#444",
-                cursor: "pointer",
                 fontSize: "0.85rem",
                 fontFamily: PRIMARY_FONT,
+                textDecoration: "none",
+                display: "block",
                 "&:hover": {
                   color: BRAND_BLUE,
                   textDecoration: "underline",
