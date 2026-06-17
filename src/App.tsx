@@ -156,6 +156,7 @@ import WeldGaugeProductPage from "./components/ProductGrids/TubeFittingsGrids/We
 import AccessoryProductPage from "./components/ProductGrids/TubeFittingsGrids/AccessoriesGrid/AccessoryProductPage"
 import DielectricProductPage from "./components/ProductGrids/TubeFittingsGrids/DieElectricGrid/DielectricProductPage"
 import GasketProductPage from "./components/ProductGrids/TubeFittingsGrids/DieElectricGrid/GasketProductPage"
+import AirHeaderDetailPage from "./components/SystemIntegration/AirHeaderPage"
 
 export const routes = [
   {
@@ -586,7 +587,7 @@ export const routes = [
       { path: "/quick-coupling-and-tubing/quick-coupling", element: <QuickCouplingPage /> },
       { path: "/quick-coupling-and-tubing/tubing", element: <TubingPage /> },
       { path: "/system-integration", element: <SystemIntegrationIndexPage /> },
-
+{ path: "/system-integration/air-header", element: <AirHeaderDetailPage /> },
       //high pressure
       { path: "/high-pressure/needle-valves", element: <HPNeedleValvePage /> },
       { path: "/high-pressure/needle-valves/:partNumber", element: <HPNeedleValveProductPage /> },

@@ -13,6 +13,7 @@ const PRODUCTS = [
         title: "Air Header",
         description: "Manifold system used to distribute compressed air to multiple outlets for instrument and utility applications.",
         image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/air-h.jpg",
+        href: "/system-integration/air-header",
       },
       {
         title: "Condensate Pots",
@@ -128,15 +129,20 @@ export default function SystemIntegrationIndexPage() {
             <Grid container spacing={3}>
               {group.items.map(product => (
                 <Grid key={product.title} size={{ xs: 12, sm: 6, md: 3 }}>
-                  <Card variant="outlined" sx={{
-                    borderRadius: 0,
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    border: "1px solid #e8e8e8",
-                    transition: "box-shadow 0.2s",
-                    "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" },
-                  }}>
+                  <Card
+                    variant="outlined"
+                    {...(product.href ? { component: "a", href: product.href } : {})}
+                    sx={{
+                      borderRadius: 0,
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      border: "1px solid #e8e8e8",
+                      transition: "box-shadow 0.2s",
+                      textDecoration: "none",
+                      cursor: product.href ? "pointer" : "default",
+                      "&:hover": { boxShadow: product.href ? "0 4px 24px rgba(1,176,240,0.18)" : "0 4px 24px rgba(1,176,240,0.10)" },
+                    }}>
                     <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 200 }}>
                       <CardMedia component="img" image={product.image} alt={product.title}
                         sx={{ width: "100%", maxWidth: 180, height: 160, objectFit: "contain" }} />
@@ -153,11 +159,21 @@ export default function SystemIntegrationIndexPage() {
                       </Typography>
                     </CardContent>
                     <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
-                      <Button variant="contained" fullWidth size="small" href="/enquiry"
+                      <Button
+                        variant="contained"
+                        fullWidth
+                        size="small"
+                        href={product.href ?? "/enquiry"}
+                        onClick={e => e.stopPropagation()}
                         sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
-                        ENQUIRE NOW
+                        {product.href ? "VIEW PRODUCT" : "ENQUIRE NOW"}
                       </Button>
-                      <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.com"
+                      <Button
+                        variant="outlined"
+                        fullWidth
+                        size="small"
+                        href="mailto:sales@panamvalves.com"
+                        onClick={e => e.stopPropagation()}
                         sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
                         EMAIL SALES
                       </Button>
