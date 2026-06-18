@@ -8,7 +8,7 @@ export default function JICTees() {
       <meta property="og:description" content="37° JIC tees and crosses in SS316. Male, female, union, and adapter configurations across all major thread standards." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
-      <JICFittingPage defaultFittingTypes={['MBT', 'AMBT', 'MRT', 'FBT', 'FRT', 'UT', 'SRT', 'SBT', 'UC']} />
+      <JICFittingPage defaultFittingTypes={['MBT', 'AMBT', 'MRT', 'FBT', 'FRT', 'UT', 'SRT', 'SBT', 'UC']} title="37° Flared JIC Tee Fittings" />
     </>
   )
 }

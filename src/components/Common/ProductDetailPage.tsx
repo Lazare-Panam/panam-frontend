@@ -68,7 +68,7 @@ export default function ProductDetailPage({
 
   return (
     <>  
-        <title>{`PANAM® ${partNumber} | ${title} | Panam Valves`}</title>
+    <title>{`PANAM® ${partNumber} | ${title} | Panam Valves`}</title>
     <meta name="description" content={`${title}. ${specs.map(s => `${s.label}: ${s.value}`).join(' · ')}.`} />
     <meta name="keywords" content={`${partNumber}, ${specs.map(s => s.value).join(', ')}, Panam Valves, high pressure valves, SS 316`} />
     <meta property="og:title" content={`PANAM® ${partNumber} | ${title}`} />

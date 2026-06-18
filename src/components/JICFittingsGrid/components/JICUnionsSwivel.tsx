@@ -8,7 +8,7 @@ export default function JICUnionsSwivel() {
       <meta property="og:description" content="37° JIC unions and swivel fittings in SS316. Straight, elbow, bulkhead, and lock nut configurations across all major thread standards." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
-      <JICFittingPage defaultFittingTypes={['U', 'UL', 'SU', 'BU', 'BLN']} />
+      <JICFittingPage defaultFittingTypes={['U', 'UL', 'SU', 'BU', 'BLN']} title="37° Flared JIC Unions" />
     </>
   )
 }

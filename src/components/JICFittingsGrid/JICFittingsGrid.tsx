@@ -9,7 +9,9 @@ import { type JICFittingFilters, EMPTY_JIC_FITTING_FILTERS } from './hooks/types
 import { JICFittingActiveFilters } from './components/JICFittingActiveFilters'
 const BRAND_BLUE = '#01B0F0'
 
-export default function JICFittingPage({ defaultFittingTypes }: { defaultFittingTypes?: string[] } = {}) {
+export default function JICFittingPage({ defaultFittingTypes, title = '37° Flared JIC Fittings' }: { defaultFittingTypes?: string[]
+   title?: string
+ } = {}) {
   const isMobile = useMediaQuery('(max-width:1200px)')
   const [filters, setFilters] = useState<JICFittingFilters>({
     ...EMPTY_JIC_FITTING_FILTERS,
@@ -34,7 +36,7 @@ export default function JICFittingPage({ defaultFittingTypes }: { defaultFitting
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
-          37° Flared JIC Fittings
+          {title}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           Male and female connectors, unions, elbows, tees and adapters in 37° JIC flare. Available in NPT, BSPT, BSPP, SAE/MS and Metric thread standards.

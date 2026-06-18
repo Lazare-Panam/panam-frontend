@@ -8,7 +8,7 @@ export default function JICElbows() {
       <meta property="og:description" content="37° JIC elbows in SS316. Male, female, union, and adapter configurations across all major thread standards." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
-      <JICFittingPage defaultFittingTypes={['ME', 'AME', 'LME', 'FE', 'UE']} />
+      <JICFittingPage defaultFittingTypes={['ME', 'AME', 'LME', 'FE', 'UE']} title="37° Flared JIC Elbows" />
     </>
   )
 }

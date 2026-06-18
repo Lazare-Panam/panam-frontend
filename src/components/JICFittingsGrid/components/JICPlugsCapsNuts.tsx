@@ -8,7 +8,7 @@ export default function JICPlugsCapsNuts() {
       <meta property="og:description" content="37° JIC plugs, caps and nuts in SS316. Full range of thread standards and sizes." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
-      <JICFittingPage defaultFittingTypes={['N', 'TC', 'TCA', 'TP']} />
+    <JICFittingPage defaultFittingTypes={['N', 'TC', 'TCA', 'TP']} title="37° Flared JIC Nuts & Tees" />
     </>
   )
 }
