@@ -157,6 +157,7 @@ import AccessoryProductPage from "./components/ProductGrids/TubeFittingsGrids/Ac
 import DielectricProductPage from "./components/ProductGrids/TubeFittingsGrids/DieElectricGrid/DielectricProductPage"
 import GasketProductPage from "./components/ProductGrids/TubeFittingsGrids/DieElectricGrid/GasketProductPage"
 import AirHeaderDetailPage from "./components/SystemIntegration/AirHeaderPage"
+import PIFProductPage from "./components/Filters/components/PIFDetailPage"
 
 export const routes = [
   {
@@ -571,6 +572,7 @@ export const routes = [
       { path: "/filters", element: <FiltersIndexPage /> },
       { path: "/filters/t-type", element: <PTFFiltersPage /> },
       { path: "/filters/i-type", element: <PIFFiltersPage /> },
+      { path: "/filters/i-type/:partNumber", element: <PIFProductPage /> },
 
       //manifolds
       { path: "/manifolds/2VM", element: <TwoVMManifoldsPage /> },

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack, IconButton, Button,
@@ -16,7 +17,10 @@ function Spec({ label, value }: { label: string; value?: string }) {
   if (!value) return null
   return (
     <Box>
-      <Typography variant="caption" color="text.secondary" fontWeight={700} sx={{ display: "block", textTransform: "uppercase", mb: 0.25, fontFamily: PRIMARY_FONT }}>{label}</Typography>
+      <Typography variant="caption" color="text.secondary" fontWeight={700}
+        sx={{ display: "block", textTransform: "uppercase", mb: 0.25, fontFamily: PRIMARY_FONT }}>
+        {label}
+      </Typography>
       <Typography variant="body2" fontWeight={600} sx={{ fontFamily: PRIMARY_FONT }}>{value}</Typography>
     </Box>
   )
@@ -24,17 +28,18 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function PIFRow({ row }: { row: PIFFilterDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
 
   const specs = {
-    "Part Number": row.partNumber,
-    "Series": row.series,
+    "Part Number":     row.partNumber,
+    "Series":          row.series,
     "Thread Standard": row.threadStandard,
-    "Thread Size": row.threadSize,
-    "End Connection": END_CONNECTION_LABELS[row.endConnection] ?? row.endConnection,
-    "Filter Element": row.filterElement,
-    "Pore Size": `${row.poreSize} μm`,
-    "Material": row.material === 'SS' ? 'Stainless Steel 316' : row.material,
+    "Thread Size":     row.threadSize,
+    "End Connection":  END_CONNECTION_LABELS[row.endConnection] ?? row.endConnection,
+    "Filter Element":  row.filterElement,
+    "Pore Size":       `${row.poreSize} μm`,
+    "Material":        row.material === "SS" ? "Stainless Steel 316" : row.material,
   }
 
   const handleAddToCart = () => {
@@ -51,11 +56,15 @@ function PIFRow({ row }: { row: PIFFilterDTO }) {
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: "pointer",
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit",
-        "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/filters/i-type/${row.partNumber}`)}
+        sx={{
+          cursor: "pointer",
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit",
+          "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -66,8 +75,7 @@ function PIFRow({ row }: { row: PIFFilterDTO }) {
         </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.series} size="small"
-            sx={{ fontSize: "0.65rem", fontWeight: 700, bgcolor: alpha(BRAND_BLUE, 0.1), color: "#0277BD" }}
-          />
+            sx={{ fontSize: "0.65rem", fontWeight: 700, bgcolor: alpha(BRAND_BLUE, 0.1), color: "#0277BD" }} />
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.threadSize}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.threadStandard}</TableCell>
@@ -76,25 +84,24 @@ function PIFRow({ row }: { row: PIFFilterDTO }) {
         </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.filterElement} size="small" variant="outlined"
-            sx={{ fontSize: "0.65rem", fontWeight: 700,
-              borderColor: row.filterElement === 'Mesh' ? "#FF6B35" : BRAND_BLUE,
-              color: row.filterElement === 'Mesh' ? "#FF6B35" : "#0277BD",
-            }}
-          />
+            sx={{
+              fontSize: "0.65rem", fontWeight: 700,
+              borderColor: row.filterElement === "Mesh" ? "#FF6B35" : BRAND_BLUE,
+              color: row.filterElement === "Mesh" ? "#FF6B35" : "#0277BD",
+            }} />
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT, fontWeight: 700 }}>
           {row.poreSize} μm
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Button
-            size="small"
-            variant="contained"
+          <Button size="small" variant="contained"
             onClick={e => { e.stopPropagation(); handleAddToCart() }}
             sx={{ fontSize: "0.7rem", fontWeight: 700, py: 0.5, px: 1.5, borderRadius: "4px", textTransform: "none", whiteSpace: "nowrap", bgcolor: BRAND_BLUE, boxShadow: "none", "&:hover": { bgcolor: "#0199d4", boxShadow: "none" } }}>
             Add to Quote
           </Button>
         </TableCell>
       </TableRow>
+
       {open && (
         <TableRow>
           <TableCell colSpan={9} sx={{ p: 0, borderBottom: "none" }}>
@@ -107,32 +114,39 @@ function PIFRow({ row }: { row: PIFFilterDTO }) {
                     </Box>
                   )}
                   <Box sx={{ flex: 1 }}>
-                    <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 1, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+                    <Typography variant="caption" fontWeight={900}
+                      sx={{ letterSpacing: 1, display: "block", mb: 1, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
                       DESCRIPTION
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6, fontFamily: PRIMARY_FONT }}>
                       {row.description}
                     </Typography>
-
-                    <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+                    <Typography variant="caption" fontWeight={900}
+                      sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
                       SPECIFICATIONS
                     </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number" value={row.partNumber} />
-                      <Spec label="Series" value={row.series} />
-                      <Spec label="Thread Size" value={row.threadSize} />
+                      <Spec label="Part Number"     value={row.partNumber} />
+                      <Spec label="Series"          value={row.series} />
+                      <Spec label="Thread Size"     value={row.threadSize} />
                       <Spec label="Thread Standard" value={row.threadStandard} />
-                      <Spec label="End Connection" value={END_CONNECTION_LABELS[row.endConnection] ?? row.endConnection} />
-                      <Spec label="Filter Element" value={row.filterElement} />
-                      <Spec label="Pore Size" value={`${row.poreSize} μm`} />
-                      <Spec label="Material" value="Stainless Steel 316" />
+                      <Spec label="End Connection"  value={END_CONNECTION_LABELS[row.endConnection] ?? row.endConnection} />
+                      <Spec label="Filter Element"  value={row.filterElement} />
+                      <Spec label="Pore Size"       value={`${row.poreSize} μm`} />
+                      <Spec label="Material"        value="Stainless Steel 316" />
                     </Stack>
-                    <Button
-                      variant="contained"
-                      onClick={handleAddToCart}
-                      sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, "&:hover": { bgcolor: "#0199d4" }, fontFamily: PRIMARY_FONT }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" spacing={1}>
+                      <Button variant="contained"
+                        onClick={e => { e.stopPropagation(); handleAddToCart() }}
+                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, "&:hover": { bgcolor: "#0199d4" }, fontFamily: PRIMARY_FONT }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined"
+                        onClick={e => { e.stopPropagation(); navigate(`/filters/i-type/${row.partNumber}`) }}
+                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, "&:hover": { bgcolor: alpha(BRAND_BLUE, 0.05) }, fontFamily: PRIMARY_FONT }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -191,35 +205,28 @@ export default function PIFTable({ models, isFetching }: { models: PIFFilterDTO[
             <TableRow>
               <TableCell sx={{ ...headerSx, width: 40 }} />
               {([
-                { key: "partNumber" as SortKey, label: "Part Number" },
-                { key: "series" as SortKey, label: "Series" },
-                { key: "threadSize" as SortKey, label: "Thread Size" },
+                { key: "partNumber" as SortKey,    label: "Part Number" },
+                { key: "series" as SortKey,        label: "Series" },
+                { key: "threadSize" as SortKey,    label: "Thread Size" },
                 { key: "threadStandard" as SortKey, label: "Standard" },
                 { key: "endConnection" as SortKey, label: "End Connection" },
                 { key: "filterElement" as SortKey, label: "Element" },
-                { key: "poreSize" as SortKey, label: "Pore Size" },
-                { key: null, label: "Quote" },
+                { key: "poreSize" as SortKey,      label: "Pore Size" },
+                { key: null,                        label: "Quote" },
               ]).map((h, i) => (
                 <TableCell key={i} sx={headerSx}>
-                  {h.key ? (
-                    <TableSortLabel active={sortKey === h.key} direction={sortKey === h.key ? sortDir : "asc"} onClick={() => handleSort(h.key!)}>
-                      {h.label}
-                    </TableSortLabel>
-                  ) : h.label}
+                  {h.key
+                    ? <TableSortLabel active={sortKey === h.key} direction={sortKey === h.key ? sortDir : "asc"} onClick={() => handleSort(h.key!)}>{h.label}</TableSortLabel>
+                    : h.label}
                 </TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {paginated.length === 0 ? (
-              <TableRow>
-                <TableCell colSpan={9} align="center" sx={{ py: 6 }}>
-                  <Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No filters found.</Typography>
-                </TableCell>
-              </TableRow>
-            ) : (
-              paginated.map(row => <PIFRow key={row.id} row={row} />)
-            )}
+            {paginated.length === 0
+              ? <TableRow><TableCell colSpan={9} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No filters found.</Typography></TableCell></TableRow>
+              : paginated.map(row => <PIFRow key={row.id} row={row} />)
+            }
           </TableBody>
         </Table>
       </TableContainer>
