@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -27,6 +28,7 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function QCRow({ row }: { row: QuickCouplingDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
 
   const handleAddToCart = () => {
@@ -38,28 +40,34 @@ function QCRow({ row }: { row: QuickCouplingDTO }) {
       quantity: 1,
       partNumber: row.partNumber,
       specs: {
-        'Part Number': row.partNumber,
-        'Series': row.series,
-        'Body Material': row.bodyMaterial,
+        'Part Number':    row.partNumber,
+        'Series':         row.series,
+        'Body Material':  row.bodyMaterial,
         'Connection Type': row.connectionType,
-        'Type': row.type,
+        'Type':           row.type,
       },
     })
   }
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: 'pointer',
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
-        '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/quick-coupling-and-tubing/quick-coupling/${row.partNumber}`)}
+        sx={{
+          cursor: 'pointer',
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
+          '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
           </IconButton>
         </TableCell>
-        <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_BLUE, fontSize: '0.8rem', py: 1 }}>{row.partNumber}</TableCell>
+        <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_BLUE, fontSize: '0.8rem', py: 1 }}>
+          {row.partNumber}
+        </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.series} size="small" variant="outlined"
             sx={{ fontSize: '0.65rem', fontWeight: 700, borderColor: BRAND_BLUE, color: '#0277BD' }} />
@@ -92,21 +100,35 @@ function QCRow({ row }: { row: QuickCouplingDTO }) {
                   )}
                   <Box sx={{ flex: 1 }}>
                     <Typography variant="caption" fontWeight={900}
-                      sx={{ letterSpacing: 1, display: 'block', mb: 1, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>DESCRIPTION</Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6, fontFamily: PRIMARY_FONT }}>{row.description}</Typography>
+                      sx={{ letterSpacing: 1, display: 'block', mb: 1, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+                      DESCRIPTION
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6, fontFamily: PRIMARY_FONT }}>
+                      {row.description}
+                    </Typography>
                     <Typography variant="caption" fontWeight={900}
-                      sx={{ letterSpacing: 1, display: 'block', mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>SPECIFICATIONS</Typography>
+                      sx={{ letterSpacing: 1, display: 'block', mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+                      SPECIFICATIONS
+                    </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number" value={row.partNumber} />
-                      <Spec label="Series" value={row.series} />
-                      <Spec label="Body Material" value={row.bodyMaterial} />
+                      <Spec label="Part Number"    value={row.partNumber} />
+                      <Spec label="Series"         value={row.series} />
+                      <Spec label="Body Material"  value={row.bodyMaterial} />
                       <Spec label="Connection Type" value={row.connectionType} />
-                      <Spec label="Type" value={row.type} />
+                      <Spec label="Type"           value={row.type} />
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToCart}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" spacing={1}>
+                      <Button variant="contained"
+                        onClick={e => { e.stopPropagation(); handleAddToCart() }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' }, fontFamily: PRIMARY_FONT }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined"
+                        onClick={e => { e.stopPropagation(); navigate(`/quick-couplings/${row.partNumber}`) }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) }, fontFamily: PRIMARY_FONT }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -163,12 +185,12 @@ export default function QCTable({ models }: {
             <TableRow>
               <TableCell sx={{ ...headerSx, width: 40 }} />
               {([
-                { key: 'partNumber' as SortKey,    label: 'Part Number' },
-                { key: 'series' as SortKey,         label: 'Series' },
-                { key: 'bodyMaterial' as SortKey,   label: 'Body Material' },
-                { key: 'connectionType' as SortKey, label: 'Connection Type' },
-                { key: 'type' as SortKey,           label: 'Type' },
-                { key: null,                         label: 'Quote' },
+                { key: 'partNumber' as SortKey,     label: 'Part Number' },
+                { key: 'series' as SortKey,          label: 'Series' },
+                { key: 'bodyMaterial' as SortKey,    label: 'Body Material' },
+                { key: 'connectionType' as SortKey,  label: 'Connection Type' },
+                { key: 'type' as SortKey,            label: 'Type' },
+                { key: null,                          label: 'Quote' },
               ]).map((h, i) => (
                 <TableCell key={i} sx={headerSx}>
                   {h.key

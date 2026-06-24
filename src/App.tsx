@@ -159,6 +159,7 @@ import GasketProductPage from "./components/ProductGrids/TubeFittingsGrids/DieEl
 import AirHeaderDetailPage from "./components/SystemIntegration/AirHeaderPage"
 import PIFProductPage from "./components/Filters/components/PIFDetailPage"
 import PTFProductPage from "./components/Filters/components/PTFProductPage"
+import QuickCouplingProductPage from "./components/Quick_Coupling/components/QuickCouplingProductPage "
 
 export const routes = [
   {
@@ -588,7 +589,9 @@ export const routes = [
       { path: "/double-block-and-bleed-valves", element: <DBBIndexPage /> },
       { path: "/quick-coupling-and-tubing", element: <QuickCouplingIndexPage /> },
       { path: "/quick-coupling-and-tubing/quick-coupling", element: <QuickCouplingPage /> },
+      { path: "/quick-coupling-and-tubing/quick-coupling/:partNumber", element: <QuickCouplingProductPage /> },
       { path: "/quick-coupling-and-tubing/tubing", element: <TubingPage /> },
+
       { path: "/system-integration", element: <SystemIntegrationIndexPage /> },
 { path: "/system-integration/air-header", element: <AirHeaderDetailPage /> },
       //high pressure
