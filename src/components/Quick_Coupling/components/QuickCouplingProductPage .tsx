@@ -15,7 +15,7 @@ export default function QuickCouplingProductPage() {
         <Typography variant="h5" mb={2}>
           Product not found
         </Typography>
-        <Button onClick={() => navigate("/quick-couplings")}>Back to Quick Couplings</Button>
+        <Button onClick={() => navigate("/quick-coupling-and-tubing/quick-coupling/")}>Back to Quick Couplings</Button>
       </Box>
     )
 
@@ -32,7 +32,7 @@ export default function QuickCouplingProductPage() {
 
   return (
     <ProductDetailPage
-      backHref="/quick-couplings"
+      backHref="/quick-coupling-and-tubing/quick-coupling/"
       backLabel="Quick Couplings"
       image={product.imageUrl ?? ""}
       partNumber={product.partNumber}
