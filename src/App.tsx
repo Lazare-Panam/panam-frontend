@@ -160,6 +160,7 @@ import AirHeaderDetailPage from "./components/SystemIntegration/AirHeaderPage"
 import PIFProductPage from "./components/Filters/components/PIFDetailPage"
 import PTFProductPage from "./components/Filters/components/PTFProductPage"
 import QuickCouplingProductPage from "./components/Quick_Coupling/components/QuickCouplingProductPage "
+import JICFittingProductPage from "./components/JICFittingsGrid/components/JICFittingsProductPage"
 
 export const routes = [
   {
@@ -537,6 +538,13 @@ export const routes = [
       { path: "/instrumentation-fittings/jic-fittings/elbows", element: <JICElbows /> },
       { path: "/instrumentation-fittings/jic-fittings/tees", element: <JICTees /> },
       { path: "/instrumentation-fittings/jic-fittings/plugs-caps-nuts", element: <JICPlugsCapsNuts /> },
+      { path: "/instrumentation-fittings/jic-fittings/all/:partNumber", element: <JICFittingProductPage section="all" /> },
+      { path: "/instrumentation-fittings/jic-fittings/connectors/:partNumber", element: <JICFittingProductPage section="connectors" /> },
+      { path: "/instrumentation-fittings/jic-fittings/unions-swivel/:partNumber", element: <JICFittingProductPage section="unions-swivel" /> },
+      { path: "/instrumentation-fittings/jic-fittings/adapters-reducers/:partNumber", element: <JICFittingProductPage section="adapters-reducers" /> },
+      { path: "/instrumentation-fittings/jic-fittings/elbows/:partNumber", element: <JICFittingProductPage section="elbows" /> },
+      { path: "/instrumentation-fittings/jic-fittings/tees/:partNumber", element: <JICFittingProductPage section="tees" /> },
+      { path: "/instrumentation-fittings/jic-fittings/plugs-caps-nuts/:partNumber", element: <JICFittingProductPage section="plugs-caps-nuts" /> },
 
       //Pipe
       {
@@ -593,7 +601,7 @@ export const routes = [
       { path: "/quick-coupling-and-tubing/tubing", element: <TubingPage /> },
 
       { path: "/system-integration", element: <SystemIntegrationIndexPage /> },
-{ path: "/system-integration/air-header", element: <AirHeaderDetailPage /> },
+      { path: "/system-integration/air-header", element: <AirHeaderDetailPage /> },
       //high pressure
       { path: "/high-pressure/needle-valves", element: <HPNeedleValvePage /> },
       { path: "/high-pressure/needle-valves/:partNumber", element: <HPNeedleValveProductPage /> },

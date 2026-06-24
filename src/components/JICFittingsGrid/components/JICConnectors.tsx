@@ -8,7 +8,7 @@ export default function JICConnectors() {
       <meta property="og:description" content="37° JIC male and female connectors in SS316. Full range of thread standards and sizes." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
-      <JICFittingPage defaultFittingTypes={['MC', 'FC']} title="37° Flared JIC Connectors" />
+      <JICFittingPage defaultFittingTypes={["MC", "FC"]} title="37° Flared JIC Connectors" section="connectors" />
     </>
   )
 }

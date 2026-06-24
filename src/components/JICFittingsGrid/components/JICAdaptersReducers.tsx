@@ -8,7 +8,7 @@ export default function JICAdaptersReducers() {
       <meta property="og:description" content="37° JIC adapters and reducers in SS316. Full range of thread standards and sizes." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
-      <JICFittingPage defaultFittingTypes={['RA', 'S']}  title="37° Flared JIC Adapters & Reducers"/>
+      <JICFittingPage defaultFittingTypes={["RA", "S"]} title="JIC Adapters & Reducers" section="adapters-reducers" />
     </>
   )
 }

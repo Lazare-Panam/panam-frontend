@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -8,12 +9,22 @@ import { alpha } from '@mui/material/styles'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { type JICFittingDTO } from '../../../api/jicFittingApi'
-import { JIC_FITTING_TYPE_LABELS, JIC_P1_TYPE_LABELS, type JICFittingFilters, } from '../hooks/types'
+import { JIC_FITTING_TYPE_LABELS, JIC_P1_TYPE_LABELS, type JICFittingFilters } from '../hooks/types'
 import { type JICFittingFilterOptions } from '../../../api/jicFittingApi'
 import { useCartStore } from '../../store/useCartStore'
 import { JICFittingSidebar } from './JICFittingSidebar'
 
 const BRAND_BLUE = '#01B0F0'
+
+const SECTION_BASE_ROUTES: Record<string, string> = {
+  'connectors':        '/instrumentation-fittings/jic-fittings/connectors',
+  'unions-swivel':     '/instrumentation-fittings/jic-fittings/unions-swivel',
+  'adapters-reducers': '/instrumentation-fittings/jic-fittings/adapters-reducers',
+  'elbows':            '/instrumentation-fittings/jic-fittings/elbows',
+  'tees':              '/instrumentation-fittings/jic-fittings/tees',
+  'plugs-caps-nuts':   '/instrumentation-fittings/jic-fittings/plugs-caps-nuts',
+  'all':               '/instrumentation-fittings/jic-fittings/all',
+}
 
 function Spec({ label, value }: { label: string; value?: string | null }) {
   if (!value) return null
@@ -26,9 +37,12 @@ function Spec({ label, value }: { label: string; value?: string | null }) {
   )
 }
 
-function Row({ model }: { model: JICFittingDTO }) {
+function Row({ model, section }: { model: JICFittingDTO; section: string }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
+
+  const baseRoute = SECTION_BASE_ROUTES[section] ?? SECTION_BASE_ROUTES['all']
 
   const specs: Record<string, string> = {
     'Part No':      model.partNo,
@@ -52,11 +66,15 @@ function Row({ model }: { model: JICFittingDTO }) {
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: 'pointer',
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
-        '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`${baseRoute}/${model.partNo}`)}
+        sx={{
+          cursor: 'pointer',
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
+          '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -95,16 +113,25 @@ function Row({ model }: { model: JICFittingDTO }) {
                     </Box>
                   )}
                   <Box sx={{ flex: 1 }}>
-                    <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: 'block', mb: 2, color: BRAND_BLUE }}>
+                    <Typography variant="caption" fontWeight={900}
+                      sx={{ letterSpacing: 1, display: 'block', mb: 2, color: BRAND_BLUE }}>
                       SPECIFICATIONS
                     </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       {Object.entries(specs).map(([k, v]) => <Spec key={k} label={k} value={v} />)}
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" spacing={1}>
+                      <Button variant="contained"
+                        onClick={e => { e.stopPropagation(); handleAddToQuote() }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined"
+                        onClick={e => { e.stopPropagation(); navigate(`${baseRoute}/${model.partNo}`) }}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -127,6 +154,7 @@ export default function JICFittingTable({
   filtersLoading,
   activeCount,
   isMobile,
+  section = 'all',
 }: {
   models: JICFittingDTO[]
   isFetching?: boolean
@@ -136,6 +164,7 @@ export default function JICFittingTable({
   filtersLoading: boolean
   activeCount: number
   isMobile: boolean
+  section?: string
 }) {
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(20)
@@ -217,7 +246,9 @@ export default function JICFittingTable({
                     <Typography variant="body2" color="text.secondary">No fittings found.</Typography>
                   </TableCell>
                 </TableRow>
-              ) : paginated.map((model, i) => <Row key={`${model.partNo}-${i}`} model={model} />)}
+              ) : paginated.map((model, i) => (
+                <Row key={`${model.partNo}-${i}`} model={model} section={section} />
+              ))}
             </TableBody>
           </Table>
         </TableContainer>
