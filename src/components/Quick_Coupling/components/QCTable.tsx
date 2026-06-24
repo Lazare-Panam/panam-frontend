@@ -124,7 +124,7 @@ function QCRow({ row }: { row: QuickCouplingDTO }) {
                         Add to Quote
                       </Button>
                       <Button variant="outlined"
-                        onClick={e => { e.stopPropagation(); navigate(`/quick-couplings/${row.partNumber}`) }}
+                        onClick={e => { e.stopPropagation(); navigate(`/quick-coupling-and-tubing/quick-coupling/${row.partNumber}`) }}
                         sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) }, fontFamily: PRIMARY_FONT }}>
                         View Full Page
                       </Button>

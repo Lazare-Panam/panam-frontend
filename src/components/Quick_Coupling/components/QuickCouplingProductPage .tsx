@@ -25,7 +25,7 @@ export default function QuickCouplingProductPage() {
       partNumber: r.partNumber,
       label: `${r.type} — ${r.connectionType}`,
       image: r.imageUrl ?? "",
-      href: `/quick-couplings/${r.partNumber}`,
+      href: `/quick-coupling-and-tubing/quick-coupling/${r.partNumber}`,
       chipLabel: r.type,
       chipColor: "#7B61FF",
     }))
