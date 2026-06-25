@@ -167,6 +167,10 @@ import UnionsConnectorsProductPage from "./PipeFittings/components/UnionsConnect
 import TeesCrossProductPage from "./PipeFittings/components/TeesCrossProductPage"
 import ElbowsProductPage from "./PipeFittings/components/ElbowsProductPage"
 import AdaptersPlugsProductPage from "./PipeFittings/components/AdaptersPlugsProductPage"
+import WeldFittingProductPage from "./components/WeldFittingsGrid/components/Weldfittingproductpage"
+import WeldFittingTeeProductPage from "./components/WeldFittingsGrid/components/WeldFittingTeeProductPage"
+import WeldFittingConnectorProductPage from "./components/WeldFittingsGrid/components/WeldFittingConnectorProductPage"
+import WeldFittingElbowProductPage from "./components/WeldFittingsGrid/components/WeldFittingElbowProductPage"
 
 export const routes = [
   {
@@ -579,6 +583,10 @@ export const routes = [
       { path: "/instrumentation-fittings/weld-fittings/connectors", element: <WeldFittingConnectors /> },
       { path: "/instrumentation-fittings/weld-fittings/elbows", element: <WeldFittingElbows /> },
       { path: "/instrumentation-fittings/weld-fittings/tees", element: <WeldFittingTees /> },
+      { path: "/instrumentation-fittings/weld-fittings/all/:partNo",        element: <WeldFittingProductPage /> },
+{ path: "/instrumentation-fittings/weld-fittings/connectors/:partNo", element: <WeldFittingConnectorProductPage /> },
+{ path: "/instrumentation-fittings/weld-fittings/elbows/:partNo",     element: <WeldFittingElbowProductPage /> },
+{ path: "/instrumentation-fittings/weld-fittings/tees/:partNo",       element: <WeldFittingTeeProductPage /> },
 
       //Tube Clamps
       { path: "/instrumentation-fittings/tube-clamps/twin-series", element: <TwinSeriesTubeClampPage /> },

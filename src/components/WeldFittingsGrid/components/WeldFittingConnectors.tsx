@@ -14,5 +14,5 @@ export default function WeldFittingConnectors() {
 <meta name="twitter:title" content="Weld Fitting Connectors | Socket & Butt | PANAM®" />
 <meta name="twitter:description" content={'PANAM® weld fitting connectors — socket & butt weld for permanent, high-integrity connections. SS316, Duplex, Monel & Hastelloy.'} />
 <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/connector-weld.jpg" />
-<WeldFittingPage defaultFittingTypes={['MC', 'FC']} /></>) 
+<WeldFittingPage defaultFittingTypes={['MC', 'FC']} section="connectors" /></>) 
 }

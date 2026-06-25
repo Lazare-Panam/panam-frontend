@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Stack, Typography, Button, Chip,
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, IconButton, Drawer,
-  useMediaQuery, 
+  useMediaQuery,
 } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import { type WeldFittingDTO, type WeldFittingFilterOptions } from '../../../api/weldFittingApi'
-
 import { type WeldFittingFilters, WELD_FITTING_TYPE_LABELS, WELD_P1_TYPE_LABELS, WELD_P2_TYPE_LABELS } from '../hooks/weldFittingTypes'
 import { WeldFittingSidebar } from './WeldFittingSidebar'
 import { useCartStore } from '../../store/useCartStore'
@@ -28,17 +28,38 @@ function Spec({ label, value }: { label: string; value?: string | null }) {
   )
 }
 
-function Row({ model }: { model: WeldFittingDTO }) {
+function Row({ model, section }: { model: WeldFittingDTO; section: string }) {
   const [open, setOpen] = useState(false)
   const addToCart = useCartStore(s => s.addItem)
+  const navigate = useNavigate()
+
+  const cartPayload = {
+    cartItemId: model.partNo,
+    id: model.partNo,
+    partNumber: model.partNo,
+    name: `${WELD_FITTING_TYPE_LABELS[model.fittingType] ?? model.fittingType} — ${model.partNo}`,
+    image: model.imageUrl ?? undefined,
+    quantity: 1,
+    specs: {
+      'Fitting Type': WELD_FITTING_TYPE_LABELS[model.fittingType] ?? model.fittingType,
+      'Tube OD': `${model.p1Size} ${model.p1Unit === 'mm' ? 'mm' : '"'}`,
+      'Weld Type': WELD_P1_TYPE_LABELS[model.p1Type] ?? model.p1Type,
+      ...(model.p2Size ? { 'Pipe Size': `${model.p2Size} ${model.p2Unit === 'mm' ? 'mm' : '"'}` } : {}),
+      ...(model.p2Type ? { 'Pipe Thread': WELD_P2_TYPE_LABELS[model.p2Type] ?? model.p2Type } : {}),
+    },
+  }
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: 'pointer',
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
-        '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/instrumentation-fittings/weld-fittings/${section}/${model.partNo}`)}
+        sx={{
+          cursor: 'pointer',
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
+          '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -64,22 +85,8 @@ function Row({ model }: { model: WeldFittingDTO }) {
         </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained"
-            onClick={e => { e.stopPropagation(); addToCart({
-            cartItemId: model.partNo,
-            id: model.partNo,
-            partNumber: model.partNo,
-            name: `${WELD_FITTING_TYPE_LABELS[model.fittingType] ?? model.fittingType} — ${model.partNo}`,
-            image: model.imageUrl ?? undefined,
-            quantity: 1,
-            specs: {
-                'Fitting Type': WELD_FITTING_TYPE_LABELS[model.fittingType] ?? model.fittingType,
-                'Tube OD': `${model.p1Size} ${model.p1Unit === 'mm' ? 'mm' : '"'}`,
-                'Weld Type': WELD_P1_TYPE_LABELS[model.p1Type] ?? model.p1Type,
-                ...(model.p2Size ? { 'Pipe Size': `${model.p2Size} ${model.p2Unit === 'mm' ? 'mm' : '"'}` } : {}),
-                ...(model.p2Type ? { 'Pipe Thread': WELD_P2_TYPE_LABELS[model.p2Type] ?? model.p2Type } : {}),
-            },
-            }) }}
-                        sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', bgcolor: BRAND_BLUE, textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { bgcolor: '#0090c8', boxShadow: 'none' } }}>
+            onClick={e => { e.stopPropagation(); addToCart(cartPayload) }}
+            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', bgcolor: BRAND_BLUE, textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { bgcolor: '#0090c8', boxShadow: 'none' } }}>
             Add to Quote
           </Button>
         </TableCell>
@@ -111,25 +118,18 @@ function Row({ model }: { model: WeldFittingDTO }) {
                       {model.p2Size && <Spec label="Pipe Size" value={`${model.p2Size} ${model.p2Unit === 'mm' ? 'mm' : '"'}`} />}
                       {model.p2Type && <Spec label="Pipe Thread" value={WELD_P2_TYPE_LABELS[model.p2Type] ?? model.p2Type} />}
                     </Stack>
-                    <Button variant="contained" size="small"
-                      onClick={() =>addToCart({
-                        cartItemId: model.partNo,
-                        id: model.partNo,
-                        partNumber: model.partNo,
-                        name: `${WELD_FITTING_TYPE_LABELS[model.fittingType] ?? model.fittingType} — ${model.partNo}`,
-                        image: model.imageUrl ?? undefined,
-                        quantity: 1,
-                        specs: {
-                            'Fitting Type': WELD_FITTING_TYPE_LABELS[model.fittingType] ?? model.fittingType,
-                            'Tube OD': `${model.p1Size} ${model.p1Unit === 'mm' ? 'mm' : '"'}`,
-                            'Weld Type': WELD_P1_TYPE_LABELS[model.p1Type] ?? model.p1Type,
-                            ...(model.p2Size ? { 'Pipe Size': `${model.p2Size} ${model.p2Unit === 'mm' ? 'mm' : '"'}` } : {}),
-                            ...(model.p2Type ? { 'Pipe Thread': WELD_P2_TYPE_LABELS[model.p2Type] ?? model.p2Type } : {}),
-                        },
-                        })}
-                      sx={{ bgcolor: BRAND_BLUE, textTransform: 'none', fontWeight: 700, borderRadius: '4px', '&:hover': { bgcolor: '#0090c8' } }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" gap={2}>
+                      <Button variant="contained" size="small"
+                        onClick={e => { e.stopPropagation(); addToCart(cartPayload) }}
+                        sx={{ bgcolor: BRAND_BLUE, textTransform: 'none', fontWeight: 700, borderRadius: '4px', '&:hover': { bgcolor: '#0090c8' } }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined" size="small"
+                        onClick={e => { e.stopPropagation(); navigate(`/instrumentation-fittings/weld-fittings/${section}/${model.partNo}`) }}
+                        sx={{ borderColor: BRAND_BLUE, color: BRAND_BLUE, textTransform: 'none', fontWeight: 700, borderRadius: '4px', '&:hover': { borderColor: '#0090c8', color: '#0090c8', bgcolor: 'transparent' } }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -144,7 +144,7 @@ function Row({ model }: { model: WeldFittingDTO }) {
 type SortKey = 'partNo' | 'fittingType' | 'material' | 'p1Size' | 'p1Type' | 'p2Size' | 'p2Type'
 
 export default function WeldFittingTable({
-  models, isFetching, filters, setFilters, filterOptions, filtersLoading, activeCount,
+  models, isFetching, filters, setFilters, filterOptions, filtersLoading, activeCount, section = 'all',
 }: {
   models: WeldFittingDTO[]
   isFetching?: boolean
@@ -153,6 +153,7 @@ export default function WeldFittingTable({
   filterOptions?: WeldFittingFilterOptions
   filtersLoading: boolean
   activeCount: number
+  section?: string
 }) {
   const isMobile = useMediaQuery('(max-width:1200px)')
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -242,7 +243,7 @@ export default function WeldFittingTable({
                     <Typography variant="body2" color="text.secondary">No fittings found.</Typography>
                   </TableCell>
                 </TableRow>
-              ) : paginated.map((model, i) => <Row key={`${model.partNo}-${i}`} model={model} />)}
+              ) : paginated.map((model, i) => <Row key={`${model.partNo}-${i}`} model={model} section={section} />)}
             </TableBody>
           </Table>
         </TableContainer>
