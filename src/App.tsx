@@ -162,6 +162,11 @@ import PTFProductPage from "./components/Filters/components/PTFProductPage"
 import QuickCouplingProductPage from "./components/Quick_Coupling/components/QuickCouplingProductPage "
 import JICFittingProductPage from "./components/JICFittingsGrid/components/JICFittingsProductPage"
 import PCVProductPage from "./components/CheckValvesGrid/components/PCVProductPage"
+import NipplesCouplingProductPage from "./PipeFittings/components/NipplesCouplingProductPage"
+import UnionsConnectorsProductPage from "./PipeFittings/components/UnionsConnectorsProductPage"
+import TeesCrossProductPage from "./PipeFittings/components/TeesCrossProductPage"
+import ElbowsProductPage from "./PipeFittings/components/ElbowsProductPage"
+import AdaptersPlugsProductPage from "./PipeFittings/components/AdaptersPlugsProductPage"
 
 export const routes = [
   {
@@ -562,6 +567,11 @@ export const routes = [
       { path: "/instrumentation-fittings/pipe-fittings/unions-connectors", element: <UnionsConnectors /> },
       { path: "/instrumentation-fittings/pipe-fittings/elbows", element: <Elbows /> },
       { path: "/instrumentation-fittings/pipe-fittings/tees-cross", element: <TeesCross /> },
+      { path: "/instrumentation-fittings/pipe-fittings/nipples-couplings/:partNumber", element: <NipplesCouplingProductPage /> },
+{ path: "/instrumentation-fittings/pipe-fittings/unions-connectors/:partNumber",  element: <UnionsConnectorsProductPage /> },
+{ path: "/instrumentation-fittings/pipe-fittings/tees-cross/:partNumber",         element: <TeesCrossProductPage /> },
+{ path: "/instrumentation-fittings/pipe-fittings/elbows/:partNumber",             element: <ElbowsProductPage /> },
+{ path: "/instrumentation-fittings/pipe-fittings/adapters-plugs/:partNumber",     element: <AdaptersPlugsProductPage /> },
 
       //Jic
       { path: "/instrumentation-fittings/weld-fittings/all", element: <WeldFittingPage /> },

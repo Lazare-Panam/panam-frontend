@@ -7,6 +7,7 @@ import {
 import { alpha } from '@mui/material/styles'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import { useNavigate } from 'react-router-dom'
 import { type PipeFittingDTO } from '../../api/pipeFittingApi'
 import { FITTING_TYPE_LABELS, THREAD_TYPE_LABELS } from '../hooks/types'
 import { useCartStore } from '../../components/store/useCartStore'
@@ -15,6 +16,18 @@ import { type PipeFittingFilters, } from '../hooks/types'
 import { type PipeFittingFilterOptions } from '../../api/pipeFittingApi'
 
 const BRAND_BLUE = '#01B0F0'
+
+const FITTING_TYPE_TO_SECTION: Record<string, string> = {
+  HN: 'nipples-couplings', HLN: 'nipples-couplings', HRN: 'nipples-couplings',
+  CN: 'nipples-couplings', LPN: 'nipples-couplings', HC: 'nipples-couplings', RHC: 'nipples-couplings',
+  U: 'unions-connectors', BHU: 'unions-connectors', SU: 'unions-connectors',
+  SC: 'unions-connectors', UE: 'unions-connectors',
+  FT: 'tees-cross', MT: 'tees-cross', FBT: 'tees-cross', FRT: 'tees-cross',
+  ST: 'tees-cross', BT: 'tees-cross', RT: 'tees-cross', UT: 'tees-cross', C: 'tees-cross',
+  FE: 'elbows', ME: 'elbows', SE: 'elbows',
+  A: 'adapters-plugs', RA: 'adapters-plugs', RB: 'adapters-plugs',
+  HP: 'adapters-plugs', HHP: 'adapters-plugs', PC: 'adapters-plugs',
+}
 
 function Spec({ label, value }: { label: string; value?: string | null }) {
   if (!value) return null
@@ -30,6 +43,7 @@ function Spec({ label, value }: { label: string; value?: string | null }) {
 function Row({ model }: { model: PipeFittingDTO }) {
   const [open, setOpen] = useState(false)
   const addItem = useCartStore(s => s.addItem)
+  const navigate = useNavigate()
 
   const specs: Record<string, string> = {
     'Part No': model.partNo,
@@ -52,9 +66,14 @@ function Row({ model }: { model: PipeFittingDTO }) {
     specs,
   })
 
+  const handleRowClick = () => {
+    const section = FITTING_TYPE_TO_SECTION[model.fittingType] ?? 'all'
+    navigate(`/instrumentation-fittings/pipe-fittings/${section}/${model.partNo}`)
+  }
+
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
+      <TableRow hover onClick={handleRowClick} sx={{
         cursor: 'pointer',
         bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
         '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
@@ -104,10 +123,16 @@ function Row({ model }: { model: PipeFittingDTO }) {
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       {Object.entries(specs).map(([k, v]) => <Spec key={k} label={k} value={v} />)}
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" gap={2}>
+                      <Button variant="contained" onClick={handleAddToQuote}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined" onClick={handleRowClick}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { borderColor: '#0199d4', color: '#0199d4' } }}>
+                        View Full Details
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -169,13 +194,12 @@ export default function PipeFittingTable({
   }
 
   return (
-// TO:
-<Box sx={{
-  display: 'flex', alignItems: 'flex-start',
-  border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`,
-  borderRadius: '8px',
-  bgcolor: 'background.paper',
-}}>
+    <Box sx={{
+      display: 'flex', alignItems: 'flex-start',
+      border: `1px solid ${alpha(BRAND_BLUE, 0.2)}`,
+      borderRadius: '8px',
+      bgcolor: 'background.paper',
+    }}>
       {!isMobile && (
         <PipeFittingSidebar
           filters={filters}
