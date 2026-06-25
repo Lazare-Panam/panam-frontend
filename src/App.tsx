@@ -161,6 +161,7 @@ import PIFProductPage from "./components/Filters/components/PIFDetailPage"
 import PTFProductPage from "./components/Filters/components/PTFProductPage"
 import QuickCouplingProductPage from "./components/Quick_Coupling/components/QuickCouplingProductPage "
 import JICFittingProductPage from "./components/JICFittingsGrid/components/JICFittingsProductPage"
+import PCVProductPage from "./components/CheckValvesGrid/components/PCVProductPage"
 
 export const routes = [
   {
@@ -506,6 +507,7 @@ export const routes = [
       { path: "/valves/ball-valves/high-bore", element: <HighBoreBallValves /> },
       //check-and-relif-valves
       { path: "/valves/check-valves", element: <PCVPage /> },
+      { path: "/valves/check-valves/:partNumber", element: <PCVProductPage /> },
       { path: "/valves/relief-valves", element: <ReliefValvePage /> },
 
       { path: "/instrumentation-fittings", element: <FittingsPage /> },

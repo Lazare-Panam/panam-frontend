@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack, IconButton, Button
@@ -8,8 +9,8 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
 import { type PCVDto } from "../../../api/checkValveApi"
 import { INLET_OUTLET_LABELS, MATERIAL_LABELS } from "../hooks/types"
-
 import { useCartStore } from "../../store/useCartStore"
+
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
@@ -26,6 +27,7 @@ function Spec({ label, value }: { label: string; value?: string }) {
 function PCVRow({ row }: { row: PCVDto }) {
   const [open, setOpen] = useState(false)
   const addItem = useCartStore(s => s.addItem)
+  const navigate = useNavigate()
 
   const specs = {
     "Part Number": row.partNumber,
@@ -38,11 +40,15 @@ function PCVRow({ row }: { row: PCVDto }) {
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: "pointer",
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit",
-        "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/valves/check-valves/${row.partNumber}`)}
+        sx={{
+          cursor: "pointer",
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit",
+          "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -74,21 +80,23 @@ function PCVRow({ row }: { row: PCVDto }) {
             variant="contained"
             onClick={e => {
               e.stopPropagation()
-            addItem({
-  cartItemId: row.partNumber,
-  id: String(row.id),
-  name: `PCV Check Valve — ${row.partNumber}`,
-  image: row.imageUrl,  // this is string | undefined — fine once CartItem.image is optional
-  quantity: 1,
-  partNumber: row.partNumber,
-  specs,
-})
+              addItem({
+                cartItemId: row.partNumber,
+                id: String(row.id),
+                name: `PCV Check Valve — ${row.partNumber}`,
+                image: row.imageUrl,
+                quantity: 1,
+                partNumber: row.partNumber,
+                specs,
+              })
             }}
-            sx={{ fontSize: "0.7rem", fontWeight: 700, py: 0.5, px: 1.5, borderRadius: "4px", textTransform: "none", whiteSpace: "nowrap", bgcolor: BRAND_BLUE, boxShadow: "none", "&:hover": { bgcolor: "#0199d4", boxShadow: "none" } }}>
+            sx={{ fontSize: "0.7rem", fontWeight: 700, py: 0.5, px: 1.5, borderRadius: "4px", textTransform: "none", whiteSpace: "nowrap", bgcolor: BRAND_BLUE, boxShadow: "none", "&:hover": { bgcolor: "#0199d4", boxShadow: "none" } }}
+          >
             Add to Quote
           </Button>
         </TableCell>
       </TableRow>
+
       {open && (
         <TableRow>
           <TableCell colSpan={8} sx={{ p: 0, borderBottom: "none" }}>
@@ -112,20 +120,33 @@ function PCVRow({ row }: { row: PCVDto }) {
                       <Spec label="Outlet Type" value={row.outlet ? (INLET_OUTLET_LABELS[row.outlet] ?? row.outlet) : undefined} />
                       <Spec label="Outlet Size" value={row.outletTubeOD ?? undefined} />
                     </Stack>
-                    <Button
-                      variant="contained"
-                      onClick={() => addItem({
-                        cartItemId: row.partNumber,
-                        id: String(row.id),
-                        name: `PCV Check Valve — ${row.partNumber}`,
-                        image: row.imageUrl,
-                        quantity: 1,
-                        partNumber: row.partNumber,
-                        specs,
-                      })}
-                      sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, "&:hover": { bgcolor: "#0199d4" }, fontFamily: PRIMARY_FONT }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" gap={2}>
+                      <Button
+                        variant="contained"
+                        onClick={e => {
+                          e.stopPropagation()
+                          addItem({
+                            cartItemId: row.partNumber,
+                            id: String(row.id),
+                            name: `PCV Check Valve — ${row.partNumber}`,
+                            image: row.imageUrl,
+                            quantity: 1,
+                            partNumber: row.partNumber,
+                            specs,
+                          })
+                        }}
+                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, "&:hover": { bgcolor: "#0199d4" }, fontFamily: PRIMARY_FONT }}
+                      >
+                        Add to Quote
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        onClick={e => { e.stopPropagation(); navigate(`/valves/check-valves/${row.partNumber}`) }}
+                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, "&:hover": { borderColor: "#0199d4", color: "#0199d4", bgcolor: "transparent" } }}
+                      >
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
