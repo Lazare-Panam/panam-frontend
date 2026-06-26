@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack, IconButton, Button,
@@ -24,16 +25,17 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function ManifoldRow({ row }: { row: ManifoldDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
 
   const specs = {
-    "Part Number": row.partNumber,
-    "Material": MATERIAL_LABELS[row.material] ?? row.material,
+    "Part Number":     row.partNumber,
+    "Material":        MATERIAL_LABELS[row.material] ?? row.material,
     "Connection Size": row.connectionSize,
     "Connection Type": row.connectionType,
-    "Mounting": row.mounting,
-    "Configuration": row.configuration,
-    "Max Pressure": row.maxPressure,
+    "Mounting":        row.mounting,
+    "Configuration":   row.configuration,
+    "Max Pressure":    row.maxPressure,
     "Special Service": row.specialService.length ? row.specialService.join(', ') : 'Standard',
   }
 
@@ -51,11 +53,15 @@ function ManifoldRow({ row }: { row: ManifoldDTO }) {
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: "pointer",
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit",
-        "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/manifolds/2VM/${row.partNumber}`)}
+        sx={{
+          cursor: "pointer",
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit",
+          "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -66,8 +72,7 @@ function ManifoldRow({ row }: { row: ManifoldDTO }) {
         </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.material} size="small"
-            sx={{ fontSize: "0.65rem", fontWeight: 700, bgcolor: alpha(BRAND_BLUE, 0.1), color: "#0277BD" }}
-          />
+            sx={{ fontSize: "0.65rem", fontWeight: 700, bgcolor: alpha(BRAND_BLUE, 0.1), color: "#0277BD" }} />
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.connectionSize}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.connectionType}</TableCell>
@@ -75,22 +80,21 @@ function ManifoldRow({ row }: { row: ManifoldDTO }) {
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.configuration}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.maxPressure} size="small" variant="outlined"
-            sx={{ fontSize: "0.65rem", fontWeight: 700,
+            sx={{
+              fontSize: "0.65rem", fontWeight: 700,
               borderColor: row.maxPressure === '10000 psi' ? "#FF6B35" : BRAND_BLUE,
               color: row.maxPressure === '10000 psi' ? "#FF6B35" : "#0277BD",
-            }}
-          />
+            }} />
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Button
-            size="small"
-            variant="contained"
+          <Button size="small" variant="contained"
             onClick={e => { e.stopPropagation(); handleAddToCart() }}
             sx={{ fontSize: "0.7rem", fontWeight: 700, py: 0.5, px: 1.5, borderRadius: "4px", textTransform: "none", whiteSpace: "nowrap", bgcolor: BRAND_BLUE, boxShadow: "none", "&:hover": { bgcolor: "#0199d4", boxShadow: "none" } }}>
             Add to Quote
           </Button>
         </TableCell>
       </TableRow>
+
       {open && (
         <TableRow>
           <TableCell colSpan={9} sx={{ p: 0, borderBottom: "none" }}>
@@ -109,26 +113,31 @@ function ManifoldRow({ row }: { row: ManifoldDTO }) {
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6, fontFamily: PRIMARY_FONT }}>
                       {row.description}
                     </Typography>
-
                     <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
                       SPECIFICATIONS
                     </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number" value={row.partNumber} />
-                      <Spec label="Material" value={MATERIAL_LABELS[row.material] ?? row.material} />
+                      <Spec label="Part Number"     value={row.partNumber} />
+                      <Spec label="Material"        value={MATERIAL_LABELS[row.material] ?? row.material} />
                       <Spec label="Connection Size" value={row.connectionSize} />
                       <Spec label="Connection Type" value={row.connectionType} />
-                      <Spec label="Mounting" value={row.mounting} />
-                      <Spec label="Configuration" value={row.configuration} />
-                      <Spec label="Max Pressure" value={row.maxPressure} />
+                      <Spec label="Mounting"        value={row.mounting} />
+                      <Spec label="Configuration"   value={row.configuration} />
+                      <Spec label="Max Pressure"    value={row.maxPressure} />
                       <Spec label="Special Service" value={row.specialService.length ? row.specialService.join(', ') : 'Standard'} />
                     </Stack>
-                    <Button
-                      variant="contained"
-                      onClick={handleAddToCart}
-                      sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, "&:hover": { bgcolor: "#0199d4" }, fontFamily: PRIMARY_FONT }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" gap={2}>
+                      <Button variant="contained"
+                        onClick={e => { e.stopPropagation(); handleAddToCart() }}
+                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, "&:hover": { bgcolor: "#0199d4" }, fontFamily: PRIMARY_FONT }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined"
+                        onClick={e => { e.stopPropagation(); navigate(`/manifolds/2VM/${row.partNumber}`) }}
+                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, "&:hover": { borderColor: "#0199d4", color: "#0199d4", bgcolor: "transparent" }, fontFamily: PRIMARY_FONT }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -187,14 +196,14 @@ export default function ManifoldTable({ models, isFetching }: { models: Manifold
             <TableRow>
               <TableCell sx={{ ...headerSx, width: 40 }} />
               {([
-                { key: "partNumber" as SortKey, label: "Part Number" },
-                { key: "material" as SortKey, label: "Material" },
+                { key: "partNumber"     as SortKey, label: "Part Number" },
+                { key: "material"       as SortKey, label: "Material" },
                 { key: "connectionSize" as SortKey, label: "Connection Size" },
                 { key: "connectionType" as SortKey, label: "Type" },
-                { key: "mounting" as SortKey, label: "Mounting" },
-                { key: "configuration" as SortKey, label: "Config" },
-                { key: "maxPressure" as SortKey, label: "Pressure" },
-                { key: null, label: "Quote" },
+                { key: "mounting"       as SortKey, label: "Mounting" },
+                { key: "configuration"  as SortKey, label: "Config" },
+                { key: "maxPressure"    as SortKey, label: "Pressure" },
+                { key: null,                         label: "Quote" },
               ]).map((h, i) => (
                 <TableCell key={i} sx={headerSx}>
                   {h.key ? (
@@ -213,9 +222,7 @@ export default function ManifoldTable({ models, isFetching }: { models: Manifold
                   <Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No manifolds found.</Typography>
                 </TableCell>
               </TableRow>
-            ) : (
-              paginated.map(row => <ManifoldRow key={row.id} row={row} />)
-            )}
+            ) : paginated.map(row => <ManifoldRow key={row.id} row={row} />)}
           </TableBody>
         </Table>
       </TableContainer>
