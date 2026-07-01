@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack, IconButton, Button,
@@ -24,6 +25,7 @@ function Spec({ label, value }: { label: string; value?: string }) {
 
 function Manifold3VMRow({ row }: { row: Manifold3VMDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
 
   const specs = {
@@ -51,11 +53,15 @@ function Manifold3VMRow({ row }: { row: Manifold3VMDTO }) {
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
-        cursor: "pointer",
-        bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit",
-        "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
-      }}>
+      <TableRow
+        hover
+        onClick={() => navigate(`/manifolds/3VM/${row.partNumber}`)}
+        sx={{
+          cursor: "pointer",
+          bgcolor: open ? alpha(BRAND_BLUE, 0.04) : "inherit",
+          "&:hover": { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
+        }}
+      >
         <TableCell sx={{ width: 40, py: 1 }}>
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
@@ -86,6 +92,7 @@ function Manifold3VMRow({ row }: { row: Manifold3VMDTO }) {
           </Button>
         </TableCell>
       </TableRow>
+
       {open && (
         <TableRow>
           <TableCell colSpan={8} sx={{ p: 0, borderBottom: "none" }}>
@@ -104,26 +111,33 @@ function Manifold3VMRow({ row }: { row: Manifold3VMDTO }) {
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6, fontFamily: PRIMARY_FONT }}>
                       {row.description}
                     </Typography>
-
                     <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
                       SPECIFICATIONS
                     </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number" value={row.partNumber} />
-                      <Spec label="Material" value="Stainless Steel 316" />
+                      <Spec label="Part Number"     value={row.partNumber} />
+                      <Spec label="Material"        value="Stainless Steel 316" />
                       <Spec label="Connection Size" value={row.connectionSize} />
                       <Spec label="Connection Type" value={row.connectionType} />
-                      <Spec label="Mounting" value={row.mounting} />
-                      <Spec label="Drain Hole" value={row.drainHoleSize} />
-                      <Spec label="Max Pressure" value={row.maxPressure} />
+                      <Spec label="Mounting"        value={row.mounting} />
+                      <Spec label="Drain Hole"      value={row.drainHoleSize} />
+                      <Spec label="Max Pressure"    value={row.maxPressure} />
                       <Spec label="Special Service" value={row.specialService.length ? row.specialService.join(', ') : 'Standard'} />
                     </Stack>
-                    <Button
-                      variant="contained"
-                      onClick={handleAddToCart}
-                      sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, "&:hover": { bgcolor: "#0199d4" }, fontFamily: PRIMARY_FONT }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" gap={2}>
+                      <Button
+                        variant="contained"
+                        onClick={e => { e.stopPropagation(); handleAddToCart() }}
+                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, "&:hover": { bgcolor: "#0199d4" }, fontFamily: PRIMARY_FONT }}>
+                        Add to Quote
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        onClick={e => { e.stopPropagation(); navigate(`/manifolds/3VM/${row.partNumber}`) }}
+                        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", borderColor: BRAND_BLUE, color: BRAND_BLUE, "&:hover": { borderColor: "#0199d4", color: "#0199d4", bgcolor: "transparent" }, fontFamily: PRIMARY_FONT }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -182,13 +196,13 @@ export default function Manifold3VMTable({ models, isFetching }: { models: Manif
             <TableRow>
               <TableCell sx={{ ...headerSx, width: 40 }} />
               {([
-                { key: "partNumber" as SortKey, label: "Part Number" },
+                { key: "partNumber"     as SortKey, label: "Part Number" },
                 { key: "connectionSize" as SortKey, label: "Connection Size" },
                 { key: "connectionType" as SortKey, label: "Type" },
-                { key: "mounting" as SortKey, label: "Mounting" },
-                { key: "drainHoleSize" as SortKey, label: "Drain Hole" },
-                { key: "maxPressure" as SortKey, label: "Pressure" },
-                { key: null, label: "Quote" },
+                { key: "mounting"       as SortKey, label: "Mounting" },
+                { key: "drainHoleSize"  as SortKey, label: "Drain Hole" },
+                { key: "maxPressure"    as SortKey, label: "Pressure" },
+                { key: null,                         label: "Quote" },
               ]).map((h, i) => (
                 <TableCell key={i} sx={headerSx}>
                   {h.key ? (

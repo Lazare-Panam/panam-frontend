@@ -172,6 +172,7 @@ import WeldFittingTeeProductPage from "./components/WeldFittingsGrid/components/
 import WeldFittingConnectorProductPage from "./components/WeldFittingsGrid/components/WeldFittingConnectorProductPage"
 import WeldFittingElbowProductPage from "./components/WeldFittingsGrid/components/WeldFittingElbowProductPage"
 import TwoVMProductPage from "./components/Manifolds/TwoWay/components/Twovmproductpage"
+import ThreeVMProductPage from "./components/Manifolds/ThreeWay/components/Manifold3VMProductPage"
 
 export const routes = [
   {
@@ -609,6 +610,7 @@ export const routes = [
       { path: "/manifolds/2VM", element: <TwoVMManifoldsPage /> },
       { path: "/manifolds/2VM/:partNumber", element: <TwoVMProductPage /> },
       { path: "/manifolds/3VM", element: <Manifolds3VMPage /> },
+      { path: "/manifolds/3VM/:partNumber", element: <ThreeVMProductPage /> },
       { path: "/manifolds/5VM", element: <Manifolds5VMPage /> },
       { path: "/manifolds", element: <ManifoldsIndexPage /> },
 
