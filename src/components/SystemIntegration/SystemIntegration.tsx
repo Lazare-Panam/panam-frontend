@@ -10,6 +10,11 @@ const PRODUCTS = [
     overline: "PANAM® System Integration",
     items: [
       {
+  title: "Stabilized Connector",
+  description: "Precision-engineered connectors designed for stable, secure connections in instrumentation and process control systems.",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/stablized-connector.png",
+},
+      {
         title: "Air Header",
         description: "Manifold system used to distribute compressed air to multiple outlets for instrument and utility applications.",
         image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/air-h.jpg",
