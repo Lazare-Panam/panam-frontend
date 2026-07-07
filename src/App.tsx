@@ -173,6 +173,7 @@ import WeldFittingConnectorProductPage from "./components/WeldFittingsGrid/compo
 import WeldFittingElbowProductPage from "./components/WeldFittingsGrid/components/WeldFittingElbowProductPage"
 import TwoVMProductPage from "./components/Manifolds/TwoWay/components/Twovmproductpage"
 import ThreeVMProductPage from "./components/Manifolds/ThreeWay/components/Manifold3VMProductPage"
+import UKBuyersGuideBlog from "./components/News/components/UKBuyerGuide"
 
 export const routes = [
   {
@@ -301,6 +302,14 @@ export const routes = [
           </Suspense>
         ),
       },
+      {
+  path: "blog/uk-industrial-valves-buyers-guide",
+  element: (
+    <Suspense fallback={<LoadingScreen />}>
+      <UKBuyersGuideBlog />
+    </Suspense>
+  ),
+},
       {
         path: "/blog/npt-vs-bspp-vs-bspt-thread-standards",
         element: (

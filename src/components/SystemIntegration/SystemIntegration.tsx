@@ -10,10 +10,10 @@ const PRODUCTS = [
     overline: "PANAM® System Integration",
     items: [
       {
-  title: "Stabilized Connector",
-  description: "Precision-engineered connectors designed for stable, secure connections in instrumentation and process control systems.",
-  image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/stablized-connector.png",
-},
+        title: "Stabilized Connector",
+        description: "Precision-engineered connectors designed for stable, secure connections in instrumentation and process control systems.",
+        image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/stablized-connector.png",
+      },
       {
         title: "Air Header",
         description: "Manifold system used to distribute compressed air to multiple outlets for instrument and utility applications.",
@@ -63,18 +63,18 @@ const PRODUCTS = [
 export default function SystemIntegrationIndexPage() {
   return (
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
-
       {/* ── HERO ── */}
-      <Box sx={{
-        width: "100%",
-        minHeight: { xs: "50vh", md: "60vh" },
-        display: "flex",
-        alignItems: "center",
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.58)), url("https://pblol2.blob.core.windows.net/panam-images/website-media/transmitter-thumbnail.jpg")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        py: { xs: 8, md: 12 },
-      }}>
+      <Box
+        sx={{
+          width: "100%",
+          minHeight: { xs: "50vh", md: "60vh" },
+          display: "flex",
+          alignItems: "center",
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.58)), url("https://pblol2.blob.core.windows.net/panam-images/website-media/transmitter-thumbnail.jpg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          py: { xs: 8, md: 12 },
+        }}>
         <Container maxWidth="lg">
           <Typography variant="overline" sx={{ color: BRAND_BLUE, letterSpacing: 3, fontSize: 11, fontWeight: 700, fontFamily: PRIMARY_FONT }}>
             PANAM® Instrumentation
@@ -84,11 +84,8 @@ export default function SystemIntegrationIndexPage() {
             <br />
             <span style={{ color: BRAND_BLUE }}>Pressure Instrumentation.</span>
           </Typography>
-          <Typography sx={{ fontSize: { xs: 16, md: 19 }, color: "rgba(255,255,255,0.85)", maxWidth: 580, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>
-            Air headers, condensate pots, grab sampling systems, flange adapters, pressure transmitters, differential pressure transmitters, and diaphragm seals — all available to enquire directly.
-          </Typography>
-          <Button variant="contained" size="large" href="/enquiry"
-            sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
+          <Typography sx={{ fontSize: { xs: 16, md: 19 }, color: "rgba(255,255,255,0.85)", maxWidth: 580, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>Air headers, condensate pots, grab sampling systems, flange adapters, pressure transmitters, differential pressure transmitters, and diaphragm seals — all available to enquire directly.</Typography>
+          <Button variant="contained" size="large" href="/enquiry" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
             Make an Enquiry
           </Button>
         </Container>
@@ -100,16 +97,7 @@ export default function SystemIntegrationIndexPage() {
         <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
           {[1, 2].map(i => (
             <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-              {[
-                "Air Headers",
-                "Condensate Pots",
-                "Grab Sampling Systems",
-                "Flange Adapters",
-                "Pressure Transmitters",
-                "Differential Pressure Transmitters",
-                "Diaphragm Seals",
-                "Oil & Gas · Petrochemical · Offshore",
-              ].map(item => (
+              {["Air Headers", "Condensate Pots", "Grab Sampling Systems", "Flange Adapters", "Pressure Transmitters", "Differential Pressure Transmitters", "Diaphragm Seals", "Oil & Gas · Petrochemical · Offshore"].map(item => (
                 <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5, fontFamily: PRIMARY_FONT }}>
                   <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
                   {item}
@@ -121,7 +109,6 @@ export default function SystemIntegrationIndexPage() {
       </Box>
 
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-
         {PRODUCTS.map((group, gi) => (
           <Box key={group.category} sx={{ mb: 10 }}>
             <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 3, fontSize: 11, fontFamily: PRIMARY_FONT, display: "block", mb: 1 }}>
@@ -149,8 +136,7 @@ export default function SystemIntegrationIndexPage() {
                       "&:hover": { boxShadow: product.href ? "0 4px 24px rgba(1,176,240,0.18)" : "0 4px 24px rgba(1,176,240,0.10)" },
                     }}>
                     <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 200 }}>
-                      <CardMedia component="img" image={product.image} alt={product.title}
-                        sx={{ width: "100%", maxWidth: 180, height: 160, objectFit: "contain" }} />
+                      <CardMedia component="img" image={product.image} alt={product.title} sx={{ width: "100%", maxWidth: 180, height: 160, objectFit: "contain" }} />
                     </Box>
                     <CardContent sx={{ flexGrow: 1, p: 3 }}>
                       <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}>
@@ -164,22 +150,10 @@ export default function SystemIntegrationIndexPage() {
                       </Typography>
                     </CardContent>
                     <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
-                      <Button
-                        variant="contained"
-                        fullWidth
-                        size="small"
-                        href={product.href ?? "/enquiry"}
-                        onClick={e => e.stopPropagation()}
-                        sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
+                      <Button variant="contained" fullWidth size="small" href={product.href ?? "/enquiry"} onClick={e => e.stopPropagation()} sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
                         {product.href ? "VIEW PRODUCT" : "ENQUIRE NOW"}
                       </Button>
-                      <Button
-                        variant="outlined"
-                        fullWidth
-                        size="small"
-                        href="mailto:sales@panamvalves.com"
-                        onClick={e => e.stopPropagation()}
-                        sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
+                      <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.com" onClick={e => e.stopPropagation()} sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
                         EMAIL SALES
                       </Button>
                     </Box>
@@ -198,21 +172,16 @@ export default function SystemIntegrationIndexPage() {
           <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
             Need a custom solution?
           </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>
-            Our engineering team can design and supply complete instrumentation systems to your specification. Get in touch and we'll respond within 24 hours.
-          </Typography>
+          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>Our engineering team can design and supply complete instrumentation systems to your specification. Get in touch and we'll respond within 24 hours.</Typography>
           <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
-            <Button variant="contained" size="large" href="/enquiry"
-              sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
+            <Button variant="contained" size="large" href="/enquiry" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
               Make an Enquiry
             </Button>
-            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.com"
-              sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
+            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.com" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
               Email Technical Sales
             </Button>
           </Box>
         </Box>
-
       </Container>
     </Box>
   )

@@ -46,8 +46,8 @@ export const navConfig: Record<string, NavCategory[]> = {
         { name: "37° JIC Fittings", link: "/instrumentation-fittings/jic-fittings" },
         { name: "Pipe Fittings", link: "/instrumentation-fittings/pipe-fittings" },
         { name: "Weld Fittings", link: "/instrumentation-fittings/weld-fittings" },
-       
-         { name: "Tube Clamps", link: "/instrumentation-fittings/tube-clamps" },
+
+        { name: "Tube Clamps", link: "/instrumentation-fittings/tube-clamps" },
       ],
     },
     {
@@ -95,10 +95,10 @@ export const navConfig: Record<string, NavCategory[]> = {
       id: "couplings",
       label: "Tubing & Quick Coupling",
       link: "/quick-coupling-and-tubing",
-        items: [
-      { name: "Quick Coupling", link: "/quick-coupling-and-tubing/quick-coupling" },
-      { name: "SS Tubing", link: "/quick-coupling-and-tubing/tubing" },
-    ],
+      items: [
+        { name: "Quick Coupling", link: "/quick-coupling-and-tubing/quick-coupling" },
+        { name: "SS Tubing", link: "/quick-coupling-and-tubing/tubing" },
+      ],
     },
     {
       id: "regulators",
@@ -138,17 +138,17 @@ export const navConfig: Record<string, NavCategory[]> = {
       id: "updates",
       label: "Latest News",
       link: "/blog",
-       items: 
-       [
-          { name: "Manifold Valves for Accurate, Safe Instrumentation Measurement", link: "/blog/manifold-valves-for-accurate-safe-instrumentation" },
-          { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
-          { name: "Double Block And Bleed Valves", link: "/blog/double-blog-and-bleed" },
-          { name: "Check Valves Blog", link: "/blog/check-valves-blog" },
-          { name: "Hydrogen Valves Blog", link: "/blog/hydrogen-blog" },
-          { name: "Swivel Gauge Adapters Blog", link: "/blog/swivel-gauge-blog" },
-          { name: "Ball Valves Blog", link: "/blog/three-way-valve-l-port-t-port-guide" },
-          { name: "Needle Valves Blog", link: "/blog/hp-series-needle-valves-high-pressure-flow-control" },
-          { name: "NPT vs BSPP vs BSPT Blog", link: "/blog/npt-vs-bspp-vs-bspt-thread-standards" },
+      items: [
+        { name: "UK Industrial Valves Buyer's Guide", link: "/blog/uk-industrial-valves-buyers-guide" },
+        { name: "Manifold Valves for Accurate, Safe Instrumentation Measurement", link: "/blog/manifold-valves-for-accurate-safe-instrumentation" },
+        { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
+        { name: "Double Block And Bleed Valves", link: "/blog/double-blog-and-bleed" },
+        { name: "Check Valves Blog", link: "/blog/check-valves-blog" },
+        { name: "Hydrogen Valves Blog", link: "/blog/hydrogen-blog" },
+        { name: "Swivel Gauge Adapters Blog", link: "/blog/swivel-gauge-blog" },
+        { name: "Ball Valves Blog", link: "/blog/three-way-valve-l-port-t-port-guide" },
+        { name: "Needle Valves Blog", link: "/blog/hp-series-needle-valves-high-pressure-flow-control" },
+        { name: "NPT vs BSPP vs BSPT Blog", link: "/blog/npt-vs-bspp-vs-bspt-thread-standards" },
       ],
     },
   ],

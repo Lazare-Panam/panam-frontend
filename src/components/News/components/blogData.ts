@@ -15,6 +15,16 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
+  slug: "uk-industrial-valves-buyers-guide",
+  title: "UK Buyer's Guide to Industrial Valves: Types, Standards, Materials and Fast-Track Supply",
+  category: "Technical Guide",
+  author: "Steven Kassi",
+  date: "June 22, 2026",
+  readTime: "9 min read",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
+  excerpt: "This UK-focused buyer's guide explains how to select industrial valves by function, standards and materials across energy, process, hydrogen and utilities. Covers key valve types, API and EN documentation, Cv and sizing, high-pressure and cryogenic duties, plus installation and lifecycle planning — with guidance on fast-track procurement from UK stock.",
+},
+  {
   slug: "manifold-valves-for-accurate-safe-instrumentation",
   title: "Smarter Instrumentation: Choosing the Right Manifolds for Accurate, Safe Measurement",
   category: "Technical Guide",
@@ -38,20 +48,20 @@ export const blogs: BlogPost[] = [
   // ─── POST 5 ───────────────────────────────────────────────────────────────
   {
     slug: "panam-valves-rg-fluid-power-partnership",
-    title: "Announcing a Strategic Partnership between Panam Valves and R&G Fluid Power Group",
+    title: "Announcing a Strategic Partnership between Sejal Raina and R&G Fluid Power Group",
     category: "News",
-    author: "Panam Valves",
+    author: "Sejal Raina",
     date: "March 5, 2026",
     readTime: "4 min read",
     image:"https://pblol2.blob.core.windows.net/panam-images/about/leadership-image.jpeg",
-    excerpt: "Panam Valves and R&G Fluid Power Group announce a new strategic partnership, uniting trusted products, industry expertise, and a shared commitment to reliability, quality, and performance.",
+    excerpt: "Sejal Raina and R&G Fluid Power Group announce a new strategic partnership, uniting trusted products, industry expertise, and a shared commitment to reliability, quality, and performance.",
    
   },
   {
     slug: "double-blog-and-bleed",
     title: "Double Block and Bleed Valves for Positive Isolation in Critical Service",
     category: "Technical Guide",
-    author: "Panam Valves",
+    author: "Sejal Raina",
     date: "March 23, 2026",
     readTime: "6 min read",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg", // Add your Cloudinary or hosted URL here
@@ -71,7 +81,7 @@ export const blogs: BlogPost[] = [
     slug: "hydrogen-blog",
     title: "Hydrogen Valves: Engineering for High-Pressure Net-Zero Infrastructure",
     category: "Technical Guide",
-    author: "Panam Valves",
+    author: "Sejal Raina",
     date: "March 31, 2026",
     readTime: "5 min read",
     image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=80&w=1200",
@@ -81,7 +91,7 @@ export const blogs: BlogPost[] = [
   slug: "swivel-gauge-blog",
   title: "Swivel Gauge Adapters – Essential Guide to Pressure Gauge Positioning",
   category: "Technical Guide",
-  author: "Panam Valves",
+  author: "Sejal Raina",
   date: "April 2026",
   readTime: "6 min read",
   image: "https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
