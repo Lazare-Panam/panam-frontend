@@ -174,6 +174,8 @@ import WeldFittingElbowProductPage from "./components/WeldFittingsGrid/component
 import TwoVMProductPage from "./components/Manifolds/TwoWay/components/Twovmproductpage"
 import ThreeVMProductPage from "./components/Manifolds/ThreeWay/components/Manifold3VMProductPage"
 import UKBuyersGuideBlog from "./components/News/components/UKBuyerGuide"
+import CheckValveGuideBlog from "./components/News/components/CheckValveGuidBlog"
+import BallValvesBlog from "./components/News/components/BallValvesBlog"
 
 export const routes = [
   {
@@ -293,6 +295,22 @@ export const routes = [
           </Suspense>
         ),
       },
+      {
+        path: "blog/stainless-steel-ball-valve-guide",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <BallValvesBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/check-valve-guide",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CheckValveGuideBlog />
+          </Suspense>
+        ),
+      },
       { path: "/blog/three-way-valve-l-port-t-port-guide", element: <ThreeWayValveBlog /> },
       {
         path: "blog/hydrogen-blog",
@@ -303,13 +321,13 @@ export const routes = [
         ),
       },
       {
-  path: "blog/uk-industrial-valves-buyers-guide",
-  element: (
-    <Suspense fallback={<LoadingScreen />}>
-      <UKBuyersGuideBlog />
-    </Suspense>
-  ),
-},
+        path: "blog/uk-industrial-valves-buyers-guide",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <UKBuyersGuideBlog />
+          </Suspense>
+        ),
+      },
       {
         path: "/blog/npt-vs-bspp-vs-bspt-thread-standards",
         element: (
