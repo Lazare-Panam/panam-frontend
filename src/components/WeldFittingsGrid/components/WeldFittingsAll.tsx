@@ -35,9 +35,7 @@ export default function WeldFittingPage({
 
   return (
     <>
-      <title>All Weld Fittings | Socket & Butt Weld | PANAM®</title>
       <meta name="description" content={'Browse the full PANAM® weld fitting range — connectors, elbows & tees in socket & butt weld. SS316, Duplex, Monel & Hastelloy. Rated to 10,000 psig.'} />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/weld-fittings/all" />
       <meta name="robots" content="index, follow" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
