@@ -110,6 +110,9 @@ const Footer: React.FC = () => {
                     marketing@panamvalve.com
                   </Link>
                 </Box>
+                <Link href="/delivery-returns" underline="none" sx={{ display: "inline-block", mt: 1.5, ...bodyText, fontSize: "0.78rem", "&:hover": { color: "white" } }}>
+                  Delivery & Returns
+                </Link>
               </Box>
             </Box>
           </Box>
@@ -152,6 +155,9 @@ const Footer: React.FC = () => {
                     marketing@panamvalve.com
                   </Link>
                 </Box>
+                <Link href="/delivery-returns" underline="none" sx={{ display: "inline-block", mt: 1.5, ...bodyText, "&:hover": { color: "white" } }}>
+                  Delivery & Returns
+                </Link>
               </Box>
             </Box>
           </Box>
@@ -237,6 +243,11 @@ const Footer: React.FC = () => {
                     marketing@panamvalve.com
                   </Typography>
                 </Box>
+
+                {/* Delivery & Returns */}
+                <Link href="/delivery-returns" underline="none" sx={{ ...bodyText, fontSize: "0.78rem", "&:hover": { color: "white" } }}>
+                  Delivery & Returns
+                </Link>
               </Stack>
             </Grid>
 
@@ -250,8 +261,14 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} Panam Valves Ltd. All Rights Reserved.
           </Typography>
           <Stack direction="row" spacing={3}>
-            {["Privacy Policy", "Terms of Use", "Sitemap"].map(item => (
-              <Link key={item} href="#" variant="caption" underline="none" sx={{ color: "rgba(255,255,255,0.35)", "&:hover": { color: "white" }, fontSize: "0.7rem", fontFamily: '"Inter", sans-serif' }}>
+            {["Privacy Policy", "Terms of Use", "Delivery & Returns", "Sitemap"].map(item => (
+              <Link
+                key={item}
+                href={item === "Delivery & Returns" ? "/delivery-returns" : "#"}
+                variant="caption"
+                underline="none"
+                sx={{ color: "rgba(255,255,255,0.35)", "&:hover": { color: "white" }, fontSize: "0.7rem", fontFamily: '"Inter", sans-serif' }}
+              >
                 {item}
               </Link>
             ))}

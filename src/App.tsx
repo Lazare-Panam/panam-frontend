@@ -176,6 +176,7 @@ import ThreeVMProductPage from "./components/Manifolds/ThreeWay/components/Manif
 import UKBuyersGuideBlog from "./components/News/components/UKBuyerGuide"
 import CheckValveGuideBlog from "./components/News/components/CheckValveGuidBlog"
 import BallValvesBlog from "./components/News/components/BallValvesBlog"
+import DeliveryReturnsPage from "./components/Landing/components/DeliveryInformation"
 
 export const routes = [
   {
@@ -568,7 +569,14 @@ export const routes = [
       { path: "/instrumentation-fittings/tube-fittings/die-electric", element: <DielectricGasketPage /> },
       { path: "/instrumentation-fittings/tube-fittings/die-electric/:partNumber", element: <DielectricProductPage /> },
       { path: "/instrumentation-fittings/tube-fittings/die-electric/gasket/:partNumber", element: <GasketProductPage /> },
-
+      {
+        path: "/delivery-returns",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <DeliveryReturnsPage />
+          </Suspense>
+        ),
+      },
       //Jic
       { path: "/instrumentation-fittings/jic-fittings", element: <JICFittingsIndexPage /> },
       { path: "/instrumentation-fittings/jic-fittings/all", element: <JICFittingPage /> },
