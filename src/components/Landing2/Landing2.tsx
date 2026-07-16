@@ -11,8 +11,8 @@ import Ticker from "./components/Ticker"
 const Landing2 = () => {
   return (
     <>
-      <title>Top Valve Manufactures in UK - Quality Valve for every fit</title>
-      <meta name="description" content="Global leader in precision instrumentation valves, fittings, and specialized solutions for the Hydrogen, Oil & Gas, and Power industries." />
+      <title>PANAM® UK | Top Valve Manufacture for every fit</title>
+      <meta name="description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. UK stock, fast dispatch and full technical support." />
       <Hero2 />
       <Ticker />
       <SEOSection/>
