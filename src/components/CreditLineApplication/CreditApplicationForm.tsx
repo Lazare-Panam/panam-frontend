@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography, TextField, Button, Stack, CircularProgress, Alert } from "@mui/material";
+import { Box, Typography, TextField, Button, CircularProgress, Alert } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useCreditApplicationForm } from "./useCreditApplicationForm";
