@@ -5,8 +5,9 @@ import { LogoutOutlined, DashboardOutlined, HistoryEdu as EnquiryIcon, Assignmen
 import AdminEnquiriesList from "./AdminEnquiries" // The component we just built
 import AdminUsersList from "./AdminUsers"
 import PeopleIcon from "@mui/icons-material/PeopleAltOutlined"
+import CreditCardIcon from "@mui/icons-material/CreditCardOutlined"
 import AdminRFQListNew from "./AdminRFQ/AdminRfqListNew"
-
+import AdminCreditApplicationsList from "./AdminCreditApplications"
 
 const BRAND_BLUE = "#01B0F0"
 
@@ -67,6 +68,7 @@ const AdminDashboard: React.FC = () => {
             <Tab icon={<EnquiryIcon fontSize="small" />} iconPosition="start" label="Enquiries" />
             <Tab icon={<RFSIcon fontSize="small" />} iconPosition="start" label="RFQ Logs" />
             <Tab icon={<PeopleIcon fontSize="small" />} iconPosition="start" label="Users" />
+            <Tab icon={<CreditCardIcon fontSize="small" />} iconPosition="start" label="Credit Applications" />
           </Tabs>
         </Container>
       </AppBar>
@@ -87,6 +89,11 @@ const AdminDashboard: React.FC = () => {
         {activeTab === 2 && (
           <Box>
             <AdminUsersList />
+          </Box>
+        )}
+        {activeTab === 3 && (
+          <Box>
+            <AdminCreditApplicationsList />
           </Box>
         )}
       </Container>

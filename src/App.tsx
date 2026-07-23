@@ -177,6 +177,7 @@ import UKBuyersGuideBlog from "./components/News/components/UKBuyerGuide"
 import CheckValveGuideBlog from "./components/News/components/CheckValveGuidBlog"
 import BallValvesBlog from "./components/News/components/BallValvesBlog"
 import DeliveryReturnsPage from "./components/Landing/components/DeliveryInformation"
+import CreditApplicationForm from "./components/CreditLineApplication/CreditApplicationForm"
 
 export const routes = [
   {
@@ -189,6 +190,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <Landing2 />
+          </Suspense>
+        ),
+      },
+      {
+        path: "credit-application",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CreditApplicationForm />
           </Suspense>
         ),
       },
