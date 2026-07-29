@@ -68,14 +68,14 @@ export default function ProductDetailPage({
 
   return (
     <>  
-    <title>{`PANAM® ${partNumber} | ${title} | Panam Valves`}</title>
+    {/* <title>{`PANAM® ${partNumber} | ${title} | Panam Valves`}</title>
     <meta name="description" content={`${title}. ${specs.map(s => `${s.label}: ${s.value}`).join(' · ')}.`} />
     <meta name="keywords" content={`${partNumber}, ${specs.map(s => s.value).join(', ')}, Panam Valves, high pressure valves, SS 316`} />
     <meta property="og:title" content={`PANAM® ${partNumber} | ${title}`} />
     <meta property="og:description" content={`${title}. ${specs.map(s => `${s.label}: ${s.value}`).join(' · ')}.`} />
     <meta property="og:image" content={image} />
     <meta property="og:type" content="product" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow" /> */}
       <Box sx={{ bgcolor: '#f8f9fa', minHeight: '100vh' }}>
 
       {/* ── BACK BAR ── */}
