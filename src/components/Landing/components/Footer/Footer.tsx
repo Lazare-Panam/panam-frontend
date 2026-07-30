@@ -181,9 +181,9 @@ const Footer: React.FC = () => {
                 Precision-engineered instrumentation solutions for critical global infrastructure.
               </Typography>
               <SocialIcons />
-              <Box sx={{ mt: 2 }}>
+              {/* <Box sx={{ mt: 2 }}>
                 <Box component="img" src="https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/HEA_SumbolAsset-13%20(1).png" sx={{ height: 40, width: "auto", filter: "brightness(0) invert(1) opacity(0.8)" }} />
-              </Box>
+              </Box> */}
             </Grid>
 
             {/* Col 3 — Products */}

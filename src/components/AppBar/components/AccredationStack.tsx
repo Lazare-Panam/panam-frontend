@@ -9,13 +9,13 @@ const ACCREDITATIONS = [
     website: "https://bfpa.co.uk/" ,
     priority: true
   },
-  { 
-    name: "Abstract geometric design made of paired circular shapes arranged in a spiralling pattern, transitioning from green on the left to blue on the right.", 
-    url: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/HEA_SumbolAsset-13%20(1).png", 
-    height: 60,
-    website: "https://ukhea.co.uk/" ,
-    priority: true
-  },
+  // { 
+  //   name: "Abstract geometric design made of paired circular shapes arranged in a spiralling pattern, transitioning from green on the left to blue on the right.", 
+  //   url: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/HEA_SumbolAsset-13%20(1).png", 
+  //   height: 60,
+  //   website: "https://ukhea.co.uk/" ,
+  //   priority: true
+  // },
 ];
 
 
