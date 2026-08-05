@@ -179,6 +179,7 @@ import BallValvesBlog from "./components/News/components/BallValvesBlog"
 import DeliveryReturnsPage from "./components/Landing/components/DeliveryInformation"
 import CreditApplicationForm from "./components/CreditLineApplication/CreditApplicationForm"
 import AllPipeFittings from "./PipeFittings/pages/PipeFittingsAll"
+import AllPipeFittingsProductPage from "./PipeFittings/components/AllPipeFittings"
 
 export const routes = [
   {
@@ -624,7 +625,7 @@ export const routes = [
       { path: "/instrumentation-fittings/pipe-fittings/elbows/:partNumber", element: <ElbowsProductPage /> },
       { path: "/instrumentation-fittings/pipe-fittings/adapters-plugs/:partNumber", element: <AdaptersPlugsProductPage /> },
       { path: "/instrumentation-fittings/pipe-fittings/all", element: <AllPipeFittings /> },
-
+      { path: "/instrumentation-fittings/pipe-fittings/all/:partNumber", element: <AllPipeFittingsProductPage /> },
       //Jic
       { path: "/instrumentation-fittings/weld-fittings/all", element: <WeldFittingPage /> },
       { path: "/instrumentation-fittings/weld-fittings", element: <WeldFittingsIndexPage /> },
