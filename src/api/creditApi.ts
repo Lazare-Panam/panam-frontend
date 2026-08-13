@@ -54,8 +54,6 @@ export const getCreditApplicationById = async (applicationId: number): Promise<C
 }
 
 // Admin: update status
-export const updateCreditApplicationStatus = async (applicationId: number, status: number): Promise<void> => {
-  await axiosClient.patch(`${ADMIN_BASE_PATH}/credit-applications/${applicationId}/status`, status, {
-    headers: { "Content-Type": "application/json" },
-  })
+export const updateCreditApplicationStatus = async (applicationId: number, status: number, creditLimit: number): Promise<void> => {
+  await axiosClient.patch(`${ADMIN_BASE_PATH}/credit-applications/${applicationId}/status`, { status, creditLimit: creditLimit.toString() }, { headers: { "Content-Type": "application/json" } })
 }
