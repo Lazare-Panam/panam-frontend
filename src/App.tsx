@@ -180,6 +180,7 @@ import DeliveryReturnsPage from "./components/Landing/components/DeliveryInforma
 import CreditApplicationForm from "./components/CreditLineApplication/CreditApplicationForm"
 import AllPipeFittings from "./PipeFittings/pages/PipeFittingsAll"
 import AllPipeFittingsProductPage from "./PipeFittings/components/AllPipeFittings"
+import SpecifyValvesGuideBlog from "./components/News/components/Specifyvalvesguideblog"
 
 export const routes = [
   {
@@ -580,6 +581,14 @@ export const routes = [
       { path: "/instrumentation-fittings/tube-fittings/die-electric", element: <DielectricGasketPage /> },
       { path: "/instrumentation-fittings/tube-fittings/die-electric/:partNumber", element: <DielectricProductPage /> },
       { path: "/instrumentation-fittings/tube-fittings/die-electric/gasket/:partNumber", element: <GasketProductPage /> },
+      {
+        path: "blog/how-to-specify-industrial-and-control-valves",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <SpecifyValvesGuideBlog />
+          </Suspense>
+        ),
+      },
       {
         path: "/delivery-returns",
         element: (
