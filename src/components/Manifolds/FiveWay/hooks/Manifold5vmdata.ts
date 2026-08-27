@@ -271,8 +271,6 @@ const RAW_DATA: RawManifold[] = [
   { partNumber: "5VM-SS-8-R-A-XLT-10K",     sizeCode: '8',   connectionType: '',   mountingCode: 'R',  optionalCodes: ['XLT'], pressureCode: '10K' },
   { partNumber: "5VM-SS-8G-DM-A-SG",        sizeCode: '8G',  connectionType: '',   mountingCode: 'DM', optionalCodes: ['SG'] },
   { partNumber: "5VM-SS-8R-DM-A-SG",        sizeCode: '8R',  connectionType: '',   mountingCode: 'DM', optionalCodes: ['SG'] },
-  { partNumber: "5VM-SS-20M-R-A-PC",        sizeCode: '20M', connectionType: '',   mountingCode: 'R',  optionalCodes: ['PC'] },
-  { partNumber: "5VM-SS-20MM-DM-A-PC",      sizeCode: '20MM',connectionType: '',   mountingCode: 'DM', optionalCodes: ['PC'] },
   { partNumber: "5VM-SS-8-T-A-PC-SG",       sizeCode: '8',   connectionType: '',   mountingCode: 'T',  optionalCodes: ['PC', 'SG'] },
   { partNumber: "5VM-SS-8-H-A-PC-SG",       sizeCode: '8',   connectionType: '',   mountingCode: 'H',  optionalCodes: ['PC', 'SG'] },
   { partNumber: "5VM-SS-8-R-A-BKT-SG",      sizeCode: '8',   connectionType: '',   mountingCode: 'R',  optionalCodes: ['SG'], mountingBracket: true },

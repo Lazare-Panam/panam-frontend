@@ -177,7 +177,6 @@ export const PIPE_NIPPLE_DATA: PipeFittingNippleDTO[] = [
   make("PHN-4J-4G-SS-15K", "Hex Nipple", '1/4"', "37° JIC", '1/4"', "ISO Parallel", "15,000 psi", 15000, IMG_OTHER),
   make("PHN-6J-6G-SS-15K", "Hex Nipple", '3/8"', "37° JIC", '3/8"', "ISO Parallel", "15,000 psi", 15000, IMG_OTHER),
   make("PHN-4J-8G-SS-15K", "Hex Nipple", '1/4"', "37° JIC", '1/2"', "ISO Parallel", "15,000 psi", 15000, IMG_OTHER),
-  make("PHN-6J-6G-SS-15K", "Hex Nipple", '3/8"', "37° JIC", '3/8"', "ISO Parallel", "15,000 psi", 15000, IMG_OTHER),
   make("PHN-8J-8G-SS-15K", "Hex Nipple", '1/2"', "37° JIC", '1/2"', "ISO Parallel", "15,000 psi", 15000, IMG_OTHER),
   make("PHN-8J-12G-SS-10K", "Hex Nipple", '1/2"', "37° JIC", '3/4"', "ISO Parallel", "10,000 psi", 10000, IMG_OTHER),
 
