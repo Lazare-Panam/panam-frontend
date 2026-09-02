@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Button, Grid, Stack, alpha } from "@mui/material"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
-import { useNavigate, Link as RouterLink } from "react-router-dom"
+import { Link as RouterLink } from "react-router-dom"
 
 const BRAND_BLUE = "#01B0F0"
 
@@ -15,7 +15,6 @@ const productData = [
   { name: "System Integration", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/system-integration/Img11695-removebg-preview.png", path: "/system-integration" },
 ]
 const CoreProducts = () => {
-  const navigate = useNavigate()
   return (
     <Box component="section" id="products" sx={{ py: 12, bgcolor: "#FFFFFF" }}>
       <Container maxWidth="lg">
@@ -126,7 +125,8 @@ const CoreProducts = () => {
           {productData.map((product, index) => (
             <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
               <Box
-                onClick={() => navigate(product.path)}
+                component={RouterLink}
+                to={product.path}
                 sx={{
                   display: "flex",
                   flexDirection: "column",

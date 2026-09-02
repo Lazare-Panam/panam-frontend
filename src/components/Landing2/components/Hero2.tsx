@@ -44,7 +44,7 @@ const Hero2: React.FC = () => {
         loop
         watchSlidesProgress={true} // Forces Swiper to calculate visibility for the first slide
         style={{ height: "100%", width: "100%" }}>
-        {slides.map(slide => (
+        {slides.map((slide, index) => (
           <SwiperSlide key={slide.title}>
             <Box
               sx={{
@@ -79,6 +79,7 @@ const Hero2: React.FC = () => {
                 <Stack spacing={2} sx={{ maxWidth: { xs: "100%", md: 700 } }}>
                   <Typography
                     variant="h1"
+                    component={index === 0 ? "h1" : "p"}
                     className="fade-up-1"
                     sx={{
                       fontWeight: 900,

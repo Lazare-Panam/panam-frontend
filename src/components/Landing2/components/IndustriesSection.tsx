@@ -19,7 +19,7 @@ import ScienceIcon from '@mui/icons-material/Science';
 import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 const BRAND_BLUE = "#01B0F0";
 
 const industryData = [
@@ -105,7 +105,6 @@ const industryData = [
 
 const IndustriesSection = () => {
   const [activeTab, setActiveTab] = useState(0);
-const navigate = useNavigate();
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
   setActiveTab(newValue);
 };
@@ -191,12 +190,13 @@ const navigate = useNavigate();
                 </Stack>
 
                 <Box sx={{ pt: 2 }}>
-                  <Button 
-                    variant="contained" 
+                  <Button
+                    component={RouterLink}
+                    to={current.path}
+                    variant="contained"
                     size="large"
                     endIcon={<ArrowForwardIcon />}
-                    onClick={() => navigate(current.path)}
-                    sx={{ 
+                    sx={{
                       bgcolor: BRAND_BLUE, 
                       fontWeight: 700,
                       px: 4, py: 1.5,
