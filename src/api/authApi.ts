@@ -48,12 +48,6 @@ export const loginUser = async (credentials: LoginDto): Promise<any> => {
   const response = await axiosClient.post(url, credentials)
   return response.data
 }
-// Add this to your existing api file
-export const convertCode = async (code: string) => {
-  const url = `${USER_BASE_PATH}/convert?code=${encodeURIComponent(code)}`
-  const response = await axiosClient.get(url)
-  return response.data // This returns { panamCode: "..." }
-}
 export const logoutUser = async (): Promise<any> => {
   const url = `${USER_BASE_PATH}/logout`
   const response = await axiosClient.post(url)

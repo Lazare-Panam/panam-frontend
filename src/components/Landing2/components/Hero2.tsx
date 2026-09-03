@@ -1,13 +1,15 @@
-import React from "react"
-import { Box, Typography, Button, Container, Stack } from "@mui/material"
+import React, { useRef } from "react"
+import { Box, Typography, Button, Container, Stack, GlobalStyles } from "@mui/material"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules"
-import { useNavigate } from "react-router-dom"
+import { Autoplay, Navigation, Pagination, EffectFade, A11y } from "swiper/modules"
+import { Link as RouterLink } from "react-router-dom"
 const BRAND_BLUE = "#01B0F0"
+
+const PARALLAX_MAX_PX = 14
 
 const slides = [
   {
-    title: "Precision Flow Control Systems",
+    title: "Precision Valves & Flow Control Systems",
     subtitle: "High-performance valves and instrumentation engineered for the world's most demanding industrial environments.",
     image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2000",
   },
@@ -17,16 +19,44 @@ const slides = [
     image: "https://pblol2.blob.core.windows.net/panam-images/website-media/hero-banners/IMG-20170817-WA0012.jpg",
   },
   {
-    title: "H² Ready: The Future of Energy",
+    title: "H2 Ready: The Future of Energy",
     subtitle: "Pioneering hydrogen-compatible technologies to power the next generation of clean energy infrastructure.",
     image: "https://pblol2.blob.core.windows.net/panam-images/website-media/hero-banners/FACTORY-PHOTO-OPTION-1-JPEG.jpg",
   },
 ]
 
 const Hero2: React.FC = () => {
-  const navigate = useNavigate();
+  const heroRef = useRef<HTMLDivElement>(null)
+  const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!heroRef.current) return
+    const rect = heroRef.current.getBoundingClientRect()
+    // Glow position — plain pixel offset from the container's own top-left corner
+    heroRef.current.style.setProperty("--glow-x", `${event.clientX - rect.left}px`)
+    heroRef.current.style.setProperty("--glow-y", `${event.clientY - rect.top}px`)
+    heroRef.current.style.setProperty("--glow-opacity", "1")
+
+    if (prefersReducedMotion) return
+    const offsetX = ((event.clientX - rect.left) / rect.width - 0.5) * 2 // -1 to 1
+    const offsetY = ((event.clientY - rect.top) / rect.height - 0.5) * 2 // -1 to 1
+    heroRef.current.style.setProperty("--parallax-x", `${offsetX * PARALLAX_MAX_PX}px`)
+    heroRef.current.style.setProperty("--parallax-y", `${offsetY * PARALLAX_MAX_PX}px`)
+  }
+
+  const handleMouseLeave = () => {
+    if (!heroRef.current) return
+    heroRef.current.style.setProperty("--parallax-x", "0px")
+    heroRef.current.style.setProperty("--parallax-y", "0px")
+    heroRef.current.style.setProperty("--glow-opacity", "0")
+  }
+
   return (
     <Box
+      id="home"
+      ref={heroRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       sx={{
         width: "100%",
         height: { xs: "500px", md: "80vh" },
@@ -35,10 +65,11 @@ const Hero2: React.FC = () => {
         backgroundColor: "#000", // Prevents white flash on load
       }}>
       <Swiper
-        modules={[Autoplay, Navigation, Pagination, EffectFade]}
+        modules={[Autoplay, Navigation, Pagination, EffectFade, A11y]}
+        a11y={{ enabled: true, prevSlideMessage: "Previous slide", nextSlideMessage: "Next slide" }}
         effect="fade"
         speed={1200}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 5500, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
         loop
@@ -57,21 +88,48 @@ const Hero2: React.FC = () => {
                 pt: { xs: "70px", md: "80px" },
                 overflow: "hidden",
               }}>
-              {/* Background Image Layer */}
+              {/* Parallax Layer — translate lives here, separate from the zoom-bg's own scale transform below */}
               <Box
-                className="zoom-bg"
+                className="parallax-layer"
                 sx={{
                   position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
+                  top: -PARALLAX_MAX_PX * 2,
+                  left: -PARALLAX_MAX_PX * 2,
+                  right: -PARALLAX_MAX_PX * 2,
+                  bottom: -PARALLAX_MAX_PX * 2,
                   zIndex: -1,
-                  backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url(${slide.image})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  transition: "transform 8s ease-out", // Long, cinematic zoom
-                  willChange: "transform",
+                  transform: "translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0)",
+                  transition: "transform 0.3s ease-out",
+                }}>
+                {/* Background Image Layer */}
+                <Box
+                  className="zoom-bg"
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url(${slide.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    transition: "transform 8s ease-out", // Long, cinematic zoom
+                    willChange: "transform",
+                  }}
+                />
+              </Box>
+
+              {/* Mouse-follow glow */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  zIndex: 0,
+                  pointerEvents: "none",
+                  opacity: "var(--glow-opacity, 0)",
+                  transition: "opacity 0.4s ease",
+                  background: "radial-gradient(420px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(1,176,240,0.35), transparent 70%)",
+                  mixBlendMode: "screen",
                 }}
               />
 
@@ -105,29 +163,35 @@ const Hero2: React.FC = () => {
 
                   <Stack direction="row" spacing={2} sx={{ pt: 1 }} className="fade-up-3">
                     <Button
+                      component={RouterLink} viewTransition
+                      to="/products"
                       variant="contained"
                       disableElevation
-                      onClick={()=>navigate("/products")}
                       sx={{
                         backgroundColor: BRAND_BLUE,
                         px: { xs: 2, md: 4 },
                         py: 1.2,
                         fontWeight: 700,
                         textTransform: "none",
-                        "&:hover": { backgroundColor: "#0090C5" },
+                        transition: "transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease",
+                        "&:hover": { backgroundColor: "#0090C5", transform: "translateY(-2px)", boxShadow: "0 8px 20px rgba(1,176,240,0.35)" },
+                        "&:active": { transform: "translateY(0)" },
                       }}>
                       Explore Products
                     </Button>
                     <Button
+                      component={RouterLink} viewTransition
+                      to="/enquiry"
                       variant="outlined"
-                       onClick={()=>navigate("/enquiry")}
                       sx={{
                         color: "white",
                         borderColor: "rgba(255,255,255,0.5)",
                         px: { xs: 2, md: 4 },
                         fontWeight: 700,
                         textTransform: "none",
-                        "&:hover": { borderColor: "white", backgroundColor: "rgba(255,255,255,0.1)" },
+                        transition: "transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease",
+                        "&:hover": { borderColor: "white", backgroundColor: "rgba(255,255,255,0.1)", transform: "translateY(-2px)" },
+                        "&:active": { transform: "translateY(0)" },
                       }}>
                       Contact Sales
                     </Button>
@@ -139,38 +203,36 @@ const Hero2: React.FC = () => {
         ))}
       </Swiper>
 
-      <style>{`
-        /* 1. Zoom Logic */
-        /* We target both active and duplicate-active for seamless looping */
-        .swiper-slide-active .zoom-bg,
-        .swiper-slide-duplicate-active .zoom-bg {
-          transform: scale(1.15);
-        }
-
-        /* 2. Text/Content Reveal Logic */
-        .fade-up-1, .fade-up-2, .fade-up-3 {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-          will-change: transform, opacity;
-        }
-
-        /* Staggered delays so they pop in one by one */
-        .swiper-slide-active .fade-up-1,
-        .swiper-slide-duplicate-active .fade-up-1 { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
-        
-        .swiper-slide-active .fade-up-2,
-        .swiper-slide-duplicate-active .fade-up-2 { opacity: 0.9; transform: translateY(0); transition-delay: 0.6s; }
-        
-        .swiper-slide-active .fade-up-3,
-        .swiper-slide-duplicate-active .fade-up-3 { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
-
-        /* 3. Navigation Styling */
-        .swiper-pagination-bullet { background: rgba(255,255,255,0.5); opacity: 1; }
-        .swiper-pagination-bullet-active { background: ${BRAND_BLUE} ; width: 24px; border-radius: 4px; transition: all 0.3s; }
-        .swiper-button-next, .swiper-button-prev { color: white ; transform: scale(0.5); opacity: 0.5; transition: 0.3s; }
-        .swiper-button-next:hover, .swiper-button-prev:hover { opacity: 1; }
-      `}</style>
+      <GlobalStyles
+        styles={{
+          // 1. Zoom Logic — targets both active and duplicate-active for seamless looping
+          ".swiper-slide-active .zoom-bg, .swiper-slide-duplicate-active .zoom-bg": {
+            transform: "scale(1.15)",
+          },
+          // 2. Text/Content Reveal Logic
+          ".fade-up-1, .fade-up-2, .fade-up-3": {
+            opacity: 0,
+            transform: "translateY(30px)",
+            transition: "all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1)",
+            willChange: "transform, opacity",
+          },
+          // Staggered delays so they pop in one by one
+          ".swiper-slide-active .fade-up-1, .swiper-slide-duplicate-active .fade-up-1": {
+            opacity: 1, transform: "translateY(0)", transitionDelay: "0.4s",
+          },
+          ".swiper-slide-active .fade-up-2, .swiper-slide-duplicate-active .fade-up-2": {
+            opacity: 0.9, transform: "translateY(0)", transitionDelay: "0.6s",
+          },
+          ".swiper-slide-active .fade-up-3, .swiper-slide-duplicate-active .fade-up-3": {
+            opacity: 1, transform: "translateY(0)", transitionDelay: "0.8s",
+          },
+          // 3. Navigation Styling
+          ".swiper-pagination-bullet": { background: "rgba(255,255,255,0.5)", opacity: 1 },
+          ".swiper-pagination-bullet-active": { background: BRAND_BLUE, width: 24, borderRadius: 4, transition: "all 0.3s" },
+          ".swiper-button-next, .swiper-button-prev": { color: "white", transform: "scale(0.5)", opacity: 0.5, transition: "0.3s" },
+          ".swiper-button-next:hover, .swiper-button-prev:hover": { opacity: 1 },
+        }}
+      />
     </Box>
   )
 }

@@ -3,3 +3,28 @@
 body {
   text-transform: capitalize;
 }
+
+/* React Router view transitions (Link viewTransition prop) — no-op in browsers
+   that don't support the View Transitions API, so this is safe everywhere. */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: 200ms ease-out both view-transition-fade-out;
+  }
+  ::view-transition-new(root) {
+    animation: 260ms ease-in both view-transition-fade-in;
+  }
+}
+
+@keyframes view-transition-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes view-transition-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}

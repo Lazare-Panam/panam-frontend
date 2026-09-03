@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"))
 
   return (
-    <Box sx={{ bgcolor: FOOTER_DARK, color: "white", pt: { xs: 6, sm: 8, md: 10 }, pb: { xs: 4, md: 5 }, mt: 8 }}>
+    <Box id="site-footer" sx={{ bgcolor: FOOTER_DARK, color: "white", pt: { xs: 6, sm: 8, md: 10 }, pb: { xs: 4, md: 5 }, mt: 8 }}>
       <Container maxWidth={false} sx={{ px: { xs: 3, sm: 5, md: 8, lg: 14, xl: 22 } }}>
 
         {/* ── MOBILE (< 600px) ─────────────────────────────── */}
@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
                   <Link href="tel:+447369243459" underline="none" sx={{ display: "block", color: "white", fontFamily: '"Inter", sans-serif', fontSize: "0.78rem", fontWeight: 600, mb: 0.5 }}>
                     +44 (0) 7369243459
                   </Link>
-                  <Link href="mailto:marketing@panamvalve.com" underline="none" sx={{ color: "white", fontFamily: '"Inter", sans-serif', fontSize: "0.72rem", fontWeight: 600, wordBreak: "break-all" }}>
+                  <Link href="mailto:marketing@panamvalve.com" underline="none" sx={{ color: "white", fontFamily: '"Inter", sans-serif', fontSize: "0.72rem", fontWeight: 600, wordBreak: "break-all", textTransform: "none" }}>
                     marketing@panamvalve.com
                   </Link>
                 </Box>
@@ -151,7 +151,7 @@ const Footer: React.FC = () => {
                   <Link href="tel:+447369243459" underline="none" sx={{ display: "block", color: "white", fontFamily: '"Inter", sans-serif', fontSize: "0.82rem", fontWeight: 700, mb: 0.5 }}>
                     +44 (0) 7369243459
                   </Link>
-                  <Link href="mailto:marketing@panamvalve.com" underline="none" sx={{ color: "white", fontFamily: '"Inter", sans-serif', fontSize: "0.82rem", fontWeight: 700 }}>
+                  <Link href="mailto:marketing@panamvalve.com" underline="none" sx={{ color: "white", fontFamily: '"Inter", sans-serif', fontSize: "0.82rem", fontWeight: 700, textTransform: "none" }}>
                     marketing@panamvalve.com
                   </Link>
                 </Box>
@@ -239,7 +239,7 @@ const Footer: React.FC = () => {
                   sx={{ display: "inline-flex", alignItems: "center", gap: 1, textDecoration: "none", "&:hover": { opacity: 0.8 } }}
                 >
                   <EmailIcon sx={{ color: "rgba(255,255,255,0.7)", fontSize: "1rem" }} />
-                  <Typography sx={{ color: "white", fontFamily: '"Inter", sans-serif', fontSize: "0.82rem", fontWeight: 700 }}>
+                  <Typography sx={{ color: "white", fontFamily: '"Inter", sans-serif', fontSize: "0.82rem", fontWeight: 700, textTransform: "none" }}>
                     marketing@panamvalve.com
                   </Typography>
                 </Box>

@@ -7,7 +7,7 @@ import {
   Stack, 
    
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ScienceIcon from '@mui/icons-material/Science';
@@ -18,23 +18,21 @@ import { Countup } from './Countup';
 
 const BRAND_BLUE = "#01B0F0";
 
+const features = [
+  { icon: <ScienceIcon fontSize="small" />, title: "H2-Compatible Materials", desc: "SS316, Duplex, Super Duplex, Inconel — tested for hydrogen embrittlement resistance." },
+  { icon: <SpeedIcon fontSize="small" />, title: "Advanced Leak-Detection", desc: "Training and engineering audits for high-pressure H2 storage systems." },
+  { icon: <PublicIcon fontSize="small" />, title: "Global H2 Supply Chain", desc: "Material compatibility and certification support across global markets." },
+  { icon: <AssignmentIcon fontSize="small" />, title: "Full H2 Certification", desc: "Pressure test reports, material certs, NACE compliance and QMS documentation." }
+];
+
+const stats = [
+  { num: "60k", unit: "psi", label: "MAX RATED PRESSURE" },
+  { num: "100", unit: "%", label: "MATERIAL TESTED" },
+  { num: "52+", unit: "", label: "COUNTRIES SERVED" },
+  { num: "24", unit: "h", label: "TECHNICAL RESPONSE" }
+];
+
 const HydrogenSection = () => {
-  const navigate = useNavigate();
-
-  const features = [
-    { icon: <ScienceIcon fontSize="small" />, title: "H2-Compatible Materials", desc: "SS316, Duplex, Super Duplex, Inconel — tested for hydrogen embrittlement resistance." },
-    { icon: <SpeedIcon fontSize="small" />, title: "Advanced Leak-Detection", desc: "Training and engineering audits for high-pressure H2 storage systems." },
-    { icon: <PublicIcon fontSize="small" />, title: "Global H2 Supply Chain", desc: "Material compatibility and certification support across global markets." },
-    { icon: <AssignmentIcon fontSize="small" />, title: "Full H2 Certification", desc: "Pressure test reports, material certs, NACE compliance and QMS documentation." }
-  ];
-
-  const stats = [
-    { num: "60k", unit: "psi", label: "MAX RATED PRESSURE" },
-    { num: "100", unit: "%", label: "MATERIAL TESTED" },
-    { num: "52+", unit: "", label: "COUNTRIES SERVED" },
-    { num: "24", unit: "h", label: "TECHNICAL RESPONSE" }
-  ];
-
   return (
     <Box component="section" id="hydrogen" sx={{ py: 12, bgcolor: BRAND_BLUE, color: '#FFFFFF' }}>
       <Container maxWidth="lg">
@@ -56,7 +54,7 @@ const HydrogenSection = () => {
             <Typography variant="h2" sx={{ 
               fontWeight: 800, mb: 2, fontSize: { xs: '2.5rem', md: '3.8rem' }, lineHeight: 1.1, color: '#FFFFFF'
             }}>
-              The Future<br />Runs on <Box component="span" sx={{ color: 'rgba(255,255,255,0.7)', fontStyle: 'italic' }}>H₂</Box>
+              The Future<br />Runs on <Box component="span" sx={{ color: 'rgba(255,255,255,0.7)', fontStyle: 'italic' }}>H2</Box>
             </Typography>
 
             <Typography variant="body1" sx={{ color: 'rgba(255, 255, 255, 0.8)', mb: 5, maxWidth: 550, lineHeight: 1.6 }}>
@@ -84,30 +82,37 @@ const HydrogenSection = () => {
 
             {/* CTAs */}
             <Stack direction="row" spacing={2}>
-              <Button 
-                variant="contained" 
+              <Button
+                component={RouterLink} viewTransition
+                to="/high-pressure"
+                variant="contained"
                 disableElevation
-                onClick={() => navigate('/high-pressure')}
                 endIcon={<ArrowForwardIcon />}
-                sx={{ 
-                  bgcolor: '#FFFFFF', 
-                  color: BRAND_BLUE, 
-                  fontWeight: 800, 
-                  borderRadius: 0, 
+                sx={{
+                  bgcolor: '#FFFFFF',
+                  color: BRAND_BLUE,
+                  fontWeight: 800,
+                  borderRadius: 0,
                   px: 3, py: 1.2,
-                  '&:hover': { bgcolor: '#f0f0f0' } 
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease',
+                  '&:hover': { bgcolor: '#f0f0f0', transform: 'translateY(-2px)', boxShadow: '0 8px 20px rgba(0,0,0,0.2)' },
+                  '&:active': { transform: 'translateY(0)' },
                 }}
               >
                 SHOP H2 PRODUCTS
               </Button>
-              <Button 
-                variant="outlined" 
+              <Button
+                component={RouterLink} viewTransition
+                to="/resources"
+                variant="outlined"
                 startIcon={<MenuBookIcon />}
-                sx={{ 
-                  color: '#FFFFFF', 
-                  borderColor: 'rgba(255, 255, 255, 0.5)', 
-                  borderRadius: 0, px: 3, 
-                  '&:hover': { borderColor: '#FFFFFF', bgcolor: 'rgba(255, 255, 255, 0.1)' } 
+                sx={{
+                  color: '#FFFFFF',
+                  borderColor: 'rgba(255, 255, 255, 0.5)',
+                  borderRadius: 0, px: 3,
+                  transition: 'transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease',
+                  '&:hover': { borderColor: '#FFFFFF', bgcolor: 'rgba(255, 255, 255, 0.1)', transform: 'translateY(-2px)' },
+                  '&:active': { transform: 'translateY(0)' },
                 }}
               >
                 H2 TECHNICAL GUIDE
@@ -133,11 +138,11 @@ const HydrogenSection = () => {
         transition: '0.3s',
         '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)', transform: 'translateY(-5px)' } // Added a little lift on hover
       }}>
-        <Typography variant="h3" sx={{ 
-          fontWeight: 800, 
-          color: '#FFFFFF', 
-          display: 'flex', 
-          alignItems: 'baseline', 
+        <Typography variant="h3" component="p" sx={{
+          fontWeight: 800,
+          color: '#FFFFFF',
+          display: 'flex',
+          alignItems: 'baseline',
           justifyContent: 'center',
           fontVariantNumeric: 'tabular-nums' // Prevents the text from "shaking" while counting
         }}>

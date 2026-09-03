@@ -6,7 +6,7 @@ const BRAND_BLUE = "#01B0F0"
 
 const productData = [
   { name: "High Pressure & Hydrogen", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/high-pressure/adapters_-_npt_x_npt_-_jpg-removebg-preview.png", path: "/high-pressure" },
-  { name: "Instrumenation Fittings", img: "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/male-tee.png", path: "/instrumentation-fittings" },
+  { name: "Instrumentation Fittings", img: "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/male-tee.png", path: "/instrumentation-fittings" },
   { name: "Valves", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/valves/check-valves/PCV%20S%2004%20OD%2001.png", path: "/valves" },
   { name: "Manifolds", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/manifolds/2VM/2VM-SS-8-RM_-_JPG__1_-removebg-preview.png", path: "/manifolds" },
   { name: "Double Block & Bleed", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/dbb/block___bleed_-_flange_x_flange_-_JPEG-removebg-preview.png", path: "/double-block-and-bleed-valves" },
@@ -36,7 +36,7 @@ const CoreProducts = () => {
                 </Box>
               </Typography>
               <Typography variant="body1" sx={{ color: "#64748B", maxWidth: 600, fontSize: "1.1rem" }}>
-                Precision-engineered instrumentation solutions for critical global infrastructure.
+                Precision-engineered valves, manifolds and fittings for critical global infrastructure.
               </Typography>
             </Stack>
           </Grid>
@@ -46,7 +46,7 @@ const CoreProducts = () => {
               spacing={2}
               alignItems="center">
               <Button
-                component={RouterLink}
+                component={RouterLink} viewTransition
                 to="/products"
                 variant="outlined"
                 endIcon={<ArrowForwardIcon sx={{ fontSize: "1.1rem" }} />}
@@ -69,7 +69,7 @@ const CoreProducts = () => {
               </Button>
 
               <Button
-                component={RouterLink}
+                component={RouterLink} viewTransition
                 to="/about"
                 variant="contained"
                 disableElevation
@@ -91,7 +91,7 @@ const CoreProducts = () => {
               </Button>
 
               <Button
-                component={RouterLink}
+                component={RouterLink} viewTransition
                 to="/catalogPDFs"
                 variant="contained"
                 disableElevation
@@ -125,7 +125,7 @@ const CoreProducts = () => {
           {productData.map((product, index) => (
             <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
               <Box
-                component={RouterLink}
+                component={RouterLink} viewTransition
                 to={product.path}
                 sx={{
                   display: "flex",
@@ -146,6 +146,11 @@ const CoreProducts = () => {
                     transform: "translateY(-10px)",
                     "& .prod-img": { transform: "scale(1.08)" },
                     "& .prod-link": { color: BRAND_BLUE },
+                    "& .prod-arrow": { transform: "translateX(4px)" },
+                  },
+                  "&:active": {
+                    transform: "translateY(-4px)",
+                    boxShadow: `0 8px 16px ${alpha(BRAND_BLUE, 0.12)}`,
                   },
                 }}>
                 <Box sx={{ height: 160, display: "flex", alignItems: "center", justifyContent: "center", mb: 3 }}>
@@ -154,6 +159,7 @@ const CoreProducts = () => {
                     className="prod-img"
                     src={product.img}
                     alt={product.name}
+                    loading="lazy"
                     sx={{
                       maxWidth: "100%",
                       maxHeight: "100%",
@@ -181,7 +187,11 @@ const CoreProducts = () => {
                     mt: "auto", // Pushes the link to the bottom regardless of text height
                     transition: "color 0.3s ease",
                   }}>
-                  View Range <ArrowForwardIcon sx={{ fontSize: 14 }} />
+                  View Range{" "}
+                  <ArrowForwardIcon
+                    className="prod-arrow"
+                    sx={{ fontSize: 14, transition: "transform 0.25s ease" }}
+                  />
                 </Typography>
               </Box>
             </Grid>

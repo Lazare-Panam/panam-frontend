@@ -20,6 +20,7 @@ import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import { Link as RouterLink } from 'react-router-dom';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 const BRAND_BLUE = "#01B0F0";
 
 const industryData = [
@@ -105,6 +106,7 @@ const industryData = [
 
 const IndustriesSection = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
   setActiveTab(newValue);
 };
@@ -166,80 +168,94 @@ const IndustriesSection = () => {
           }}
         >
           <Grid container>
-            {/* Left Body */}
-            <Grid size={{ xs: 12, md: 6 }} sx={{ p: { xs: 4, md: 8 } }}>
-              <Stack spacing={4}>
-                <Typography variant="h4" sx={{ fontWeight: 800, color: '#1E293B' }}>
-                  {current.title}
-                </Typography>
-                <Typography variant="body1" sx={{ color: '#64748B', lineHeight: 1.7 }}>
-                  {current.desc}
-                </Typography>
-                
-                <Stack spacing={2.5}>
-                  {current.specs.map((spec, i) => (
-                    <Stack key={i} direction="row" spacing={2} alignItems="center">
-                      <Box sx={{ color: BRAND_BLUE, display: 'flex' }}>
-                        {spec.icon}
-                      </Box>
-                      <Typography variant="body2" sx={{ fontWeight: 600, color: '#475569' }}>
-                        {spec.text}
-                      </Typography>
-                    </Stack>
-                  ))}
-                </Stack>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current.id}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={prefersReducedMotion ? undefined : { opacity: 0, y: -12 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
+                style={{ display: "contents" }}
+              >
+                {/* Left Body */}
+                <Grid size={{ xs: 12, md: 6 }} sx={{ p: { xs: 4, md: 8 } }}>
+                  <Stack spacing={4}>
+                    <Typography variant="h4" component="h3" sx={{ fontWeight: 800, color: '#1E293B' }}>
+                      {current.title}
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: '#64748B', lineHeight: 1.7 }}>
+                      {current.desc}
+                    </Typography>
 
-                <Box sx={{ pt: 2 }}>
-                  <Button
-                    component={RouterLink}
-                    to={current.path}
-                    variant="contained"
-                    size="large"
-                    endIcon={<ArrowForwardIcon />}
+                    <Stack spacing={2.5}>
+                      {current.specs.map((spec, i) => (
+                        <Stack key={i} direction="row" spacing={2} alignItems="center">
+                          <Box sx={{ color: BRAND_BLUE, display: 'flex' }}>
+                            {spec.icon}
+                          </Box>
+                          <Typography variant="body2" sx={{ fontWeight: 600, color: '#475569' }}>
+                            {spec.text}
+                          </Typography>
+                        </Stack>
+                      ))}
+                    </Stack>
+
+                    <Box sx={{ pt: 2 }}>
+                      <Button
+                        component={RouterLink} viewTransition
+                        to={current.path}
+                        variant="contained"
+                        size="large"
+                        endIcon={<ArrowForwardIcon />}
+                        sx={{
+                          bgcolor: BRAND_BLUE,
+                          fontWeight: 700,
+                          px: 4, py: 1.5,
+                          borderRadius: '0',
+                          transition: 'transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease',
+                          '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.9), transform: 'translateY(-2px)', boxShadow: `0 8px 20px ${alpha(BRAND_BLUE, 0.35)}` },
+                          '&:active': { transform: 'translateY(0)' },
+                        }}
+                      >
+                        Explore {current.label}
+                      </Button>
+                    </Box>
+                  </Stack>
+                </Grid>
+
+                {/* Right Visual */}
+                <Grid size={{ xs: 12, md: 6 }} sx={{ position: 'relative', minHeight: { xs: 300, md: 'auto' } }}>
+                  <Box
+                    component="img"
+                    src={current.img}
+                    alt={current.title}
+                    loading="lazy"
                     sx={{
-                      bgcolor: BRAND_BLUE, 
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 24,
+                      left: 24,
+                      bgcolor: alpha('#1E293B', 0.8),
+                      backdropFilter: 'blur(8px)',
+                      color: 'white',
+                      px: 3, py: 1,
+                      borderRadius: '4px',
                       fontWeight: 700,
-                      px: 4, py: 1.5,
-                       borderRadius: '0', 
-                      '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.9) }
+                      fontSize: '0.875rem'
                     }}
                   >
-                    Explore {current.label}
-                  </Button>
-                </Box>
-              </Stack>
-            </Grid>
-
-            {/* Right Visual */}
-            <Grid size={{ xs: 12, md: 6 }} sx={{ position: 'relative', minHeight: { xs: 300, md: 'auto' } }}>
-              <Box 
-                component="img"
-                src={current.img}
-                alt={current.title}
-                sx={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block'
-                }}
-              />
-              <Box 
-                sx={{ 
-                  position: 'absolute', 
-                  bottom: 24, 
-                  left: 24, 
-                  bgcolor: alpha('#1E293B', 0.8),
-                  backdropFilter: 'blur(8px)',
-                  color: 'white',
-                  px: 3, py: 1,
-                  borderRadius: '4px',
-                  fontWeight: 700,
-                  fontSize: '0.875rem'
-                }}
-              >
-                {current.label}
-              </Box>
-            </Grid>
+                    {current.label}
+                  </Box>
+                </Grid>
+              </motion.div>
+            </AnimatePresence>
           </Grid>
         </Box>
       </Container>

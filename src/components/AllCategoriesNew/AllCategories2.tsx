@@ -3,6 +3,8 @@ import { Container, Typography, Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { CategoryButton2 } from "./components/CategoryButton2";
 import { CATEGORIES2, type CategoryData2 } from "./components/CategoryData2";
+import ProductsFAQ from "./components/ProductsFAQ";
+import TechnicalSpecs from "./components/TechnicalSpecs";
 import ScrollReveal from "../Common/ScrollReveal";
 
 const AllCategories2: React.FC = () => {
@@ -16,7 +18,7 @@ const AllCategories2: React.FC = () => {
           <Box sx={{ maxWidth: "850px" }}>
             <Typography
               variant="h2"
-              component="h1"
+              component="h2"
               sx={{
                 fontWeight: 900,
                 fontFamily: PRIMARY_FONT,
@@ -73,6 +75,14 @@ const AllCategories2: React.FC = () => {
           </Typography>
         </Container>
       </Box>
+
+      <ScrollReveal delay={0.1}>
+        <TechnicalSpecs />
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.1}>
+        <ProductsFAQ />
+      </ScrollReveal>
     </Box>
   );
 };

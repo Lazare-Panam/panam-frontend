@@ -16,7 +16,6 @@ const SPECS = [
 export default function QuickCouplingIndexPage() {
   return (
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
-
       {/* ── HERO ── */}
       <Box
         sx={{
@@ -40,16 +39,12 @@ export default function QuickCouplingIndexPage() {
             <br />
             <span style={{ color: BRAND_BLUE }}>Built to Perform.</span>
           </Typography>
-          <Typography sx={{ fontSize: { xs: 16, md: 19 }, color: "rgba(255,255,255,0.88)", maxWidth: 580, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>
-            Six coupling series and seamless tubing in 12 materials — everything you need for hydraulic connections and instrumentation tubing from a single source.
-          </Typography>
+          <Typography sx={{ fontSize: { xs: 16, md: 19 }, color: "rgba(255,255,255,0.88)", maxWidth: 580, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>Six coupling series and seamless tubing in 12 materials — everything you need for hydraulic connections and instrumentation tubing from a single source.</Typography>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-            <Button variant="contained" size="large" href="#range"
-              sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
+            <Button variant="contained" size="large" href="#range" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
               Browse Range
             </Button>
-            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.com"
-              sx={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" } }}>
+            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" } }}>
               Request Quote
             </Button>
           </Box>
@@ -62,16 +57,7 @@ export default function QuickCouplingIndexPage() {
         <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
           {[1, 2].map(i => (
             <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-              {[
-                "ISO-A · ISO 16028 · ISO 7241A · ISO 7241B · ISO 5675 · Screw Type",
-                "Carbon Steel construction",
-                "BSPP & NPT thread standards",
-                '1/4" to 1" connection sizes',
-                "Socket · Plug · Set configurations",
-                "Seamless Tubing — Imperial & Metric",
-                "SS 316 · Monel · Duplex · Inconel · 6Mo · Hastelloy",
-                "900+ tubing configurations",
-              ].map(item => (
+              {["ISO-A · ISO 16028 · ISO 7241A · ISO 7241B · ISO 5675 · Screw Type", "Carbon Steel construction", "BSPP & NPT thread standards", '1/4" to 1" connection sizes', "Socket · Plug · Set configurations", "Seamless Tubing — Imperial & Metric", "SS 316 · Monel · Duplex · Inconel · 6Mo · Hastelloy", "900+ tubing configurations"].map(item => (
                 <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5, fontFamily: PRIMARY_FONT }}>
                   <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
                   {item}
@@ -83,7 +69,6 @@ export default function QuickCouplingIndexPage() {
       </Box>
 
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-
         {/* ── INTRO ── */}
         <Grid container spacing={8} sx={{ mb: 10 }}>
           <Grid size={{ xs: 12, md: 7 }}>
@@ -92,18 +77,12 @@ export default function QuickCouplingIndexPage() {
               <br />
               Couplings and tubing.
             </Typography>
-            <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
-              PANAM® Quick Couplings and Seamless Tubing cover the full hydraulic connection and instrumentation tubing spectrum. Six coupling series — ISO-A, ISO 16028, ISO 7241A, ISO 7241B, ISO 5675, and Screw Type — plus seamless tubing in 12 materials across imperial and metric sizes.
-            </Typography>
-            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>
-              Socket and Plug configurations on ISO-A, ISO 16028, and Screw Type. ISO 7241A, ISO 7241B, and ISO 5675 as matched Sets. Tubing available in Standard and High Pressure ratings from 1/16" to 2" imperial and 3mm to 12mm metric.
-            </Typography>
+            <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>PANAM® Quick Couplings and Seamless Tubing cover the full hydraulic connection and instrumentation tubing spectrum. Six coupling series — ISO-A, ISO 16028, ISO 7241A, ISO 7241B, ISO 5675, and Screw Type — plus seamless tubing in 12 materials across imperial and metric sizes.</Typography>
+            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Socket and Plug configurations on ISO-A, ISO 16028, and Screw Type. ISO 7241A, ISO 7241B, and ISO 5675 as matched Sets. Tubing available in Standard and High Pressure ratings from 1/16" to 2" imperial and 3mm to 12mm metric.</Typography>
           </Grid>
           <Grid size={{ xs: 12, md: 5 }}>
             <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
-              <Typography sx={{ fontWeight: 700, mb: 2.5, fontSize: 14, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: 0.5, textTransform: "uppercase" }}>
-                Technical Specifications
-              </Typography>
+              <Typography sx={{ fontWeight: 700, mb: 2.5, fontSize: 14, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: 0.5, textTransform: "uppercase" }}>Technical Specifications</Typography>
               {SPECS.map(spec => (
                 <Box key={spec.label} sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", py: 1.2, borderBottom: "1px solid #e4f2fa", gap: 2 }}>
                   <Typography sx={{ fontSize: 13, fontWeight: 600, color: "#444", fontFamily: PRIMARY_FONT, flexShrink: 0 }}>{spec.label}</Typography>
@@ -124,22 +103,15 @@ export default function QuickCouplingIndexPage() {
           <Typography variant="h2" sx={{ fontSize: { xs: 26, md: 32 }, fontWeight: 800, mb: 1.5, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
             Two Ranges. One Source.
           </Typography>
-          <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8 }}>
-            Quick couplings filterable by ISO standard, thread type, connection size, and configuration. Tubing filterable by material, OD, wall thickness, and pressure rating.
-          </Typography>
+          <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8 }}>Quick couplings filterable by ISO standard, thread type, connection size, and configuration. Tubing filterable by material, OD, wall thickness, and pressure rating.</Typography>
 
           {/* ── CARDS ── */}
           <Box sx={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
-
             {/* QC Card */}
             <Box sx={{ maxWidth: 360, flex: "1 1 300px" }}>
               <Card variant="outlined" sx={{ borderRadius: 0, height: "100%", display: "flex", flexDirection: "column", border: "1px solid #e8e8e8", transition: "box-shadow 0.2s", "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" } }}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 220 }}>
-                  <CardMedia component="img"
-                    image="https://pblol2.blob.core.windows.net/panam-images/products/quick-coupling/iso-a"
-                    alt="Quick Couplings"
-                    sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }}
-                  />
+                  <CardMedia component="img" image="https://pblol2.blob.core.windows.net/panam-images/products/quick-coupling/iso-a" alt="Quick Couplings" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
                 </Box>
                 <CardContent sx={{ flexGrow: 1, p: 3 }}>
                   <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}>
@@ -161,12 +133,10 @@ export default function QuickCouplingIndexPage() {
                   <Typography sx={{ fontSize: 11, color: "#999", fontFamily: PRIMARY_FONT }}>Carbon Steel · BSPP & NPT · Socket · Plug · Set</Typography>
                 </CardContent>
                 <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
-                  <Button variant="contained" fullWidth size="small" href="/quick-coupling-and-tubing/quick-coupling"
-                    sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
+                  <Button variant="contained" fullWidth size="small" href="/quick-coupling-and-tubing/quick-coupling" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
                     VIEW RANGE
                   </Button>
-                  <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.com"
-                    sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
+                  <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.co.uk" sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
                     REQUEST QUOTE
                   </Button>
                 </Box>
@@ -177,11 +147,7 @@ export default function QuickCouplingIndexPage() {
             <Box sx={{ maxWidth: 360, flex: "1 1 300px" }}>
               <Card variant="outlined" sx={{ borderRadius: 0, height: "100%", display: "flex", flexDirection: "column", border: "1px solid #e8e8e8", transition: "box-shadow 0.2s", "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" } }}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 220 }}>
-                  <CardMedia component="img"
-                    image="https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg"
-                    alt="Seamless Tubing"
-                    sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }}
-                  />
+                  <CardMedia component="img" image="https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg" alt="Seamless Tubing" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
                 </Box>
                 <CardContent sx={{ flexGrow: 1, p: 3 }}>
                   <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}>
@@ -203,18 +169,15 @@ export default function QuickCouplingIndexPage() {
                   <Typography sx={{ fontSize: 11, color: "#999", fontFamily: PRIMARY_FONT }}>SS 316 · Monel · Duplex · Inconel · 6Mo · Hastelloy</Typography>
                 </CardContent>
                 <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
-                  <Button variant="contained" fullWidth size="small" href="/quick-coupling-and-tubing/tubing"
-                    sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
+                  <Button variant="contained" fullWidth size="small" href="/quick-coupling-and-tubing/tubing" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
                     VIEW RANGE
                   </Button>
-                  <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.com"
-                    sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
+                  <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.co.uk" sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
                     REQUEST QUOTE
                   </Button>
                 </Box>
               </Card>
             </Box>
-
           </Box>
         </Box>
 
@@ -225,9 +188,7 @@ export default function QuickCouplingIndexPage() {
           <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
             Why specify PANAM® Quick Couplings &amp; Tubing
           </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>
-            All products are built to international standards — consistent quality and construction across the entire range.
-          </Typography>
+          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>All products are built to international standards — consistent quality and construction across the entire range.</Typography>
           <Grid container spacing={2}>
             {[
               "Six ISO coupling series from a single manufacturer",
@@ -237,7 +198,7 @@ export default function QuickCouplingIndexPage() {
               "Socket and Plug on ISO-A, ISO 16028 and Screw Type",
               "Matched Sets on ISO 7241A, 7241B and 5675",
               "Seamless tubing in 12 materials",
-              "Imperial 1/16\" to 2\" and metric 3mm to 12mm",
+              'Imperial 1/16" to 2" and metric 3mm to 12mm',
               "Standard and High Pressure tubing ratings",
               "Fully compatible with Panam twin-ferrule fittings",
               "ISO 5675 for agricultural tractor hydraulics",
@@ -260,21 +221,16 @@ export default function QuickCouplingIndexPage() {
           <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
             Specify your product
           </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>
-            Need a specific ISO series, thread standard, material, or pressure rating? Our technical team responds within 24 hours.
-          </Typography>
+          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>Need a specific ISO series, thread standard, material, or pressure rating? Our technical team responds within 24 hours.</Typography>
           <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
-            <Button variant="contained" size="large" href="mailto:sales@panamvalves.com"
-              sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
+            <Button variant="contained" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
               Email Technical Sales
             </Button>
-            <Button variant="outlined" size="large" href="/contact"
-              sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
+            <Button variant="outlined" size="large" href="/contact" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
               Request Quote
             </Button>
           </Box>
         </Box>
-
       </Container>
     </Box>
   )

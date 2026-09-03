@@ -1,16 +1,21 @@
+import { useState } from "react";
 import { Box, Container, Typography } from "@mui/material";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import Grid from "@mui/material/Grid";
 
 const BRAND_BLUE = "#01B0F0";
+const YOUTUBE_ID = "HRFxY37P0Lg";
 
 const SEOSection = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <Box component="section" sx={{ py: 10, bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0" }}>
       <Container maxWidth="lg">
         <Grid container spacing={8} alignItems="center">
-          
+
           {/* Main Text Content */}
-          <Grid size={{ xs: 12, md: 7 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Typography variant="overline" component="span" sx={{ fontWeight: 800, color: BRAND_BLUE, letterSpacing: 1.5, display: 'block', mb: 1 }}>
               Instrumentation
             </Typography>
@@ -32,31 +37,76 @@ const SEOSection = () => {
             </Typography>
 
             <Typography variant="body1" sx={{ color: "#475569", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              All PANAM products are manufactured using premium materials to ensure durability and long service life. Our range of <strong>fitting tube</strong> solutions and <strong>flare fittings</strong> are designed for secure, leak-free connections in high-pressure environments.
+              All PANAM products are manufactured using premium materials to ensure durability and long service life. Our range of <strong>tube fitting</strong> solutions and <strong>flare fittings</strong> are designed for secure, leak-free connections in high-pressure environments.
             </Typography>
           </Grid>
 
-          {/* Sidebar Video Container */}
-          <Grid size={{ xs: 12, md: 5 }}>
+          {/* Featured Video */}
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography variant="overline" sx={{ fontWeight: 800, color: BRAND_BLUE, letterSpacing: 1.5, display: "block", mb: 1.5 }}>
+              Watch Panam In Action
+            </Typography>
             <Box
               sx={{
                 width: "100%",
                 aspectRatio: "16 / 9",
-                borderRadius: 0, // Set to 0
+                position: "relative",
                 overflow: "hidden",
-                boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                border: `1px solid ${BRAND_BLUE}33`,
+                boxShadow: "0 25px 40px -10px rgb(1 176 240 / 0.2), 0 10px 15px -6px rgb(0 0 0 / 0.1)",
               }}
             >
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/HRFxY37P0Lg"
-                title="Panam - Instrumentation Fittings & Valves"
-                // frameBorder="0" removed
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                // border style removed to allow default frame border
-              ></iframe>
+              {isPlaying ? (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1`}
+                  title="Panam - Instrumentation Fittings & Valves"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  style={{ border: 0, display: "block" }}
+                ></iframe>
+              ) : (
+                <Box
+                  component="button"
+                  onClick={() => setIsPlaying(true)}
+                  aria-label="Play video: Panam - Instrumentation Fittings & Valves"
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    p: 0,
+                    border: "none",
+                    cursor: "pointer",
+                    position: "relative",
+                    backgroundImage: `url(https://i.ytimg.com/vi/${YOUTUBE_ID}/hqdefault.jpg)`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    "&:hover .play-badge": { transform: "translate(-50%, -50%) scale(1.1)" },
+                  }}
+                >
+                  <Box sx={{ position: "absolute", inset: 0, bgcolor: "rgba(15,23,42,0.25)" }} />
+                  <Box
+                    className="play-badge"
+                    sx={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: 76,
+                      height: 76,
+                      borderRadius: "50%",
+                      bgcolor: BRAND_BLUE,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: "0 8px 24px rgba(1,176,240,0.5)",
+                      transition: "transform 0.25s ease",
+                    }}
+                  >
+                    <PlayArrowIcon sx={{ color: "#fff", fontSize: 40 }} />
+                  </Box>
+                </Box>
+              )}
             </Box>
           </Grid>
 

@@ -1,13 +1,11 @@
 import React from "react";
-import { Box, Typography, Stack, Link } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Box, Typography, Stack, Link, GlobalStyles } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 const BRAND_BLUE = "#01B0F0";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
 const MovingBanner: React.FC = () => {
-  const navigate = useNavigate();
-
   const tickerText = "UK STOCK AVAILABLE • READY FOR IMMEDIATE SHIPMENT • REDUCED LEAD TIMES • GLOBAL DISPATCH • ";
 
   return (
@@ -17,7 +15,7 @@ const MovingBanner: React.FC = () => {
         background: "#F8FAFC",
         borderBottom: `1px solid rgba(0,0,0,0.1)`,
         // Increased padding for a larger overall footprint
-        py: 2.5, 
+        py: 2.5,
         overflow: "hidden",
         position: "relative",
         display: "flex",
@@ -38,7 +36,7 @@ const MovingBanner: React.FC = () => {
           alignItems: "center",
           gap: 2,
           // Stronger shadow to ensure it stays readable over the moving text
-          boxShadow: "25px 0 30px #F8FAFC", 
+          boxShadow: "25px 0 30px #F8FAFC",
         }}
       >
         <Typography
@@ -91,7 +89,8 @@ const MovingBanner: React.FC = () => {
               {tickerText}
             </Typography>
             <Link
-              onClick={() => navigate("/enquiry")}
+              component={RouterLink} viewTransition
+              to="/enquiry"
               sx={{
                 fontSize: "1.1rem", // Matching the ticker size
                 fontWeight: 800,
@@ -114,12 +113,14 @@ const MovingBanner: React.FC = () => {
         ))}
       </Box>
 
-      <style>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
+      <GlobalStyles
+        styles={{
+          "@keyframes scroll": {
+            "0%": { transform: "translateX(0)" },
+            "100%": { transform: "translateX(-50%)" },
+          },
+        }}
+      />
     </Box>
   );
 };

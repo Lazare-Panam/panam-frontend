@@ -149,7 +149,7 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
           variant="outlined"
           fullWidth
           size="small"
-          href="mailto:sales@panamvalves.com"
+          href="mailto:sales@panamvalves.co.uk"
           sx={{
             borderColor: "#ddd",
             color: "#444",
@@ -426,7 +426,7 @@ export default function ManifoldsIndexPage() {
             <Button
               variant="contained"
               size="large"
-              href="mailto:sales@panamvalves.com"
+              href="mailto:sales@panamvalves.co.uk"
               sx={{
                 bgcolor: BRAND_BLUE,
                 color: "#fff",

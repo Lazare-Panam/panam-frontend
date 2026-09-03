@@ -11,19 +11,18 @@ import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import VerifiedIcon from '@mui/icons-material/Verified';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 const BRAND_BLUE = "#01B0F0";
 
-const TechnicalSupport = () => {
-  const navigate = useNavigate();
-  const docs = [
-    { icon: <LibraryBooksIcon />, title: "Catalog Library", desc: "Full product catalogue with specifications" },
-    { icon: <DesignServicesIcon />, title: "2D/3D Drawings", desc: "CAD files for all standard products" },
-    { icon: <ViewInArIcon />, title: "CAD Files", desc: "Ready for direct import into your design workflow" },
-    { icon: <VerifiedIcon />, title: "QMS Certifications", desc: "Quality management system documentation" },
-  ];
+const docs = [
+  { icon: <LibraryBooksIcon />, title: "Catalog Library", desc: "Full product catalogue with specifications" },
+  { icon: <DesignServicesIcon />, title: "2D/3D Drawings", desc: "CAD files for all standard products" },
+  { icon: <ViewInArIcon />, title: "CAD Files", desc: "Ready for direct import into your design workflow" },
+  { icon: <VerifiedIcon />, title: "QMS Certifications", desc: "Quality management system documentation" },
+];
 
+const TechnicalSupport = () => {
   return (
     <Box component="section" id="technical" sx={{ py: 12, bgcolor: '#F8FAFC' }}>
       <Container maxWidth="lg">
@@ -45,7 +44,7 @@ const TechnicalSupport = () => {
               fontSize: { xs: '2.5rem', md: '3.2rem' },
               lineHeight: 1.1
             }}>
-              Everything<br />
+              Technical Docs<br />
               <Box component="span" sx={{ color: BRAND_BLUE }}>You Need</Box>
             </Typography>
 
@@ -54,16 +53,19 @@ const TechnicalSupport = () => {
               your procurement and design teams need to move fast.
             </Typography>
 
-            <Button 
-              variant="contained" 
+            <Button
+              component={RouterLink} viewTransition
+              to="/catalogPDFs"
+              variant="contained"
               disableElevation
-              onClick={() => navigate("/catalogPDFs")}
-              sx={{ 
-                bgcolor: BRAND_BLUE, 
-                fontWeight: 700, 
-                borderRadius: 0, 
+              sx={{
+                bgcolor: BRAND_BLUE,
+                fontWeight: 700,
+                borderRadius: 0,
                 px: 4, py: 1.5,
-                '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.9) }
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease',
+                '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.9), transform: 'translateY(-2px)', boxShadow: `0 8px 20px ${alpha(BRAND_BLUE, 0.35)}` },
+                '&:active': { transform: 'translateY(0)' },
               }}
             >
               Request Technical Documents

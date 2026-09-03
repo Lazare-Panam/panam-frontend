@@ -21,20 +21,18 @@ const DBB_PRODUCTS = [
   {
     type: "fxf",
     title: "DBB — Flange to Flange",
-    description:
-      "Double Block & Bleed valves with Flange-to-Flange construction for inline isolation and DP transmitter applications. Available in Integral and Three Piece configurations. ANSI 150 to 2500 Class plus PN series, covering RF, RTJ, and BS flange faces. Full range of ball, needle, and combination internals with NACE MR-0175, fire-safe, and gear-operated options.",
+    description: "Double Block & Bleed valves with Flange-to-Flange construction for inline isolation and DP transmitter applications. Available in Integral and Three Piece configurations. ANSI 150 to 2500 Class plus PN series, covering RF, RTJ, and BS flange faces. Full range of ball, needle, and combination internals with NACE MR-0175, fire-safe, and gear-operated options.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxf.jpg",
     pressure: "ANSI 150 – 2500 · PN6 – PN250",
     connection: "Flange to Flange · Integral & Three Piece",
     material: "SS316 · RF / RTJ / BS · NACE Options",
     tag: "Connection Types 2 & 4",
     href: "/double-block-and-bleed-valves/flange-to-flange",
-  },//aded
+  }, //aded
   {
     type: "pxp",
     title: "DBB — Pipe to Pipe",
-    description:
-      "Double Block & Bleed valves with threaded Pipe-to-Pipe construction for compact instrument isolation and process bleed. Available in NPT, BSPP, and BSPT thread forms across a full range of bore sizes. Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, and Ball-Needle configurations. NACE MR-0175 sour gas and fire-safe options available.",
+    description: "Double Block & Bleed valves with threaded Pipe-to-Pipe construction for compact instrument isolation and process bleed. Available in NPT, BSPP, and BSPT thread forms across a full range of bore sizes. Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, and Ball-Needle configurations. NACE MR-0175 sour gas and fire-safe options available.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg",
     pressure: "Threaded · NPT / BSPP / BSPT",
     connection: "Pipe to Pipe · Compact Body",
@@ -80,12 +78,7 @@ const DBBCard: React.FC<DBBItem> = ({ title, description, image, pressure, mater
         borderBottom: "1px solid #f0f0f0",
         minHeight: 220,
       }}>
-      <CardMedia
-        component="img"
-        image={image}
-        alt={title}
-        sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }}
-      />
+      <CardMedia component="img" image={image} alt={title} sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
     </Box>
 
     <CardContent sx={{ flexGrow: 1, p: 3 }}>
@@ -135,7 +128,7 @@ const DBBCard: React.FC<DBBItem> = ({ title, description, image, pressure, mater
         variant="outlined"
         fullWidth
         size="small"
-        href="mailto:sales@panamvalves.com"
+        href="mailto:sales@panamvalves.co.uk"
         sx={{
           borderColor: "#ddd",
           color: "#444",
@@ -154,7 +147,7 @@ const DBBCard: React.FC<DBBItem> = ({ title, description, image, pressure, mater
 
 export default function DBBIndexPage() {
   return (
-    <>  
+    <>
       <title>Double Block & Bleed Valves | PANAM® Instrumentation</title>
       <meta name="description" content="PANAM® DBB Valves — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe. SS316, ANSI 150–2500 Class, NACE MR-0175 certified." />
       <meta name="keywords" content="double block bleed valve, DBB valve, instrument isolation valve, NACE valve, SS316 valve" />
@@ -164,295 +157,277 @@ export default function DBBIndexPage() {
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
 
-    <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
-      {/* ── HERO ── */}
-      <Box
-        sx={{
-          position: "relative",
-          width: "100%",
-          minHeight: { xs: "60vh", md: "75vh" },
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/products/DBB/dbb-cover.jpg")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          py: { xs: 8, md: 12 },
-        }}>
-        <Container maxWidth="lg">
-          <Typography variant="overline" sx={{ color: BRAND_BLUE, letterSpacing: 3, fontSize: 11, fontWeight: 700, fontFamily: PRIMARY_FONT }}>
-            PANAM® Instrumentation
-          </Typography>
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: { xs: 38, md: 68 },
-              fontWeight: 900,
-              color: "#fff",
-              mt: 1,
-              mb: 3,
-              lineHeight: 1.08,
-              maxWidth: 750,
-              fontFamily: PRIMARY_FONT,
-              letterSpacing: "-0.03em",
-            }}>
-            Double Block & Bleed
-            <br />
-            <span style={{ color: BRAND_BLUE }}>Built to Isolate.</span>
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: { xs: 16, md: 19 },
-              color: "rgba(255,255,255,0.88)",
-              maxWidth: 580,
-              mb: 5,
-              lineHeight: 1.75,
-              fontFamily: PRIMARY_FONT,
-            }}>
-            Three connection families — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe — covering every instrument isolation application. SS316 construction, ANSI 150 to 2500 Class, with full NACE MR-0175 sour gas certification.
-          </Typography>
-          <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-            <Button
-              variant="contained"
-              size="large"
-              href="#range"
+      <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
+        {/* ── HERO ── */}
+        <Box
+          sx={{
+            position: "relative",
+            width: "100%",
+            minHeight: { xs: "60vh", md: "75vh" },
+            display: "flex",
+            alignItems: "center",
+            overflow: "hidden",
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/products/DBB/dbb-cover.jpg")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            py: { xs: 8, md: 12 },
+          }}>
+          <Container maxWidth="lg">
+            <Typography variant="overline" sx={{ color: BRAND_BLUE, letterSpacing: 3, fontSize: 11, fontWeight: 700, fontFamily: PRIMARY_FONT }}>
+              PANAM® Instrumentation
+            </Typography>
+            <Typography
+              variant="h1"
               sx={{
-                bgcolor: BRAND_BLUE,
+                fontSize: { xs: 38, md: 68 },
+                fontWeight: 900,
                 color: "#fff",
-                borderRadius: 0,
-                px: 4,
-                py: 1.5,
-                fontWeight: 700,
+                mt: 1,
+                mb: 3,
+                lineHeight: 1.08,
+                maxWidth: 750,
                 fontFamily: PRIMARY_FONT,
-                "&:hover": { bgcolor: "#0090c8" },
+                letterSpacing: "-0.03em",
               }}>
-              Explore Range
-            </Button>
-            <Button
-              variant="outlined"
-              size="large"
-              href="mailto:sales@panamvalves.com"
+              Double Block & Bleed
+              <br />
+              <span style={{ color: BRAND_BLUE }}>Built to Isolate.</span>
+            </Typography>
+            <Typography
               sx={{
-                borderColor: "rgba(255,255,255,0.5)",
-                color: "#fff",
-                borderRadius: 0,
-                px: 4,
-                py: 1.5,
-                fontWeight: 600,
+                fontSize: { xs: 16, md: 19 },
+                color: "rgba(255,255,255,0.88)",
+                maxWidth: 580,
+                mb: 5,
+                lineHeight: 1.75,
                 fontFamily: PRIMARY_FONT,
-                "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" },
               }}>
-              Request Quote
-            </Button>
+              Three connection families — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe — covering every instrument isolation application. SS316 construction, ANSI 150 to 2500 Class, with full NACE MR-0175 sour gas certification.
+            </Typography>
+            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+              <Button
+                variant="contained"
+                size="large"
+                href="#range"
+                sx={{
+                  bgcolor: BRAND_BLUE,
+                  color: "#fff",
+                  borderRadius: 0,
+                  px: 4,
+                  py: 1.5,
+                  fontWeight: 700,
+                  fontFamily: PRIMARY_FONT,
+                  "&:hover": { bgcolor: "#0090c8" },
+                }}>
+                Explore Range
+              </Button>
+              <Button
+                variant="outlined"
+                size="large"
+                href="mailto:sales@panamvalves.co.uk"
+                sx={{
+                  borderColor: "rgba(255,255,255,0.5)",
+                  color: "#fff",
+                  borderRadius: 0,
+                  px: 4,
+                  py: 1.5,
+                  fontWeight: 600,
+                  fontFamily: PRIMARY_FONT,
+                  "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" },
+                }}>
+                Request Quote
+              </Button>
+            </Box>
+          </Container>
+        </Box>
+
+        {/* ── MARQUEE ── */}
+        <Box sx={{ borderBottom: "1px solid #eee", py: 1.5, bgcolor: "#fff", overflow: "hidden", whiteSpace: "nowrap" }}>
+          <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
+          <Box
+            sx={{
+              display: "flex",
+              width: "max-content",
+              animation: "marquee 30s linear infinite",
+              "&:hover": { animationPlayState: "paused" },
+            }}>
+            {[1, 2].map(i => (
+              <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
+                {["Flange-to-Pipe · Flange-to-Flange · Pipe-to-Pipe", "Stainless Steel 316 construction", "NACE MR-0175 Sour Gas Certified", "ANSI 150 – 2500 Class · PN6 – PN250", "RF · RTJ · BS Flange Faces", "Ball · Needle · Combination internals", "Integral & Three Piece construction", "Fire Safe · Gear Operated · Lock Handle options"].map(item => (
+                  <Typography
+                    key={item}
+                    sx={{
+                      fontSize: 13,
+                      fontWeight: 500,
+                      color: "text.secondary",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1.5,
+                      fontFamily: PRIMARY_FONT,
+                    }}>
+                    <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
+                    {item}
+                  </Typography>
+                ))}
+              </Box>
+            ))}
+          </Box>
+        </Box>
+
+        <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
+          {/* ── INTRO ── */}
+          <Grid container spacing={8} sx={{ mb: 10 }}>
+            <Grid size={{ xs: 12, md: 7 }}>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontSize: { xs: 26, md: 34 },
+                  fontWeight: 800,
+                  mb: 3,
+                  fontFamily: PRIMARY_FONT,
+                  color: "#1a1a1a",
+                  letterSpacing: "-0.02em",
+                }}>
+                One body.
+                <br />
+                Three connection types.
+              </Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
+                PANAM® Double Block & Bleed valves cover the full instrument isolation spectrum — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe configurations engineered for primary isolation, pressure transmitter mounting, and process bleed applications. All three families share the same SS316 construction with ball, needle, and combination internal configurations.
+              </Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Every DBB family is available with NACE MR-0175 sour gas certification, fire-safe construction, lock handle, anti-static, gear-operated, and OS&Y bonnet options. Seat and seal materials cover Carbon Filled PTFE, PCTFE, Delrin, PEEK, PTFE, Grafoil, and FKM.</Typography>
+            </Grid>
+            <Grid size={{ xs: 12, md: 5 }}>
+              <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
+                <Typography
+                  sx={{
+                    fontWeight: 700,
+                    mb: 2.5,
+                    fontSize: 14,
+                    fontFamily: PRIMARY_FONT,
+                    color: "#1a1a1a",
+                    letterSpacing: 0.5,
+                    textTransform: "uppercase",
+                  }}>
+                  Technical Specifications
+                </Typography>
+                {SPECS.map(spec => (
+                  <Box
+                    key={spec.label}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "flex-start",
+                      py: 1.2,
+                      borderBottom: "1px solid #e4f2fa",
+                      gap: 2,
+                    }}>
+                    <Typography sx={{ fontSize: 13, fontWeight: 600, color: "#444", fontFamily: PRIMARY_FONT, flexShrink: 0 }}>{spec.label}</Typography>
+                    <Typography sx={{ fontSize: 13, color: "#666", fontFamily: PRIMARY_FONT, textAlign: "right" }}>{spec.value}</Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Grid>
+          </Grid>
+
+          <Divider sx={{ mb: 10 }} />
+
+          {/* ── PRODUCT GRID ── */}
+          <Box id="range" sx={{ mb: 10 }}>
+            <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 3, fontSize: 11, fontFamily: PRIMARY_FONT, display: "block", mb: 1 }}>
+              Product Range
+            </Typography>
+            <Typography variant="h2" sx={{ fontSize: { xs: 26, md: 32 }, fontWeight: 800, mb: 1.5, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
+              Three Families. One Standard.
+            </Typography>
+            <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8 }}>Each DBB family is purpose-built for a specific connection type and application. Select by connection style, pressure class, or special service requirement.</Typography>
+            <Grid container spacing={3}>
+              {DBB_PRODUCTS.map(p => (
+                <Grid key={p.type} size={{ xs: 12, sm: 6, md: 4 }}>
+                  <DBBCard {...p} />
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+
+          <Divider sx={{ mb: 10 }} />
+
+          {/* ── KEY FEATURES ── */}
+          <Box sx={{ mb: 10 }}>
+            <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
+              Why specify PANAM® DBB Valves
+            </Typography>
+            <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>All three DBB families are built to the same engineering standard — consistent materials, construction, and test procedures across the entire range.</Typography>
+            <Grid container spacing={2}>
+              {[
+                "Three connection families from a single trusted manufacturer",
+                "Stainless Steel 316 construction across all series",
+                "ANSI 150 to 2500 Class and PN6 to PN250 pressure ratings",
+                "RF, RTJ, and BS flange face options",
+                "NACE MR-0175 sour gas certification available",
+                "Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, Ball-Needle configurations",
+                "Integral (one-piece) and Three Piece (serviceable) body options",
+                "Carbon Filled PTFE, PCTFE, Delrin, and PEEK seat materials",
+                "PTFE, Grafoil, PCTFE, and FKM seal materials",
+                "Fire Safe construction available",
+                "Gear Operated option for large bore sizes",
+                "Lock Handle, Anti-Static, OS&Y Bonnet, and Anti-Tamper Key options",
+              ].map(feat => (
+                <Grid key={feat} size={{ xs: 12, sm: 6, md: 6 }}>
+                  <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
+                    <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0, mt: "6px" }} />
+                    <Typography sx={{ fontSize: 14, color: "#555", fontFamily: PRIMARY_FONT, lineHeight: 1.7 }}>{feat}</Typography>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+
+          <Divider sx={{ mb: 10 }} />
+
+          {/* ── CTA ── */}
+          <Box sx={{ textAlign: "center", py: 6 }}>
+            <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
+              Specify your DBB valve
+            </Typography>
+            <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>Send us your connection type, pressure class, bore size, and any special service requirements. Our technical team responds to instrumentation enquiries within 24 hours.</Typography>
+            <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
+              <Button
+                variant="contained"
+                size="large"
+                href="mailto:sales@panamvalves.co.uk"
+                sx={{
+                  bgcolor: BRAND_BLUE,
+                  color: "#fff",
+                  borderRadius: 0,
+                  px: 4,
+                  py: 1.5,
+                  fontWeight: 700,
+                  fontFamily: PRIMARY_FONT,
+                  "&:hover": { bgcolor: "#0090c8" },
+                }}>
+                Email Technical Sales
+              </Button>
+              <Button
+                variant="outlined"
+                size="large"
+                href="/contact"
+                sx={{
+                  borderColor: "#ddd",
+                  color: "#333",
+                  borderRadius: 0,
+                  px: 4,
+                  py: 1.5,
+                  fontWeight: 600,
+                  fontFamily: PRIMARY_FONT,
+                  "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE },
+                }}>
+                Request Quote
+              </Button>
+            </Box>
           </Box>
         </Container>
       </Box>
-
-      {/* ── MARQUEE ── */}
-      <Box sx={{ borderBottom: "1px solid #eee", py: 1.5, bgcolor: "#fff", overflow: "hidden", whiteSpace: "nowrap" }}>
-        <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
-        <Box
-          sx={{
-            display: "flex",
-            width: "max-content",
-            animation: "marquee 30s linear infinite",
-            "&:hover": { animationPlayState: "paused" },
-          }}>
-          {[1, 2].map(i => (
-            <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-              {[
-                "Flange-to-Pipe · Flange-to-Flange · Pipe-to-Pipe",
-                "Stainless Steel 316 construction",
-                "NACE MR-0175 Sour Gas Certified",
-                "ANSI 150 – 2500 Class · PN6 – PN250",
-                "RF · RTJ · BS Flange Faces",
-                "Ball · Needle · Combination internals",
-                "Integral & Three Piece construction",
-                "Fire Safe · Gear Operated · Lock Handle options",
-              ].map(item => (
-                <Typography
-                  key={item}
-                  sx={{
-                    fontSize: 13,
-                    fontWeight: 500,
-                    color: "text.secondary",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1.5,
-                    fontFamily: PRIMARY_FONT,
-                  }}>
-                  <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
-                  {item}
-                </Typography>
-              ))}
-            </Box>
-          ))}
-        </Box>
-      </Box>
-
-      <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-        {/* ── INTRO ── */}
-        <Grid container spacing={8} sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 7 }}>
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: { xs: 26, md: 34 },
-                fontWeight: 800,
-                mb: 3,
-                fontFamily: PRIMARY_FONT,
-                color: "#1a1a1a",
-                letterSpacing: "-0.02em",
-              }}>
-              One body.
-              <br />
-              Three connection types.
-            </Typography>
-            <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
-              PANAM® Double Block & Bleed valves cover the full instrument isolation spectrum — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe configurations engineered for primary isolation, pressure transmitter mounting, and process bleed applications. All three families share the same SS316 construction with ball, needle, and combination internal configurations.
-            </Typography>
-            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>
-              Every DBB family is available with NACE MR-0175 sour gas certification, fire-safe construction, lock handle, anti-static, gear-operated, and OS&Y bonnet options. Seat and seal materials cover Carbon Filled PTFE, PCTFE, Delrin, PEEK, PTFE, Grafoil, and FKM.
-            </Typography>
-          </Grid>
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
-              <Typography
-                sx={{
-                  fontWeight: 700,
-                  mb: 2.5,
-                  fontSize: 14,
-                  fontFamily: PRIMARY_FONT,
-                  color: "#1a1a1a",
-                  letterSpacing: 0.5,
-                  textTransform: "uppercase",
-                }}>
-                Technical Specifications
-              </Typography>
-              {SPECS.map(spec => (
-                <Box
-                  key={spec.label}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
-                    py: 1.2,
-                    borderBottom: "1px solid #e4f2fa",
-                    gap: 2,
-                  }}>
-                  <Typography sx={{ fontSize: 13, fontWeight: 600, color: "#444", fontFamily: PRIMARY_FONT, flexShrink: 0 }}>{spec.label}</Typography>
-                  <Typography sx={{ fontSize: 13, color: "#666", fontFamily: PRIMARY_FONT, textAlign: "right" }}>{spec.value}</Typography>
-                </Box>
-              ))}
-            </Box>
-          </Grid>
-        </Grid>
-
-        <Divider sx={{ mb: 10 }} />
-
-        {/* ── PRODUCT GRID ── */}
-        <Box id="range" sx={{ mb: 10 }}>
-          <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 3, fontSize: 11, fontFamily: PRIMARY_FONT, display: "block", mb: 1 }}>
-            Product Range
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: 26, md: 32 }, fontWeight: 800, mb: 1.5, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
-            Three Families. One Standard.
-          </Typography>
-          <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8 }}>
-            Each DBB family is purpose-built for a specific connection type and application. Select by connection style, pressure class, or special service requirement.
-          </Typography>
-          <Grid container spacing={3}>
-            {DBB_PRODUCTS.map(p => (
-              <Grid key={p.type} size={{ xs: 12, sm: 6, md: 4 }}>
-                <DBBCard {...p} />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        <Divider sx={{ mb: 10 }} />
-
-        {/* ── KEY FEATURES ── */}
-        <Box sx={{ mb: 10 }}>
-          <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
-            Why specify PANAM® DBB Valves
-          </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>
-            All three DBB families are built to the same engineering standard — consistent materials, construction, and test procedures across the entire range.
-          </Typography>
-          <Grid container spacing={2}>
-            {[
-              "Three connection families from a single trusted manufacturer",
-              "Stainless Steel 316 construction across all series",
-              "ANSI 150 to 2500 Class and PN6 to PN250 pressure ratings",
-              "RF, RTJ, and BS flange face options",
-              "NACE MR-0175 sour gas certification available",
-              "Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, Ball-Needle configurations",
-              "Integral (one-piece) and Three Piece (serviceable) body options",
-              "Carbon Filled PTFE, PCTFE, Delrin, and PEEK seat materials",
-              "PTFE, Grafoil, PCTFE, and FKM seal materials",
-              "Fire Safe construction available",
-              "Gear Operated option for large bore sizes",
-              "Lock Handle, Anti-Static, OS&Y Bonnet, and Anti-Tamper Key options",
-            ].map(feat => (
-              <Grid key={feat} size={{ xs: 12, sm: 6, md: 6 }}>
-                <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
-                  <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0, mt: "6px" }} />
-                  <Typography sx={{ fontSize: 14, color: "#555", fontFamily: PRIMARY_FONT, lineHeight: 1.7 }}>{feat}</Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        <Divider sx={{ mb: 10 }} />
-
-        {/* ── CTA ── */}
-        <Box sx={{ textAlign: "center", py: 6 }}>
-          <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
-            Specify your DBB valve
-          </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>
-            Send us your connection type, pressure class, bore size, and any special service requirements. Our technical team responds to instrumentation enquiries within 24 hours.
-          </Typography>
-          <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
-            <Button
-              variant="contained"
-              size="large"
-              href="mailto:sales@panamvalves.com"
-              sx={{
-                bgcolor: BRAND_BLUE,
-                color: "#fff",
-                borderRadius: 0,
-                px: 4,
-                py: 1.5,
-                fontWeight: 700,
-                fontFamily: PRIMARY_FONT,
-                "&:hover": { bgcolor: "#0090c8" },
-              }}>
-              Email Technical Sales
-            </Button>
-            <Button
-              variant="outlined"
-              size="large"
-              href="/contact"
-              sx={{
-                borderColor: "#ddd",
-                color: "#333",
-                borderRadius: 0,
-                px: 4,
-                py: 1.5,
-                fontWeight: 600,
-                fontFamily: PRIMARY_FONT,
-                "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE },
-              }}>
-              Request Quote
-            </Button>
-          </Box>
-        </Box>
-      </Container>
-    </Box>
     </>
-
   )
 }

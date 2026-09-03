@@ -8,12 +8,11 @@ import {
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 const BRAND_BLUE = "#01B0F0";
 
 const ContactBanner = () => {
-  const navigate = useNavigate();
   return (
     <Box 
       component="section" 
@@ -77,19 +76,22 @@ const ContactBanner = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Button 
-            variant="contained" 
+          <Button
+            component={RouterLink} viewTransition
+            to="/enquiry"
+            variant="contained"
             size="large"
-            onClick={() => navigate("/enquiry")}
             startIcon={<EmailIcon />}
-            sx={{ 
-              bgcolor: BRAND_BLUE, 
+            sx={{
+              bgcolor: BRAND_BLUE,
               color: '#FFFFFF',
-              fontWeight: 700, 
-              borderRadius: 0, 
+              fontWeight: 700,
+              borderRadius: 0,
               px: 4, py: 2,
               minWidth: '240px',
-              '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.9) }
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease',
+              '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.9), transform: 'translateY(-2px)', boxShadow: `0 8px 20px ${alpha(BRAND_BLUE, 0.35)}` },
+              '&:active': { transform: 'translateY(0)' },
             }}
           >
             SUBMIT AN RFQ
@@ -100,18 +102,21 @@ const ContactBanner = () => {
             size="large"
             href="tel:+447369243459"
             startIcon={<PhoneIcon />}
-            sx={{ 
-              color: '#1E293B', 
-              borderColor: '#1E293B', 
-              fontWeight: 700, 
-              borderRadius: 0, 
+            sx={{
+              color: '#1E293B',
+              borderColor: '#1E293B',
+              fontWeight: 700,
+              borderRadius: 0,
               px: 4, py: 2,
               minWidth: '240px',
-              '&:hover': { 
-                borderColor: BRAND_BLUE, 
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease',
+              '&:hover': {
+                borderColor: BRAND_BLUE,
                 color: BRAND_BLUE,
-                bgcolor: alpha(BRAND_BLUE, 0.05) 
-              }
+                bgcolor: alpha(BRAND_BLUE, 0.05),
+                transform: 'translateY(-2px)',
+              },
+              '&:active': { transform: 'translateY(0)' },
             }}
           >
             TALK TO AN ENGINEER

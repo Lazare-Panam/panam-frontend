@@ -10,7 +10,7 @@ const SPECS = [
   { label: "Max Working Pressure", value: "6,000 psi (414 bar)" },
   { label: "Max Working Temperature", value: "648°C (1,200°F)" },
   { label: "Standard Material", value: "SS316 (ASTM A312-TP316)" },
-  { label: "Distribution Pipe", value: "Seamless SS — 1\" to 2\" SCH 40 / 80 / 160" },
+  { label: "Distribution Pipe", value: 'Seamless SS — 1" to 2" SCH 40 / 80 / 160' },
   { label: "Inlet Flange", value: "ASME B16.5 / EN 1092-1 — Class 150 to 600, PN 16 to PN 100" },
   { label: "Testing Standard", value: "Nitrogen at 250 psi — ASME BPVC Section V & VIII" },
 ]
@@ -28,15 +28,15 @@ const TEMP_RATINGS = [
 const CONNECTIONS = [
   {
     label: "Inlet",
-    options: "Male/Female NPT · Male/Female BSPT · Male/Female BSPP · ASME B16.5 / EN 1092-1 Flanges · ½\" to 2\"",
+    options: 'Male/Female NPT · Male/Female BSPT · Male/Female BSPP · ASME B16.5 / EN 1092-1 Flanges · ½" to 2"',
   },
   {
     label: "Outlet",
-    options: "Male/Female NPT · Male/Female BSPT · Male/Female BSPP · Tube Socket / Pipe Socket Weld · Compression Fittings (6mm, 10mm, 12mm) · ½\" to 2\"",
+    options: 'Male/Female NPT · Male/Female BSPT · Male/Female BSPP · Tube Socket / Pipe Socket Weld · Compression Fittings (6mm, 10mm, 12mm) · ½" to 2"',
   },
   {
     label: "Drain",
-    options: "Male/Female NPT · Male/Female BSPT · ¼\" to ½\" · Valve, Plug, or Threaded",
+    options: 'Male/Female NPT · Male/Female BSPT · ¼" to ½" · Valve, Plug, or Threaded',
   },
 ]
 
@@ -61,18 +61,18 @@ const FEATURES = [
 export default function AirHeaderDetailPage() {
   return (
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
-
       {/* HERO */}
-      <Box sx={{
-        width: "100%",
-        minHeight: { xs: "50vh", md: "60vh" },
-        display: "flex",
-        alignItems: "center",
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url("https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/air-h.jpg")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        py: { xs: 8, md: 12 },
-      }}>
+      <Box
+        sx={{
+          width: "100%",
+          minHeight: { xs: "50vh", md: "60vh" },
+          display: "flex",
+          alignItems: "center",
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url("https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/air-h.jpg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          py: { xs: 8, md: 12 },
+        }}>
         <Container maxWidth="lg">
           <Typography variant="overline" sx={{ color: BRAND_BLUE, letterSpacing: 3, fontSize: 11, fontWeight: 700, fontFamily: PRIMARY_FONT }}>
             PANAM® System Integration
@@ -82,16 +82,12 @@ export default function AirHeaderDetailPage() {
             <br />
             <span style={{ color: BRAND_BLUE }}>Distribution Manifold.</span>
           </Typography>
-          <Typography sx={{ fontSize: { xs: 15, md: 18 }, color: "rgba(255,255,255,0.85)", maxWidth: 560, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>
-            Stainless steel air distribution headers engineered for instrument and utility applications — up to 20 outlets, 6,000 psi working pressure, and full ASME BPVC leak testing on every unit.
-          </Typography>
+          <Typography sx={{ fontSize: { xs: 15, md: 18 }, color: "rgba(255,255,255,0.85)", maxWidth: 560, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>Stainless steel air distribution headers engineered for instrument and utility applications — up to 20 outlets, 6,000 psi working pressure, and full ASME BPVC leak testing on every unit.</Typography>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-            <Button variant="contained" size="large" href="/enquiry"
-              sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
+            <Button variant="contained" size="large" href="/enquiry" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
               Make an Enquiry
             </Button>
-            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.com"
-              sx={{ borderColor: "rgba(255,255,255,0.4)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { borderColor: "#fff", bgcolor: "rgba(255,255,255,0.08)" } }}>
+            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ borderColor: "rgba(255,255,255,0.4)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { borderColor: "#fff", bgcolor: "rgba(255,255,255,0.08)" } }}>
               Email Sales
             </Button>
           </Box>
@@ -116,7 +112,6 @@ export default function AirHeaderDetailPage() {
       </Box>
 
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-
         {/* OVERVIEW */}
         <Grid container spacing={8} sx={{ mb: 10 }}>
           <Grid size={{ xs: 12, md: 7 }}>
@@ -126,15 +121,9 @@ export default function AirHeaderDetailPage() {
             <Typography variant="h2" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 3, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
               What is an Air Header?
             </Typography>
-            <Typography sx={{ color: "#444", lineHeight: 1.85, mb: 2, fontFamily: PRIMARY_FONT, fontSize: 15 }}>
-              A PANAM® air distribution header features an inlet on one end, a drain on the opposite end, and multiple outlets on the sides. The inlet can be fitted with a ball valve or needle valve to isolate all outlets simultaneously — this must be specified at the time of ordering.
-            </Typography>
-            <Typography sx={{ color: "#444", lineHeight: 1.85, mb: 2, fontFamily: PRIMARY_FONT, fontSize: 15 }}>
-              The distribution pipe is fabricated from stainless steel thick-walled seamless tube and supports up to 20 outlets. Outlets can be supplied with threaded connections, weld connections, compression fittings, or factory pre-installed ball or needle valves.
-            </Typography>
-            <Typography sx={{ color: "#444", lineHeight: 1.85, fontFamily: PRIMARY_FONT, fontSize: 15 }}>
-              The drain end can be configured with a threaded connection, weld connection, compression fitting, or a factory-installed ball/needle valve or plug.
-            </Typography>
+            <Typography sx={{ color: "#444", lineHeight: 1.85, mb: 2, fontFamily: PRIMARY_FONT, fontSize: 15 }}>A PANAM® air distribution header features an inlet on one end, a drain on the opposite end, and multiple outlets on the sides. The inlet can be fitted with a ball valve or needle valve to isolate all outlets simultaneously — this must be specified at the time of ordering.</Typography>
+            <Typography sx={{ color: "#444", lineHeight: 1.85, mb: 2, fontFamily: PRIMARY_FONT, fontSize: 15 }}>The distribution pipe is fabricated from stainless steel thick-walled seamless tube and supports up to 20 outlets. Outlets can be supplied with threaded connections, weld connections, compression fittings, or factory pre-installed ball or needle valves.</Typography>
+            <Typography sx={{ color: "#444", lineHeight: 1.85, fontFamily: PRIMARY_FONT, fontSize: 15 }}>The drain end can be configured with a threaded connection, weld connection, compression fitting, or a factory-installed ball/needle valve or plug.</Typography>
           </Grid>
           <Grid size={{ xs: 12, md: 5 }}>
             <Box sx={{ bgcolor: "#f8f8f8", p: 4, height: "100%" }}>
@@ -183,18 +172,22 @@ export default function AirHeaderDetailPage() {
           <Typography variant="h2" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
             Seat & Packing Options
           </Typography>
-          <Typography sx={{ color: "#666", mb: 5, fontFamily: PRIMARY_FONT, fontSize: 14, maxWidth: 640, lineHeight: 1.75 }}>
-            The temperature rating of each air header assembly is governed by the most restrictive component. Select the appropriate valve seat or packing material based on your process temperature.
-          </Typography>
+          <Typography sx={{ color: "#666", mb: 5, fontFamily: PRIMARY_FONT, fontSize: 14, maxWidth: 640, lineHeight: 1.75 }}>The temperature rating of each air header assembly is governed by the most restrictive component. Select the appropriate valve seat or packing material based on your process temperature.</Typography>
           <Box sx={{ border: "1px solid #e8e8e8" }}>
             {TEMP_RATINGS.map((t, i) => (
-              <Box key={i} sx={{
-                display: "flex", justifyContent: "space-between", alignItems: "center",
-                px: 3, py: 2,
-                bgcolor: i % 2 === 0 ? "#fff" : "#fafafa",
-                borderBottom: i < TEMP_RATINGS.length - 1 ? "1px solid #e8e8e8" : "none",
-                flexWrap: "wrap", gap: 1,
-              }}>
+              <Box
+                key={i}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  px: 3,
+                  py: 2,
+                  bgcolor: i % 2 === 0 ? "#fff" : "#fafafa",
+                  borderBottom: i < TEMP_RATINGS.length - 1 ? "1px solid #e8e8e8" : "none",
+                  flexWrap: "wrap",
+                  gap: 1,
+                }}>
                 <Typography sx={{ fontSize: 14, color: "#333", fontFamily: PRIMARY_FONT }}>{t.seat}</Typography>
                 <Chip label={t.temp} size="small" sx={{ bgcolor: "#e8f7fd", color: "#0078a8", fontWeight: 700, fontSize: 12, borderRadius: 0, fontFamily: PRIMARY_FONT }} />
               </Box>
@@ -216,9 +209,7 @@ export default function AirHeaderDetailPage() {
             {CONNECTIONS.map((c, i) => (
               <Grid key={i} size={{ xs: 12, md: 4 }}>
                 <Box sx={{ border: "1px solid #e8e8e8", p: 3, height: "100%" }}>
-                  <Typography sx={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, mb: 1.5, textTransform: "uppercase" }}>
-                    {c.label} Connection
-                  </Typography>
+                  <Typography sx={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, mb: 1.5, textTransform: "uppercase" }}>{c.label} Connection</Typography>
                   <Typography sx={{ fontSize: 14, color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>{c.options}</Typography>
                 </Box>
               </Grid>
@@ -242,19 +233,21 @@ export default function AirHeaderDetailPage() {
               <Typography sx={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, color: "#888", fontFamily: PRIMARY_FONT, flex: 1, textTransform: "uppercase" }}>Material Standard</Typography>
             </Box>
             {MATERIALS.map((m, i) => (
-              <Box key={i} sx={{
-                display: "flex", px: 3, py: 2,
-                bgcolor: i % 2 === 0 ? "#fff" : "#fafafa",
-                borderBottom: i < MATERIALS.length - 1 ? "1px solid #e8e8e8" : "none",
-              }}>
+              <Box
+                key={i}
+                sx={{
+                  display: "flex",
+                  px: 3,
+                  py: 2,
+                  bgcolor: i % 2 === 0 ? "#fff" : "#fafafa",
+                  borderBottom: i < MATERIALS.length - 1 ? "1px solid #e8e8e8" : "none",
+                }}>
                 <Typography sx={{ fontSize: 14, color: "#333", fontFamily: PRIMARY_FONT, flex: 1 }}>{m.component}</Typography>
                 <Typography sx={{ fontSize: 14, color: "#555", fontFamily: PRIMARY_FONT, flex: 1 }}>{m.standard}</Typography>
               </Box>
             ))}
           </Box>
-          <Typography sx={{ fontSize: 12, color: "#999", mt: 1.5, fontFamily: PRIMARY_FONT }}>
-            Other materials available on request (e.g. Duplex SS ASTM EN 10272-5 Grade 1.4462).
-          </Typography>
+          <Typography sx={{ fontSize: 12, color: "#999", mt: 1.5, fontFamily: PRIMARY_FONT }}>Other materials available on request (e.g. Duplex SS ASTM EN 10272-5 Grade 1.4462).</Typography>
         </Box>
 
         <Divider sx={{ mb: 10 }} />
@@ -291,21 +284,16 @@ export default function AirHeaderDetailPage() {
           <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
             Ready to specify your Air Header?
           </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>
-            Tell us your outlet count, pressure class, connection type, and valve preference — we'll come back to you within 24 hours.
-          </Typography>
+          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>Tell us your outlet count, pressure class, connection type, and valve preference — we'll come back to you within 24 hours.</Typography>
           <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
-            <Button variant="contained" size="large" href="/enquiry"
-              sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
+            <Button variant="contained" size="large" href="/enquiry" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
               Make an Enquiry
             </Button>
-            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.com"
-              sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
+            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
               Email Technical Sales
             </Button>
           </Box>
         </Box>
-
       </Container>
     </Box>
   )

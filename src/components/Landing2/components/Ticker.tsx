@@ -79,6 +79,7 @@ const Ticker = () => {
                 component="img"
                 src={partner.img}
                 alt={partner.name}
+                loading="lazy"
                 sx={{
                   height: 72,
                   width: "auto",

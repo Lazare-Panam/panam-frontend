@@ -8,21 +8,32 @@ import PartnersSection from "./components/PartnersSection"
 import SEOSection from "./components/SEOSection"
 import TechnicalSupport from "./components/TechnicalSupport"
 import Ticker from "./components/Ticker"
+import TrustBar from "./components/TrustBar"
+import ConfigureCTA from "./components/ConfigureCTA"
+import CertificationsStrip from "./components/CertificationsStrip"
+import LatestInsights from "./components/LatestInsights"
+import Testimonials from "./components/Testimonials"
+import ScrollReveal from "../Common/ScrollReveal"
+import FAQSection from "./components/FAQSection"
+import SectionDotNav from "./components/SectionDotNav"
+import LocationMap from "./components/LocationMap"
+import ToolsResources from "./components/ToolsResources"
 const Landing2 = () => {
+  /** */
   return (
     <>
-      <title>PANAM® UK | Top Valve Manufacture for every fit</title>
+      <title>PANAM® UK | Precision Valve Manufacturer, Built for Every Fit</title>
       <meta name="description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. UK stock, fast dispatch and full technical support." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="PANAM Valves" />
-      <meta property="og:title" content="PANAM® UK | Top Valve Manufacture for every fit" />
+      <meta property="og:title" content="PANAM® UK | Precision Valve Manufacturer, Built for Every Fit" />
       <meta property="og:description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. UK stock, fast dispatch and full technical support." />
       <meta property="og:url" content="https://www.panamvalve.com/" />
       <meta property="og:image" content="https://www.panamvalve.com/p2.png" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="PANAM® UK | Top Valve Manufacture for every fit" />
+      <meta name="twitter:title" content="PANAM® UK | Precision Valve Manufacturer, Built for Every Fit" />
       <meta name="twitter:description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. UK stock, fast dispatch and full technical support." />
       <script type="application/ld+json">
         {JSON.stringify({
@@ -41,6 +52,19 @@ const Landing2 = () => {
                 postalCode: "OX26 6BL",
                 addressCountry: "GB",
               },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+44-7369-243459",
+                contactType: "sales",
+                email: "marketing@panamvalve.com",
+                areaServed: "GB",
+              },
+              sameAs: [
+                "https://uk.linkedin.com/company/panamvalves-ltd",
+                "https://www.youtube.com/@panamengineersltd",
+                "https://www.facebook.com/PanamEngineers/",
+                "https://twitter.com/panamvalves",
+              ],
             },
             {
               "@type": "WebSite",
@@ -49,19 +73,64 @@ const Landing2 = () => {
               name: "PANAM Valves",
               publisher: { "@id": "https://www.panamvalve.com/#organization" },
             },
+            {
+              "@type": "VideoObject",
+              name: "Panam - Instrumentation Fittings & Valves",
+              description: "An overview of Panam Valves' instrumentation fittings and valve ranges for industrial flow control applications.",
+              thumbnailUrl: "https://i.ytimg.com/vi/HRFxY37P0Lg/hqdefault.jpg",
+              embedUrl: "https://www.youtube.com/embed/HRFxY37P0Lg",
+              publisher: { "@id": "https://www.panamvalve.com/#organization" },
+            },
           ],
         })}
       </script>
+      <SectionDotNav />
       <Hero2 />
+      <TrustBar />
       <Ticker />
-      <SEOSection/>
+      <ScrollReveal>
+        <SEOSection/>
+      </ScrollReveal>
       <MovingBanner/>
-      <CoreProducts />
-      <IndustriesSection />
-      <HydrogenSection />
-      <TechnicalSupport />
-      <PartnersSection />
-      <ContactBanner />
+      <ScrollReveal delay={0.1}>
+        <CoreProducts />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <ToolsResources />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <IndustriesSection />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <ConfigureCTA />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <HydrogenSection />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <CertificationsStrip />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <TechnicalSupport />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <LatestInsights />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <PartnersSection />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <Testimonials />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <FAQSection />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <LocationMap />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <ContactBanner />
+      </ScrollReveal>
     </>
   )
 }

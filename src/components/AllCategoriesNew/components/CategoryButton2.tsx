@@ -1,6 +1,8 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import { Box, Typography, Stack } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { type CategoryData2 } from "./CategoryData2";
 
 const BRAND_BLUE = "#01B0F0";
@@ -9,7 +11,7 @@ const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 const CATEGORY_ROUTES: Record<string, string> = {
   "instrumentation-fittings":       "/instrumentation-fittings",
   "filters":                        "/filters",
-  "quick-coupling-and-tubing":       "/quick-coupling-and-tubing",
+  "quick-coupling-and-hoses":       "/quick-coupling-and-tubing",
   "hydrogen":                       "/high-pressure",
   "valves":                         "/valves",
   "valve-manifolds":                "/manifolds",
@@ -32,9 +34,17 @@ const RootCard = styled(Box)({
     transform: "translateY(-5px)",
     boxShadow: "0px 12px 30px rgba(0,0,0,0.08)",
   },
+  "&:hover .category-arrow": {
+    transform: "translateX(4px)",
+    opacity: 1,
+  },
+  "&:active": {
+    transform: "translateY(-2px)",
+    boxShadow: "0px 6px 16px rgba(0,0,0,0.1)",
+  },
 });
 
-const ImageLink = styled("a")({
+const ImageLink = styled(RouterLink)({
   position: "relative",
   height: 240,
   width: "100%",
@@ -67,14 +77,15 @@ export const CategoryButton2: React.FC<CategoryData2> = ({
 
   return (
     <RootCard>
-      <ImageLink href={route}>
-        <img src={image} alt={`${title} industrial component`} />
+      <ImageLink to={route} viewTransition>
+        <img src={image} alt={`${title} industrial component`} loading="lazy" />
       </ImageLink>
 
       <Box sx={{ p: 3, flexGrow: 1 }}>
         <Typography
-          component="a"
-          href={route}
+          component={RouterLink}
+          to={route}
+          viewTransition
           variant="h6"
           sx={{
             display: "block",
@@ -106,25 +117,28 @@ export const CategoryButton2: React.FC<CategoryData2> = ({
           {seoDescription}
         </Typography>
 
-        <Typography
-          variant="overline"
-          sx={{
-            fontWeight: 900,
-            color: "#ccc",
-            letterSpacing: 2,
-            display: "block",
-            mb: 1.5,
-          }}
-        >
-          Featured Specs
-        </Typography>
+        {products && products.length > 1 && (
+          <Typography
+            variant="overline"
+            sx={{
+              fontWeight: 900,
+              color: "#ccc",
+              letterSpacing: 2,
+              display: "block",
+              mb: 1.5,
+            }}
+          >
+            Featured Specs
+          </Typography>
+        )}
 
         <Stack spacing={1}>
           {products?.map((product, index) => (
             <Typography
               key={`${id}-prod-${index}`}
-              component="a"
-              href={product.link}
+              component={RouterLink}
+              to={product.link}
+              viewTransition
               sx={{
                 fontWeight: 500,
                 color: "#444",
@@ -141,6 +155,24 @@ export const CategoryButton2: React.FC<CategoryData2> = ({
               {product.name}
             </Typography>
           ))}
+        </Stack>
+
+        <Stack
+          component={RouterLink}
+          to={route}
+          viewTransition
+          direction="row"
+          spacing={0.5}
+          alignItems="center"
+          sx={{ mt: 2, textDecoration: "none", width: "fit-content" }}
+        >
+          <Typography variant="caption" sx={{ fontWeight: 700, color: BRAND_BLUE }}>
+            View Category
+          </Typography>
+          <ArrowForwardIcon
+            className="category-arrow"
+            sx={{ fontSize: 14, color: BRAND_BLUE, opacity: 0.7, transition: "transform 0.25s ease, opacity 0.25s ease" }}
+          />
         </Stack>
       </Box>
     </RootCard>

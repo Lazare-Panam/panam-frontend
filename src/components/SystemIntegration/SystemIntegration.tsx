@@ -153,7 +153,7 @@ export default function SystemIntegrationIndexPage() {
                       <Button variant="contained" fullWidth size="small" href={product.href ?? "/enquiry"} onClick={e => e.stopPropagation()} sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
                         {product.href ? "VIEW PRODUCT" : "ENQUIRE NOW"}
                       </Button>
-                      <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.com" onClick={e => e.stopPropagation()} sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
+                      <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.co.uk" onClick={e => e.stopPropagation()} sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
                         EMAIL SALES
                       </Button>
                     </Box>
@@ -177,7 +177,7 @@ export default function SystemIntegrationIndexPage() {
             <Button variant="contained" size="large" href="/enquiry" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
               Make an Enquiry
             </Button>
-            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.com" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
+            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
               Email Technical Sales
             </Button>
           </Box>
