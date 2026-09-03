@@ -1,5 +1,7 @@
 import React from "react"
 import { Box, Container, Typography, Grid, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
+import { Link as RouterLink } from "react-router-dom"
+import ValveFAQ from "./ValveFAQ"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -119,7 +121,7 @@ const ValveCard: React.FC<ValveItem> = ({ type, title, description, image, press
           borderBottom: "1px solid #f0f0f0",
           minHeight: 220,
         }}>
-        <CardMedia component="img" image={image} alt={title} sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
+        <CardMedia component="img" image={image} alt={title} loading="lazy" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
       </Box>
 
       <CardContent sx={{ flexGrow: 1, p: 3 }}>
@@ -149,10 +151,12 @@ const ValveCard: React.FC<ValveItem> = ({ type, title, description, image, press
 
       <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
         <Button
+          component={RouterLink}
+          viewTransition
+          to={href}
           variant="contained"
           fullWidth
           size="small"
-          href={href}
           sx={{
             bgcolor: BRAND_BLUE,
             color: "#fff",
@@ -191,11 +195,30 @@ export default function ValvesPage() {
   return (
     <>
       <title>Instrumentation Valves | Needle, Ball & Relief Valves | PANAM®</title>
-      <meta name="description" content="PANAM® instrumentation valves — needle, ball, relief, check, gauge root, purge and toggle valves rated to 20,000 psig. SS316, Duplex, Monel and Hastelloy. NACE MR0175 available." />
+      <meta name="description" content="PANAM® instrumentation valves — needle, ball, relief, check, gauge root, purge & toggle. Rated to 20,000 psig. SS316, Duplex, Monel & Hastelloy." />
       <meta name="keywords" content="instrumentation valves, needle valves, ball valves, relief valves, check valves, high pressure valves, 20000 psi valves, SS316 valves, NACE MR0175 valves, Duplex valves, Hastelloy valves, gauge root valves" />
       <meta property="og:title" content="Instrumentation Valves | PANAM® Valve Range" />
       <meta property="og:description" content="Seven instrumentation valve families rated 4,000–20,000 psig. Full material traceability. NACE certified options. NPT, BSPP, BSPT and tube fitting ends." />
       <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.panamvalve.com/valves" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® Instrumentation Valves",
+          description: "Seven instrumentation valve families — Needle, Ball, Relief, Check, Gauge Root, Purge, and Toggle — rated 4,000 to 20,000 psig.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: VALVES.map((v, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: v.title,
+              url: `https://www.panamvalve.com${VALVE_ROUTES[v.type] ?? `/products/valves/${v.type}`}`,
+            })),
+          },
+        })}
+      </script>
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
         <Box
@@ -225,7 +248,7 @@ export default function ValvesPage() {
               <Button variant="contained" size="large" href="#range" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
                 Explore Range
               </Button>
-              <Button variant="outlined" size="large" href="/enquiry" sx={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" } }}>
+              <Button component={RouterLink} viewTransition to="/enquiry" variant="outlined" size="large" sx={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" } }}>
                 Request Quote
               </Button>
             </Box>
@@ -327,6 +350,10 @@ export default function ValvesPage() {
 
           <Divider sx={{ mb: 10 }} />
 
+          <ValveFAQ />
+
+          <Divider sx={{ mb: 10 }} />
+
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
@@ -337,7 +364,7 @@ export default function ValvesPage() {
               <Button variant="contained" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
                 Email Technical Sales
               </Button>
-              <Button variant="outlined" size="large" href="/enquiry" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
+              <Button component={RouterLink} viewTransition to="/enquiry" variant="outlined" size="large" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
                 Request Quote
               </Button>
             </Box>

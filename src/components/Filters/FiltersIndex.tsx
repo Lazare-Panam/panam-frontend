@@ -1,6 +1,7 @@
 import React from "react"
 import { Box, Container, Typography, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
 import Grid from "@mui/material/Grid"
+import { Link as RouterLink } from "react-router-dom"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -176,7 +177,7 @@ export default function FiltersIndexPage() {
               <Button variant="contained" size="large" href="#range" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
                 Explore Range
               </Button>
-              <Button variant="outlined" size="large" href="/contact" sx={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" } }}>
+              <Button component={RouterLink} viewTransition to="/enquiry" variant="outlined" size="large" sx={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" } }}>
                 Request Quote
               </Button>
             </Box>
@@ -288,7 +289,7 @@ export default function FiltersIndexPage() {
               <Button variant="contained" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
                 Email Technical Sales
               </Button>
-              <Button variant="outlined" size="large" href="/contact" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
+              <Button component={RouterLink} viewTransition to="/enquiry" variant="outlined" size="large" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
                 Request Quote
               </Button>
             </Box>

@@ -1,6 +1,7 @@
 import React from "react"
 import { Box, Container, Typography, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
 import Grid from "@mui/material/Grid"
+import { Link as RouterLink } from "react-router-dom"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -234,9 +235,11 @@ export default function ManifoldsIndexPage() {
               Explore Range
             </Button>
             <Button
+              component={RouterLink}
+              viewTransition
+              to="/enquiry"
               variant="outlined"
               size="large"
-              href="/contact"
               sx={{
                 borderColor: "rgba(255,255,255,0.5)",
                 color: "#fff",
@@ -440,9 +443,11 @@ export default function ManifoldsIndexPage() {
               Email Technical Sales
             </Button>
             <Button
+              component={RouterLink}
+              viewTransition
+              to="/enquiry"
               variant="outlined"
               size="large"
-              href="/contact"
               sx={{
                 borderColor: "#ddd",
                 color: "#333",

@@ -1,5 +1,7 @@
 import React from "react"
 import { Box, Container, Typography, Grid, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
+import { Link as RouterLink } from "react-router-dom"
+import BallValvesFAQ from "./BallValvesFAQ"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -10,6 +12,17 @@ const LINKS = {
   ctaEmail: "mailto:sales@panamvalves.co.uk",
   ctaQuote: "/enquiry",
 }
+
+const SPECS = [
+  { label: "Max Working Pressure", value: "Up to 10,000 psig (689 bar)" },
+  { label: "Size Range", value: '1/8" to 2"' },
+  { label: "Configurations", value: "2-Way · 3-Way (T-port/L-port) · High Bore" },
+  { label: "Materials", value: "SS316 (standard), Duplex, Monel, Hastelloy" },
+  { label: "End Connections", value: "NPT, BSPP, BSPT, PANAM® Tube Fitting" },
+  { label: "Seat Options", value: "Delrin, PTFE, PEEK, KEL-F" },
+  { label: "Certification", value: "NACE MR0175 available on request" },
+  { label: "Traceability", value: "Full heat-code traceability" },
+]
 
 const CATEGORIES = [
   {
@@ -65,7 +78,7 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
         borderBottom: "1px solid #f0f0f0",
         minHeight: 220,
       }}>
-      <CardMedia component="img" image={image} alt={title} sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
+      <CardMedia component="img" image={image} alt={title} loading="lazy" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
     </Box>
 
     <CardContent sx={{ flexGrow: 1, p: 3 }}>
@@ -128,10 +141,12 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 
     <Box sx={{ p: 2, display: "flex", flexDirection: "column", gap: 1 }}>
       <Button
+        component={RouterLink}
+        viewTransition
+        to={link}
         variant="contained"
         fullWidth
         size="small"
-        href={link}
         sx={{
           bgcolor: BRAND_BLUE,
           color: "#fff",
@@ -145,10 +160,12 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
         VIEW RANGE
       </Button>
       <Button
+        component={RouterLink}
+        viewTransition
+        to={LINKS.ctaQuote}
         variant="outlined"
         fullWidth
         size="small"
-        href={LINKS.ctaQuote}
         sx={{
           borderColor: "#ddd",
           color: "#444",
@@ -168,12 +185,31 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 export default function BallValvesIndexPage() {
   return (
     <>
-      <title>PANAM Instrumentation Ball Valves | 2-Way, 3-Way & High Bore | PANAM®</title>
-      <meta name="description" content="PANAM® floating ball valves rated to 10,000 psig. 2-way, 3-way and high bore configurations. SS316, Duplex, Monel and Hastelloy. PTFE, PEEK, KEL-F seats. NACE MR0175 available." />
+      <title>Instrumentation Ball Valves | 2-Way, 3-Way & High Bore | PANAM®</title>
+      <meta name="description" content="PANAM® floating ball valves rated to 10,000 psig. 2-way, 3-way and high bore. SS316, Duplex, Monel & Hastelloy. NACE MR0175 available on request." />
       <meta name="keywords" content="instrumentation ball valves, floating ball valve, 10000 psi ball valve, 2 way ball valve, 3 way ball valve, high bore ball valve, SS316 ball valve, NACE MR0175 ball valve, Duplex ball valve, Hastelloy ball valve, PTFE seat ball valve, PEEK seat ball valve, anti blowout stem ball valve" />
       <meta property="og:title" content="Instrumentation Ball Valves | 2-Way · 3-Way · High Bore | PANAM®" />
       <meta property="og:description" content="Floating ball valves to 10,000 psig in 2-way, 3-way and high bore series. SS316, Duplex, Monel, Hastelloy. NACE MR0175 available." />
       <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.panamvalve.com/valves/ball-valves" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® Instrumentation Ball Valves",
+          description: "Floating ball valves rated to 10,000 psig in 2-way, 3-way and high bore configurations.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: CATEGORIES.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: c.title,
+              url: `https://www.panamvalve.com${c.link}`,
+            })),
+          },
+        })}
+      </script>
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
         <Box
@@ -247,9 +283,11 @@ export default function BallValvesIndexPage() {
                 Explore Range
               </Button>
               <Button
+                component={RouterLink}
+                viewTransition
+                to={LINKS.heroQuote}
                 variant="outlined"
                 size="large"
-                href={LINKS.heroQuote}
                 sx={{
                   borderColor: "rgba(255,255,255,0.5)",
                   color: "#fff",
@@ -336,6 +374,17 @@ export default function BallValvesIndexPage() {
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>PANAM® Ball Valves deliver leak-tight shut-off and flow control across the full range of instrumentation and process pressures. The floating-ball design provides positive sealing under severe pressure cycling.</Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>Every valve incorporates an internally loaded anti-blow-out stem for operator safety. Seat materials include Delrin, PTFE, PEEK and KEL-F to suit a wide range of media and temperature conditions.</Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>SS316 is standard, with Duplex, Monel and Hastelloy available on request. NACE MR0175 certification and full heat-code material traceability are available across the full range.</Typography>
+            </Grid>
+            <Grid size={{ xs: 12, md: 5 }}>
+              <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
+                <Typography sx={{ fontWeight: 700, mb: 2.5, fontSize: 14, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: 0.5, textTransform: "uppercase" }}>Technical Specifications</Typography>
+                {SPECS.map(spec => (
+                  <Box key={spec.label} sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", py: 1.2, borderBottom: "1px solid #e4f2fa", gap: 2 }}>
+                    <Typography sx={{ fontSize: 13, fontWeight: 600, color: "#444", fontFamily: PRIMARY_FONT, flexShrink: 0 }}>{spec.label}</Typography>
+                    <Typography sx={{ fontSize: 13, color: "#666", fontFamily: PRIMARY_FONT, textAlign: "right" }}>{spec.value}</Typography>
+                  </Box>
+                ))}
+              </Box>
             </Grid>
           </Grid>
 
@@ -452,6 +501,10 @@ export default function BallValvesIndexPage() {
 
           <Divider sx={{ mb: 10 }} />
 
+          <BallValvesFAQ />
+
+          <Divider sx={{ mb: 10 }} />
+
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography
@@ -494,9 +547,11 @@ export default function BallValvesIndexPage() {
                 Email Technical Sales
               </Button>
               <Button
+                component={RouterLink}
+                viewTransition
+                to={LINKS.ctaQuote}
                 variant="outlined"
                 size="large"
-                href={LINKS.ctaQuote}
                 sx={{
                   borderColor: "#ddd",
                   color: "#333",

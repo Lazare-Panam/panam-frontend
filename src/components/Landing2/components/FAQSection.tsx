@@ -13,34 +13,39 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "How long does shipping typically take?",
+    question: "What valves and fittings are available?",
     answer:
-      "Standard components ship from UK stock within 24-48 hours. For bespoke engineering solutions or configured products, our team confirms a firm lead time during the quoting process based on materials, certification requirements and order volume. We dispatch globally to 52+ countries.",
-  },
-  {
-    question: "Can I request a custom flow control solution?",
-    answer:
-      "Yes. Our online Product Configurator lets you specify end connections, materials, pressure ratings and certifications for valves, manifolds and fittings, and add your exact build directly to an order. For fully bespoke engineering outside our standard ranges, select 'Technical Support' in the enquiry form and our engineers will scope it with you.",
-  },
-  {
-    question: "What materials are available for valves and fittings?",
-    answer:
-      "Our standard range covers SS316 for general process and utility service, with Duplex and Super Duplex available for higher strength and chloride/stress-corrosion resistance in offshore and marine applications. For aggressive chemical service we also supply Monel, Hastelloy and Inconel. Material selection is matched to your application during quoting.",
+      "Panam Valves manufactures and supplies instrumentation fittings and valves. The range covers tube, pipe, 37° JIC, weld and high-pressure pipe fittings; needle, ball, check, relief and gauge root valves; 2, 3 and 5 valve manifolds; double block and bleed valves; filters; and swivel gauge and flange adapters. Panam also supplies pressure and temperature instrumentation, air headers, condensate pots and pre-fabricated hookups.",
   },
   {
     question: "Which industries do you supply?",
     answer:
-      "We supply precision valves, manifolds and fittings across Oil & Gas, Marine & Subsea, Hydrogen infrastructure, Aerospace & Defence, Chemicals & Petrochemical, and Food & Beverage. Each range is engineered and certified to the standards relevant to that sector — see our Industries pages for sector-specific specifications.",
+      "Panam supplies oil and gas, marine and subsea, chemicals, aerospace, food and beverage, and hydrogen applications, and its product range extends to the power and nuclear sectors, with bellow sealed valves specified for oil and gas, marine and nuclear service. Application-specific requirements can be scoped with Panam's engineers through the enquiry form.",
   },
   {
-    question: "What certifications do your products carry?",
+    question: "What materials are available?",
     answer:
-      "Our quality management system is certified to ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018. We hold ATEX and CE PED marking for tube fittings, and are a registered BFPA member. Full certificates and type test reports are available on our Certifications page.",
+      "Material options include SS316 and 316L, Duplex, Super Duplex, Inconel, Monel and Hastalloy, with brass and carbon steel in selected families such as filters, pressure regulators, air headers and condensate pots. Availability varies by product family — Super Duplex and Inconel are listed for pipe fittings and swivel gauge adapters. Confirm material options for a specific series at enquiry.",
   },
   {
-    question: "Do you offer technical support for installation?",
+    question: "What are typical lead times?",
     answer:
-      "Yes — our global engineering team provides comprehensive technical documentation and remote support for installation and commissioning. For large-scale industrial projects, onsite consultation is available on request through our enquiry form.",
+      "Typical lead times are 3–4 weeks, depending on product family, material and certification requirements. Panam responds to a specification or bill of materials within 24 hours, confirming availability and delivery for the items requested. Lead times for larger volumes or non-standard requirements are confirmed at quotation. Submit an RFQ or contact the sales team for a lead time against your requirement.",
+  },
+  {
+    question: "Can you support custom or project-specific requirements?",
+    answer:
+      "Yes. Panam's R&D function offers customisation of products to client requirement, adhering to international standards, and the company describes itself as a complete system solution provider rather than a product-only supplier. Pre-fabricated hookups and grab sampling systems are built to configuration. An online configurator covers end connections, materials, pressure ratings and certifications; for bespoke engineering, select \"Technical Support\" in the enquiry form.",
+  },
+  {
+    question: "What technical documentation is available?",
+    answer:
+      "Material test certificates are dispatched with each consignment, and every product carries heat code traceability with heat number, serial number and PANAM® hologram stamped on it. NACE certification is available on request across the range. EN 10204 Type 3.1B certificates are supplied with flange adapter materials. Instrumentation carries ATEX and IECEx certification with SIL 2/SIL 3 versions available.",
+  },
+  {
+    question: "How do I request a quote or technical review?",
+    answer:
+      "Submit an RFQ through the enquiry form with your specification or bill of materials, and Panam will respond within 24 hours. For bespoke engineering outside the standard ranges, select \"Technical Support\" in the enquiry form to have the requirement scoped by Panam's engineers. An online configurator is available for standard builds. Contact: marketing@panamvalve.com or +44 (0) 7369 243459.",
   },
 ]
 

@@ -1,6 +1,8 @@
 import React from "react"
-import { Box, Container, Typography, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
+import { Box, Container, Typography, Divider, Button, Card, CardMedia, CardContent, GlobalStyles } from "@mui/material"
 import Grid from "@mui/material/Grid"
+import { Link as RouterLink } from "react-router-dom"
+import HPPipeFittingsFAQ from "./HPPipeFittingsFAQ"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -73,7 +75,7 @@ const ProductCard: React.FC<ProductItem> = ({ title, description, image, pressur
       "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" },
     }}>
     <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 220 }}>
-      <CardMedia component="img" image={image} alt={title} sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
+      <CardMedia component="img" image={image} alt={title} loading="lazy" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
     </Box>
     <CardContent sx={{ flexGrow: 1, p: 3 }}>
       <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}>
@@ -90,7 +92,7 @@ const ProductCard: React.FC<ProductItem> = ({ title, description, image, pressur
       </Typography>
     </CardContent>
     <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
-      <Button variant="contained" fullWidth size="small" href={link} sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
+      <Button component={RouterLink} viewTransition to={link} variant="contained" fullWidth size="small" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
         VIEW RANGE
       </Button>
       <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.co.uk" sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
@@ -109,6 +111,24 @@ export default function HPPipeFittingsIndexPage() {
       <meta property="og:title" content="PANAM® HP Pipe Fittings | 10,000 – 15,000 psi" />
       <meta property="og:description" content="High pressure pipe fittings in SS 316. Hex nipples, couplings and adapters in NPT, ISO Parallel and 37° JIC. 10,000 to 15,000 psi." />
       <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.panamvalve.com/high-pressure/pipe-fittings" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® HP Pipe Fittings",
+          description: "High pressure pipe fittings in SS 316 — hex nipples, reducing hex nipples, couplings, and adapters, rated 10,000 to 15,000 psi.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: PRODUCTS.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: p.title,
+              url: `https://www.panamvalve.com${p.link}`,
+            })),
+          },
+        })}
+      </script>
 
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
@@ -148,7 +168,7 @@ export default function HPPipeFittingsIndexPage() {
 
         {/* ── MARQUEE ── */}
         <Box sx={{ borderBottom: "1px solid #eee", py: 1.5, bgcolor: "#fff", overflow: "hidden", whiteSpace: "nowrap" }}>
-          <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
+          <GlobalStyles styles={{ "@keyframes marquee": { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } } }} />
           <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
@@ -243,6 +263,10 @@ export default function HPPipeFittingsIndexPage() {
 
           <Divider sx={{ mb: 10 }} />
 
+          <HPPipeFittingsFAQ />
+
+          <Divider sx={{ my: 10 }} />
+
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
@@ -253,7 +277,7 @@ export default function HPPipeFittingsIndexPage() {
               <Button variant="contained" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
                 Email Technical Sales
               </Button>
-              <Button variant="outlined" size="large" href="/enquiry" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
+              <Button component={RouterLink} viewTransition to="/enquiry" variant="outlined" size="large" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
                 Request Quote
               </Button>
             </Box>

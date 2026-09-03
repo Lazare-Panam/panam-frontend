@@ -1,5 +1,7 @@
 import React from "react"
 import { Box, Container, Typography, Grid, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
+import { Link as RouterLink } from "react-router-dom"
+import TubeFittingsFAQ from "./TubeFittingsFAQ"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -118,7 +120,7 @@ const SeriesCard: React.FC<SeriesItem> = ({ title, subtitle, description, image,
         borderBottom: "1px solid #f0f0f0",
         minHeight: 220,
       }}>
-      <CardMedia component="img" image={image} alt={title} sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
+      <CardMedia component="img" image={image} alt={title} loading="lazy" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
     </Box>
 
     <CardContent sx={{ flexGrow: 1, p: 3 }}>
@@ -181,10 +183,12 @@ const SeriesCard: React.FC<SeriesItem> = ({ title, subtitle, description, image,
 
     <Box sx={{ p: 2, display: "flex", flexDirection: "column", gap: 1 }}>
       <Button
+        component={RouterLink}
+        viewTransition
+        to={link}
         variant="contained"
         fullWidth
         size="small"
-        href={link}
         sx={{
           bgcolor: BRAND_BLUE,
           color: "#fff",
@@ -198,10 +202,12 @@ const SeriesCard: React.FC<SeriesItem> = ({ title, subtitle, description, image,
         VIEW RANGE
       </Button>
       <Button
+        component={RouterLink}
+        viewTransition
+        to={LINKS.ctaQuote}
         variant="outlined"
         fullWidth
         size="small"
-        href={LINKS.ctaQuote}
         sx={{
           borderColor: "#ddd",
           color: "#444",
@@ -223,20 +229,38 @@ export default function TubeFittingsPage() {
     <>
       <title>Tube Fittings | Single & Double Ferrule | PANAM®</title>
       <meta name="description" content={'PANAM® tube fittings in single and double ferrule designs — connectors, unions, reducers, adapters & more. SS316, Duplex, Monel, Hastelloy & Brass. 1/16" to 2" OD.'} />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-fittings" />
       <meta name="robots" content="index, follow" />
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="Tube Fittings | Single & Double Ferrule | PANAM®" />
       <meta property="og:description" content="PANAM® tube fittings in single and double ferrule designs — connectors, unions, reducers, adapters & more. SS316, Duplex, Monel, Hastelloy & Brass." />
-      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings" />
+      <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings" />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fittings | Single & Double Ferrule | PANAM®" />
       <meta name="twitter:description" content="PANAM® tube fittings in single and double ferrule designs — connectors, unions, reducers, adapters & more. SS316, Duplex, Monel, Hastelloy & Brass." />
       <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg" />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® Tube Fittings",
+          description: "Single and double ferrule tube fittings in fractional and metric sizes, ASTM F1387 type tested, with NACE certification available on request.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: TUBE_FITTING_SERIES.map((s, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: s.title,
+              url: `https://www.panamvalve.com${s.link}`,
+            })),
+          },
+        })}
+      </script>
 
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
@@ -311,9 +335,11 @@ export default function TubeFittingsPage() {
                 Explore Range
               </Button>
               <Button
+                component={RouterLink}
+                viewTransition
+                to={LINKS.heroQuote}
                 variant="outlined"
                 size="large"
-                href={LINKS.heroQuote}
                 sx={{
                   borderColor: "rgba(255,255,255,0.5)",
                   color: "#fff",
@@ -521,6 +547,10 @@ export default function TubeFittingsPage() {
 
           <Divider sx={{ mb: 10 }} />
 
+          <TubeFittingsFAQ />
+
+          <Divider sx={{ mb: 10 }} />
+
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography
@@ -563,9 +593,11 @@ export default function TubeFittingsPage() {
                 Email Technical Sales
               </Button>
               <Button
+                component={RouterLink}
+                viewTransition
+                to={LINKS.ctaQuote}
                 variant="outlined"
                 size="large"
-                href={LINKS.ctaQuote}
                 sx={{
                   borderColor: "#ddd",
                   color: "#333",

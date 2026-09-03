@@ -1,5 +1,7 @@
 import React from "react"
 import { Box, Container, Typography, Grid, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
+import { Link as RouterLink } from "react-router-dom"
+import PipeFittingsIndexFAQ from "./PipeFittingsIndexFAQ"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -83,7 +85,7 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
         borderBottom: "1px solid #f0f0f0",
         minHeight: 220,
       }}>
-      <CardMedia component="img" image={image} alt={title} sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
+      <CardMedia component="img" image={image} alt={title} loading="lazy" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
     </Box>
 
     <CardContent sx={{ flexGrow: 1, p: 3 }}>
@@ -146,10 +148,12 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 
     <Box sx={{ p: 2, display: "flex", flexDirection: "column", gap: 1 }}>
       <Button
+        component={RouterLink}
+        viewTransition
+        to={link}
         variant="contained"
         fullWidth
         size="small"
-        href={link}
         sx={{
           bgcolor: BRAND_BLUE,
           color: "#fff",
@@ -163,10 +167,12 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
         VIEW RANGE
       </Button>
       <Button
+        component={RouterLink}
+        viewTransition
+        to={LINKS.ctaQuote}
         variant="outlined"
         fullWidth
         size="small"
-        href={LINKS.ctaQuote}
         sx={{
           borderColor: "#ddd",
           color: "#444",
@@ -188,20 +194,38 @@ export default function PipeFittingsIndexPage() {
     <>
       <title>Pipe Fittings | High-Pressure Instrumentation | PANAM®</title>
       <meta name="description" content={"PANAM® pipe fittings — nipples, couplings, adapters, unions, elbows, tees & crosses for extreme service: hydrogen, fuel cell, aerospace & cryogenic. To 15,000 psig."} />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/pipe-fittings" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/pipe-fittings" />
       <meta name="robots" content="index, follow" />
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="Pipe Fittings | High-Pressure Instrumentation | PANAM®" />
       <meta property="og:description" content={"PANAM® pipe fittings for extreme service — hydrogen, fuel cell, aerospace & cryogenic. SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig."} />
-      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/pipe-fittings" />
+      <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/pipe-fittings" />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/swivel-run-tee.png" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Pipe Fittings | High-Pressure Instrumentation | PANAM®" />
       <meta name="twitter:description" content={"PANAM® pipe fittings for extreme service — hydrogen, fuel cell, aerospace & cryogenic. SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig."} />
       <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/swivel-run-tee.png" />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® Pipe Fittings",
+          description: "Stainless steel pipe fittings across NPT, BSPT, BSPP, Metric and SAE/MS thread standards for extreme service including hydrogen, fuel cell, aerospace & cryogenic applications.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: CATEGORIES.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: c.title,
+              url: `https://www.panamvalve.com${c.link}`,
+            })),
+          },
+        })}
+      </script>
 
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
@@ -276,9 +300,11 @@ export default function PipeFittingsIndexPage() {
                 Explore Range
               </Button>
               <Button
+                component={RouterLink}
+                viewTransition
+                to={LINKS.heroQuote}
                 variant="outlined"
                 size="large"
-                href={LINKS.heroQuote}
                 sx={{
                   borderColor: "rgba(255,255,255,0.5)",
                   color: "#fff",
@@ -481,6 +507,10 @@ export default function PipeFittingsIndexPage() {
 
           <Divider sx={{ mb: 10 }} />
 
+          <PipeFittingsIndexFAQ />
+
+          <Divider sx={{ mb: 10 }} />
+
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography
@@ -523,9 +553,11 @@ export default function PipeFittingsIndexPage() {
                 Email Technical Sales
               </Button>
               <Button
+                component={RouterLink}
+                viewTransition
+                to={LINKS.ctaQuote}
                 variant="outlined"
                 size="large"
-                href={LINKS.ctaQuote}
                 sx={{
                   borderColor: "#ddd",
                   color: "#333",

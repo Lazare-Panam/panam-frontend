@@ -1,6 +1,7 @@
 import React from "react"
 import { Box, Container, Typography, Grid, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
 import { Link as RouterLink } from "react-router-dom"
+import JICFittingsFAQ from "./JICFittingsFAQ"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
 
@@ -92,7 +93,7 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
         borderBottom: "1px solid #f0f0f0",
         minHeight: 220,
       }}>
-      <CardMedia component="img" image={image} alt={title} sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
+      <CardMedia component="img" image={image} alt={title} loading="lazy" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
     </Box>
 
     <CardContent sx={{ flexGrow: 1, p: 3 }}>
@@ -155,10 +156,12 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 
     <Box sx={{ p: 2, display: "flex", flexDirection: "column", gap: 1 }}>
       <Button
+        component={RouterLink}
+        viewTransition
+        to={link}
         variant="contained"
         fullWidth
         size="small"
-        href={link}
         sx={{
           bgcolor: BRAND_BLUE,
           color: "#fff",
@@ -172,10 +175,12 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
         VIEW RANGE
       </Button>
       <Button
+        component={RouterLink}
+        viewTransition
+        to={LINKS.ctaQuote}
         variant="outlined"
         fullWidth
         size="small"
-        href={LINKS.ctaQuote}
         sx={{
           borderColor: "#ddd",
           color: "#444",
@@ -197,20 +202,38 @@ export default function JICFittingsIndexPage() {
     <>
       <title>37° JIC Flare Fittings | Connectors, Elbows & Tees | PANAM®</title>
       <meta name="description" content={"PANAM® 37° JIC flare fittings — connectors, elbows, tees, plugs, caps & nuts for critical hydrogen, chemical & industrial gas systems. SS316, Duplex, Monel. To 10,000 psig."} />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/jic-fittings" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/jic-fittings" />
       <meta name="robots" content="index, follow" />
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="37° JIC Flare Fittings | Connectors, Elbows & Tees | PANAM®" />
       <meta property="og:description" content={"PANAM® 37° JIC flare fittings for critical hydrogen, chemical & industrial gas systems. SS316, Duplex, Monel & Hastelloy. Rated to 10,000 psig."} />
-      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/jic-fittings" />
+      <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/jic-fittings" />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-connector-jic.jpg" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="37° JIC Flare Fittings | Connectors, Elbows & Tees | PANAM®" />
       <meta name="twitter:description" content={"PANAM® 37° JIC flare fittings for critical hydrogen, chemical & industrial gas systems. SS316, Duplex, Monel & Hastelloy. Rated to 10,000 psig."} />
       <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-connector-jic.jpg" />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® 37° JIC Flare Fittings",
+          description: "37° JIC flare fittings conforming to SAE J514 and ISO 8434-2 — connectors, unions, adapters, elbows, tees, plugs, caps and nuts.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: CATEGORIES.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: c.title,
+              url: `https://www.panamvalve.com${c.link}`,
+            })),
+          },
+        })}
+      </script>
 
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
@@ -286,9 +309,11 @@ export default function JICFittingsIndexPage() {
                 Explore Range
               </Button>
               <Button
+                component={RouterLink}
+                viewTransition
+                to={LINKS.heroQuote}
                 variant="outlined"
                 size="large"
-                href={LINKS.heroQuote}
                 sx={{
                   borderColor: "rgba(255,255,255,0.5)",
                   color: "#fff",
@@ -491,6 +516,10 @@ export default function JICFittingsIndexPage() {
 
           <Divider sx={{ mb: 10 }} />
 
+          <JICFittingsFAQ />
+
+          <Divider sx={{ mb: 10 }} />
+
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography
@@ -533,9 +562,11 @@ export default function JICFittingsIndexPage() {
                 Email Technical Sales
               </Button>
               <Button
+                component={RouterLink}
+                viewTransition
+                to={LINKS.ctaQuote}
                 variant="outlined"
                 size="large"
-                href={LINKS.ctaQuote}
                 sx={{
                   borderColor: "#ddd",
                   color: "#333",

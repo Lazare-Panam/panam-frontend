@@ -1,5 +1,7 @@
 import React from "react"
 import { Box, Container, Typography, Grid, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
+import { Link as RouterLink } from "react-router-dom"
+import FittingsFAQ from "./FittingsFAQ"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -109,7 +111,7 @@ const FittingCard: React.FC<FittingItem> = ({ type, title, description, image, p
           borderBottom: "1px solid #f0f0f0",
           minHeight: 220,
         }}>
-        <CardMedia component="img" image={image} alt={title} sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
+        <CardMedia component="img" image={image} alt={title} loading="lazy" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
       </Box>
 
       <CardContent sx={{ flexGrow: 1, p: 3 }}>
@@ -139,10 +141,12 @@ const FittingCard: React.FC<FittingItem> = ({ type, title, description, image, p
 
       <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
         <Button
+          component={RouterLink}
+          viewTransition
+          to={href}
           variant="contained"
           fullWidth
           size="small"
-          href={href}
           sx={{
             bgcolor: BRAND_BLUE,
             color: "#fff",
@@ -182,20 +186,38 @@ export default function FittingsPage() {
     <>
       <title>Instrumentation Fittings | Tube, JIC, Pipe & Weld | PANAM®</title>
       <meta name="description" content="PANAM® instrumentation fittings: tube, 37° JIC, pipe, weld & swivel gauge adaptors in SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig. Request a quote." />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings" />
       <meta name="robots" content="index, follow" />
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="Instrumentation Fittings | Tube, JIC, Pipe & Weld | PANAM®" />
       <meta property="og:description" content="PANAM® instrumentation fittings: tube, 37° JIC, pipe, weld & swivel gauge adaptors in SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig." />
-      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings" />
+      <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings" />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Instrumentation Fittings | Tube, JIC, Pipe & Weld | PANAM®" />
       <meta name="twitter:description" content="PANAM® instrumentation fittings: tube, 37° JIC, pipe, weld & swivel gauge adaptors in SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig." />
       <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg" />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® Instrumentation Fittings",
+          description: "Six instrumentation fitting families — Tube, 37° JIC, Pipe, Weld, Swivel Gauge Adaptors, and Tube Clamps — rated to 15,000 psig.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: FITTINGS.map((f, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: f.title,
+              url: `https://www.panamvalve.com${FITTING_ROUTES[f.type] ?? `/fittings/${f.type}`}`,
+            })),
+          },
+        })}
+      </script>
 
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
@@ -221,12 +243,12 @@ export default function FittingsPage() {
               <br />
               <span style={{ color: BRAND_BLUE }}>Built to Hold.</span>
             </Typography>
-            <Typography sx={{ fontSize: { xs: 16, md: 19 }, color: "rgba(255,255,255,0.88)", maxWidth: 580, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>Five fitting families — Tube, 37° JIC, Pipe, Weld, and Swivel Gauge Adaptors — covering fractional and metric sizes up to 15,000 psig across the world's most demanding fluid systems.</Typography>
+            <Typography sx={{ fontSize: { xs: 16, md: 19 }, color: "rgba(255,255,255,0.88)", maxWidth: 580, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>Six fitting families — Tube, 37° JIC, Pipe, Weld, Swivel Gauge Adaptors, and Tube Clamps — covering fractional and metric sizes up to 15,000 psig across the world's most demanding fluid systems.</Typography>
             <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
               <Button variant="contained" size="large" href="#range" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
                 Explore Range
               </Button>
-              <Button variant="outlined" size="large" href="/contact" sx={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" } }}>
+              <Button component={RouterLink} viewTransition to="/enquiry" variant="outlined" size="large" sx={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "rgba(255,255,255,0.08)", borderColor: "#fff" } }}>
                 Request Quote
               </Button>
             </Box>
@@ -239,7 +261,7 @@ export default function FittingsPage() {
           <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["Up to 15,000 psig working pressure", "SS316 · Duplex · Monel · Hastelloy · Brass", "ASTM F1387 type tested", "NACE MR0175 available on request", "Full heat-code material traceability", 'Fractional 1/16" to 2" · Metric 3–50 mm OD', "EN 10204 Type 3.1B test certificates", "Five fitting families in one catalog"].map(item => (
+                {["Up to 15,000 psig working pressure", "SS316 · Duplex · Monel · Hastelloy · Brass", "ASTM F1387 type tested", "NACE MR0175 available on request", "Full heat-code material traceability", 'Fractional 1/16" to 2" · Metric 3–50 mm OD', "EN 10204 Type 3.1B test certificates", "Six fitting families in one catalog"].map(item => (
                   <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5, fontFamily: PRIMARY_FONT }}>
                     <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
                     {item}
@@ -285,7 +307,7 @@ export default function FittingsPage() {
               Product Range
             </Typography>
             <Typography variant="h2" sx={{ fontSize: { xs: 26, md: 32 }, fontWeight: 800, mb: 1.5, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
-              Five Families. One Standard.
+              Six Families. One Standard.
             </Typography>
             <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8 }}>Each fitting family is purpose-built for a specific connection type and pressure class. Select by application, working pressure, or end connection.</Typography>
             <Grid container spacing={3}>
@@ -307,7 +329,7 @@ export default function FittingsPage() {
             <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>Every fitting family is built to the same engineering standard — consistent materials, certifications, and traceability across the entire range.</Typography>
             <Grid container spacing={2}>
               {[
-                "Five fitting families from a single trusted manufacturer",
+                "Six fitting families from a single trusted manufacturer",
                 "SS316, Duplex, Monel, Hastelloy, and Brass across all families",
                 "ASTM F1387 type tested for leak-tight performance",
                 "NACE MR0175 / ISO 15156 certification available",
@@ -330,6 +352,10 @@ export default function FittingsPage() {
 
           <Divider sx={{ mb: 10 }} />
 
+          <FittingsFAQ />
+
+          <Divider sx={{ mb: 10 }} />
+
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
@@ -340,7 +366,7 @@ export default function FittingsPage() {
               <Button variant="contained" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
                 Email Technical Sales
               </Button>
-              <Button variant="outlined" size="large" href="/contact" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
+              <Button component={RouterLink} viewTransition to="/enquiry" variant="outlined" size="large" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
                 Request Quote
               </Button>
             </Box>
