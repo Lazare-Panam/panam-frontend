@@ -7,6 +7,7 @@ const SIZE_CODE_MAP: Record<string, string> = {
   '8':       '1/2" NPT',
   '04':      '1/4" NPT',
   '08':      '1/2" NPT',
+  '12':      '3/4" NPT',
   '4R':      '1/4" BSPT',
   '8R':      '1/2" BSPT',
   '4G':      '1/4" BSPP',
@@ -77,6 +78,7 @@ const RAW_DATA: RawManifold[] = [
   { partNumber: "3VM-SS-8-T",          sizeCode: '8',   connectionType: '',   mountingCode: 'T'  },
   { partNumber: "3VM-SS-8-DM",         sizeCode: '8',   connectionType: '',   mountingCode: 'DM' },
   { partNumber: "3VM-LB-SS-8-H-SG",    sizeCode: '8',   connectionType: '',   mountingCode: 'H',  optionalCodes: ['SG'], largeBore: true },
+  { partNumber: "3VM-LB-SS-8-T-SG",    sizeCode: '8',   connectionType: '',   mountingCode: 'T',  optionalCodes: ['SG'], largeBore: true },
   { partNumber: "3VM-SS-08-MF-RM",     sizeCode: '08',  connectionType: 'MF', mountingCode: 'RM' },
   { partNumber: "3VM-SS-08-MM-RM",     sizeCode: '08',  connectionType: 'MM', mountingCode: 'RM' },
   { partNumber: "3VM-SS-08-FF-RM",     sizeCode: '08',  connectionType: 'FF', mountingCode: 'RM' },
@@ -244,6 +246,11 @@ const RAW_DATA: RawManifold[] = [
   { partNumber: "3VM-SS-8-T-BKT",      sizeCode: '8',   connectionType: '',   mountingCode: 'T',  mountingBracket: true },
   { partNumber: "3VM-SS-20M-DM-BKT",   sizeCode: '20M', connectionType: '',   mountingCode: 'DM', mountingBracket: true },
   { partNumber: "3VM-SS-20MM-DM-BKT",  sizeCode: '20MM',connectionType: '',   mountingCode: 'DM', mountingBracket: true },
+
+  // ===== 3/4" NPT =====
+  { partNumber: "3VM-SS-12-MF-RM",     sizeCode: '12',  connectionType: 'MF', mountingCode: 'RM' },
+  { partNumber: "3VM-SS-12-FF-RM",     sizeCode: '12',  connectionType: 'FF', mountingCode: 'RM' },
+  { partNumber: "3VM-SS-12-MM-RM",     sizeCode: '12',  connectionType: 'MM', mountingCode: 'RM' },
 
   // ===== Mixed pressure/feature combos =====
   { partNumber: "3VM-SS-8-T-SG-10K",   sizeCode: '8',   connectionType: '',   mountingCode: 'T',  optionalCodes: ['SG'], pressureCode: '10K' },

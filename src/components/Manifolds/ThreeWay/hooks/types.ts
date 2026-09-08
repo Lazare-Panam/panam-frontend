@@ -31,7 +31,7 @@ export const EMPTY_3VM_FILTERS: Manifold3VMFilters = {
 }
 
 export const CONNECTION_SIZE_SORT_ORDER = [
-  '1/4" NPT', '1/2" NPT',
+  '1/4" NPT', '1/2" NPT', '3/4" NPT',
   '1/4" BSPT', '1/2" BSPT',
   '1/4" BSPP', '1/2" BSPP',
   '1/4" BSPP w/ Swivel Nut', '1/2" BSPP w/ Swivel Nut',

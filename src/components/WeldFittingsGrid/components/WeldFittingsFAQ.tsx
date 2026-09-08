@@ -17,6 +17,7 @@ const faqs: FAQItem[] = [
     answer:
       "Tube socket weld, tube butt weld and pipe socket weld fittings, covering connectors, elbows, tees and unions.",
   },
+  
   {
     question: "What materials are weld fittings available in?",
     answer:

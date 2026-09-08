@@ -69,6 +69,7 @@ type RawManifold = {
   optionalCodes?: string[]
   pressureCode?: '10K'
   mountingBracket?: boolean
+  specialOrder?: boolean
 }
 
 const RAW_DATA: RawManifold[] = [
@@ -224,6 +225,7 @@ const RAW_DATA: RawManifold[] = [
   { partNumber: "5VM-LB-SS-8-DM-A-SG",  sizeCode: '8',   connectionType: '',   mountingCode: 'DM', optionalCodes: ['LB', 'SG'] },
   { partNumber: "5VM-LB-SS-8-R-A-10K",  sizeCode: '8',   connectionType: '',   mountingCode: 'R',  optionalCodes: ['LB'], pressureCode: '10K' },
   { partNumber: "5VM-LB-SS-8-H-A-SG",   sizeCode: '8',   connectionType: '',   mountingCode: 'H',  optionalCodes: ['LB', 'SG'] },
+  { partNumber: "5VM-LB-SS-8-T-A-SG",   sizeCode: '8',   connectionType: '',   mountingCode: 'T',  optionalCodes: ['LB', 'SG'] },
 
   // ===== Drain Hole Variants =====
   { partNumber: "5VM-SS-8-R-A-V2",      sizeCode: '8',   connectionType: '',   mountingCode: 'R',  drainCode: 'V2' },
@@ -275,6 +277,11 @@ const RAW_DATA: RawManifold[] = [
   { partNumber: "5VM-SS-8-H-A-PC-SG",       sizeCode: '8',   connectionType: '',   mountingCode: 'H',  optionalCodes: ['PC', 'SG'] },
   { partNumber: "5VM-SS-8-R-A-BKT-SG",      sizeCode: '8',   connectionType: '',   mountingCode: 'R',  optionalCodes: ['SG'], mountingBracket: true },
   { partNumber: "5VM-SS-8-DM-A-BKT-SG",     sizeCode: '8',   connectionType: '',   mountingCode: 'DM', optionalCodes: ['SG'], mountingBracket: true },
+
+  // ===== Special Order (custom configuration, see drawing) =====
+  { partNumber: "5VM-SS-8-DM-A-SP1",        sizeCode: '8',   connectionType: '',   mountingCode: 'DM', specialOrder: true },
+  { partNumber: "5VM-SS-8-DM-A-SP2",        sizeCode: '8',   connectionType: '',   mountingCode: 'DM', specialOrder: true },
+  { partNumber: "5VM-SS-8-DM-A-SP3",        sizeCode: '8',   connectionType: '',   mountingCode: 'DM', specialOrder: true },
 ]
 
 // ============ DECODER ============
@@ -293,6 +300,7 @@ export const MANIFOLDS_5VM_DATA: Manifold5VMDTO[] = RAW_DATA.map(raw => {
       if (label) specialService.push(label)
     })
   }
+  if (raw.specialOrder) specialService.push('Special Order — Custom Configuration (See Drawing)')
   if (raw.mountingBracket) specialService.push('Mounting Brackets')
 
   const description = `Panam 5-Valve Manifold (Type A Angular), Stainless Steel 316, ${connectionSize} ${connectionType}, ${mounting}, ${maxPressure} max${specialService.length ? `, ${specialService.join(', ')}` : ''}.`

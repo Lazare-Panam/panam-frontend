@@ -15,6 +15,9 @@ const IMAGES: Record<string, string> = {
   "Front Ferrule":"https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
   "Back Ferrule": "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/BACK-FERRULE.png",
   "Pipe Insert":  "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/tube_plug.jpg",
+  // TODO: placeholder images reused from closest existing part until real assets exist
+  "Ferrule Set":     "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
+  "Nut Ferrule Set": "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/NUTjpg",
 }
 
 export const ACCESSORY_DATA: AccessoryItem[] = [
@@ -197,4 +200,24 @@ export const ACCESSORY_DATA: AccessoryItem[] = [
   { id: 165, partNumber: "PIN-M12-M06-SS", fittingType: "Pipe Insert", tubeOD: "12", tubeODUnit: "Metric", tubeID: "6",  imageUrl: IMAGES["Pipe Insert"] },
   { id: 166, partNumber: "PIN-M12-M08-SS", fittingType: "Pipe Insert", tubeOD: "12", tubeODUnit: "Metric", tubeID: "8",  imageUrl: IMAGES["Pipe Insert"] },
   { id: 167, partNumber: "PIN-M12-M10-SS", fittingType: "Pipe Insert", tubeOD: "12", tubeODUnit: "Metric", tubeID: "10", imageUrl: IMAGES["Pipe Insert"] },
+  // ── FERRULE SET - Metric ──
+  { id: 168, partNumber: "PFS-M03-SS", fittingType: "Ferrule Set", tubeOD: "3",  tubeODUnit: "Metric", imageUrl: IMAGES["Ferrule Set"] },
+  { id: 169, partNumber: "PFS-M06-SS", fittingType: "Ferrule Set", tubeOD: "6",  tubeODUnit: "Metric", imageUrl: IMAGES["Ferrule Set"] },
+  { id: 170, partNumber: "PFS-M08-SS", fittingType: "Ferrule Set", tubeOD: "8",  tubeODUnit: "Metric", imageUrl: IMAGES["Ferrule Set"] },
+  { id: 171, partNumber: "PFS-M10-SS", fittingType: "Ferrule Set", tubeOD: "10", tubeODUnit: "Metric", imageUrl: IMAGES["Ferrule Set"] },
+  { id: 172, partNumber: "PFS-M12-SS", fittingType: "Ferrule Set", tubeOD: "12", tubeODUnit: "Metric", imageUrl: IMAGES["Ferrule Set"] },
+  { id: 173, partNumber: "PFS-M16-SS", fittingType: "Ferrule Set", tubeOD: "16", tubeODUnit: "Metric", imageUrl: IMAGES["Ferrule Set"] },
+  { id: 174, partNumber: "PFS-M18-SS", fittingType: "Ferrule Set", tubeOD: "18", tubeODUnit: "Metric", imageUrl: IMAGES["Ferrule Set"] },
+  { id: 175, partNumber: "PFS-M20-SS", fittingType: "Ferrule Set", tubeOD: "20", tubeODUnit: "Metric", imageUrl: IMAGES["Ferrule Set"] },
+  { id: 176, partNumber: "PFS-M25-SS", fittingType: "Ferrule Set", tubeOD: "25", tubeODUnit: "Metric", imageUrl: IMAGES["Ferrule Set"] },
+  // ── NUT FERRULE SET - Metric ──
+  { id: 177, partNumber: "PNFS-M03-SS", fittingType: "Nut Ferrule Set", tubeOD: "3",  tubeODUnit: "Metric", imageUrl: IMAGES["Nut Ferrule Set"] },
+  { id: 178, partNumber: "PNFS-M06-SS", fittingType: "Nut Ferrule Set", tubeOD: "6",  tubeODUnit: "Metric", imageUrl: IMAGES["Nut Ferrule Set"] },
+  { id: 179, partNumber: "PNFS-M08-SS", fittingType: "Nut Ferrule Set", tubeOD: "8",  tubeODUnit: "Metric", imageUrl: IMAGES["Nut Ferrule Set"] },
+  { id: 180, partNumber: "PNFS-M10-SS", fittingType: "Nut Ferrule Set", tubeOD: "10", tubeODUnit: "Metric", imageUrl: IMAGES["Nut Ferrule Set"] },
+  { id: 181, partNumber: "PNFS-M12-SS", fittingType: "Nut Ferrule Set", tubeOD: "12", tubeODUnit: "Metric", imageUrl: IMAGES["Nut Ferrule Set"] },
+  { id: 182, partNumber: "PNFS-M16-SS", fittingType: "Nut Ferrule Set", tubeOD: "16", tubeODUnit: "Metric", imageUrl: IMAGES["Nut Ferrule Set"] },
+  { id: 183, partNumber: "PNFS-M18-SS", fittingType: "Nut Ferrule Set", tubeOD: "18", tubeODUnit: "Metric", imageUrl: IMAGES["Nut Ferrule Set"] },
+  { id: 184, partNumber: "PNFS-M20-SS", fittingType: "Nut Ferrule Set", tubeOD: "20", tubeODUnit: "Metric", imageUrl: IMAGES["Nut Ferrule Set"] },
+  { id: 185, partNumber: "PNFS-M25-SS", fittingType: "Nut Ferrule Set", tubeOD: "25", tubeODUnit: "Metric", imageUrl: IMAGES["Nut Ferrule Set"] },
 ]
