@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -20,6 +21,12 @@ const SERIES_COLORS: Record<string, { bg: string; text: string }> = {
   'HB': { bg: '#FFF3E0', text: '#E65100' },
 }
 
+const SERIES_HREF: Record<string, string> = {
+  '2W': '/valves/ball-valves/two-way',
+  '3W': '/valves/ball-valves/three-way',
+  'HB': '/valves/ball-valves/high-bore',
+}
+
 function Spec({ label, value }: { label: string; value?: string | null }) {
   if (!value) return null
   return (
@@ -33,11 +40,13 @@ function Spec({ label, value }: { label: string; value?: string | null }) {
 
 function Row({ model }: { model: BallValveDTO }) {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
 
   const seriesColors = SERIES_COLORS[model.series] ?? { bg: '#F5F5F5', text: '#333' }
   const seriesLabel = SERIES_LABELS[model.series] ?? model.series
   const bodyMaterialLabel = BODY_MATERIAL_LABELS[model.bodyMaterial] ?? model.bodyMaterial
+  const productHref = `${SERIES_HREF[model.series] ?? '/valves/ball-valves'}/${model.partNumber}`
 
   const specs: Record<string, string> = {
     'Part Number': model.partNumber,
@@ -65,7 +74,7 @@ function Row({ model }: { model: BallValveDTO }) {
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
+      <TableRow hover onClick={() => navigate(productHref)} sx={{
         cursor: 'pointer',
         bgcolor: open ? alpha(BRAND_BLUE, 0.04) : 'inherit',
         '&:hover': { bgcolor: `${alpha(BRAND_BLUE, 0.03)} !important` },
@@ -123,10 +132,16 @@ function Row({ model }: { model: BallValveDTO }) {
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       {Object.entries(specs).map(([k, v]) => <Spec key={k} label={k} value={v} />)}
                     </Stack>
-                    <Button variant="contained" onClick={handleAddToQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
-                      Add to Quote
-                    </Button>
+                    <Stack direction="row" gap={2}>
+                      <Button variant="contained" onClick={handleAddToQuote}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_BLUE, '&:hover': { bgcolor: '#0199d4' } }}>
+                        Add to Quote
+                      </Button>
+                      <Button variant="outlined" onClick={() => navigate(productHref)}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_BLUE, color: BRAND_BLUE, '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.05) } }}>
+                        View Full Page
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>

@@ -87,6 +87,7 @@ import BallValvesIndexPage from "./components/BallValves/BallValvesIndexPage"
 import TwoWayBallValves from "./components/BallValves/pages/TwoWayBallValves"
 import ThreeWayBallValves from "./components/BallValves/pages/ThreeWayBallValves"
 import HighBoreBallValves from "./components/BallValves/pages/HighBoreBallValves"
+import BallValveProductPage from "./components/BallValves/components/BallValveProductPage"
 import PTFFiltersPage from "./components/Filters/Filters"
 import PIFFiltersPage from "./components/Filters/IFilters"
 import PSEFiltersPage from "./components/Filters/PSEFilters"
@@ -558,6 +559,9 @@ export const routes = [
       { path: "/valves/ball-valves/two-way", element: <TwoWayBallValves /> },
       { path: "/valves/ball-valves/three-way", element: <ThreeWayBallValves /> },
       { path: "/valves/ball-valves/high-bore", element: <HighBoreBallValves /> },
+      { path: "/valves/ball-valves/two-way/:partNumber", element: <BallValveProductPage /> },
+      { path: "/valves/ball-valves/three-way/:partNumber", element: <BallValveProductPage /> },
+      { path: "/valves/ball-valves/high-bore/:partNumber", element: <BallValveProductPage /> },
       //check-and-relif-valves
       { path: "/valves/check-valves", element: <PCVPage /> },
       { path: "/valves/check-valves/:partNumber", element: <PCVProductPage /> },
