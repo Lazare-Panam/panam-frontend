@@ -16,6 +16,7 @@ const BRAND_BLUE = "#01B0F0"
 
 function applyFilters(data: Manifold3VMDTO[], filters: Manifold3VMFilters, exclude: keyof Manifold3VMFilters | ''): Manifold3VMDTO[] {
   return data.filter(c => {
+    if (exclude !== 'materials' && filters.materials.length && !filters.materials.includes(c.material)) return false
     if (exclude !== 'connectionSizes' && filters.connectionSizes.length && !filters.connectionSizes.includes(c.connectionSize)) return false
     if (exclude !== 'connectionTypes' && filters.connectionTypes.length && !filters.connectionTypes.includes(c.connectionType)) return false
     if (exclude !== 'mountings' && filters.mountings.length && !filters.mountings.includes(c.mounting)) return false
@@ -43,6 +44,10 @@ export default function Manifolds3VMPage() {
   const [filters, setFilters] = useState<Manifold3VMFilters>(EMPTY_3VM_FILTERS)
   const [mobileOpen, setMobileOpen] = useState(false)
 
+  const materialOptions = useMemo(
+    () => Array.from(new Set(MANIFOLDS_3VM_DATA.map(c => c.material))).sort(),
+    []
+  )
   const connectionSizeOptions = useMemo(() => {
     const present = new Set(MANIFOLDS_3VM_DATA.map(c => c.connectionSize))
     return CONNECTION_SIZE_SORT_ORDER.filter(s => present.has(s))
@@ -72,6 +77,7 @@ export default function Manifolds3VMPage() {
   const models = useMemo(() => applyFilters(MANIFOLDS_3VM_DATA, filters, ''), [filters])
 
   const availableCounts = useMemo<AvailableCounts3VM>(() => ({
+    materials: countBy(applyFilters(MANIFOLDS_3VM_DATA, filters, 'materials'), c => c.material),
     connectionSizes: countBy(applyFilters(MANIFOLDS_3VM_DATA, filters, 'connectionSizes'), c => c.connectionSize),
     connectionTypes: countBy(applyFilters(MANIFOLDS_3VM_DATA, filters, 'connectionTypes'), c => c.connectionType),
     mountings: countBy(applyFilters(MANIFOLDS_3VM_DATA, filters, 'mountings'), c => c.mounting),
@@ -81,6 +87,7 @@ export default function Manifolds3VMPage() {
   }), [filters])
 
   const activeCount =
+    filters.materials.length +
     filters.connectionSizes.length +
     filters.connectionTypes.length +
     filters.mountings.length +
@@ -92,6 +99,7 @@ export default function Manifolds3VMPage() {
     <Manifold3VMSidebar
       filters={filters}
       setFilters={setFilters}
+      materialOptions={materialOptions}
       connectionSizeOptions={connectionSizeOptions}
       connectionTypeOptions={connectionTypeOptions}
       mountingOptions={mountingOptions}

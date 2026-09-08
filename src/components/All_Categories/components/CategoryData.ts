@@ -29,6 +29,7 @@ export const CATEGORIES: CategoryData[] = [
     products: [
       { name: "T-Type Filter", link: "/products/filters" },
       { name: "In-Line Filter", link: "/products/filters" },
+      { name: "Filter Elements", link: "/products/filters" },
     ],
   },
 

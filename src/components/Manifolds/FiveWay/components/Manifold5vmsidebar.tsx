@@ -8,6 +8,7 @@ import { type Manifold5VMFilters, EMPTY_5VM_FILTERS } from "../hooks/types"
 const BRAND_BLUE = "#01B0F0"
 
 export interface AvailableCounts5VM {
+  materials: Record<string, number>
   connectionSizes: Record<string, number>
   connectionTypes: Record<string, number>
   mountings: Record<string, number>
@@ -19,6 +20,7 @@ export interface AvailableCounts5VM {
 interface Props {
   filters: Manifold5VMFilters
   setFilters: React.Dispatch<React.SetStateAction<Manifold5VMFilters>>
+  materialOptions: string[]
   connectionSizeOptions: string[]
   connectionTypeOptions: string[]
   mountingOptions: string[]
@@ -99,6 +101,7 @@ function SmartCheckList({
 
 export function Manifold5VMSidebar({
   filters, setFilters,
+  materialOptions,
   connectionSizeOptions, connectionTypeOptions, mountingOptions,
   drainHoleSizeOptions, maxPressureOptions, specialServiceOptions,
   availableCounts, activeCount,
@@ -128,6 +131,11 @@ export function Manifold5VMSidebar({
           </Typography>
         )}
       </Stack>
+
+      <FilterGroup title="MATERIAL" count={filters.materials.length || undefined}>
+        <SmartCheckList options={materialOptions} selected={filters.materials} onChange={v => toggle("materials", v)} counts={availableCounts.materials} />
+      </FilterGroup>
+      <Divider sx={{ my: 0.5 }} />
 
       <FilterGroup title="CONNECTION SIZE" count={filters.connectionSizes.length || undefined}>
         <SmartCheckList options={connectionSizeOptions} selected={filters.connectionSizes} onChange={v => toggle("connectionSizes", v)} counts={availableCounts.connectionSizes} />

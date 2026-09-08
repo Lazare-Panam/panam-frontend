@@ -89,6 +89,7 @@ import ThreeWayBallValves from "./components/BallValves/pages/ThreeWayBallValves
 import HighBoreBallValves from "./components/BallValves/pages/HighBoreBallValves"
 import PTFFiltersPage from "./components/Filters/Filters"
 import PIFFiltersPage from "./components/Filters/IFilters"
+import PSEFiltersPage from "./components/Filters/PSEFilters"
 import FiltersIndexPage from "./components/Filters/FiltersIndex"
 import TwoVMManifoldsPage from "./components/Manifolds/TwoWay/TwoWay"
 import Manifolds3VMPage from "./components/Manifolds/ThreeWay/ThreeWay"
@@ -159,6 +160,7 @@ import GasketProductPage from "./components/ProductGrids/TubeFittingsGrids/DieEl
 import AirHeaderDetailPage from "./components/SystemIntegration/AirHeaderPage"
 import PIFProductPage from "./components/Filters/components/PIFDetailPage"
 import PTFProductPage from "./components/Filters/components/PTFProductPage"
+import PSEProductPage from "./components/Filters/components/PSEProductPage"
 import QuickCouplingProductPage from "./components/Quick_Coupling/components/QuickCouplingProductPage "
 import JICFittingProductPage from "./components/JICFittingsGrid/components/JICFittingsProductPage"
 import PCVProductPage from "./components/CheckValvesGrid/components/PCVProductPage"
@@ -662,6 +664,8 @@ export const routes = [
       { path: "/filters/i-type", element: <PIFFiltersPage /> },
       { path: "/filters/i-type/:partNumber", element: <PIFProductPage /> },
       { path: "/filters/t-type/:partNumber", element: <PTFProductPage /> },
+      { path: "/filters/elements", element: <PSEFiltersPage /> },
+      { path: "/filters/elements/:partNumber", element: <PSEProductPage /> },
       //manifolds
       { path: "/manifolds/2VM", element: <TwoVMManifoldsPage /> },
       { path: "/manifolds/2VM/:partNumber", element: <TwoVMProductPage /> },

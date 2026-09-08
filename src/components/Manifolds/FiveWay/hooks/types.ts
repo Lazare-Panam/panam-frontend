@@ -3,6 +3,7 @@ export interface Manifold5VMDTO {
   partNumber: string
   description: string
   valveCount: 5
+  material: 'Stainless Steel 316' | 'Carbon Steel'
   connectionSize: string
   connectionType: 'Female' | 'Male' | 'Male/Female' | 'Female/Male' | 'Tube Fitting'
   mounting: 'Pipe-to-Pipe' | 'Pipe-to-Flange' | 'Flange-to-Flange' | 'Direct Mount'
@@ -13,6 +14,7 @@ export interface Manifold5VMDTO {
 }
 
 export interface Manifold5VMFilters {
+  materials: string[]
   connectionSizes: string[]
   connectionTypes: string[]
   mountings: string[]
@@ -22,6 +24,7 @@ export interface Manifold5VMFilters {
 }
 
 export const EMPTY_5VM_FILTERS: Manifold5VMFilters = {
+  materials: [],
   connectionSizes: [],
   connectionTypes: [],
   mountings: [],

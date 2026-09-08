@@ -3,6 +3,7 @@ export interface Manifold3VMDTO {
   partNumber: string
   description: string
   valveCount: 3
+  material: 'Stainless Steel 316' | 'Carbon Steel'
   connectionSize: string
   connectionType: 'Female' | 'Male' | 'Male/Female' | 'Female/Male' | 'Tube Fitting'
   mounting: 'Pipe-to-Pipe' | 'Pipe-to-Flange' | 'Flange-to-Flange' | 'Direct Mount'
@@ -13,6 +14,7 @@ export interface Manifold3VMDTO {
 }
 
 export interface Manifold3VMFilters {
+  materials: string[]
   connectionSizes: string[]
   connectionTypes: string[]
   mountings: string[]
@@ -22,6 +24,7 @@ export interface Manifold3VMFilters {
 }
 
 export const EMPTY_3VM_FILTERS: Manifold3VMFilters = {
+  materials: [],
   connectionSizes: [],
   connectionTypes: [],
   mountings: [],

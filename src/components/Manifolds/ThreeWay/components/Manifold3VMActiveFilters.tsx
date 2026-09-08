@@ -11,6 +11,10 @@ interface Props {
 export function Manifold3VMActiveFilters({ filters, setFilters }: Props) {
   const chips: { label: string; onDelete: () => void }[] = []
 
+  filters.materials.forEach(v => chips.push({
+    label: `Material: ${v}`,
+    onDelete: () => setFilters(prev => ({ ...prev, materials: prev.materials.filter(x => x !== v) })),
+  }))
   filters.connectionSizes.forEach(v => chips.push({
     label: `Size: ${v}`,
     onDelete: () => setFilters(prev => ({ ...prev, connectionSizes: prev.connectionSizes.filter(x => x !== v) })),

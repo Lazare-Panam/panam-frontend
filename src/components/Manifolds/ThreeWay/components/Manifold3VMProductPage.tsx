@@ -54,7 +54,7 @@ export default function ThreeVMProductPage() {
       ]}
       specs={[
         { label: "Part Number",     value: manifold.partNumber },
-        { label: "Material",        value: "Stainless Steel 316" },
+        { label: "Material",        value: manifold.material },
         { label: "Connection Size", value: manifold.connectionSize },
         { label: "Connection Type", value: manifold.connectionType },
         { label: "Mounting",        value: manifold.mounting },
@@ -72,7 +72,7 @@ export default function ThreeVMProductPage() {
         quantity:   1,
         partNumber: manifold.partNumber,
         specs: {
-          "Material":        "Stainless Steel 316",
+          "Material":        manifold.material,
           "Connection Size": manifold.connectionSize,
           "Connection Type": manifold.connectionType,
           "Mounting":        manifold.mounting,

@@ -17,6 +17,7 @@ import { PIPE_TEE_CROSS_DATA } from "./components/High_Pressure/HP_PF/HP_Tees_Cr
 import { PIPE_END_DATA } from "./components/High_Pressure/HP_PF/HP_End_Connection/hooks/pipeFittingsEndData"
 import { PIF_FILTERS_DATA } from "./components/Filters/hooks/pifData"
 import { PTF_FILTERS_DATA } from "./components/Filters/hooks/ptfData"
+import { FILTER_ELEMENT_DATA } from "./components/Filters/hooks/filterElementData"
 
 export const PRODUCT_ROUTES: string[] = [
   ...HP_BALL_VALVE_DATA.map(p => `/high-pressure/ball-valves/${p.partNumber}`),
@@ -38,4 +39,5 @@ export const PRODUCT_ROUTES: string[] = [
   ...PIPE_END_DATA.map(p => `/high-pressure/pipe-fittings/plugs-caps/${p.partNumber}`),
   ...PIF_FILTERS_DATA.map(p => `/filters/i-type/${p.partNumber}`),
   ...PTF_FILTERS_DATA.map(p => `/filters/t-type/${p.partNumber}`),
+  ...FILTER_ELEMENT_DATA.map(p => `/filters/elements/${p.partNumber}`),
 ]

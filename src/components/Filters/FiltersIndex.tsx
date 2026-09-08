@@ -9,6 +9,7 @@ const BRAND_BLUE = "#01B0F0"
 const FILTER_ROUTES: Record<string, string> = {
   ptf: "/filters/t-type",
   pif: "/filters/i-type",
+  pse: "/filters/elements",
 }
 
 const FILTERS = [
@@ -28,6 +29,15 @@ const FILTERS = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/filters/PIF-IA-02-2-SS_-_JPG-removebg-preview.png",
     pressure: "1000 psi",
     size: '3mm – 12mm tube · 1/8" – 1/2" thread',
+    materials: "SS316 · Sintered & Mesh Elements",
+  },
+  {
+    type: "pse",
+    title: "Replacement Filter Elements",
+    description: 'Replacement filter elements (cartridges) for PIF In-Line and PTF T-Type filter housings. Stainless steel 316 sintered or mesh construction across 0.5μm to 440μm pore sizes. Small-bore elements fit IA/IB/TA/TB housings; large-bore elements fit IC/ID/TC/TD housings.',
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/filters/PIF-IA-02-2-SS_-_JPG-removebg-preview.png",
+    pressure: "1000 psi",
+    size: "Fits PIF & PTF Housings",
     materials: "SS316 · Sintered & Mesh Elements",
   },
 ]

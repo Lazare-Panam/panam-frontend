@@ -28,7 +28,7 @@ function Manifold5VMRow({ row }: { row: Manifold5VMDTO }) {
 
   const specs = {
     "Part Number": row.partNumber,
-    "Material": "Stainless Steel 316",
+    "Material": row.material,
     "Connection Size": row.connectionSize,
     "Connection Type": row.connectionType,
     "Mounting": row.mounting,
@@ -64,6 +64,7 @@ function Manifold5VMRow({ row }: { row: Manifold5VMDTO }) {
         <TableCell sx={{ fontFamily: "monospace", fontWeight: 700, color: BRAND_BLUE, fontSize: "0.78rem", py: 1 }}>
           {row.partNumber}
         </TableCell>
+        <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.material}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.connectionSize}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.connectionType}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>{row.mounting}</TableCell>
@@ -95,7 +96,7 @@ function Manifold5VMRow({ row }: { row: Manifold5VMDTO }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={8} sx={{ p: 0, borderBottom: "none" }}>
+          <TableCell colSpan={9} sx={{ p: 0, borderBottom: "none" }}>
             <Collapse in unmountOnExit>
               <Box sx={{
                 p: 3,
@@ -127,7 +128,7 @@ function Manifold5VMRow({ row }: { row: Manifold5VMDTO }) {
                     </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       <Spec label="Part Number" value={row.partNumber} />
-                      <Spec label="Material" value="Stainless Steel 316" />
+                      <Spec label="Material" value={row.material} />
                       <Spec label="Connection Size" value={row.connectionSize} />
                       <Spec label="Connection Type" value={row.connectionType} />
                       <Spec label="Mounting" value={row.mounting} />
@@ -156,7 +157,7 @@ function Manifold5VMRow({ row }: { row: Manifold5VMDTO }) {
   )
 }
 
-type SortKey = "partNumber" | "connectionSize" | "connectionType" | "mounting" | "drainHoleSize" | "maxPressure"
+type SortKey = "partNumber" | "material" | "connectionSize" | "connectionType" | "mounting" | "drainHoleSize" | "maxPressure"
 
 export default function Manifold5VMTable({ models, isFetching }: { models: Manifold5VMDTO[]; isFetching?: boolean }) {
   const [page, setPage] = useState(0)
@@ -208,6 +209,7 @@ export default function Manifold5VMTable({ models, isFetching }: { models: Manif
               <TableCell sx={{ ...headerSx, width: 40 }} />
               {([
                 { key: "partNumber" as SortKey,     label: "Part Number" },
+                { key: "material" as SortKey,       label: "Material" },
                 { key: "connectionSize" as SortKey, label: "Connection Size" },
                 { key: "connectionType" as SortKey, label: "Type" },
                 { key: "mounting" as SortKey,       label: "Mounting" },
@@ -228,7 +230,7 @@ export default function Manifold5VMTable({ models, isFetching }: { models: Manif
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={8} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={9} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No manifolds found.</Typography>
                 </TableCell>
               </TableRow>

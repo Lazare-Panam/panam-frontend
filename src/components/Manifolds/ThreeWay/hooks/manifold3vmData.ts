@@ -62,6 +62,7 @@ const OPTIONAL_MAP: Record<string, string> = {
 
 type RawManifold = {
   partNumber: string
+  material?: 'SS' | 'CS'
   sizeCode: string
   connectionType: keyof typeof CONNECTION_TYPE_MAP
   mountingCode: keyof typeof MOUNTING_MAP
@@ -70,6 +71,11 @@ type RawManifold = {
   pressureCode?: '10K'
   largeBore?: boolean
   mountingBracket?: boolean
+}
+
+const MATERIAL_FULL: Record<'SS' | 'CS', Manifold3VMDTO['material']> = {
+  SS: 'Stainless Steel 316',
+  CS: 'Carbon Steel',
 }
 
 const RAW_DATA: RawManifold[] = [
@@ -257,6 +263,12 @@ const RAW_DATA: RawManifold[] = [
   { partNumber: "3VM-SS-8-H-SG-10K",   sizeCode: '8',   connectionType: '',   mountingCode: 'H',  optionalCodes: ['SG'], pressureCode: '10K' },
   { partNumber: "3VM-SS-20MM-DM-SG-10K", sizeCode: '20MM', connectionType: '', mountingCode: 'DM', optionalCodes: ['SG'], pressureCode: '10K' },
   { partNumber: "3VM-SS-8-DM-A-BV-SG", sizeCode: '8',   connectionType: '',   mountingCode: 'DM', optionalCodes: ['BV', 'SG'] },
+
+  // ===== CARBON STEEL =====
+  { partNumber: "3VM-CS-8-R",          material: 'CS', sizeCode: '8',   connectionType: '',   mountingCode: 'R'  },
+  { partNumber: "3VM-CS-8-T",          material: 'CS', sizeCode: '8',   connectionType: '',   mountingCode: 'T'  },
+  { partNumber: "3VM-CS-8-H",          material: 'CS', sizeCode: '8',   connectionType: '',   mountingCode: 'H'  },
+  { partNumber: "3VM-CS-8-DM",         material: 'CS', sizeCode: '8',   connectionType: '',   mountingCode: 'DM' },
 ]
 
 // ============ DECODER ============
@@ -277,13 +289,16 @@ export const MANIFOLDS_3VM_DATA: Manifold3VMDTO[] = RAW_DATA.map(raw => {
   if (raw.largeBore) specialService.push('Large Bore')
   if (raw.mountingBracket) specialService.push('Mounting Brackets')
 
-  const description = `Panam 3-Valve Manifold (Type A Angular), Stainless Steel 316, ${connectionSize} ${connectionType}, ${mounting}, ${maxPressure} max${specialService.length ? `, ${specialService.join(', ')}` : ''}.`
+  const material = MATERIAL_FULL[raw.material ?? 'SS']
+
+  const description = `Panam 3-Valve Manifold (Type A Angular), ${material}, ${connectionSize} ${connectionType}, ${mounting}, ${maxPressure} max${specialService.length ? `, ${specialService.join(', ')}` : ''}.`
 
   return {
     id: raw.partNumber,
     partNumber: raw.partNumber,
     description,
     valveCount: 3 as const,
+    material,
     connectionSize,
     connectionType,
     mounting,
