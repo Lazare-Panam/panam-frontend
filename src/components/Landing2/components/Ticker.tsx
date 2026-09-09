@@ -10,6 +10,7 @@ const scroll = keyframes`
 `
 
 const partners = [
+  { name: "Thales Group", img: "https://pblol2.blob.core.windows.net/panam-images/website-media/thales-logo.png", url: "https://www.thalesgroup.com/en" },
   { name: "R & G Group", img: "https://pblol2.blob.core.windows.net/panam-images/brands/logo.png", url: "https://www.rgfluidpower.com/" },
   { name: "Hydraulic Megastore", img: "https://pblol2.blob.core.windows.net/panam-images/brands/hydraulic-logo-white-320x79.webp", url: "https://www.hydraulicmegastore.com/" },
   { name: "Ram Universal", img: "https://pblol2.blob.core.windows.net/panam-images/brands/ram-logo.png", url: "https://www.ramuniversal.co.uk/" },

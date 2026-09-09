@@ -4,6 +4,7 @@ const BRAND_BLUE = "#01B0F0"
 
 const PartnersSection = () => {
   const partners = [
+    { name: "Thales Group", logo: "https://pblol2.blob.core.windows.net/panam-images/website-media/thales-logo.png", url: "https://www.thalesgroup.com/en" },
     { name: "UK Atomic Energy Authority", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/ukaea-logo.png", url: "https://www.ukaea.org/" },
     { name: "Excool", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/Excool-advanced-data-center-cooling.webp", url: "https://www.excool.com/" },
     { name: "Equisera", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/equisera-logo.png", url: "https://equisera.com/" },
