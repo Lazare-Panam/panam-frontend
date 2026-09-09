@@ -77,13 +77,13 @@ export const blogs: BlogPost[] = [
   // ─── POST 5 ───────────────────────────────────────────────────────────────
   {
     slug: "panam-valves-rg-fluid-power-partnership",
-    title: "Announcing a Strategic Partnership between Sejal Raina and R&G Fluid Power Group",
+    title: "Announcing a Strategic Partnership between Panam Valves and R&G Fluid Power Group",
     category: "News",
     author: "Sejal Raina",
     date: "March 5, 2026",
     readTime: "4 min read",
     image: "https://pblol2.blob.core.windows.net/panam-images/about/leadership-image.jpeg",
-    excerpt: "Sejal Raina and R&G Fluid Power Group announce a new strategic partnership, uniting trusted products, industry expertise, and a shared commitment to reliability, quality, and performance.",
+    excerpt: "Panam Valves and R&G Fluid Power Group announce a new strategic partnership, uniting trusted products, industry expertise, and a shared commitment to reliability, quality, and performance.",
   },
   {
     slug: "double-blog-and-bleed",
