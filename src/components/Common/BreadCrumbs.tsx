@@ -29,8 +29,21 @@ export default function AppBreadcrumbs() {
     })),
   ]
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((crumb, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: crumb.label,
+      item: `https://www.panamvalve.com${crumb.path === "/" ? "" : crumb.path}`,
+    })),
+  }
+
   return (
-    <Breadcrumbs separator="/" sx={{ px: 4, py: 2 }}>
+    <>
+      <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      <Breadcrumbs separator="/" sx={{ px: 4, py: 2 }}>
       {crumbs.map((crumb, i) =>
         i < crumbs.length - 1 ? (
           <MuiLink
@@ -65,6 +78,7 @@ export default function AppBreadcrumbs() {
           </Typography>
         )
       )}
-    </Breadcrumbs>
+      </Breadcrumbs>
+    </>
   )
 }

@@ -24,6 +24,11 @@ const staticRoutes = [
   "/blog/swivel-gauge-blog",
   "/blog/check-valves-blog",
   "/catalogPDFs",
+  // certificates
+  "/certificates",
+  "/certificates/qms",
+  "/certificates/type-reports",
+  "/certificates/registrations",
   // valves
   "/valves",
   "/valves/needle-valves",
@@ -102,10 +107,25 @@ for (const route of routes) {
   try {
     const appHtml = await render(route)
 
-    const headTags = [...appHtml.matchAll(/<title[^>]*>.*?<\/title>|<meta[^>]*(?:\/>|>)/gs)].map(m => m[0]).join("\n")
+    // Tags React renders as document metadata (title/meta/link/JSON-LD) land wherever they
+    // sit in the component tree during SSR — they must be pulled out and moved into <head>
+    // manually, or canonical links and structured data end up buried in <body> where Google
+    // won't reliably read them.
+    const headTags = [
+      ...appHtml.matchAll(/<title[^>]*>.*?<\/title>/gs),
+      ...appHtml.matchAll(/<meta[^>]*(?:\/>|>)/gs),
+      ...appHtml.matchAll(/<link[^>]*(?:\/>|>)/gs),
+      ...appHtml.matchAll(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g),
+    ]
+      .map(m => m[0])
+      .join("\n")
 
     // Remove them from body
-    const bodyHtml = appHtml.replace(/<title[^>]*>.*?<\/title>/gs, "").replace(/<meta[^>]*(?:\/>|>)/g, "")
+    const bodyHtml = appHtml
+      .replace(/<title[^>]*>.*?<\/title>/gs, "")
+      .replace(/<meta[^>]*(?:\/>|>)/g, "")
+      .replace(/<link[^>]*(?:\/>|>)/g, "")
+      .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "")
 
     // Put tags in <head>, clean HTML in root div
 let html = originalTemplate
