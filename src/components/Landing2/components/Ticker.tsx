@@ -22,7 +22,7 @@ const partners = [
   { name: "Rubix", img: "https://pblol2.blob.core.windows.net/panam-images/brands/rubix-logo.svg", url: "https://rubix.com/" },
   { name: "Storm Procurement", img: "https://pblol2.blob.core.windows.net/panam-images/brands/storm-logo.webp", url: "https://www.storm-procurement.com/" },
 ]
-//chore
+
 
 const Ticker = () => {
   const duplicatedPartners = [...partners, ...partners]
