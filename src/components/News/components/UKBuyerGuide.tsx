@@ -62,6 +62,19 @@ const UKBuyersGuideBlog: React.FC = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/uk-industrial-valves-buyers-guide" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: "UK Industrial Valves Buyer's Guide: Types, Standards, Materials",
+          description: "Learn how to specify industrial valves in the UK, from types and standards to materials, sizing and fast-track supply from UK stock.",
+          image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
+          author: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/uk-industrial-valves-buyers-guide" },
+          datePublished: "2026-06-22",
+        })}
+      </script>
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>

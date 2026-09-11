@@ -20,6 +20,16 @@ const MarineSubseaPage = () => {
     <>
       <title>Marine & Subsea | Engineering for the Deepest Frontiers</title>
       <meta name="description" content={hero.description} />
+      <link rel="canonical" href="https://www.panamvalve.com/industries/marine-subsea" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Marine & Subsea | Engineering for the Deepest Frontiers",
+          description: hero.description,
+        })}
+      </script>
       <IndustryTemplate hero={hero} content={content} />
     </>
   )

@@ -126,6 +126,7 @@ export default function HighPressureIndexPage() {
       <meta property="og:description" content="Five high pressure product families — needle valves, DBB, ball valves, nipples, and manifolds — rated from 10,000 to 60,000 psi in SS 316. NACE certified. Hydrogen compatible." />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure" />
+      <meta name="robots" content="index, follow" />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",

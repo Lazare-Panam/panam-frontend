@@ -158,6 +158,25 @@ export default function FiltersIndexPage() {
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/filters/filters-hero.jpg" />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/filters" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® Instrumentation Filters",
+          description: "PANAM® Instrumentation Filters — T-Type and In-Line configurations, SS316, sintered and mesh elements 0.5 to 440 micron, tested to 1000 psi.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: FILTERS.map((f, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: f.title,
+              url: `https://www.panamvalve.com${FILTER_ROUTES[f.type] ?? `/products/filters/${f.type}`}`,
+            })),
+          },
+        })}
+      </script>
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
         <Box

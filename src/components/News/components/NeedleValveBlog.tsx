@@ -50,6 +50,19 @@ const NeedleValveBlog: React.FC = () => {
       <meta name="description" content="A detailed guide to PANAM HP Series needle valves — pressure tiers from 6,000 to 60,000 PSI, materials, packing, stem tips, and applications in oil and gas, hydraulics, and instrumentation." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/hp-series-needle-valves-high-pressure-flow-control" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: "HP Series Needle Valves: High-Pressure Flow Control Up to 60,000 PSI",
+          description: "A detailed guide to PANAM HP Series needle valves — pressure tiers from 6,000 to 60,000 PSI, materials, packing, stem tips, and applications in oil and gas, hydraulics, and instrumentation.",
+          image: "https://pblol2.blob.core.windows.net/panam-images/blog/needle-valve-blog.jpeg",
+          author: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/hp-series-needle-valves-high-pressure-flow-control" },
+          datePublished: "2026-05-05",
+        })}
+      </script>
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>

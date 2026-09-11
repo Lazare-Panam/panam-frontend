@@ -81,18 +81,27 @@ export default function ConnectorElbowPage() {
     <>
       <title>Tube Fitting Connectors & Elbows | PANAM®</title>
       <meta name="description" content="Stainless steel tube fitting connectors, elbows, tees & bulkhead fittings from PANAM®. Imperial & Metric tube OD in NPT, BSPT, BSPP, RP, SAE/MS & 37° Flare threads." />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/connectors" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/connectors" />
       <meta name="robots" content="index, follow" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="Tube Fitting Connectors & Elbows | PANAM®" />
       <meta property="og:description" content="Stainless steel tube fitting connectors, elbows, tees & bulkhead fittings. Imperial & Metric tube OD in NPT, BSPT, BSPP and more." />
-      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/connectors" />
+      <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/connectors" />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fitting Connectors & Elbows | PANAM®" />
       <meta name="twitter:description" content="Stainless steel tube fitting connectors, elbows, tees & bulkhead fittings. Imperial & Metric tube OD in NPT, BSPT, BSPP and more." />
       <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg" />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Tube Fitting Connectors & Elbows | PANAM®",
+          description: "Stainless steel tube fitting connectors, elbows, tees & bulkhead fittings from PANAM®. Imperial & Metric tube OD in NPT, BSPT, BSPP, RP, SAE/MS & 37° Flare threads.",
+        })}
+      </script>
 
       <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
         <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>

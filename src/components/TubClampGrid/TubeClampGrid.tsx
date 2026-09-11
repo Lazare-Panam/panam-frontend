@@ -203,6 +203,25 @@ export default function TubeClampIndexPage() {
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/tube-clamps-hero.jpg" />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-clamps" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® Tube Clamps",
+          description: "Twin, Single Layer, Double Layer, Heavy Single and Heavy Double series tube clamps. DIN Groups 1 to 10, 4mm to 219mm pipe OD.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: CATEGORIES.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: `${c.title} — ${c.subtitle}`,
+              url: `https://www.panamvalve.com${c.link}`,
+            })),
+          },
+        })}
+      </script>
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* HERO */}
         <Box

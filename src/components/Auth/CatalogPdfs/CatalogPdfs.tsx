@@ -54,6 +54,28 @@ const CatalogPdfs = () => {
       <meta property="og:description" content="Technical catalogs and engineering specs for Panam Valve's full product range." />
       <meta property="og:url" content="https://www.panamvalve.com/catalogPdfs" />
       <meta property="og:type" content="website" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Product Catalogs | Panam Valve",
+          description: "Access Panam Valve's full range of technical product catalogs and engineering documentation. Registered partners get full access to high-resolution PDFs.",
+          ...(catalogs && catalogs.length > 0
+            ? {
+                mainEntity: {
+                  "@type": "ItemList",
+                  itemListElement: catalogs.map((catalog: any, i: number) => ({
+                    "@type": "ListItem",
+                    position: i + 1,
+                    name: catalog.title,
+                    url: catalog.blobUrl,
+                  })),
+                },
+              }
+            : {}),
+        })}
+      </script>
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh", pb: 10, position: "relative" }}>
       <Box sx={{ p: { xs: 3, md: 8 }, maxWidth: "1200px", margin: "0 auto" }}>
         {/* Header Section */}

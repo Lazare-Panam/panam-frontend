@@ -85,6 +85,25 @@ export default function PIFFiltersPage() {
       <meta property="og:description" content="Configure PANAM® PIF In-Line Filters by series, thread standard, pore size, and end connection. SS316, tested to 1000 psi." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/filters/i-type" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: PIF_SERIES_DESCRIPTION.title,
+          description: PIF_SERIES_DESCRIPTION.description,
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: PIF_FILTERS_DATA.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: c.partNumber,
+              url: `https://www.panamvalve.com/filters/i-type/${c.partNumber}`,
+            })),
+          },
+        })}
+      </script>
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>

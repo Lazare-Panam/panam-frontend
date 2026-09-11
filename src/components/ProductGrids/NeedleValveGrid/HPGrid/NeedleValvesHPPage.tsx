@@ -43,6 +43,16 @@ export default function NeedleValveHPPage() {
       <meta property="og:title" content="HP Series Forged Needle Valves | 10,000 psig | PANAM®" />
       <meta property="og:description" content="One-piece forged needle valves to 10,000 psig and 538°C. Graphoil packing option, full traceability, NACE MR0175 available." />
       <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.panamvalve.com/valves/needle-valves/needle-valves-hp" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "HP Series High Pressure Forged Needle Valves",
+          description: "PANAM® HP Series one-piece forged needle valves rated to 10,000 psig and 538°C. SS316, Duplex, Monel and Hastelloy. Optional Graphoil packing for high-temperature service. NACE MR0175 available.",
+        })}
+      </script>
       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
 
     {/* Header */}

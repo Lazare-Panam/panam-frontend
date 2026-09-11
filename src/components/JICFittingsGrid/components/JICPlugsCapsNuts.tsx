@@ -8,6 +8,17 @@ export default function JICPlugsCapsNuts() {
       <meta property="og:description" content="37° JIC plugs, caps and nuts in SS316. Full range of thread standards and sizes." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/jic-fittings/plugs-caps-nuts" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "JIC Plugs, Caps & Nuts",
+          description: "PANAM® 37° JIC Plugs, Caps and Nuts — tube caps, adapter caps, tube plugs and nuts in SS316. NPT, BSPT, BSPP, SAE/MS and Metric threads, 1/8 to 2 inch.",
+          url: "https://www.panamvalve.com/instrumentation-fittings/jic-fittings/plugs-caps-nuts",
+        })}
+      </script>
     <JICFittingPage defaultFittingTypes={['BLN', 'N', 'TC', 'TCA', 'TP']} title="JIC Plugs, Caps & Nuts" section="plugs-caps-nuts" />
 
     </>

@@ -55,6 +55,18 @@ const NPTBSPPBSPTBlog: React.FC = () => {
       <meta property="og:type" content="article" />
       <meta property="og:url" content="https://www.panamvalve.com/blog/npt-vs-bspp-vs-bspt-thread-standards" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/npt-vs-bspp-vs-bspt-thread-standards" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: "NPT vs BSPP vs BSPT Threads for Instrumentation Fittings",
+          description: "Learn to identify NPT, BSPP and BSPT threads, pick the right seal method, and use adapters to convert safely on instrumentation fittings.",
+          author: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/npt-vs-bspp-vs-bspt-thread-standards" },
+          datePublished: "2026-05-27",
+        })}
+      </script>
 
       <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
 

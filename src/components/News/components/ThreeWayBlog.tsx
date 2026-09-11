@@ -41,6 +41,19 @@ const ThreeWayValveBlog: React.FC = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/three-way-valve-l-port-t-port-guide" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: "Three-Way Valves: L-Port vs T-Port Guide",
+          description: "Understand three-way valves, L-port vs T-port flow paths, specs and uses in hydraulic and instrumentation circuits. Learn how to choose and commission.",
+          image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
+          author: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/three-way-valve-l-port-t-port-guide" },
+          datePublished: "2026-04-24",
+        })}
+      </script>
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>

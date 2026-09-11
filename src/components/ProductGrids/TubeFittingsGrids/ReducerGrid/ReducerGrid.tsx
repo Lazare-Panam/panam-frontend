@@ -77,18 +77,27 @@ export default function ReducerPage() {
     <>
       <title>Tube Fitting Reducers | Imperial & Metric | PANAM®</title>
       <meta name="description" content="Stainless steel tube fitting reducers from PANAM® — standard reducers, bulkhead reducers & reducer elbows. Imperial, Metric & mixed Metric × Imperial tube OD." />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/reducer" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/reducer" />
       <meta name="robots" content="index, follow" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="Tube Fitting Reducers | Imperial & Metric | PANAM®" />
       <meta property="og:description" content="Stainless steel tube fitting reducers — standard, bulkhead & elbow. Imperial, Metric & mixed Metric × Imperial tube OD." />
-      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/reducer" />
+      <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/reducer" />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fitting Reducers | Imperial & Metric | PANAM®" />
       <meta name="twitter:description" content="Stainless steel tube fitting reducers — standard, bulkhead & elbow. Imperial, Metric & mixed Metric × Imperial tube OD." />
       <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg" />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Tube Fitting Reducers | Imperial & Metric | PANAM®",
+          description: "Stainless steel tube fitting reducers from PANAM® — standard reducers, bulkhead reducers & reducer elbows. Imperial, Metric & mixed Metric × Imperial tube OD.",
+        })}
+      </script>
 
       <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
         <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>

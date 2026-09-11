@@ -1,5 +1,6 @@
 import HeroSection from "../Common/HeroSection"
 import AllCategories from "./components/AllCategories"
+import { CATEGORIES } from "./components/CategoryData"
 
 const ProductPage = () => {
   return (
@@ -10,6 +11,25 @@ const ProductPage = () => {
       {/* Open Graph for Social Sharing */}
       <meta property="og:title" content="Engineering Excellence: Valve & Fitting Solutions | Panam Valves" />
       <meta property="og:image" content="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769772200/encata-pd-SRqJ3eli-4I-unsplash_jgpfgl.jpg" />
+      <link rel="canonical" href="https://www.panamvalve.com/products2" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Instrumentation Valves & Fittings Catalog | Panam Valves",
+          description: "Browse our comprehensive range of high-performance instrumentation valves and fittings designed for critical flow control and absolute integrity.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: CATEGORIES.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: c.title,
+              url: `https://www.panamvalve.com/products/${c.id}`,
+            })),
+          },
+        })}
+      </script>
       <div style={watermarkStyle} />
       <div style={{ position: "relative", zIndex: 1 }}>
         <HeroSection

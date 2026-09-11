@@ -8,6 +8,17 @@ export default function JICElbows() {
       <meta property="og:description" content="37° JIC elbows in SS316. Male, female, union, and adapter configurations across all major thread standards." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/jic-fittings/elbows" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "JIC Elbows",
+          description: "PANAM® 37° JIC Elbows — male, female, union, and adapter elbows in SS316. NPT, BSPT, BSPP, SAE/MS and Metric threads, 1/8 to 2 inch.",
+          url: "https://www.panamvalve.com/instrumentation-fittings/jic-fittings/elbows",
+        })}
+      </script>
       <JICFittingPage defaultFittingTypes={["ME", "AME", "LME", "FE", "UE"]} title="JIC Elbows" section="elbows" />
     </>
   )

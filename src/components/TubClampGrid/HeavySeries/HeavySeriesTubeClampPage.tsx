@@ -251,6 +251,23 @@ export default function HeavySeriesTubeClampPage() {
       <meta property="og:description" content="Heavy duty tube clamps in DIN Groups 1 to 10. 6mm to 219mm OD, M10 to M30 bolts, PP jaws included." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-clamps/heavy-single-layer" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "PANAM® Heavy Series Tube Clamps",
+          description: "Heavy duty tube clamps in DIN Groups 1 to 10. 6mm to 219mm OD, M10 to M30 bolts, PP jaws included. Each set includes one top plate, one bottom plate, 2 hex bolts (4.6 Grades), and one pair of PP jaws.",
+          brand: { "@type": "Brand", name: "PANAM" },
+          category: "Instrumentation Tube Clamps",
+          additionalProperty: ['DIN Groups 1–10', '6mm – 219mm OD', 'M10 / M12 / M16 / M20 / M24 / M30', 'PP Jaws Included', 'Dimensions in mm'].map(s => ({
+            "@type": "PropertyValue",
+            name: "Specification",
+            value: s,
+          })),
+        })}
+      </script>
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>

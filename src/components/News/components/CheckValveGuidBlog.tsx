@@ -79,6 +79,19 @@ const CheckValveGuideBlog: React.FC = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/check-valve-guide" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: "Check Valves for High-Pressure Instrumentation | SS316 PCV Series",
+          description: "High-performance check valves in SS316 and exotic alloys, rated to 6,000 psig, with UK stock, global dispatch and full documentation for critical projects.",
+          image: "https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png",
+          author: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/check-valve-guide" },
+          datePublished: "2026-06-22",
+        })}
+      </script>
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>

@@ -15,6 +15,20 @@ const AboutUs = () => {
       <meta property="og:title" content="Engineering a Sustainable Tomorrow | Panam Valves" />
       <meta property="og:description" content="Bridging the gap between traditional industry and the renewable future with high-precision valve solutions." />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/about/hero-image" />
+      <link rel="canonical" href="https://www.panamvalve.com/about" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "Engineering a Sustainable Tomorrow | Panam Valves",
+          description: "Bridging the gap between traditional industry and the renewable future. Panam Valves provides the critical precision required for the global transition to Hydrogen and clean energy.",
+          mainEntity: {
+            "@type": "Organization",
+            name: "PANAM®",
+          },
+        })}
+      </script>
       <HeroSection
         overline="THE FUTURE OF FLOW CONTROL"
         titleMain="Engineering a"

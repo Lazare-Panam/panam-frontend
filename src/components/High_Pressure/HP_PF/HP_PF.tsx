@@ -112,6 +112,7 @@ export default function HPPipeFittingsIndexPage() {
       <meta property="og:description" content="High pressure pipe fittings in SS 316. Hex nipples, couplings and adapters in NPT, ISO Parallel and 37° JIC. 10,000 to 15,000 psi." />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure/pipe-fittings" />
+      <meta name="robots" content="index, follow" />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",

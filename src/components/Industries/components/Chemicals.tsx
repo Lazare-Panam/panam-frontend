@@ -20,6 +20,16 @@ const ChemicalsPage = () => {
     <>
       <title>Chemical & Petrochemical | Corrosion-Resistant Process Valves</title>
       <meta name="description" content={hero.description} />
+      <link rel="canonical" href="https://www.panamvalve.com/industries/chemicals-petrochemical" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Chemical & Petrochemical | Corrosion-Resistant Process Valves",
+          description: hero.description,
+        })}
+      </script>
       <IndustryTemplate hero={hero} content={content} />
     </>
   )

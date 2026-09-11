@@ -20,6 +20,16 @@ const HydrogenPage = () => {
     <>
       <title>Hydrogen Energy | Specialized Valves for the H2 Value Chain</title>
       <meta name="description" content={hero.description} />
+      <link rel="canonical" href="https://www.panamvalve.com/industries/hydrogen" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Hydrogen Energy | Specialized Valves for the H2 Value Chain",
+          description: hero.description,
+        })}
+      </script>
       <IndustryTemplate hero={hero} content={content} />
     </>
   )

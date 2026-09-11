@@ -75,6 +75,16 @@ export default function PCVPage() {
     <meta property="og:title" content="PCV Series Check Valves | 6,000 psig | PANAM®" />
     <meta property="og:description" content="Inline check valves to 6,000 psig. Eight cracking pressure options. SS316, Duplex, Monel, Hastelloy. Hydrogen service rated. NACE MR0175 available." />
     <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://www.panamvalve.com/valves/check-valves" />
+    <meta name="robots" content="index, follow" />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "PCV Series Check Valves",
+        description: "PANAM® PCV Series inline check valves rated to 6,000 psig. Eight cracking pressure options from 1/3 to 100 psig. SS316, Duplex, Monel and Hastelloy. Hydrogen service rated. NACE MR0175 available.",
+      })}
+    </script>
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
 
     {/* ── HEADER ── */}

@@ -243,6 +243,23 @@ export default function TwinSeriesTubeClampPage() {
       <meta property="og:description" content="Precision tube clamps in DIN Groups 1 to 5. 6mm to 42mm OD, M6 and M8 bolts, PP jaws included." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-clamps/twin-series" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "PANAM® Twin Series Tube Clamps",
+          description: "Precision tube clamps in DIN Groups 1 to 5. 6mm to 42mm OD, M6 and M8 bolts, PP jaws included. Each set includes one top plate, one bottom plate, one hex bolt, and one pair of PP jaws.",
+          brand: { "@type": "Brand", name: "PANAM" },
+          category: "Instrumentation Tube Clamps",
+          additionalProperty: ['DIN Groups 1–5', '6mm – 42mm OD', 'M6 / M8 Bolts', 'PP Jaws Included', 'Dimensions in mm'].map(s => ({
+            "@type": "PropertyValue",
+            name: "Specification",
+            value: s,
+          })),
+        })}
+      </script>
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>

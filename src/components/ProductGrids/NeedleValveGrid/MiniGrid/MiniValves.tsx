@@ -43,6 +43,16 @@ export default function MiniValvePage() {
 <meta property="og:title" content="Mini Series Compact Needle Valves | 3,000 psig | PANAM®" />
 <meta property="og:description" content="Compact needle valves to 3,000 psig for space-restricted instrumentation. SS316, Duplex and Monel. NACE MR0175 available." />
 <meta property="og:type" content="website" />
+<link rel="canonical" href="https://www.panamvalve.com/valves/needle-valves/needle-valves-mini" />
+<meta name="robots" content="index, follow" />
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Mini Series Compact Needle Valves",
+    description: "PANAM® Mini Series compact instrumentation needle valves rated to 3,000 psig. Designed for space-restricted installations. SS316, Duplex and Monel. NPT and tube fitting ends. NACE MR0175 available.",
+  })}
+</script>
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
     <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
     <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>

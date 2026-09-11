@@ -54,6 +54,18 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/swivel-gauge-blog" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: "Swivel Gauge Adapters!",
+          description: "Complete technical guide to Panam swivel gauge adapters. 360° rotational positioning, dual seal configurations, and ten alloy grades rated to 10,000 psi.",
+          image: "https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
+          author: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/swivel-gauge-blog" },
+        })}
+      </script>
 
       {/* Hero */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>

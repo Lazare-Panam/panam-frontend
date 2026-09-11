@@ -24,6 +24,29 @@ const PartnershipAnnouncementPage: React.FC = () => {
       {/* SEO TAGS - HARDCODED FOR PRERENDER */}
       <title>Strategic Partnership: Panam Valves & R&G Fluid Power Group</title>
       <meta name="description" content="Panam Valves and R&G Fluid Power Group announce a new strategic partnership." />
+      <link rel="canonical" href="https://www.panamvalve.com/blog/panam-valves-rg-fluid-power-partnership" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: "Announcing a Strategic Partnership between Panam Valves and R&G Fluid Power Group",
+          description: "Panam Valves and R&G Fluid Power Group announce a new strategic partnership.",
+          datePublished: "2026-03-05",
+          author: {
+            "@type": "Organization",
+            name: "PANAM®",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "PANAM®",
+          },
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": "https://www.panamvalve.com/blog/panam-valves-rg-fluid-power-partnership",
+          },
+        })}
+      </script>
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>

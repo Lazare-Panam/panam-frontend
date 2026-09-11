@@ -37,6 +37,19 @@ const CheckValveBlog: React.FC = () => {
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.panamvalve.com/blog/check-valves-blog" />
     <link rel="canonical" href="https://www.panamvalve.com/blog/check-valves-blog" />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: "What Do Check Valves Do and Why They Matter",
+        description: "Explore what check valves (NRV) do, the mechanics behind their operation, and why they remain essential in modern industrial infrastructure.",
+        image: "https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c-cover.png",
+        author: { "@type": "Organization", name: "PANAM®" },
+        publisher: { "@type": "Organization", name: "PANAM®" },
+        mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/check-valves-blog" },
+        datePublished: "2026-03-25",
+      })}
+    </script>
 
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       {/* SEO TAGS */}

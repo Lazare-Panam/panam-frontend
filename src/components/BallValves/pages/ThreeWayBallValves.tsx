@@ -8,6 +8,16 @@ export default function ThreeWayBallValves() {
       <meta property="og:title" content="3-Way Ball Valves | T-Port & L-Port Diverter | PANAM®" />
       <meta property="og:description" content="3-way floating ball valves to 6,000 psig. T-port and L-port. Diverting, mixing and selector service. NACE MR0175 available." />
       <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.panamvalve.com/valves/ball-valves/three-way" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "3-Way Ball Valves",
+          description: "PANAM® 3-way floating ball valves with T-port and L-port flow paths. Rated to 6,000 psig in 1/8\" to 1\". Diverting, mixing and selector service. SS316, Duplex, Monel. NACE MR0175 available.",
+        })}
+      </script>
       <BallValvePage title="Three-Way Ball Valves for Diversion and Mixing Applications" description="T-port and L-port 3-way ball valves for flow diverting and mixing applications, rated to 10,000 psig." chips={["10,000 psig max", "T-port / L-port", "SS316 / Duplex / Monel", "NACE / CE"]} defaultSeries={['3W']} />
     </>
   )

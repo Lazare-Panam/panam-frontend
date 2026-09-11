@@ -20,6 +20,16 @@ const AerospaceDefensePage = () => {
     <>
       <title>Aerospace & Defense | Mission-Critical Fluid Control Systems</title>
       <meta name="description" content={hero.description} />
+      <link rel="canonical" href="https://www.panamvalve.com/industries/aerospace-defense" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Aerospace & Defense | Mission-Critical Fluid Control Systems",
+          description: hero.description,
+        })}
+      </script>
       <IndustryTemplate hero={hero} content={content} />
     </>
   )

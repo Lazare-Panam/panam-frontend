@@ -112,6 +112,7 @@ export default function HPFittingsIndexPage() {
       <meta property="og:description" content="Six categories of high pressure cone and thread fittings in SS 316. Connectors, unions, adapters, elbows, tees, crosses, hex nipples, caps, plugs, glands and collars from 10,000 to 60,000 psi." />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure/fittings" />
+      <meta name="robots" content="index, follow" />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",

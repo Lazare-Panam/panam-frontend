@@ -34,6 +34,19 @@ const DoubleBlockBleedBlog: React.FC = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/double-blog-and-bleed" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: "DBB Valve Solutions",
+          description: "Master Double Block and Bleed (DB&B) vs. DIB valves.",
+          image: "https://pblol2.blob.core.windows.net/panam-images/products/double-block-and-bleeed/dbb_flange_x_flange.png",
+          author: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/double-blog-and-bleed" },
+          datePublished: "2026-03-25",
+        })}
+      </script>
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>

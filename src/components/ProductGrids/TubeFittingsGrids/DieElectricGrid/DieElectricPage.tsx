@@ -328,14 +328,40 @@ export default function DielectricGasketPage() {
     <>
       <title>Dielectric Tube Fittings & Gaskets | PANAM®</title>
       <meta name="description" content="PANAM® stainless steel dielectric tube fittings isolate instruments from electric currents, voltage & static. Polyamideimide insulation, rated to 5000 PSI, -40°C to 93°C." />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/die-electric" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/die-electric" />
       <meta name="robots" content="index, follow" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="Dielectric Tube Fittings & Gaskets | PANAM®" />
       <meta property="og:description" content="PANAM® dielectric tube fittings isolate instruments from electric currents, voltage & static. Polyamideimide insulation, rated to 5000 PSI." />
-      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/die-electric" />
+      <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/die-electric" />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/dielectric-fittings.jpg" />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Dielectric Tube Fittings & Gaskets | PANAM®",
+          description: "PANAM® stainless steel dielectric tube fittings isolate instruments from electric currents, voltage & static. Polyamideimide insulation, rated to 5000 PSI, -40°C to 93°C.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: [
+              ...DIELECTRIC_DATA.map((item, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                name: `${item.fittingType} Dielectric — ${item.partNumber}`,
+                url: `https://www.panamvalve.com/instrumentation-fittings/tube-fittings/die-electric/${item.partNumber}`,
+              })),
+              ...GASKET_DATA.map((item, i) => ({
+                "@type": "ListItem",
+                position: DIELECTRIC_DATA.length + i + 1,
+                name: `Gasket ${item.gasketType} — ${item.partNumber}`,
+                url: `https://www.panamvalve.com/instrumentation-fittings/tube-fittings/die-electric/gasket/${item.partNumber}`,
+              })),
+            ],
+          },
+        })}
+      </script>
 
       <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
         <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>

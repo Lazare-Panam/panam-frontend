@@ -85,6 +85,25 @@ export default function PTFFiltersPage() {
       <meta property="og:description" content="Configure PANAM® PTF T-Type Filters by series, thread standard, pore size, and end connection. SS316, tested to 1000 psi." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/filters/t-type" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: PTF_SERIES_DESCRIPTION.title,
+          description: PTF_SERIES_DESCRIPTION.description,
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: PTF_FILTERS_DATA.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: c.partNumber,
+              url: `https://www.panamvalve.com/filters/t-type/${c.partNumber}`,
+            })),
+          },
+        })}
+      </script>
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>

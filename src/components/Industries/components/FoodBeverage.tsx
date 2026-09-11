@@ -20,6 +20,16 @@ const FoodBeveragePage = () => {
     <>
       <title>Food & Beverages | Hygienic & Sanitary Flow Solutions</title>
       <meta name="description" content={hero.description} />
+      <link rel="canonical" href="https://www.panamvalve.com/industries/food-beverages" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Food & Beverages | Hygienic & Sanitary Flow Solutions",
+          description: hero.description,
+        })}
+      </script>
       <IndustryTemplate hero={hero} content={content} />
     </>
   )

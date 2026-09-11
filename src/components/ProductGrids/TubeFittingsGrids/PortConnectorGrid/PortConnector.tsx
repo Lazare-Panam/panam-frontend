@@ -207,18 +207,36 @@ export default function PortConnectorPage() {
     <>
       <title>Tube Fitting Port Connectors | Imperial & Metric | PANAM®</title>
       <meta name="description" content="PANAM® tube fitting port connectors & reducing port connectors for direct tube-to-port connections. Imperial & Metric tube OD. Secure, leak-tight SS316." />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/port-connector" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/port-connector" />
       <meta name="robots" content="index, follow" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="Tube Fitting Port Connectors | Imperial & Metric | PANAM®" />
       <meta property="og:description" content="PANAM® tube fitting port connectors & reducing port connectors for tube-to-port connections. Imperial & Metric tube OD." />
-      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/port-connector" />
+      <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/port-connector" />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fitting Port Connectors | Imperial & Metric | PANAM®" />
       <meta name="twitter:description" content="PANAM® tube fitting port connectors & reducing port connectors for tube-to-port connections. Imperial & Metric tube OD." />
       <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg" />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Tube Fitting Port Connectors | Imperial & Metric | PANAM®",
+          description: "PANAM® tube fitting port connectors & reducing port connectors for direct tube-to-port connections. Imperial & Metric tube OD. Secure, leak-tight SS316.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: PORT_CONNECTOR_DATA.map((item, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: `${FITTING_TYPE_LABELS[item.fittingType] ?? item.fittingType} — ${item.partNumber}`,
+              url: `https://www.panamvalve.com/instrumentation-fittings/tube-fittings/port-connector/${item.partNumber}`,
+            })),
+          },
+        })}
+      </script>
 
       <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
         <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>

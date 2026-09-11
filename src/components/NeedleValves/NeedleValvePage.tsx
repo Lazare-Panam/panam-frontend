@@ -117,6 +117,25 @@ export default function NeedleValvesPage() {
       <meta property="og:title" content="Instrumentation Needle Valves | PANAM® IB · HB · HP · SB · Mini Series" />
       <meta property="og:description" content="Five needle valve series rated 3,000–20,000 psig. Non-rotating Vee-tip stem, full heat-code traceability, NACE MR0175 available. SS316, Duplex, Monel and Hastelloy." />
       <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.panamvalve.com/valves/needle-valves" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® Needle Valves",
+          description: "PANAM® needle valves in five series — IB, HB, HP, SB and Mini — rated 3,000 to 20,000 psig. SS316, Duplex, Monel, Hastelloy. NACE MR0175 certified.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: NEEDLE_VALVE_SERIES.map((s, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: `${s.title} — ${s.subtitle}`,
+              url: `https://www.panamvalve.com${s.link}`,
+            })),
+          },
+        })}
+      </script>
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
         <Box

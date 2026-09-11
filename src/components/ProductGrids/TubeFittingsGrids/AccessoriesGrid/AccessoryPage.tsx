@@ -209,18 +209,36 @@ export default function AccessoryPage() {
     <>
       <title>Tube Fitting Accessories | Ferrules, Plugs & Nuts | PANAM®</title>
       <meta name="description" content="PANAM® stainless steel tube fitting accessories — tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts. Imperial & Metric." />
-      <link rel="canonical" href="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/accessories" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/accessories" />
       <meta name="robots" content="index, follow" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="Tube Fitting Accessories | Ferrules, Plugs & Nuts | PANAM®" />
       <meta property="og:description" content="PANAM® stainless steel tube fitting accessories — tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts." />
-      <meta property="og:url" content="https://www.panamvalves.com/instrumentation-fittings/tube-fittings/accessories" />
+      <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/accessories" />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fitting Accessories | Ferrules, Plugs & Nuts | PANAM®" />
       <meta name="twitter:description" content="PANAM® stainless steel tube fitting accessories — tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts." />
       <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg" />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Tube Fitting Accessories | Ferrules, Plugs & Nuts | PANAM®",
+          description: "PANAM® stainless steel tube fitting accessories — tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts. Imperial & Metric.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: ACCESSORY_DATA.map((item, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: `${FITTING_TYPE_LABELS[item.fittingType] ?? item.fittingType} — ${item.partNumber}`,
+              url: `https://www.panamvalve.com/instrumentation-fittings/tube-fittings/accessories/${item.partNumber}`,
+            })),
+          },
+        })}
+      </script>
 
       <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
         <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>

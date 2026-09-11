@@ -43,6 +43,16 @@ export default function NeedleValveSBPage() {
 <meta property="og:title" content="SB Series Bar Stock Needle Valves | 10,000 psig | PANAM®" />
 <meta property="og:description" content="Heavy-duty bar stock needle valves to 10,000 psig. Metal and soft seat. SS316, Duplex, Monel, Hastelloy. NACE MR0175 available." />
 <meta property="og:type" content="website" />
+<link rel="canonical" href="https://www.panamvalve.com/valves/needle-valves/needle-valves-sb" />
+<meta name="robots" content="index, follow" />
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "SB Series Heavy-Duty Bar Stock Needle Valves",
+    description: "PANAM® SB Series heavy-duty bar stock needle valves rated to 10,000 psig. Metal and soft seat options. SS316, Duplex, Monel and Hastelloy. NPT, BSPP, BSPT and tube fitting ends. NACE MR0175 available.",
+  })}
+</script>
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>

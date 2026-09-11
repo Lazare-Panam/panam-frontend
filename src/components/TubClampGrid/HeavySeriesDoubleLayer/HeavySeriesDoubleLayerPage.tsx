@@ -249,6 +249,23 @@ export default function HeavySeriesDoubleLayerPage() {
       <meta property="og:description" content="Heavy series double layer tube clamps DIN 3015, Groups 1 to 8. 6mm to 219mm OD, M10 to M30 bolts, PP jaws included." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-clamps/heavy-double-layer" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "PANAM® Heavy Series Double Layer Tube Clamps",
+          description: "Heavy series double layer tube clamps DIN 3015 in DIN Groups 1 to 8. 6mm to 219mm OD, M10 to M30 bolts, 2 sets PP jaws included. Each set includes one top plate, one bottom plate, one locking plate, 2 stacking bolts, 2 hex bolts, and 2 set PP jaws.",
+          brand: { "@type": "Brand", name: "PANAM" },
+          category: "Instrumentation Tube Clamps",
+          additionalProperty: ['DIN 3015', 'DIN Groups 1–8', '6mm – 219mm OD', 'M10 – M30 Bolts', 'PP Jaws Included', 'Dimensions in mm'].map(s => ({
+            "@type": "PropertyValue",
+            name: "Specification",
+            value: s,
+          })),
+        })}
+      </script>
        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>

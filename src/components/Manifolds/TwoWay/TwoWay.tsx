@@ -136,6 +136,25 @@ export default function TwoVMManifoldsPage() {
       <meta property="og:description" content="Configure PANAM® 2-Valve Manifolds by material, connection type, mounting, and special service." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/manifolds/2VM" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: MANIFOLD_DESCRIPTION.title,
+          description: MANIFOLD_DESCRIPTION.description,
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: MANIFOLDS_DATA.map((m, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: `Panam 2-Valve Manifold — ${m.partNumber}`,
+              url: `https://www.panamvalve.com/manifolds/2VM/${m.partNumber}`,
+            })),
+          },
+        })}
+      </script>
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>

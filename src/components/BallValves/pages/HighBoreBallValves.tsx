@@ -8,6 +8,16 @@ export default function HighBoreBallValves() {
       <meta property="og:title" content="High Bore Full Port Ball Valves | PANAM®" />
       <meta property="og:description" content="Full port ball valves for maximum Cv and minimal pressure drop. 1/4&quot; to 2&quot;. Sampling, drain and bypass service. NACE MR0175 available." />
       <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.panamvalve.com/valves/ball-valves/high-bore" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "High Bore Full Port Ball Valves",
+          description: "PANAM® high bore full port ball valves for maximum flow coefficient and minimal pressure drop. 1/4\" to 2\". Ideal for sampling, drain and bypass service. SS316, Duplex, Monel, Hastelloy. NACE MR0175 available.",
+        })}
+      </script>
       <BallValvePage defaultSeries={['HB']} />
     </>
   )

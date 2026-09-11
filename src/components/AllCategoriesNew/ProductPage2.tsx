@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "../Common/HeroSection";
 import AllCategories2 from "./AllCategories2";
+import { CATEGORIES2 } from "./components/CategoryData2";
 const ProductPage2 = () => {
   return (
     <div style={containerStyle}>
@@ -19,6 +20,25 @@ const ProductPage2 = () => {
         property="og:image"
         content="https://res.cloudinary.com/dm9rmmemx/image/upload/v1769772200/encata-pd-SRqJ3eli-4I-unsplash_jgpfgl.jpg"
       />
+      <link rel="canonical" href="https://www.panamvalve.com/products" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Instrumentation Valves & Fittings Catalog | Panam Valves",
+          description: "Browse our comprehensive range of high-performance instrumentation valves and fittings designed for critical flow control and absolute integrity.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: CATEGORIES2.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: c.title,
+              url: `https://www.panamvalve.com${c.products[0]?.link ?? `/products/${c.id}`}`,
+            })),
+          },
+        })}
+      </script>
 
       <div style={watermarkStyle} />
 

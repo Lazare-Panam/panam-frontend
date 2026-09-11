@@ -251,6 +251,23 @@ export default function SingleLayerTubeClampPage() {
       <meta property="og:description" content="Precision single layer tube clamps in DIN Groups 1 to 10. 6mm to 42mm OD, M6 bolts, PP jaws included." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-clamps/single-layer" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "PANAM® Single Layer Tube Clamps",
+          description: "Single layer tube clamps in DIN Groups 1 to 10. 6mm to 42mm OD, M6 bolts, PP jaws included. Each set includes one top plate, one bottom plate, 2 hex bolts, and one pair of PP jaws.",
+          brand: { "@type": "Brand", name: "PANAM" },
+          category: "Instrumentation Tube Clamps",
+          additionalProperty: ['DIN Groups 1–10', '6mm – 42mm OD', 'M6 Bolts', 'PP Jaws Included', 'Dimensions in mm'].map(s => ({
+            "@type": "PropertyValue",
+            name: "Specification",
+            value: s,
+          })),
+        })}
+      </script>
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>

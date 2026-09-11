@@ -49,6 +49,19 @@ const ManifoldValvesBlog: React.FC = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/manifold-valves-for-accurate-safe-instrumentation" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: "Manifold Valves for Accurate, Safe Instrumentation Measurement",
+          description: "Compare manifold valve types, monoflanges, and DB&B setups to improve DP, level, and pressure measurement accuracy and safety.",
+          image: "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM-1.jpg",
+          author: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/manifold-valves-for-accurate-safe-instrumentation" },
+          datePublished: "2026-05-25",
+        })}
+      </script>
 
       {/* HEADER */}
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>

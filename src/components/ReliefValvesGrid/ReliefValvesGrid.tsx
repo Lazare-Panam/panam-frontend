@@ -76,7 +76,17 @@ export default function ReliefValvePage() {
 <meta name="keywords" content="instrumentation relief valve, pressure relief valve, safety relief valve, overpressure protection valve, direct acting relief valve, pilot operated relief valve, 6000 psi relief valve, SS316 relief valve, NACE MR0175 relief valve, PTFE seat relief valve, Viton seal relief valve" />
 <meta property="og:title" content="Relief Valves | Overpressure Protection | 6,000 psig | PANAM®" />
 <meta property="og:description" content="Direct-acting and pilot-operated relief valves to 6,000 psig. Factory-set cracking pressure. SS316, Duplex, Monel, Hastelloy. NACE MR0175 available." />
-<meta property="og:type" content="website" />  
+<meta property="og:type" content="website" />
+<link rel="canonical" href="https://www.panamvalve.com/valves/relief-valves" />
+<meta name="robots" content="index, follow" />
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Relief Valves",
+    description: "PANAM® relief valves rated to 6,000 psig. Direct-acting and pilot-operated configurations. Factory-set cracking pressure. SS316, Duplex, Monel and Hastelloy. PTFE, Viton, PEEK seals. NACE MR0175 available.",
+  })}
+</script>
      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
 
       {/* ── HEADER ── */}

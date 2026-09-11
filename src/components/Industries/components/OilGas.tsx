@@ -20,6 +20,16 @@ const OilGasPage = () => {
     <>
       <title>Oil & Gas | High-Pressure Flow Control & Safety Solutions</title>
       <meta name="description" content={hero.description} />
+      <link rel="canonical" href="https://www.panamvalve.com/industries/oil-gas" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Oil & Gas | High-Pressure Flow Control & Safety Solutions",
+          description: hero.description,
+        })}
+      </script>
       <IndustryTemplate hero={hero} content={content} />
     </>
   )

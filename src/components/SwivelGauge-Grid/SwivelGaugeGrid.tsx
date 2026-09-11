@@ -53,6 +53,23 @@ export default function SwivelGaugeAdaptorsPage() {
       <meta property="og:description" content="Configure PANAM® Swivel Gauge Adaptors by type, inlet, and outlet thread standard." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/swivel-gauge-adaptors" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: SWIVEL_GAUGE_DESCRIPTION.title,
+          description: SWIVEL_GAUGE_DESCRIPTION.description,
+          brand: { "@type": "Brand", name: "PANAM" },
+          category: "Instrumentation Fittings",
+          additionalProperty: SWIVEL_GAUGE_DESCRIPTION.specs.map(s => ({
+            "@type": "PropertyValue",
+            name: "Specification",
+            value: s,
+          })),
+        })}
+      </script>
 
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
 

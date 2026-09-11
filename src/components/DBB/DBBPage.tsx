@@ -155,8 +155,27 @@ export default function DBBIndexPage() {
       <meta property="og:title" content="Double Block & Bleed Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Three connection families. One standard. PANAM® DBB Valves for primary isolation, transmitter mounting, and process bleed." />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/DBB/dbb-cover.jpg" />
-      <meta property="og:type" content="product" />
+      <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.panamvalve.com/double-block-and-bleed-valves" />
+      <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "PANAM® Double Block & Bleed Valves",
+          description: "Double Block & Bleed valves in Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe connection types. SS316, ANSI 150–2500 Class, NACE MR-0175 certified.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: DBB_PRODUCTS.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: p.title,
+              url: `https://www.panamvalve.com${p.href}`,
+            })),
+          },
+        })}
+      </script>
 
       <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
         {/* ── HERO ── */}
