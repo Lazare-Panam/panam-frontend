@@ -195,5 +195,11 @@ export const navConfig: Record<string, NavCategory[]> = {
       link: "/catalogPdfs",
       items: [{ name: "All Catalogs", link: "/catalogPdfs" }],
     },
+    {
+      id: "cad-files",
+      label: "CAD & STEP Files",
+      link: "/cad-step-files",
+      items: [{ name: "Browse by Category", link: "/cad-step-files" }],
+    },
   ],
 }

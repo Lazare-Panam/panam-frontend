@@ -35,6 +35,8 @@ const ResourcesPage = lazy(() => import("./components/Resources/ResourcesPage"))
 const CertificationsPage = lazy(() => import("./components/Resources/components/Certifications"))
 //const PipeFittingPage = lazy(() => import("./PipeFittings/PipeFittings"))
 const ResetPasswordPage = lazy(() => import("./components/Account/components/ResetPasswordPage"))
+const CadStepFiles = lazy(() => import("./components/TechnicalFiles/CadStepFiles"))
+const CategoryStepFiles = lazy(() => import("./components/TechnicalFiles/CategoryStepFiles"))
 import Landing2 from "./components/Landing2/Landing2"
 import NeedleValveHBPage from "./components/ProductGrids/NeedleValveGrid/HBGrid/HBGridPage"
 import NeedleValveIBPage from "./components/ProductGrids/NeedleValveGrid/IBGrid/NeedleValveIBPage"
@@ -204,6 +206,22 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <CreditApplicationForm />
+          </Suspense>
+        ),
+      },
+      {
+        path: "cad-step-files",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CadStepFiles />
+          </Suspense>
+        ),
+      },
+      {
+        path: "cad-step-files/:category",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <CategoryStepFiles />
           </Suspense>
         ),
       },
