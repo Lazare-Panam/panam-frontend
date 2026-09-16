@@ -11,7 +11,30 @@ import { getCategory } from "./categories"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
 
-const FileRow: React.FC<{ file: TechnicalFile }> = ({ file }) => (
+// Wraps every case-insensitive occurrence of `query` in `text` with a subtle highlight.
+const highlightMatch = (text: string, query: string): React.ReactNode => {
+  if (!query) return text
+  const lower = text.toLowerCase()
+  const q = query.toLowerCase()
+  const parts: React.ReactNode[] = []
+  let cursor = 0
+  let key = 0
+  let idx = lower.indexOf(q)
+  while (idx !== -1) {
+    if (idx > cursor) parts.push(text.slice(cursor, idx))
+    parts.push(
+      <Box key={key++} component="span" sx={{ backgroundColor: "rgba(1,176,240,0.18)", color: BRAND_BLUE, borderRadius: "2px", px: "1px" }}>
+        {text.slice(idx, idx + q.length)}
+      </Box>
+    )
+    cursor = idx + q.length
+    idx = lower.indexOf(q, cursor)
+  }
+  if (cursor < text.length) parts.push(text.slice(cursor))
+  return parts
+}
+
+const FileRow: React.FC<{ file: TechnicalFile; query: string }> = ({ file, query }) => (
   <Card
     variant="outlined"
     sx={{
@@ -29,7 +52,7 @@ const FileRow: React.FC<{ file: TechnicalFile }> = ({ file }) => (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, minWidth: 0 }}>
       <ViewInArIcon sx={{ color: BRAND_BLUE, fontSize: 22, flexShrink: 0 }} />
       <Typography sx={{ fontWeight: 700, fontFamily: PRIMARY_FONT, color: "#1a1a1a", fontSize: "0.95rem", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-        {file.partNumber}
+        {highlightMatch(file.partNumber, query)}
       </Typography>
     </Box>
     <Button
@@ -132,7 +155,7 @@ const CategoryStepFiles: React.FC = () => {
             ) : (
               <Box sx={{ display: "flex", flexDirection: "column", gap: 1.25, maxWidth: 720 }}>
                 {filtered.map(file => (
-                  <FileRow key={file.id} file={file} />
+                  <FileRow key={file.id} file={file} query={query} />
                 ))}
               </Box>
             )}
