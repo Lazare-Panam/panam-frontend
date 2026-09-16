@@ -229,9 +229,9 @@ const AdminUsersList = () => {
                   <Typography variant="body2">{user.country}</Typography>
                   <Stack direction="row" spacing={1} alignItems="center">
                     <Chip
-                      label={user.isApproved ? "Approved" : "Pending"}
+                      label="Approved"
                       size="small"
-                      sx={{ bgcolor: user.isApproved ? "#DCFCE7" : "#FEF3C7", color: user.isApproved ? "#166534" : "#92400E", fontWeight: 700, borderRadius: 1 }}
+                      sx={{ bgcolor: "#DCFCE7", color: "#166534", fontWeight: 700, borderRadius: 1 }}
                     />
                     {user.emailConfirmed && <VerifiedIcon sx={{ color: BRAND_BLUE, fontSize: 20 }} />}
                   </Stack>
