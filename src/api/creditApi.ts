@@ -4,6 +4,12 @@ import axiosClient from "./axiosClient"
 const ADMIN_BASE_PATH = "/api/admin"
 const USER_BASE_PATH = "/api/user"
 
+// Single source of truth for the currencies we accept. The order here is the
+// order shown in the dropdown, and this list must match the server-side
+// allow-list on the API so a hand-crafted request can't slip an unsupported code past us.
+export const SUPPORTED_CURRENCIES = ["GBP", "EUR", "USD"] as const
+export type SupportedCurrency = (typeof SUPPORTED_CURRENCIES)[number]
+
 export interface CreditLineApplicationDto {
   companyName: string
   registrationNumber: string
@@ -19,6 +25,7 @@ export interface CreditLineApplicationDto {
   email: string
   phone: string
   creditLimitRequested: number
+  currency: string
   paymentTerms: string
   monthlyOrderValue: number
   products?: string

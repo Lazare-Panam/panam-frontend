@@ -18,6 +18,12 @@ const STATUS_COLORS: Record<number, "warning" | "success" | "error"> = {
   2: "error",
 }
 
+// Render an amount in its own application's currency (e.g. £, €, $) rather than a
+// fixed pound sign, so a EUR/USD application isn't mislabelled. Falls back to GBP
+// for any legacy row that predates the currency column.
+const formatMoney = (amount: number, currency?: string) =>
+  amount.toLocaleString("en-GB", { style: "currency", currency: currency || "GBP" })
+
 // A pending change waiting on admin confirmation before it's sent to the API.
 // kind distinguishes the two flows so the dialog can word itself correctly.
 type PendingChange = { kind: "status"; applicationId: number; newStatus: number } | { kind: "creditLimit"; applicationId: number; newCreditLimit: number }
@@ -182,7 +188,7 @@ const AdminCreditApplicationsList: React.FC = () => {
                           if (e.key === "Enter") handleRequestLimitChange(app.applicationId)
                           if (e.key === "Escape") cancelEditingLimit()
                         }}
-                        InputProps={{ startAdornment: <Box sx={{ mr: 0.5, color: "#64748B" }}>£</Box> }}
+                        InputProps={{ startAdornment: <Box sx={{ mr: 0.5, color: "#64748B" }}>{app.currency || "GBP"}</Box> }}
                         sx={{ width: 140 }}
                       />
                       <Button size="small" variant="contained" sx={{ backgroundColor: BRAND_BLUE, boxShadow: "none" }} onClick={() => handleRequestLimitChange(app.applicationId)}>
@@ -194,7 +200,7 @@ const AdminCreditApplicationsList: React.FC = () => {
                     </Box>
                   ) : (
                     <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                      £{app.creditLimitRequested.toLocaleString()}
+                      {formatMoney(app.creditLimitRequested, app.currency)}
                       <IconButton size="small" onClick={() => startEditingLimit(app)} aria-label="Edit credit limit">
                         <EditIcon fontSize="inherit" />
                       </IconButton>
@@ -227,7 +233,7 @@ const AdminCreditApplicationsList: React.FC = () => {
         <DialogContent>
           <DialogContentText>
             {pendingChange?.kind === "status" && `This will change the application status to "${STATUS_LABELS[pendingChange.newStatus]}".`}
-            {pendingChange?.kind === "creditLimit" && `This will update the credit limit to £${pendingChange.newCreditLimit.toLocaleString()}.`}
+            {pendingChange?.kind === "creditLimit" && `This will update the credit limit to ${formatMoney(pendingChange.newCreditLimit, applications.find(a => a.applicationId === pendingChange.applicationId)?.currency)}.`}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
