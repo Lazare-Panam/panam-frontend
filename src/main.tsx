@@ -21,6 +21,18 @@ const app = (
 
 const rootElement = document.getElementById("root")!
 
+// The prerenderer bakes a static <title> into <head>. React 19 also hoists the <title> each
+// route renders but can't reconcile it with that static tag, so a duplicate appears (and stale
+// ones linger across SPA navigation). Tag the prerender-injected title, then remove it ONLY once
+// React has added its own — i.e. only when more than one <title> exists. This never touches
+// React's title and never leaves the page with zero titles.
+document.head.querySelector("title")?.setAttribute("data-prerender-title", "")
+new MutationObserver(() => {
+  if (document.head.querySelectorAll("title").length > 1) {
+    document.head.querySelector("title[data-prerender-title]")?.remove()
+  }
+}).observe(document.head, { childList: true })
+
 if (rootElement.hasChildNodes()) {
   hydrateRoot(rootElement, app)
 } else {

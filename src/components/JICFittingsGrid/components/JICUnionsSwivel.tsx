@@ -19,7 +19,7 @@ export default function JICUnionsSwivel() {
           url: "https://www.panamvalve.com/instrumentation-fittings/jic-fittings/unions-swivel",
         })}
       </script>
-      <JICFittingPage defaultFittingTypes={['U', 'UL', 'SU', 'BU', 'BLN']} title="37° Flared JIC Unions" />
+      <JICFittingPage defaultFittingTypes={['U', 'UL', 'SU', 'BU', 'BLN']} title="37° Flared JIC Unions" section="unions-swivel" />
     </>
   )
 }

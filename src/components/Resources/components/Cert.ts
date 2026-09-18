@@ -32,12 +32,6 @@ export const certsByTab: Record<string, { title: string; subtitle: string; image
 
  
 ],
-"registrations": [
-     {
-    title: "BFPA Certification",
-    subtitle: "Type Test Report",
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774287523/BFPA_Panam_Valves_2026_wijobb.jpg",
-  },
-]
+
   // Add more tab data here CE-PED Cert For Fittings & Valves
 };
