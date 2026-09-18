@@ -9,8 +9,8 @@ const BRAND_BLUE = "#01B0F0"
 const BFPA_LOGO = "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/bfpa-logo.jpg"
 
 const featuredCerts = [
-  ...certsByTab["qms"].map(cert => ({ ...cert, tab: "qms" })),
-  ...certsByTab["registrations"].map(cert => ({ ...cert, tab: "registrations", image: BFPA_LOGO })),
+  ...(certsByTab["qms"] ?? []).map(cert => ({ ...cert, tab: "qms" })),
+  ...(certsByTab["registrations"] ?? []).map(cert => ({ ...cert, tab: "registrations", image: BFPA_LOGO })),
 ]
 
 const CertificationsStrip = () => {
