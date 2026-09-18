@@ -43,6 +43,12 @@ const ButtonGroup = ({ title, links }: { title: string; links: IndexLink[] }) =>
 
 const ProductIndexPage = () => (
   <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
+    <title>Product Index — All Products & Pages | Panam Valves</title>
+    <meta
+      name="description"
+      content="Complete directory of every Panam Valves product, industry and guide — browse the full catalogue of high pressure valves, fittings, manifolds and filters."
+    />
+    <meta name="robots" content="index, follow" />
     <Typography component="h1" variant="h4" sx={{ fontWeight: 800, mb: 1 }}>
       Product Index
     </Typography>

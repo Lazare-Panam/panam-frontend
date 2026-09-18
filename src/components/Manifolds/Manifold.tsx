@@ -171,6 +171,12 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
 export default function ManifoldsIndexPage() {
   return (
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
+      <title>Instrumentation Valve Manifolds — 2, 3 & 5 Valve | Panam Valves</title>
+      <meta
+        name="description"
+        content="2-valve, 3-valve and 5-valve instrumentation manifolds in SS316, rated 6000–10000 psi with NACE MR-01-75 options for gauge and differential pressure transmitters."
+      />
+      <meta name="robots" content="index, follow" />
       {/* ── HERO ── */}
       <Box
         sx={{

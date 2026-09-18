@@ -32,6 +32,9 @@ const CatalogPdfs = () => {
   if (isLoading) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60vh" }}>
+        <title>Product Catalogs & Technical PDFs | Panam Valves</title>
+        <meta name="description" content="Download Panam Valves product catalogs and technical datasheets for high pressure valves, fittings, manifolds and filters." />
+        <meta name="robots" content="index, follow" />
         <CircularProgress sx={{ color: BRAND_BLUE }} />
       </Box>
     )
