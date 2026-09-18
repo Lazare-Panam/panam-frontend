@@ -19,25 +19,38 @@ import { PIF_FILTERS_DATA } from "./components/Filters/hooks/pifData"
 import { PTF_FILTERS_DATA } from "./components/Filters/hooks/ptfData"
 import { FILTER_ELEMENT_DATA } from "./components/Filters/hooks/filterElementData"
 
-export const PRODUCT_ROUTES: string[] = [
-  ...HP_BALL_VALVE_DATA.map(p => `/high-pressure/ball-valves/${p.partNumber}`),
-  ...HP_NEEDLE_VALVE_DATA.map(p => `/high-pressure/needle-valves/${p.partNumber}`),
-  ...HP_DBB_DATA.map(p => `/high-pressure/double-block-and-valves/${p.partNumber}`),
-  ...HP_MANIFOLD_DATA.map(p => `/high-pressure/2-valve-manifolds/${p.partNumber}`),
-  ...HP_NIPPLE_DATA.map(p => `/high-pressure/cones-threaded-nipples/${p.partNumber}`),
-  ...HP_ADAPTER_DATA.map(p => `/high-pressure/fittings/adaptors/${p.partNumber}`),
-  ...HP_FITTING_DATA.map(p => `/high-pressure/fittings/connectors/${p.partNumber}`),
-  ...HP_UNION_DATA.map(p => `/high-pressure/fittings/unions/${p.partNumber}`),
-  ...HP_JUNCTION_DATA.map(p => `/high-pressure/fittings/elbows-tees-cross/${p.partNumber}`),
-  ...HP_END_FITTING_DATA.map(p => `/high-pressure/fittings/end-connections/${p.partNumber}`),
-  ...HP_SEAL_DATA.map(p => `/high-pressure/fittings/seals-glads/${p.partNumber}`),
-  ...PIPE_NIPPLE_DATA.map(p => `/high-pressure/pipe-fittings/hex-nipples/${p.partNumber}`),
-  ...PIPE_COUPLING_DATA.map(p => `/high-pressure/pipe-fittings/hex-couplings/${p.partNumber}`),
-  ...PIPE_ADAPTER_DATA.map(p => `/high-pressure/pipe-fittings/adapters/${p.partNumber}`),
-  ...PIPE_ELBOW_DATA.map(p => `/high-pressure/pipe-fittings/elbows/${p.partNumber}`),
-  ...PIPE_TEE_CROSS_DATA.map(p => `/high-pressure/pipe-fittings/tees-crosses/${p.partNumber}`),
-  ...PIPE_END_DATA.map(p => `/high-pressure/pipe-fittings/plugs-caps/${p.partNumber}`),
-  ...PIF_FILTERS_DATA.map(p => `/filters/i-type/${p.partNumber}`),
-  ...PTF_FILTERS_DATA.map(p => `/filters/t-type/${p.partNumber}`),
-  ...FILTER_ELEMENT_DATA.map(p => `/filters/elements/${p.partNumber}`),
+// A product category and the part numbers that live under it. This is the single source of truth
+// for both the prerendered/sitemap routes (PRODUCT_ROUTES, below) and the on-page Product Index
+// that links to every product so no SKU page is left orphaned (no internal links pointing to it).
+export interface ProductGroup {
+  label: string
+  base: string
+  partNumbers: string[]
+}
+
+export const PRODUCT_GROUPS: ProductGroup[] = [
+  { label: "High Pressure — Ball Valves", base: "/high-pressure/ball-valves", partNumbers: HP_BALL_VALVE_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure — Needle Valves", base: "/high-pressure/needle-valves", partNumbers: HP_NEEDLE_VALVE_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure — Double Block & Bleed", base: "/high-pressure/double-block-and-valves", partNumbers: HP_DBB_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure — 2-Valve Manifolds", base: "/high-pressure/2-valve-manifolds", partNumbers: HP_MANIFOLD_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure — Cones & Threaded Nipples", base: "/high-pressure/cones-threaded-nipples", partNumbers: HP_NIPPLE_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Fittings — Adaptors", base: "/high-pressure/fittings/adaptors", partNumbers: HP_ADAPTER_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Fittings — Connectors", base: "/high-pressure/fittings/connectors", partNumbers: HP_FITTING_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Fittings — Unions", base: "/high-pressure/fittings/unions", partNumbers: HP_UNION_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Fittings — Elbows, Tees & Cross", base: "/high-pressure/fittings/elbows-tees-cross", partNumbers: HP_JUNCTION_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Fittings — End Connections", base: "/high-pressure/fittings/end-connections", partNumbers: HP_END_FITTING_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Fittings — Seals & Glands", base: "/high-pressure/fittings/seals-glads", partNumbers: HP_SEAL_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Pipe Fittings — Hex Nipples", base: "/high-pressure/pipe-fittings/hex-nipples", partNumbers: PIPE_NIPPLE_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Pipe Fittings — Hex Couplings", base: "/high-pressure/pipe-fittings/hex-couplings", partNumbers: PIPE_COUPLING_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Pipe Fittings — Adapters", base: "/high-pressure/pipe-fittings/adapters", partNumbers: PIPE_ADAPTER_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Pipe Fittings — Elbows", base: "/high-pressure/pipe-fittings/elbows", partNumbers: PIPE_ELBOW_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Pipe Fittings — Tees & Crosses", base: "/high-pressure/pipe-fittings/tees-crosses", partNumbers: PIPE_TEE_CROSS_DATA.map(p => String(p.partNumber)) },
+  { label: "High Pressure Pipe Fittings — Plugs & Caps", base: "/high-pressure/pipe-fittings/plugs-caps", partNumbers: PIPE_END_DATA.map(p => String(p.partNumber)) },
+  { label: "Filters — I-Type", base: "/filters/i-type", partNumbers: PIF_FILTERS_DATA.map(p => String(p.partNumber)) },
+  { label: "Filters — T-Type", base: "/filters/t-type", partNumbers: PTF_FILTERS_DATA.map(p => String(p.partNumber)) },
+  { label: "Filters — Elements", base: "/filters/elements", partNumbers: FILTER_ELEMENT_DATA.map(p => String(p.partNumber)) },
 ]
+
+export const PRODUCT_ROUTES: string[] = PRODUCT_GROUPS.flatMap(group =>
+  group.partNumbers.map(partNumber => `${group.base}/${partNumber}`)
+)

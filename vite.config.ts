@@ -14,6 +14,7 @@ const BLOG_POSTS = [
 // Category/industry/hub pages — one level below the homepage in importance.
 const CATEGORY_ROUTES = [
   "/products",
+  "/product-index",
   "/about",
   "/industries",
   "/blog",

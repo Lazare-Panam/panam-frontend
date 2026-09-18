@@ -9,6 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const staticRoutes = [
   "/",
   "/products",
+  "/product-index",
   "/about",
   "/industries",
   "/blog",
