@@ -39,6 +39,8 @@ const CadStepFiles = lazy(() => import("./components/TechnicalFiles/CadStepFiles
 const CategoryStepFiles = lazy(() => import("./components/TechnicalFiles/CategoryStepFiles"))
 const ProductIndexPage = lazy(() => import("./components/ProductIndex/ProductIndexPage"))
 const SectionIndexPage = lazy(() => import("./components/ProductIndex/SectionIndexPage"))
+const HighPressureDirectoryPage = lazy(() => import("./components/HighPressureIndex/HighPressureIndexPage"))
+const SitemapPage = lazy(() => import("./components/Sitemap/SitemapPage"))
 import Landing2 from "./components/Landing2/Landing2"
 import NeedleValveHBPage from "./components/ProductGrids/NeedleValveGrid/HBGrid/HBGridPage"
 import NeedleValveIBPage from "./components/ProductGrids/NeedleValveGrid/IBGrid/NeedleValveIBPage"
@@ -764,6 +766,22 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <ProductIndexPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/high-pressure-index",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <HighPressureDirectoryPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/sitemap",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <SitemapPage />
           </Suspense>
         ),
       },

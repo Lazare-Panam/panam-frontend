@@ -273,7 +273,7 @@ const Footer: React.FC = () => {
             {["Privacy Policy", "Terms of Use", "Delivery & Returns", "Sitemap"].map(item => (
               <Link
                 key={item}
-                href={item === "Delivery & Returns" ? "/delivery-returns" : item === "Sitemap" ? "/product-index" : "#"}
+                href={item === "Delivery & Returns" ? "/delivery-returns" : item === "Sitemap" ? "/sitemap" : "#"}
                 variant="caption"
                 underline="none"
                 sx={{ color: "rgba(255,255,255,0.35)", "&:hover": { color: "white" }, fontSize: "0.7rem", fontFamily: '"Inter", sans-serif' }}

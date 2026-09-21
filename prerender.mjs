@@ -119,6 +119,12 @@ const staticRoutes = [
   "/high-pressure/pipe-fittings/elbows",
   "/high-pressure/pipe-fittings/tees-crosses",
   "/high-pressure/pipe-fittings/plugs-caps",
+  // Crawlable directory of every HP category + SKU, linked by a button on the homepage so the deep
+  // HP product pages aren't orphaned (SE Ranking/Ahrefs reported 0 inlinks to them).
+  "/high-pressure-index",
+  // HTML sitemap: crawlable hub linking every structural page, linked sitewide from the footer so
+  // pages that previously had a single inbound link gain another from a well-linked page.
+  "/sitemap",
   // Filter elements listing + the "all" pipe-fittings listing (were also falling back to "/").
   "/filters/elements",
   "/instrumentation-fittings/pipe-fittings/all",

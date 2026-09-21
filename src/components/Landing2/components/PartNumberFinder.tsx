@@ -40,6 +40,42 @@ const PartNumberFinder = () => (
         >
           Find a Part Number
         </Button>
+        {/* Direct entry point to the full high-pressure directory so every HP product page has an
+            internal link from the homepage (fixes the orphaned HP SKUs flagged in the crawl). */}
+        <Button
+          component={RouterLink}
+          to="/high-pressure-index"
+          variant="outlined"
+          sx={{
+            color: "white",
+            borderColor: "rgba(255,255,255,0.5)",
+            px: { xs: 3, md: 4 },
+            py: 1,
+            fontWeight: 700,
+            textTransform: "none",
+            whiteSpace: "nowrap",
+            "&:hover": { borderColor: "white", backgroundColor: "rgba(255,255,255,0.08)" },
+          }}
+        >
+          High-Pressure Index
+        </Button>
+        {/* Small, low-emphasis entry point to the full HTML sitemap (also linked sitewide in the
+            footer) — gives every structural page an extra internal link from the homepage. */}
+        <Button
+          component={RouterLink}
+          to="/sitemap"
+          variant="text"
+          size="small"
+          sx={{
+            color: "rgba(255,255,255,0.7)",
+            fontWeight: 600,
+            textTransform: "none",
+            whiteSpace: "nowrap",
+            "&:hover": { color: "white", backgroundColor: "transparent", textDecoration: "underline" },
+          }}
+        >
+          Site Map
+        </Button>
       </Stack>
     </Container>
   </Box>
