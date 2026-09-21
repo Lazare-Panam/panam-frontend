@@ -292,29 +292,8 @@ const UKBuyersGuideBlog: React.FC = () => {
                 <Typography key={item} sx={{ mb: 1 }}>• {item}</Typography>
               ))}
             </Box>
-            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Browse our full range of{" "}
-              <Box component="a" href="https://www.panamvalve.com/" target="_blank" rel="noopener noreferrer"
-                sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                industrial valves
-              </Box>
-              , or go directly to{" "}
-              <Box component="a" href="https://www.panamvalve.com/ball-valves" target="_blank" rel="noopener noreferrer"
-                sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                stainless steel ball valves
-              </Box>
-              ,{" "}
-              <Box component="a" href="https://www.panamvalve.com/control-valves" target="_blank" rel="noopener noreferrer"
-                sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                control valves
-              </Box>
-              {" "}or{" "}
-              <Box component="a" href="https://www.panamvalve.com/check-valves" target="_blank" rel="noopener noreferrer"
-                sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                check valves
-              </Box>
-              .
-            </Typography>
+           
+           
 
             {/* FAQ */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>

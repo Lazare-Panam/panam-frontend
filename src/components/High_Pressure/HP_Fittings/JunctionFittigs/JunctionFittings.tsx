@@ -39,7 +39,7 @@ export default function HPJunctionPage() {
       <meta property="og:description" content="Panam high pressure elbows, tees, crosses and hex nipples in MP and HP cone & thread, rated 20,000 to 60,000 psi. SS 316, 1/4&quot; to 1&quot;." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/fittings/elbows-tees-cross" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           {HP_JUNCTION_DESCRIPTION.title}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>

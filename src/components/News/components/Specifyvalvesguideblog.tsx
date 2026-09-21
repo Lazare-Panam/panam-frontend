@@ -386,38 +386,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
               ))}
             </Stack>
 
-            {/* NEXT STEPS */}
-            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Next Steps
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Send your BOM or specification to Panam for a 24-hour engineering response. UK stock is available for core valves, manifolds and fittings, with full documentation and heat-code traceability to support rapid project mobilisation.
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 1, lineHeight: 1.8, fontWeight: 700 }}>
-              Explore:
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Panam ball valves, including high-bore and 3-way options — see the{" "}
-              <Box component="a" href="https://www.panamvalve.com/ball-valves" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                stainless steel ball valve range
-              </Box>
-              . Actuated and modulating options for process control — learn more about{" "}
-              <Box component="a" href="https://www.panamvalve.com/control-valves" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                control valve solutions
-              </Box>
-              . Non-return protection across sizes and materials — review{" "}
-              <Box component="a" href="https://www.panamvalve.com/check-valves" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                check valve options
-              </Box>
-              . System connectivity and unions that match your ends and standards — see{" "}
-              <Box component="a" href="https://www.panamvalve.com/pipe-fittings" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                pipe fittings and union fitting options
-              </Box>
-              .
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Contact: Panam Valves, Ground Floor, St Edburgs Hall, Priory Road, Bicester OX26 6BL, United Kingdom. Global dispatch available.
-            </Typography>
+           
 
             {/* CTA */}
             <Paper elevation={0} sx={{ mt: 10, p: { xs: 4, md: 6 }, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px" }}>

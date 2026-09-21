@@ -37,7 +37,7 @@ export default function HPNipplePage() {
       <meta property="og:description" content="Panam high pressure cone & thread nipples in MP and HP styles, 1/4&quot; to 1&quot; OD, rated 20,000 to 60,000 psi. SS 316, lengths from 2.75&quot; to 12&quot;." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/cones-threaded-nipples" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           {HP_NIPPLE_DESCRIPTION.title}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>

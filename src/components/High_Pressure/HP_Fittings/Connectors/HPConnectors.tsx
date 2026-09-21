@@ -39,7 +39,7 @@ export default function HPFittingConnectorsPage() {
       <meta property="og:description" content="Panam high pressure male and female connectors joining MP and HP cone & thread to NPT and cone & thread ends, rated 10,000 to 60,000 psi. SS 316, 1/8&quot; to 1&quot;." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/fittings/connectors" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           {HP_FITTING_DESCRIPTION.title}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>

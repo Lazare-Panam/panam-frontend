@@ -39,7 +39,7 @@ export default function PipeAdapterPage() {
       <meta property="og:description" content="Panam high pressure pipe adapters, reducing bushings, reducing adaptors and swivel male connectors in NPT, BSPT, ISO parallel and 37° JIC, rated 10,000 to 15,000 psi. SS 316." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/pipe-fittings/adapters" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           {PIPE_ADAPTER_DESCRIPTION.title}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>

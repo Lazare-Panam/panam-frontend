@@ -37,7 +37,7 @@ export default function HPDBBPage() {
       <meta property="og:description" content="Panam high pressure double block & bleed valves in ball-needle-ball and needle-needle configurations, rated 15,000 to 20,000 psi. SS 316, NPT and MP cone & thread ends." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/double-block-and-valves" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           {HP_DBB_DESCRIPTION.title}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>

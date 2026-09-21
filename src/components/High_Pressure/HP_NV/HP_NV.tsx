@@ -38,7 +38,7 @@ export default function HPNeedleValvePage() {
       <meta property="og:description" content="Panam high pressure needle valves in HP, HP1, HP2, HP3 and HP6 series rated 10,000 to 60,000 psi. SS 316, NPT and MP/HP cone & thread ends, with angle, 3-way and replaceable-seat options." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/needle-valves" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           {HP_NV_DESCRIPTION.title}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
