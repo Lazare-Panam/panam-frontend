@@ -18,6 +18,7 @@ import FAQSection from "./components/FAQSection"
 import SectionDotNav from "./components/SectionDotNav"
 import LocationMap from "./components/LocationMap"
 import ToolsResources from "./components/ToolsResources"
+import PartNumberFinder from "./components/PartNumberFinder"
 const Landing2 = () => {
   /** */
   return (
@@ -86,6 +87,7 @@ const Landing2 = () => {
       </script>
       <SectionDotNav />
       <Hero2 />
+      <PartNumberFinder />
       <TrustBar />
       <Ticker />
       <ScrollReveal>

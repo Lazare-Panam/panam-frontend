@@ -10,7 +10,7 @@ const PartnersSection = () => {
     { name: "Equisera", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/equisera-logo.png", url: "https://equisera.com/" },
     { name: "SM Gauge", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/SM-Gauge-Logo-Red.webp", url: "https://www.smgauge.co.uk/" },
     { name: "Fluid Power Scotland", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/Fps.avif", url: "https://www.fluidpowerscotland.co.uk/" },
-    { name: "Rubix", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/rubix-logo.svg", url: "https://rubix.com/" },
+    
     { name: "Storm Procurement", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/storm-logo.webp", url: "https://www.storm-procurement.com/" },
     { name: "R & G Group", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/logo.png", url: "https://www.rgfluidpower.com/" },
     { name: "Hydraulic Megastore", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/hydraulic-logo-white-320x79.webp", url: "https://www.hydraulicmegastore.com/" },

@@ -1,6 +1,7 @@
+import { useState } from "react"
 import { Link as RouterLink } from "react-router-dom"
-import { Box, Button, Container, Divider, Typography } from "@mui/material"
-import { PRODUCT_GROUPS } from "../../productRoutes"
+import { Box, Button, Container, Divider, TextField, Typography } from "@mui/material"
+import { PRODUCT_GROUPS, PRODUCT_SECTIONS } from "../../productRoutes"
 
 // Non-product pages that the SE Ranking audit also flagged as having no internal links pointing
 // to them. Kept here (rather than derived) because they don't share the product data shape.
@@ -41,33 +42,62 @@ const ButtonGroup = ({ title, links }: { title: string; links: IndexLink[] }) =>
   </Box>
 )
 
-const ProductIndexPage = () => (
-  <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
-    <title>Product Index — All Products & Pages | Panam Valves</title>
-    <meta
-      name="description"
-      content="Complete directory of every Panam Valves product, industry and guide — browse the full catalogue of high pressure valves, fittings, manifolds and filters."
-    />
-    <meta name="robots" content="index, follow" />
-    <Typography component="h1" variant="h4" sx={{ fontWeight: 800, mb: 1 }}>
-      Product Index
-    </Typography>
-    <Typography sx={{ color: "text.secondary", mb: 4 }}>
-      A complete directory of every Panam Valves product and page. Browse by category below.
-    </Typography>
-    <Divider sx={{ mb: 4 }} />
+const ProductIndexPage = () => {
+  const [query, setQuery] = useState("")
+  const q = query.trim().toLowerCase()
 
-    {PRODUCT_GROUPS.map(group => (
-      <ButtonGroup
-        key={group.base}
-        title={group.label}
-        links={group.partNumbers.map(partNumber => ({ label: partNumber, to: `${group.base}/${partNumber}` }))}
+  return (
+    <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
+      <title>Product Index — All Products & Pages | Panam Valves</title>
+      <meta
+        name="description"
+        content="Complete directory of every Panam Valves product, industry and guide — browse the full catalogue of high pressure valves, fittings, manifolds and filters."
       />
-    ))}
+      <meta name="robots" content="index, follow" />
+      <Typography component="h1" variant="h4" sx={{ fontWeight: 800, mb: 1 }}>
+        Product Index
+      </Typography>
+      <Typography sx={{ color: "text.secondary", mb: 3 }}>
+        A complete directory of every Panam Valves product and page. Search a part number or browse by category below.
+      </Typography>
 
-    <ButtonGroup title="Industries" links={INDUSTRY_LINKS} />
-    <ButtonGroup title="Guides & Blog" links={BLOG_LINKS} />
-  </Container>
-)
+      <TextField
+        fullWidth
+        size="small"
+        placeholder="Search any part number…"
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+        sx={{ mb: 4, maxWidth: 480 }}
+        slotProps={{ htmlInput: { "aria-label": "Search any part number" } }}
+      />
+
+      <Divider sx={{ mb: 4 }} />
+
+      {/* Section shortcuts + non-product links only add noise while searching part numbers. */}
+      {!q && (
+        <ButtonGroup title="Browse by Section" links={PRODUCT_SECTIONS.map(s => ({ label: s.label, to: s.base }))} />
+      )}
+
+      {PRODUCT_GROUPS.map(group => {
+        const matches = q ? group.partNumbers.filter(pn => pn.toLowerCase().includes(q)) : group.partNumbers
+        if (matches.length === 0) return null
+        return (
+          <ButtonGroup
+            key={group.base}
+            title={group.label}
+            links={matches.map(partNumber => ({ label: partNumber, to: `${group.base}/${partNumber}` }))}
+          />
+        )
+      })}
+
+      {!q && (
+        <>
+          <ButtonGroup title="Industries" links={INDUSTRY_LINKS} />
+          <ButtonGroup title="Guides & Blog" links={BLOG_LINKS} />
+        </>
+      )}
+    </Container>
+  )
+}
 
 export default ProductIndexPage

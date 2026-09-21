@@ -38,6 +38,7 @@ const ResetPasswordPage = lazy(() => import("./components/Account/components/Res
 const CadStepFiles = lazy(() => import("./components/TechnicalFiles/CadStepFiles"))
 const CategoryStepFiles = lazy(() => import("./components/TechnicalFiles/CategoryStepFiles"))
 const ProductIndexPage = lazy(() => import("./components/ProductIndex/ProductIndexPage"))
+const SectionIndexPage = lazy(() => import("./components/ProductIndex/SectionIndexPage"))
 import Landing2 from "./components/Landing2/Landing2"
 import NeedleValveHBPage from "./components/ProductGrids/NeedleValveGrid/HBGrid/HBGridPage"
 import NeedleValveIBPage from "./components/ProductGrids/NeedleValveGrid/IBGrid/NeedleValveIBPage"
@@ -750,6 +751,14 @@ export const routes = [
       { path: "/high-pressure/pipe-fittings/tees-crosses/:partNumber", element: <PipeTeeCrossProductPage /> },
       { path: "/high-pressure/pipe-fittings/plugs-caps", element: <PipeEndFittingPage /> },
       { path: "/high-pressure/pipe-fittings/plugs-caps/:partNumber", element: <PipeEndFittingProductPage /> },
+      {
+        path: "/product-index/:section",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <SectionIndexPage />
+          </Suspense>
+        ),
+      },
       {
         path: "/product-index",
         element: (

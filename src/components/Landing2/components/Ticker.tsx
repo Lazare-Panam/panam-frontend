@@ -19,7 +19,7 @@ const partners = [
   { name: "Equisera", img: "https://pblol2.blob.core.windows.net/panam-images/brands/Equisera-logo-narrow-crop-1024x193.png", url: "https://equisera.com/" },
   { name: "SM Gauge", img: "https://pblol2.blob.core.windows.net/panam-images/brands/SM-Gauge-Logo-Red.webp", url: "https://www.smgauge.co.uk/" },
   { name: "Fluid Power Scotland", img: "https://pblol2.blob.core.windows.net/panam-images/brands/Fps.avif", url: "https://www.fluidpowerscotland.co.uk/" },
-  { name: "Rubix", img: "https://pblol2.blob.core.windows.net/panam-images/brands/rubix-logo.svg", url: "https://rubix.com/" },
+  
   { name: "Storm Procurement", img: "https://pblol2.blob.core.windows.net/panam-images/brands/storm-logo.webp", url: "https://www.storm-procurement.com/" },
 ]
 

@@ -1,7 +1,7 @@
 import { defineConfig } from "vitest/config"
 import react from "@vitejs/plugin-react"
 import sitemap from "vite-plugin-sitemap"
-import { PRODUCT_ROUTES } from "./src/productRoutes"
+import { PRODUCT_ROUTES, PRODUCT_SECTION_ROUTES } from "./src/productRoutes"
 
 const BLOG_POSTS = [
   "/blog/panam-valves-rg-fluid-power-partnership",
@@ -15,6 +15,7 @@ const BLOG_POSTS = [
 const CATEGORY_ROUTES = [
   "/products",
   "/product-index",
+  ...PRODUCT_SECTION_ROUTES,
   "/about",
   "/industries",
   "/blog",

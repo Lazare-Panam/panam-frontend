@@ -61,3 +61,78 @@ export const PRODUCT_GROUPS: ProductGroup[] = RAW_GROUPS.map(group => ({
 export const PRODUCT_ROUTES: string[] = PRODUCT_GROUPS.flatMap(group =>
   group.partNumbers.map(partNumber => `${group.base}/${partNumber}`)
 )
+
+// ── Section indexes ───────────────────────────────────────────────────────────
+// Mid-level "browse everything in this category" pages (/product-index/<slug>). Each is a compact,
+// crawlable directory of real <a href> links to every SKU in the section, grouped by sub-category.
+// This spreads internal links to deep product pages in focused, crawler-friendly chunks (hub-and-
+// spoke) instead of relying only on the single 2,400-link /product-index, whose tail crawlers drop.
+export interface ProductSection {
+  slug: string
+  label: string
+  base: string // "/product-index/<slug>"
+  groups: ProductGroup[]
+}
+
+const SECTION_DEFS: { slug: string; label: string; groupBases: string[] }[] = [
+  {
+    slug: "high-pressure-valves",
+    label: "High-Pressure Valves & Manifolds",
+    groupBases: [
+      "/high-pressure/ball-valves",
+      "/high-pressure/needle-valves",
+      "/high-pressure/double-block-and-valves",
+      "/high-pressure/2-valve-manifolds",
+      "/high-pressure/cones-threaded-nipples",
+    ],
+  },
+  {
+    slug: "high-pressure-fittings",
+    label: "High-Pressure Fittings",
+    groupBases: [
+      "/high-pressure/fittings/adaptors",
+      "/high-pressure/fittings/connectors",
+      "/high-pressure/fittings/unions",
+      "/high-pressure/fittings/elbows-tees-cross",
+      "/high-pressure/fittings/end-connections",
+      "/high-pressure/fittings/seals-glads",
+    ],
+  },
+  {
+    slug: "high-pressure-pipe-fittings",
+    label: "High-Pressure Pipe Fittings",
+    groupBases: [
+      "/high-pressure/pipe-fittings/hex-nipples",
+      "/high-pressure/pipe-fittings/hex-couplings",
+      "/high-pressure/pipe-fittings/adapters",
+      "/high-pressure/pipe-fittings/elbows",
+      "/high-pressure/pipe-fittings/tees-crosses",
+      "/high-pressure/pipe-fittings/plugs-caps",
+    ],
+  },
+  {
+    slug: "filters",
+    label: "Filters",
+    groupBases: ["/filters/i-type", "/filters/t-type", "/filters/elements"],
+  },
+]
+
+export const PRODUCT_SECTIONS: ProductSection[] = SECTION_DEFS.map(def => ({
+  slug: def.slug,
+  label: def.label,
+  base: `/product-index/${def.slug}`,
+  groups: def.groupBases
+    .map(b => PRODUCT_GROUPS.find(g => g.base === b))
+    .filter((g): g is ProductGroup => Boolean(g)),
+}))
+
+export const PRODUCT_SECTION_ROUTES: string[] = PRODUCT_SECTIONS.map(s => s.base)
+
+// The section a product/category path belongs to, so the "can't find it?" CTA can deep-link to the
+// right index. Matches both category pages (path === group.base) and product pages (base + "/sku").
+export function sectionForPath(pathname: string): ProductSection | undefined {
+  const clean = pathname.replace(/\/+$/, "")
+  return PRODUCT_SECTIONS.find(section =>
+    section.groups.some(g => clean === g.base || clean.startsWith(`${g.base}/`)),
+  )
+}

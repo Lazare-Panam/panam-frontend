@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
-const { PRODUCT_ROUTES } = await import("./src/productRoutes.ts")
+const { PRODUCT_ROUTES, PRODUCT_SECTION_ROUTES } = await import("./src/productRoutes.ts")
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -132,7 +132,7 @@ const staticRoutes = [
   "/blog/manifold-valves-for-accurate-safe-instrumentation",
   "/blog/hp-series-needle-valves-high-pressure-flow-control",
 ];
-const routes = [...staticRoutes, ...PRODUCT_ROUTES]
+const routes = [...staticRoutes, ...PRODUCT_SECTION_ROUTES, ...PRODUCT_ROUTES]
 
 const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
 
@@ -157,11 +157,22 @@ for (const route of routes) {
       .map(m => m[0])
       .join("\n")
 
+    // Collapse duplicate <meta name="description"> down to the first one. Search engines expect a
+    // single description per page; if more than one ends up in <head> (e.g. a wrapper page and an
+    // inner component each render one during SSR, or React re-hoists the component's copy alongside
+    // the one injected here) SE Ranking flags "multiple meta description tags". This mirrors the
+    // stray-<title> stripping below — keep the first (page-level) description, drop the rest.
+    let keptDescription = false
+    const dedupedHeadTags = headTags.replace(
+      /<meta[^>]*\bname=["']description["'][^>]*>/gi,
+      match => (keptDescription ? "" : ((keptDescription = true), match)),
+    )
+
     // X (Twitter) Card. Many components already emit their own twitter:* tags; only pages that
     // don't (e.g. product detail pages, About, several listings/blogs) were flagged as missing the
     // card. Inject a default ONLY when the page has none, so every page ends up with exactly one
     // twitter:card and never a duplicate. X fills title/image from each page's Open Graph tags.
-    const twitterCardTag = /name=["']twitter:card["']/.test(headTags) ? "" : '<meta name="twitter:card" content="summary_large_image" />'
+    const twitterCardTag = /name=["']twitter:card["']/.test(dedupedHeadTags) ? "" : '<meta name="twitter:card" content="summary_large_image" />'
 
     // Remove them from body
     const bodyHtml = appHtml
@@ -176,7 +187,7 @@ let html = originalTemplate
   .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
   
   // 2. Use a regex to find the <head> tag even if it has attributes
-  .replace(/<head[^>]*>/i, (match) => `${match}\n${headTags}\n${twitterCardTag}`)
+  .replace(/<head[^>]*>/i, (match) => `${match}\n${dedupedHeadTags}\n${twitterCardTag}`)
   
   // 3. Keep your root replacement, but ensure it matches correctly
   .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);

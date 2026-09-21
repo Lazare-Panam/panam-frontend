@@ -5,6 +5,7 @@ import Footer from "./components/Landing/components/Footer/Footer"
 import { NotificationProvider } from "./components/Notification/NotificationProvider"
 import AppBreadcrumbs from "./components/Common/BreadCrumbs"
 import StickyQuoteButton from "./components/Common/StickyQuoteButton"
+import BrowseSectionButton from "./components/Common/BrowseSectionButton"
 
 // Lazy so the full product directory (and its data) only loads on the pages below, not sitewide.
 const UsefulLinks = lazy(() => import("./components/Common/UsefulLinks"))
@@ -40,6 +41,7 @@ const Layout = () => {
       <main>
         <Outlet />
       </main>
+      <BrowseSectionButton />
       {showUsefulLinks && (
         <Suspense fallback={null}>
           <UsefulLinks />
