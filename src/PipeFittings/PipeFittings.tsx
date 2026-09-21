@@ -13,7 +13,7 @@ import { type PipeFittingFilters, EMPTY_PIPE_FITTING_FILTERS } from './hooks/typ
 
 const BRAND_BLUE = '#01B0F0'
 
-export default function PipeFittingPage({ defaultFittingTypes }: { defaultFittingTypes?: string[] } = {}) {
+export default function PipeFittingPage({ defaultFittingTypes, title }: { defaultFittingTypes?: string[]; title?: string } = {}) {
   const isMobile = useMediaQuery('(max-width:1200px)')
   const [filters, setFilters] = useState<PipeFittingFilters>({
     ...EMPTY_PIPE_FITTING_FILTERS,
@@ -36,8 +36,8 @@ export default function PipeFittingPage({ defaultFittingTypes }: { defaultFittin
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
-          Pipe Fittings
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
+          {title ?? "Pipe Fittings"}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           NPT, ISO Tapered, ISO Parallel, Metric and SAE/MS thread standards.

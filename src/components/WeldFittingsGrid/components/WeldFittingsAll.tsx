@@ -12,10 +12,12 @@ export default function WeldFittingPage({
   defaultFittingTypes,
   section = "all",
   renderMeta = true,
+  heading,
 }: {
   defaultFittingTypes?: string[]
   section?: string
   renderMeta?: boolean
+  heading?: string
 } = {}) {
   const [filters, setFilters] = useState<WeldFittingFilters>({
     ...EMPTY_WELD_FITTING_FILTERS,
@@ -59,11 +61,15 @@ export default function WeldFittingPage({
         <Box sx={{ p: 4, borderBottom: "1px solid #eee", bgcolor: "#fff" }}>
           <Box sx={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: 2 }}>
             <Box>
-              <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
-                Weld Fittings{" "}
-                <Box component="span" sx={{ color: "text.primary", fontWeight: 400 }}>
-                  — 316 Stainless Steel
-                </Box>
+              <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
+                {heading ?? (
+                  <>
+                    Weld Fittings{" "}
+                    <Box component="span" sx={{ color: "text.primary", fontWeight: 400 }}>
+                      — 316 Stainless Steel
+                    </Box>
+                  </>
+                )}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
                 Tube socket weld, tube butt weld and pipe socket weld fittings. Available in NPT, BSPT and BSPP thread standards.

@@ -128,11 +128,12 @@ export default function ProductDetailPage({ backHref, backLabel, image, partNumb
                 </Stack>
               )}
 
-              {/* Part number + title */}
-              <Typography variant="caption" sx={{ fontFamily: "monospace", color: BRAND_BLUE, fontWeight: 700, fontSize: "0.85rem", display: "block", mb: 0.5 }}>
-                {partNumber}
-              </Typography>
-              <Typography variant="h4" fontWeight={800} mb={3} sx={{ fontFamily: PRIMARY_FONT, lineHeight: 1.2 }}>
+              {/* Part number + title. This is the page's single <h1>: SKU + title keeps it unique
+                  per SKU (many variants share the same {title}), mirroring the <title> tag above. */}
+              <Typography component="h1" variant="h4" fontWeight={800} mb={3} sx={{ fontFamily: PRIMARY_FONT, lineHeight: 1.2 }}>
+                <Box component="span" sx={{ fontFamily: "monospace", color: BRAND_BLUE, display: "block", fontSize: "0.85rem", mb: 0.5 }}>
+                  {partNumber}
+                </Box>
                 {title}
               </Typography>
 

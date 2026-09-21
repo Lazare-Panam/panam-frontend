@@ -114,7 +114,7 @@ export default function NeedleValveIBPage() {
 
       <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
         <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
-          <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>{title}</Typography>
+          <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>{title}</Typography>
           <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>{description}</Typography>
           <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
             {specs.map(s => (

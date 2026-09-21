@@ -25,5 +25,5 @@ export default function Elbows() {
   })}
 </script>
 
-  <PipeFittingPage defaultFittingTypes={['FE', 'ME', 'SE']} /></>)
+  <PipeFittingPage title="Pipe Fitting Elbows" defaultFittingTypes={['FE', 'ME', 'SE']} /></>)
 }

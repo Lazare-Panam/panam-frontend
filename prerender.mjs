@@ -95,6 +95,42 @@ const staticRoutes = [
   "/double-block-and-bleed-valves/pipe-to-pipe",
   "/double-block-and-bleed-valves/flange-to-pipe",
   "/double-block-and-bleed-valves/flange-to-flange",
+  // High Pressure hub + category listing pages. Without these, Azure's navigationFallback served
+  // the prerendered HOMEPAGE for them, so their canonical was baked as "/" (Google would fold these
+  // high-traffic hubs into the homepage) and the SPA then added a 2nd, self-canonical at runtime →
+  // "multiple canonical tags with different URLs". Prerendering each ships one correct canonical.
+  "/high-pressure",
+  "/high-pressure/needle-valves",
+  "/high-pressure/double-block-and-valves",
+  "/high-pressure/ball-valves",
+  "/high-pressure/cones-threaded-nipples",
+  "/high-pressure/2-valve-manifolds",
+  "/high-pressure/fittings",
+  "/high-pressure/fittings/connectors",
+  "/high-pressure/fittings/unions",
+  "/high-pressure/fittings/adaptors",
+  "/high-pressure/fittings/elbows-tees-cross",
+  "/high-pressure/fittings/end-connections",
+  "/high-pressure/fittings/seals-glads",
+  "/high-pressure/pipe-fittings",
+  "/high-pressure/pipe-fittings/hex-nipples",
+  "/high-pressure/pipe-fittings/hex-couplings",
+  "/high-pressure/pipe-fittings/adapters",
+  "/high-pressure/pipe-fittings/elbows",
+  "/high-pressure/pipe-fittings/tees-crosses",
+  "/high-pressure/pipe-fittings/plugs-caps",
+  // Filter elements listing + the "all" pipe-fittings listing (were also falling back to "/").
+  "/filters/elements",
+  "/instrumentation-fittings/pipe-fittings/all",
+  // Blog posts that exist in the app but weren't prerendered (were canonicalising to "/").
+  "/blog/how-to-specify-industrial-and-control-valves",
+  "/blog/check-valve-guide",
+  "/blog/stainless-steel-ball-valve-guide",
+  "/blog/three-way-valve-l-port-t-port-guide",
+  "/blog/uk-industrial-valves-buyers-guide",
+  "/blog/npt-vs-bspp-vs-bspt-thread-standards",
+  "/blog/manifold-valves-for-accurate-safe-instrumentation",
+  "/blog/hp-series-needle-valves-high-pressure-flow-control",
 ];
 const routes = [...staticRoutes, ...PRODUCT_ROUTES]
 
@@ -121,6 +157,12 @@ for (const route of routes) {
       .map(m => m[0])
       .join("\n")
 
+    // X (Twitter) Card. Many components already emit their own twitter:* tags; only pages that
+    // don't (e.g. product detail pages, About, several listings/blogs) were flagged as missing the
+    // card. Inject a default ONLY when the page has none, so every page ends up with exactly one
+    // twitter:card and never a duplicate. X fills title/image from each page's Open Graph tags.
+    const twitterCardTag = /name=["']twitter:card["']/.test(headTags) ? "" : '<meta name="twitter:card" content="summary_large_image" />'
+
     // Remove them from body
     const bodyHtml = appHtml
       .replace(/<title[^>]*>.*?<\/title>/gs, "")
@@ -134,7 +176,7 @@ let html = originalTemplate
   .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
   
   // 2. Use a regex to find the <head> tag even if it has attributes
-  .replace(/<head[^>]*>/i, (match) => `${match}\n${headTags}`)
+  .replace(/<head[^>]*>/i, (match) => `${match}\n${headTags}\n${twitterCardTag}`)
   
   // 3. Keep your root replacement, but ensure it matches correctly
   .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);

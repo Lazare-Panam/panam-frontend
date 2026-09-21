@@ -25,10 +25,11 @@ import { FILTER_ELEMENT_DATA } from "./components/Filters/hooks/filterElementDat
 export interface ProductGroup {
   label: string
   base: string
+  slug: string
   partNumbers: string[]
 }
 
-export const PRODUCT_GROUPS: ProductGroup[] = [
+const RAW_GROUPS: Omit<ProductGroup, "slug">[] = [
   { label: "High Pressure — Ball Valves", base: "/high-pressure/ball-valves", partNumbers: HP_BALL_VALVE_DATA.map(p => String(p.partNumber)) },
   { label: "High Pressure — Needle Valves", base: "/high-pressure/needle-valves", partNumbers: HP_NEEDLE_VALVE_DATA.map(p => String(p.partNumber)) },
   { label: "High Pressure — Double Block & Bleed", base: "/high-pressure/double-block-and-valves", partNumbers: HP_DBB_DATA.map(p => String(p.partNumber)) },
@@ -50,6 +51,12 @@ export const PRODUCT_GROUPS: ProductGroup[] = [
   { label: "Filters — T-Type", base: "/filters/t-type", partNumbers: PTF_FILTERS_DATA.map(p => String(p.partNumber)) },
   { label: "Filters — Elements", base: "/filters/elements", partNumbers: FILTER_ELEMENT_DATA.map(p => String(p.partNumber)) },
 ]
+
+// slug is derived from the base path (e.g. "/high-pressure/ball-valves" -> "high-pressure-ball-valves")
+export const PRODUCT_GROUPS: ProductGroup[] = RAW_GROUPS.map(group => ({
+  ...group,
+  slug: group.base.replace(/^\//, "").replace(/\//g, "-"),
+}))
 
 export const PRODUCT_ROUTES: string[] = PRODUCT_GROUPS.flatMap(group =>
   group.partNumbers.map(partNumber => `${group.base}/${partNumber}`)

@@ -76,7 +76,7 @@ export default function SwivelGaugeAdaptorsPage() {
       {/* HEADER */}
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Container maxWidth="lg" sx={{ px: 0 }}>
-          <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
+          <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
             {SWIVEL_GAUGE_DESCRIPTION.title}
           </Typography>
           <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>

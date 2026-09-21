@@ -20,5 +20,5 @@ export default function TeesCross() {
 <meta name="twitter:title" content="Pipe Fitting Tees & Crosses | PANAM®" />
 <meta name="twitter:description" content={'PANAM® pipe fitting tees & crosses for branching instrumentation lines. SS316, Duplex, Monel & Hastelloy.'} />
 <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/swivel-run-tee.png" />
-<PipeFittingPage defaultFittingTypes={['FT', 'MT', 'FBT', 'FRT', 'ST', 'BT', 'RT', 'UT', 'C']} /></>) 
+<PipeFittingPage title="Pipe Fitting Tees & Crosses" defaultFittingTypes={['FT', 'MT', 'FBT', 'FRT', 'ST', 'BT', 'RT', 'UT', 'C']} /></>) 
 }

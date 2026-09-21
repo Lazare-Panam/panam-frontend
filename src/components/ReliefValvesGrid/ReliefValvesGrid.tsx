@@ -102,6 +102,7 @@ export default function ReliefValvePage() {
           <Box>
             <Typography
               variant="h4"
+              component="h1"
               fontWeight={800}
               sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT, letterSpacing: "-0.5px" }}
             >
@@ -160,7 +161,7 @@ export default function ReliefValvePage() {
             >
               <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
                 {col.icon}
-               <Typography component="h1" variant="body2" fontWeight={700} sx={{ fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
+               <Typography variant="body2" fontWeight={700} sx={{ fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
   {col.title}
 </Typography>
               </Box>

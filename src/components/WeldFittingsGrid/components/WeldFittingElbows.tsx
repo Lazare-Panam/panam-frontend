@@ -14,5 +14,5 @@ export default function WeldFittingElbows() {
 <meta name="twitter:title" content="Weld Fitting Elbows | Socket & Butt Weld | PANAM®" />
 <meta name="twitter:description" content={'PANAM® weld fitting elbows — socket & butt weld for permanent directional changes. SS316, Duplex, Monel & Hastelloy.'} />
 <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/connector-weld.jpg" />
-<WeldFittingPage defaultFittingTypes={['ME', 'FE']} section="elbows" renderMeta={false} /></>) 
+<WeldFittingPage heading="Weld Fitting Elbows" defaultFittingTypes={['ME', 'FE']} section="elbows" renderMeta={false} /></>) 
 }

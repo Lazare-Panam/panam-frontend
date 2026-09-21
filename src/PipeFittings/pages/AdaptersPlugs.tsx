@@ -24,6 +24,6 @@ export default function AdaptersPlugs() {
     description: "PANAM® pipe adapters & plugs for instrumentation and process connections. SS316, Duplex, Monel & Hastelloy with NPT, BSPT & BSPP thread options.",
   })}
 </script>
-  <PipeFittingPage defaultFittingTypes={['A', 'RA', 'RB', 'HP', 'HHP', 'PC']} />
+  <PipeFittingPage title="Pipe Adapters & Plugs" defaultFittingTypes={['A', 'RA', 'RB', 'HP', 'HHP', 'PC']} />
   </>)
 }

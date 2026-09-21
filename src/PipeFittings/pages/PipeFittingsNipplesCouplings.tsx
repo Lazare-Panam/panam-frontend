@@ -26,7 +26,7 @@ export default function NipplesCouplings() {
       })}
     </script>
 
-    <PipeFittingPage defaultFittingTypes={['HN', 'HLN', 'HRN', 'CN', 'LPN', 'HC', 'RHC']} />
+    <PipeFittingPage title="Pipe Nipples & Couplings" defaultFittingTypes={['HN', 'HLN', 'HRN', 'CN', 'LPN', 'HC', 'RHC']} />
     </>
     
   )

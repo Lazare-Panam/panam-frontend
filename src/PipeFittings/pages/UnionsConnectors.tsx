@@ -25,5 +25,5 @@ export default function UnionsConnectors() {
     description: "PANAM® pipe unions & connectors for secure, leak-tight instrumentation and process joints. SS316, Duplex, Monel & Hastelloy with NPT, BSPT & BSPP threads.",
   })}
 </script>
-<PipeFittingPage defaultFittingTypes={['U', 'BHU', 'SU', 'SC', 'UE']} /></>)
+<PipeFittingPage title="Pipe Unions & Connectors" defaultFittingTypes={['U', 'BHU', 'SU', 'SC', 'UE']} /></>)
 }

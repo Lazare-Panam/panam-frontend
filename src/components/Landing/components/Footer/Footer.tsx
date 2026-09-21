@@ -55,7 +55,8 @@ const SocialIcons = () => (
     {SOCIAL_LINKS.map(({ Icon, name, url }) => (
       <IconButton
         key={name}
-        aria-label={name}
+        aria-label={`Panam Valves on ${name}`}
+        title={`Panam Valves on ${name}`}
         size="small"
         component="a"
         href={url}
@@ -64,6 +65,14 @@ const SocialIcons = () => (
         sx={{ color: "white", "&:hover": { color: BRAND_BLUE, transform: "translateY(-2px)", transition: "all 0.2s" } }}
       >
         <Icon fontSize="small" />
+        {/* Real anchor text for crawlers (SE Ranking flags icon-only links as empty anchors);
+            visually hidden so the footer still shows just the icon. */}
+        <Box
+          component="span"
+          sx={{ position: "absolute", width: 1, height: 1, p: 0, m: "-1px", overflow: "hidden", clip: "rect(0 0 0 0)", whiteSpace: "nowrap", border: 0 }}
+        >
+          Panam Valves on {name}
+        </Box>
       </IconButton>
     ))}
   </Stack>

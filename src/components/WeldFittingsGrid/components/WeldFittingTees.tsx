@@ -16,7 +16,7 @@ export default function WeldFittingTees() {
       <meta name="twitter:title" content="Weld Fitting Tees | Socket & Butt Weld | PANAM®" />
       <meta name="twitter:description" content={"PANAM® weld fitting tees — socket & butt weld for permanent branch connections. SS316, Duplex, Monel & Hastelloy."} />
       <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/connector-weld.jpg" />
-      <WeldFittingPage defaultFittingTypes={["PMRT", "PMBT"]} section="tees" renderMeta={false} />
+      <WeldFittingPage heading="Weld Fitting Tees" defaultFittingTypes={["PMRT", "PMBT"]} section="tees" renderMeta={false} />
     </>
   )
 }

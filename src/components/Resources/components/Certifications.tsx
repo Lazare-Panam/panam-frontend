@@ -38,6 +38,13 @@ const CertificationsPage: React.FC = () => {
   const { tab } = useParams<{ tab: string }>()
   const isBasePage = !tab
   const activeTab = tabs.find(t => t.key === tab)?.key ?? "qms"
+  const headingText = isBasePage
+    ? "Quality, Certifications & Compliance"
+    : ({
+        "qms": "QMS Certifications",
+        "type-reports": "Type Test Reports",
+        "registrations": "Registrations & Approvals",
+      }[activeTab] ?? "Official Certifications")
   const tabTitles: Record<string, string> = {
   "qms": "QMS Certifications | Panam Valves – ISO & Quality Management",
   "type-reports": "Type Test Reports | Panam Valves – CE, ATEX, DNV-GL & More",
@@ -81,7 +88,7 @@ const CertificationsPage: React.FC = () => {
             </Stack>
             <Typography
               variant="h2"
-              component={isBasePage ? "h1" : "h2"}
+              component="h1"
               sx={{
                 fontWeight: 900,
                 fontFamily: PRIMARY_FONT,
@@ -90,7 +97,7 @@ const CertificationsPage: React.FC = () => {
                 letterSpacing: "-0.02em",
                 mb: 4,
               }}>
-              {isBasePage ? "Quality, Certifications & Compliance" : "Official Certifications"}
+              {headingText}
             </Typography>
             <TextField
               fullWidth

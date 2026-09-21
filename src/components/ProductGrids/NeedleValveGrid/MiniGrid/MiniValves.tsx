@@ -55,7 +55,7 @@ export default function MiniValvePage() {
 </script>
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
     <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-    <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
+    <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE }}>
     {title}
     </Typography>
     <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
