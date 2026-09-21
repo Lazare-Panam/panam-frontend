@@ -30,6 +30,14 @@ export default function PipeElbowPage() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
+      <title>PANAM® High Pressure Pipe Elbows | Male, Female, Street & Swivel | 10,000–15,000 psi</title>
+      <meta name="description" content="Panam high pressure male, female, street, swivel and union elbows in NPT, BSPT, ISO parallel and 37° JIC, rated 10,000 to 15,000 psi. SS 316, 1/8&quot; to 1 1/2&quot;." />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href="https://www.panamvalve.com/high-pressure/pipe-fittings/elbows" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="PANAM® High Pressure Pipe Elbows | Male, Female, Street & Swivel | 10,000–15,000 psi" />
+      <meta property="og:description" content="Panam high pressure male, female, street, swivel and union elbows in NPT, BSPT, ISO parallel and 37° JIC, rated 10,000 to 15,000 psi. SS 316, 1/8&quot; to 1 1/2&quot;." />
+      <meta property="og:url" content="https://www.panamvalve.com/high-pressure/pipe-fittings/elbows" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           {PIPE_ELBOW_DESCRIPTION.title}

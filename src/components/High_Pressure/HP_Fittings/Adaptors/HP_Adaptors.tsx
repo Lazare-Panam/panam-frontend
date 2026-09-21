@@ -30,6 +30,14 @@ export default function HPAdapterPage() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
+      <title>PANAM® High Pressure Reducers & Adapters | 10,000–60,000 psi | SS 316</title>
+      <meta name="description" content="Panam high pressure reducers and male/female adapters converting between MP/HP cone & thread, tube and NPT ends, rated 10,000 to 60,000 psi. SS 316, 1/8&quot; to 1&quot;." />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href="https://www.panamvalve.com/high-pressure/fittings/adaptors" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="PANAM® High Pressure Reducers & Adapters | 10,000–60,000 psi | SS 316" />
+      <meta property="og:description" content="Panam high pressure reducers and male/female adapters converting between MP/HP cone & thread, tube and NPT ends, rated 10,000 to 60,000 psi. SS 316, 1/8&quot; to 1&quot;." />
+      <meta property="og:url" content="https://www.panamvalve.com/high-pressure/fittings/adaptors" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           {HP_ADAPTER_DESCRIPTION.title}

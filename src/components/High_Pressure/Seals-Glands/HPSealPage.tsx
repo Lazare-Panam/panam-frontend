@@ -28,6 +28,14 @@ export default function HPSealPage() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
+      <title>PANAM® High Pressure Glands, Anti-Vibration Glands & Collars | 20,000–60,000 psi | SS 316</title>
+      <meta name="description" content="Panam high pressure anti-vibration glands, glands and collars for MP and HP cone & thread tube connections, rated 20,000 to 60,000 psi. SS 316, 1/4&quot; to 1&quot;." />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href="https://www.panamvalve.com/high-pressure/fittings/seals-glads" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="PANAM® High Pressure Glands, Anti-Vibration Glands & Collars | 20,000–60,000 psi | SS 316" />
+      <meta property="og:description" content="Panam high pressure anti-vibration glands, glands and collars for MP and HP cone & thread tube connections, rated 20,000 to 60,000 psi. SS 316, 1/4&quot; to 1&quot;." />
+      <meta property="og:url" content="https://www.panamvalve.com/high-pressure/fittings/seals-glads" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
           {HP_SEAL_DESCRIPTION.title}

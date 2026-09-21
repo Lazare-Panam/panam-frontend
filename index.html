@@ -9,6 +9,43 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <script data-cfasync="false" type="text/javascript" src="https://cdn.seoplatform.io/injector.js?websiteId=28406"></script> -->
+    <script>
+      // Dedupe hoisted <head> metadata. The prerender bakes exactly one <title>/<meta>/<link rel=canonical>
+      // into the static HTML, but React 19 re-renders the page component's own copies during client
+      // hydration and re-hoists them into <head> — and React does NOT dedupe <meta> or <link rel=canonical>.
+      // Result: JS-rendering crawlers (e.g. SE Ranking) see two of each and flag "multiple meta description /
+      // canonical tags". This inline script runs before hydration and watches <head>: whenever a singleton
+      // head tag is added, it removes any older copy with the same key, keeping the newest (React-owned) node
+      // so client-side navigation can still update it.
+      ;(function () {
+        var keyOf = function (el) {
+          if (!el || el.nodeType !== 1) return null
+          if (el.tagName === "TITLE") return "title"
+          if (el.tagName === "META") {
+            var name = el.getAttribute("name")
+            if (name) return "meta[name=" + name.toLowerCase() + "]"
+            var prop = el.getAttribute("property")
+            if (prop) return "meta[property=" + prop.toLowerCase() + "]"
+            return null // charset / http-equiv / viewport — leave untouched
+          }
+          if (el.tagName === "LINK" && (el.getAttribute("rel") || "").toLowerCase() === "canonical") return "link[canonical]"
+          return null
+        }
+        var dedupe = function (added) {
+          var key = keyOf(added)
+          if (!key) return
+          var nodes = document.head.querySelectorAll('title, meta[name], meta[property], link[rel="canonical"]')
+          for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i] !== added && keyOf(nodes[i]) === key) nodes[i].parentNode.removeChild(nodes[i])
+          }
+        }
+        new MutationObserver(function (muts) {
+          for (var i = 0; i < muts.length; i++) {
+            for (var j = 0; j < muts[i].addedNodes.length; j++) dedupe(muts[i].addedNodes[j])
+          }
+        }).observe(document.head, { childList: true })
+      })()
+    </script>
      
     <script type="text/javascript">
       ;(function (c, l, a, r, i, t, y) {
