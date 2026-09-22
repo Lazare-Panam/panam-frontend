@@ -263,6 +263,15 @@ const Footer: React.FC = () => {
           </Grid>
         )}
 
+        {/* Google "Preferred sources" button. publisher.js (loaded in index.html) injects the button
+            into the inner div by its `google-add-preferred-source-btn` attribute. This is a plain <div>,
+            NOT MUI <Box>: Box filters props through Emotion's is-prop-valid, which would strip this
+            non-standard attribute. The attribute is spread in (not in React's typed div props);
+            suppressHydrationWarning because Google's async script may populate this node around hydration. */}
+        <Box sx={{ display: "flex", justifyContent: "center", mb: 3 }}>
+          <div suppressHydrationWarning {...({ "google-add-preferred-source-btn": "", "data-theme": "dark" } as Record<string, string>)} />
+        </Box>
+
         <Divider sx={{ borderColor: "rgba(255,255,255,0.1)" }} />
 
         <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "center" }} spacing={1.5} sx={{ mt: 3 }}>
