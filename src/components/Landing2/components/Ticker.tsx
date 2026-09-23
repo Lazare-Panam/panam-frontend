@@ -21,6 +21,7 @@ const partners = [
   { name: "Fluid Power Scotland", img: "https://pblol2.blob.core.windows.net/panam-images/brands/Fps.avif", url: "https://www.fluidpowerscotland.co.uk/" },
   
   { name: "Storm Procurement", img: "https://pblol2.blob.core.windows.net/panam-images/brands/storm-logo.webp", url: "https://www.storm-procurement.com/" },
+  { name: "Domin", img: "https://pblol2.blob.core.windows.net/panam-images/brands/Domin-Logo.svg", url: "https://domin.com/" },
 ]
 
 

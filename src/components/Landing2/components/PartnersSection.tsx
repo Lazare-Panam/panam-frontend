@@ -15,6 +15,7 @@ const PartnersSection = () => {
     { name: "R & G Group", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/logo.png", url: "https://www.rgfluidpower.com/" },
     { name: "Hydraulic Megastore", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/hydraulic-logo-white-320x79.webp", url: "https://www.hydraulicmegastore.com/" },
     { name: "Ram Universal", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/ram-logo.png", url: "https://www.ramuniversal.co.uk/" },
+    { name: "Domin", logo: "https://pblol2.blob.core.windows.net/panam-images/brands/Domin-Logo.svg", url: "https://domin.com/" },
   ]
 
   return (
