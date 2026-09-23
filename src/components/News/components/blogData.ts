@@ -13,6 +13,16 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
+    slug: "api-valve-standards-600-602-603-598-6d",
+    title: "API Valve Standards Made Simple: API 600, 602, 603, 598, 6D and When They Apply",
+    category: "Technical Guide",
+    author: "Steven Kassi",
+    date: "Sep 23, 2026",
+    readTime: "9 min read",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png",
+    excerpt: "This guide demystifies the main API valve standards and how to apply them on real projects. Learn what API 600, 602, 603, 598, 6D and 609 cover, how they pair with ASME, EN and NACE, and how to choose the right product and test standard. See how to write clear data sheets and ITPs that pass review and avoid FAT or SAT delays.",
+  },
+  {
     slug: "how-to-specify-industrial-and-control-valves",
     title: "How to Specify Industrial and Control Valves: From Cv and Pressure Class to Materials",
     category: "Technical Guide",

@@ -190,6 +190,7 @@ import CreditApplicationForm from "./components/CreditLineApplication/CreditAppl
 import AllPipeFittings from "./PipeFittings/pages/PipeFittingsAll"
 import AllPipeFittingsProductPage from "./PipeFittings/components/AllPipeFittings"
 import SpecifyValvesGuideBlog from "./components/News/components/Specifyvalvesguideblog"
+import ApiValveStandardsBlog from "./components/News/components/ApiValveStandardsBlog"
 
 export const routes = [
   {
@@ -614,6 +615,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <SpecifyValvesGuideBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/api-valve-standards-600-602-603-598-6d",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ApiValveStandardsBlog />
           </Suspense>
         ),
       },

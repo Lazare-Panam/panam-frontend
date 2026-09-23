@@ -130,6 +130,7 @@ const staticRoutes = [
   "/instrumentation-fittings/pipe-fittings/all",
   // Blog posts that exist in the app but weren't prerendered (were canonicalising to "/").
   "/blog/how-to-specify-industrial-and-control-valves",
+  "/blog/api-valve-standards-600-602-603-598-6d",
   "/blog/check-valve-guide",
   "/blog/stainless-steel-ball-valve-guide",
   "/blog/three-way-valve-l-port-t-port-guide",
