@@ -184,7 +184,7 @@ const FittingCard: React.FC<FittingItem> = ({ type, title, description, image, p
 export default function FittingsPage() {
   return (
     <>
-      <title>Instrumentation Fittings | Tube, JIC, Pipe & Weld | PANAM®</title>
+      <title>Instrumentation Fittings and Instrumentation Valve Range - Panam Valves Ltd.</title>
       <meta name="description" content="PANAM® instrumentation fittings: tube, 37° JIC, pipe, weld & swivel gauge adaptors in SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig. Request a quote." />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings" />
       <meta name="robots" content="index, follow" />

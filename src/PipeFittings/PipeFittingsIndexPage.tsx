@@ -192,7 +192,7 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 export default function PipeFittingsIndexPage() {
   return (
     <>
-      <title>Pipe Fittings | High-Pressure Instrumentation | PANAM®</title>
+      <title>Pipe Fittings and Stainless Steel Fittings - Panam Valves Ltd.</title>
       <meta name="description" content={"PANAM® pipe fittings — nipples, couplings, adapters, unions, elbows, tees & crosses for extreme service: hydrogen, fuel cell, aerospace & cryogenic. To 15,000 psig."} />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/pipe-fittings" />
       <meta name="robots" content="index, follow" />
