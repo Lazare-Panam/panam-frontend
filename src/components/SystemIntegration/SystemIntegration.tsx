@@ -15,12 +15,6 @@ const PRODUCTS = [
         image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/stablized-connector.png",
       },
       {
-        title: "Air Header",
-        description: "Manifold system used to distribute compressed air to multiple outlets for instrument and utility applications.",
-        image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/air-h.jpg",
-        href: "/system-integration/air-header",
-      },
-      {
         title: "Condensate Pots",
         description: "Used to collect and trap condensate in steam or gas lines to protect instruments and ensure accurate measurement.",
         image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/condensate-pots.jpg",

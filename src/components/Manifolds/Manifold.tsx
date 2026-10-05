@@ -43,6 +43,13 @@ const MANIFOLDS = [
     material: "SS316 · NACE / Power Config / LB Options",
     valves: "5-Valve",
   },
+  {
+    title: "Air Header",
+    description: "Manifold system used to distribute compressed air to multiple outlets for instrument and utility applications.",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/air-h.jpg",
+    badge: "Air Distribution",
+    href: "/system-integration/air-header",
+  },
 ]
 
 const SPECS = [
@@ -55,10 +62,21 @@ const SPECS = [
   { label: "Valve Families", value: "2VM · 3VM · 5VM" },
 ]
 
-type ManifoldItem = (typeof MANIFOLDS)[0]
+interface ManifoldItem {
+  type?: string
+  title: string
+  description: string
+  image: string
+  pressure?: string
+  size?: string
+  material?: string
+  valves?: string
+  badge?: string
+  href?: string
+}
 
-const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image, pressure, material, valves }) => {
-  const href = MANIFOLD_ROUTES[type] ?? `/manifolds/${type}`
+const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image, pressure, material, valves, badge, href: itemHref }) => {
+  const href = itemHref ?? (type ? MANIFOLD_ROUTES[type] ?? `/manifolds/${type}` : "/enquiry")
 
   return (
     <Card
@@ -95,37 +113,55 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
         </Typography>
 
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
-          <Box
-            sx={{
-              display: "inline-flex",
-              alignItems: "center",
-              bgcolor: "#e8f7fd",
-              border: "1px solid #b3e5f7",
-              borderRadius: 0.5,
-              px: 1.2,
-              py: 0.3,
-            }}>
-            <Typography sx={{ fontSize: 11, fontWeight: 700, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, letterSpacing: 0.5 }}>{pressure} MAX</Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "inline-flex",
-              alignItems: "center",
-              bgcolor: "#f5f5f5",
-              border: "1px solid #e0e0e0",
-              borderRadius: 0.5,
-              px: 1.2,
-              py: 0.3,
-            }}>
-            <Typography sx={{ fontSize: 11, fontWeight: 600, color: "#555", fontFamily: PRIMARY_FONT }}>{valves}</Typography>
-          </Box>
+          {pressure && (
+            <Box
+              sx={{
+                display: "inline-flex",
+                alignItems: "center",
+                bgcolor: "#e8f7fd",
+                border: "1px solid #b3e5f7",
+                borderRadius: 0.5,
+                px: 1.2,
+                py: 0.3,
+              }}>
+              <Typography sx={{ fontSize: 11, fontWeight: 700, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, letterSpacing: 0.5 }}>{pressure} MAX</Typography>
+            </Box>
+          )}
+          {valves && (
+            <Box
+              sx={{
+                display: "inline-flex",
+                alignItems: "center",
+                bgcolor: "#f5f5f5",
+                border: "1px solid #e0e0e0",
+                borderRadius: 0.5,
+                px: 1.2,
+                py: 0.3,
+              }}>
+              <Typography sx={{ fontSize: 11, fontWeight: 600, color: "#555", fontFamily: PRIMARY_FONT }}>{valves}</Typography>
+            </Box>
+          )}
+          {badge && (
+            <Box
+              sx={{
+                display: "inline-flex",
+                alignItems: "center",
+                bgcolor: "#e8f7fd",
+                border: "1px solid #b3e5f7",
+                borderRadius: 0.5,
+                px: 1.2,
+                py: 0.3,
+              }}>
+              <Typography sx={{ fontSize: 11, fontWeight: 700, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, letterSpacing: 0.5 }}>{badge}</Typography>
+            </Box>
+          )}
         </Box>
 
         <Typography variant="body2" sx={{ color: "#666", lineHeight: 1.75, fontSize: "0.88rem", fontFamily: PRIMARY_FONT, mb: 1.5 }}>
           {description}
         </Typography>
 
-        <Typography sx={{ fontSize: 11, color: "#999", fontFamily: PRIMARY_FONT, letterSpacing: 0.3 }}>{material}</Typography>
+        {material && <Typography sx={{ fontSize: 11, color: "#999", fontFamily: PRIMARY_FONT, letterSpacing: 0.3 }}>{material}</Typography>}
       </CardContent>
 
       <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
@@ -144,7 +180,7 @@ const ManifoldCard: React.FC<ManifoldItem> = ({ type, title, description, image,
             py: 1,
             "&:hover": { bgcolor: "#0090c8" },
           }}>
-          VIEW RANGE
+          {type ? "VIEW RANGE" : "VIEW PRODUCT"}
         </Button>
         <Button
           variant="outlined"
@@ -383,7 +419,7 @@ export default function ManifoldsIndexPage() {
           <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 560, lineHeight: 1.8 }}>Each manifold family is purpose-built for a specific transmitter type and application. Select by valve count, connection size, or special service requirement.</Typography>
           <Grid container spacing={3}>
             {MANIFOLDS.map(m => (
-              <Grid key={m.type} size={{ xs: 12, sm: 6, md: 4 }}>
+              <Grid key={m.type ?? m.title} size={{ xs: 12, sm: 6, md: 3 }}>
                 <ManifoldCard {...m} />
               </Grid>
             ))}
