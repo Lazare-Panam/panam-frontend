@@ -45,7 +45,7 @@ const MANIFOLDS = [
   },
   {
     title: "Air Header",
-    description: "Manifold system used to distribute compressed air to multiple outlets for instrument and utility applications.",
+    description: "Stainless steel 316 air distribution header carrying 4 to 20 side outlets from a single inlet, with an end drain for line clearing. Ball or needle valves on the inlet, outlets, and drain, with threaded, weld, or compression connections. Rated up to 6000 psi (414 bar) and 648 °C (1200 °F), with radiographic and liquid-penetrant weld testing and nitrogen leak testing on every valve.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/air-h.jpg",
     badge: "Air Distribution",
     href: "/system-integration/air-header",
