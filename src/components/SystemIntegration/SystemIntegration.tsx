@@ -4,7 +4,20 @@ import Grid from "@mui/material/Grid"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
 
-const PRODUCTS = [
+interface ProductItem {
+  title: string
+  description: string
+  image: string
+  href?: string
+}
+
+interface ProductGroup {
+  category: string
+  overline: string
+  items: ProductItem[]
+}
+
+const PRODUCTS: ProductGroup[] = [
   {
     category: "System Integration",
     overline: "PANAM® System Integration",
