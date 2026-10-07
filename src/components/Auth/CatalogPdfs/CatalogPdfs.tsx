@@ -29,13 +29,36 @@ const CatalogPdfs = () => {
 
   const filteredCatalogs = catalogs?.filter((catalog: any) => catalog.title.toLowerCase().includes(searchTerm.toLowerCase()))
 
+  const header = (
+    <Box
+      sx={{
+        mb: 6,
+        display: "flex",
+        flexDirection: "column",
+        borderLeft: `6px solid ${BRAND_BLUE}`,
+        pl: 3,
+      }}>
+      <Typography component="h1" variant="h3" sx={{ fontWeight: 900, color: BRAND_BLUE, fontSize: "2.25rem", letterSpacing: -1, fontFamily: PRIMARY_FONT }}>
+        PRODUCT CATALOGS
+      </Typography>
+      <Typography variant="body2" sx={{ color: "text.secondary", fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, fontFamily: PRIMARY_FONT }}>
+        CENTRALIZED TECHNICAL DOCUMENTATION
+      </Typography>
+    </Box>
+  )
+
+  // The prerendered HTML is captured in this loading state (the catalog list comes from the API),
+  // so it must still carry the page's <h1> — otherwise crawlers report "H1 tag missing".
   if (isLoading) {
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60vh" }}>
+      <Box sx={{ p: { xs: 3, md: 8 }, maxWidth: "1200px", margin: "0 auto" }}>
         <title>Product Catalogs & Technical PDFs | Panam Valves</title>
         <meta name="description" content="Download Panam Valves product catalogs and technical datasheets for high pressure valves, fittings, manifolds and filters." />
         <meta name="robots" content="index, follow" />
-        <CircularProgress sx={{ color: BRAND_BLUE }} />
+        {header}
+        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "40vh" }}>
+          <CircularProgress sx={{ color: BRAND_BLUE }} />
+        </Box>
       </Box>
     )
   }
@@ -82,21 +105,7 @@ const CatalogPdfs = () => {
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh", pb: 10, position: "relative" }}>
       <Box sx={{ p: { xs: 3, md: 8 }, maxWidth: "1200px", margin: "0 auto" }}>
         {/* Header Section */}
-        <Box
-          sx={{
-            mb: 6,
-            display: "flex",
-            flexDirection: "column",
-            borderLeft: `6px solid ${BRAND_BLUE}`,
-            pl: 3,
-          }}>
-         <Typography component="h1" variant="h3" sx={{ fontWeight: 900, color: BRAND_BLUE, fontSize: "2.25rem", letterSpacing: -1, fontFamily: PRIMARY_FONT }}>
-  PRODUCT CATALOGS
-</Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary", fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, fontFamily: PRIMARY_FONT }}>
-            CENTRALIZED TECHNICAL DOCUMENTATION
-          </Typography>
-        </Box>
+        {header}
 
         {/* Search Input */}
         <Box sx={{ mb: 6 }}>

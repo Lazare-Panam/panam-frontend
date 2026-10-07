@@ -140,8 +140,8 @@ export const CATEGORIES2: CategoryData2[] = [
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/tubing/TUBING_-_2-removebg-preview.png",
     seoDescription: "Stainless steel instrumentation tubing rated for high-pressure gas and liquid service, compatible with our full tube fitting range.",
     products: [
-      { name: "Tubing", link: "/products/tubing" },
-      { name: "High Pressure Tubing", link: "/products/tubing" },
+      { name: "Tubing", link: "/quick-coupling-and-tubing/tubing" },
+      { name: "High Pressure Tubing", link: "/quick-coupling-and-tubing/tubing" },
     ],
   },
 

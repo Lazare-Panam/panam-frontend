@@ -122,8 +122,8 @@ export const CATEGORIES: CategoryData[] = [
     id: "tubing",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/tubing/TUBING_-_2-removebg-preview.png",
     products: [
-      { name: "Tubing", link: "/products/tubing" },
-      { name: "High Pressure Tubing", link: "/products/tubing" },
+      { name: "Tubing", link: "/quick-coupling-and-tubing/tubing" },
+      { name: "High Pressure Tubing", link: "/quick-coupling-and-tubing/tubing" },
     ],
   },
 

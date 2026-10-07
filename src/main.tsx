@@ -33,8 +33,19 @@ new MutationObserver(() => {
   }
 }).observe(document.head, { childList: true })
 
-if (rootElement.hasChildNodes()) {
+// Only hydrate HTML that was prerendered for THIS route. Routes that aren't prerendered (e.g. the
+// API-driven tube-fitting product pages) are served the homepage's HTML by Azure's
+// navigationFallback; hydrating that always fails (React #418), and while React recovers the page
+// shows neither the homepage nor the product — crawlers recorded "H1 tag missing" there. Render
+// those from scratch instead.
+const normalizePath = (p: string) => {
+  try { p = decodeURI(p) } catch { /* malformed escape — compare as-is */ }
+  return p.replace(/\/+$/, "") || "/"
+}
+const prerenderedRoute = rootElement.dataset.prerenderedRoute
+if (rootElement.hasChildNodes() && prerenderedRoute && normalizePath(prerenderedRoute) === normalizePath(window.location.pathname)) {
   hydrateRoot(rootElement, app)
 } else {
+  rootElement.replaceChildren()
   createRoot(rootElement).render(app)
 }
