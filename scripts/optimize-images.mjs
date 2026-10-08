@@ -42,6 +42,8 @@ const BLOB_PATHS = [
   "products/valve-manifolds/2VM/2VM_Cover.jpg",
   "products/valve-manifolds/3VM/3VM_Cover.jpg",
   "products/valve-manifolds/5VM/5VM_Cover.jpg",
+  "products/valve-manifolds/3VM/3VM-1.jpg",
+  "products/valve-manifolds/5VM/5VM-1.jpg",
   "products/DBB/DBB_fxp.jpg",
   "products/DBB/DBB_fxf.jpg",
   "products/DBB/DBB-pxp.jpg",

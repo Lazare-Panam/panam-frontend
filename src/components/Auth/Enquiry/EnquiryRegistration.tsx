@@ -148,7 +148,7 @@ export const EnquiryRegistration = () => {
             <Grid size={{ xs: 12, md: 6 }} sx={{ p: { xs: 4, md: 8 }, bgcolor: "white" }}>
               <Stack spacing={3}>
                 <Box>
-                  <Typography variant="h5" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                  <Typography component="h1" variant="h5" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>
                     Technical Enquiry & Partner Onboarding
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mt: 1, lineHeight: 1.6 }}>

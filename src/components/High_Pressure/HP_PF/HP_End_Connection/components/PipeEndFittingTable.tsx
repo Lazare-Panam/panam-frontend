@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -73,7 +73,12 @@ function PipeEndFittingRow({ row }: { row: PipeEndFittingDTO }) {
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
           </IconButton>
         </TableCell>
-        <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_BLUE, fontSize: '0.75rem', py: 1 }}>{row.partNumber}</TableCell>
+        <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_BLUE, fontSize: '0.75rem', py: 1 }}>
+          {/* Real <a href> (not just the row onClick) so crawlers can follow the category page to each SKU page */}
+          <Link to={`/high-pressure/pipe-fittings/plugs-caps/${row.partNumber}`} onClick={e => e.stopPropagation()} style={{ color: 'inherit', textDecoration: 'none' }}>
+            {row.partNumber}
+          </Link>
+        </TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{row.fittingType}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.pressureRating} size="small"

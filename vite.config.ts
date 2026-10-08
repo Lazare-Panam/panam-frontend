@@ -124,11 +124,15 @@ export default defineConfig(({ isSsrBuild }) => ({
       // "/" is deliberately omitted here — vite-plugin-sitemap also globs physical files already
       // in outDir, dist/index.html always exists by this point, and the plugin doesn't dedup
       // against dynamicRoutes, so listing "/" here produced two identical <url> entries for it.
+      // The plugin runs every route through path.parse() and keeps only `.name`, so a part number
+      // with a dot (PTN-4M-2.75-SS, PHLN-2N-SS-L-1.5-10K) lost everything after it ("PTN-4M-2") —
+      // a URL that doesn't exist, falls back to the homepage and canonicalises to "/". Appending
+      // ".html" makes that the parsed extension, so the full part number survives intact.
       dynamicRoutes: [
         ...CATEGORY_ROUTES,
         ...BLOG_POSTS,
         ...PRODUCT_ROUTES,
-      ],
+      ].map(route => (route.split("/").pop()!.includes(".") ? `${route}.html` : route)),
     }),
   ],
   build: {
