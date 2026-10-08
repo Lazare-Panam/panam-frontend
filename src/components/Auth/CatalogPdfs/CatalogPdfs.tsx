@@ -1,21 +1,31 @@
 import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { Link } from "react-router-dom"
-import { Box, Typography, Card, CardMedia, CardContent, Button, CircularProgress, Stack, TextField, InputAdornment, ButtonBase } from "@mui/material"
+import { Box, Typography, CircularProgress, Stack, TextField, InputAdornment, ButtonBase, Button } from "@mui/material"
 
 import Grid from "@mui/material/Grid"
-import { PictureAsPdf as PdfIcon, OpenInNew as OpenIcon, Search as SearchIcon, LockOutlined as LockIcon } from "@mui/icons-material"
+import { PictureAsPdf as PdfIcon, OpenInNew as OpenIcon, Search as SearchIcon } from "@mui/icons-material"
 import { getallCatalogPdfs } from "../../../api/productApi"
-import { useUserStore } from "../../store/useUserStore"
 
 const BRAND_BLUE = "#01B0F0"
 const TEXT_MAIN = "#1a1a1a"
 const BORDER_COLOR = "#E2E8F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
+const CATEGORIES = ["All", "Fittings", "Valves", "Manifolds", "Others"] as const
+type Category = (typeof CATEGORIES)[number]
+
+// Bucket a catalog by its backend `category` if present, otherwise by keywords in its title.
+const classifyCatalog = (catalog: any): Exclude<Category, "All"> => {
+  const text = `${catalog.category ?? ""} ${catalog.title ?? ""}`.toLowerCase()
+  if (text.includes("manifold")) return "Manifolds"
+  if (text.includes("fitting")) return "Fittings"
+  if (text.includes("valve")) return "Valves"
+  return "Others"
+}
+
 const CatalogPdfs = () => {
   const [searchTerm, setSearchTerm] = useState("")
-  const { isAuthenticated } = useUserStore()
+  const [activeCategory, setActiveCategory] = useState<Category>("All")
 
   const {
     data: catalogs,
@@ -27,7 +37,11 @@ const CatalogPdfs = () => {
     staleTime: 1000 * 60 * 10,
   })
 
-  const filteredCatalogs = catalogs?.filter((catalog: any) => catalog.title.toLowerCase().includes(searchTerm.toLowerCase()))
+  const filteredCatalogs = catalogs?.filter(
+    (catalog: any) =>
+      catalog.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (activeCategory === "All" || classifyCatalog(catalog) === activeCategory),
+  )
 
   if (isLoading) {
     return (
@@ -126,6 +140,39 @@ const CatalogPdfs = () => {
           />
         </Box>
 
+        {/* Category Filter Buttons */}
+        <Stack direction="row" spacing={1.5} sx={{ mb: 6, flexWrap: "wrap", gap: 1.5 }}>
+          {CATEGORIES.map(category => {
+            const isActive = activeCategory === category
+            return (
+              <Button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                variant={isActive ? "contained" : "outlined"}
+                sx={{
+                  borderRadius: 0,
+                  fontWeight: 800,
+                  letterSpacing: 1,
+                  textTransform: "uppercase",
+                  boxShadow: "none",
+                  borderWidth: "2px",
+                  px: 3,
+                  bgcolor: isActive ? BRAND_BLUE : "transparent",
+                  color: isActive ? "#fff" : BRAND_BLUE,
+                  borderColor: BRAND_BLUE,
+                  "&:hover": {
+                    borderWidth: "2px",
+                    bgcolor: isActive ? "#0088BA" : "rgba(1,176,240,0.08)",
+                    borderColor: BRAND_BLUE,
+                    boxShadow: "none",
+                  },
+                }}>
+                {category}
+              </Button>
+            )
+          })}
+        </Stack>
+
         {/* Main Content Area */}
         <Box sx={{ position: "relative" }}>
           {/* Blurred Catalog Grid */}
@@ -133,43 +180,44 @@ const CatalogPdfs = () => {
             container
             spacing={4}
             sx={{
-              filter: !isAuthenticated ? "blur(3px)" : "none",
-              pointerEvents: !isAuthenticated ? "none" : "auto", // Disable clicks if locked
+              filter: "none",
+              pointerEvents: "auto",
               transition: "filter 0.4s ease",
             }}>
             {filteredCatalogs?.length > 0 ? (
               filteredCatalogs.map((catalog: any) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={catalog.id}>
-                  <Card
+                  <ButtonBase
+                    component="a"
+                    href={catalog.blobUrl}
+                    target="_blank"
                     sx={{
-                      borderRadius: 0,
-                      border: `1px solid ${BORDER_COLOR}`,
-                      boxShadow: "none",
+                      width: "100%",
                       height: "100%",
                       display: "flex",
-                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      textAlign: "left",
+                      gap: 2,
+                      p: 3,
+                      borderRadius: 0,
+                      border: `1px solid ${BORDER_COLOR}`,
+                      bgcolor: "#fff",
                       transition: "0.2s ease-in-out",
                       "&:hover": {
-                        transform: isAuthenticated ? "translateY(-4px)" : "none",
-                        boxShadow: isAuthenticated ? `8px 8px 0px ${BORDER_COLOR}` : "none",
+                        transform: "translateY(-4px)",
+                        boxShadow: `8px 8px 0px ${BORDER_COLOR}`,
+                        borderColor: BRAND_BLUE,
                       },
                     }}>
-                    <ButtonBase component="a" href={isAuthenticated ? catalog.blobUrl : "#"} target="_blank" sx={{ width: "100%", display: "block", position: "relative" }}>
-                      <CardMedia component="img" image={catalog.thumbnailUrl} alt={catalog.title} sx={{ height: 350, width: "100%" }} />
-                      <Box sx={{ position: "absolute", top: 12, right: 12, bgcolor: BRAND_BLUE, color: "#fff", width: 32, height: 32, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <PdfIcon fontSize="small" />
-                      </Box>
-                    </ButtonBase>
-
-                    <CardContent sx={{ p: 3, flexGrow: 1, borderTop: `1px solid ${BORDER_COLOR}` }}>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 800, color: TEXT_MAIN, mb: 2, textTransform: "uppercase" }}>
-                        {catalog.title}
-                      </Typography>
-                      <Button fullWidth variant="contained" startIcon={<OpenIcon />} href={isAuthenticated ? catalog.blobUrl : "#"} target="_blank" sx={{ bgcolor: BRAND_BLUE, borderRadius: 0, fontWeight: 800, boxShadow: "none" }}>
-                        OPEN PDF
-                      </Button>
-                    </CardContent>
-                  </Card>
+                    <Box sx={{ flexShrink: 0, bgcolor: BRAND_BLUE, color: "#fff", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <PdfIcon />
+                    </Box>
+                    <Typography variant="subtitle1" sx={{ flexGrow: 1, fontWeight: 800, color: TEXT_MAIN, textTransform: "uppercase", lineHeight: 1.3 }}>
+                      {catalog.title}
+                    </Typography>
+                    <OpenIcon sx={{ flexShrink: 0, color: BRAND_BLUE }} />
+                  </ButtonBase>
                 </Grid>
               ))
             ) : (
@@ -178,73 +226,6 @@ const CatalogPdfs = () => {
               </Box>
             )}
           </Grid>
-
-          {/* Persistent Overlay for Non-Auth Users */}
-          {!isAuthenticated && (
-            <Box
-              sx={{
-                position: "absolute",
-                top: "5%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                zIndex: 100,
-                width: { xs: "90%", sm: "500px" },
-              }}>
-              <Card
-                sx={{
-                  p: 6,
-                  borderRadius: 0,
-                  textAlign: "center",
-                  border: `4px solid ${BRAND_BLUE}`,
-                  boxShadow: "20px 20px 0px rgba(0,0,0,0.1)",
-                  bgcolor: "#fff",
-                }}>
-                <LockIcon sx={{ fontSize: 64, color: BRAND_BLUE, mb: 2 }} />
-                <Typography variant="h5" sx={{ fontWeight: 900, mb: 2, fontFamily: PRIMARY_FONT }}>
-                  TECHNICAL PORTAL LOCKED
-                </Typography>
-                <Typography variant="body1" sx={{ color: "text.secondary", mb: 4, fontWeight: 500, lineHeight: 1.6 }}>
-                  Detailed engineering specs and high-resolution catalogs are reserved for registered Panam partners.
-                </Typography>
-
-                <Stack direction="column" spacing={2}>
-                  <Button
-                    component={Link}
-                    to="/login"
-                    variant="contained"
-                    fullWidth
-                    sx={{
-                      bgcolor: BRAND_BLUE,
-                      borderRadius: 0,
-                      py: 1.5,
-                      fontWeight: 900,
-                      "&:hover": { bgcolor: "#0088BA" },
-                    }}>
-                    SIGN IN TO ACCESS
-                  </Button>
-                  <Typography variant="caption" sx={{ fontWeight: 700, color: "text.disabled" }}>
-                    OR
-                  </Typography>
-                  <Button
-                    component={Link}
-                    to="/register"
-                    variant="outlined"
-                    fullWidth
-                    sx={{
-                      color: BRAND_BLUE,
-                      borderColor: BRAND_BLUE,
-                      borderRadius: 0,
-                      py: 1.5,
-                      fontWeight: 900,
-                      borderWidth: "2px",
-                      "&:hover": { borderWidth: "2px" },
-                    }}>
-                    CREATE AN ACCOUNT
-                  </Button>
-                </Stack>
-              </Card>
-            </Box>
-          )}
         </Box>
 
         {/* Brand Footer Info */}
