@@ -58,7 +58,7 @@ export default function PCVProductPage() {
       image={image}
       partNumber={valve.partNumber}
       title={`PCV Check Valve — ${valve.inletTubeOD}`}
-      description={`Panam PCV Series inline check valve ${valve.partNumber}. ${materialLabel}, ${inletLabel} inlet${outletLabel ? `, ${outletLabel} outlet` : ""}, ${valve.inletTubeOD}. Rated to 6,000 psig. Hydrogen service rated, NACE MR0175 available.`}
+      description={`Panam PCV Series inline check valve ${valve.partNumber}. ${materialLabel}, ${inletLabel} inlet${outletLabel ? `, ${outletLabel} outlet` : ""}, ${valve.inletTubeOD}. Rated to 6,000 psig. Hydrogen service rated,`}
       chips={[
         { label: "PCV Series", color: BRAND_BLUE },
         { label: materialLabel, color: "#0277BD", variant: "outlined" as const },

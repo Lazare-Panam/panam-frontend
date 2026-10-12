@@ -204,7 +204,7 @@ const NeedleValveBlog: React.FC = () => {
 
             <Typography variant="h6" sx={{ mt: 4, mb: 1.5, fontWeight: 700 }}>Oil & Gas</Typography>
             <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8 }}>
-              On wellhead instrumentation, chemical injection skids, and high-pressure sampling systems, HP Series valves are supplied to meet NACE MR0175 / ISO 15156 and NACE MR0103 — the qualifications that matter when H₂S is on the line.
+              On wellhead instrumentation, chemical injection skids, and high-pressure sampling systems, sour service material requirements such as NACE MR0175 / ISO 15156 matter when H₂S is on the line — tell us your requirement at enquiry and we will confirm what can be supplied.
             </Typography>
             <Box sx={{ pl: 3, mb: 4 }}>
               {["Wellhead and Christmas tree instrumentation", "Chemical injection systems and umbilicals", "High-pressure gas sampling and analyser feeds", "Subsea and offshore control panels"].map(item => (
@@ -299,10 +299,10 @@ const NeedleValveBlog: React.FC = () => {
 
             {/* SECTION 7 */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Quality, Testing and Traceability
+              Quality, Testing and Documentation
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Every PANAM HP Series valve is 100% factory tested to its maximum pressure rating with a no-detectable-leakage acceptance criterion. Materials ship in compliance with ASTM specifications and are verified by NABL-approved third-party laboratories. Heat code traceability is maintained throughout. Cleaning and packaging follow the PANAM PWI/5.7/21 standard.
+              Every PANAM HP Series valve is 100% factory tested to its maximum pressure rating with a no-detectable-leakage acceptance criterion. Material certificates are available on request. Cleaning and packaging follow the PANAM PWI/5.7/21 standard.
             </Typography>
             <Typography variant="body1" sx={{ mb: 6, lineHeight: 1.8 }}>
               For the full range of configurations, pressure tiers and connection options, visit the{" "}
@@ -387,7 +387,7 @@ const NeedleValveBlog: React.FC = () => {
                       PANAM HP Series Needle Valves
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>
-                      316 SS · Up to 60,000 PSI · NPT / BSPP / BSPT · NACE Compliant
+                      316 SS · Up to 60,000 PSI · NPT / BSPP / BSPT
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 700, color: "#01B0F0" }}>
                       Browse the range →

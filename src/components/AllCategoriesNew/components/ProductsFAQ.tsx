@@ -23,14 +23,14 @@ const faqs: FAQItem[] = [
       "Yes. Most valve, manifold and fitting ranges support our online Product Configurator — choose end connections, materials, pressure ratings and certifications, then add your exact build straight to an order.",
   },
   {
-    question: "Do catalog items ship from UK stock?",
+    question: "What are the lead times for catalog items?",
     answer:
-      "Standard components ship from UK stock within 24-48 hours. Bespoke or configured products get a firm lead time during quoting, based on materials, certification requirements and order volume.",
+      "Lead times vary by product, material, documentation requirements and order volume, and are confirmed at quotation. Typical lead times are 3–4 weeks.",
   },
   {
     question: "What certifications come with catalog products?",
     answer:
-      "Our quality management system is certified to ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018. We hold ATEX and CE PED marking for tube fittings and are a registered BFPA member — full certificates are available on request.",
+      "Our quality management system is certified to ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018. We also hold ATEX and PED documents, which you can view on our certificates page. Material certificates are available on request.",
   },
   {
     question: "Can I set up a trade account for bulk or recurring orders?",

@@ -13,7 +13,7 @@ const ChemicalsPage = () => {
   const content = {
     subHeading: "CHEMICAL PROCESSING",
     heading: "Corrosion Resistance for Toxic Media.",
-    bodyText: "Managing lethal or highly corrosive fluids requires specialized sealing and material science. We offer valves in Hastelloy, Monel, and Inconel to ensure compatibility with aggressive acids and bases. \n\nOur modular designs allow for easy maintenance and zero-leakage performance in continuous process environments.",
+    bodyText: "Managing lethal or highly corrosive fluids requires specialized sealing and material science. We offer valves in Hastelloy, Monel, and Inconel to ensure compatibility with aggressive acids and bases. \n\nOur modular designs allow for easy maintenance and leak-tight performance in continuous process environments.",
   }
 
   return (

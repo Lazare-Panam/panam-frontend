@@ -6,7 +6,7 @@ const BRAND_BLUE = "#01B0F0";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
 const MovingBanner: React.FC = () => {
-  const tickerText = "UK STOCK AVAILABLE • READY FOR IMMEDIATE SHIPMENT • REDUCED LEAD TIMES • GLOBAL DISPATCH • ";
+  const tickerText = "LEAD TIMES ON REQUEST • GLOBAL DISPATCH • ENGINEERING SUPPORT • ";
 
   return (
     <Box

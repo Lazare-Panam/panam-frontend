@@ -17,7 +17,7 @@ const industries = [
   {
     title: "Oil & Gas",
     path: "/industries/oil-gas",
-    desc: "Upstream, midstream and downstream process control where NACE-compliant, high-pressure components are a baseline requirement.",
+    desc: "Upstream, midstream and downstream process control where sour service material requirements and high-pressure ratings are common.",
   },
 ]
 
@@ -27,23 +27,23 @@ const HighPressureCompliance: React.FC = () => {
       <Grid container spacing={6}>
         <Grid size={{ xs: 12, md: 7 }}>
           <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 3, fontSize: 11, fontFamily: PRIMARY_FONT, display: "block", mb: 1 }}>
-            Certification & Compatibility
+            Service Considerations
           </Typography>
           <Typography variant="h2" sx={{ fontSize: { xs: 26, md: 32 }, fontWeight: 800, mb: 3, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
-            NACE MR0175 & Hydrogen Service
+            Sour Service & Hydrogen
           </Typography>
 
           <Stack direction="row" spacing={2} sx={{ mb: 3 }} alignItems="flex-start">
             <ScienceIcon sx={{ color: BRAND_BLUE, mt: 0.3 }} />
             <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>
-              NACE MR0175 governs material selection for equipment exposed to H2S-containing (sour) environments, requiring controlled hardness and resistance to sulfide stress cracking. Our SS 316 High Pressure range is available to this standard for offshore and sour-service applications.
+              NACE MR0175 governs material selection for equipment exposed to H2S-containing (sour) environments, requiring controlled hardness and resistance to sulfide stress cracking. If your application requires NACE MR0175 materials, tell us at enquiry and we will confirm what can be supplied.
             </Typography>
           </Stack>
 
           <Stack direction="row" spacing={2} alignItems="flex-start">
             <VerifiedIcon sx={{ color: BRAND_BLUE, mt: 0.3 }} />
             <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>
-              The same corrosion-resistant construction and precision sealing that qualifies for NACE service also supports hydrogen compatibility — where material embrittlement and micro-leakage are the key risks at high pressure. This is why the same range is specified across both sour oil & gas service and hydrogen infrastructure projects.
+              In hydrogen service, material embrittlement and micro-leakage are the key risks at high pressure. Share your media, pressure and temperature at enquiry and we will confirm suitability for your application.
             </Typography>
           </Stack>
         </Grid>

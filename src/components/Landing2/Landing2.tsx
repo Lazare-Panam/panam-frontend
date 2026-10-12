@@ -24,18 +24,18 @@ const Landing2 = () => {
   return (
     <>
       <title>PANAM® UK | Precision Valve Manufacturer, Built for Every Fit</title>
-      <meta name="description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. UK stock, fast dispatch and full technical support." />
+      <meta name="description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. Global dispatch and full technical support." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="PANAM Valves" />
       <meta property="og:title" content="PANAM® UK | Precision Valve Manufacturer, Built for Every Fit" />
-      <meta property="og:description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. UK stock, fast dispatch and full technical support." />
+      <meta property="og:description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. Global dispatch and full technical support." />
       <meta property="og:url" content="https://www.panamvalve.com/" />
       <meta property="og:image" content="https://www.panamvalve.com/p2.png" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="PANAM® UK | Precision Valve Manufacturer, Built for Every Fit" />
-      <meta name="twitter:description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. UK stock, fast dispatch and full technical support." />
+      <meta name="twitter:description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. Global dispatch and full technical support." />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",

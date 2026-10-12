@@ -79,10 +79,10 @@ export default function PIFFiltersPage() {
   return (
     <>
           <title>In-Line Filters (PIF) | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® PIF In-Line Filters — SS316, sintered and mesh elements 0.5 to 440 micron, working pressure up to 3000 psi. Series IA, IB, IC, ID. 3mm to 12mm tube, 1/8 to 1/2 inch thread. Request a quote." />
+      <meta name="description" content="PANAM® PIF In-Line Filters — SS316, sintered and mesh elements 0.5 to 440 micron, nitrogen leak tested at 1000 psi. Series IA, IB, IC, ID. 3mm to 12mm tube, 1/8 to 1/2 inch thread. Request a quote." />
       <meta name="keywords" content="inline filters, PIF filters, instrumentation filters, SS316 filters, sintered filter elements" />
       <meta property="og:title" content="In-Line Filters (PIF) | PANAM® Instrumentation" />
-      <meta property="og:description" content="Configure PANAM® PIF In-Line Filters by series, connection standard, pore size, and end connection. SS316, working pressure up to 3000 psi." />
+      <meta property="og:description" content="Configure PANAM® PIF In-Line Filters by series, connection standard, pore size, and end connection. SS316, nitrogen leak tested at 1000 psi." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="canonical" href="https://www.panamvalve.com/filters/i-type" />

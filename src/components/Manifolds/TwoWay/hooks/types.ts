@@ -57,7 +57,7 @@ export const MATERIAL_LABELS: Record<string, string> = {
 export const MANIFOLD_DESCRIPTION = {
   title: "2-Valve Manifolds",
   description:
-    "Panam 2-valve instrumentation manifolds for differential pressure measurement, gauge isolation, and process bleed/vent applications. Available in stainless steel 316, carbon steel, Monel, Hastelloy, Duplex, and Inconel alloys. Standard 6000 psi (414 bar) and high-pressure 10000 psi (689 bar) ratings with full NACE MR-01-75 sour gas certification available.",
+    "Panam 2-valve instrumentation manifolds for differential pressure measurement, gauge isolation, and process bleed/vent applications. Available in stainless steel 316, carbon steel, Monel, Hastelloy, Duplex, and Inconel alloys. Standard 6000 psi (414 bar) and high-pressure 10000 psi (689 bar) ratings, with a NACE MR-01-75 sour gas option.",
   specs: [
     "2-Valve Configuration",
     "9 Material Options",

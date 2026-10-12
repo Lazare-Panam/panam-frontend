@@ -29,7 +29,7 @@ const HydrogenValvesBlog: React.FC = () => {
     { feature: "Packing / Sealing Materials", spec: "Glass-filled PTFE (to 121°C), Grafoil (to 648°C)" },
     { feature: "Check Valve Cracking Pressures", spec: "1/3, 1, 5, 10, 25, 50, 75, 100 psi (selectable)" },
     { feature: "Ball Valve Actuation", spec: "Quarter-turn (90°) with positive mechanical stop" },
-    { feature: "NACE Compliance", spec: "NACE MR0175 & MR0103 (all product families)" },
+    { feature: "Documentation", spec: "Material certificates available on request" },
     { feature: "Primary Standards / Codes", spec: "ISO 19880-3, ASME B31.12, ASTM A182" },
     { feature: "Primary Applications", spec: "Storage, Fuel Cell Infrastructure, Compression, Chemical Processing" },
   ];

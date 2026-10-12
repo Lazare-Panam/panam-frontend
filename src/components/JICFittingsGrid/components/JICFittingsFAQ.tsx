@@ -36,9 +36,9 @@ const faqs: FAQItem[] = [
       "Connectors, unions & swivel, adapters & reducers, elbows, tees, and plugs/caps/nuts — covering the full range of 37° flared connection geometries.",
   },
   {
-    question: "Is traceability and certification available?",
+    question: "Are material certificates available?",
     answer:
-      "Full heat-code material traceability is provided on all components, and NACE MR0175 certification is available on request.",
+      "Material certificates are available on request. If your application needs sour service (NACE MR0175) materials, tell us at enquiry and we will confirm what can be supplied.",
   },
 ]
 

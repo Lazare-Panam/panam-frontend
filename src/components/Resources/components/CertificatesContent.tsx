@@ -134,7 +134,7 @@ const PRODUCT_FAMILY_TABLE: { family: string; pressure: string; materials: strin
   { family: "Double block & bleed", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/2–3\", Class 150–2500" },
   { family: "Flange adapters", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "ASME, DIN, EN, JIS" },
   { family: "Swivel gauge adapters", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, super duplex, Monel, Hastelloy", notes: "360° positioning, silver plated swivel thread" },
-  { family: "Filters", pressure: "6,000 psig / 414 bar", materials: "SS316, brass", notes: "T-type and I-type; element replaceable in situ" },
+  { family: "Filters", pressure: "—", materials: "SS316", notes: "T-type and in-line; nitrogen leak tested at 1000 psi" },
   { family: "Pressure regulators", pressure: "6,000 psig / 414 bar", materials: "SS316, brass", notes: "1/4\" NPT; piston sensed" },
   { family: "Air headers", pressure: "6,000 psig / 414 bar", materials: "SS316, carbon steel", notes: "Class 150–2500" },
   { family: "Condensate pots", pressure: "6,000 psig / 414 bar", materials: "SS316, carbon steel", notes: "Class 150–2500" },

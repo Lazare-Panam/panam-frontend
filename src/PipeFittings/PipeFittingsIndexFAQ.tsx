@@ -37,9 +37,9 @@ const faqs: FAQItem[] = [
       "Nipples & couplings, adapters/bushings & plugs, unions & connectors, elbows, and tees & cross — covering the full range of connection geometries.",
   },
   {
-    question: "Is traceability and certification available?",
+    question: "Are material certificates available?",
     answer:
-      "Full heat-code material traceability is provided on all components, and NACE MR0175 certification is available on request.",
+      "Material certificates are available on request. If your application needs sour service (NACE MR0175) materials, tell us at enquiry and we will confirm what can be supplied.",
   },
 ]
 

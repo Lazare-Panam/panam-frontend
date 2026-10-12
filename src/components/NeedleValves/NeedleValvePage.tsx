@@ -112,10 +112,10 @@ export default function NeedleValvesPage() {
   return (
     <>
       <title>PANAM Needle Valves | IB, HB, HP, SB & Mini Series | PANAM®</title>
-      <meta name="description" content="PANAM® needle valves in five series — IB, HB, HP, SB and Mini — rated 3,000 to 20,000 psig. SS316, Duplex, Monel, Hastelloy. NACE MR0175 certified. NPT, BSPP, BSPT and tube fitting ends." />
-      <meta name="keywords" content="instrumentation needle valves, high pressure needle valves, 20000 psi needle valve, NACE MR0175 needle valve, SS316 needle valve, Duplex needle valve, Hastelloy needle valve, integral bonnet needle valve, block and bleed needle valve, forged needle valve, NPT needle valve" />
+      <meta name="description" content="PANAM® needle valves in five series — IB, HB, HP, SB and Mini — rated 3,000 to 20,000 psig. SS316, Duplex, Monel, Hastelloy. NPT, BSPP, BSPT and tube fitting ends." />
+      <meta name="keywords" content="instrumentation needle valves, high pressure needle valves, 20000 psi needle valve, SS316 needle valve, Duplex needle valve, Hastelloy needle valve, integral bonnet needle valve, block and bleed needle valve, forged needle valve, NPT needle valve" />
       <meta property="og:title" content="Instrumentation Needle Valves | PANAM® IB · HB · HP · SB · Mini Series" />
-      <meta property="og:description" content="Five needle valve series rated 3,000–20,000 psig. Non-rotating Vee-tip stem, full heat-code traceability, NACE MR0175 available. SS316, Duplex, Monel and Hastelloy." />
+      <meta property="og:description" content="Five needle valve series rated 3,000–20,000 psig. Non-rotating Vee-tip stem. SS316, Duplex, Monel and Hastelloy." />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://www.panamvalve.com/valves/needle-valves" />
       <meta name="robots" content="index, follow" />
@@ -124,7 +124,7 @@ export default function NeedleValvesPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "PANAM® Needle Valves",
-          description: "PANAM® needle valves in five series — IB, HB, HP, SB and Mini — rated 3,000 to 20,000 psig. SS316, Duplex, Monel, Hastelloy. NACE MR0175 certified.",
+          description: "PANAM® needle valves in five series — IB, HB, HP, SB and Mini — rated 3,000 to 20,000 psig. SS316, Duplex, Monel, Hastelloy.",
           mainEntity: {
             "@type": "ItemList",
             itemListElement: NEEDLE_VALVE_SERIES.map((s, i) => ({
@@ -178,7 +178,7 @@ export default function NeedleValvesPage() {
           <Box sx={{ display: "flex", width: "max-content", animation: "marquee 28s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["Up to 20,000 psig working pressure", "SS316 · Duplex · Monel · Hastelloy", "NACE MR0175 available on request", "Non-rotating Vee-tip stem — zero leak-by", "Full heat-code material traceability", "NPT · BSPP · BSPT · PANAM® Tube Fitting"].map(item => (
+                {["Up to 20,000 psig working pressure", "SS316 · Duplex · Monel · Hastelloy", "Non-rotating Vee-tip stem", "Material certificates on request", "NPT · BSPP · BSPT · PANAM® Tube Fitting"].map(item => (
                   <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5, fontFamily: PRIMARY_FONT }}>
                     <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
                     {item}
@@ -204,7 +204,7 @@ export default function NeedleValvesPage() {
               A broad selection of end‑connection options is offered, including male and female NPT, BSPP, BSPT, ISO tapered pipe ends, and PANAM® tube‑fitting connections. The valves support maximum working pressures up to 20,000 psig (1,379 bar) and are available in sizes from 1/8" to 1". Standard PTFE gland packing ensures smooth operation, with optional Graphoil packing for high‑temperature
               service up to 538°C (1000°F).
             </Typography>
-            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>The non‑rotating vee‑tip or ball‑tip stem design provides reliable, repetitive, leak‑tight shut‑off, even under high‑pressure cycling. NACE certification is available upon request, and full heat‑code traceability ensures complete material verification and quality assurance.</Typography>
+            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>The non‑rotating vee‑tip or ball‑tip stem design provides reliable, repetitive, leak‑tight shut‑off, even under high‑pressure cycling. Material certificates are available on request.</Typography>
           </Grid>
 
           <Divider sx={{ mt: 5, mb: 5 }} />
@@ -234,13 +234,12 @@ export default function NeedleValvesPage() {
             <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
               Why specify PANAM® Needle Valves
             </Typography>
-            <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>Every series is built around the same core engineering principles — non-rotating stem, full traceability, and broad material availability.</Typography>
+            <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>Every series is built around the same core engineering principles — non-rotating stem and broad material availability.</Typography>
             <Grid container spacing={2}>
               {[
                 "Non-rotating Vee-tip stem eliminates seat scoring",
                 "PTFE gland packing standard — Graphoil to 538°C optional",
-                "Full heat-code traceability on all components",
-                "NACE MR0175 / ISO 15156 certification available",
+                "Material certificates available on request",
                 "Forged and bar stock construction options",
                 "SS316, Duplex, Monel, and Hastelloy materials",
                 "NPT, BSPP, BSPT, ISO tapered, and PANAM® tube-fitting ends",

@@ -249,7 +249,7 @@ export default function TubeFittingsPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "PANAM® Tube Fittings",
-          description: "Single and double ferrule tube fittings in fractional and metric sizes, ASTM F1387 type tested, with NACE certification available on request.",
+          description: "Single and double ferrule tube fittings in fractional and metric sizes, ASTM F1387 type tested, with material certificates available on request.",
           mainEntity: {
             "@type": "ItemList",
             itemListElement: TUBE_FITTING_SERIES.map((s, i) => ({
@@ -378,7 +378,7 @@ export default function TubeFittingsPage() {
             }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["Single & double ferrule designs", "SS316 · Duplex · Monel · Hastelloy · Brass", "ASTM F1387 type tested", '1/16" to 2" OD · 3 mm to 50 mm OD', "NACE MR0175 available on request", "Full heat-code material traceability", "NPT · BSPP · BSPT · 37° Flare"].map(item => (
+                {["Single & double ferrule designs", "SS316 · Duplex · Monel · Hastelloy · Brass", "ASTM F1387 type tested", '1/16" to 2" OD · 3 mm to 50 mm OD', "Material certificates on request", "NPT · BSPP · BSPT · 37° Flare"].map(item => (
                   <Typography
                     key={item}
                     sx={{
@@ -430,7 +430,7 @@ export default function TubeFittingsPage() {
             </Typography>
             <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>A full variety of end connection options is offered, including male and female NPT, BSPP, BSPT, and 37° flare configurations. Size options range from 1/16" to 2" OD and 3 mm to 50 mm OD, ensuring compatibility with both fractional and metric tubing.</Typography>
             <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>
-              Designed for low torque assembly, PANAM® fittings are type tested to ASTM F1387 and provide high-pressure, leak-tight connections suitable for critical service environments. NACE certification is available upon request, and heat code traceability is provided for full material verification and quality assurance.
+              Designed for low torque assembly, PANAM® fittings are type tested to ASTM F1387 and provide high-pressure, leak-tight connections suitable for critical service environments. Material certificates are available on request.
             </Typography>
           </Grid>
 
@@ -505,15 +505,14 @@ export default function TubeFittingsPage() {
                 maxWidth: 620,
                 fontFamily: PRIMARY_FONT,
               }}>
-              Built around the same engineering standard as every PANAM® product — full traceability, broad material availability, and performance tested to industry standards.
+              Built around the same engineering standard as every PANAM® product — broad material availability, and performance tested to industry standards.
             </Typography>
             <Grid container spacing={2}>
               {[
                 "Single and double ferrule designs available",
                 "ASTM F1387 type tested for leak-tight performance",
                 "SS316, Duplex, Monel, Hastelloy, and Brass",
-                "NACE MR0175 / ISO 15156 certification available",
-                "Full heat-code traceability on all components",
+                "Material certificates available on request",
                 "Low torque assembly — no special tools required",
                 '1/16" to 2" OD fractional and 3–50 mm OD metric',
                 "NPT, BSPP, BSPT, and 37° flare end connections",

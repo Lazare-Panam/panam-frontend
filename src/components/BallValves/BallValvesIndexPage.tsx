@@ -20,8 +20,7 @@ const SPECS = [
   { label: "Materials", value: "SS316 (standard), Duplex, Monel, Hastelloy" },
   { label: "End Connections", value: "NPT, BSPP, BSPT, PANAM® Tube Fitting" },
   { label: "Seat Options", value: "Delrin, PTFE, PEEK, KEL-F" },
-  { label: "Certification", value: "NACE MR0175 available on request" },
-  { label: "Traceability", value: "Full heat-code traceability" },
+  { label: "Documentation", value: "Material certificates available on request" },
 ]
 
 const CATEGORIES = [
@@ -186,10 +185,10 @@ export default function BallValvesIndexPage() {
   return (
     <>
       <title>Ball Valve Range for Industrial and Instrumentation Applications</title>
-      <meta name="description" content="PANAM® floating ball valves rated to 10,000 psig. 2-way, 3-way and high bore. SS316, Duplex, Monel & Hastelloy. NACE MR0175 available on request." />
-      <meta name="keywords" content="instrumentation ball valves, floating ball valve, 10000 psi ball valve, 2 way ball valve, 3 way ball valve, high bore ball valve, SS316 ball valve, NACE MR0175 ball valve, Duplex ball valve, Hastelloy ball valve, PTFE seat ball valve, PEEK seat ball valve, anti blowout stem ball valve" />
+      <meta name="description" content="PANAM® floating ball valves rated to 10,000 psig. 2-way, 3-way and high bore. SS316, Duplex, Monel & Hastelloy." />
+      <meta name="keywords" content="instrumentation ball valves, floating ball valve, 10000 psi ball valve, 2 way ball valve, 3 way ball valve, high bore ball valve, SS316 ball valve, Duplex ball valve, Hastelloy ball valve, PTFE seat ball valve, PEEK seat ball valve, anti blowout stem ball valve" />
       <meta property="og:title" content="Instrumentation Ball Valves | 2-Way · 3-Way · High Bore | PANAM®" />
-      <meta property="og:description" content="Floating ball valves to 10,000 psig in 2-way, 3-way and high bore series. SS316, Duplex, Monel, Hastelloy. NACE MR0175 available." />
+      <meta property="og:description" content="Floating ball valves to 10,000 psig in 2-way, 3-way and high bore series. SS316, Duplex, Monel, Hastelloy." />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://www.panamvalve.com/valves/ball-valves" />
       <meta name="robots" content="index, follow" />
@@ -323,7 +322,7 @@ export default function BallValvesIndexPage() {
             }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["Rated to 10,000 psig (689 bar)", "SS316 · Duplex · Monel · Hastelloy", '1/8" to 2" size range', "2-Way · 3-Way · High Bore", "T-port & L-port flow paths", "Anti-blow-out stem on every valve", "NACE MR0175 certification available", "Delrin · PTFE · PEEK · KEL-F seats"].map(item => (
+                {["Rated to 10,000 psig (689 bar)", "SS316 · Duplex · Monel · Hastelloy", '1/8" to 2" size range', "2-Way · 3-Way · High Bore", "T-port & L-port flow paths", "Anti-blow-out stem on every valve", "Delrin · PTFE · PEEK · KEL-F seats"].map(item => (
                   <Typography
                     key={item}
                     sx={{
@@ -373,7 +372,7 @@ export default function BallValvesIndexPage() {
               </Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>PANAM® Ball Valves deliver leak-tight shut-off and flow control across the full range of instrumentation and process pressures. The floating-ball design provides positive sealing under severe pressure cycling.</Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>Every valve incorporates an internally loaded anti-blow-out stem for operator safety. Seat materials include Delrin, PTFE, PEEK and KEL-F to suit a wide range of media and temperature conditions.</Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>SS316 is standard, with Duplex, Monel and Hastelloy available on request. NACE MR0175 certification and full heat-code material traceability are available across the full range.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>SS316 is standard, with Duplex, Monel and Hastelloy available on request. Material certificates are available on request.</Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
               <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
@@ -459,7 +458,7 @@ export default function BallValvesIndexPage() {
                 maxWidth: 620,
                 fontFamily: PRIMARY_FONT,
               }}>
-              Engineered to perform under pressure — with the materials, certifications and traceability that critical instrumentation service demands.
+              Engineered to perform under pressure — with the materials and documentation that instrumentation service demands.
             </Typography>
             <Grid container spacing={2}>
               {[
@@ -468,8 +467,7 @@ export default function BallValvesIndexPage() {
                 "Internally loaded anti-blow-out stem on every valve",
                 "2-Way, 3-Way and High Bore configurations available",
                 "Seat materials: Delrin, PTFE, PEEK, KEL-F",
-                "NACE MR0175 certification available on request",
-                "Full heat-code material traceability provided",
+                "Material certificates available on request",
                 "Panel-mounting and lever-handle options on selected sizes",
               ].map(feat => (
                 <Grid key={feat} size={{ xs: 12, sm: 6 }}>

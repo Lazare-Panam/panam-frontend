@@ -23,9 +23,9 @@ const faqs: FAQItem[] = [
       "10,000 to 15,000 psi, with working pressure rated to ANSI/ASME B31.3 at ambient temperature across the full range.",
   },
   {
-    question: "Are these fittings traceable?",
+    question: "How are these fittings marked?",
     answer:
-      "Yes. Every fitting is marked with size, material, and heat code for full traceability, and all threads are capped for protection during transit and storage.",
+      "Fittings are marked with size and material, and material certificates are available on request. Threads are capped for protection during transit and storage.",
   },
   {
     question: "What sizes are available?",
@@ -35,7 +35,7 @@ const faqs: FAQItem[] = [
   {
     question: "What's the lead time for HP Pipe Fittings?",
     answer:
-      "Our technical team responds to pipe fitting enquiries within 24 hours. Standard sizes ship from UK stock within 24-48 hours; non-standard configurations get a firm lead time during quoting.",
+      "Our technical team responds to pipe fitting enquiries within 24 hours. Lead times vary by product and are confirmed at quotation.",
   },
 ]
 

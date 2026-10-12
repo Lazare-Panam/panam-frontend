@@ -11,9 +11,9 @@ const DBB_PRODUCTS = [
     type: "fxp",
     title: "DBB — Flange to Pipe",
     description:
-      "Double Block & Bleed valves with Flange-to-Pipe construction for primary instrument isolation, pressure transmitter mounting, and process bleed applications. Available in Integral (one-piece body) and Three Piece (serviceable) configurations. ANSI 150 to 2500 Class, Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, and Ball-Needle internals. Full NACE MR-0175 and fire-safe options.",
+      "Double Block & Bleed valves with Flange-to-Pipe construction for primary instrument isolation, pressure transmitter mounting, and process bleed applications. Available in Integral (one-piece body) and Three Piece (serviceable) configurations. Class 150 to 2500, Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, and Ball-Needle internals. NACE MR-0175 and Fire Safe options.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxp.jpg",
-    pressure: "ANSI 150 – 2500 Class",
+    pressure: "Class 150 – 2500 · PN6 – PN250",
     connection: "Flange to Pipe · Integral & Three Piece",
     material: "SS316 · NACE / Fire Safe Options",
     tag: "Connection Types 1 & 3",
@@ -22,9 +22,9 @@ const DBB_PRODUCTS = [
   {
     type: "fxf",
     title: "DBB — Flange to Flange",
-    description: "Double Block & Bleed valves with Flange-to-Flange construction for inline isolation and DP transmitter applications. Available in Integral and Three Piece configurations. ANSI 150 to 2500 Class plus PN series, covering RF, RTJ, and BS flange faces. Full range of ball, needle, and combination internals with NACE MR-0175, fire-safe, and gear-operated options.",
+    description: "Double Block & Bleed valves with Flange-to-Flange construction for inline isolation and DP transmitter applications. Available in Integral and Three Piece configurations. Class 150 to 2500 plus PN series, covering RF, RTJ, and BS flange faces. Full range of ball, needle, and combination internals with NACE MR-0175, fire-safe, and gear-operated options.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxf.jpg",
-    pressure: "ANSI 150 – 2500 · PN6 – PN250",
+    pressure: "Class 150 – 2500 · PN6 – PN250",
     connection: "Flange to Flange · Integral & Three Piece",
     material: "SS316 · RF / RTJ / BS · NACE Options",
     tag: "Connection Types 2 & 4",
@@ -33,9 +33,9 @@ const DBB_PRODUCTS = [
   {
     type: "pxp",
     title: "DBB — Pipe to Pipe",
-    description: "Double Block & Bleed valves with threaded Pipe-to-Pipe construction for compact instrument isolation and process bleed. Available in NPT, BSPP, and BSPT thread forms across a full range of bore sizes. Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, and Ball-Needle configurations. NACE MR-0175 sour gas and fire-safe options available.",
+    description: "Double Block & Bleed valves with threaded Pipe-to-Pipe construction for compact instrument isolation and process bleed. Available in NPT, BSPP, and BSPT thread forms across a full range of bore sizes. Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, and Ball-Needle configurations. NACE MR-0175 and Fire Safe options available.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg",
-    pressure: "Up to 15,000 psig · NPT / BSPP / BSPT",
+    pressure: "Threaded · NPT / BSPP / BSPT",
     connection: "Pipe to Pipe · Compact Body",
     material: "SS316 · NACE / Fire Safe Options",
     tag: "Connection Type 6",
@@ -46,13 +46,13 @@ const DBB_PRODUCTS = [
 const SPECS = [
   { label: "Connection Types", value: "Flange-to-Pipe · Flange-to-Flange · Pipe-to-Pipe" },
   { label: "Construction", value: "Integral (One-Piece) · Three Piece (Serviceable)" },
-  { label: "Pressure Ratings", value: "ANSI 150 – 2500 · PN6 – PN250 · Threaded" },
+  { label: "Pressure Classes", value: "Class 150 – 2500 · PN6 – PN250 (flanged) · rating depends on configuration" },
   { label: "Flange Faces", value: "RF · RTJ · BS" },
   { label: "Material", value: "Stainless Steel 316" },
   { label: "Configurations", value: "Ball-Needle-Ball · Ball-Ball-Ball · Needle-Needle-Needle · Ball-Needle" },
   { label: "Seat Materials", value: "Carbon Filled PTFE · PCTFE · Delrin · PEEK" },
   { label: "Seal Materials", value: "PTFE · Grafoil · PCTFE · FKM" },
-  { label: "Special Service", value: "NACE MR0175 · Fire Safe (API 607 / API 6FA) · Gear Operated" },
+  { label: "Special Service", value: "NACE MR-0175 option · Fire Safe option · Gear Operated" },
 ]
 
 type DBBItem = (typeof DBB_PRODUCTS)[0]
@@ -150,7 +150,7 @@ export default function DBBIndexPage() {
   return (
     <>
       <title>Double Block & Bleed Valves | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® DBB Valves — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe. SS316, ASME Class 150–2500 to 6,000 psi, pipe-to-pipe to 15,000 psig, NACE MR0175 and API 607 fire-safe options." />
+      <meta name="description" content="PANAM® DBB Valves — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe. SS316, Class 150–2500, NACE MR-0175 and fire-safe options." />
       <meta name="keywords" content="double block bleed valve, DBB valve, instrument isolation valve, NACE valve, SS316 valve" />
       <meta property="og:title" content="Double Block & Bleed Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Three connection families. One standard. PANAM® DBB Valves for primary isolation, transmitter mounting, and process bleed." />
@@ -164,7 +164,7 @@ export default function DBBIndexPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "PANAM® Double Block & Bleed Valves",
-          description: "Double Block & Bleed valves in Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe connection types. SS316, ASME Class 150–2500 to 6,000 psi, pipe-to-pipe to 15,000 psig, NACE MR0175 and API 607 fire-safe options.",
+          description: "Double Block & Bleed valves in Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe connection types. SS316, Class 150–2500, NACE MR-0175 and fire-safe options.",
           mainEntity: {
             "@type": "ItemList",
             itemListElement: DBB_PRODUCTS.map((p, i) => ({
@@ -222,7 +222,7 @@ export default function DBBIndexPage() {
                 lineHeight: 1.75,
                 fontFamily: PRIMARY_FONT,
               }}>
-              Three connection families — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe — covering every instrument isolation application. SS316 construction, ANSI 150 to 2500 Class, with full NACE MR-0175 sour gas certification.
+              Three connection families — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe — covering every instrument isolation application. SS316 construction, Class 150 to 2500, with NACE MR-0175 and Fire Safe options. Pressure rating depends on configuration — contact us to confirm.
             </Typography>
             <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
               <Button
@@ -273,7 +273,7 @@ export default function DBBIndexPage() {
             }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["Flange-to-Pipe · Flange-to-Flange · Pipe-to-Pipe", "Stainless Steel 316 construction", "NACE MR0175 sour service option", "ASME B16.5 Class 150 – 2500 · PN6 – PN250", "RF · RTJ · BS Flange Faces", "Ball · Needle · Combination internals", "Integral & Three Piece construction", "Fire Safe · Gear Operated · Lock Handle options"].map(item => (
+                {["Flange-to-Pipe · Flange-to-Flange · Pipe-to-Pipe", "Stainless Steel 316 construction", "NACE MR-0175 option", "Class 150 – 2500 · PN6 – PN250", "RF · RTJ · BS Flange Faces", "Ball · Needle · Combination internals", "Integral & Three Piece construction", "Fire Safe · Gear Operated · Lock Handle options"].map(item => (
                   <Typography
                     key={item}
                     sx={{
@@ -315,7 +315,7 @@ export default function DBBIndexPage() {
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
                 PANAM® Double Block & Bleed valves cover the full instrument isolation spectrum — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe configurations engineered for primary isolation, pressure transmitter mounting, and process bleed applications. All three families share the same SS316 construction with ball, needle, and combination internal configurations.
               </Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Every DBB family is available with NACE MR-0175 sour gas certification, fire-safe construction, lock handle, anti-static, gear-operated, and OS&Y bonnet options. Seat and seal materials cover Carbon Filled PTFE, PCTFE, Delrin, PEEK, PTFE, Grafoil, and FKM.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>DBB options include NACE MR-0175, Fire Safe, lock handle, anti-static, gear-operated, and OS&Y bonnet options. Seat and seal materials cover Carbon Filled PTFE, PCTFE, Delrin, PEEK, PTFE, Grafoil, and FKM.</Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
               <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
@@ -382,14 +382,14 @@ export default function DBBIndexPage() {
               {[
                 "Three connection families from a single trusted manufacturer",
                 "Stainless Steel 316 construction across all series",
-                "ANSI 150 to 2500 Class and PN6 to PN250 pressure ratings",
+                "Class 150 to 2500 and PN6 to PN250 pressure classes",
                 "RF, RTJ, and BS flange face options",
-                "NACE MR-0175 sour gas certification available",
+                "NACE MR-0175 option available",
                 "Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, Ball-Needle configurations",
                 "Integral (one-piece) and Three Piece (serviceable) body options",
                 "Carbon Filled PTFE, PCTFE, Delrin, and PEEK seat materials",
                 "PTFE, Grafoil, PCTFE, and FKM seal materials",
-                "Fire Safe to API 607 / API 6FA available",
+                "Fire Safe option available",
                 "Gear Operated option for large bore sizes",
                 "Lock Handle, Anti-Static, OS&Y Bonnet, and Anti-Tamper Key options",
               ].map(feat => (

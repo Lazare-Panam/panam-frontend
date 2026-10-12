@@ -16,7 +16,7 @@ const MANIFOLDS = [
   {
     type: "2vm",
     title: "2-Valve Manifolds",
-    description: 'Two-valve isolation manifolds for gauge and absolute pressure transmitters. Type A (Angular) configuration in stainless steel 316. Covers 1/4" to 1/2" NPT, BSPT, BSPP, M20x1.5, and tube fittings. Standard 6000 psi and high-pressure 10000 psi ratings with full NACE MR-01-75 sour gas certification available.',
+    description: 'Two-valve isolation manifolds for gauge and absolute pressure transmitters. Type A (Angular) configuration in stainless steel 316. Covers 1/4" to 1/2" NPT, BSPT, BSPP, M20x1.5, and tube fittings. Standard 6000 psi and high-pressure 10000 psi ratings, with a NACE MR-01-75 sour gas option.',
     image: "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/2VM/2VM_Cover.jpg",
     pressure: "6000 – 10000 psi",
     size: '1/4" – 1/2" · NPT, BSPT, BSPP, M20, Tube',
@@ -58,7 +58,7 @@ const SPECS = [
   { label: "Material", value: "Stainless Steel 316" },
   { label: "Configuration", value: "Type A (Angular)" },
   { label: "Connection Standards", value: "NPT · BSPT · BSPP · M20x1.5 · Tube" },
-  { label: "Special Service", value: "NACE MR-01-75 Sour Gas Certified" },
+  { label: "Special Service", value: "NACE MR-01-75 Sour Gas option" },
   { label: "Valve Families", value: "2VM · 3VM · 5VM" },
 ]
 
@@ -257,7 +257,7 @@ export default function ManifoldsIndexPage() {
               lineHeight: 1.75,
               fontFamily: PRIMARY_FONT,
             }}>
-            Three manifold families — 2-Valve, 3-Valve, and 5-Valve — covering the full DP transmitter and gauge pressure range. SS316 construction, tested to 10000 psi (689 bar), with full NACE sour gas certification.
+            Three manifold families — 2-Valve, 3-Valve, and 5-Valve — covering the full DP transmitter and gauge pressure range. SS316 construction, tested to 10000 psi (689 bar), with a NACE MR-01-75 sour gas option.
           </Typography>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
             <Button
@@ -310,7 +310,7 @@ export default function ManifoldsIndexPage() {
           }}>
           {[1, 2].map(i => (
             <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-              {["Tested to 10000 psi (689 bar)", "Stainless Steel 316 construction", "NACE MR-01-75 Sour Gas Certified", "2-Valve · 3-Valve · 5-Valve families", "NPT · BSPT · BSPP · M20 · Tube connections", "Type A (Angular) configuration", "Power Configuration available on 5VM", "Large Bore · Bleed Valve · Temperature Service options"].map(item => (
+              {["Tested to 10000 psi (689 bar)", "Stainless Steel 316 construction", "NACE MR-01-75 Sour Gas option", "2-Valve · 3-Valve · 5-Valve families", "NPT · BSPT · BSPP · M20 · Tube connections", "Type A (Angular) configuration", "Power Configuration available on 5VM", "Large Bore · Bleed Valve · Temperature Service options"].map(item => (
                 <Typography
                   key={item}
                   sx={{
@@ -352,7 +352,7 @@ export default function ManifoldsIndexPage() {
             <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
               PANAM® Valve Manifolds cover the full instrumentation and process spectrum — 2-valve, 3-valve, and 5-valve configurations engineered for DP transmitter isolation, equalization, and venting. All three families share the same SS316 construction and 6000 psi standard test rating, with high-pressure 10000 psi variants across the range.
             </Typography>
-            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Every manifold family is available with NACE MR-01-75 sour gas certification, multiple drain hole sizes, and a full connection size matrix covering NPT, BSPT, BSPP, M20x1.5, and PANAM® tube fittings.</Typography>
+            <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Every manifold family offers a NACE MR-01-75 sour gas option, multiple drain hole sizes, and a full connection size matrix covering NPT, BSPT, BSPP, M20x1.5, and PANAM® tube fittings.</Typography>
           </Grid>
           <Grid size={{ xs: 12, md: 5 }}>
             <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
@@ -439,7 +439,7 @@ export default function ManifoldsIndexPage() {
               "Three manifold families from a single trusted manufacturer",
               "Stainless Steel 316 construction across all series",
               "Standard 6000 psi and high-pressure 10000 psi ratings",
-              "NACE MR-01-75 sour gas certification available",
+              "NACE MR-01-75 sour gas option available",
               "Type A (Angular) configuration throughout",
               "NPT, BSPT, BSPP, M20x1.5, and tube fitting connections",
               "Power Configuration available on 5-Valve (2V–1E–2I)",

@@ -193,7 +193,7 @@ export default function HPPipeFittingsIndexPage() {
                 <br />
                 Every HP pipe fitting.
               </Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>Panam High Pressure Pipe Fittings in SS 316 cover hex nipples, reducing hex nipples, couplings, and adapters across NPT, ISO Parallel, and 37° JIC thread standards. All fittings are marked with size, material, and heat code for full traceability.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>Panam High Pressure Pipe Fittings in SS 316 cover hex nipples, reducing hex nipples, couplings, and adapters across NPT, ISO Parallel, and 37° JIC thread standards. Material certificates are available on request.</Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Smooth flow path elbows with radius junction, straight fittings from bar stock, forged fittings from forgings. All pipe threads meet ANSI/ASME B1.20.1 for tapered pipe threads. Working pressure meets ANSI/ASME B31.3 at ambient temperature.</Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
@@ -244,7 +244,7 @@ export default function HPPipeFittingsIndexPage() {
                 "NPT, ISO Parallel, and 37° JIC thread types",
                 "Standard and Swivel variants available",
                 'Sizes from 1/8" to 2"',
-                "Full heat-code material traceability",
+                "Material certificates available on request",
                 "ANSI/ASME B1.20.1 compliant pipe threads",
                 "ANSI/ASME B31.3 working pressure rating",
                 "Forged and bar stock construction",

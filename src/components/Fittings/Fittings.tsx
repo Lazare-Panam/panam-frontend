@@ -61,7 +61,7 @@ const FITTINGS = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
     pressure: "High Pressure",
     size: "Multiple thread sizes",
-    materials: "SS316 · Duplex · Monel · NACE alloys",
+    materials: "SS316 · Duplex · Monel",
   },
   {
     type: "tube-clamps",
@@ -80,8 +80,7 @@ const SPECS = [
   { label: "Materials", value: "SS316, Duplex, Monel, Hastelloy, Brass" },
   { label: "End Connections", value: "NPT, BSPP, BSPT, 37° Flare, JIC Swivel, Socket Weld" },
   { label: "Test Standard", value: "ASTM F1387 type tested" },
-  { label: "Certification", value: "NACE MR0175 / ISO 15156 available on request" },
-  { label: "Traceability", value: "Full heat-code traceability · EN 10204 Type 3.1B" },
+  { label: "Documentation", value: "Material certificates available on request" },
 ]
 
 type FittingItem = (typeof FITTINGS)[0]
@@ -261,7 +260,7 @@ export default function FittingsPage() {
           <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["Up to 15,000 psig working pressure", "SS316 · Duplex · Monel · Hastelloy · Brass", "ASTM F1387 type tested", "NACE MR0175 available on request", "Full heat-code material traceability", 'Fractional 1/16" to 2" · Metric 3–50 mm OD', "EN 10204 Type 3.1B test certificates", "Six fitting families in one catalog"].map(item => (
+                {["Up to 15,000 psig working pressure", "SS316 · Duplex · Monel · Hastelloy · Brass", "ASTM F1387 type tested", "Material certificates on request", 'Fractional 1/16" to 2" · Metric 3–50 mm OD', "Six fitting families in one catalog"].map(item => (
                   <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5, fontFamily: PRIMARY_FONT }}>
                     <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
                     {item}
@@ -284,7 +283,7 @@ export default function FittingsPage() {
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
                 PANAM® Fittings cover the full instrumentation and process spectrum — from precision tube fittings for leak-tight connections, to 37° JIC flare, high-pressure pipe fittings, permanent weld configurations, and 360° swivel gauge adaptors. Every family shares the same material standards, certification options, and quality controls.
               </Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>All fitting families are available in SS316, Duplex, Monel, and Hastelloy with full heat-code traceability, EN 10204 Type 3.1B test certificates, and NACE MR0175 certification available on request.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>All fitting families are available in SS316, Duplex, Monel, and Hastelloy with material certificates available on request.</Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
               <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
@@ -326,15 +325,13 @@ export default function FittingsPage() {
             <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
               Why specify PANAM® Fittings
             </Typography>
-            <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>Every fitting family is built to the same engineering standard — consistent materials, certifications, and traceability across the entire range.</Typography>
+            <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>Every fitting family is built to the same engineering standard — consistent materials and documentation across the range.</Typography>
             <Grid container spacing={2}>
               {[
                 "Six fitting families from a single trusted manufacturer",
                 "SS316, Duplex, Monel, Hastelloy, and Brass across all families",
                 "ASTM F1387 type tested for leak-tight performance",
-                "NACE MR0175 / ISO 15156 certification available",
-                "Full heat-code traceability on all components",
-                "EN 10204 Type 3.1B test certificates supplied",
+                "Material certificates available on request",
                 'Fractional 1/16" to 2" and metric 3–50 mm OD',
                 "NPT, BSPP, BSPT, 37° flare, JIC swivel, and socket weld ends",
                 "Silver-plated anti-gall threads on swivel gauge adaptors",

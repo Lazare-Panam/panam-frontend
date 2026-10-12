@@ -40,7 +40,7 @@ export const blogs: BlogPost[] = [
     date: "June 22, 2026",
     readTime: "7 min read",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png",
-    excerpt: "Panam's PCV Series check valves are engineered for backflow prevention up to 6,000 psig in SS316, Duplex, Monel, and Hastelloy. This guide covers cracking pressures, end connections, hydrogen and NACE service options, and how to specify a complete check valve package from UK stock.",
+    excerpt: "Panam's PCV Series check valves are engineered for backflow prevention up to 6,000 psig in SS316, Duplex, Monel, and Hastelloy. This guide covers cracking pressures, end connections, hydrogen and NACE service options, and how to specify a complete check valve package.",
   },
   {
     slug: "stainless-steel-ball-valve-guide",
@@ -54,13 +54,13 @@ export const blogs: BlogPost[] = [
   },
   {
     slug: "uk-industrial-valves-buyers-guide",
-    title: "UK Buyer's Guide to Industrial Valves: Types, Standards, Materials and Fast-Track Supply",
+    title: "UK Buyer's Guide to Industrial Valves: Types, Standards, Materials and Supply",
     category: "Technical Guide",
     author: "Steven Kassi",
     date: "June 22, 2026",
     readTime: "9 min read",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
-    excerpt: "This UK-focused buyer's guide explains how to select industrial valves by function, standards and materials across energy, process, hydrogen and utilities. Covers key valve types, API and EN documentation, Cv and sizing, high-pressure and cryogenic duties, plus installation and lifecycle planning — with guidance on fast-track procurement from UK stock.",
+    excerpt: "This UK-focused buyer's guide explains how to select industrial valves by function, standards and materials across energy, process, hydrogen and utilities. Covers key valve types, API and EN documentation, Cv and sizing, high-pressure and cryogenic duties, plus installation and lifecycle planning — with guidance on planning procurement.",
   },
   {
     slug: "manifold-valves-for-accurate-safe-instrumentation",

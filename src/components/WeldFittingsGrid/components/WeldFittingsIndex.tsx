@@ -322,7 +322,7 @@ export default function WeldFittingsIndexPage() {
             }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["SS316 Stainless Steel", "Tube Socket Weld · Butt Weld · Pipe Socket Weld", "NPT · BSPT · BSPP", '1/8" to 2" fractional · 6mm to 38mm metric', "Male & Female Connectors", "Elbows · Tees · Unions", "Full heat-code traceability", "NACE MR0175 on request"].map(item => (
+                {["SS316 Stainless Steel", "Tube Socket Weld · Butt Weld · Pipe Socket Weld", "NPT · BSPT · BSPP", '1/8" to 2" fractional · 6mm to 38mm metric', "Male & Female Connectors", "Elbows · Tees · Unions", "Material certificates on request"].map(item => (
                   <Typography
                     key={item}
                     sx={{
@@ -372,7 +372,7 @@ export default function WeldFittingsIndexPage() {
               </Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>PANAM® Weld Fittings cover the complete range of connection geometries required in instrumentation and process piping — from standard male and female connectors to elbows, tees and unions in both socket weld and butt weld configurations.</Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>All fittings are manufactured in SS316 as standard. Thread standards include NPT, ISO Tapered (BSPT) and ISO Parallel (BSPP). Available in both fractional inch and metric tube OD sizes.</Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Full heat-code material traceability is provided on all components. Size range covers 1/8" through 2" fractional and 6mm through 38mm metric.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Material certificates are available on request. Size range covers 1/8" through 2" fractional and 6mm through 38mm metric.</Typography>
             </Grid>
           </Grid>
 
@@ -447,16 +447,15 @@ export default function WeldFittingsIndexPage() {
                 maxWidth: 620,
                 fontFamily: PRIMARY_FONT,
               }}>
-              Built to the same engineering standard as every PANAM® product — full traceability, broad thread standard coverage, and availability in both inch and metric sizes.
+              Built to the same engineering standard as every PANAM® product — broad thread standard coverage, and availability in both inch and metric sizes.
             </Typography>
             <Grid container spacing={2}>
               {[
                 "SS316 as standard — Duplex, Monel, Hastelloy on request",
                 "Tube Socket Weld, Butt Weld and Pipe Socket Weld",
                 "NPT, BSPT and BSPP thread standards",
-                "Full heat-code traceability on all components",
+                "Material certificates available on request",
                 '1/8" to 2" fractional and 6–38mm metric tube OD',
-                "NACE MR0175 certification available on request",
                 "Male, female and union configurations",
                 "Technical support from our instrumentation team",
               ].map(feat => (

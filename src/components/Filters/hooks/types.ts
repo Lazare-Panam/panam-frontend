@@ -55,6 +55,6 @@ export const PTF_SERIES_DESCRIPTION = {
     "Sintered & Mesh Elements",
     "0.5 – 440 μm Pore Size",
     "OD, NPT & Metric Connections",
-    "Working Pressure up to 6000 psi (414 bar)",
+    "Nitrogen leak tested at 1000 psi",
   ],
 }

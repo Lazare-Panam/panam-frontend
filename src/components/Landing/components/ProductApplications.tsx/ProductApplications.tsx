@@ -23,7 +23,7 @@ const APPLICATIONS_DATA = [
     id: "oil-gas",
     label: "Oil & Gas",
     title: "Oil & Gas Solutions",
-    description: "Critical flow control components meeting API and ASME standards. We specialize in Double Block and Bleed (DBB) solutions and fugitive emission-certified components for global refineries and drilling platforms.",
+    description: "Critical flow control components for global refineries and drilling platforms, including Double Block and Bleed (DBB) solutions. Applicable standards are confirmed at enquiry.",
     image: "https://pblol2.blob.core.windows.net/panam-images/industries/david-thielen-R5Ob28wpWzo-unsplash.jpg",
   },
   {
@@ -44,14 +44,14 @@ const APPLICATIONS_DATA = [
     id: "chemicals-petrochemical",
     label: "Chemicals & Petrochemical",
     title: "Chemicals & Petrochemical",
-    description: "Superior metallurgy including Hastelloy and Monel for aggressive chemical processing. Our modular designs ensure zero-leakage performance and corrosion resistance in toxic media environments.",
+    description: "Superior metallurgy including Hastelloy and Monel for aggressive chemical processing. Modular designs support leak-tight performance and corrosion resistance in toxic media environments.",
     image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80",
   },
   {
     id: "food-beverages",
     label: "Food & Beverages",
     title: "Food & Beverages",
-    description: "Hygienic stainless steel solutions focusing on cleanability and contamination prevention. Components are designed with FDA-approved materials to withstand frequent Clean-In-Place (CIP) cycles.",
+    description: "Hygienic stainless steel solutions focusing on cleanability and contamination prevention. Material and seal options can be selected for frequent Clean-In-Place (CIP) cycles — confirm your requirements at enquiry.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
   },
 ]

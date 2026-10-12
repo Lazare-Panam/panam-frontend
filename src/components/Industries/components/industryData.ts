@@ -33,7 +33,7 @@ export const industryData = [
     content: {
       subHeading: "OIL & GAS SOLUTIONS",
       heading: "High-Pressure Performance for Harsh Environments.",
-      bodyText: "In an industry where safety and environmental protection are paramount, our valves meet the most stringent API and ASME standards. \n\nWe specialize in Double Block and Bleed (DBB) solutions, high-pressure needle valves, and fugitive emission-certified components that reduce leak paths and maximize site safety across global refineries and drilling platforms.",
+      bodyText: "In an industry where safety and environmental protection are paramount, we supply valves and fittings for demanding process service, with the standards your specification requires confirmed at enquiry. \n\nWe specialize in Double Block and Bleed (DBB) solutions and high-pressure needle valves that reduce leak paths and maximize site safety across global refineries and drilling platforms.",
     },
   },
   {
@@ -87,7 +87,7 @@ export const industryData = [
     content: {
       subHeading: "CHEMICAL PROCESSING",
       heading: "Corrosion Resistance for Toxic Media.",
-      bodyText: "Managing lethal or highly corrosive fluids requires specialized sealing and material science. We offer valves in Hastelloy, Monel, and Inconel to ensure compatibility with aggressive acids and bases. \n\nOur modular designs allow for easy maintenance and zero-leakage performance in continuous process environments.",
+      bodyText: "Managing lethal or highly corrosive fluids requires specialized sealing and material science. We offer valves in Hastelloy, Monel, and Inconel to ensure compatibility with aggressive acids and bases. \n\nOur modular designs allow for easy maintenance and leak-tight performance in continuous process environments.",
     },
   },
   {
@@ -105,7 +105,7 @@ export const industryData = [
     content: {
       subHeading: "FOOD & BEVERAGE INDUSTRY",
       heading: "Sanitary Solutions for Mass Production.",
-      bodyText: "Our valves for the F&B sector focus on cleanability and contamination prevention. Using high-polish 316L Stainless Steel and FDA-approved sealing materials, we support everything from dairy processing to large-scale brewery operations. \n\nEvery component is designed to withstand frequent CIP (Clean-In-Place) cycles without degrading.",
+      bodyText: "Our valves for the F&B sector focus on cleanability and contamination prevention. Using high-polish 316L Stainless Steel and sealing materials selected for your process, we support everything from dairy processing to large-scale brewery operations. \n\nEvery component is designed to withstand frequent CIP (Clean-In-Place) cycles without degrading.",
     },
   },
 ]

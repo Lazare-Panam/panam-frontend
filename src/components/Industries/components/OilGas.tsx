@@ -13,7 +13,7 @@ const OilGasPage = () => {
   const content = {
     subHeading: "OIL & GAS SOLUTIONS",
     heading: "High-Pressure Performance for Harsh Environments.",
-    bodyText: "In an industry where safety and environmental protection are paramount, our valves meet the most stringent API and ASME standards. \n\nWe specialize in Double Block and Bleed (DBB) solutions, high-pressure needle valves, and fugitive emission-certified components that reduce leak paths and maximize site safety across global refineries and drilling platforms.",
+    bodyText: "In an industry where safety and environmental protection are paramount, we supply valves and fittings for demanding process service, with the standards your specification requires confirmed at enquiry. \n\nWe specialize in Double Block and Bleed (DBB) solutions and high-pressure needle valves that reduce leak paths and maximize site safety across global refineries and drilling platforms.",
   }
 
   return (

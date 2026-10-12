@@ -12,8 +12,8 @@ const ApiValveStandardsBlog: React.FC = () => {
   }, [])
 
   const cta = {
-    heading: "Need a rapid compliance review of your valve list?",
-    body: "Send your valve list and data sheets to Panam Valves. We cross-check against API, EN, ASME and NACE within 24 hours, propose compliant materials, and return a clean ITP and document register ready for client review. UK stock is available for immediate shipment from Bicester, with global dispatch.",
+    heading: "Need a compliance review of your valve list?",
+    body: "Send your valve list and data sheets to Panam Valves. We cross-check against API, EN, ASME and NACE, propose materials, and return an ITP and document register for client review. Lead times are confirmed at quotation, with global dispatch.",
     buttonText: "Request a Compliance Review",
     buttonLink: "/enquiry",
   }
@@ -76,9 +76,9 @@ const ApiValveStandardsBlog: React.FC = () => {
 
   const pitfalls = [
     "Mixing standards in one line item — e.g. calling API 6D on a plant gate that should be API 600. Panam cross-checks service and line class, then flags mismatches before build.",
-    "Omitting NACE MR0175 in materials for sour service. Panam confirms media and temperature and proposes compliant MOCs with backed certificates.",
+    "Omitting NACE MR0175 in materials for sour service. Panam confirms media and temperature and proposes suitable materials, with material certificates available on request.",
     "Not stating test fluid or test pressures. Panam defaults to API 598 criteria and documents actual pressures and hold times on reports.",
-    "Missing heat-code traceability across subcomponents. Panam provides full heat-code traceability and packs MTCs with the valve serial number.",
+    "Missing material documentation across subcomponents. Request material certificates at enquiry so they can be supplied with the order.",
     "Ambiguous trim descriptions. Panam itemises trim components by ASTM grade, hardness and seat material.",
   ]
 
@@ -311,7 +311,7 @@ const ApiValveStandardsBlog: React.FC = () => {
               ))}
             </Box>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              UK stock is available from Bicester, with global dispatch. Technical responses are typically returned within 24 hours, and every order ships with a complete document pack aligned to your ITP.
+              Panam supports projects from Bicester, with global dispatch. Lead times vary by product and are confirmed at quotation; documentation requirements should be agreed against your ITP at order.
             </Typography>
 
             {/* SECTION 7 */}
@@ -364,7 +364,7 @@ const ApiValveStandardsBlog: React.FC = () => {
               How Panam Can Help
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Send your valve list and data sheets and we will cross-check against API, EN, ASME and NACE requirements within 24 hours, propose compliant materials, and return a clean ITP and document register ready for client review. UK stock is available for immediate shipment from Bicester, with global dispatch.
+              Send your valve list and data sheets and we will cross-check against API, EN, ASME and NACE requirements, propose materials, and return an ITP and document register for client review. Lead times are confirmed at quotation, with global dispatch.
             </Typography>
             <Typography variant="body1" sx={{ mb: 1, lineHeight: 1.8, fontWeight: 700 }}>
               Helpful resources on related components:
@@ -394,7 +394,7 @@ const ApiValveStandardsBlog: React.FC = () => {
             </Box>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontStyle: "italic", color: "#555" }}>
-              Summary: choose the correct product standard for the duty, pair it with API 598 for testing, lock materials and ends to the line class, and specify documents and inspection points clearly. Share your specification with Panam for a rapid compliance review and a documentation pack that clears FAT and SAT without delays.
+              Summary: choose the correct product standard for the duty, pair it with API 598 for testing, lock materials and ends to the line class, and specify documents and inspection points clearly. Share your specification with Panam for a compliance review and to agree the documentation pack for FAT and SAT.
             </Typography>
 
             {/* CTA */}
@@ -441,7 +441,7 @@ const ApiValveStandardsBlog: React.FC = () => {
                   <Box component="img" src={heroImage} alt="PANAM Industrial Valves" sx={{ width: "100%", height: 160, objectFit: "contain", bgcolor: "#F4F4F4", p: 2 }} />
                   <Box sx={{ p: 2 }}>
                     <Typography sx={{ fontWeight: 800, fontSize: "0.9rem", color: "#1A1A1A", mb: 0.5 }}>PANAM Industrial Valves</Typography>
-                    <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>UK Stock · 24hr Quotation · Full Documentation</Typography>
+                    <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>Engineering Support · Lead Times on Request</Typography>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 700, color: "#01B0F0" }}>Browse the range →</Typography>
                   </Box>
                 </Paper>

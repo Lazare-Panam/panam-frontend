@@ -30,7 +30,7 @@ const faqs: FAQItem[] = [
   {
     question: "What testing and certification standards apply?",
     answer:
-      "ASTM F1387 type testing, NACE MR0175 / ISO 15156 certification available on request, EN 10204 Type 3.1B test certificates, and full heat-code material traceability.",
+      "ASTM F1387 type testing, with material certificates available on request.",
   },
   {
     question: "What materials are available?",

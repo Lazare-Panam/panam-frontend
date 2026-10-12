@@ -120,10 +120,10 @@ export default function HighPressureIndexPage() {
   return (
     <>
       <title>PANAM® High Pressure Valves & Fittings | 10,000 – 60,000 psi | Hydrogen Ready</title>
-      <meta name="description" content="Panam high pressure valves and fittings rated 10,000 to 60,000 psi — needle valves, double block & bleed, ball valves, cone & threaded nipples, and 2-valve manifolds. SS 316, NACE MR0175. Hydrogen compatible." />
-      <meta name="keywords" content="high pressure needle valves, high pressure ball valves, double block and bleed valves, cone threaded nipples, 2-valve manifolds, hydrogen valves, 60000 psi valves, SS316 high pressure fittings, NACE MR0175" />
+      <meta name="description" content="Panam high pressure valves and fittings rated 10,000 to 60,000 psi — needle valves, double block & bleed, ball valves, cone & threaded nipples, and 2-valve manifolds. SS 316." />
+      <meta name="keywords" content="high pressure needle valves, high pressure ball valves, double block and bleed valves, cone threaded nipples, 2-valve manifolds, hydrogen valves, 60000 psi valves, SS316 high pressure fittings" />
       <meta property="og:title" content="PANAM® High Pressure Valves & Fittings | Hydrogen Ready | 10,000 – 60,000 psi" />
-      <meta property="og:description" content="Five high pressure product families — needle valves, DBB, ball valves, nipples, and manifolds — rated from 10,000 to 60,000 psi in SS 316. NACE certified. Hydrogen compatible." />
+      <meta property="og:description" content="Five high pressure product families — needle valves, DBB, ball valves, nipples, and manifolds — rated from 10,000 to 60,000 psi in SS 316." />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure" />
       <meta name="robots" content="index, follow" />
@@ -186,7 +186,7 @@ export default function HighPressureIndexPage() {
           <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["10,000 – 60,000 psi", "SS 316 construction", "NPT · MP Cone & Thread · HP Cone & Thread", "Needle · Ball · DBB · Nipples · Manifolds", "Straight · Angle · 3-Way · Manifold configurations", "NACE MR0175 available"].map(item => (
+                {["10,000 – 60,000 psi", "SS 316 construction", "NPT · MP Cone & Thread · HP Cone & Thread", "Needle · Ball · DBB · Nipples · Manifolds", "Straight · Angle · 3-Way · Manifold configurations"].map(item => (
                   <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5, fontFamily: PRIMARY_FONT }}>
                     <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
                     {item}
@@ -207,7 +207,7 @@ export default function HighPressureIndexPage() {
                 Every high pressure product.
               </Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>Panam High Pressure products cover the full spectrum from 10,000 to 60,000 psi — needle valves, double block & bleed valves, ball valves, cone & threaded nipples, and 2-valve manifolds. All manufactured in SS 316 with NPT, MP Cone & Thread, and HP Cone & Thread connections.</Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Five needle valve pressure series (HP through HP6), three ball valve series, Ball-Needle-Ball and Needle-Needle DBB configurations, and cone & thread nipples available in lengths from 2.75" to 12". NACE MR0175 certification available across the range.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Five needle valve pressure series (HP through HP6), three ball valve series, Ball-Needle-Ball and Needle-Needle DBB configurations, and cone & thread nipples available in lengths from 2.75" to 12".</Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
               <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
@@ -263,7 +263,6 @@ export default function HighPressureIndexPage() {
                 "SS 316 construction across all products",
                 "10,000 to 60,000 psi pressure coverage",
                 "NPT, MP Cone & Thread, HP Cone & Thread connections",
-                "NACE MR0175 certification available",
                 "Needle, Ball, DBB, and Manifold configurations",
                 "HP Needle Valves in 5 pressure series (HP – HP6)",
                 "Ball Valves in 2-Way, 3-Way 180° and 90° Diverter",
@@ -271,7 +270,7 @@ export default function HighPressureIndexPage() {
                 'Cone & Thread Nipples from 2.75" to 12" length',
                 "2-Valve Manifolds for gauge and DP transmitters",
                 '1/4" to 1" connection sizes across the range',
-                "Full technical documentation and material traceability",
+                "Technical documentation and material certificates on request",
               ].map(feat => (
                 <Grid key={feat} size={{ xs: 12, sm: 6, md: 6 }}>
                   <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>

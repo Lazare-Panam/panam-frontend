@@ -8,7 +8,7 @@ import { Countup } from "./Countup"
 const BRAND_BLUE = "#01B0F0"
 
 const items = [
-  { icon: <LocalShippingIcon />, label: "UK Stock, Fast Dispatch" },
+  { icon: <LocalShippingIcon />, label: "Global Dispatch" },
   { icon: <VerifiedIcon />, label: "ISO 9001:2015 Certified" },
   { icon: <PublicIcon />, countTarget: "52+", labelSuffix: " Countries Served" },
   { icon: <SupportAgentIcon />, countTarget: "24", labelSuffix: "h Technical Response" },
