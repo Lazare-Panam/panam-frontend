@@ -1,14 +1,79 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/assets/*", "/static/media/*.{png,jpg,gif}", "/css/*",  "/about/*"]
+    "exclude": [
+      "/assets/*",
+      "/static/media/*.{png,jpg,gif}",
+      "/css/*",
+      "/about/*"
+    ]
   },
   "globalHeaders": {
-     "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
     "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
     "Content-Security-Policy": "frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://www.google.com https://news.google.com;"
   },
   "routes": [
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-05-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-05-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-2-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-2-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-7-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-7-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-15-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-15-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-40-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-40-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-60-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-60-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-90-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-90-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-ST-40-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-ST-40-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-ST-90-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-ST-90-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-ST-140-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-ST-140-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-ST-230-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-ST-230-SS",
+      "statusCode": 301
+    },
+    {
+      "route": "/filters/t-type/PTF-IB-M08-OD-ST-440-SS",
+      "redirect": "/filters/t-type/PTF-TC-M08-OD-ST-440-SS",
+      "statusCode": 301
+    },
     {
       "route": "/about",
       "rewrite": "/about/index.html"

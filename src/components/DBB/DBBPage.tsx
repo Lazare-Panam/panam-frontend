@@ -35,7 +35,7 @@ const DBB_PRODUCTS = [
     title: "DBB — Pipe to Pipe",
     description: "Double Block & Bleed valves with threaded Pipe-to-Pipe construction for compact instrument isolation and process bleed. Available in NPT, BSPP, and BSPT thread forms across a full range of bore sizes. Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, and Ball-Needle configurations. NACE MR-0175 sour gas and fire-safe options available.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg",
-    pressure: "Threaded · NPT / BSPP / BSPT",
+    pressure: "Up to 15,000 psig · NPT / BSPP / BSPT",
     connection: "Pipe to Pipe · Compact Body",
     material: "SS316 · NACE / Fire Safe Options",
     tag: "Connection Type 6",
@@ -52,7 +52,7 @@ const SPECS = [
   { label: "Configurations", value: "Ball-Needle-Ball · Ball-Ball-Ball · Needle-Needle-Needle · Ball-Needle" },
   { label: "Seat Materials", value: "Carbon Filled PTFE · PCTFE · Delrin · PEEK" },
   { label: "Seal Materials", value: "PTFE · Grafoil · PCTFE · FKM" },
-  { label: "Special Service", value: "NACE MR-0175 · Fire Safe · Gear Operated" },
+  { label: "Special Service", value: "NACE MR0175 · Fire Safe (API 607 / API 6FA) · Gear Operated" },
 ]
 
 type DBBItem = (typeof DBB_PRODUCTS)[0]
@@ -150,7 +150,7 @@ export default function DBBIndexPage() {
   return (
     <>
       <title>Double Block & Bleed Valves | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® DBB Valves — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe. SS316, ANSI 150–2500 Class, NACE MR-0175 certified." />
+      <meta name="description" content="PANAM® DBB Valves — Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe. SS316, ASME Class 150–2500 to 6,000 psi, pipe-to-pipe to 15,000 psig, NACE MR0175 and API 607 fire-safe options." />
       <meta name="keywords" content="double block bleed valve, DBB valve, instrument isolation valve, NACE valve, SS316 valve" />
       <meta property="og:title" content="Double Block & Bleed Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Three connection families. One standard. PANAM® DBB Valves for primary isolation, transmitter mounting, and process bleed." />
@@ -164,7 +164,7 @@ export default function DBBIndexPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "PANAM® Double Block & Bleed Valves",
-          description: "Double Block & Bleed valves in Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe connection types. SS316, ANSI 150–2500 Class, NACE MR-0175 certified.",
+          description: "Double Block & Bleed valves in Flange-to-Pipe, Flange-to-Flange, and Pipe-to-Pipe connection types. SS316, ASME Class 150–2500 to 6,000 psi, pipe-to-pipe to 15,000 psig, NACE MR0175 and API 607 fire-safe options.",
           mainEntity: {
             "@type": "ItemList",
             itemListElement: DBB_PRODUCTS.map((p, i) => ({
@@ -273,7 +273,7 @@ export default function DBBIndexPage() {
             }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["Flange-to-Pipe · Flange-to-Flange · Pipe-to-Pipe", "Stainless Steel 316 construction", "NACE MR-0175 Sour Gas Certified", "ANSI 150 – 2500 Class · PN6 – PN250", "RF · RTJ · BS Flange Faces", "Ball · Needle · Combination internals", "Integral & Three Piece construction", "Fire Safe · Gear Operated · Lock Handle options"].map(item => (
+                {["Flange-to-Pipe · Flange-to-Flange · Pipe-to-Pipe", "Stainless Steel 316 construction", "NACE MR0175 sour service option", "ASME B16.5 Class 150 – 2500 · PN6 – PN250", "RF · RTJ · BS Flange Faces", "Ball · Needle · Combination internals", "Integral & Three Piece construction", "Fire Safe · Gear Operated · Lock Handle options"].map(item => (
                   <Typography
                     key={item}
                     sx={{
@@ -389,7 +389,7 @@ export default function DBBIndexPage() {
                 "Integral (one-piece) and Three Piece (serviceable) body options",
                 "Carbon Filled PTFE, PCTFE, Delrin, and PEEK seat materials",
                 "PTFE, Grafoil, PCTFE, and FKM seal materials",
-                "Fire Safe construction available",
+                "Fire Safe to API 607 / API 6FA available",
                 "Gear Operated option for large bore sizes",
                 "Lock Handle, Anti-Static, OS&Y Bonnet, and Anti-Tamper Key options",
               ].map(feat => (

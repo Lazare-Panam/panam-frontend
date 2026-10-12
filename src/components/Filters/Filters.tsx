@@ -79,10 +79,10 @@ export default function PTFFiltersPage() {
   return (
     <>
           <title>T-Type In-Line Filters (PTF) | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® PTF T-Type In-Line Filters — SS316, sintered and mesh elements 0.5 to 440 micron, tested to 1000 psi. Series TA, TB, TC, TD, IB. 3mm to 12mm tube, 1/8 to 1/2 inch thread. Request a quote." />
-      <meta name="keywords" content="T-type inline filters, PTF filters, instrumentation filters, SS316 filters, sintered filter elements, high pressure filters" />
+      <meta name="description" content="PANAM® PTF T-Type In-Line Filters — SS316, sintered and mesh elements 0.5 to 440 micron, working pressure up to 6000 psi. Series TA, TB, TC, TD. 3mm to 12mm tube, 1/8 to 1/2 inch thread. Request a quote." />
+      <meta name="keywords" content="T-type inline filters, PTF filters, instrumentation filters, SS316 filters, sintered filter elements" />
       <meta property="og:title" content="T-Type In-Line Filters (PTF) | PANAM® Instrumentation" />
-      <meta property="og:description" content="Configure PANAM® PTF T-Type Filters by series, thread standard, pore size, and end connection. SS316, tested to 1000 psi." />
+      <meta property="og:description" content="Configure PANAM® PTF T-Type Filters by series, connection standard, pore size, and end connection. SS316, working pressure up to 6000 psi." />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="canonical" href="https://www.panamvalve.com/filters/t-type" />
@@ -111,6 +111,9 @@ export default function PTFFiltersPage() {
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           {PTF_SERIES_DESCRIPTION.description}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
+          {PTF_SERIES_DESCRIPTION.poreCodeNote}
         </Typography>
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
           {PTF_SERIES_DESCRIPTION.specs.map(s => (

@@ -16,7 +16,7 @@ export function PTFActiveFilters({ filters, setFilters }: Props) {
     onDelete: () => setFilters(prev => ({ ...prev, series: prev.series.filter(x => x !== v) })),
   }))
   filters.threadStandards.forEach(v => chips.push({
-    label: `Thread: ${v}`,
+    label: `Connection: ${v}`,
     onDelete: () => setFilters(prev => ({ ...prev, threadStandards: prev.threadStandards.filter(x => x !== v) })),
   }))
   filters.threadSizes.forEach(v => chips.push({

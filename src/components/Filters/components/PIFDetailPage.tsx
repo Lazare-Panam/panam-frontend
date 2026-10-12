@@ -50,8 +50,8 @@ export default function PIFProductPage() {
       specs={[
         { label: 'Part Number',     value: product.partNumber },
         { label: 'Series',          value: product.series },
-        { label: 'Thread Standard', value: product.threadStandard },
-        { label: 'Thread Size',     value: product.threadSize },
+        { label: 'Connection Standard', value: product.threadStandard },
+        { label: 'Connection Size',     value: product.threadSize },
         { label: 'End Connection',  value: END_CONNECTION_LABELS[product.endConnection] ?? product.endConnection },
         { label: 'Filter Element',  value: product.filterElement },
         { label: 'Pore Size',       value: `${product.poreSize} μm` },
@@ -67,8 +67,8 @@ export default function PIFProductPage() {
         specs: {
           'Part Number':     product.partNumber,
           'Series':          product.series,
-          'Thread Standard': product.threadStandard,
-          'Thread Size':     product.threadSize,
+          'Connection Standard': product.threadStandard,
+          'Connection Size':     product.threadSize,
           'End Connection':  END_CONNECTION_LABELS[product.endConnection] ?? product.endConnection,
           'Filter Element':  product.filterElement,
           'Pore Size':       `${product.poreSize} μm`,

@@ -5,7 +5,7 @@ import FilterListIcon from "@mui/icons-material/FilterList"
 import { DBBSidebar, type AvailableCountsDBB } from "./components/DBBSidebar"
 import DBBTable from "./components/DBBTable"
 import { DBBActiveFilters } from "./components/DBBActiveFilters"
-import { DBB_VALVES_DATA } from "./hooks/dbbValveData"
+import { DBB_VALVES_DATA, DBB_OPTION_LEGEND } from "./hooks/dbbValveData"
 import {
   type DBBValveFilters, type DBBValveDTO,
   EMPTY_DBB_FILTERS, DBB_DESCRIPTION,
@@ -141,7 +141,7 @@ const sealMaterialOptions = useMemo(
   return (
     <>
       <title>DBB Flange-to-Pipe Valves | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® DBB Flange-to-Pipe valves — Integral and Three Piece construction, ANSI 150–2500 Class, SS316, NACE MR-0175 certified. Configure and request a quote." />
+      <meta name="description" content="PANAM® DBB Flange-to-Pipe valves — Integral and Three Piece construction, Class 150–2500, SS316, NACE MR-0175 and fire-safe options. Configure and request a quote." />
       <meta name="keywords" content="DBB flange to pipe valve, double block bleed valve, instrument isolation valve, NACE valve, SS316 instrumentation valve" />
       <meta property="og:title" content="DBB Flange-to-Pipe Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® DBB Flange-to-Pipe valves by construction, pressure class, bore size, and special service." />
@@ -184,6 +184,12 @@ const sealMaterialOptions = useMemo(
             </Box>
           ))}
         </Box>
+        {DBB_OPTION_LEGEND.length > 0 && (
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 2, maxWidth: 800 }}>
+            <Box component="span" sx={{ fontWeight: 700, color: "text.primary" }}>Part number option suffixes: </Box>
+            {DBB_OPTION_LEGEND.map(o => `${o.code} = ${o.label}`).join(" · ")}
+          </Typography>
+        )}
       </Box>
 
       <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>

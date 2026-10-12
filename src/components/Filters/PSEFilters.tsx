@@ -91,6 +91,15 @@ export default function PSEFiltersPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           {FILTER_ELEMENT_DESCRIPTION.description}
         </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
+          {FILTER_ELEMENT_DESCRIPTION.poreCodeNote}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
+          {FILTER_ELEMENT_DESCRIPTION.elementCodeNote}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
+          {FILTER_ELEMENT_DESCRIPTION.performanceNote}
+        </Typography>
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
           {FILTER_ELEMENT_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{

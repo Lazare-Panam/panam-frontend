@@ -5,12 +5,8 @@ import { certsByTab } from "../../Resources/components/Cert"
 
 const BRAND_BLUE = "#01B0F0"
 
-// BFPA logo swapped for the one already used (and verified working) in the navbar's AccreditationStack
-const BFPA_LOGO = "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/certificates/bfpa-logo.jpg"
-
 const featuredCerts = [
   ...(certsByTab["qms"] ?? []).map(cert => ({ ...cert, tab: "qms" })),
-  ...(certsByTab["registrations"] ?? []).map(cert => ({ ...cert, tab: "registrations", image: BFPA_LOGO })),
 ]
 
 const CertificationsStrip = () => {

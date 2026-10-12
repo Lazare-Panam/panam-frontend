@@ -70,7 +70,7 @@ export const CATEGORIES2: CategoryData2[] = [
     title: "Filters",
     id: "filters",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/filters/PTF-TB-04-15-SS_JPG-removebg-preview.png",
-    seoDescription: "In-line and T-type instrumentation filters protecting high-pressure gas and liquid systems from particulate contamination.",
+    seoDescription: "In-line and T-type instrumentation filters protecting gas and liquid lines from particulate contamination.",
     products: [
       { name: "T-Type Filter", link: "/filters/t-type" },
       { name: "In-Line Filter", link: "/filters/i-type" },

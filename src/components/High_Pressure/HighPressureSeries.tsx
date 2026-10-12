@@ -15,7 +15,7 @@ const needleValveSeries = [
 const ballValveSeries = [
   { series: "HP", pressure: "10,000 psi", config: "2-Way" },
   { series: "HP1", pressure: "15,000 psi", config: "2-Way · 3-Way 180°" },
-  { series: "HP2", pressure: "20,000 psi", config: "2-Way · 3-Way 180° · 3-Way 90° Diverter" },
+  { series: "HP2", pressure: "15,000 – 20,000 psi", config: "2-Way · 3-Way 180° · 3-Way 90° Diverter" },
 ]
 
 const tableSx = {

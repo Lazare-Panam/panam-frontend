@@ -43,7 +43,7 @@ const PRODUCTS = [
   {
     title: "High Pressure Ball Valves",
     subtitle: "10,000 – 20,000 psi",
-    description: "Panam HP Ball Valves in SS 316 across three pressure series — HP (10,000 psi), HP1 (15,000 psi), and HP2 (20,000 psi). 2-Way, 3-Way 180° Turn, and 3-Way 90° Turn Diverter configurations.",
+    description: "Panam HP Ball Valves in SS 316 across three pressure series — HP (10,000 psi), HP1 (15,000 psi), and HP2 (15,000–20,000 psi). 2-Way, 3-Way 180° Turn, and 3-Way 90° Turn Diverter configurations.",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-bv.jpg",
     pressure: "10,000 – 20,000 psi",
     link: "/high-pressure/ball-valves",
