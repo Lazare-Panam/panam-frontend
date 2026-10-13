@@ -76,26 +76,26 @@ export const VENT_SORT_ORDER = [
 export const DBB_DESCRIPTION = {
   title: "Double Block & Bleed Valves — Flange to Pipe",
   description:
-    "Panam PDBB Double Block & Bleed valves with Flange-to-Pipe construction for primary instrument isolation, pressure transmitter mounting, and process bleed applications. Available in Integral (one-piece body) and Three Piece (serviceable) configurations. Stainless steel 316 body with ball, needle, and combination ball-needle internals across ANSI 150 to 2500 pressure classes. NACE MR-0175 sour gas certification, fire-safe construction, and a full range of seat/seal options for chemical compatibility.",
+    "Panam PDBB Double Block & Bleed valves with Flange-to-Pipe construction for primary instrument isolation, pressure transmitter mounting, and process bleed applications. Available in Integral (one-piece body) and Three Piece (serviceable) configurations. Stainless steel 316 body with ball, needle, and combination ball-needle internals in Class 150 to 2500 and PN6 to PN250 pressure classes. Pressure rating depends on configuration — contact us to confirm for your application. Options include NACE MR-0175 (SG), Fire Safe (FS), and a full range of seat/seal options for chemical compatibility.",
   specs: [
     "Double Block & Bleed",
     "Flange to Pipe — Integral & Three Piece",
     "Stainless Steel 316",
-    "ANSI 150 – 2500 Class",
+    "Class 150 – 2500 · PN6 – PN250",
     "Ball, Needle & Combination",
-    "NACE / Fire Safe Options",
+    "NACE MR-0175 / Fire Safe Options",
   ],
 }
 export const FXF_DBB_DESCRIPTION = {
   title: "Double Block & Bleed Valves — Flange to Flange",
   description:
-    "Panam PDBB Double Block & Bleed valves with Flange-to-Flange construction for primary instrument isolation and process applications. Available in Integral (one-piece body) and Three Piece (serviceable) configurations. Stainless steel 316 body with ball, needle, and combination ball-needle internals across ANSI 150 to 2500 pressure classes. NACE MR-0175 sour gas certification, fire-safe construction, and a full range of seat/seal options.",
+    "Panam PDBB Double Block & Bleed valves with Flange-to-Flange construction for primary instrument isolation and process applications. Available in Integral (one-piece body) and Three Piece (serviceable) configurations. Stainless steel 316 body with ball, needle, and combination ball-needle internals in Class 150 to 2500 and PN6 to PN250 pressure classes. Pressure rating depends on configuration — contact us to confirm for your application. Options include NACE MR-0175 (SG), Fire Safe (FS), and a full range of seat/seal options.",
   specs: [
     "Double Block & Bleed",
     "Flange to Flange — Integral & Three Piece",
     "Stainless Steel 316",
-    "ANSI 150 – 2500 Class",
+    "Class 150 – 2500 · PN6 – PN250",
     "Ball, Needle & Combination",
-    "NACE / Fire Safe Options",
+    "NACE MR-0175 / Fire Safe Options",
   ],
 }

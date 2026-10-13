@@ -107,7 +107,7 @@ const NPTBSPPBSPTBlog: React.FC = () => {
               </Typography>
 
               <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-                This guide shows how to identify NPT, BSPP (ISO Parallel) and BSPT (ISO Tapered) in minutes, choose the right seal method, avoid cross-threading myths, and convert safely with adapters. It also maps selections to Valvenok's SS316 PANAM PMC series and pipe fittings with 3.1 material certificates, plus NACE notes for sour service.
+                This guide shows how to identify NPT, BSPP (ISO Parallel) and BSPT (ISO Tapered) in minutes, choose the right seal method, avoid cross-threading myths, and convert safely with adapters. It also maps selections to Valvenok's SS316 PANAM PMC series and pipe fittings, plus notes for sour service.
               </Typography>
 
               {/* SECTION 1 */}
@@ -276,7 +276,7 @@ const NPTBSPPBSPTBlog: React.FC = () => {
               </Box>
 
               <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-                Valvenok supplies SS316 adapters, nipples and reducers in the PANAM range with 3.1 material certificates on request. For sour service, select items indicated as NACE MR0175 compliant. Browse the SS316 instrumentation and pipe fittings range to filter by thread standard, size and type.
+                Valvenok supplies SS316 adapters, nipples and reducers in the PANAM range with material certificates on request. For sour service, tell us your requirement at enquiry. Browse the SS316 instrumentation and pipe fittings range to filter by thread standard, size and type.
               </Typography>
 
               <Box component="ul" sx={{ mb: 6, pl: 2 }}>
@@ -323,8 +323,8 @@ const NPTBSPPBSPTBlog: React.FC = () => {
                   "Confirm male fitting standard with taper check and pitch gauge.",
                   "Choose the correct seal method: sealant for tapered, washer or cone for BSPP.",
                   "Verify material, pressure class and media compatibility. SS316 is the default for corrosive and offshore environments.",
-                  "For sour service, request NACE MR0175 documentation where available.",
-                  "For traceability, request 3.1 certificates on PANAM PMC series and SS316 pipe fittings where applicable.",
+                  "For sour service, state your NACE MR0175 requirement at enquiry.",
+                  "Request material certificates with your order where required.",
                 ].map((item, i) => (
                   <Box component="li" sx={{ mb: 2 }} key={i}>
                     <Typography variant="body1">{item}</Typography>
@@ -385,7 +385,7 @@ const NPTBSPPBSPTBlog: React.FC = () => {
 
               <Box component="ul" sx={{ mb: 6, pl: 2 }}>
                 <Box component="li" sx={{ mb: 2 }}>
-                  <Typography variant="body1"><strong>PANAM PMC series instrumentation fittings in SS316:</strong> male and female connectors, adapters, reducers, unions and port connectors in NPT, BSPP and BSPT. 3.1 material certs on request. Selected parts with NACE MR0175 notes.</Typography>
+                  <Typography variant="body1"><strong>PANAM PMC series instrumentation fittings in SS316:</strong> male and female connectors, adapters, reducers, unions and port connectors in NPT, BSPP and BSPT. Material certificates on request.</Typography>
                 </Box>
                 <Box component="li" sx={{ mb: 2 }}>
                   <Typography variant="body1"><strong>SS316 pipe fittings:</strong> nipples, couplings, hex plugs, caps, elbows, tees and crosses across NPT, BSPP and BSPT. Use dedicated adapters for cross-standard conversions.</Typography>
@@ -427,7 +427,7 @@ const NPTBSPPBSPTBlog: React.FC = () => {
               </Typography>
 
               <Typography variant="body1" sx={{ mb: 10, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-                Correctly identifying NPT, BSPP and BSPT saves ports, prevents leaks and keeps commissioning on schedule. Check taper, pitch and markings, then choose the right seal method. Never force mixed standards; convert with SS316 adapters and nipples. For traceability and sour service assurance, specify 3.1-certed PANAM parts and NACE MR0175 compliant items where indicated. If you want help matching threads to valves, gauges and fittings, contact Valvenok technical support or browse our{" "}
+                Correctly identifying NPT, BSPP and BSPT saves ports, prevents leaks and keeps commissioning on schedule. Check taper, pitch and markings, then choose the right seal method. Never force mixed standards; convert with SS316 adapters and nipples. Request material certificates and state any sour service requirement at enquiry. If you want help matching threads to valves, gauges and fittings, contact Valvenok technical support or browse our{" "}
                 <Box component="a" href="https://www.panamvalve.com/fittings" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
                   SS316 instrumentation and pipe fittings
                 </Box>

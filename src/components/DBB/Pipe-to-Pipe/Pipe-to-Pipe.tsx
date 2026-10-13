@@ -5,7 +5,7 @@ import FilterListIcon from "@mui/icons-material/FilterList"
 import { PXPSidebar, type AvailableCountsPXP } from "./components/PXPSidebar"
 import PXPTable from "./components/PXPTable"
 import { PXPActiveFilters } from "./components/PXPActiveFilters"
-import { PXP_DBB_VALVES_DATA } from "./hooks/pxpDbbValveData"
+import { PXP_DBB_VALVES_DATA, PXP_OPTION_LEGEND } from "./hooks/pxpDbbValveData"
 import {
   type PXPValveFilters, type PXPValveDTO,
   EMPTY_PXP_FILTERS, PXP_DESCRIPTION,
@@ -125,7 +125,7 @@ export default function PipexPipeDBB() {
   return (
     <>
       <title>DBB Pipe-to-Pipe Valves | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® DBB Pipe-to-Pipe valves — NPT, BSPP, and BSPT thread forms, SS316, NACE MR-0175 certified. Compact instrument isolation and process bleed. Configure and request a quote." />
+      <meta name="description" content="PANAM® DBB Pipe-to-Pipe valves — NPT, BSPP, and BSPT thread forms, SS316, NACE MR-0175 and fire-safe options. Compact instrument isolation and process bleed. Configure and request a quote." />
       <meta name="keywords" content="DBB pipe to pipe valve, double block bleed valve, threaded instrument isolation valve, NPT BSPP BSPT valve, NACE SS316 valve" />
       <meta property="og:title" content="DBB Pipe-to-Pipe Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® DBB Pipe-to-Pipe valves by thread type, bore size, configuration, and special service." />
@@ -168,6 +168,12 @@ export default function PipexPipeDBB() {
             </Box>
           ))}
         </Box>
+        {PXP_OPTION_LEGEND.length > 0 && (
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 2, maxWidth: 800 }}>
+            <Box component="span" sx={{ fontWeight: 700, color: "text.primary" }}>Part number option suffixes: </Box>
+            {PXP_OPTION_LEGEND.map(o => `${o.code} = ${o.label}`).join(" · ")}
+          </Typography>
+        )}
       </Box>
 
       <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>

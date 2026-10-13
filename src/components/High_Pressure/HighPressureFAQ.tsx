@@ -20,12 +20,12 @@ const faqs: FAQItem[] = [
   {
     question: "Are these products hydrogen compatible?",
     answer:
-      "Yes. The High Pressure range is manufactured in SS 316 and engineered for hydrogen service, with material compatibility and certification support available for electrolyser and refuelling infrastructure projects.",
+      "Yes. The High Pressure range is manufactured in SS 316 and used in hydrogen applications. Tell us your service conditions at enquiry and we will confirm suitability and the documentation available for your project.",
   },
   {
     question: "What certifications are available?",
     answer:
-      "NACE MR0175 certification is available across the High Pressure range for sour service and offshore applications, alongside our standard ISO 9001:2015 quality management certification.",
+      "Panam's quality management system is certified to ISO 9001:2015, and material certificates are available on request. For sour service or offshore applications, tell us your specification at enquiry and we will confirm what can be supplied.",
   },
   {
     question: "What connection types do you offer?",
@@ -40,7 +40,7 @@ const faqs: FAQItem[] = [
   {
     question: "What's the typical lead time for high pressure orders?",
     answer:
-      "Our technical team responds to high pressure enquiries within 24 hours. Standard components ship from UK stock within 24-48 hours; bespoke pressure series or configurations get a firm lead time during quoting.",
+      "Our technical team responds to high pressure enquiries within 24 hours. Lead times vary by product, pressure series and configuration, and are confirmed at quotation.",
   },
 ]
 

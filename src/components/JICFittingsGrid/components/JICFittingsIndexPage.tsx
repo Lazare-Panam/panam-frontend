@@ -349,7 +349,7 @@ export default function JICFittingsIndexPage() {
             }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["SS316 Stainless Steel", "37° JIC / SAE Flare", "NPT · BSPT · BSPP · SAE/MS · Metric", '1/8" to 2" tube OD range', "Male & Female Connectors", "Unions · Bulkhead · Swivel", "Reducing Adapters · Sleeves", "Full heat-code traceability"].map(item => (
+                {["SS316 Stainless Steel", "37° JIC / SAE Flare", "NPT · BSPT · BSPP · SAE/MS · Metric", '1/8" to 2" tube OD range', "Male & Female Connectors", "Unions · Bulkhead · Swivel", "Reducing Adapters · Sleeves", "Material certificates on request"].map(item => (
                   <Typography
                     key={item}
                     sx={{
@@ -399,7 +399,7 @@ export default function JICFittingsIndexPage() {
               </Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>PANAM® 37° Flared JIC Fittings cover the complete range of connection geometries required in hydraulic and instrumentation tubing systems — from standard male and female connectors to unions, elbows, tees and reducing adapters.</Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>All fittings are manufactured in SS316 as standard, conforming to SAE J514 and ISO 8434-2. Thread standards include NPT, ISO Tapered (BSPT), ISO Parallel (BSPP), SAE/MS Straight Thread and Metric.</Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Full heat-code material traceability is provided on all components. Tube OD range covers 1/8" through 2" fractional and 3mm through 50mm metric.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Material certificates are available on request. Tube OD range covers 1/8" through 2" fractional and 3mm through 50mm metric.</Typography>
             </Grid>
           </Grid>
 
@@ -474,16 +474,15 @@ export default function JICFittingsIndexPage() {
                 maxWidth: 620,
                 fontFamily: PRIMARY_FONT,
               }}>
-              Built to the same engineering standard as every PANAM® product — full traceability, broad thread standard coverage, and conformance to SAE J514 and ISO 8434-2.
+              Built to the same engineering standard as every PANAM® product — broad thread standard coverage, and conformance to SAE J514 and ISO 8434-2.
             </Typography>
             <Grid container spacing={2}>
               {[
                 "SS316 as standard — Duplex, Monel, Hastelloy on request",
                 "Conforms to SAE J514 and ISO 8434-2",
                 "NPT, BSPT, BSPP, SAE/MS and Metric thread standards",
-                "Full heat-code traceability on all components",
+                "Material certificates available on request",
                 '1/8" to 2" fractional and 3–50mm metric tube OD',
-                "NACE MR0175 certification available on request",
                 "Male, female, swivel and bulkhead configurations",
                 "Technical support from our instrumentation team",
               ].map(feat => (

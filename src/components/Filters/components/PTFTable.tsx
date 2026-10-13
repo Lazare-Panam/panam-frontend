@@ -34,8 +34,8 @@ function PTFRow({ row }: { row: PTFFilterDTO }) {
   const specs = {
     "Part Number":     row.partNumber,
     "Series":          row.series,
-    "Thread Standard": row.threadStandard,
-    "Thread Size":     row.threadSize,
+    "Connection Standard": row.threadStandard,
+    "Connection Size":     row.threadSize,
     "End Connection":  END_CONNECTION_LABELS[row.endConnection] ?? row.endConnection,
     "Filter Element":  row.filterElement,
     "Pore Size":       `${row.poreSize} μm`,
@@ -128,8 +128,8 @@ function PTFRow({ row }: { row: PTFFilterDTO }) {
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       <Spec label="Part Number"     value={row.partNumber} />
                       <Spec label="Series"          value={row.series} />
-                      <Spec label="Thread Size"     value={row.threadSize} />
-                      <Spec label="Thread Standard" value={row.threadStandard} />
+                      <Spec label="Connection Size"     value={row.threadSize} />
+                      <Spec label="Connection Standard" value={row.threadStandard} />
                       <Spec label="End Connection"  value={END_CONNECTION_LABELS[row.endConnection] ?? row.endConnection} />
                       <Spec label="Filter Element"  value={row.filterElement} />
                       <Spec label="Pore Size"       value={`${row.poreSize} μm`} />
@@ -207,7 +207,7 @@ export default function PTFTable({ models, isFetching }: { models: PTFFilterDTO[
               {([
                 { key: "partNumber" as SortKey,     label: "Part Number" },
                 { key: "series" as SortKey,         label: "Series" },
-                { key: "threadSize" as SortKey,     label: "Thread Size" },
+                { key: "threadSize" as SortKey,     label: "Connection Size" },
                 { key: "threadStandard" as SortKey, label: "Standard" },
                 { key: "endConnection" as SortKey,  label: "End Connection" },
                 { key: "filterElement" as SortKey,  label: "Element" },

@@ -13,7 +13,7 @@ const FoodBeveragePage = () => {
   const content = {
     subHeading: "FOOD & BEVERAGE INDUSTRY",
     heading: "Sanitary Solutions for Mass Production.",
-    bodyText: "Our valves for the F&B sector focus on cleanability and contamination prevention. Using high-polish 316L Stainless Steel and FDA-approved sealing materials, we support everything from dairy processing to large-scale brewery operations. \n\nEvery component is designed to withstand frequent CIP (Clean-In-Place) cycles without degrading.",
+    bodyText: "Our valves for the F&B sector focus on cleanability and contamination prevention. Using high-polish 316L Stainless Steel and sealing materials selected for your process, we support everything from dairy processing to large-scale brewery operations. \n\nEvery component is designed to withstand frequent CIP (Clean-In-Place) cycles without degrading.",
   }
 
   return (

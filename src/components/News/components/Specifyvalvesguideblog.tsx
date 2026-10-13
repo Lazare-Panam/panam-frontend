@@ -13,7 +13,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
 
   const cta = {
     heading: "Ready to turn your spec into a purchase order?",
-    body: "Send your BOM or specification to Panam Valves. Our engineering team will respond within 24 hours with a matched quote, full documentation and heat-code traceability, drawing on UK stock available for core sizes and configurations.",
+    body: "Send your BOM or specification to Panam Valves. Our engineering team will respond with a matched quote, with material certificates available on request and lead times confirmed at quotation.",
     buttonText: "Request a Quote",
     buttonLink: "/enquiry",
   }
@@ -146,7 +146,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
             </Typography>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              UK stock is available for core sizes and configurations, with full documentation and material traceability. Send your BOM or spec to Panam for a 24-hour engineering response.
+              Material certificates are available on request, and lead times are confirmed at quotation. Send your BOM or spec to Panam for an engineering response.
             </Typography>
 
             {/* SECTION 1 */}
@@ -320,7 +320,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
             </TableContainer>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              NACE MR0175 / ISO 15156 is available across Panam ranges on request for H2S and sour environments. Maintain heat-code traceability to align with site QA.
+              For H2S and sour environments, specify NACE MR0175 / ISO 15156 requirements at enquiry and we will confirm what can be supplied. Request material certificates to align with site QA.
             </Typography>
 
             {/* SECTION 7 */}
@@ -337,8 +337,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
               Documentation and UK Compliance
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Expect full material certifications, test certificates and traceability as standard. For UK projects, align with Pressure Equipment regulations, welding qualifications where applicable, and site-specific documentation packs. Panam provides full technical documentation on every order and supports rapid conformity assessment with serialised parts and heat codes. UK stock availability
-              reduces lead times and supports shutdown-critical spares.
+              Agree material certificates and test documentation at order. For UK projects, align with Pressure Equipment regulations, welding qualifications where applicable, and site-specific documentation packs. Panam provides technical documentation and material certificates on request. Lead times vary by product and are confirmed at quotation.
             </Typography>
 
             {/* SECTION 9 */}
@@ -432,7 +431,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
                   <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png" alt="PANAM Industrial Valves" sx={{ width: "100%", height: 160, objectFit: "contain", bgcolor: "#F4F4F4", p: 2 }} />
                   <Box sx={{ p: 2 }}>
                     <Typography sx={{ fontWeight: 800, fontSize: "0.9rem", color: "#1A1A1A", mb: 0.5 }}>PANAM Industrial Valves</Typography>
-                    <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>UK Stock · 24hr Quotation · Full Documentation</Typography>
+                    <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>Engineering Support · Lead Times on Request</Typography>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 700, color: "#01B0F0" }}>Browse the range →</Typography>
                   </Box>
                 </Paper>

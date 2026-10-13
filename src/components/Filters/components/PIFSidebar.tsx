@@ -100,12 +100,12 @@ export function PIFSidebar({
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />
 
-      <FilterGroup title="THREAD STANDARD" count={filters.threadStandards.length || undefined}>
+      <FilterGroup title="CONNECTION STANDARD" count={filters.threadStandards.length || undefined}>
         <CheckList options={threadStandardOptions} selected={filters.threadStandards} onChange={(v) => toggleStr("threadStandards", v)} />
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />
 
-      <FilterGroup title="THREAD SIZE" count={filters.threadSizes.length || undefined}>
+      <FilterGroup title="CONNECTION SIZE" count={filters.threadSizes.length || undefined}>
         <CheckList options={threadSizeOptions} selected={filters.threadSizes} onChange={(v) => toggleStr("threadSizes", v)} />
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />

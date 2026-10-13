@@ -130,7 +130,7 @@ export default function TwoVMManifoldsPage() {
   return (
     <>
           <title>2-Valve Manifolds | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® 2-Valve Manifolds — SS316, CS, Monel, Hastelloy, Duplex and Super Duplex. Multiple connection types, mountings, and configurations. NACE MR-0175 and fire-safe options. Request a quote." />
+      <meta name="description" content="PANAM® 2-Valve Manifolds — SS316, CS, Monel, Hastelloy, Duplex and Super Duplex. Multiple connection types, mountings, and configurations. NACE MR-0175 sour gas option. Request a quote." />
       <meta name="keywords" content="2 valve manifold, two valve manifold, instrument manifold, SS316 manifold, NACE manifold, DP transmitter manifold" />
       <meta property="og:title" content="2-Valve Manifolds | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® 2-Valve Manifolds by material, connection type, mounting, and special service." />

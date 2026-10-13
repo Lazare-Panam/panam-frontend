@@ -34,7 +34,7 @@ const faqs: FAQItem[] = [
   {
     question: "What materials and certifications are available?",
     answer:
-      "SS316 is standard, with Duplex, Monel and Hastelloy available on request. NACE MR0175 certification and full heat-code material traceability are available across the range.",
+      "SS316 is standard, with Duplex, Monel and Hastelloy available on request. Material certificates are available on request.",
   },
   {
     question: "How quickly can I get a quote?",

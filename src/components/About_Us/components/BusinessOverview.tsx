@@ -128,7 +128,7 @@ const BusinessOverview = () => {
                     Quality Control
                   </Typography>
                   <Typography variant="body1" sx={bodyStyle}>
-                    Our uncompromising approach to quality ensures that every valve leaving our facility performs flawlessly in the most demanding environments. We guarantee safety and efficiency for your critical operations.
+                    Our approach to quality, under an ISO 9001 certified management system, is built around valves that perform reliably in demanding environments and support safety and efficiency in your critical operations.
                   </Typography>
                   <Box sx={{ pt: 2 }}>
                     <Button variant="outlined" sx={buttonStyle}>

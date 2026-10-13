@@ -340,7 +340,7 @@ export default function PipeFittingsIndexPage() {
             }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["SS316 Stainless Steel", "NPT · BSPT · BSPP · Metric · SAE/MS", '1/16" to 2" size range', "Nipples · Couplings · Adapters · Plugs", "Elbows · Tees · Unions · Cross", "Full heat-code traceability", "Available in Duplex & Monel on request"].map(item => (
+                {["SS316 Stainless Steel", "NPT · BSPT · BSPP · Metric · SAE/MS", '1/16" to 2" size range', "Nipples · Couplings · Adapters · Plugs", "Elbows · Tees · Unions · Cross", "Material certificates on request", "Available in Duplex & Monel on request"].map(item => (
                   <Typography
                     key={item}
                     sx={{
@@ -390,7 +390,7 @@ export default function PipeFittingsIndexPage() {
               </Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>PANAM® Pipe Fittings cover the full range of connection geometries required in instrumentation and process piping — from simple hex nipples and couplings to complex tee and cross configurations.</Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>All fittings are manufactured in SS316 as standard, with Duplex, Monel, Hastelloy and Brass available on request. Thread standards include NPT, ISO Tapered (BSPT), ISO Parallel (BSPP), Metric and SAE/MS Straight Thread.</Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Full heat-code material traceability is provided on all components. Size range covers 1/16" through 2" across all fitting types.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>Material certificates are available on request. Size range covers 1/16" through 2" across all fitting types.</Typography>
             </Grid>
           </Grid>
 
@@ -465,16 +465,15 @@ export default function PipeFittingsIndexPage() {
                 maxWidth: 620,
                 fontFamily: PRIMARY_FONT,
               }}>
-              Built to the same engineering standard as every PANAM® product — full traceability, broad material availability, and a complete range of thread standards.
+              Built to the same engineering standard as every PANAM® product — broad material availability, and a complete range of thread standards.
             </Typography>
             <Grid container spacing={2}>
               {[
                 "SS316 as standard — Duplex, Monel, Hastelloy on request",
                 "NPT, BSPT, BSPP, Metric and SAE/MS thread standards",
-                "Full heat-code traceability on all components",
+                "Material certificates available on request",
                 '1/16" to 2" size range across all fitting types',
                 "Nipples, couplings, adapters, plugs, elbows, tees and cross",
-                "NACE MR0175 certification available on request",
                 "Mixed thread combinations available throughout the range",
                 "Technical support from our instrumentation team",
               ].map(feat => (

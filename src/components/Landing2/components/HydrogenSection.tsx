@@ -19,10 +19,10 @@ import { Countup } from './Countup';
 const BRAND_BLUE = "#01B0F0";
 
 const features = [
-  { icon: <ScienceIcon fontSize="small" />, title: "H2-Compatible Materials", desc: "SS316, Duplex, Super Duplex, Inconel — tested for hydrogen embrittlement resistance." },
+  { icon: <ScienceIcon fontSize="small" />, title: "H2-Compatible Materials", desc: "SS316, Duplex, Super Duplex and Inconel options — suitability confirmed for your service conditions." },
   { icon: <SpeedIcon fontSize="small" />, title: "Advanced Leak-Detection", desc: "Training and engineering audits for high-pressure H2 storage systems." },
-  { icon: <PublicIcon fontSize="small" />, title: "Global H2 Supply Chain", desc: "Material compatibility and certification support across global markets." },
-  { icon: <AssignmentIcon fontSize="small" />, title: "Full H2 Certification", desc: "Pressure test reports, material certs, NACE compliance and QMS documentation." }
+  { icon: <PublicIcon fontSize="small" />, title: "Global H2 Supply Chain", desc: "Material compatibility and documentation support across global markets." },
+  { icon: <AssignmentIcon fontSize="small" />, title: "Documentation", desc: "Material certificates on request, plus ISO 9001, ISO 14001 and ISO 45001 certified management systems." }
 ];
 
 const stats = [

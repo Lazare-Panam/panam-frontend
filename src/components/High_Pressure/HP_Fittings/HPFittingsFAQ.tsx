@@ -30,12 +30,12 @@ const faqs: FAQItem[] = [
   {
     question: "What certifications are available?",
     answer:
-      "NACE MR0175 certification is available across the range for sour service and offshore applications, in addition to our standard ISO 9001:2015 quality management certification.",
+      "Panam's quality management system is certified to ISO 9001:2015, and material certificates are available on request. For sour service or offshore applications, tell us your specification at enquiry and we will confirm what can be supplied.",
   },
   {
     question: "What's the lead time for HP Cone & Thread Fittings?",
     answer:
-      "Our technical team responds to HP fitting enquiries within 24 hours. Standard sizes ship from UK stock within 24-48 hours; non-standard configurations get a firm lead time during quoting.",
+      "Our technical team responds to HP fitting enquiries within 24 hours. Lead times vary by product and are confirmed at quotation.",
   },
 ]
 

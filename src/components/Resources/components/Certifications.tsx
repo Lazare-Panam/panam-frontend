@@ -13,7 +13,6 @@ const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const tabs = [
   { key: "qms", label: "QMS Certifications" },
   { key: "type-reports", label: "Type Test Reports" },
-  { key: "registrations", label: "Registrations and Approvals" },
 ]
 
 const HighlightedText: React.FC<{ text: string; query: string }> = ({ text, query }) => {
@@ -43,18 +42,16 @@ const CertificationsPage: React.FC = () => {
     : ({
         "qms": "QMS Certifications",
         "type-reports": "Type Test Reports",
-        "registrations": "Registrations & Approvals",
       }[activeTab] ?? "Official Certifications")
   const tabTitles: Record<string, string> = {
   "qms": "QMS Certifications | Panam Valves – ISO & Quality Management",
-  "type-reports": "Type Test Reports | Panam Valves – CE, ATEX, DNV-GL & More",
-  "registrations": "Registrations & Approvals | Panam Valves – BFPA & Industry Bodies",
+  "type-reports": "Type Test Reports | Panam Valves – ATEX & PED",
 }
 
-  const pageTitle = isBasePage ? "Quality & Certifications | ISO 9001, ATEX, BFPA | Panam" : (tabTitles[activeTab] ?? "Official Certifications | Panam Valves – QMS, Type Test & Approvals")
+  const pageTitle = isBasePage ? "Quality & Certifications | ISO 9001, ISO 14001, ISO 45001, ATEX | Panam" : (tabTitles[activeTab] ?? "Official Certifications | Panam Valves – QMS & Type Test Reports")
   const pageDescription = isBasePage
-    ? "Panam valve certifications in one place: ISO 9001, ISO 14001, ISO 45001, ATEX/IECEx, CE PED, NACE MR0175 and BFPA. Request documentation with your order."
-    : "Browse Panam Valves' official certifications including QMS certifications, type test reports, and registrations & approvals for industrial valves and fittings."
+    ? "Panam certifications in one place: ISO 9001, ISO 14001 and ISO 45001, plus ATEX and PED documents. Material certificates available on request."
+    : "Browse Panam Valves' certifications, including QMS certificates and type test reports."
   const navigate = useNavigate()
   const [search, setSearch] = useState("")
   const canonicalBase = "https://www.panamvalve.com/certificates"

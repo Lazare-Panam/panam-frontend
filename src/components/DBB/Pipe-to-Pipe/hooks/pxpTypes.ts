@@ -67,13 +67,13 @@ export const PXP_VENT_SORT_ORDER = [
 export const PXP_DESCRIPTION = {
   title: "Double Block & Bleed Valves — Pipe to Pipe",
   description:
-    "Panam PDBB Double Block & Bleed valves with Pipe-to-Pipe threaded construction for instrument isolation and process bleed applications. Stainless Steel 316 body with ball, needle, and combination ball-needle internals. Available in NPT, BSPP, and BSPT thread forms across a range of bore sizes. NACE MR-0175, fire-safe, and full seat/seal options available.",
+    "Panam PDBB Double Block & Bleed valves with Pipe-to-Pipe threaded construction for instrument isolation and process bleed applications. Stainless Steel 316 body with ball, needle, and combination ball-needle internals. Available in NPT, BSPP, and BSPT thread forms across a range of bore sizes. Pressure rating depends on configuration — contact us to confirm for your application. Options include NACE MR-0175 (SG), Fire Safe (FS), and full seat/seal options.",
   specs: [
     "Double Block & Bleed",
     "Pipe to Pipe — Threaded",
     "Stainless Steel 316",
     "NPT / BSPP / BSPT",
     "Ball, Needle & Combination",
-    "NACE / Fire Safe Options",
+    "NACE MR-0175 / Fire Safe Options",
   ],
 }

@@ -28,10 +28,10 @@ export default function NeedleValveHBPage() {
   return (
     <>
     <title>PANAM® HB Series Block & Bleed Needle Valves | 10,000 psig | PANAM®</title>
-    <meta name="description" content="PANAM® HB Series block and bleed needle valves rated to 10,000 psig. Non-rotating Vee-tip stem, SS316, Duplex, Monel and Hastelloy. NACE MR0175 available. NPT, BSPP and tube fitting ends." />
-    <meta name="keywords" content="block and bleed needle valve, HB series needle valve, 10000 psi needle valve, instrumentation block bleed valve, NACE MR0175 block bleed valve, SS316 block bleed valve, high pressure block bleed valve" />
+    <meta name="description" content="PANAM® HB Series block and bleed needle valves rated to 10,000 psig. Non-rotating Vee-tip stem, SS316, Duplex, Monel and Hastelloy. NPT, BSPP and tube fitting ends." />
+    <meta name="keywords" content="block and bleed needle valve, HB series needle valve, 10000 psi needle valve, instrumentation block bleed valve, SS316 block bleed valve, high pressure block bleed valve" />
     <meta property="og:title" content="HB Series Block & Bleed Needle Valves | PANAM®" />
-    <meta property="og:description" content="High-pressure block and bleed needle valves to 10,000 psig. Non-rotating Vee-tip, full traceability, NACE certified options." />
+    <meta property="og:description" content="High-pressure block and bleed needle valves to 10,000 psig. Non-rotating Vee-tip stem." />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://www.panamvalve.com/valves/needle-valves/needle-valves-hb" />
     <meta name="robots" content="index, follow" />
@@ -40,7 +40,7 @@ export default function NeedleValveHBPage() {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         name: "HB Series Block & Bleed Needle Valves",
-        description: "PANAM® HB Series block and bleed needle valves rated to 10,000 psig. Non-rotating Vee-tip stem, SS316, Duplex, Monel and Hastelloy. NACE MR0175 available. NPT, BSPP and tube fitting ends.",
+        description: "PANAM® HB Series block and bleed needle valves rated to 10,000 psig. Non-rotating Vee-tip stem, SS316, Duplex, Monel and Hastelloy. NPT, BSPP and tube fitting ends.",
       })}
     </script>
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>

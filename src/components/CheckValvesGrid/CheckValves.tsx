@@ -21,7 +21,7 @@ const HIGHLIGHT_STATS = [
   { label: "Max Pressure", value: "6,000 psig" },
   { label: "Size Range", value: '1/8" – 1"' },
   { label: "Materials", value: "SS316, Duplex, Monel" },
-  { label: "Certifications", value: "NACE / CE" },
+  { label: "Documentation", value: "Material certificates available on request" },
 ]
 
 const FEATURE_COLUMNS = [
@@ -37,8 +37,8 @@ const FEATURE_COLUMNS = [
   },
   {
     icon: <VerifiedIcon sx={{ fontSize: 22, color: BRAND_BLUE }} />,
-    title: "Quality & Traceability",
-    body: "NACE certification available on request for sour service environments. Full heat-code traceability on every valve ensures complete material verification and quality assurance.",
+    title: "Quality & Documentation",
+    body: "Material certificates are available on request. For sour service, tell us your requirement at enquiry and we will confirm what can be supplied.",
   },
 ]
 
@@ -70,10 +70,10 @@ export default function PCVPage() {
   return (
     <>
     <title>PANAM Check Valves | Inline Backflow Prevention | 6,000 psig | PANAM®</title>
-    <meta name="description" content="PANAM® PCV Series inline check valves rated to 6,000 psig. Eight cracking pressure options from 1/3 to 100 psig. SS316, Duplex, Monel and Hastelloy. Hydrogen service rated. NACE MR0175 available." />
-    <meta name="keywords" content="instrumentation check valve, inline check valve, backflow prevention valve, PCV check valve, 6000 psi check valve, hydrogen service check valve, NACE MR0175 check valve, SS316 check valve, Duplex check valve, cracking pressure valve, non return valve instrumentation" />
+    <meta name="description" content="PANAM® PCV Series inline check valves rated to 6,000 psig. Eight cracking pressure options from 1/3 to 100 psig. SS316, Duplex, Monel and Hastelloy. Hydrogen service rated." />
+    <meta name="keywords" content="instrumentation check valve, inline check valve, backflow prevention valve, PCV check valve, 6000 psi check valve, hydrogen service check valve, SS316 check valve, Duplex check valve, cracking pressure valve, non return valve instrumentation" />
     <meta property="og:title" content="PCV Series Check Valves | 6,000 psig | PANAM®" />
-    <meta property="og:description" content="Inline check valves to 6,000 psig. Eight cracking pressure options. SS316, Duplex, Monel, Hastelloy. Hydrogen service rated. NACE MR0175 available." />
+    <meta property="og:description" content="Inline check valves to 6,000 psig. Eight cracking pressure options. SS316, Duplex, Monel, Hastelloy. Hydrogen service rated." />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://www.panamvalve.com/valves/check-valves" />
     <meta name="robots" content="index, follow" />
@@ -82,7 +82,7 @@ export default function PCVPage() {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         name: "PCV Series Check Valves",
-        description: "PANAM® PCV Series inline check valves rated to 6,000 psig. Eight cracking pressure options from 1/3 to 100 psig. SS316, Duplex, Monel and Hastelloy. Hydrogen service rated. NACE MR0175 available.",
+        description: "PANAM® PCV Series inline check valves rated to 6,000 psig. Eight cracking pressure options from 1/3 to 100 psig. SS316, Duplex, Monel and Hastelloy. Hydrogen service rated.",
       })}
     </script>
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>

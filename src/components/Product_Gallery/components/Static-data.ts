@@ -24,8 +24,7 @@ export const STATIC_PRODUCTS: Record<string, any> = {
       'Size ranging from 1/2" to 2" (Class 150 to 2500)',
       "NPT threads per ANSI B 2.1 & Socket welds per ANSI B 16.11",
       "Radiography & liquid penetrate testing of butt-welding joints per ASME BPVC Section V",
-      "NACE certification available upon request",
-      "Full heat code traceability",
+      "Material certificates available on request",
     ],
   },
   "condensate-pots": {
@@ -39,8 +38,7 @@ export const STATIC_PRODUCTS: Record<string, any> = {
       'Size ranging from 1/2" to 2" (Class 150 to 2500)',
       "NPT threads per ANSI B 2.1 & Socket welds per ANSI B 16.11",
       "Radiography & liquid penetrate testing per ASME BPVC section V",
-      "NACE certification available upon request",
-      "Heat code traceability",
+      "Material certificates available on request",
     ],
   },
   "grab-sampling": {

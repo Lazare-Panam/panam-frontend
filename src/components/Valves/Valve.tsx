@@ -90,8 +90,7 @@ const SPECS = [
   { label: "Materials", value: "SS316, Duplex, Monel, Hastelloy" },
   { label: "End Connections", value: "NPT, BSPP, BSPT, PANAM® Tube Fitting" },
   { label: "Seat Options", value: "PTFE, Delrin, PEEK, KEL-F" },
-  { label: "Certification", value: "NACE MR0175 available on request" },
-  { label: "Traceability", value: "Full heat-code traceability" },
+  { label: "Documentation", value: "Material certificates available on request" },
 ]
 
 type ValveItem = (typeof VALVES)[0]
@@ -196,9 +195,9 @@ export default function ValvesPage() {
     <>
       <title>Instrumentation Valves | Needle, Ball & Relief Valves | PANAM®</title>
       <meta name="description" content="PANAM® instrumentation valves — needle, ball, relief, check, gauge root, purge & toggle. Rated to 20,000 psig. SS316, Duplex, Monel & Hastelloy." />
-      <meta name="keywords" content="instrumentation valves, needle valves, ball valves, relief valves, check valves, high pressure valves, 20000 psi valves, SS316 valves, NACE MR0175 valves, Duplex valves, Hastelloy valves, gauge root valves" />
+      <meta name="keywords" content="instrumentation valves, needle valves, ball valves, relief valves, check valves, high pressure valves, 20000 psi valves, SS316 valves, Duplex valves, Hastelloy valves, gauge root valves" />
       <meta property="og:title" content="Instrumentation Valves | PANAM® Valve Range" />
-      <meta property="og:description" content="Seven instrumentation valve families rated 4,000–20,000 psig. Full material traceability. NACE certified options. NPT, BSPP, BSPT and tube fitting ends." />
+      <meta property="og:description" content="Seven instrumentation valve families rated 4,000–20,000 psig. NPT, BSPP, BSPT and tube fitting ends." />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://www.panamvalve.com/valves" />
       <meta name="robots" content="index, follow" />
@@ -261,7 +260,7 @@ export default function ValvesPage() {
           <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["Up to 20,000 psig working pressure", "SS316 · Duplex · Monel · Hastelloy", "NACE MR0175 available on request", "Full heat-code material traceability", "NPT · BSPP · BSPT · PANAM® Tube Fitting", "Seven valve families in one catalog"].map(item => (
+                {["Up to 20,000 psig working pressure", "SS316 · Duplex · Monel · Hastelloy", "Material certificates on request", "NPT · BSPP · BSPT · PANAM® Tube Fitting", "Seven valve families in one catalog"].map(item => (
                   <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5, fontFamily: PRIMARY_FONT }}>
                     <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
                     {item}
@@ -284,7 +283,7 @@ export default function ValvesPage() {
               <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>
                 PANAM® Valves cover the full instrumentation spectrum — from precision needle valves for fine metering, to floating-ball isolation, over-pressure relief, backflow prevention, and gauge isolation. Every family shares the same material standards, certification options, and quality controls.
               </Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>All valve families are available in SS316, Duplex, Monel, and Hastelloy with full heat-code traceability and NACE MR0175 certification available on request.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>All valve families are available in SS316, Duplex, Monel, and Hastelloy with material certificates available on request.</Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
               <Box sx={{ bgcolor: "#f5fbfe", border: "1px solid #d0eef9", p: 4, height: "100%" }}>
@@ -326,13 +325,12 @@ export default function ValvesPage() {
             <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
               Why specify PANAM® Valves
             </Typography>
-            <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>Every valve family is built to the same engineering standard — consistent materials, certifications, and traceability across the entire range.</Typography>
+            <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>Every valve family is built to the same engineering standard — consistent materials and documentation across the range.</Typography>
             <Grid container spacing={2}>
               {[
                 "Seven valve families from a single trusted manufacturer",
                 "SS316, Duplex, Monel, and Hastelloy across all families",
-                "NACE MR0175 / ISO 15156 certification available",
-                "Full heat-code traceability on all components",
+                "Material certificates available on request",
                 "NPT, BSPP, BSPT, ISO tapered, and PANAM® tube-fitting ends",
                 "Pressures from 4,000 to 20,000 psig across the range",
                 "Anti-blowout stem on ball valves for safety",

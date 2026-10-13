@@ -13,7 +13,7 @@ const CheckValveGuideBlog: React.FC = () => {
 
   const cta = {
     heading: "Need a check valve for a critical high-pressure application?",
-    body: "Send your specification, datasheet, or bill of materials to Panam Valves. The engineering team will review your pressure class, media, cracking pressure, and end connections — and respond within 24 hours with a matched quotation and full documentation.",
+    body: "Send your specification, datasheet, or bill of materials to Panam Valves. The engineering team will review your pressure class, media, cracking pressure, and end connections — and respond with a matched quotation and documentation.",
     buttonText: "Request a Quote",
     buttonLink: "/enquiry",
   }
@@ -24,7 +24,7 @@ const CheckValveGuideBlog: React.FC = () => {
     { param: "Materials",            detail: "SS316 standard; Duplex, Monel, Hastelloy on request",                      why: "Required for corrosive, chloride, sour or hydrogen service" },
     { param: "Cracking Pressure",    detail: "1/3, 1, 5, 10, 25, 50, 75, 100 psig",                                     why: "Must balance seal integrity with pump NPSH and start-up transients" },
     { param: "End Connections",      detail: "NPT, BSPP, BSPT, PANAM® tube-fitting",                                    why: "Verify thread form — NPT and BSP are not interchangeable" },
-    { param: "Certification",        detail: "NACE MR0175 / MR-01-75 available; full heat-code traceability standard",   why: "Required for sour service and high-integrity documentation packs" },
+    { param: "Certification",        detail: "Material certificates available on request",   why: "Confirm sour service and documentation requirements at enquiry" },
     { param: "Hydrogen Service",     detail: "Hydrogen-rated PCV Series options available",                               why: "Material compatibility and documentation required for H₂ infrastructure" },
   ]
 
@@ -47,12 +47,12 @@ const CheckValveGuideBlog: React.FC = () => {
     {
       num: "4",
       title: "Documentation and Compliance",
-      body: "Full technical documentation and heat-code material traceability are provided. NACE MR0175 / MR-01-75 certification is available on request for applicable materials and configurations.",
+      body: "Technical documentation is provided and material certificates are available on request. Sour service requirements are confirmed at enquiry.",
     },
     {
       num: "5",
       title: "Stock Check and Dispatch",
-      body: "UK stock is available for immediate shipment on core product ranges. Global dispatch from manufacturing facilities in India supports large projects and framework agreements.",
+      body: "Stock availability and lead times are confirmed at quotation and vary by product. Global dispatch from manufacturing facilities in India supports large projects and framework agreements.",
     },
     {
       num: "6",
@@ -67,15 +67,15 @@ const CheckValveGuideBlog: React.FC = () => {
     { q: "What pressure ratings are available?", a: "Panam check valves are rated up to 6,000 psig (414 bar). Exact ratings depend on size, connection type, and material — the engineering team will confirm suitability against your design conditions." },
     { q: "Which end connections can I specify?", a: "Male and female NPT, BSPP, BSPT, and PANAM® tube-fitting ends are available, allowing straightforward integration with existing tube fittings, manifolds, and instrument take-off assemblies." },
     { q: "Can Panam match check valves to manifolds and other industrial valves?", a: "Yes. Panam specialises in complete instrumentation assemblies — combining check valves with manifolds, needle valves, ball valves, filters, air headers, and pipe fittings. This ensures consistent pressure class, material grade, and documentation across the entire package." },
-    { q: "How quickly can a check valve be shipped to a UK site?", a: "With UK stock held for immediate shipment and global dispatch capabilities, the technical team aims to respond to all enquiries within 24 hours with availability and delivery information." },
-    { q: "Do you provide documentation and material traceability?", a: "Yes. Every Panam instrumentation check valve is supported by full technical documentation and heat-code material traceability. NACE MR0175 / MR-01-75 certification is available on request." },
+    { q: "How quickly can a check valve be shipped to a UK site?", a: "Lead times vary by product and are confirmed at quotation. Send your requirement and the technical team will respond with availability and delivery information." },
+    { q: "Do you provide documentation and material certificates?", a: "Yes. Panam check valves are supplied with technical documentation, and material certificates are available on request. For sour service, tell us your requirement at enquiry." },
     { q: "Can Panam support large projects that include wafer check valves?", a: "Yes. Panam regularly works from detailed project specifications and bills of materials for large-scale oil & gas, power, hydrogen, and process projects — sourcing and supplying instrumentation valves, fittings, manifolds, and related components including wafer check valves." },
   ]
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       <title>Check Valves for High-Pressure Instrumentation | SS316 PCV Series | Panam Valve</title>
-      <meta name="description" content="High-performance check valves in SS316 and exotic alloys, rated to 6,000 psig, with UK stock, global dispatch and full documentation for critical projects." />
+      <meta name="description" content="High-performance check valves in SS316 and exotic alloys, rated to 6,000 psig, with global dispatch and documentation for critical projects." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/check-valve-guide" />
@@ -84,7 +84,7 @@ const CheckValveGuideBlog: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: "Check Valves for High-Pressure Instrumentation | SS316 PCV Series",
-          description: "High-performance check valves in SS316 and exotic alloys, rated to 6,000 psig, with UK stock, global dispatch and full documentation for critical projects.",
+          description: "High-performance check valves in SS316 and exotic alloys, rated to 6,000 psig, with global dispatch and documentation for critical projects.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
@@ -147,7 +147,7 @@ const CheckValveGuideBlog: React.FC = () => {
           <Grid size={{ xs: 12, md: 8 }}>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              Panam Valves designs and supplies precision-engineered check valves in SS316 and exotic alloys, built for reliable backflow prevention up to 6,000 psig. With UK stock available and global dispatch, procurement and engineering teams can specify, document, and receive critical components quickly.
+              Panam Valves designs and supplies precision-engineered check valves in SS316 and exotic alloys, built for reliable backflow prevention up to 6,000 psig. With global dispatch and lead times confirmed at quotation, procurement and engineering teams can plan, specify and document critical components.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
               Panam check valves are uni-directional valves engineered to prevent backflow and protect equipment, pipework, and instrumentation in high-pressure, high-integrity systems across hydrogen, oil & gas, power, petrochemical, offshore, and wider process industries.
@@ -258,10 +258,10 @@ const CheckValveGuideBlog: React.FC = () => {
 
             {/* SECTION 6 */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              UK Stock and Supply from Bicester
+              UK Supply from Bicester
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Panam Valves supports UK projects from its base at Ground Floor, St Edburgs Hall, Priory Road, Bicester OX26 6BL. From Bicester, Panam coordinates UK stock for immediate shipment, as well as technical support for instrumentation check valves, non-return valves, pipe fittings, manifolds, filters, and complementary industrial valves across:
+              Panam Valves supports UK projects from its base at Ground Floor, St Edburgs Hall, Priory Road, Bicester OX26 6BL. From Bicester, Panam coordinates supply and technical support for instrumentation check valves, non-return valves, pipe fittings, manifolds, filters, and complementary industrial valves across:
             </Typography>
             <Box sx={{ pl: 3, mb: 4 }}>
               {[
@@ -293,7 +293,7 @@ const CheckValveGuideBlog: React.FC = () => {
               Summary and Next Steps
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Select cracking pressure and material first, then lock in end connections to your existing tube fitting or pipe standard. Confirm pressure rating against system design conditions including transients, and specify NACE MR0175 and heat-code traceability upfront. For hydrogen service, confirm H₂-rated material and documentation requirements at enquiry stage.
+              Select cracking pressure and material first, then lock in end connections to your existing tube fitting or pipe standard. Confirm pressure rating against system design conditions including transients, and specify sour service (NACE MR0175) and documentation requirements upfront. For hydrogen service, confirm H₂-rated material and documentation requirements at enquiry stage.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
               Browse the full{" "}
@@ -336,8 +336,8 @@ const CheckValveGuideBlog: React.FC = () => {
                   "Cracking Pressures: 1/3 to 100 psig",
                   "Wafer Check Valve Integration",
                   "6-Step Specification Process",
-                  "UK Stock from Bicester",
-                  "Hydrogen & NACE Certified Options",
+                  "UK Supply from Bicester",
+                  "Hydrogen & sour service enquiries welcome",
                 ].map(text => (
                   <Box key={text} sx={{ pb: 2, borderBottom: "1px solid #EEE" }}>
                     <Typography variant="body2" sx={{ fontWeight: 500, color: "#555" }}>
@@ -373,7 +373,7 @@ const CheckValveGuideBlog: React.FC = () => {
                       PANAM PCV Series Check Valves
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>
-                      SS316 · Up to 6,000 PSI · NPT / BSPP / BSPT · UK Stock
+                      SS316 · Up to 6,000 PSI · NPT / BSPP / BSPT
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 700, color: "#01B0F0" }}>
                       Browse the range →

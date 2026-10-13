@@ -21,7 +21,7 @@ const ResourcesPage: React.FC = () => {
     },
     {
       title: "QUALITY & CERTIFICATIONS",
-      description: "View and download our safety certifications, ISO standards, and compliance documentation for global operations.",
+      description: "View our ISO 9001, ISO 14001 and ISO 45001 certificates and ATEX and PED documents.",
       path: "/certificates",
       icon: <VerifiedUserIcon sx={{ fontSize: 40, color: BRAND_BLUE }} />,
     }
@@ -72,7 +72,7 @@ const ResourcesPage: React.FC = () => {
               maxWidth: "800px",
             }}
           >
-            Engineering data, safety certifications, and procurement documentation 
+            Engineering data, certifications, and procurement documentation 
             for global infrastructure projects.
           </Typography>
         </Container>

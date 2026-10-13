@@ -20,12 +20,12 @@ const faqs: FAQItem[] = [
   {
     question: "What materials are available?",
     answer:
-      "SS316, Duplex, Monel and Hastelloy across all seven valve families, with full heat-code traceability on every component.",
+      "SS316, Duplex, Monel and Hastelloy across the seven valve families, depending on series. Material certificates are available on request.",
   },
   {
-    question: "Is NACE MR0175 certification available?",
+    question: "Can you supply valves for sour service (NACE MR0175)?",
     answer:
-      "Yes — NACE MR0175 certification is available on request across the entire valve range.",
+      "Tell us your sour service requirement at enquiry and we will confirm which valves and materials can be supplied.",
   },
   {
     question: "What end connections do PANAM® valves use?",

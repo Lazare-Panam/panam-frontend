@@ -35,7 +35,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
     },
     {
       q: "Which material should I specify for sour gas service?",
-      a: "Add 'SG' to the part number for NACE MR0175 / ISO 15156-compliant material. Suitable grades include SS 316, Duplex S32205, Super Duplex S32750, or Hastelloy C-276 depending on H₂S partial pressure, chloride content, and temperature."
+      a: "Tell us your sour service conditions — H₂S partial pressure, chloride content and temperature — at enquiry, and we will confirm which materials can be supplied."
     },
     {
       q: "Why are the threads silver-plated?",
@@ -177,7 +177,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
               <li><Typography variant="body1"><strong>Hastelloy C-276:</strong> ASTM B574 N10276 — broadest corrosion resistance of any standard alloy; for mixed acid and chloride service.</Typography></li>
             </Box>
             <Typography variant="body1" sx={{ mb: 6, lineHeight: 1.8 }}>
-              All materials are verified by NABL-approved third-party laboratories and shipped with heat code traceability and EN 10204 Type 3.1B material test certificates.
+              Material certificates are available on request.
             </Typography>
 
             {/* Why Essential */}
@@ -197,7 +197,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
 
             <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>Operational Safety and Process Integrity</Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              The 100% factory pressure-test protocol applied to every Panam adapter, combined with NACE MR0175 / ISO 15156 compliance for sour-service variants, ensures the adapter does not become a weak point in the pressure boundary of safety-critical measurement loops.
+              The 100% factory pressure-test protocol applied to every Panam adapter, helps ensure the adapter does not become a weak point in the pressure boundary of safety-critical measurement loops.
             </Typography>
 
             <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>Reducing Maintenance Cost</Typography>
@@ -220,7 +220,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
               Type S adapters incorporate an O-ring at the swivel interface as a secondary sealing stage. Standard PTFE O-rings cover service to 260°C (500°F); Graphoil O-rings (add 'HT' to part number) extend this to 538°C (1,000°F). Both types are available across all thread standards and all ten material grades.
             </Typography>
             <Typography variant="body1" sx={{ mb: 6, lineHeight: 1.8 }}>
-              To order the 10,000 psi rated variant, add '10K' to the part number (e.g., PSGA-8N-SS-10K). For NACE-compliant material, add 'SG' (e.g., PSGA-8N-SS-10K-SG). For Graphoil high-temperature seals, add 'HT' (e.g., PSGA-8N-SS-S-HT).
+              For higher pressure ratings, sour service materials or high-temperature seals, contact us with your requirements and we will confirm the options available.
             </Typography>
             {/* Technical Specifications */}
 <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
@@ -246,8 +246,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
         { param: "Optional Materials", spec: "SS316L, 6Mo, Duplex S32205, Super Duplex S32750, Monel 400, Inconel 600, Alloy 625, Alloy 825, Hastelloy C-276" },
         { param: "Sealing Types", spec: "Type M: Metal-to-metal | Type S: PTFE or Graphoil O-ring" },
         { param: "Rotation", spec: "360° continuous" },
-        { param: "Compliance", spec: "NACE MR0175 / ISO 15156, ASME & MSS Series, ASTM" },
-        { param: "Testing & Certification", spec: "100% factory-tested; EN 10204 Type 3.1B MTCs; Heat code traceability; NABL-verified" },
+                { param: "Testing & Certification", spec: "Material certificates available on request" },
       ].map((row, i) => (
         <TableRow key={i} sx={{ bgcolor: i % 2 === 0 ? "#fff" : "#F4F8FB" }}>
           <TableCell sx={{ fontWeight: 600 }}>{row.param}</TableCell>
@@ -302,7 +301,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
                   "Silver-Plated Galling Protection",
                   "Type M & Type S Seal Options",
                   "Ten Alloy Grades Available",
-                  "NACE MR0175 / ISO 15156 Compliant",
+                  "Material certificates on request",
                   "100% Factory Pressure-Tested"
                 ].map(text => (
                   <Box key={text} sx={{ pb: 2, borderBottom: "1px solid #EEE" }}>

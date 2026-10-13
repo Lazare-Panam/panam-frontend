@@ -38,10 +38,10 @@ export default function NeedleValveSBPage() {
   return (
     <>
     <title>PANAM® SB Series Heavy-Duty Bar Stock Needle Valves | 10,000 psig | </title>
-<meta name="description" content="PANAM® SB Series heavy-duty bar stock needle valves rated to 10,000 psig. Metal and soft seat options. SS316, Duplex, Monel and Hastelloy. NPT, BSPP, BSPT and tube fitting ends. NACE MR0175 available." />
-<meta name="keywords" content="bar stock needle valve, SB series needle valve, 10000 psi needle valve, heavy duty needle valve, metal seat needle valve, soft seat needle valve, SS316 bar stock valve, high pressure bar stock valve, instrumentation needle valve NACE" />
+<meta name="description" content="PANAM® SB Series heavy-duty bar stock needle valves rated to 10,000 psig. Metal and soft seat options. SS316, Duplex, Monel and Hastelloy. NPT, BSPP, BSPT and tube fitting ends." />
+<meta name="keywords" content="bar stock needle valve, SB series needle valve, 10000 psi needle valve, heavy duty needle valve, metal seat needle valve, soft seat needle valve, SS316 bar stock valve, high pressure bar stock valve, instrumentation needle valve" />
 <meta property="og:title" content="SB Series Bar Stock Needle Valves | 10,000 psig | PANAM®" />
-<meta property="og:description" content="Heavy-duty bar stock needle valves to 10,000 psig. Metal and soft seat. SS316, Duplex, Monel, Hastelloy. NACE MR0175 available." />
+<meta property="og:description" content="Heavy-duty bar stock needle valves to 10,000 psig. Metal and soft seat. SS316, Duplex, Monel, Hastelloy." />
 <meta property="og:type" content="website" />
 <link rel="canonical" href="https://www.panamvalve.com/valves/needle-valves/needle-valves-sb" />
 <meta name="robots" content="index, follow" />
@@ -50,7 +50,7 @@ export default function NeedleValveSBPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "SB Series Heavy-Duty Bar Stock Needle Valves",
-    description: "PANAM® SB Series heavy-duty bar stock needle valves rated to 10,000 psig. Metal and soft seat options. SS316, Duplex, Monel and Hastelloy. NPT, BSPP, BSPT and tube fitting ends. NACE MR0175 available.",
+    description: "PANAM® SB Series heavy-duty bar stock needle valves rated to 10,000 psig. Metal and soft seat options. SS316, Duplex, Monel and Hastelloy. NPT, BSPP, BSPT and tube fitting ends.",
   })}
 </script>
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>

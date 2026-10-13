@@ -97,9 +97,9 @@ export default function NeedleValveIBPage() {
   return (
     <>
       <title>PANAM IB Series Integral Bonnet Needle Valves | 6,000 psig | PANAM®</title>
-      <meta name="description" content="PANAM® IB Series integral bonnet needle valves rated to 6,000 psig. SS316, Duplex and Monel. NPT, BSPP, BSPT and PANAM® tube fitting ends. NACE MR0175 available on request." />
+      <meta name="description" content="PANAM® IB Series integral bonnet needle valves rated to 6,000 psig. SS316, Duplex and Monel. NPT, BSPP, BSPT and PANAM® tube fitting ends." />
       <meta property="og:title" content="IB Series Integral Bonnet Needle Valves | 6,000 psig | PANAM®" />
-      <meta property="og:description" content="Integral bonnet needle valves to 6,000 psig. SS316, Duplex and Monel. Multiple end connections. NACE MR0175 available." />
+      <meta property="og:description" content="Integral bonnet needle valves to 6,000 psig. SS316, Duplex and Monel. Multiple end connections." />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://www.panamvalve.com/valves/needle-valves/needle-valves-ib" />
       <meta name="robots" content="index, follow" />
@@ -108,7 +108,7 @@ export default function NeedleValveIBPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "IB Series Integral Bonnet Needle Valves",
-          description: "PANAM® IB Series integral bonnet needle valves rated to 6,000 psig. SS316, Duplex and Monel. NPT, BSPP, BSPT and PANAM® tube fitting ends. NACE MR0175 available on request.",
+          description: "PANAM® IB Series integral bonnet needle valves rated to 6,000 psig. SS316, Duplex and Monel. NPT, BSPP, BSPT and PANAM® tube fitting ends.",
         })}
       </script>
 

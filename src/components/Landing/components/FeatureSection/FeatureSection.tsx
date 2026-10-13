@@ -26,7 +26,7 @@ const FeatureSection = () => {
       image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_1920,f_auto,q_auto/v1769604928/annie-spratt-Iqwnr00mfQM-unsplash_qtpa2u.jpg",
       caption: (
         <>
-          A <span>Dedicated H2 Supply Chain</span> ensuring material compatibility and certification across global markets.
+          A <span>Dedicated H2 Supply Chain</span> supporting material compatibility and documentation across global markets.
         </>
       ),
       

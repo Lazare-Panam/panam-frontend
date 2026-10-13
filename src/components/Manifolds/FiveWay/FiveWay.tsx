@@ -114,7 +114,7 @@ export default function Manifolds5VMPage() {
   return (
     <>
           <title>5-Valve Manifolds | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® 5-Valve Manifolds — multiple connection types, mountings, and drain hole sizes. NACE MR-0175 and fire-safe options available. Configure and request a quote within 24 hours." />
+      <meta name="description" content="PANAM® 5-Valve Manifolds — multiple connection types, mountings, and drain hole sizes. NACE MR-0175 sour gas option available. Configure and request a quote within 24 hours." />
       <meta name="keywords" content="5 valve manifold, five valve manifold, instrument manifold, DP transmitter manifold, NACE manifold, SS316 manifold" />
       <meta property="og:title" content="5-Valve Manifolds | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® 5-Valve Manifolds by connection type, mounting, drain hole size, and special service." />

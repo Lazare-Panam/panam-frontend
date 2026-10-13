@@ -526,3 +526,9 @@ export const DBB_VALVES_DATA: DBBValveDTO[] = RAW_DATA.map(raw => {
     imageUrl: DBB_IMAGE,
   }
 })
+
+// Option suffix legend — only the codes that actually appear in this page's part numbers,
+// labelled from OPTION_MAP (the same labels shown in the Options column).
+export const DBB_OPTION_LEGEND: { code: string; label: string }[] = Object.entries(OPTION_MAP)
+  .filter(([code]) => RAW_DATA.some(r => r.optionCodes?.includes(code)))
+  .map(([code, label]) => ({ code, label }))

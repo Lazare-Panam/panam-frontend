@@ -38,10 +38,10 @@ export default function MiniValvePage() {
   return (
     <>
     <title>PANAM Mini Series Compact Needle Valves | 3,000 psig | PANAM®</title>
-<meta name="description" content="PANAM® Mini Series compact instrumentation needle valves rated to 3,000 psig. Designed for space-restricted installations. SS316, Duplex and Monel. NPT and tube fitting ends. NACE MR0175 available." />
+<meta name="description" content="PANAM® Mini Series compact instrumentation needle valves rated to 3,000 psig. Designed for space-restricted installations. SS316, Duplex and Monel. NPT and tube fitting ends." />
 <meta name="keywords" content="mini needle valve, compact instrumentation valve, small needle valve, 3000 psi needle valve, compact high pressure valve, miniature instrumentation valve, SS316 mini needle valve, space saving needle valve" />
 <meta property="og:title" content="Mini Series Compact Needle Valves | 3,000 psig | PANAM®" />
-<meta property="og:description" content="Compact needle valves to 3,000 psig for space-restricted instrumentation. SS316, Duplex and Monel. NACE MR0175 available." />
+<meta property="og:description" content="Compact needle valves to 3,000 psig for space-restricted instrumentation. SS316, Duplex and Monel." />
 <meta property="og:type" content="website" />
 <link rel="canonical" href="https://www.panamvalve.com/valves/needle-valves/needle-valves-mini" />
 <meta name="robots" content="index, follow" />
@@ -50,7 +50,7 @@ export default function MiniValvePage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Mini Series Compact Needle Valves",
-    description: "PANAM® Mini Series compact instrumentation needle valves rated to 3,000 psig. Designed for space-restricted installations. SS316, Duplex and Monel. NPT and tube fitting ends. NACE MR0175 available.",
+    description: "PANAM® Mini Series compact instrumentation needle valves rated to 3,000 psig. Designed for space-restricted installations. SS316, Duplex and Monel. NPT and tube fitting ends.",
   })}
 </script>
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>

@@ -48,7 +48,6 @@ const STRUCTURAL_GROUPS: { title: string; links: SitemapLink[] }[] = [
       { label: "Certificates", to: "/certificates" },
       { label: "Quality Management System", to: "/certificates/qms" },
       { label: "Type Test Reports", to: "/certificates/type-reports" },
-      { label: "Registrations", to: "/certificates/registrations" },
     ],
   },
   {

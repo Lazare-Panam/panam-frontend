@@ -189,7 +189,7 @@ export default function QuickCouplingIndexPage() {
           <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
             Why specify PANAM® Quick Couplings &amp; Tubing
           </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>All products are built to international standards — consistent quality and construction across the entire range.</Typography>
+          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 5, maxWidth: 620, fontFamily: PRIMARY_FONT }}>Consistent quality and construction across the range — confirm the standards your specification requires at enquiry.</Typography>
           <Grid container spacing={2}>
             {[
               "Six ISO coupling series from a single manufacturer",

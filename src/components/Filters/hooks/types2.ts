@@ -45,13 +45,15 @@ export const END_CONNECTION_LABELS: Record<string, string> = {
 export const PIF_SERIES_DESCRIPTION = {
   title: "PIF Series — In-Line Filters",
   description:
-    "Panam in-line filters for high-pressure instrumentation, process, and analytical applications. Stainless steel 316 construction with sintered or mesh filter elements across 0.5μm to 440μm pore sizes. Available with OD tube fittings, NPT threads, and metric connections from 3mm to 12mm tube and 1/8\" to 1/2\" thread sizes.",
+    "Panam in-line filters for instrumentation, process, and analytical applications. Stainless steel 316 construction with sintered or mesh filter elements across 0.5μm to 440μm pore sizes. Available with OD tube fittings, NPT threads, and metric connections from 3mm to 12mm tube and 1/8\" to 1/2\" thread sizes.",
+  poreCodeNote:
+    "Pore size code in part numbers: \"05\" = 0.5 μm; every other code is the rating in microns (e.g. \"2\" = 2 μm, \"40\" = 40 μm).",
   specs: [
     "In-Line Configuration",
     "Stainless Steel 316",
     "Sintered & Mesh Elements",
     "0.5 – 440 μm Pore Size",
     "OD, NPT & Metric Connections",
-    "Tested to 1000 psi (69 bar)",
+    "Nitrogen leak tested at 1000 psi",
   ],
 }

@@ -16,18 +16,18 @@ const FILTERS = [
   {
     type: "ptf",
     title: "T-Type In-Line Filters",
-    description: 'T-type configuration for high-pressure instrumentation, process, and analytical applications. Stainless steel 316 construction with sintered or mesh elements across the full pore size range. Series TA, TB, TC, TD, and IB covering 3mm to 12mm tube and 1/8" to 1/2" thread sizes.',
+    description: 'T-type configuration for instrumentation, process, and analytical applications. Stainless steel 316 construction with sintered or mesh elements across the full pore size range. Series TA, TB, TC, and TD covering 3mm to 12mm tube and 1/8" to 1/2" thread sizes.',
     image: "https://pblol2.blob.core.windows.net/panam-images/products/filters/PTF-TB-04-15-SS_JPG-removebg-preview.png",
-    pressure: "1000 psi",
+    pressure: "LEAK TESTED TO 1000 PSI",
     size: '3mm – 12mm tube · 1/8" – 1/2" thread',
     materials: "SS316 · Sintered & Mesh Elements",
   },
   {
     type: "pif",
     title: "In-Line Filters",
-    description: 'In-line configuration for high-pressure instrumentation, process, and analytical applications. Stainless steel 316 construction with sintered or mesh elements across the full pore size range. Series IA, IB, IC, and ID covering 3mm to 12mm tube and 1/8" to 1/2" thread sizes.',
+    description: 'In-line configuration for instrumentation, process, and analytical applications. Stainless steel 316 construction with sintered or mesh elements across the full pore size range. Series IA, IB, IC, and ID covering 3mm to 12mm tube and 1/8" to 1/2" thread sizes.',
     image: "https://pblol2.blob.core.windows.net/panam-images/products/filters/PIF-IA-02-2-SS_-_JPG-removebg-preview.png",
-    pressure: "1000 psi",
+    pressure: "LEAK TESTED TO 1000 PSI",
     size: '3mm – 12mm tube · 1/8" – 1/2" thread',
     materials: "SS316 · Sintered & Mesh Elements",
   },
@@ -36,14 +36,15 @@ const FILTERS = [
     title: "Replacement Filter Elements",
     description: 'Replacement filter elements (cartridges) for PIF In-Line and PTF T-Type filter housings. Stainless steel 316 sintered or mesh construction across 0.5μm to 440μm pore sizes. Small-bore elements fit IA/IB/TA/TB housings; large-bore elements fit IC/ID/TC/TD housings.',
     image: "https://pblol2.blob.core.windows.net/panam-images/products/filters/PIF-IA-02-2-SS_-_JPG-removebg-preview.png",
-    pressure: "1000 psi",
+    pressure: "SPARE KIT",
     size: "Fits PIF & PTF Housings",
     materials: "SS316 · Sintered & Mesh Elements",
   },
 ]
 
 const SPECS = [
-  { label: "Max Working Pressure", value: "1000 psi (69 bar)" },
+  { label: "Working Temperature", value: "-28°C to 482°C (-20°F to 900°F)" },
+  { label: "Testing", value: "Nitrogen leak test at 1000 psi" },
   { label: "Pore Size Range", value: "0.5 μm to 440 μm" },
   { label: "Size Range", value: '3mm – 12mm tube · 1/8" – 1/2" thread' },
   { label: "Material", value: "Stainless Steel 316" },
@@ -93,7 +94,7 @@ const FilterCard: React.FC<FilterItem> = ({ type, title, description, image, pre
 
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
           <Box sx={{ display: "inline-flex", alignItems: "center", bgcolor: "#e8f7fd", border: "1px solid #b3e5f7", borderRadius: 0.5, px: 1.2, py: 0.3 }}>
-            <Typography sx={{ fontSize: 11, fontWeight: 700, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, letterSpacing: 0.5 }}>{pressure} MAX</Typography>
+            <Typography sx={{ fontSize: 11, fontWeight: 700, color: BRAND_BLUE, fontFamily: PRIMARY_FONT, letterSpacing: 0.5 }}>{pressure}</Typography>
           </Box>
           <Box sx={{ display: "inline-flex", alignItems: "center", bgcolor: "#f5f5f5", border: "1px solid #e0e0e0", borderRadius: 0.5, px: 1.2, py: 0.3 }}>
             <Typography sx={{ fontSize: 11, fontWeight: 600, color: "#555", fontFamily: PRIMARY_FONT }}>{size}</Typography>
@@ -129,7 +130,9 @@ const FilterCard: React.FC<FilterItem> = ({ type, title, description, image, pre
           variant="outlined"
           fullWidth
           size="small"
-          href="mailto:sales@panamvalves.co.uk"
+          component={RouterLink}
+          viewTransition
+          to="/enquiry"
           sx={{
             borderColor: "#ddd",
             color: "#444",
@@ -151,10 +154,10 @@ export default function FiltersIndexPage() {
   return (
     <>
       <title>Instrumentation Filters | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® Instrumentation Filters — T-Type and In-Line configurations, SS316, sintered and mesh elements 0.5 to 440 micron, tested to 1000 psi. 3mm to 12mm tube, 1/8 to 1/2 inch thread. 624+ configurations. Request a quote." />
-      <meta name="keywords" content="instrumentation filters, inline filters, T-type filters, SS316 filters, sintered filter elements, high pressure filters, PTF PIF filters" />
+      <meta name="description" content="PANAM® Instrumentation Filters — T-Type and In-Line configurations, SS316, sintered and mesh elements 0.5 to 440 micron, nitrogen leak tested at 1000 psi. 3mm to 12mm tube, 1/8 to 1/2 inch thread. 624+ configurations. Request a quote." />
+      <meta name="keywords" content="instrumentation filters, inline filters, T-type filters, SS316 filters, sintered filter elements, PTF PIF filters" />
       <meta property="og:title" content="Instrumentation Filters | PANAM® Instrumentation" />
-      <meta property="og:description" content="Two filter families, one standard. PANAM® T-Type and In-Line Filters in SS316, 0.5 to 440 micron, tested to 1000 psi." />
+      <meta property="og:description" content="Two filter families, one standard. PANAM® T-Type and In-Line Filters in SS316, 0.5 to 440 micron, nitrogen leak tested at 1000 psi." />
       <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/filters/filters-hero.jpg" />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -165,7 +168,7 @@ export default function FiltersIndexPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "PANAM® Instrumentation Filters",
-          description: "PANAM® Instrumentation Filters — T-Type and In-Line configurations, SS316, sintered and mesh elements 0.5 to 440 micron, tested to 1000 psi.",
+          description: "PANAM® Instrumentation Filters — T-Type and In-Line configurations, SS316, sintered and mesh elements 0.5 to 440 micron, nitrogen leak tested at 1000 psi.",
           mainEntity: {
             "@type": "ItemList",
             itemListElement: FILTERS.map((f, i) => ({
@@ -201,7 +204,7 @@ export default function FiltersIndexPage() {
               <br />
               <span style={{ color: BRAND_BLUE }}>Built to Last.</span>
             </Typography>
-            <Typography sx={{ fontSize: { xs: 16, md: 19 }, color: "rgba(255,255,255,0.88)", maxWidth: 580, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>Two filter families — T-Type and In-Line — covering the full instrumentation tube and pipe range. Sintered and mesh elements from 0.5μm to 440μm. SS316 construction, tested to 1000 psi (69 bar).</Typography>
+            <Typography sx={{ fontSize: { xs: 16, md: 19 }, color: "rgba(255,255,255,0.88)", maxWidth: 580, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>Two filter families — T-Type and In-Line — covering the full instrumentation tube and pipe range. Sintered and mesh elements from 0.5μm to 440μm. SS316 construction, nitrogen leak tested at 1000 psi.</Typography>
             <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
               <Button variant="contained" size="large" href="#range" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
                 Explore Range
@@ -219,7 +222,7 @@ export default function FiltersIndexPage() {
           <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
             {[1, 2].map(i => (
               <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                {["Tested to 1000 psi (69 bar)", "Stainless Steel 316 construction", "Sintered & mesh filter elements", "0.5 μm to 440 μm pore size", "T-Type and In-Line configurations", '3mm to 12mm tube · 1/8" to 1/2" thread', "624+ configurations across 2 series", "High-pressure instrumentation & process filtration"].map(item => (
+                {["Nitrogen leak tested at 1000 psi", "Stainless Steel 316 construction", "Sintered & mesh filter elements", "0.5 μm to 440 μm pore size", "T-Type and In-Line configurations", '3mm to 12mm tube · 1/8" to 1/2" thread', "624+ configurations across 2 series", "Instrumentation & process filtration"].map(item => (
                   <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5, fontFamily: PRIMARY_FONT }}>
                     <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
                     {item}
@@ -239,7 +242,7 @@ export default function FiltersIndexPage() {
                 <br />
                 Every filter you need.
               </Typography>
-              <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>PANAM® Filters cover the full instrumentation and process spectrum — T-Type and In-Line configurations engineered for clean, regulated filtration. Both series share the same SS316 construction, sintered and mesh element options, and 1000 psi test standard.</Typography>
+              <Typography sx={{ color: "#555", lineHeight: 1.85, mb: 2.5, fontFamily: PRIMARY_FONT }}>PANAM® Filters cover the full instrumentation and process spectrum — T-Type and In-Line configurations engineered for clean, regulated filtration. Both series share the same SS316 construction, sintered and mesh element options, and test procedure: a 1000 psi nitrogen leak test.</Typography>
               <Typography sx={{ color: "#555", lineHeight: 1.85, fontFamily: PRIMARY_FONT }}>All filter series are available with sintered or mesh elements from 0.5μm to 440μm, covering 3mm to 12mm tube and 1/8\" to 1/2\" thread sizes with 624+ configurations across the range.</Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
@@ -288,13 +291,14 @@ export default function FiltersIndexPage() {
                 "Two filter families from a single trusted manufacturer",
                 "Stainless Steel 316 construction across all series",
                 "Sintered and mesh elements from 0.5μm to 440μm",
-                "Tested to 1000 psi (69 bar)",
+                "Nitrogen leak tested at 1000 psi",
                 "T-Type and In-Line configurations available",
                 '3mm to 12mm tube and 1/8" to 1/2" thread sizes',
                 "624+ configurations across PTF and PIF series",
                 "Suitable for instrumentation, process, and analytical applications",
+                "Oxygen-service cleaning available (OXY option)",
                 "Series TA, TB, TC, TD, IB, IA, IC, and ID covered",
-                "High-pressure performance for demanding fluid systems",
+                "Pore size code in part numbers: 05 = 0.5μm, 2 = 2μm, 7 = 7μm",
               ].map(feat => (
                 <Grid key={feat} size={{ xs: 12, sm: 6, md: 6 }}>
                   <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>

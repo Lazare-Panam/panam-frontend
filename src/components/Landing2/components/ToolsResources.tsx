@@ -23,7 +23,7 @@ const tools = [
   {
     icon: <VerifiedIcon fontSize="large" />,
     title: "Certifications",
-    desc: "ISO, ATEX, CE PED and BFPA — verify our quality documentation.",
+    desc: "ISO 9001, 14001 and 45001, plus ATEX and CE PED for tube fittings — view our certificates.",
     path: "/certificates",
   },
 ]

@@ -30,7 +30,7 @@ const faqs: FAQItem[] = [
   {
     question: "What are typical lead times?",
     answer:
-      "Typical lead times are 3–4 weeks, depending on product family, material and certification requirements. Panam responds to a specification or bill of materials within 24 hours, confirming availability and delivery for the items requested. Lead times for larger volumes or non-standard requirements are confirmed at quotation. Submit an RFQ or contact the sales team for a lead time against your requirement.",
+      "Typical lead times are 3–4 weeks, depending on product family, material and certification requirements. Panam responds to a specification or bill of materials confirming availability and delivery for the items requested. Lead times for larger volumes or non-standard requirements are confirmed at quotation. Submit an RFQ or contact the sales team for a lead time against your requirement.",
   },
   {
     question: "Can you support custom or project-specific requirements?",
@@ -40,7 +40,7 @@ const faqs: FAQItem[] = [
   {
     question: "What technical documentation is available?",
     answer:
-      "Material test certificates are dispatched with each consignment, and every product carries heat code traceability with heat number, serial number and PANAM® hologram stamped on it. NACE certification is available on request across the range. EN 10204 Type 3.1B certificates are supplied with flange adapter materials. Instrumentation carries ATEX and IECEx certification with SIL 2/SIL 3 versions available.",
+      "Material certificates are available on request. Panam's management systems are certified to ISO 9001, ISO 14001 and ISO 45001, and we hold ATEX and PED documents, which you can view on our certificates page. Tell us your documentation requirements at enquiry and we will confirm what can be supplied.",
   },
   {
     question: "How do I request a quote or technical review?",

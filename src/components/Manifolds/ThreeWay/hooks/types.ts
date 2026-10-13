@@ -52,7 +52,7 @@ export const DRAIN_HOLE_SORT_ORDER = [
 export const MANIFOLD_3VM_DESCRIPTION = {
   title: "3-Valve Manifolds",
   description:
-    "Panam 3-valve instrumentation manifolds for differential pressure transmitters in process measurement, equalization, and isolation applications. Type A (Angular) configuration in stainless steel 316. Standard 6000 psi (414 bar) and high-pressure 10000 psi (689 bar) ratings with full NACE MR-01-75 sour gas certification available. Optional vent with bleed valves, large bore body, and high/low temperature service.",
+    "Panam 3-valve instrumentation manifolds for differential pressure transmitters in process measurement, equalization, and isolation applications. Type A (Angular) configuration in stainless steel 316. Standard 6000 psi (414 bar) and high-pressure 10000 psi (689 bar) ratings, with a NACE MR-01-75 sour gas option. Optional vent with bleed valves, large bore body, and high/low temperature service.",
   specs: [
     "3-Valve Type A (Angular)",
     "Stainless Steel 316",

@@ -141,7 +141,7 @@ export default function FlangexFlangeDBB() {
   return (
     <>
       <title>DBB Flange-to-Flange Valves | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® DBB Flange-to-Flange valves — Integral and Three Piece construction, ANSI 150–2500 Class, PN6–PN250, RF/RTJ/BS, SS316, NACE MR-0175 certified. Configure and request a quote." />
+      <meta name="description" content="PANAM® DBB Flange-to-Flange valves — Integral and Three Piece construction, Class 150–2500, PN6–PN250, RF/RTJ/BS, SS316, NACE MR-0175 and fire-safe options. Configure and request a quote." />
       <meta name="keywords" content="DBB flange to flange valve, double block bleed valve, DP transmitter isolation, NACE valve, SS316 instrumentation valve" />
       <meta property="og:title" content="DBB Flange-to-Flange Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® DBB Flange-to-Flange valves by construction, pressure class, flange face, and special service." />

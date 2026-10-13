@@ -139,7 +139,7 @@ export const HP_BALL_VALVE_DATA: HPBallValveDTO[] = [
 export const HP_BV_DESCRIPTION = {
   title: 'High Pressure Ball Valves',
   description:
-    'Panam HP Ball Valves in SS 316 across three pressure series — HP (10,000 psi), HP1 (15,000 psi), and HP2 (20,000 psi). 2-Way, 3-Way 180° Turn, and 3-Way 90° Turn Diverter configurations. NPT Female and MP Cone & Thread Female connections.',
+    'Panam HP Ball Valves in SS 316 across three pressure series — HP (10,000 psi), HP1 (15,000 psi), and HP2 (15,000–20,000 psi). 2-Way, 3-Way 180° Turn, and 3-Way 90° Turn Diverter configurations. NPT Female and MP Cone & Thread Female connections.',
   specs: [
     'HP · HP1 · HP2',
     'SS 316',

@@ -13,48 +13,48 @@ const BallValvesBlog: React.FC = () => {
 
   const cta = {
     heading: "Ready to specify a stainless steel ball valve for your next project?",
-    body: "Send your datasheet or bill of materials to the Panam engineering team. We'll review your pressure class, media, end connections, and flow configuration — and respond within 24 hours with a matched quotation, datasheets, and full material traceability documentation.",
+    body: "Send your datasheet or bill of materials to the Panam engineering team. We'll review your pressure class, media, end connections, and flow configuration — and respond with a matched quotation and datasheets. Material certificates are available on request.",
     buttonText: "Request a Quote",
     buttonLink: "/enquiry",
   }
 
   const specMatrix = [
-    { param: "Pressure Rating",    detail: "Up to 10,000 psig (floating); HP 10,000 / HP1 15,000 / HP2 20,000 psi",  why: "Match system pressure including transients and safety margins" },
+    { param: "Pressure Rating",    detail: "Up to 10,000 psig (floating); HP 10,000 / HP1 15,000 / HP2 15,000–20,000 psi",  why: "Match system pressure including transients and safety margins" },
     { param: "Size Range",         detail: "1/8\" to 2\" — including 1/4\", 3/8\", 1/2\" and 2\"",                      why: "Covers most instrumentation and process line sizes" },
     { param: "Materials",          detail: "SS316 standard; Duplex, Monel, Hastelloy on request",                       why: "Required for corrosive, chloride, or hydrogen service" },
     { param: "Flow Paths",         detail: "2-way, 3-way T-port, 3-way L-port, high-bore full-port",                   why: "Select for isolation, diversion, mixing or max-flow duty" },
     { param: "End Connections",    detail: "NPT, BSPP, BSPT, PANAM® tube-fitting",                                      why: "Verify thread form before ordering — NPT and BSP are not interchangeable" },
     { param: "Seat Materials",     detail: "Delrin, PTFE, PEEK, KEL-F",                                                 why: "Match to media, temperature and pressure requirements" },
-    { param: "Certification",      detail: "NACE MR0175 available; full heat-code traceability on every valve",         why: "Required for sour service and critical documentation packs" },
+    { param: "Certification",      detail: "Material certificates available on request",         why: "Confirm sour service and documentation requirements at enquiry" },
   ]
 
   const hpMatrix = [
-    { series: "HP",  rating: "10,000 psi", configs: "2-way, 3-way 180°, 3-way 90° diverter", connections: "NPT Female, MP Cone & Thread Female" },
+    { series: "HP",  rating: "10,000 psi", configs: "3-way 180°, 3-way 90° diverter", connections: "MP Cone & Thread Female" },
     { series: "HP1", rating: "15,000 psi", configs: "2-way, 3-way 180°, 3-way 90° diverter", connections: "NPT Female, MP Cone & Thread Female" },
-    { series: "HP2", rating: "20,000 psi", configs: "2-way, 3-way 180°, 3-way 90° diverter", connections: "NPT Female, MP Cone & Thread Female" },
+    { series: "HP2", rating: "15,000–20,000 psi", configs: "2-way, 3-way 180°, 3-way 90° diverter", connections: "MP Cone & Thread Female" },
   ]
 
   const processSteps = [
     { num: "1", title: "Specification Review", body: "Send your datasheet, isometric, or bill of materials. The engineering team reviews pressure class, media compatibility, end connection standards, and flow configuration." },
     { num: "2", title: "Product Selection and Optimisation", body: "Engineers match your requirements to the right ball valve family — standardising sizes and connection types where possible, and aligning with manifolds, check valves, and filters across the system." },
-    { num: "3", title: "Quotation and Documentation", body: "Within 24 hours: a detailed quotation covering ball valves and associated fittings, manifolds and accessories, plus datasheets and certification requirements including NACE MR0175 where applicable." },
-    { num: "4", title: "Manufacturing, Stock Allocation and Dispatch", body: "UK stock allocated for immediate shipment where available. Make-to-order variants are scheduled in ISO 9001:2008-certified manufacturing facilities, with global dispatch and full documentation on every order." },
+    { num: "3", title: "Quotation and Documentation", body: "A detailed quotation covering ball valves and associated fittings, manifolds and accessories, plus datasheets. Documentation requirements, including any sour service needs, are confirmed at this stage." },
+    { num: "4", title: "Manufacturing, Stock Allocation and Dispatch", body: "Stock availability and lead times are confirmed at quotation and vary by product. Orders are produced under an ISO 9001:2015 certified quality management system, with global dispatch." },
   ]
 
   const faqs = [
-    { q: "Do you supply stainless steel ball valves from stock in the UK?", a: "Panam references UK stock for key instrumentation valves, fittings, and related components, available for immediate shipment from Bicester. Availability of a specific size should be confirmed at enquiry stage." },
-    { q: "What pressure ratings are available?", a: "Standard floating ball valves are rated up to 10,000 psig. High pressure variants are available in HP (10,000 psi), HP1 (15,000 psi), and HP2 (20,000 psi) series — all in SS316 construction." },
+    { q: "Do you supply stainless steel ball valves from stock in the UK?", a: "Stock availability varies by product and size, so please confirm availability and lead time at enquiry stage." },
+    { q: "What pressure ratings are available?", a: "Standard floating ball valves are rated up to 10,000 psig. High pressure variants are available in HP (10,000 psi), HP1 (15,000 psi), and HP2 (15,000–20,000 psi) series — all in SS316 construction." },
     { q: "Can I get a 1/2\" ball valve for high pressure service?", a: "Yes. Panam manufactures from 1/8\" to 2\", including 1/2\" sizes, with high pressure families rated up to 20,000 psi. The engineering team can help you select the correct series, seat material, and end connections." },
     { q: "Do you supply 3-way ball valves in stainless steel?", a: "Yes. The portfolio includes 3-way ball valves with T-port and L-port options, including high pressure 3-way 180° and 90° turn diverter designs in SS316 — widely used for sampling, diversion, and multi-line isolation." },
     { q: "Can ball valves be integrated into automated or motorised systems?", a: "Yes. Panam ball valves are used in instrumentation and control environments and can be incorporated into automated systems alongside suitable actuation hardware. The engineering team can review your specification and advise on valve selection and interface details." },
-    { q: "What options are available for hydrogen and offshore projects?", a: "Panam supports hydrogen, offshore energy, subsea production, and deep-water applications with SS316 ball valves, optional Duplex, Monel, and Hastelloy materials, and NACE MR0175 certification on request." },
-    { q: "Can Panam supply complete packages including ball valves, manifolds, and fittings?", a: "Yes. Panam can source and supply instrumentation valves, fittings, manifolds, filters, stainless steel fittings, and high pressure tubing from a single, traceable supply chain based on your bill of materials." },
+    { q: "What options are available for hydrogen and offshore projects?", a: "Panam supports hydrogen, offshore energy, subsea production, and deep-water applications with SS316 ball valves, optional Duplex, Monel, and Hastelloy materials, with material certificates available on request." },
+    { q: "Can Panam supply complete packages including ball valves, manifolds, and fittings?", a: "Yes. Panam can source and supply instrumentation valves, fittings, manifolds, filters, stainless steel fittings, and high pressure tubing from a single supplier based on your bill of materials." },
   ]
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       <title>Stainless Steel Ball Valves | SS316 2-Way, 3-Way & High Pressure | Panam Valve</title>
-      <meta name="description" content="Stainless steel ball valve solutions in SS316, 2-way, 3-way and high pressure up to 20,000 psi, with UK stock, engineering support and global dispatch." />
+      <meta name="description" content="Stainless steel ball valve solutions in SS316, 2-way, 3-way and high pressure up to 20,000 psi, with engineering support and global dispatch." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/stainless-steel-ball-valve-guide" />
@@ -63,7 +63,7 @@ const BallValvesBlog: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: "Stainless Steel Ball Valves | SS316 2-Way, 3-Way & High Pressure",
-          description: "Stainless steel ball valve solutions in SS316, 2-way, 3-way and high pressure up to 20,000 psi, with UK stock, engineering support and global dispatch.",
+          description: "Stainless steel ball valve solutions in SS316, 2-way, 3-way and high pressure up to 20,000 psi, with engineering support and global dispatch.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
@@ -126,7 +126,7 @@ const BallValvesBlog: React.FC = () => {
           <Grid size={{ xs: 12, md: 8 }}>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              Looking for a stainless steel ball valve for demanding instrumentation or process service? Panam Valves designs and manufactures precision-engineered ball valves in SS316, including 2-way, 3-way, high-bore, and high pressure configurations for critical global infrastructure. With UK stock available and global dispatch capability, the engineering team typically responds to specification and bill-of-material enquiries within 24 hours.
+              Looking for a stainless steel ball valve for demanding instrumentation or process service? Panam Valves designs and manufactures precision-engineered ball valves in SS316, including 2-way, 3-way, high-bore, and high pressure configurations for critical global infrastructure. With global dispatch capability, the engineering team reviews specification and bill-of-material enquiries and confirms lead times at quotation.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
               Panam stainless steel ball valves are designed for hydrogen, oil & gas, power, petrochemical, offshore, and wider process applications where reliability, traceability, and pressure performance are non-negotiable.
@@ -153,7 +153,7 @@ const BallValvesBlog: React.FC = () => {
               ))}
             </Box>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Every stainless steel ball valve in the Panam range features an internally loaded anti-blow-out stem as a key safety feature, with full heat-code material traceability on every unit.
+              Every stainless steel ball valve in the Panam range features an internally loaded anti-blow-out stem as a key safety feature. Material certificates are available on request.
             </Typography>
 
             {/* SECTION 2 */}
@@ -270,16 +270,16 @@ const BallValvesBlog: React.FC = () => {
 
             {/* SECTION 6 */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              UK Stock and Supply from Bicester
+              UK Supply from Bicester
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Panam supports UK and European projects from its Bicester location, with UK stock available for immediate shipment on core instrumentation valves, fittings, and components.
+              Panam supports UK and European projects from its Bicester location, with lead times confirmed at quotation.
             </Typography>
             <Box sx={{ pl: 3, mb: 4 }}>
               {[
-                "Rapid access to stainless steel ball valve inventory",
+                "Stainless steel ball valve supply with lead times confirmed at quotation",
                 "High pressure ball valve solutions for critical infrastructure",
-                "Full documentation packs and heat-code traceability",
+                "Material certificates available on request",
                 "Engineering support for specification and bill-of-material alignment",
                 "Global dispatch capability to meet project timelines worldwide",
               ].map(item => (
@@ -323,7 +323,7 @@ const BallValvesBlog: React.FC = () => {
               Summary and Next Steps
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Select by pressure class and flow path first, then lock in material, seat, and end connections to your media and temperature. For high pressure service, confirm whether floating ball valves (up to 10,000 psig) or the HP/HP1/HP2 series is required. Specify NACE MR0175 and heat-code traceability upfront to avoid documentation delays later.
+              Select by pressure class and flow path first, then lock in material, seat, and end connections to your media and temperature. For high pressure service, confirm whether floating ball valves (up to 10,000 psig) or the HP/HP1/HP2 series is required. Specify sour service (NACE MR0175) and documentation requirements upfront to avoid delays later.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
               Browse the full{" "}
@@ -366,7 +366,7 @@ const BallValvesBlog: React.FC = () => {
                   "3-Way Configurations",
                   "High Pressure Series (HP / HP1 / HP2)",
                   "Integration with Valves and Fittings",
-                  "UK Stock and Bicester Supply",
+                  "UK Supply from Bicester",
                   "Specification Process",
                 ].map(text => (
                   <Box key={text} sx={{ pb: 2, borderBottom: "1px solid #EEE" }}>
@@ -403,7 +403,7 @@ const BallValvesBlog: React.FC = () => {
                       PANAM Ball Valves
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>
-                      SS316 · Up to 20,000 PSI · 2-Way / 3-Way / High-Bore · UK Stock
+                      SS316 · Up to 20,000 PSI · 2-Way / 3-Way / High-Bore
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 700, color: "#01B0F0" }}>
                       Browse the range →

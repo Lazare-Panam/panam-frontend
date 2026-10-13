@@ -21,8 +21,8 @@ interface BallValvePageProps {
 
 export default function BallValvePage({
   title = "Ball Valves",
-  description = "2-Way and 3-Way floating-ball valves rated to 10,000 psig. T-port and L-port flow paths, full range of end connections, NACE certification available. Expand any row for full specs and to add to quote.",
-  chips = ["10,000 psig max", '1/8" – 2"', "SS316 / Duplex / Monel", "NACE / CE"],
+  description = "2-Way and 3-Way floating-ball valves rated to 10,000 psig. T-port and L-port flow paths, full range of end connections, material certificates available on request. Expand any row for full specs and to add to quote.",
+  chips = ["10,000 psig max", '1/8" – 2"', "SS316 / Duplex / Monel", "Material certs on request"],
   defaultSeries,
   defaultBodyMaterials,
   defaultConfigurations,

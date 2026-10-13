@@ -33,9 +33,9 @@ const faqs: FAQItem[] = [
       "Male and female NPT, BSPP, BSPT, and 37° flare configurations.",
   },
   {
-    question: "Is NACE certification available?",
+    question: "Are material certificates available?",
     answer:
-      "Yes — NACE certification is available upon request, with heat code traceability provided for full material verification and quality assurance.",
+      "Yes — material certificates are available on request. For sour service (NACE MR0175) requirements, tell us at enquiry and we will confirm what can be supplied.",
   },
   {
     question: "What test standard are tube fittings qualified to?",

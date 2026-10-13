@@ -34,7 +34,7 @@ const industryData = [
     specs: [
       { icon: <HandymanIcon />, text: 'Duplex & Super Duplex for maximum corrosion resistance' },
       { icon: <SettingsIcon />, text: '800 lb pressure ratings for deep-water applications' },
-      { icon: <AssignmentIcon />, text: 'Full NACE MR0175 compliance and traceability' },
+      { icon: <AssignmentIcon />, text: 'Material certificates available on request' },
     ]
   },
   {
@@ -60,7 +60,7 @@ const industryData = [
     specs: [
       { icon: <FlashOnIcon />, text: 'H2-rated valves for 350 bar+ service' },
       { icon: <ScienceIcon />, text: 'Leak-detection training and engineering audits' },
-      { icon: <AssignmentIcon />, text: 'Dedicated H2 supply chain with global certification' },
+      { icon: <AssignmentIcon />, text: 'Documentation requirements confirmed at enquiry' },
     ]
   },
   {
@@ -68,11 +68,11 @@ const industryData = [
     label: 'Aerospace',
     path: '/industries/aerospace-defense',
     title: 'Aerospace & Defence',
-    desc: 'JOSCAR-registered precision instrumentation. The highest quality standards with full traceability, material certs and QMS documentation on every order.',
+    desc: 'Precision instrumentation from an ISO 9001 certified quality management system, with material certificates available on request.',
     img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=75',
     specs: [
-      { icon: <AirplanemodeActiveIcon />, text: 'JOSCAR registration streamlines procurement' },
-      { icon: <AssignmentIcon />, text: 'Full QMS and heat code traceability' },
+      { icon: <AirplanemodeActiveIcon />, text: 'ISO 9001, ISO 14001 and ISO 45001 certified management systems' },
+      { icon: <AssignmentIcon />, text: 'Material certificates available on request' },
       { icon: <HandymanIcon />, text: 'Hastelloy, Inconel and Super Duplex available' },
     ]
   },
@@ -85,7 +85,7 @@ const industryData = [
     img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/w_800,f_auto,q_auto/v1769604928/annie-spratt-Iqwnr00mfQM-unsplash_qtpa2u.jpg',
     specs: [
       { icon: <ScienceIcon />, text: 'Full material range for aggressive service' },
-      { icon: <LocalGasStationIcon />, text: 'NACE-compliant for sour service' },
+      { icon: <LocalGasStationIcon />, text: 'Sour service requirements reviewed at enquiry' },
       { icon: <SettingsIcon />, text: 'Custom manifold designs for skid integration' },
     ]
   },

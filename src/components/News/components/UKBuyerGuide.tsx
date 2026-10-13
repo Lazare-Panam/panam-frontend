@@ -12,8 +12,8 @@ const UKBuyersGuideBlog: React.FC = () => {
   }, [])
 
   const cta = {
-    heading: "Need valves from UK stock with full documentation and fast dispatch?",
-    body: "Send your specification or bill of materials to Panam Valves. Our engineering team will respond within 24 hours with a matched quote, material certs and traceability documentation ready for your submittal package.",
+    heading: "Need valves with the right documentation for your project?",
+    body: "Send your specification or bill of materials to Panam Valves. Our engineering team will respond with a matched quote, with material certificates available on request.",
     buttonText: "Request a Quote",
     buttonLink: "/enquiry",
   }
@@ -58,7 +58,7 @@ const UKBuyersGuideBlog: React.FC = () => {
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
       <title>UK Industrial Valves Buyer's Guide: Types, Standards, Materials | Panam Valve</title>
-      <meta name="description" content="Learn how to specify industrial valves in the UK, from types and standards to materials, sizing and fast-track supply from UK stock." />
+      <meta name="description" content="Learn how to specify industrial valves in the UK, from types and standards to materials, sizing and planning supply." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/uk-industrial-valves-buyers-guide" />
@@ -67,7 +67,7 @@ const UKBuyersGuideBlog: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: "UK Industrial Valves Buyer's Guide: Types, Standards, Materials",
-          description: "Learn how to specify industrial valves in the UK, from types and standards to materials, sizing and fast-track supply from UK stock.",
+          description: "Learn how to specify industrial valves in the UK, from types and standards to materials, sizing and planning supply.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
@@ -80,11 +80,11 @@ const UKBuyersGuideBlog: React.FC = () => {
       <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
         <Container maxWidth="md">
           <Typography variant="h1" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: "2rem", md: "3rem" }, color: "#1A1A1A" }}>
-            UK Buyer's Guide to Industrial Valves: Types, Standards, Materials and Fast-Track Supply
+            UK Buyer's Guide to Industrial Valves: Types, Standards, Materials and Supply
           </Typography>
 
           <Typography variant="h4" sx={{ fontWeight: 600, mb: 4, color: "#555", fontSize: "1.5rem" }}>
-            How to Specify with Confidence and Buy from UK Stock
+            How to Specify with Confidence
           </Typography>
 
           <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 4 }}>
@@ -132,11 +132,11 @@ const UKBuyersGuideBlog: React.FC = () => {
           <Grid size={{ xs: 12, md: 8 }}>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              Procurement and project schedules move on valves. Choose correctly and you compress design, approvals and installation. Choose poorly and you add weeks of rework. This guide distils the choices UK engineers make every day across energy, process, hydrogen and utilities, so you can specify with confidence and buy from UK stock.
+              Procurement and project schedules move on valves. Choose correctly and you compress design, approvals and installation. Choose poorly and you add weeks of rework. This guide distils the choices UK engineers make every day across energy, process, hydrogen and utilities, so you can specify with confidence.
             </Typography>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              Panam Valves supplies precision-engineered industrial and instrumentation valves with UK stock available for immediate shipment. Every order ships with full documentation and material traceability. Send your specification or bill of materials and our engineering team will respond within 24 hours.
+              Panam Valves supplies precision-engineered industrial and instrumentation valves Material certificates are available on request. Send your specification or bill of materials and our engineering team will respond with a quotation, including lead times, which vary by product.
             </Typography>
 
             {/* SECTION 1 */}
@@ -194,7 +194,7 @@ const UKBuyersGuideBlog: React.FC = () => {
             </TableContainer>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Class ratings commonly run Class 150, 300, 600, 900, 1500 and 2500. Documentation packages typically include EN 10204 3.1 material certs, ITP, hydro and seat test reports (API 598), PMI, NACE MR0175 statements where specified, ATEX or PED declarations as required, and full heat-code traceability. Factory Acceptance Test scope and witness levels should be agreed at order.
+              Class ratings commonly run Class 150, 300, 600, 900, 1500 and 2500. Documentation packages typically include EN 10204 3.1 material certs, ITP, hydro and seat test reports (API 598), PMI, NACE MR0175 statements where specified, and ATEX or PED declarations as required. Factory Acceptance Test scope and witness levels should be agreed at order.
             </Typography>
 
             {/* SECTION 3 */}
@@ -276,10 +276,10 @@ const UKBuyersGuideBlog: React.FC = () => {
 
             {/* SECTION 7 */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Fast-Track Procurement from UK Stock
+              Planning Procurement
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Panam Valves maintains UK stock available for immediate shipment across core industrial valves and fittings, with full engineering support and a 24-hour quotation turnaround. For urgent isolation or instrumentation skids, you can source:
+              Panam Valves supplies core industrial valves and fittings with engineering support; lead times vary by product and are confirmed at quotation. For isolation or instrumentation skids, you can source:
             </Typography>
             <Box sx={{ pl: 3, mb: 4 }}>
               {[
@@ -316,7 +316,7 @@ const UKBuyersGuideBlog: React.FC = () => {
               Select by function first, then confirm standards and documentation, then lock materials and seats to the medium and temperature. Validate Cv and pressure drop, convert sizes carefully between DN and NPS, and specify actuator interfaces and testing up front.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              With UK stock available for immediate shipment and 24-hour quotations, Panam Valves can help you assemble a compliant BOM and dispatch without delay. Contact us at Ground Floor, St Edburgs Hall, Priory Road, Bicester OX26 6BL, United Kingdom.
+              Panam Valves can help you assemble a compliant BOM, with lead times confirmed at quotation. Contact us at Ground Floor, St Edburgs Hall, Priory Road, Bicester OX26 6BL, United Kingdom.
             </Typography>
 
             {/* CTA */}
@@ -352,7 +352,7 @@ const UKBuyersGuideBlog: React.FC = () => {
                   "High-Pressure and Specialty Duties",
                   "Sizing, Cv and Unit Conversion",
                   "Installation and Lifecycle Planning",
-                  "Fast-Track UK Stock Procurement",
+                  "Procurement Planning",
                 ].map(text => (
                   <Box key={text} sx={{ pb: 2, borderBottom: "1px solid #EEE" }}>
                     <Typography variant="body2" sx={{ fontWeight: 500, color: "#555" }}>
@@ -388,7 +388,7 @@ const UKBuyersGuideBlog: React.FC = () => {
                       PANAM Industrial Valves
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>
-                      UK Stock · 24hr Quotation · Full Documentation
+                      Engineering Support · Lead Times on Request
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 700, color: "#01B0F0" }}>
                       Browse the range →
