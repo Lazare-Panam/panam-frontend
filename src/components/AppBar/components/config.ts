@@ -142,7 +142,7 @@ export const navConfig: Record<string, NavCategory[]> = {
         { name: "UK Industrial Valves Buyer's Guide", link: "/blog/uk-industrial-valves-buyers-guide" },
         { name: "Manifold Valves for Accurate, Safe Instrumentation Measurement", link: "/blog/manifold-valves-for-accurate-safe-instrumentation" },
         { name: "New Partnership", link: "/blog/panam-valves-rg-fluid-power-partnership" },
-        { name: "Double Block And Bleed Valves", link: "/blog/double-blog-and-bleed" },
+        { name: "Double Block And Bleed Valves", link: "/blog/double-block-and-bleed" },
         { name: "Check Valves Blog", link: "/blog/check-valves-blog" },
         { name: "Hydrogen Valves Blog", link: "/blog/hydrogen-blog" },
         { name: "Swivel Gauge Adapters Blog", link: "/blog/swivel-gauge-blog" },

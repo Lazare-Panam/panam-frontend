@@ -33,7 +33,7 @@ const DoubleBlockBleedBlog: React.FC = () => {
       <meta name="description" content="Master Double Block and Bleed (DB&B) vs. DIB valves." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://www.panamvalve.com/blog/double-blog-and-bleed" />
+      <link rel="canonical" href="https://www.panamvalve.com/blog/double-block-and-bleed" />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -43,7 +43,7 @@ const DoubleBlockBleedBlog: React.FC = () => {
           image: "https://pblol2.blob.core.windows.net/panam-images/products/double-block-and-bleeed/dbb_flange_x_flange.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
-          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/double-blog-and-bleed" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/double-block-and-bleed" },
           datePublished: "2026-03-25",
         })}
       </script>
@@ -60,9 +60,7 @@ const DoubleBlockBleedBlog: React.FC = () => {
           </Typography>
 
           <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 4 }}>
-            <Avatar sx={{ bgcolor: "#1A1A1A", width: 48, height: 48, fontSize: "1rem", fontWeight: 700 }}>
-              SR
-            </Avatar>
+            <Avatar sx={{ bgcolor: "#1A1A1A", width: 48, height: 48, fontSize: "1rem", fontWeight: 700 }}>SR</Avatar>
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#1A1A1A", lineHeight: 1.2, fontSize: "1rem" }}>
                 Sejal Raina
@@ -121,8 +119,12 @@ const DoubleBlockBleedBlog: React.FC = () => {
                 <strong>Double Isolation and Bleed (DIB):</strong> Two seating elements capable of bidirectional isolation.
               </Typography>
               <Box sx={{ pl: 3 }}>
-                <Typography sx={{ mb: 1 }}>• <strong>DIB-1:</strong> One seat seals in both directions; the other is unidirectional.</Typography>
-                <Typography sx={{ mb: 1 }}>• <strong>DIB-2:</strong> Both seats are bidirectional, offering the highest integrity against pressure from either side.</Typography>
+                <Typography sx={{ mb: 1 }}>
+                  • <strong>DIB-1:</strong> One seat seals in both directions; the other is unidirectional.
+                </Typography>
+                <Typography sx={{ mb: 1 }}>
+                  • <strong>DIB-2:</strong> Both seats are bidirectional, offering the highest integrity against pressure from either side.
+                </Typography>
               </Box>
             </Box>
 
@@ -132,23 +134,33 @@ const DoubleBlockBleedBlog: React.FC = () => {
 
             <Stack spacing={4} sx={{ mb: 6 }}>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>What is the purpose of a block and bleed valve?</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                  What is the purpose of a block and bleed valve?
+                </Typography>
                 <Typography variant="body1">To isolate process pressure and provide a controlled bleed so you can vent, drain, and verify zero energy before maintenance.</Typography>
               </Box>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>When should you use a double block and bleed?</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                  When should you use a double block and bleed?
+                </Typography>
                 <Typography variant="body1">Use it when you need testable isolation with a measurable cavity, especially in gas service, custody transfer, hydrogen systems, and high-pressure headers during short shutdowns.</Typography>
               </Box>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>What are the advantages of a double block and bleed valve?</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                  What are the advantages of a double block and bleed valve?
+                </Typography>
                 <Typography variant="body1">It offers verifiable isolation, faster maintenance, fewer potential leak paths with compact bodies, and safer handling of minor seat leakage via the bleed to a safe vent.</Typography>
               </Box>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>What is positive isolation versus double block and bleed?</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                  What is positive isolation versus double block and bleed?
+                </Typography>
                 <Typography variant="body1">Positive isolation removes any credible leakage path, typically with a blind or spool removal. DB&B is valve-based, testable isolation; it is strong but still relies on seat integrity. Use risk assessment or standards to choose.</Typography>
               </Box>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>How do double block and bleed valves work?</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                  How do double block and bleed valves work?
+                </Typography>
                 <Typography variant="body1">Two isolation elements close in series, creating a cavity. Opening the bleed relieves and exposes any leakage, letting you confirm pressure is at zero before work.</Typography>
               </Box>
             </Stack>
@@ -160,7 +172,9 @@ const DoubleBlockBleedBlog: React.FC = () => {
               A DB&B arrangement is only as good as its vent path. Bleed ports must lead to a safe location, such as flare headers for hydrogen skids or closed containment for liquids.
             </Typography>
 
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>Selection & Testing Matrix</Typography>
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
+              Selection & Testing Matrix
+            </Typography>
             <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #EEE", mb: 4 }}>
               <Table>
                 <TableHead sx={{ bgcolor: "#F8F9FA" }}>
@@ -190,7 +204,8 @@ const DoubleBlockBleedBlog: React.FC = () => {
               Summary and Next Step
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              DB&B done right is a disciplined practice, not a symbol on a P&ID. Select the correct seat technology, define sealing direction, route bleeds to safe locations, and prove zero every time. Reserve positive isolation for high-hazard work and follow company standards backed by a clear risk assessment. For hydrogen skids, refinery measurement manifolds, high-pressure gas headers, and custody transfer systems, the right DB&B choice protects people, equipment, and schedules.
+              DB&B done right is a disciplined practice, not a symbol on a P&ID. Select the correct seat technology, define sealing direction, route bleeds to safe locations, and prove zero every time. Reserve positive isolation for high-hazard work and follow company standards backed by a clear risk assessment. For hydrogen skids, refinery measurement manifolds, high-pressure gas headers, and
+              custody transfer systems, the right DB&B choice protects people, equipment, and schedules.
             </Typography>
 
             {/* CTA Section using provided text */}
@@ -201,12 +216,7 @@ const DoubleBlockBleedBlog: React.FC = () => {
               <Typography variant="body1" sx={{ color: "#666", mb: 4 }}>
                 {cta.body}
               </Typography>
-              <Button 
-                variant="contained" 
-                onClick={() => navigate(cta.buttonLink)} 
-                endIcon={<ArrowForwardIcon />} 
-                sx={{ bgcolor: "#01B0F0", color: "white", px: 4, py: 1.5, borderRadius: "4px", fontWeight: 700 }}
-              >
+              <Button variant="contained" onClick={() => navigate(cta.buttonLink)} endIcon={<ArrowForwardIcon />} sx={{ bgcolor: "#01B0F0", color: "white", px: 4, py: 1.5, borderRadius: "4px", fontWeight: 700 }}>
                 Request Technical Support
               </Button>
             </Paper>
