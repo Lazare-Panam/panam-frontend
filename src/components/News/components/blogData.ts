@@ -19,7 +19,7 @@ export const blogs: BlogPost[] = [
     author: "Steven Kassi",
     date: "Oct 13, 2026",
     readTime: "8 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/website-media/thread-thumbnail.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/blog/blog-cover.png",
     excerpt:
       "Swagelok warns against mixing tube fitting brands, and that advice is sound. This guide separates intermix and interchange from a straightforward supplier choice, sets out exactly what Panam's DNV interchangeability report with Swagelok does and doesn't cover, and gives you a checklist for evaluating any tube fitting alternative on its own evidence.",
   },

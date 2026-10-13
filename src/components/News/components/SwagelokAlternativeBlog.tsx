@@ -67,7 +67,7 @@ const SwagelokAlternativeBlog: React.FC = () => {
           "@type": "BlogPosting",
           headline: 'Swagelok Alternative Tube Fittings: What "Compatible" Really Means',
           description: "Swagelok warns against mixing tube fitting brands. Here's what Panam's DNV interchangeability report does and doesn't cover.",
-          image: "https://pblol2.blob.core.windows.net/panam-images/website-media/thread-thumbnail.jpg",
+          image: "https://pblol2.blob.core.windows.net/panam-images/blog/blog-cover.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/swagelok-alternative-tube-fittings" },
@@ -109,7 +109,7 @@ const SwagelokAlternativeBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://pblol2.blob.core.windows.net/panam-images/website-media/thread-thumbnail.jpg"
+          src="https://pblol2.blob.core.windows.net/panam-images/blog/blog-cover.png"
           alt="PANAM stainless steel instrumentation tube fittings"
           sx={{
             width: "100%",
