@@ -1,8 +1,18 @@
 import React, { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import { Container, Typography, Box, Avatar, Stack, Paper, Button, Table, TableBody, TableCell, TableContainer,  TableRow } from "@mui/material"
+import { useNavigate, Link as RouterLink } from "react-router-dom"
+import { Container, Typography, Box, Avatar, Stack, Paper, Button, Table, TableBody, TableCell, TableContainer, TableRow, Accordion, AccordionSummary, AccordionDetails } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+
+// Inline text link style — real <a href> for crawlers, client-side nav via RouterLink.
+const inlineLinkSx = {
+  color: "#01B0F0",
+  fontWeight: 600,
+  textDecoration: "none",
+  borderBottom: "1px solid rgba(1,176,240,0.4)",
+  "&:hover": { borderBottomColor: "#01B0F0" },
+}
 
 const SwagelokAlternativeBlog: React.FC = () => {
   const navigate = useNavigate()
@@ -45,6 +55,35 @@ const SwagelokAlternativeBlog: React.FC = () => {
     { title: "Installer method", body: "Panam fittings have their own pull-up procedure. Ask us for the specified turns, torque and gauge method, and train installers on it rather than assuming another brand's routine." },
   ]
 
+  // Plain-text FAQ copy for the FAQPage structured data. The on-page version
+  // (below) adds inline links; keep these answers in sync with that copy.
+  const faqs = [
+    {
+      q: "Are Panam tube fittings compatible with Swagelok?",
+      a: "Panam holds a DNV Interchangeability Compliance Report covering Swagelok for 1/4\" to 1\" OD male connectors, unions and tube caps in 316 stainless steel. Within that tested scope the fittings were found compatible in tube gripping and thread fit, with satisfactory pressure testing. Anything outside that scope should be treated as untested — talk to us before you specify.",
+    },
+    {
+      q: "Does mixing Panam and Swagelok parts void the Swagelok warranty?",
+      a: "Yes. Swagelok's warranty applies only to complete Swagelok assemblies. Building one fitting from parts of different brands (intermix) voids it. Our default recommendation is the same as Swagelok's: use complete, single-manufacturer fittings on freshly cut tube.",
+    },
+    {
+      q: "What sizes and materials does Panam's DNV interchangeability report cover?",
+      a: "1/4\", 3/8\", 1/2\", 3/4\" and 1\" OD, in 316 stainless steel, for male connectors (NPT), unions and tube caps. It does not cover sizes below 1/4\" or above 1\" OD, metric sizes, other alloys, or other fitting types.",
+    },
+    {
+      q: "Can I reuse tube already swaged with Swagelok ferrules in a Panam body?",
+      a: "No — not unless a full test report says otherwise. Cut back to fresh, square tube and fit a complete new Panam set, or keep Swagelok for that joint. Re-using tube already swaged with another brand's ferrules is outside the report's scope.",
+    },
+    {
+      q: "Are Panam 316 stainless steel tube fittings material certified?",
+      a: "Yes. Traceable material certification such as EN 10204 3.1, linked to heat numbers, is available on request, alongside the DNV reports and further type and burst testing. You can see our certificates and request current documents for the sizes and materials you buy.",
+    },
+    {
+      q: "Where can I get Panam's DNV reports, certificates and catalogues?",
+      a: "Request the DNV interchangeability reports with your quote, browse our certificates and approvals, or download the product catalogues as PDFs. For anything specific to your sizes, materials or pressures, send us your requirement.",
+    },
+  ]
+
   const evaluateChecklist = [
     "Traceable material certification, such as EN 10204 3.1, linked to heat numbers.",
     "Rated working pressure by tube OD and wall thickness. Ask for the published ratings for the sizes you intend to use.",
@@ -72,6 +111,17 @@ const SwagelokAlternativeBlog: React.FC = () => {
           publisher: { "@type": "Organization", name: "PANAM®" },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/swagelok-alternative-tube-fittings" },
           datePublished: "2026-10-13",
+        })}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map(f => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
         })}
       </script>
 
@@ -157,7 +207,9 @@ const SwagelokAlternativeBlog: React.FC = () => {
               Our default recommendation matches Swagelok's: use complete, single-manufacturer fittings wherever you can. For new installations and complete replacements on freshly cut tube, that removes any doubt.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Real plants aren't always that tidy. Where you need to work alongside existing Swagelok tube fittings, Panam has had interchangeability with Swagelok tested, with the results reported by a DNV inspection surveyor. The details, and the limits, are below.
+              Real plants aren't always that tidy. Where you need to work alongside existing Swagelok tube fittings, Panam's{" "}
+              <Box component={RouterLink} to="/instrumentation-fittings" sx={inlineLinkSx}>instrumentation tube fittings</Box>{" "}
+              have had interchangeability with Swagelok tested, with the results reported by a DNV inspection surveyor. The details, and the limits, are below.
             </Typography>
 
             {/* SECTION 3 */}
@@ -179,7 +231,8 @@ const SwagelokAlternativeBlog: React.FC = () => {
               What Panam's DNV interchangeability report covers
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Panam holds an Interchangeability Compliance Report from Det Norske Veritas (DNV) covering Swagelok. The tests were conducted at Panam's facility in Gujarat, India, and the report was signed by a DNV inspection surveyor in Pune. It records test results. It isn't a DNV product approval.
+              Panam holds an Interchangeability Compliance Report from Det Norske Veritas (DNV) covering Swagelok. The tests were conducted at Panam's facility in Gujarat, India, and the report was signed by a DNV inspection surveyor in Pune. It records test results. It isn't a DNV product approval. You can see our{" "}
+              <Box component={RouterLink} to="/certificates" sx={inlineLinkSx}>certificates and approvals</Box>, and request the current reports for the sizes and materials you buy.
             </Typography>
 
             <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #EEE", mb: 4 }}>
@@ -212,7 +265,9 @@ const SwagelokAlternativeBlog: React.FC = () => {
               ))}
             </Box>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              It is also dated December 2014. If your application falls outside this scope, talk to us before you specify.
+              It is also dated December 2014. If your application falls outside this scope,{" "}
+              <Box component={RouterLink} to="/enquiry" sx={inlineLinkSx}>talk to us</Box>{" "}
+              before you specify.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
               Nor does it change Swagelok's position: its warranty applies only to Swagelok-only assemblies, and some project specifications prohibit intermix regardless of test evidence. Check yours before you decide.
@@ -257,8 +312,37 @@ const SwagelokAlternativeBlog: React.FC = () => {
               Valvenok is an authorised distributor of Panam, with UK stock, 2–3 day dispatch on stocked items and free UK delivery on orders over £150. ISO 9001 quality management, material certification and JOSCAR registration support the documentation your procurement team needs. Trade credit accounts are available, and our technical team can review your specification before you order.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Send us your tube sizes, materials and pressure requirements and we'll confirm the right Panam fitting, with the test data behind it. Request Panam's DNV interchangeability reports with your quote.
+              Send us your tube sizes, materials and pressure requirements and we'll confirm the right Panam fitting, with the test data behind it. You can also{" "}
+              <Box component={RouterLink} to="/catalogPDFs" sx={inlineLinkSx}>download the product catalogues</Box>{" "}
+              as PDFs, or request Panam's DNV interchangeability reports with your quote.
             </Typography>
+
+            {/* FAQ */}
+            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
+              Frequently asked questions
+            </Typography>
+            <Box sx={{ mb: 6 }}>
+              {faqs.map((faq, i) => (
+                <Accordion
+                  key={i}
+                  disableGutters
+                  elevation={0}
+                  defaultExpanded={i === 0}
+                  sx={{ border: "1px solid #EEE", "&:not(:last-child)": { borderBottom: 0 }, "&:before": { display: "none" } }}
+                >
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ bgcolor: "#FAFBFC" }}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700, color: "#1A1A1A" }}>
+                      {faq.q}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography variant="body1" sx={{ lineHeight: 1.8, color: "#333" }}>
+                      {faq.a}
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+              ))}
+            </Box>
 
             <Typography variant="caption" sx={{ display: "block", fontStyle: "italic", color: "#595959", mb: 2, lineHeight: 1.6 }}>
               Swagelok, Parker and DNV are trademarks of their respective owners. Valvenok and Panam are not affiliated with or endorsed by Swagelok Company, Parker Hannifin or DNV. Brand names are used for identification and comparison only.
@@ -298,6 +382,7 @@ const SwagelokAlternativeBlog: React.FC = () => {
                   "What the Report Doesn't Cover",
                   "When to Stay with Swagelok",
                   "How to Evaluate an Alternative",
+                  "Frequently Asked Questions",
                 ].map(text => (
                   <Box key={text} sx={{ pb: 2, borderBottom: "1px solid #EEE" }}>
                     <Typography variant="body2" sx={{ fontWeight: 500, color: "#555" }}>
