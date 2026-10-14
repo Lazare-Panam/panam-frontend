@@ -45,7 +45,14 @@ export interface SearchResult {
   totalHits: number
 }
 
+// Meilisearch treats `"` as a phrase-search delimiter, so inch marks like
+// 3/4" get read as "match this exact phrase" and return zero hits.
+// Strip them before the query leaves the frontend.
+const sanitizeQuery = (q: string) => q.replace(/"/g, ' ').replace(/\s+/g, ' ').trim()
+
 export const searchApi = {
   search: (params: SearchRequest) =>
-    axiosClient.get<SearchResult>('/api/search', { params }),
+    axiosClient.get<SearchResult>('/api/search', {
+      params: { ...params, q: params.q ? sanitizeQuery(params.q) : params.q },
+    }),
 }
