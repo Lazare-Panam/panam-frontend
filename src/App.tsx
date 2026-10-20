@@ -191,6 +191,7 @@ import AllPipeFittings from "./PipeFittings/pages/PipeFittingsAll"
 import AllPipeFittingsProductPage from "./PipeFittings/components/AllPipeFittings"
 import SpecifyValvesGuideBlog from "./components/News/components/Specifyvalvesguideblog"
 import ApiValveStandardsBlog from "./components/News/components/ApiValveStandardsBlog"
+const SwagelokAlternativeBlog = lazy(() => import("./components/News/components/SwagelokAlternativeBlog"))
 
 export const routes = [
   {
@@ -623,6 +624,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <ApiValveStandardsBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/swagelok-alternative-tube-fittings",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <SwagelokAlternativeBlog />
           </Suspense>
         ),
       },

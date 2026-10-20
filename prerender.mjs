@@ -25,7 +25,7 @@ const staticRoutes = [
   "/blog/swivel-gauge-blog",
   "/blog/check-valves-blog",
   "/catalogPDFs",
-  // certificates
+  // certificatesn
   "/certificates",
   "/certificates/qms",
   "/certificates/type-reports",
@@ -138,11 +138,10 @@ const staticRoutes = [
   "/blog/npt-vs-bspp-vs-bspt-thread-standards",
   "/blog/manifold-valves-for-accurate-safe-instrumentation",
   "/blog/hp-series-needle-valves-high-pressure-flow-control",
-];
+]
 const routes = [...staticRoutes, ...PRODUCT_SECTION_ROUTES, ...PRODUCT_ROUTES]
 
 const originalTemplate = fs.readFileSync(path.resolve(__dirname, "dist/index.html"), "utf-8")
-
 
 // Dynamically import the server build
 const { render } = await import("./dist/server/entry-server.js")
@@ -161,13 +160,7 @@ for (const route of routes) {
     // made every page fail hydration (React #418), which threw away the prerendered HTML and
     // re-rendered from scratch — for ~1s crawlers saw a page with no content and no <h1>
     // (SE Ranking "H1 tag missing"), and it hurt LCP/CLS. Google reads JSON-LD anywhere in the page.
-    const headTags = [
-      ...appHtml.matchAll(/<title[^>]*>.*?<\/title>/gs),
-      ...appHtml.matchAll(/<meta[^>]*(?:\/>|>)/gs),
-      ...appHtml.matchAll(/<link[^>]*(?:\/>|>)/gs),
-    ]
-      .map(m => m[0])
-      .join("\n")
+    const headTags = [...appHtml.matchAll(/<title[^>]*>.*?<\/title>/gs), ...appHtml.matchAll(/<meta[^>]*(?:\/>|>)/gs), ...appHtml.matchAll(/<link[^>]*(?:\/>|>)/gs)].map(m => m[0]).join("\n")
 
     // Collapse duplicate <meta name="description"> down to the first one. Search engines expect a
     // single description per page; if more than one ends up in <head> (e.g. a wrapper page and an
@@ -175,10 +168,7 @@ for (const route of routes) {
     // the one injected here) SE Ranking flags "multiple meta description tags". This mirrors the
     // stray-<title> stripping below — keep the first (page-level) description, drop the rest.
     let keptDescription = false
-    const dedupedHeadTags = headTags.replace(
-      /<meta[^>]*\bname=["']description["'][^>]*>/gi,
-      match => (keptDescription ? "" : ((keptDescription = true), match)),
-    )
+    const dedupedHeadTags = headTags.replace(/<meta[^>]*\bname=["']description["'][^>]*>/gi, match => (keptDescription ? "" : ((keptDescription = true), match)))
 
     // X (Twitter) Card. Many components already emit their own twitter:* tags; only pages that
     // don't (e.g. product detail pages, About, several listings/blogs) were flagged as missing the
@@ -193,23 +183,23 @@ for (const route of routes) {
       .replace(/<link[^>]*(?:\/>|>)/g, "")
 
     // Put tags in <head>, clean HTML in root div
-let html = originalTemplate
-  // 1. Use a "Global" and "Case-Insensitive" regex to remove ANY existing title
-  .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '') 
-  
-  // 2. Use a regex to find the <head> tag even if it has attributes
-  .replace(/<head[^>]*>/i, (match) => `${match}\n${dedupedHeadTags}\n${twitterCardTag}`)
-  
-  // 3. Keep your root replacement, but ensure it matches correctly
-  // data-prerendered-route lets main.tsx tell real prerendered HTML apart from the homepage copy
-  // Azure's navigationFallback serves for routes that weren't prerendered (see main.tsx).
-  .replace('<div id="root"></div>', `<div id="root" data-prerendered-route="${route}">${bodyHtml}</div>`);
-  
-  let preloadCount = 0;
-    html = html.replace(/<link rel="preload" as="image" href="https:\/\/res\.cloudinary\.com\/[^>]*\/>/g, (match) => {
-      preloadCount++;
-      return preloadCount <= 1 ? match : ''; // Keep 1st, delete others
-    });
+    let html = originalTemplate
+      // 1. Use a "Global" and "Case-Insensitive" regex to remove ANY existing title
+      .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, "")
+
+      // 2. Use a regex to find the <head> tag even if it has attributes
+      .replace(/<head[^>]*>/i, match => `${match}\n${dedupedHeadTags}\n${twitterCardTag}`)
+
+      // 3. Keep your root replacement, but ensure it matches correctly
+      // data-prerendered-route lets main.tsx tell real prerendered HTML apart from the homepage copy
+      // Azure's navigationFallback serves for routes that weren't prerendered (see main.tsx).
+      .replace('<div id="root"></div>', `<div id="root" data-prerendered-route="${route}">${bodyHtml}</div>`)
+
+    let preloadCount = 0
+    html = html.replace(/<link rel="preload" as="image" href="https:\/\/res\.cloudinary\.com\/[^>]*\/>/g, match => {
+      preloadCount++
+      return preloadCount <= 1 ? match : "" // Keep 1st, delete others
+    })
 
     const filePath = route === "/" ? path.resolve(__dirname, "dist/index.html") : path.resolve(__dirname, `dist${route}/index.html`)
 

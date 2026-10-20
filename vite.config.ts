@@ -3,13 +3,7 @@ import react from "@vitejs/plugin-react"
 import sitemap from "vite-plugin-sitemap"
 import { PRODUCT_ROUTES, PRODUCT_SECTION_ROUTES } from "./src/productRoutes"
 
-const BLOG_POSTS = [
-  "/blog/panam-valves-rg-fluid-power-partnership",
-  "/blog/double-blog-and-bleed",
-  "/blog/hydrogen-blog",
-  "/blog/swivel-gauge-blog",
-  "/blog/check-valves-blog",
-]
+const BLOG_POSTS = ["/blog/panam-valves-rg-fluid-power-partnership", "/blog/double-block-and-bleed", "/blog/hydrogen-blog", "/blog/swivel-gauge-blog", "/blog/check-valves-blog"]
 
 // Category/industry/hub pages — one level below the homepage in importance.
 const CATEGORY_ROUTES = [
@@ -116,7 +110,7 @@ for (const route of BLOG_POSTS) {
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [
     react(),
- sitemap({
+    sitemap({
       hostname: "https://www.panamvalve.com",
       generateRobotsTxt: true,
       priority: priorityByRoute,
@@ -128,11 +122,7 @@ export default defineConfig(({ isSsrBuild }) => ({
       // with a dot (PTN-4M-2.75-SS, PHLN-2N-SS-L-1.5-10K) lost everything after it ("PTN-4M-2") —
       // a URL that doesn't exist, falls back to the homepage and canonicalises to "/". Appending
       // ".html" makes that the parsed extension, so the full part number survives intact.
-      dynamicRoutes: [
-        ...CATEGORY_ROUTES,
-        ...BLOG_POSTS,
-        ...PRODUCT_ROUTES,
-      ].map(route => (route.split("/").pop()!.includes(".") ? `${route}.html` : route)),
+      dynamicRoutes: [...CATEGORY_ROUTES, ...BLOG_POSTS, ...PRODUCT_ROUTES].map(route => (route.split("/").pop()!.includes(".") ? `${route}.html` : route)),
     }),
   ],
   build: {

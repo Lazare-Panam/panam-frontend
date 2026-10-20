@@ -175,11 +175,7 @@ const STRUCTURAL_GROUPS: { title: string; links: SitemapLink[] }[] = [
   },
   {
     title: "Product Directories",
-    links: [
-      { label: "Product Index — all products", to: "/product-index" },
-      { label: "High Pressure Index — all HP products", to: "/high-pressure-index" },
-      ...PRODUCT_SECTIONS.map(s => ({ label: `Index — ${s.label}`, to: s.base })),
-    ],
+    links: [{ label: "Product Index — all products", to: "/product-index" }, { label: "High Pressure Index — all HP products", to: "/high-pressure-index" }, ...PRODUCT_SECTIONS.map(s => ({ label: `Index — ${s.label}`, to: s.base }))],
   },
   {
     title: "Guides & Blog Posts",
@@ -210,26 +206,18 @@ const PRODUCT_SKU_GROUPS = PRODUCT_GROUPS.map(group => ({
 const SitemapPage = () => (
   <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
     <title>Site Map — All Pages & Products | Panam Valves</title>
-    <meta
-      name="description"
-      content="Full site map of Panam Valves — every product category, high pressure range, filter, manifold, industry page, guide and individual part number in one place."
-    />
+    <meta name="description" content="Full site map of Panam Valves — every product category, high pressure range, filter, manifold, industry page, guide and individual part number in one place." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.panamvalve.com/sitemap" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Site Map — All Pages & Products | Panam Valves" />
-    <meta
-      property="og:description"
-      content="Full site map of Panam Valves — every category, high pressure range, filter, manifold, industry page, guide and part number."
-    />
+    <meta property="og:description" content="Full site map of Panam Valves — every category, high pressure range, filter, manifold, industry page, guide and part number." />
     <meta property="og:url" content="https://www.panamvalve.com/sitemap" />
 
     <Typography component="h1" variant="h4" sx={{ fontWeight: 800, mb: 1 }}>
       Site Map
     </Typography>
-    <Typography sx={{ color: "text.secondary", mb: 3 }}>
-      Every page on the Panam Valves site — categories, guides and every individual part number.
-    </Typography>
+    <Typography sx={{ color: "text.secondary", mb: 3 }}>Every page on the Panam Valves site — categories, guides and every individual part number.</Typography>
 
     <Divider sx={{ mb: 4 }} />
 

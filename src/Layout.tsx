@@ -13,21 +13,7 @@ const UsefulLinks = lazy(() => import("./components/Common/UsefulLinks"))
 
 // Low-traffic pages that get the "Useful Links" product directory above the footer, to spread
 // internal links to product pages across more of the site than just /product-index.
-const USEFUL_LINKS_PATHS = new Set([
-  "/about",
-  "/industries",
-  "/industries/marine-subsea",
-  "/industries/oil-gas",
-  "/industries/hydrogen",
-  "/industries/aerospace-defense",
-  "/industries/chemicals-petrochemical",
-  "/industries/food-beverages",
-  "/blog/panam-valves-rg-fluid-power-partnership",
-  "/blog/double-block-and-bleed",
-  "/blog/hydrogen-blog",
-  "/blog/swivel-gauge-blog",
-  "/blog/check-valves-blog",
-])
+const USEFUL_LINKS_PATHS = new Set(["/about", "/industries", "/industries/marine-subsea", "/industries/oil-gas", "/industries/hydrogen", "/industries/aerospace-defense", "/industries/chemicals-petrochemical", "/industries/food-beverages", "/blog/panam-valves-rg-fluid-power-partnership", "/blog/double-block-and-bleed", "/blog/hydrogen-blog", "/blog/swivel-gauge-blog", "/blog/check-valves-blog"])
 
 const Layout = () => {
   const { pathname } = useLocation()

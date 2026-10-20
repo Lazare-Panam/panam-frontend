@@ -5,6 +5,7 @@ import { alpha } from "@mui/material/styles"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
 import { useCartStore } from "../store/useCartStore"
+import { HP_SEO_META } from "../../data/hpSeoMeta"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -66,15 +67,22 @@ export default function ProductDetailPage({ backHref, backLabel, image, partNumb
   const navigate = useNavigate()
   const addItem = useCartStore(s => s.addItem)
 
+  // Hand-written SEO copy from the HP product spreadsheet, keyed by part number.
+  // When a part has an entry, its meta title/description win; otherwise fall back
+  // to the auto-generated values so non-HP products are unaffected.
+  const seo = HP_SEO_META[partNumber]
+  const metaTitle = seo?.metaTitle ?? `${partNumber} — ${title} | Panam Valves`
+  const metaDescription = seo?.metaDescription ?? `${title} (${partNumber}). ${description}`.slice(0, 300)
+
   return (
     <>
       {/* Per-product document metadata. React hoists these into <head>, and the prerenderer
           extracts them into the static HTML so each product page ships a unique <title>. */}
-      <title>{`${partNumber} — ${title} | Panam Valves`}</title>
-      <meta name="description" content={`${title} (${partNumber}). ${description}`.slice(0, 300)} />
+      <title>{metaTitle}</title>
+      <meta name="description" content={metaDescription} />
       <meta name="keywords" content={`${partNumber}, ${specs.map(s => s.value).join(", ")}, Panam Valves`} />
-      <meta property="og:title" content={`${partNumber} — ${title} | Panam Valves`} />
-      <meta property="og:description" content={description} />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={image} />
       <meta property="og:type" content="product" />
       <meta name="robots" content="index, follow" />

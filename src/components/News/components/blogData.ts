@@ -13,6 +13,17 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
+    slug: "swagelok-alternative-tube-fittings",
+    title: 'Swagelok Alternative Tube Fittings: What "Compatible" Really Means',
+    category: "Technical Guide",
+    author: "Steven Kassi",
+    date: "Oct 13, 2026",
+    readTime: "8 min read",
+    image: "https://pblol2.blob.core.windows.net/panam-images/blog/blog-cover.png",
+    excerpt:
+      "Swagelok warns against mixing tube fitting brands, and that advice is sound. This guide separates intermix and interchange from a straightforward supplier choice, sets out exactly what Panam's DNV interchangeability report with Swagelok does and doesn't cover, and gives you a checklist for evaluating any tube fitting alternative on its own evidence.",
+  },
+  {
     slug: "api-valve-standards-600-602-603-598-6d",
     title: "API Valve Standards Made Simple: API 600, 602, 603, 598, 6D and When They Apply",
     category: "Technical Guide",
