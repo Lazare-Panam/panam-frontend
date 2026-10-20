@@ -19,7 +19,7 @@ export const blogs: BlogPost[] = [
     author: "Steven Kassi",
     date: "Sep 23, 2026",
     readTime: "9 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/ball-valves/PBV-2-S-04-FF-1.png",
     excerpt: "This guide demystifies the main API valve standards and how to apply them on real projects. Learn what API 600, 602, 603, 598, 6D and 609 cover, how they pair with ASME, EN and NACE, and how to choose the right product and test standard. See how to write clear data sheets and ITPs that pass review and avoid FAT or SAT delays.",
   },
   {
@@ -29,7 +29,7 @@ export const blogs: BlogPost[] = [
     author: "Steven Kassi",
     date: "Aug 20, 2026",
     readTime: "8 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/reflief-valves/relief-cover.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/reflief-valves/relief-cover.jpg",
     excerpt: "A fast, defensible route from application to purchase order — start with the function, then decode Cv and pressure drop, know when to move to MP/HP cone & thread ratings, and lock down end connections, seats and metallurgy. Mapped throughout to Panam ranges, with a full specifier's FAQ.",
   },
   {
@@ -39,7 +39,7 @@ export const blogs: BlogPost[] = [
     author: "Steven Kassi",
     date: "June 22, 2026",
     readTime: "7 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c1.png",
     excerpt: "Panam's PCV Series check valves are engineered for backflow prevention up to 6,000 psig in SS316, Duplex, Monel, and Hastelloy. This guide covers cracking pressures, end connections, hydrogen and NACE service options, and how to specify a complete check valve package.",
   },
   {
@@ -49,7 +49,7 @@ export const blogs: BlogPost[] = [
     author: "Steven Kassi",
     date: "June 22, 2026",
     readTime: "8 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/ball-valves/PBV-2-S-04-FF-1.png",
     excerpt: "Panam designs and manufactures precision-engineered SS316 ball valves in 2-way, 3-way, high-bore and high pressure configurations up to 20,000 psi. This guide covers specifications, seat materials, end connections, HP series pressure ratings, and how to specify correctly for hydrogen, oil & gas, and process service.",
   },
   {
@@ -69,7 +69,7 @@ export const blogs: BlogPost[] = [
     author: "Steven Kassi",
     date: "May 25, 2026",
     readTime: "8 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM_Cover.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/valve-manifolds/5VM/5VM_Cover.jpg",
     excerpt:
       "This guide explains how to choose and install manifolds for reliable DP flow, level, and pressure measurements. It compares 2-, 3-, and 5-valve configurations, monoflange versus traditional builds, and integral double block and bleed options. You'll also learn hydrogen and gas-specific considerations, installation best practices, and how close-coupled mounting and standardised architectures can boost accuracy and reduce maintenance effort.",
   },
@@ -80,7 +80,7 @@ export const blogs: BlogPost[] = [
     author: "Steven Kassi",
     date: "May 27, 2026",
     readTime: "8 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/website-media/thread-thumbnail.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/thread-thumbnail.jpg",
     excerpt: "This guide explains how NPT, BSPP and BSPT pipe threads differ in form, taper and sealing so you can identify them quickly in the field. It covers practical steps for thread ID, proven seal methods, common compatibility myths, and when to use adapters.",
   },
 
@@ -92,17 +92,17 @@ export const blogs: BlogPost[] = [
     author: "Sejal Raina",
     date: "March 5, 2026",
     readTime: "4 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/about/leadership-image.jpeg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/about/leadership-image.jpeg",
     excerpt: "Panam Valves and R&G Fluid Power Group announce a new strategic partnership, uniting trusted products, industry expertise, and a shared commitment to reliability, quality, and performance.",
   },
   {
-    slug: "double-blog-and-bleed",
+    slug: "double-block-and-bleed",
     title: "Double Block and Bleed Valves for Positive Isolation in Critical Service",
     category: "Technical Guide",
     author: "Sejal Raina",
     date: "March 23, 2026",
     readTime: "6 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg", // Add your Cloudinary or hosted URL here
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB-pxp.jpg", // Add your Cloudinary or hosted URL here
     excerpt: "Achieve zero energy and protect your team during shutdowns. This guide provides a safety-led foundation for specifying and executing Double Block and Bleed (DB&B) correctly.",
   },
   {
@@ -112,7 +112,7 @@ export const blogs: BlogPost[] = [
     author: "Steven Kassi",
     date: "March 25, 2026",
     readTime: "6 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c-cover.png",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c-cover.png",
     excerpt: "Explore the mechanics of non-return valves (NRV), from cracking pressure to backflow prevention, and learn why they are the quiet guardians of industrial piping.",
   },
   {
@@ -132,7 +132,7 @@ export const blogs: BlogPost[] = [
     author: "Sejal Raina",
     date: "April 2026",
     readTime: "6 min read",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
     excerpt: "In precision instrumentation, the reliability of a pressure measurement system depends on every component in the connection chain. Learn how swivel gauge adapters enable 360° positioning, prevent mechanical stress, and ensure measurement accuracy in demanding industrial environments.",
   },
   {

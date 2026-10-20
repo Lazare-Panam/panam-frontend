@@ -53,7 +53,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordProps> = ({ onBack }) => {
         Enter your email address and we'll send you a link to reset your password.
       </Typography>
 
-      <Box component="form" onSubmit={handleSubmit} noValidate>
+      <Box component="form" id="forgot-password" name="forgot-password" onSubmit={handleSubmit} noValidate>
         <Typography variant="subtitle2" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, mb: 1, color: "#1a1a1a", letterSpacing: "0.05em" }}>
           EMAIL ADDRESS
         </Typography>

@@ -58,7 +58,7 @@ export const STATIC_PRODUCTS: Record<string, any> = {
       "T-bar handle for easy operation and flow adjustment",
       "PTFE packing for bubble-tight seal and low operating torque",
       "Stem threads above packing to prevent media contamination",
-      "100% factory tested for reliability",
+      "Factory tested",
     ],
   },
   "toggle-valves": {
@@ -73,7 +73,7 @@ export const STATIC_PRODUCTS: Record<string, any> = {
       "Operating temperature range from -65°F to 600°F (-54°C to 315°C)",
       "Compact design suitable for panel mounting or inline installation",
       "Crimped cap construction to prevent accidental disassembly",
-      "100% factory tested for performance and leak integrity",
+      "Factory tested",
     ],
   },
 }

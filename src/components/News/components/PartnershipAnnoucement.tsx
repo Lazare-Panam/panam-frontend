@@ -81,7 +81,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
 
       {/* HERO IMAGE */}
       <Container maxWidth="lg" sx={{ mb: 8 }}>
-        <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/about/leadership-image.jpeg" alt="Stratergic Partnership Image" sx={{ width: "100%", height: { xs: 300, md: 550 }, objectFit: "cover", borderRadius: "4px", boxShadow: "0 20px 40px rgba(0,0,0,0.05)" }} />
+        <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/about/leadership-image.jpeg" alt="Stratergic Partnership Image" sx={{ width: "100%", height: { xs: 300, md: 550 }, objectFit: "cover", borderRadius: "4px", boxShadow: "0 20px 40px rgba(0,0,0,0.05)" }} />
       </Container>
 
       {/* BODY CONTENT */}

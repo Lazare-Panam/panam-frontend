@@ -9,7 +9,7 @@ const News = () => {
       {/* Social Media Preview Tags (Open Graph) */}
       <meta property="og:title" content="Engineering the Future of Flow Control | Panam Valves" />
       <meta property="og:description" content="Stay informed on technical breakthroughs and regulatory shifts in the valve industry." />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/blog/andrew-neel-cckf4TsHAuw-unsplash.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/andrew-neel-cckf4TsHAuw-unsplash.jpg" />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://www.panamvalve.com/blog" />
       <meta name="robots" content="index, follow" />
@@ -36,7 +36,7 @@ const News = () => {
         titleAccent="Future"
         titleEnd="of Flow Control."
         description="Stay informed on the latest technical breakthroughs, regulatory shifts, and Panam Valves' ongoing commitment to extreme-pressure safety."
-        backgroundImage="https://pblol2.blob.core.windows.net/panam-images/blog/andrew-neel-cckf4TsHAuw-unsplash.jpg"
+        backgroundImage="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/andrew-neel-cckf4TsHAuw-unsplash.jpg"
       />
       <NewsCards />
     </>

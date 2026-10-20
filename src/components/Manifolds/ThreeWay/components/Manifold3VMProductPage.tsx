@@ -4,7 +4,7 @@ import ProductDetailPage from "../../../Common/ProductDetailPage"
 import { MANIFOLDS_3VM_DATA } from "../hooks/manifold3vmData"
 
 const BRAND_BLUE = "#01B0F0"
-const FALLBACK_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/3VM/3VM-1.jpg"
+const FALLBACK_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/valve-manifolds/3VM/3VM-1.jpg"
 
 export default function ThreeVMProductPage() {
   const { partNumber } = useParams<{ partNumber: string }>()

@@ -73,7 +73,7 @@ const LoginForm: React.FC = () => {
         Welcome back. Please sign in to your Panam Valves account:
       </Typography>
 
-      <Box component="form" onSubmit={handleLogin} noValidate>
+      <Box component="form" id="account-login" name="account-login" onSubmit={handleLogin} noValidate>
         <Typography variant="subtitle2" sx={labelSx}>
           USER ID / EMAIL
         </Typography>

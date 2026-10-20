@@ -33,17 +33,17 @@ const DoubleBlockBleedBlog: React.FC = () => {
       <meta name="description" content="Master Double Block and Bleed (DB&B) vs. DIB valves." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://www.panamvalve.com/blog/double-blog-and-bleed" />
+      <link rel="canonical" href="https://www.panamvalve.com/blog/double-block-and-bleed" />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: "DBB Valve Solutions",
           description: "Master Double Block and Bleed (DB&B) vs. DIB valves.",
-          image: "https://pblol2.blob.core.windows.net/panam-images/products/double-block-and-bleeed/dbb_flange_x_flange.png",
+          image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/double-block-and-bleeed/dbb_flange_x_flange.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
-          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/double-blog-and-bleed" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/double-block-and-bleed" },
           datePublished: "2026-03-25",
         })}
       </script>
@@ -82,7 +82,7 @@ const DoubleBlockBleedBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://pblol2.blob.core.windows.net/panam-images/products/double-block-and-bleeed/dbb_flange_x_flange.png"
+          src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/double-block-and-bleeed/dbb_flange_x_flange.png"
           alt="Double Block and Bleed Valve"
           sx={{
             width: "100%",

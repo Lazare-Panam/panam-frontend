@@ -214,11 +214,11 @@ export default function PortConnectorPage() {
       <meta property="og:title" content="Tube Fitting Port Connectors | Imperial & Metric | PANAM®" />
       <meta property="og:description" content="PANAM® tube fitting port connectors & reducing port connectors for tube-to-port connections. Imperial & Metric tube OD." />
       <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/port-connector" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/port-connector.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fitting Port Connectors | Imperial & Metric | PANAM®" />
       <meta name="twitter:description" content="PANAM® tube fitting port connectors & reducing port connectors for tube-to-port connections. Imperial & Metric tube OD." />
-      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg" />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/port-connector.jpg" />
 
       <script type="application/ld+json">
         {JSON.stringify({

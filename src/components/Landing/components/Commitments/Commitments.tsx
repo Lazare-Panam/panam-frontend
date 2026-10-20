@@ -61,7 +61,7 @@ const Commitments: React.FC = () => {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
               component="img"
-              src="https://pblol2.blob.core.windows.net/panam-images/about/jeriden-villegas-VLPUm5wP5Z0-unsplash.jpg"
+              src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/about/jeriden-villegas-VLPUm5wP5Z0-unsplash.jpg"
               alt="Panam Headquarters"
               sx={{
                 width: "100%",

@@ -119,32 +119,32 @@ export const CertificationsAtGlance: React.FC = () => (
 /* Block 8 — Eleven certification sections                             */
 /* ------------------------------------------------------------------ */
 
-const PRODUCT_FAMILY_TABLE: { family: string; pressure: string; materials: string; notes: string }[] = [
-  { family: "Tube fittings", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy, brass", notes: "Single & double ferrule; 1/16–2\" OD, 3–50mm OD" },
-  { family: "37° JIC / flare fittings", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/16–2\"" },
-  { family: "Pipe fittings", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, super duplex, Inconel, Monel, Hastelloy", notes: "1/8–2\"" },
-  { family: "High pressure pipe fittings", pressure: "15,000 psig / 1,034 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/16–2\"" },
-  { family: "Weld fittings", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/16–2\"" },
-  { family: "Needle valves", pressure: "20,000 psig / 1,379 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "IB, HB, HP, SB & Mini series; to 538°C with graphoil packing" },
-  { family: "Ball valves", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "2 & 3 port T and L; Delrin, PTFE, PEEK, KEL-F seats" },
-  { family: "Check valves", pressure: "6,000 psig / 414 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "Cracking pressures 1/3 to 100 psig" },
-  { family: "Relief valves", pressure: "15,000 psig / 1,034 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "4.8mm orifice; externally adjustable, lock wire secured" },
-  { family: "Gauge root valves", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/2–3/4\"; to 538°C with graphoil packing" },
-  { family: "2-3-5 valve manifolds", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "Pipe-to-pipe, pipe-to-flange, flange-to-flange" },
-  { family: "Double block & bleed", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/2–3\", Class 150–2500" },
-  { family: "Flange adapters", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, Monel, Hastelloy", notes: "ASME, DIN, EN, JIS" },
-  { family: "Swivel gauge adapters", pressure: "10,000 psig / 689 bar", materials: "SS316, duplex, super duplex, Monel, Hastelloy", notes: "360° positioning, silver plated swivel thread" },
-  { family: "Filters", pressure: "—", materials: "SS316", notes: "T-type and in-line; nitrogen leak tested at 1000 psi" },
-  { family: "Pressure regulators", pressure: "6,000 psig / 414 bar", materials: "SS316, brass", notes: "1/4\" NPT; piston sensed" },
-  { family: "Air headers", pressure: "6,000 psig / 414 bar", materials: "SS316, carbon steel", notes: "Class 150–2500" },
-  { family: "Condensate pots", pressure: "6,000 psig / 414 bar", materials: "SS316, carbon steel", notes: "Class 150–2500" },
-  { family: "Pre-fabricated hookups", pressure: "6,000 psig / 414 bar", materials: "SS316/316L and alloys", notes: "Built to your specification" },
-  { family: "Bellow sealed valves", pressure: "200 bar", materials: "316 SS", notes: "To 325°C" },
-  { family: "Pressure transmitters", pressure: "—", materials: "Aluminium or stainless housing", notes: "Specification on request" },
-  { family: "Temperature transmitters", pressure: "—", materials: "Aluminium or SS sensor head", notes: "Specification on request" },
-  { family: "Pressure gauges", pressure: "—", materials: "SS316, SS316L, Monel sensing element", notes: "Specification on request" },
-  { family: "Temperature gauges", pressure: "—", materials: "SS316 wetted parts", notes: "Specification on request" },
-  { family: "Flow elements", pressure: "—", materials: "Wide range available", notes: "Specification on request" },
+const PRODUCT_FAMILY_TABLE: { family: string; materials: string; notes: string }[] = [
+  { family: "Tube fittings", materials: "SS316, duplex, Monel, Hastelloy, brass", notes: "Single & double ferrule; 1/16–2\" OD, 3–50mm OD" },
+  { family: "37° JIC / flare fittings", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/16–2\"" },
+  { family: "Pipe fittings", materials: "SS316, duplex, super duplex, Inconel, Monel, Hastelloy", notes: "1/8–2\"" },
+  { family: "High pressure pipe fittings", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/16–2\"" },
+  { family: "Weld fittings", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/16–2\"" },
+  { family: "Needle valves", materials: "SS316, duplex, Monel, Hastelloy", notes: "IB, HB, HP, SB & Mini series; to 538°C with graphoil packing" },
+  { family: "Ball valves", materials: "SS316, duplex, Monel, Hastelloy", notes: "2 & 3 port T and L; Delrin, PTFE, PEEK, KEL-F seats" },
+  { family: "Check valves", materials: "SS316, duplex, Monel, Hastelloy", notes: "Cracking pressures 1/3 to 100 psig" },
+  { family: "Relief valves", materials: "SS316, duplex, Monel, Hastelloy", notes: "4.8mm orifice; externally adjustable, lock wire secured" },
+  { family: "Gauge root valves", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/2–3/4\"; to 538°C with graphoil packing" },
+  { family: "2-3-5 valve manifolds", materials: "SS316, duplex, Monel, Hastelloy", notes: "Pipe-to-pipe, pipe-to-flange, flange-to-flange" },
+  { family: "Double block & bleed", materials: "SS316, duplex, Monel, Hastelloy", notes: "1/2–3\", Class 150–2500" },
+  { family: "Flange adapters", materials: "SS316, duplex, Monel, Hastelloy", notes: "ASME, DIN, EN, JIS" },
+  { family: "Swivel gauge adapters", materials: "SS316, duplex, super duplex, Monel, Hastelloy", notes: "360° positioning, silver plated swivel thread" },
+  { family: "Filters", materials: "SS316", notes: "T-type and in-line; nitrogen leak tested at 1000 psi" },
+  { family: "Pressure regulators", materials: "SS316, brass", notes: "1/4\" NPT; piston sensed" },
+  { family: "Air headers", materials: "SS316, carbon steel", notes: "Class 150–2500" },
+  { family: "Condensate pots", materials: "SS316, carbon steel", notes: "Class 150–2500" },
+  { family: "Pre-fabricated hookups", materials: "SS316/316L and alloys", notes: "Built to your specification" },
+  { family: "Bellow sealed valves", materials: "316 SS", notes: "To 325°C" },
+  { family: "Pressure transmitters", materials: "Aluminium or stainless housing", notes: "Specification on request" },
+  { family: "Temperature transmitters", materials: "Aluminium or SS sensor head", notes: "Specification on request" },
+  { family: "Pressure gauges", materials: "SS316, SS316L, Monel sensing element", notes: "Specification on request" },
+  { family: "Temperature gauges", materials: "SS316 wetted parts", notes: "Specification on request" },
+  { family: "Flow elements", materials: "Wide range available", notes: "Specification on request" },
 ]
 
 export const CertificationSections: React.FC = () => (
@@ -226,13 +226,12 @@ export const CertificationSections: React.FC = () => (
       {/* 8.11 */}
       <SectionHeading id="by-product-family">Specification by product family</SectionHeading>
       <Body>
-        Requirements are specified per item, not per supplier, so the table below summarises each product family's pressure rating and materials. Confirm documentation for specific items at quotation.
+        Requirements are specified per item, not per supplier, so the table below summarises each product family's materials. Pressure ratings vary by model — see the product pages or confirm at quotation. Confirm documentation for specific items at quotation.
       </Body>
       <StyledTable minWidth={900}>
         <TableHead>
           <TableRow>
             <HeadCell>Product family</HeadCell>
-            <HeadCell>Max working pressure</HeadCell>
             <HeadCell>Materials</HeadCell>
             <HeadCell>Notes</HeadCell>
           </TableRow>
@@ -243,7 +242,6 @@ export const CertificationSections: React.FC = () => (
               <BodyCell>
                 <strong>{row.family}</strong>
               </BodyCell>
-              <BodyCell>{row.pressure}</BodyCell>
               <BodyCell>{row.materials}</BodyCell>
               <BodyCell>{row.notes}</BodyCell>
             </TableRow>

@@ -31,7 +31,7 @@ const FITTINGS = [
     type: "37-jic-fittings",
     title: "37° JIC Fittings",
     description: "High-performance flare fittings for critical hydrogen, chemical, and industrial gas systems with leak-tight 37° flare sealing.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-connector-jic.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/jic/flare/male-connector-jic.jpg",
     pressure: "10,000 psig",
     size: '1/16" to 2"',
     materials: "SS316 · Duplex · Monel · Hastelloy",
@@ -58,7 +58,7 @@ const FITTINGS = [
     type: "swivel-gauge-adaptors",
     title: "Swivel Gauge Adaptors",
     description: "360° adjustable gauge positioning with silver-plated anti-gall threads. Compatible with NPT, BSPP, BSPT, metric, and global thread standards.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
     pressure: "High Pressure",
     size: "Multiple thread sizes",
     materials: "SS316 · Duplex · Monel",
@@ -193,12 +193,12 @@ export default function FittingsPage() {
       <meta property="og:title" content="Instrumentation Fittings | Tube, JIC, Pipe & Weld | PANAM®" />
       <meta property="og:description" content="PANAM® instrumentation fittings: tube, 37° JIC, pipe, weld & swivel gauge adaptors in SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig." />
       <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Instrumentation Fittings | Tube, JIC, Pipe & Weld | PANAM®" />
       <meta name="twitter:description" content="PANAM® instrumentation fittings: tube, 37° JIC, pipe, weld & swivel gauge adaptors in SS316, Duplex, Monel & Hastelloy. Rated to 15,000 psig." />
-      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg" />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg" />
 
       <script type="application/ld+json">
         {JSON.stringify({
@@ -228,7 +228,7 @@ export default function FittingsPage() {
             display: "flex",
             alignItems: "center",
             overflow: "hidden",
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg")`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/vladyslav-cherkasenko-2jftyBtoqzQ-unsplash.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             py: { xs: 8, md: 12 },

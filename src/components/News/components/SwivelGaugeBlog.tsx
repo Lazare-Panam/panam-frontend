@@ -31,7 +31,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
     },
     {
       q: "What is the maximum working pressure?",
-      a: "The standard pressure rating is 6,000 psi (414 bar). The 10,000 psi (689 bar) optional rating is available by adding '10K' to the part number. All units are 100% factory pressure-tested prior to dispatch."
+      a: "Pressure ratings vary by model — contact us to confirm the rating for your application. Adapters are factory tested."
     },
     {
       q: "Which material should I specify for sour gas service?",
@@ -60,7 +60,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
           "@type": "BlogPosting",
           headline: "Swivel Gauge Adapters!",
           description: "Complete technical guide to Panam swivel gauge adapters. 360° rotational positioning, dual seal configurations, and ten alloy grades rated to 10,000 psi.",
-          image: "https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
+          image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/swivel-gauge-blog" },
@@ -88,7 +88,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg"
+          src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/swivel-gauge/PSGA-8N-SS - JPG.jpg"
           alt="Panam swivel gauge adapters for pressure instrumentation"
           sx={{ width: "100%", height: { xs: 100, md: 500 }, objectFit: "contain", bgcolor: "#F4F4F4", borderRadius: "4px", boxShadow: "0 10px 30px rgba(0,0,0,0.08)", border: "1px solid #EEE" }}
         />
@@ -197,7 +197,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
 
             <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>Operational Safety and Process Integrity</Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              The 100% factory pressure-test protocol applied to every Panam adapter, helps ensure the adapter does not become a weak point in the pressure boundary of safety-critical measurement loops.
+              Factory testing helps ensure the adapter does not become a weak point in the pressure boundary of safety-critical measurement loops.
             </Typography>
 
             <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>Reducing Maintenance Cost</Typography>

@@ -55,7 +55,7 @@ const [termsOpen, setTermsOpen] = useState(false);
           Create your Panam Valves account to access our collaborative engineering tools.
         </Typography>
 
-        <Box component="form" onSubmit={handleRegister} noValidate>
+        <Box component="form" id="account-register" name="account-register" onSubmit={handleRegister} noValidate>
           <Typography variant="subtitle2" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, mb: 1, color: TEXT_MAIN, letterSpacing: "0.05em" }}>
             USER ID / EMAIL ADDRESS
           </Typography>

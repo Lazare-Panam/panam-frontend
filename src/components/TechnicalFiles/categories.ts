@@ -16,7 +16,7 @@ export const CATEGORIES: TechnicalFileCategory[] = [
     subtitle: "STEP Models",
     description:
       "3D STEP models for our tube fitting connectors — male, female and bulkhead configurations across metric sizes. Ready to drop straight into your CAD assembly.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/Bulkhead-Connector.jpg",
   },
   {
     name: "Elbows",

@@ -61,9 +61,9 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
   return counts
 }
 
-const IMG_HN = "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/hex-nipples.jpg"
-const IMG_RHN = "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/reducing-hex-nipples.jpg"
-const IMG_OTHER = "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/hex-nipples.jpg"
+const IMG_HN = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-pipe-fittings/hex-nipples.jpg"
+const IMG_RHN = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-pipe-fittings/reducing-hex-nipples.jpg"
+const IMG_OTHER = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-pipe-fittings/hex-nipples.jpg"
 
 const make = (pn: string, fittingType: string, p1Size: string, p1Thread: string, p2Size: string, p2Thread: string, pressureRating: string, pressurePsi: number, imageUrl: string): PipeFittingNippleDTO => ({
   id: `${pn}-${p1Size}-${p2Size}`,

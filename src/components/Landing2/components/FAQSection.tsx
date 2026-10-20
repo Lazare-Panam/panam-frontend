@@ -30,7 +30,7 @@ const faqs: FAQItem[] = [
   {
     question: "What are typical lead times?",
     answer:
-      "Typical lead times are 3–4 weeks, depending on product family, material and certification requirements. Panam responds to a specification or bill of materials confirming availability and delivery for the items requested. Lead times for larger volumes or non-standard requirements are confirmed at quotation. Submit an RFQ or contact the sales team for a lead time against your requirement.",
+      "Lead times depend on product family, material and certification requirements and are confirmed at quotation. Panam responds to a specification or bill of materials confirming availability and delivery for the items requested. Submit an RFQ or contact the sales team for a lead time against your requirement.",
   },
   {
     question: "Can you support custom or project-specific requirements?",

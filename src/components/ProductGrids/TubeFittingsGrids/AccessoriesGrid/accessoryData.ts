@@ -9,12 +9,12 @@ export interface AccessoryItem {
 }
 
 const IMAGES: Record<string, string> = {
-  "Tube Plug":    "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/tube_plug.jpg",
-  "Tube Cap":     "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/TUBE_CAP.jpg",
+  "Tube Plug":    "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/tube_plug.jpg",
+  "Tube Cap":     "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/pipe-fittings/TUBE_CAP.jpg",
   "Nut":          "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/NUTjpg",
   "Front Ferrule":"https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
   "Back Ferrule": "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/BACK-FERRULE.png",
-  "Pipe Insert":  "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/tube_plug.jpg",
+  "Pipe Insert":  "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/tube_plug.jpg",
   // TODO: placeholder images reused from closest existing part until real assets exist
   "Ferrule Set":     "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
   "Nut Ferrule Set": "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/NUTjpg",

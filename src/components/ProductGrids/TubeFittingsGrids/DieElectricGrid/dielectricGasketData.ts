@@ -18,7 +18,7 @@ export interface GasketItem {
   imageUrl: string
 }
 
-const DIELECTRIC_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/dielectric-fittings.jpg'
+const DIELECTRIC_IMG = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/dielectric-fittings.jpg'
 const GASKET_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/gaskets.png'
 
 export const DIELECTRIC_DATA: DielectricItem[] = [

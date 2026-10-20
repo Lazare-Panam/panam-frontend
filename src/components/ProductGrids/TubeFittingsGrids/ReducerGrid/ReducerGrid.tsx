@@ -84,11 +84,11 @@ export default function ReducerPage() {
       <meta property="og:title" content="Tube Fitting Reducers | Imperial & Metric | PANAM®" />
       <meta property="og:description" content="Stainless steel tube fitting reducers — standard, bulkhead & elbow. Imperial, Metric & mixed Metric × Imperial tube OD." />
       <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/reducer" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/reducer.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fitting Reducers | Imperial & Metric | PANAM®" />
       <meta name="twitter:description" content="Stainless steel tube fitting reducers — standard, bulkhead & elbow. Imperial, Metric & mixed Metric × Imperial tube OD." />
-      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg" />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/reducer.jpg" />
 
       <script type="application/ld+json">
         {JSON.stringify({

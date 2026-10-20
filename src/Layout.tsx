@@ -23,7 +23,7 @@ const USEFUL_LINKS_PATHS = new Set([
   "/industries/chemicals-petrochemical",
   "/industries/food-beverages",
   "/blog/panam-valves-rg-fluid-power-partnership",
-  "/blog/double-blog-and-bleed",
+  "/blog/double-block-and-bleed",
   "/blog/hydrogen-blog",
   "/blog/swivel-gauge-blog",
   "/blog/check-valves-blog",

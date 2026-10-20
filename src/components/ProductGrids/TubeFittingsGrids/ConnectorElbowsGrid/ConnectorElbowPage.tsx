@@ -88,11 +88,11 @@ export default function ConnectorElbowPage() {
       <meta property="og:title" content="Tube Fitting Connectors & Elbows | PANAM®" />
       <meta property="og:description" content="Stainless steel tube fitting connectors, elbows, tees & bulkhead fittings. Imperial & Metric tube OD in NPT, BSPT, BSPP and more." />
       <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/connectors" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/Bulkhead-Connector.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fitting Connectors & Elbows | PANAM®" />
       <meta name="twitter:description" content="Stainless steel tube fitting connectors, elbows, tees & bulkhead fittings. Imperial & Metric tube OD in NPT, BSPT, BSPP and more." />
-      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg" />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/Bulkhead-Connector.jpg" />
 
       <script type="application/ld+json">
         {JSON.stringify({

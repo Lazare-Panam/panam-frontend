@@ -101,12 +101,12 @@ const ApiValveStandardsBlog: React.FC = () => {
     { q: "What is the API standard for valves?", a: "There is no single standard. Use the relevant product standard (API 600, 602, 603, 6D, 609, 526) plus API 598 for testing." },
   ]
 
-  const heroImage = "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png"
+  const heroImage = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/ball-valves/PBV-2-S-04-FF-1.png"
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>API Valve Standards 600, 602, 603, 598, 6D Explained | Panam Valve</title>
-      <meta name="description" content="Understand API valve standards 600, 602, 603, 598 and 6D, when each applies, and how to specify them correctly on data sheets and ITPs." />
+      <title>API Valve Standards Explained: 600, 602, 603, 598 & 6D</title>
+      <meta name="description" content="API 600, 602, 603, 598 and 6D explained: which standard applies to which valve, how they differ, and how to write them into data sheets and ITPs." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/api-valve-standards-600-602-603-598-6d" />
@@ -115,7 +115,7 @@ const ApiValveStandardsBlog: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: "API Valve Standards 600, 602, 603, 598, 6D Explained",
-          description: "Understand API valve standards 600, 602, 603, 598 and 6D, when each applies, and how to specify them correctly on data sheets and ITPs.",
+          description: "API 600, 602, 603, 598 and 6D explained: which standard applies to which valve, how they differ, and how to write them into data sheets and ITPs.",
           image: heroImage,
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },

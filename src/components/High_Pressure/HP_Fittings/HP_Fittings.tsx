@@ -11,7 +11,7 @@ const PRODUCTS = [
   {
     title: "Connectors",
     description: 'Male and Female Connectors in SS 316. MP and HP Cone & Thread female to Male NPT, Female NPT, MP Cone Male, and HP Cone Male. Pressures from 10,000 to 60,000 psi across tube ODs from 1/4" to 1".',
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/PMC-4MF-4N-SS.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-fittings/PMC-4MF-4N-SS.jpg",
     pressure: "10,000 – 60,000 psi",
     link: "/high-pressure/fittings/connectors",
   },
@@ -25,7 +25,7 @@ const PRODUCTS = [
   {
     title: "Adapters & Reducers",
     description: "Reducers, Female Adapters, Male Adapters and Adapters in SS 316. Medium and High Pressure tube and cone thread connections to NPT. Pressures from 10,000 to 60,000 psi.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-adaptor.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-fittings/hp-adaptor.jpg",
     pressure: "10,000 – 60,000 psi",
     link: "/high-pressure/fittings/adaptors",
   },
@@ -141,7 +141,7 @@ export default function HPFittingsIndexPage() {
             display: "flex",
             alignItems: "center",
             overflow: "hidden",
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-fitting-hero.jpg")`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-fittings/hp-fitting-hero.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             py: { xs: 8, md: 12 },

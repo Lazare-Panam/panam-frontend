@@ -145,7 +145,7 @@ const sealMaterialOptions = useMemo(
       <meta name="keywords" content="DBB flange to pipe valve, double block bleed valve, instrument isolation valve, NACE valve, SS316 instrumentation valve" />
       <meta property="og:title" content="DBB Flange-to-Pipe Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® DBB Flange-to-Pipe valves by construction, pressure class, bore size, and special service." />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxp.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB_fxp.jpg" />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="canonical" href="https://www.panamvalve.com/double-block-and-bleed-valves/flange-to-pipe" />
@@ -157,7 +157,7 @@ const sealMaterialOptions = useMemo(
           name: DBB_DESCRIPTION.title,
           description: DBB_DESCRIPTION.description,
           brand: { "@type": "Brand", name: "PANAM®" },
-          image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxp.jpg",
+          image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB_fxp.jpg",
           additionalProperty: DBB_DESCRIPTION.specs.map(s => ({
             "@type": "PropertyValue",
             name: "Specification",

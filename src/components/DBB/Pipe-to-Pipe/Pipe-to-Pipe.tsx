@@ -129,7 +129,7 @@ export default function PipexPipeDBB() {
       <meta name="keywords" content="DBB pipe to pipe valve, double block bleed valve, threaded instrument isolation valve, NPT BSPP BSPT valve, NACE SS316 valve" />
       <meta property="og:title" content="DBB Pipe-to-Pipe Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® DBB Pipe-to-Pipe valves by thread type, bore size, configuration, and special service." />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB-pxp.jpg" />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="canonical" href="https://www.panamvalve.com/double-block-and-bleed-valves/pipe-to-pipe" />
@@ -141,7 +141,7 @@ export default function PipexPipeDBB() {
           name: PXP_DESCRIPTION.title,
           description: PXP_DESCRIPTION.description,
           brand: { "@type": "Brand", name: "PANAM®" },
-          image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg",
+          image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB-pxp.jpg",
           additionalProperty: PXP_DESCRIPTION.specs.map(s => ({
             "@type": "PropertyValue",
             name: "Specification",

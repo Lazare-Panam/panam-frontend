@@ -66,8 +66,8 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 }
 
 const IMG_ELBOW = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-elbow.png'
-const IMG_TEE   = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-tees.jpg'
-const IMG_CROSS = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-cross.jpg'
+const IMG_TEE   = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-fittings/hp-tees.jpg'
+const IMG_CROSS = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-fittings/hp-cross.jpg'
 const IMG_HN    = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-hn.png'
 
 const make = (

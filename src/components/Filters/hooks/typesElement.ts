@@ -31,7 +31,7 @@ export const FILTER_ELEMENT_DESCRIPTION = {
   elementCodeNote:
     "Element code in part numbers: \"SS\" = sintered element, \"ST\" = mesh (strainer) element. Note this differs from housing part numbers, where a trailing \"-SS\" is the SS 316 body material.",
   performanceNote:
-    "Filtration area by housing series: IA 350 mm² (sintered); IB, TA, TB 830 mm² sintered / 640 mm² mesh; IC, ID, TC, TD 1,280 mm² sintered / 1,090 mm² mesh. Maximum differential pressure with a clean element at 21°C: 2,250 psi (0.5–2 μm), 1,950 psi (7 μm), 1,750 psi (15 μm), 1,150 psi (40–60 μm), 1,000 psi (90–440 μm). Elements remove 95% of particles larger than the nominal pore size. Spare kits include a silver-plated SS 316 O-ring.",
+    "Filtration area by housing series: IA 350 mm² (sintered); IB, TA, TB 830 mm² sintered / 640 mm² mesh; IC, ID, TC, TD 1,280 mm² sintered / 1,090 mm² mesh. Elements remove 95% of particles larger than the nominal pore size. Spare kits include a silver-plated SS 316 O-ring.",
   specs: [
     "Replacement Element",
     "Stainless Steel 316",

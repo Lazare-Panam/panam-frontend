@@ -237,7 +237,7 @@ export default function PipeFittingsIndexPage() {
             display: "flex",
             alignItems: "center",
             overflow: "hidden",
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/website-media/mark-kats-8RkIKcAaPdc-unsplash.jpg")`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/mark-kats-8RkIKcAaPdc-unsplash.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             py: { xs: 8, md: 12 },

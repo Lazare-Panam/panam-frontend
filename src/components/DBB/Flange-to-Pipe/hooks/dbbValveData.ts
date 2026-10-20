@@ -1,6 +1,6 @@
 import { type DBBValveDTO } from "./types"
 
-const DBB_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxf.jpg"
+const DBB_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB_fxf.jpg"
 
 // ============ DECODER MAPS ============
 

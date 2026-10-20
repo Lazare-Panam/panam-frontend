@@ -74,8 +74,8 @@ const CheckValveGuideBlog: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>Check Valves for High-Pressure Instrumentation | SS316 PCV Series | Panam Valve</title>
-      <meta name="description" content="High-performance check valves in SS316 and exotic alloys, rated to 6,000 psig, with global dispatch and documentation for critical projects." />
+      <title>Check Valve Guide: Cracking Pressure, Materials & Specs</title>
+      <meta name="description" content="How to specify a check valve: cracking pressure, SS316 and exotic alloys, end connections, ratings to 6,000 psig, and hydrogen and NACE options." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/check-valve-guide" />
@@ -84,8 +84,8 @@ const CheckValveGuideBlog: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: "Check Valves for High-Pressure Instrumentation | SS316 PCV Series",
-          description: "High-performance check valves in SS316 and exotic alloys, rated to 6,000 psig, with global dispatch and documentation for critical projects.",
-          image: "https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png",
+          description: "How to specify a check valve: cracking pressure, SS316 and exotic alloys, end connections, ratings to 6,000 psig, and hydrogen and NACE options.",
+          image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c1.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/check-valve-guide" },
@@ -125,7 +125,7 @@ const CheckValveGuideBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png"
+          src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c1.png"
           alt="PANAM PCV Series Check Valve"
           sx={{
             width: "100%",
@@ -364,7 +364,7 @@ const CheckValveGuideBlog: React.FC = () => {
                 }}>
                   <Box
                     component="img"
-                    src="https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png"
+                    src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c1.png"
                     alt="PANAM PCV Series Check Valve"
                     sx={{ width: "100%", height: 160, objectFit: "contain", bgcolor: "#F4F4F4", p: 2 }}
                   />

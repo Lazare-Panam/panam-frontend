@@ -134,6 +134,8 @@ export default function ProductDetailPage({ backHref, backLabel, image, partNumb
                 <Box component="span" sx={{ fontFamily: "monospace", color: BRAND_BLUE, display: "block", fontSize: "0.85rem", mb: 0.5 }}>
                   {partNumber}
                 </Box>
+                {/* The span is display:block, so without this space the H1's text runs the SKU into the title. */}
+                {" "}
                 {title}
               </Typography>
 

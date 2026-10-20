@@ -18,7 +18,14 @@ const SOCIAL_LINKS = [
   { Icon: TwitterIcon, name: "Twitter", url: "https://twitter.com/panamvalves" },
 ]
 
-const PRODUCT_LINKS = ["Valves", "Manifolds", "Hydrogen", "Double Block & Bleed", "Fittings", "Filters"]
+const PRODUCT_LINKS = [
+  { label: "Valves", href: "/valves" },
+  { label: "Manifolds", href: "/manifolds" },
+  { label: "Hydrogen", href: "/industries/hydrogen" },
+  { label: "Double Block & Bleed", href: "/double-block-and-bleed-valves" },
+  { label: "Fittings", href: "/instrumentation-fittings" },
+  { label: "Filters", href: "/filters" },
+]
 
 const sectionHeading = {
   fontWeight: 700,
@@ -91,7 +98,7 @@ const Footer: React.FC = () => {
         {isMobile && (
           <Box>
             <Box sx={{ mb: 5 }}>
-              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/website-media/panam-no-bg.png" alt="Panam Valves Logo" sx={{ height: 65, width: "auto", mb: 2, filter: "brightness(0) invert(1)", display: "block" }} />
+              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" alt="Panam Valves Logo" sx={{ height: 65, width: "auto", mb: 2, filter: "brightness(0) invert(1)", display: "block" }} />
               <Typography sx={{ ...bodyText, mb: 2, fontSize: "0.78rem" }}>Precision-engineered instrumentation solutions for critical global infrastructure.</Typography>
               <SocialIcons />
             </Box>
@@ -100,8 +107,8 @@ const Footer: React.FC = () => {
               <Box>
                 <Typography variant="subtitle2" sx={sectionHeading}>Products</Typography>
                 <Stack spacing={0.75}>
-                  {PRODUCT_LINKS.map(link => (
-                    <Link key={link} href="#" underline="none" sx={{ ...bodyText, fontSize: "0.78rem", "&:hover": { color: "white" } }}>{link}</Link>
+                  {PRODUCT_LINKS.map(({ label, href }) => (
+                    <Link key={label} href={href} underline="none" sx={{ ...bodyText, fontSize: "0.78rem", "&:hover": { color: "white" } }}>{label}</Link>
                   ))}
                 </Stack>
               </Box>
@@ -131,7 +138,7 @@ const Footer: React.FC = () => {
         {isTablet && (
           <Box>
             <Box sx={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 5, alignItems: "flex-start", mb: 6 }}>
-              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/website-media/panam-no-bg.png" alt="Panam Valves Logo" sx={{ height: 85, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
+              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" alt="Panam Valves Logo" sx={{ height: 85, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 900, mb: 1, fontSize: "1rem", fontFamily: '"Inter", sans-serif' }}>
                   PANAM <span style={{ color: BRAND_BLUE }}>VALVES</span>
@@ -145,8 +152,8 @@ const Footer: React.FC = () => {
               <Box>
                 <Typography variant="subtitle2" sx={sectionHeading}>Products</Typography>
                 <Stack spacing={0.9}>
-                  {PRODUCT_LINKS.map(link => (
-                    <Link key={link} href="#" underline="none" sx={{ ...bodyText, "&:hover": { color: "white" } }}>{link}</Link>
+                  {PRODUCT_LINKS.map(({ label, href }) => (
+                    <Link key={label} href={href} underline="none" sx={{ ...bodyText, "&:hover": { color: "white" } }}>{label}</Link>
                   ))}
                 </Stack>
               </Box>
@@ -178,7 +185,7 @@ const Footer: React.FC = () => {
 
             {/* Col 1 — Logo */}
             <Grid size={{ md: 3 }}>
-              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/website-media/panam-no-bg.png" alt="Panam Valves Logo" sx={{ height: 110, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
+              <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" alt="Panam Valves Logo" sx={{ height: 110, width: "auto", filter: "brightness(0) invert(1)", display: "block" }} />
             </Grid>
 
             {/* Col 2 — Brand + Socials */}
@@ -199,8 +206,8 @@ const Footer: React.FC = () => {
             <Grid size={{ md: 3 }}>
               <Typography variant="subtitle2" sx={sectionHeading}>Products</Typography>
               <Stack spacing={1}>
-                {PRODUCT_LINKS.map(link => (
-                  <Link key={link} href="#" underline="none" sx={{ ...bodyText, "&:hover": { color: "white" } }}>{link}</Link>
+                {PRODUCT_LINKS.map(({ label, href }) => (
+                  <Link key={label} href={href} underline="none" sx={{ ...bodyText, "&:hover": { color: "white" } }}>{label}</Link>
                 ))}
               </Stack>
             </Grid>

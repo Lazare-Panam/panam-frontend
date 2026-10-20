@@ -27,7 +27,7 @@ const CATEGORIES = [
     title: "Single Layer",
     subtitle: "Tube Clamps",
     description: "Single layer tube clamps in DIN Groups 1–10. Covers pipe OD from 6mm to 42mm. Each set includes one top plate, one bottom plate, 2 hex bolts, and one pair of PP jaws.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Single-Layer-Tube-Clamp.jpeg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-clamps/Single-Layer-Tube-Clamp.jpeg",
     tag: "Tube Clamps",
     link: "/instrumentation-fittings/tube-clamps/single-layer",
     specs: ["DIN Groups 1–10", "6mm – 42mm OD", "M6 Bolts"],
@@ -37,7 +37,7 @@ const CATEGORIES = [
     title: "Double Layer, Standard Series",
     subtitle: "Tube Clamps",
     description: "Double layer tube clamps in DIN Groups 1–6. Covers pipe OD from 4mm to 50.8mm. Each set includes one top plate, one bottom plate, 2 hex bolts, two pairs of PP jaws, 2 stacking bolts, and 1 locking plate.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Double-Layer-Tube-Clamp.jpeg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-clamps/Double-Layer-Tube-Clamp.jpeg",
     tag: "Tube Clamps",
     link: "/instrumentation-fittings/tube-clamps/double-layer",
     specs: ["DIN Groups 1–6", "4mm – 50.8mm OD", "M6 Bolts"],
@@ -200,7 +200,7 @@ export default function TubeClampIndexPage() {
       <meta name="keywords" content="tube clamps, DIN tube clamps, instrumentation pipe clamps, twin series clamps, heavy series tube clamps, DIN 3015" />
       <meta property="og:title" content="Tube Clamps | PANAM® Instrumentation" />
       <meta property="og:description" content="Five series of tube clamps from one source. DIN Groups 1 to 10, 4mm to 219mm OD, complete sets supplied as standard." />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/tube-clamps-hero.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-clamps/tube-clamps-hero.jpg" />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-clamps" />
@@ -232,7 +232,7 @@ export default function TubeClampIndexPage() {
             display: "flex",
             alignItems: "center",
             overflow: "hidden",
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/tube-clamps-hero.jpg")`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-clamps/tube-clamps-hero.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             py: { xs: 8, md: 12 },

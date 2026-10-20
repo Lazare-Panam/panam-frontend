@@ -53,8 +53,8 @@ const BallValvesBlog: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>Stainless Steel Ball Valves | SS316 2-Way, 3-Way & High Pressure | Panam Valve</title>
-      <meta name="description" content="Stainless steel ball valve solutions in SS316, 2-way, 3-way and high pressure up to 20,000 psi, with engineering support and global dispatch." />
+      <title>Stainless Steel Ball Valve Guide: SS316 2-Way, 3-Way & HP</title>
+      <meta name="description" content="How to choose a stainless steel ball valve: SS316 2-way, 3-way and high pressure up to 20,000 psi, seat materials, end connections and specs." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/stainless-steel-ball-valve-guide" />
@@ -63,7 +63,7 @@ const BallValvesBlog: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: "Stainless Steel Ball Valves | SS316 2-Way, 3-Way & High Pressure",
-          description: "Stainless steel ball valve solutions in SS316, 2-way, 3-way and high pressure up to 20,000 psi, with engineering support and global dispatch.",
+          description: "How to choose a stainless steel ball valve: SS316 2-way, 3-way and high pressure up to 20,000 psi, seat materials, end connections and specs.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },

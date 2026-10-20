@@ -55,7 +55,7 @@ const ManifoldValvesBlog: React.FC = () => {
           "@type": "BlogPosting",
           headline: "Manifold Valves for Accurate, Safe Instrumentation Measurement",
           description: "Compare manifold valve types, monoflanges, and DB&B setups to improve DP, level, and pressure measurement accuracy and safety.",
-          image: "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM-1.jpg",
+          image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/valve-manifolds/5VM/5VM-1.jpg",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/manifold-valves-for-accurate-safe-instrumentation" },
@@ -97,7 +97,7 @@ const ManifoldValvesBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM-1.jpg"
+          src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/valve-manifolds/5VM/5VM-1.jpg"
           alt="PANAM Manifold Valve"
           sx={{
             width: "100%",
@@ -419,7 +419,7 @@ const ManifoldValvesBlog: React.FC = () => {
                 }}>
                   <Box
                     component="img"
-                    src="https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/3VM/3VM-1.jpg"
+                    src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/valve-manifolds/3VM/3VM-1.jpg"
                     alt="PANAM Manifold Valve"
                     sx={{ width: "100%", height: 160, objectFit: "contain", bgcolor: "#F4F4F4", p: 2 }}
                   />

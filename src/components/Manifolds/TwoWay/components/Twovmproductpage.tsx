@@ -6,7 +6,7 @@ import { MATERIAL_LABELS } from "../hooks/types"
 import { MANIFOLDS_DATA } from "../hooks/manifoldData"
 
 const BRAND_BLUE = "#01B0F0"
-const FALLBACK_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/2VM/2VM-1.jpg"
+const FALLBACK_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/valve-manifolds/2VM/2VM-1.jpg"
 
 export default function TwoVMProductPage() {
   const { partNumber } = useParams<{ partNumber: string }>()

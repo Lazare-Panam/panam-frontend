@@ -12,7 +12,7 @@ const DBB_PRODUCTS = [
     title: "DBB — Flange to Pipe",
     description:
       "Double Block & Bleed valves with Flange-to-Pipe construction for primary instrument isolation, pressure transmitter mounting, and process bleed applications. Available in Integral (one-piece body) and Three Piece (serviceable) configurations. Class 150 to 2500, Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, and Ball-Needle internals. NACE MR-0175 and Fire Safe options.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxp.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB_fxp.jpg",
     pressure: "Class 150 – 2500 · PN6 – PN250",
     connection: "Flange to Pipe · Integral & Three Piece",
     material: "SS316 · NACE / Fire Safe Options",
@@ -23,7 +23,7 @@ const DBB_PRODUCTS = [
     type: "fxf",
     title: "DBB — Flange to Flange",
     description: "Double Block & Bleed valves with Flange-to-Flange construction for inline isolation and DP transmitter applications. Available in Integral and Three Piece configurations. Class 150 to 2500 plus PN series, covering RF, RTJ, and BS flange faces. Full range of ball, needle, and combination internals with NACE MR-0175, fire-safe, and gear-operated options.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxf.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB_fxf.jpg",
     pressure: "Class 150 – 2500 · PN6 – PN250",
     connection: "Flange to Flange · Integral & Three Piece",
     material: "SS316 · RF / RTJ / BS · NACE Options",
@@ -34,7 +34,7 @@ const DBB_PRODUCTS = [
     type: "pxp",
     title: "DBB — Pipe to Pipe",
     description: "Double Block & Bleed valves with threaded Pipe-to-Pipe construction for compact instrument isolation and process bleed. Available in NPT, BSPP, and BSPT thread forms across a full range of bore sizes. Ball-Needle-Ball, Ball-Ball-Ball, Needle-Needle-Needle, and Ball-Needle configurations. NACE MR-0175 and Fire Safe options available.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB-pxp.jpg",
     pressure: "Threaded · NPT / BSPP / BSPT",
     connection: "Pipe to Pipe · Compact Body",
     material: "SS316 · NACE / Fire Safe Options",
@@ -154,7 +154,7 @@ export default function DBBIndexPage() {
       <meta name="keywords" content="double block bleed valve, DBB valve, instrument isolation valve, NACE valve, SS316 valve" />
       <meta property="og:title" content="Double Block & Bleed Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Three connection families. One standard. PANAM® DBB Valves for primary isolation, transmitter mounting, and process bleed." />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/DBB/dbb-cover.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/dbb-cover.jpg" />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="canonical" href="https://www.panamvalve.com/double-block-and-bleed-valves" />
@@ -187,7 +187,7 @@ export default function DBBIndexPage() {
             display: "flex",
             alignItems: "center",
             overflow: "hidden",
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/products/DBB/dbb-cover.jpg")`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/dbb-cover.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             py: { xs: 8, md: 12 },

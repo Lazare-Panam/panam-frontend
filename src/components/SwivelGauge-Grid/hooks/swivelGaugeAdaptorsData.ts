@@ -14,7 +14,7 @@ export interface SwivelGaugeAdaptorDTO {
 }
 
 const SWIVEL_GAUGE_IMAGE =
-  "https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg"
+  "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/swivel-gauge/PSGA-8N-SS - JPG.jpg"
 
 export const SWIVEL_GAUGE_ADAPTORS_DATA: SwivelGaugeAdaptorDTO[] = [
   // ===== Type M — Standard Sealing Metal to Metal (Without O-ring) =====

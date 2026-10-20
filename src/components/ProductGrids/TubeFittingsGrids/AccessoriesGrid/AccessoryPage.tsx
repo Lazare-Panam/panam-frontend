@@ -216,11 +216,11 @@ export default function AccessoryPage() {
       <meta property="og:title" content="Tube Fitting Accessories | Ferrules, Plugs & Nuts | PANAM®" />
       <meta property="og:description" content="PANAM® stainless steel tube fitting accessories — tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts." />
       <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/accessories" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/male-pipe-weld-connector.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fitting Accessories | Ferrules, Plugs & Nuts | PANAM®" />
       <meta name="twitter:description" content="PANAM® stainless steel tube fitting accessories — tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts." />
-      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg" />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/male-pipe-weld-connector.jpg" />
 
       <script type="application/ld+json">
         {JSON.stringify({

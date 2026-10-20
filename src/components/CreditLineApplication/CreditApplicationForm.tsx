@@ -74,7 +74,7 @@ const CreditApplicationForm: React.FC<CreditApplicationFormProps> = ({ onSuccess
 
         {error && <Alert severity="error" sx={{ mb: 4, fontFamily: PRIMARY_FONT }}>{error}</Alert>}
 
-        <Box component="form" onSubmit={handleSubmit} noValidate>
+        <Box component="form" id="credit-application" name="credit-application" onSubmit={handleSubmit} noValidate>
           {/* 1. Company Details */}
           <Typography variant="subtitle2" sx={sectionTitleSx}>COMPANY DETAILS</Typography>
           <Grid container spacing={3} sx={{ mb: 5 }}>

@@ -65,9 +65,9 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
   return counts
 }
 
-const IMG_MC = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/PMC-4MF-4N-SS.jpg'
+const IMG_MC = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-fittings/PMC-4MF-4N-SS.jpg'
 const IMG_FC = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/Female-Connector.png'
-const IMG_HF = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/PMC-08-4MM-SS.jpg'
+const IMG_HF = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-fittings/PMC-08-4MM-SS.jpg'
 
 
 

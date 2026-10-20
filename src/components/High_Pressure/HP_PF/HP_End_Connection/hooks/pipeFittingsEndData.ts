@@ -55,8 +55,8 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
   return counts
 }
 
-const IMG_PLUG     = 'https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/TUBE_PLUG.jpg'
-const IMG_PIPE_CAP = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/pipe-cap-hp.jpg'
+const IMG_PLUG     = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/pipe-fittings/TUBE_PLUG.jpg'
+const IMG_PIPE_CAP = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-pipe-fittings/pipe-cap-hp.jpg'
 
 const make = (
   pn: string,

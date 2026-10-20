@@ -43,7 +43,7 @@ const CheckValveBlog: React.FC = () => {
         "@type": "BlogPosting",
         headline: "What Do Check Valves Do and Why They Matter",
         description: "Explore what check valves (NRV) do, the mechanics behind their operation, and why they remain essential in modern industrial infrastructure.",
-        image: "https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c-cover.png",
+        image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c-cover.png",
         author: { "@type": "Organization", name: "PANAM®" },
         publisher: { "@type": "Organization", name: "PANAM®" },
         mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/check-valves-blog" },
@@ -110,7 +110,7 @@ const CheckValveBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c-cover.png"
+          src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c-cover.png"
           alt="Industrial Check Valve for backflow prevention"
           sx={{
             width: "100%",
@@ -207,7 +207,7 @@ const CheckValveBlog: React.FC = () => {
             {/* SECOND IMAGE SPACE */}
             <Box
               component="img"
-              src="https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png"
+              src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c1.png"
               alt="Diagram of Check Valve Mechanics"
               sx={{
                 width: "100%",

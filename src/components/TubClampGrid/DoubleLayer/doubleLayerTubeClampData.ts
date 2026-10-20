@@ -12,7 +12,7 @@ export interface DoubleLayerTubeClampItem {
   imageUrl: string
 }
 
-const CLAMP_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Double-Layer-Tube-Clamp.jpeg'
+const CLAMP_IMG = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-clamps/Double-Layer-Tube-Clamp.jpeg'
 
 export const DOUBLE_LAYER_CLAMP_DATA: DoubleLayerTubeClampItem[] = [
   // DIN GROUP 1 — A2:43 A3:37 A1:20 S:3 H2:33 M6x30mm

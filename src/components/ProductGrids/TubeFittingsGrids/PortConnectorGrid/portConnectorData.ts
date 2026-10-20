@@ -9,8 +9,8 @@ export interface PortConnectorItem {
 }
 
 const IMAGES: Record<string, string> = {
-  "Port Connector": "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg",
-  "Reducing Port Connector": "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg",
+  "Port Connector": "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/port-connector.jpg",
+  "Reducing Port Connector": "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/port-connector.jpg",
 }
 
 export const PORT_CONNECTOR_DATA: PortConnectorItem[] = [

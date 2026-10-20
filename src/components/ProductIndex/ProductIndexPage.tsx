@@ -16,7 +16,7 @@ const INDUSTRY_LINKS = [
 
 const BLOG_LINKS = [
   { label: "Panam Valves & RG Fluid Power Partnership", to: "/blog/panam-valves-rg-fluid-power-partnership" },
-  { label: "Double Block & Bleed", to: "/blog/double-blog-and-bleed" },
+  { label: "Double Block & Bleed", to: "/blog/double-block-and-bleed" },
   { label: "Hydrogen Valves", to: "/blog/hydrogen-blog" },
   { label: "Swivel Gauge Adaptors", to: "/blog/swivel-gauge-blog" },
   { label: "Check Valves", to: "/blog/check-valves-blog" },

@@ -302,7 +302,7 @@ const NeedleValveBlog: React.FC = () => {
               Quality, Testing and Documentation
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Every PANAM HP Series valve is 100% factory tested to its maximum pressure rating with a no-detectable-leakage acceptance criterion. Material certificates are available on request. Cleaning and packaging follow the PANAM PWI/5.7/21 standard.
+              PANAM HP Series valves are factory tested. Material certificates are available on request. Cleaning and packaging follow the PANAM PWI/5.7/21 standard.
             </Typography>
             <Typography variant="body1" sx={{ mb: 6, lineHeight: 1.8 }}>
               For the full range of configurations, pressure tiers and connection options, visit the{" "}

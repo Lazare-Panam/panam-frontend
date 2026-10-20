@@ -19,7 +19,7 @@ const TUBE_FITTING_SERIES = [
     title: "Connectors",
     subtitle: "Straight & Elbow Configurations",
     description: "Single and double ferrule tube fitting connectors in straight, elbow, and reducing configurations. Designed for secure, leak-tight connections in high-pressure instrumentation and process systems.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/Bulkhead-Connector.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/instrumentation-fittings/tube-fittings/connectors",
@@ -29,7 +29,7 @@ const TUBE_FITTING_SERIES = [
     title: "Unions",
     subtitle: "Inline & Bulkhead Unions",
     description: "Single and double ferrule tube fitting unions for inline and bulkhead installations. Provide reliable, repositionable leak-tight joints for instrumentation tubing systems.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/union-cross.png",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/union-cross.png",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/instrumentation-fittings/tube-fittings/union",
@@ -39,7 +39,7 @@ const TUBE_FITTING_SERIES = [
     title: "Reducers",
     subtitle: "Straight, Elbow & Bulkhead Configurations",
     description: "Single and double ferrule tube fitting reducers in straight, elbow, and bulkhead configurations. Available in Imperial, Metric, and mixed Metric × Imperial sizes for transitioning between tube ODs.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/reducer.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/instrumentation-fittings/tube-fittings/reducer",
@@ -49,7 +49,7 @@ const TUBE_FITTING_SERIES = [
     title: "Adapters",
     subtitle: "Male & Female Thread Configurations",
     description: "Male and female adapter fittings connecting tube OD to NPT, BSPT, BSPP, RP, RG and SAE/MS threads. Available in Imperial and Metric tube OD with a wide range of thread sizes.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male_adaptor.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/male_adaptor.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/instrumentation-fittings/tube-fittings/adapter",
@@ -59,7 +59,7 @@ const TUBE_FITTING_SERIES = [
     title: "Port Connectors",
     subtitle: "Standard & Reducing Configurations",
     description: "Port connectors and reducing port connectors for direct tube-to-port connections. Available in Imperial and Metric tube OD for secure, leak-tight instrument port connections.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/port-connector.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/instrumentation-fittings/tube-fittings/port-connector",
@@ -69,7 +69,7 @@ const TUBE_FITTING_SERIES = [
     title: "Weld & Gauge Connectors",
     subtitle: "Pipe Weld, Socket Weld & Gauge",
     description: "Male pipe weld connectors, male pipe weld elbows, tube socket weld connectors, tube socket weld elbows and gauge connectors. Covers butt weld, socket weld and BSPP/Metric gauge connections.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/male-pipe-weld-connector.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/instrumentation-fittings/tube-fittings/weld-gauge",
@@ -79,7 +79,7 @@ const TUBE_FITTING_SERIES = [
     title: "Accessories",
     subtitle: "Plugs, Caps, Nuts & Ferrules",
     description: "Tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts. Essential accessories for completing and maintaining tube fitting assemblies in Imperial and Metric sizes.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/tube_plug.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/tube_plug.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/instrumentation-fittings/tube-fittings/accessories",
@@ -89,7 +89,7 @@ const TUBE_FITTING_SERIES = [
     title: "Dielectric Fittings & Gaskets",
     subtitle: "Union & Male Connector Configurations",
     description: "Stainless steel dielectric tube fittings designed to isolate instruments from electric currents, voltage and static discharges. Polyamideimide insulation rated to 5000 PSI and -40°C to 93°C.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/dielectric-fittings.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/dielectric-fittings.jpg",
     pressure: "High Pressure",
     tag: "Tube Fittings",
     link: "/instrumentation-fittings/tube-fittings/die-electric",
@@ -237,12 +237,12 @@ export default function TubeFittingsPage() {
       <meta property="og:title" content="Tube Fittings | Single & Double Ferrule | PANAM®" />
       <meta property="og:description" content="PANAM® tube fittings in single and double ferrule designs — connectors, unions, reducers, adapters & more. SS316, Duplex, Monel, Hastelloy & Brass." />
       <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fittings | Single & Double Ferrule | PANAM®" />
       <meta name="twitter:description" content="PANAM® tube fittings in single and double ferrule designs — connectors, unions, reducers, adapters & more. SS316, Duplex, Monel, Hastelloy & Brass." />
-      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg" />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg" />
 
       <script type="application/ld+json">
         {JSON.stringify({
@@ -272,7 +272,7 @@ export default function TubeFittingsPage() {
             display: "flex",
             alignItems: "center",
             overflow: "hidden",
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg")`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/aleon3004-6z0IreU7EnI-unsplash.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             py: { xs: 8, md: 12 },

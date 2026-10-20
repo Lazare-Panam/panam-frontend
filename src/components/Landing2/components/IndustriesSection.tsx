@@ -33,7 +33,7 @@ const industryData = [
     img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=75',
     specs: [
       { icon: <HandymanIcon />, text: 'Duplex & Super Duplex for maximum corrosion resistance' },
-      { icon: <SettingsIcon />, text: '800 lb pressure ratings for deep-water applications' },
+      { icon: <SettingsIcon />, text: 'Pressure ratings confirmed for your application at enquiry' },
       { icon: <AssignmentIcon />, text: 'Material certificates available on request' },
     ]
   },

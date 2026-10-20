@@ -21,7 +21,7 @@ const slides = [
   {
     title: "H2 Ready: The Future of Energy",
     subtitle: "Pioneering hydrogen-compatible technologies to power the next generation of clean energy infrastructure.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/website-media/hero-banners/FACTORY-PHOTO-OPTION-1-JPEG.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/hero-banners/FACTORY-PHOTO-OPTION-1-JPEG.jpg",
   },
 ]
 

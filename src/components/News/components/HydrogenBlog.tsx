@@ -47,7 +47,7 @@ const HydrogenValvesBlog: React.FC = () => {
           "@type": "BlogPosting",
           headline: "Hydrogen Valve Systems",
           description: "Technical analysis of high-pressure hydrogen valves. Material science, embrittlement mitigation, and valve typologies for net-zero infrastructure.",
-          image: "https://pblol2.blob.core.windows.net/panam-images/blog/karsten-wurth-ZKWgoRUYuMk-unsplash (1).jpg",
+          image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/karsten-wurth-ZKWgoRUYuMk-unsplash (1).jpg",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/hydrogen-blog" },
@@ -77,7 +77,7 @@ const HydrogenValvesBlog: React.FC = () => {
       <Container maxWidth="lg" sx={{ mb: 8 }}>
         <Box
           component="img"
-          src="https://pblol2.blob.core.windows.net/panam-images/blog/karsten-wurth-ZKWgoRUYuMk-unsplash (1).jpg"
+          src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/karsten-wurth-ZKWgoRUYuMk-unsplash (1).jpg"
           alt="High-pressure hydrogen infrastructure and valve systems"
           sx={{ width: "100%", height: { xs: 200, md: 500 }, objectFit: "cover", bgcolor: "#F4F4F4", borderRadius: "4px", boxShadow: "0 10px 30px rgba(0,0,0,0.08)", border: "1px solid #EEE" }}
         />

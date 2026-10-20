@@ -1,6 +1,6 @@
 import { type ManifoldDTO } from "./types"
 
-const MANIFOLD_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/2VM/2VM_Cover.jpg"
+const MANIFOLD_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/valve-manifolds/2VM/2VM_Cover.jpg"
 
 const SIZE_CODE_MAP: Record<string, string> = {
   '4':       '1/4" NPT',

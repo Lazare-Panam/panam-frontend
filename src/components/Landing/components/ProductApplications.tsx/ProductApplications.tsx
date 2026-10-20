@@ -24,7 +24,7 @@ const APPLICATIONS_DATA = [
     label: "Oil & Gas",
     title: "Oil & Gas Solutions",
     description: "Critical flow control components for global refineries and drilling platforms, including Double Block and Bleed (DBB) solutions. Applicable standards are confirmed at enquiry.",
-    image: "https://pblol2.blob.core.windows.net/panam-images/industries/david-thielen-R5Ob28wpWzo-unsplash.jpg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/industries/david-thielen-R5Ob28wpWzo-unsplash.jpg",
   },
   {
     id: "hydrogen",

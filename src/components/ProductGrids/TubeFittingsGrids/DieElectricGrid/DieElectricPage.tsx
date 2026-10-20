@@ -335,7 +335,7 @@ export default function DielectricGasketPage() {
       <meta property="og:title" content="Dielectric Tube Fittings & Gaskets | PANAM®" />
       <meta property="og:description" content="PANAM® dielectric tube fittings isolate instruments from electric currents, voltage & static. Polyamideimide insulation, rated to 5000 PSI." />
       <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/die-electric" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/dielectric-fittings.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/dielectric-fittings.jpg" />
 
       <script type="application/ld+json">
         {JSON.stringify({

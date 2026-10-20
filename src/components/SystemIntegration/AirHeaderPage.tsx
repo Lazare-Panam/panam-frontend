@@ -68,7 +68,7 @@ export default function AirHeaderDetailPage() {
           minHeight: { xs: "50vh", md: "60vh" },
           display: "flex",
           alignItems: "center",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url("https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/air-h.jpg")`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/system-integratino/air-h.jpg")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           py: { xs: 8, md: 12 },
@@ -262,7 +262,7 @@ export default function AirHeaderDetailPage() {
           </Typography>
           <Grid container spacing={3}>
             {[
-              { title: "Nitrogen Leak Test", body: "Every unit tested in a nitrogen gas chamber at 250 psi (17.2 bar). No detectable leak accepted at the specified detection method." },
+              { title: "Nitrogen Leak Test", body: "Factory tested in a nitrogen gas chamber at 250 psi (17.2 bar)." },
               { title: "Weld Tightness Test", body: "Carried out per Article 5 of ASME BPVC. Acceptance per ASME BPVC Section 8, Section 1, Appendix 8." },
               { title: "Radiographic Testing", body: "Weld radiography per ASME BPVC Section V Article 2. Acceptance per ASME BPVC Section VIII Division 1 UW-51." },
               { title: "Liquid Penetrate Testing", body: "Applied to all welds as standard. Ensures surface integrity and absence of weld defects prior to dispatch." },

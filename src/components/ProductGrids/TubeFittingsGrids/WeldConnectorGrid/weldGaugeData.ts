@@ -11,11 +11,11 @@ export interface WeldGaugeItem {
 }
 
 const IMAGES: Record<string, string> = {
-  "Male Pipe Weld Connector": "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg",
-  "Male Pipe Weld Elbow": "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-elbow.jpg",
-  "Tube Socket Weld Connector": "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/tube-socket-connector.jpg",
-  "Tube Socket Weld Elbow": "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/tube-socket-elbow.jpg",
-  "Gauge Connector": "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg",
+  "Male Pipe Weld Connector": "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/male-pipe-weld-connector.jpg",
+  "Male Pipe Weld Elbow": "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/male-pipe-weld-elbow.jpg",
+  "Tube Socket Weld Connector": "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/tube-socket-connector.jpg",
+  "Tube Socket Weld Elbow": "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/tube-socket-elbow.jpg",
+  "Gauge Connector": "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/port-connector.jpg",
 }
 
 export const WELD_GAUGE_DATA: WeldGaugeItem[] = [

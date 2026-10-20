@@ -90,11 +90,11 @@ export default function UnionPage() {
       <meta property="og:title" content="Tube Fitting Unions | Reducing & Bulkhead | PANAM®" />
       <meta property="og:description" content="Stainless steel tube-to-tube union fittings — standard, reducing, bulkhead, elbows, tees & crosses. Imperial & Metric tube OD." />
       <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/union" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/union-cross.png" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/union-cross.png" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Tube Fitting Unions | Reducing & Bulkhead | PANAM®" />
       <meta name="twitter:description" content="Stainless steel tube-to-tube union fittings — standard, reducing, bulkhead, elbows, tees & crosses. Imperial & Metric tube OD." />
-      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/union-cross.png" />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/union-cross.png" />
 
       <script type="application/ld+json">
         {JSON.stringify({

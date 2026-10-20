@@ -25,7 +25,7 @@ const faqs: FAQItem[] = [
   {
     question: "What are the lead times for catalog items?",
     answer:
-      "Lead times vary by product, material, documentation requirements and order volume, and are confirmed at quotation. Typical lead times are 3–4 weeks.",
+      "Lead times vary by product, material, documentation requirements and order volume, and are confirmed at quotation.",
   },
   {
     question: "What certifications come with catalog products?",

@@ -1,6 +1,6 @@
 
 import {type PXPValveDTO } from "./pxpTypes"
-const PXP_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg"
+const PXP_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB-pxp.jpg"
 
 const CONFIG_MAP: Record<string, string> = {
   'A': 'Ball-Needle-Ball',

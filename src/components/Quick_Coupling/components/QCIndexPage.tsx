@@ -26,7 +26,7 @@ export default function QuickCouplingIndexPage() {
           display: "flex",
           alignItems: "center",
           overflow: "hidden",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/qc-hero.jpg")`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/qc-hero.jpg")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           py: { xs: 8, md: 12 },
@@ -148,7 +148,7 @@ export default function QuickCouplingIndexPage() {
             <Box sx={{ maxWidth: 360, flex: "1 1 300px" }}>
               <Card variant="outlined" sx={{ borderRadius: 0, height: "100%", display: "flex", flexDirection: "column", border: "1px solid #e8e8e8", transition: "box-shadow 0.2s", "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" } }}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 220 }}>
-                  <CardMedia component="img" image="https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg" alt="Seamless Tubing" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
+                  <CardMedia component="img" image="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tubing/tubing-1.jpg" alt="Seamless Tubing" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
                 </Box>
                 <CardContent sx={{ flexGrow: 1, p: 3 }}>
                   <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}>

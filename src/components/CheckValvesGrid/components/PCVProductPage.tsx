@@ -6,7 +6,7 @@ import { usePCVs } from "../hooks/usePCV"
 import { type PCVDto } from "../../../api/checkValveApi"
 
 const BRAND_BLUE = "#01B0F0"
-const FALLBACK_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png"
+const FALLBACK_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c1.png"
 
 export default function PCVProductPage() {
   const { partNumber } = useParams<{ partNumber: string }>()

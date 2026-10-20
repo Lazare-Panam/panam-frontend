@@ -15,6 +15,11 @@
   },
   "routes": [
     {
+      "route": "/blog/double-blog-and-bleed",
+      "redirect": "/blog/double-block-and-bleed",
+      "statusCode": 301
+    },
+    {
       "route": "/filters/t-type/PTF-IB-M08-OD-05-SS",
       "redirect": "/filters/t-type/PTF-TC-M08-OD-05-SS",
       "statusCode": 301

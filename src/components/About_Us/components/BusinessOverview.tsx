@@ -80,7 +80,7 @@ const BusinessOverview = () => {
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
               <SideReveal direction="right" delay={0.2}>
-                <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/about/jeriden-villegas-VLPUm5wP5Z0-unsplash.jpg" alt="Panam Headquarters" sx={imageStyle} />
+                <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/about/jeriden-villegas-VLPUm5wP5Z0-unsplash.jpg" alt="Panam Headquarters" sx={imageStyle} />
               </SideReveal>
             </Grid>
           </Grid>
@@ -93,7 +93,7 @@ const BusinessOverview = () => {
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }} sx={{ order: { xs: 2, md: 1 } }}>
               <SideReveal direction="left" delay={0.2}>
-                <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/about/FACTORY-PHOTO-OPTION-1-JPEG.jpg" alt="Manufacturing Excellence" sx={imageStyle} />
+                <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/about/FACTORY-PHOTO-OPTION-1-JPEG.jpg" alt="Manufacturing Excellence" sx={imageStyle} />
               </SideReveal>
             </Grid>
             <Grid size={{ xs: 12, md: 6 }} sx={{ order: { xs: 1, md: 2 } }}>
@@ -140,7 +140,7 @@ const BusinessOverview = () => {
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
               <SideReveal direction="right" delay={0.2}>
-                <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/about/battlecreek-coffee-roasters-JUPPTsfCuiQ-unsplash.jpg" alt="Quality Control" sx={imageStyle} />
+                <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/about/battlecreek-coffee-roasters-JUPPTsfCuiQ-unsplash.jpg" alt="Quality Control" sx={imageStyle} />
               </SideReveal>
             </Grid>
           </Grid>

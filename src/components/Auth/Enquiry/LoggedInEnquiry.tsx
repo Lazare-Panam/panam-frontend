@@ -9,6 +9,7 @@ import AttachFileIcon from "@mui/icons-material/AttachFile";
 import { useUserStore } from "../../store/useUserStore";
 import { useNotificationStore } from "../../store/useNotficationStore";
 import { submitAuthenticatedEnquiry } from "../../../api/authApi";
+import { useFormStartTracking } from "../../Common/useFormStartTracking";
 
 const BRAND_BLUE = "#01B0F0";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
@@ -18,6 +19,7 @@ export const LoggedInEnquiry = () => {
   const [message, setMessage] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const trackFormStart = useFormStartTracking("enquiry-logged-in");
 
   // User details from Zustand store
   const { firstName, lastName, companyName, email, phoneNumber } = useUserStore();
@@ -83,7 +85,7 @@ export const LoggedInEnquiry = () => {
           <Grid container>
             
             {/* Left Side: Form Logic */}
-            <Grid size={{ xs: 12, md: 7 }} sx={{ p: { xs: 4, md: 8 }, bgcolor: "white" }}>
+            <Grid size={{ xs: 12, md: 7 }} sx={{ p: { xs: 4, md: 8 }, bgcolor: "white" }} onFocusCapture={trackFormStart}>
               <Stack spacing={3}>
                 <Box>
                   <Typography component="h1" variant="h5" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700 }}>

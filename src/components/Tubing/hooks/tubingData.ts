@@ -76,8 +76,8 @@ const MATERIALS = [
   { code: 'HC', label: 'Hastelloy Alloy' },
 ]
 
-const STANDARD_IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg'
-const HP_IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-2.png'
+const STANDARD_IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tubing/tubing-1.jpg'
+const HP_IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tubing/tubing-2.png'
 
 const IMPERIAL_COMBOS: { od: string; odCode: string; wall: string; wallCode: string; psi: number; bar: number }[] = [
   { od: '1/16"', odCode: '01', wall: '0.010"', wallCode: '010', psi: 5600,  bar: 386 },

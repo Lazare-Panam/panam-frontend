@@ -67,7 +67,7 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 
 const IMG_UNION    = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-union.png'
 const IMG_REDUCING = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-reducing-union.png'
-const IMG_BULKHEAD = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-bulkhead-union.jpg'
+const IMG_BULKHEAD = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/high-pressure-fittings/hp-bulkhead-union.jpg'
 
 const make = (
   pn: string,

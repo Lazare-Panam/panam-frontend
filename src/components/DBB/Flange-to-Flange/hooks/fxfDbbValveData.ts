@@ -1,5 +1,5 @@
 import { type DBBValveDTO } from "../../Flange-to-Pipe/hooks/types"
-const FXF_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxp.jpg"
+const FXF_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/DBB/DBB_fxp.jpg"
 
 const CONNECTION_CODE_MAP: Record<string, "Integral" | "Three Piece"> = {
   "2": "Integral",

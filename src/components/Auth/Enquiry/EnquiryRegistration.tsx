@@ -7,6 +7,7 @@ import AttachFileIcon from "@mui/icons-material/AttachFile"
 import TermsModal from "./AccessTerms"
 import { useNotificationStore } from "../../store/useNotficationStore"
 import { registerWithEnquiry } from "../../../api/authApi"
+import { useFormStartTracking } from "../../Common/useFormStartTracking"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -25,6 +26,7 @@ const countries = [
 ]
 
 export const EnquiryRegistration = () => {
+  const trackFormStart = useFormStartTracking("enquiry-registration")
   const [isTermsOpen, setIsTermsOpen] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
   const [selectedCountry, setSelectedCountry] = useState(countries[1])
@@ -145,7 +147,7 @@ export const EnquiryRegistration = () => {
         <Paper elevation={0} sx={{ borderRadius: 0, overflow: "hidden", border: "1px solid #eee" }}>
           <Grid container>
             {/* Left Side: Form */}
-            <Grid size={{ xs: 12, md: 6 }} sx={{ p: { xs: 4, md: 8 }, bgcolor: "white" }}>
+            <Grid size={{ xs: 12, md: 6 }} sx={{ p: { xs: 4, md: 8 }, bgcolor: "white" }} onFocusCapture={trackFormStart}>
               <Stack spacing={3}>
                 <Box>
                   <Typography component="h1" variant="h5" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>

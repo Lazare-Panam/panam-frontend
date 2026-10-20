@@ -100,7 +100,7 @@ const AdminLogin: React.FC = () => {
             </Alert>
           )}
 
-          <Box component="form" onSubmit={handleSubmit}>
+          <Box component="form" id="admin-login" name="admin-login" onSubmit={handleSubmit}>
             <TextField 
               fullWidth 
               label="Email Address" 

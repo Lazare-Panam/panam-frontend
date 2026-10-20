@@ -99,7 +99,7 @@ const handleSubmit = (e: React.FormEvent) => {
             <strong>{email}</strong>
           </Typography>
 
-          <Box component="form" onSubmit={handleSubmit} noValidate>
+          <Box component="form" id="reset-password" name="reset-password" onSubmit={handleSubmit} noValidate>
             <Typography variant="subtitle2" sx={{ fontFamily: PRIMARY_FONT, fontWeight: 700, mb: 1, color: "#1a1a1a" }}>
               NEW PASSWORD
             </Typography>

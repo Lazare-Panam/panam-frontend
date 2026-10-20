@@ -15,7 +15,7 @@ export interface SingleLayerTubeClampItem {
   imageUrl: string
 }
 
-const CLAMP_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/tube-clamps/Single-Layer-Tube-Clamp.jpeg'
+const CLAMP_IMG = 'https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-clamps/Single-Layer-Tube-Clamp.jpeg'
 
 export const SINGLE_LAYER_CLAMP_DATA: SingleLayerTubeClampItem[] = [
   // DIN GROUP 1 — A2:43 A3:34 A1:20 B1:30 G:0.4 S:3 H1:27 H2:33 Bolt:M6x30mm

@@ -15,7 +15,7 @@ const pillarData = [
   },
   {
     title: "Our Leadership",
-    image: "https://pblol2.blob.core.windows.net/panam-images/about/leadership-image.jpeg",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/about/leadership-image.jpeg",
     description: "Our team of strong and diverse leaders guides Panam Valves in our world's dynamic environment.",
   },
   {

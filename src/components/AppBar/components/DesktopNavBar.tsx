@@ -10,7 +10,7 @@ const DesktopNavbar = (props: any) => {
   const navigate = useNavigate()
   const { megaMenuOpen, handleMouseEnter, cartCount, setOpenDrawer } = props
 
-  const LOGO_URL = "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg"
+  const LOGO_URL = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/panam-resize_smallest.jpg"
 
   return (
     <Box sx={{ position: 'relative' }}>

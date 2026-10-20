@@ -43,7 +43,6 @@ const FILTERS = [
 ]
 
 const SPECS = [
-  { label: "Working Temperature", value: "-28°C to 482°C (-20°F to 900°F)" },
   { label: "Testing", value: "Nitrogen leak test at 1000 psi" },
   { label: "Pore Size Range", value: "0.5 μm to 440 μm" },
   { label: "Size Range", value: '3mm – 12mm tube · 1/8" – 1/2" thread' },
@@ -158,7 +157,7 @@ export default function FiltersIndexPage() {
       <meta name="keywords" content="instrumentation filters, inline filters, T-type filters, SS316 filters, sintered filter elements, PTF PIF filters" />
       <meta property="og:title" content="Instrumentation Filters | PANAM® Instrumentation" />
       <meta property="og:description" content="Two filter families, one standard. PANAM® T-Type and In-Line Filters in SS316, 0.5 to 440 micron, nitrogen leak tested at 1000 psi." />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/filters/filters-hero.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/filters/filters-hero.jpg" />
       <meta property="og:type" content="product" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="canonical" href="https://www.panamvalve.com/filters" />
@@ -190,7 +189,7 @@ export default function FiltersIndexPage() {
             display: "flex",
             alignItems: "center",
             overflow: "hidden",
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/products/filters/filters-hero.jpg")`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/filters/filters-hero.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             py: { xs: 8, md: 12 },

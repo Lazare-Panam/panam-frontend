@@ -235,11 +235,11 @@ export default function WeldGaugeConnectorPage() {
       <meta property="og:title" content="Weld & Gauge Connectors | Socket & Pipe Weld | PANAM®" />
       <meta property="og:description" content="PANAM® pipe weld & socket weld connectors, elbows and gauge connectors. Butt weld, socket weld & BSPP/Metric gauge connections." />
       <meta property="og:url" content="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/weld-gauge" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg" />
+      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/male-pipe-weld-connector.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Weld & Gauge Connectors | Socket & Pipe Weld | PANAM®" />
       <meta name="twitter:description" content="PANAM® pipe weld & socket weld connectors, elbows and gauge connectors. Butt weld, socket weld & BSPP/Metric gauge connections." />
-      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg" />
+      <meta name="twitter:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/tube-fittings/male-pipe-weld-connector.jpg" />
 
       <script type="application/ld+json">
         {JSON.stringify({

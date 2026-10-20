@@ -29,13 +29,13 @@ export default function HPNeedleValvePage() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <title>PANAM® High Pressure Needle Valves | HP, HP1, HP2, HP3 & HP6 Series | 10,000–60,000 psi</title>
-      <meta name="description" content="Panam high pressure needle valves in HP, HP1, HP2, HP3 and HP6 series rated 10,000 to 60,000 psi. SS 316, NPT and MP/HP cone & thread ends, with angle, 3-way and replaceable-seat options." />
+      <title>High Pressure Needle Valves to 60,000 psi | PANAM®</title>
+      <meta name="description" content="PANAM® high pressure needle valves, HP to HP6 series, rated 10,000 to 60,000 psi. SS 316, NPT and cone & thread ends, angle and 3-way options." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure/needle-valves" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="PANAM® High Pressure Needle Valves | HP, HP1, HP2, HP3 & HP6 Series | 10,000–60,000 psi" />
-      <meta property="og:description" content="Panam high pressure needle valves in HP, HP1, HP2, HP3 and HP6 series rated 10,000 to 60,000 psi. SS 316, NPT and MP/HP cone & thread ends, with angle, 3-way and replaceable-seat options." />
+      <meta property="og:title" content="High Pressure Needle Valves to 60,000 psi | PANAM®" />
+      <meta property="og:description" content="PANAM® high pressure needle valves, HP to HP6 series, rated 10,000 to 60,000 psi. SS 316, NPT and cone & thread ends, angle and 3-way options." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/needle-valves" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>

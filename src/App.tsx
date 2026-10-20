@@ -311,7 +311,7 @@ export const routes = [
         ),
       },
       {
-        path: "blog/double-blog-and-bleed",
+        path: "blog/double-block-and-bleed",
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <DoubleBlockBleedBlog />
