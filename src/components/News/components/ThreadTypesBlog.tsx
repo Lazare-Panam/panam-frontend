@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { Container, Typography, Box, Avatar, Stack, Paper, Button} from "@mui/material"
+import { Container, Typography, Box, Avatar, Stack, Paper, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
@@ -18,7 +18,23 @@ const NPTBSPPBSPTBlog: React.FC = () => {
     buttonLink: "/enquiry",
   }
 
+  // Threads per inch by nominal size (ASME B1.20.1 for NPT, ISO 7-1 / ISO 228-1 for BSP).
+  // Panam size codes count sixteenths of an inch, as used in part numbers such as PHN-8N-8G-SS-10K.
+  const pitchTable = [
+    { size: '1/4"', code: "4", npt: "18", bsp: "19" },
+    { size: '3/8"', code: "6", npt: "18", bsp: "19" },
+    { size: '1/2"', code: "8", npt: "14", bsp: "14" },
+    { size: '3/4"', code: "12", npt: "14", bsp: "14" },
+    { size: '1"', code: "16", npt: "11.5", bsp: "11" },
+  ]
+
+  const linkSx = { color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }
+
   const faqData = [
+    {
+      question: "What does BSP stand for?",
+      answer: "BSP stands for British Standard Pipe. It is a family of thread standards rather than a single thread. BSPP (parallel, designated G) is covered by ISO 228-1 and BSPT (tapered, designated R) by ISO 7-1.",
+    },
     {
       question: "Is British pipe thread the same as NPT?",
       answer: "No. BSP uses a 55 degree Whitworth form, while NPT uses a 60 degree form. Pitch tables also differ. They are not the same.",
@@ -43,6 +59,10 @@ const NPTBSPPBSPTBlog: React.FC = () => {
       question: "Do BSP threads need sealant?",
       answer: "BSPT needs sealant like NPT. BSPP does not seal on the threads; it seals on a washer or cone seat. Do not tape BSPP threads intended for face sealing.",
     },
+    {
+      question: "What should I include when I ask for a quote?",
+      answer: "State the thread type (NPT, BSPT or BSPP), the nominal size, whether it is male or female, and the Panam part code if you have it. \"BSP\" on its own is not enough.",
+    },
   ]
 
   return (
@@ -65,6 +85,19 @@ const NPTBSPPBSPTBlog: React.FC = () => {
           publisher: { "@type": "Organization", name: "PANAM®" },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/npt-vs-bspp-vs-bspt-thread-standards" },
           datePublished: "2026-05-27",
+          dateModified: "2026-10-21",
+        })}
+      </script>
+      {/* Built from faqData so the structured data always matches the visible FAQ text. */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqData.map(item => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
         })}
       </script>
 
@@ -166,6 +199,56 @@ const NPTBSPPBSPTBlog: React.FC = () => {
                 These differences mean the standards are not directly interchangeable. Correct identification prevents galling, leaks and damaged ports.
               </Typography>
 
+              {/* BSP AMBIGUITY */}
+              <Typography id="bsp-ambiguity" variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
+                Why "BSP" on Its Own Is Not Enough
+              </Typography>
+
+              <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
+                "BSP" names a family of threads. A BSP fitting can be parallel (BSPP) or tapered (BSPT), and the two seal in completely different ways. If an enquiry says only "1/2 BSP", we cannot tell which one you need without asking, and a guess can mean the wrong part is quoted, made or shipped.
+              </Typography>
+
+              <Paper elevation={0} sx={{ p: 3, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px", mb: 6 }}>
+                <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                  <strong>Always state BSPP or BSPT.</strong> If you do not know which you have, use the identification steps below, or send us a photo and your measurements.
+                </Typography>
+              </Paper>
+
+              {/* PITCH TABLE */}
+              <Typography id="npt-vs-bsp" variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
+                Threads per Inch: Why NPT and BSP Do Not Mix
+              </Typography>
+
+              <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
+                NPT and BSP use the same nominal size names, but the thread angle is different (60 degree vs 55 degree) and the pitch differs in some sizes. Where the pitch is the same, a wrong-thread fitting can start to engage and feel as though it fits, then leak or damage the thread when tightened.
+              </Typography>
+
+              <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #ECEEF0", borderRadius: "8px", mb: 2 }}>
+                <Table size="small">
+                  <TableHead>
+                    <TableRow sx={{ bgcolor: "#F8F9FA" }}>
+                      {["Nominal size", "Panam size code", "NPT (threads per inch)", "BSP (threads per inch)"].map(h => (
+                        <TableCell key={h} sx={{ fontWeight: 700 }}>{h}</TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {pitchTable.map(row => (
+                      <TableRow key={row.size}>
+                        <TableCell>{row.size}</TableCell>
+                        <TableCell>{row.code}</TableCell>
+                        <TableCell>{row.npt}</TableCell>
+                        <TableCell>{row.bsp}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+
+              <Typography variant="body1" sx={{ mb: 6, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
+                1/2" and 3/4" have the same pitch in both standards, which is exactly why mismatches at those sizes go unnoticed until the joint leaks. Check the thread angle as well as the pitch.
+              </Typography>
+
               {/* SECTION 2 */}
               <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
                 Fast Identification in the Field
@@ -203,7 +286,7 @@ const NPTBSPPBSPTBlog: React.FC = () => {
 
               <Paper elevation={0} sx={{ p: 3, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px", mb: 6 }}>
                 <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
-                  <strong>Tip:</strong> Ports stamped <strong>G</strong> are BSPP. Ports stamped <strong>R</strong> (male) or <strong>Rc</strong> (female) are BSPT. NPT ports are often marked <strong>NPT</strong> or <strong>NPS</strong> (parallel NPT form used for mechanical joints, not pressure sealing).
+                  <strong>Tip:</strong> Ports stamped <strong>G</strong> are BSPP. Ports stamped <strong>R</strong> (male) or <strong>Rc</strong> (female) are BSPT. <strong>Rp</strong> is a parallel female thread made to mate with an R male. NPT ports are often marked <strong>NPT</strong> or <strong>NPS</strong> (parallel NPT form used for mechanical joints, not pressure sealing).
                 </Typography>
               </Paper>
 
@@ -276,6 +359,34 @@ const NPTBSPPBSPTBlog: React.FC = () => {
               </Box>
 
               <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
+                Panam high pressure hex nipples cover NPT to BSPP and NPT to BSPT in SS 316, for example:
+              </Typography>
+
+              <Box component="ul" sx={{ mb: 4, pl: 2 }}>
+                <Box component="li" sx={{ mb: 1 }}>
+                  <Typography variant="body1">
+                    <Box component="a" href="/high-pressure/pipe-fittings/hex-nipples/PHN-8N-8G-SS-10K" sx={linkSx}>PHN-8N-8G-SS-10K</Box>: 1/2" NPT to 1/2" BSPP (ISO parallel), 10,000 psi
+                  </Typography>
+                </Box>
+                <Box component="li" sx={{ mb: 1 }}>
+                  <Typography variant="body1">
+                    <Box component="a" href="/high-pressure/pipe-fittings/hex-nipples/PHN-8N-8R-SS-10K" sx={linkSx}>PHN-8N-8R-SS-10K</Box>: 1/2" NPT to 1/2" BSPT, 10,000 psi
+                  </Typography>
+                </Box>
+                <Box component="li" sx={{ mb: 1 }}>
+                  <Typography variant="body1">
+                    The full range, including reducing sizes, is on the{" "}
+                    <Box component="a" href="/high-pressure/pipe-fittings/hex-nipples" sx={linkSx}>hex nipples</Box>
+                    {" "}page.
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
+                Do not force a part that does not thread in smoothly by hand.
+              </Typography>
+
+              <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
                 Valvenok supplies SS316 adapters, nipples and reducers in the PANAM range with material certificates on request. For sour service, tell us your requirement at enquiry. Browse the SS316 instrumentation and pipe fittings range to filter by thread standard, size and type.
               </Typography>
 
@@ -283,11 +394,11 @@ const NPTBSPPBSPTBlog: React.FC = () => {
                 <Box component="li" sx={{ mb: 1 }}>
                   <Typography variant="body1">
                     Explore instrumentation tube and pipe fittings in SS316:{" "}
-                    <Box component="a" href="https://www.panamvalve.com/fittings/pipe-fittings" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+                    <Box component="a" href="/instrumentation-fittings/pipe-fittings" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
                       pipe fittings
                     </Box>
                     {" "}and{" "}
-                    <Box component="a" href="https://www.panamvalve.com/fittings/tube-fittings" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+                    <Box component="a" href="/instrumentation-fittings/tube-fittings" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
                       tube fittings
                     </Box>
                     {" "}categories.
@@ -300,9 +411,7 @@ const NPTBSPPBSPTBlog: React.FC = () => {
                       stainless steel valves
                     </Box>
                     {" "}and{" "}
-                    <Box component="a" href="https://www.panamvalve.com/instrumentation/pressure-gauges" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                      pressure gauge
-                    </Box>
+                    pressure gauge
                     {" "}options to match end connections.
                   </Typography>
                 </Box>
@@ -401,11 +510,60 @@ const NPTBSPPBSPTBlog: React.FC = () => {
                   stainless steel valves
                 </Box>
                 {" "}and our{" "}
-                <Box component="a" href="https://www.panamvalve.com/instrumentation/pressure-gauges" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                  pressure gauge
-                </Box>
+                pressure gauge
                 {" "}category.
               </Typography>
+
+              {/* PART CODES */}
+              <Typography id="part-codes" variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
+                How Panam Part Codes Show the Thread
+              </Typography>
+
+              <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
+                Panam part codes carry the thread type as a letter: <strong>G</strong> for BSPP, <strong>R</strong> for BSPT and <strong>N</strong> for NPT. The number in front is the size in sixteenths of an inch (2 = 1/8", 4 = 1/4", 6 = 3/8", 8 = 1/2", 12 = 3/4", 16 = 1"). Reading the code tells you the thread before you order.
+              </Typography>
+
+              <Paper elevation={0} sx={{ p: 3, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px", mb: 3 }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1, fontFamily: "monospace" }}>PHN-8N-8R-SS-10K</Typography>
+                <Box component="ul" sx={{ pl: 2, m: 0 }}>
+                  {[
+                    "PHN: hex nipple",
+                    '8N: 1/2" NPT on the first end',
+                    '8R: 1/2" BSPT on the second end',
+                    "SS: SS 316",
+                    "10K: rated to 10,000 psi",
+                  ].map(item => (
+                    <Box component="li" key={item} sx={{ mb: 0.5 }}>
+                      <Typography variant="body1">{item}</Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </Paper>
+
+              <Typography variant="body1" sx={{ mb: 6, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
+                Swap the R for a G and you have{" "}
+                <Box component="a" href="/high-pressure/pipe-fittings/hex-nipples/PHN-8N-8G-SS-10K" sx={linkSx}>PHN-8N-8G-SS-10K</Box>
+                , the same nipple with a 1/2" BSPP end instead. One letter is the difference between a tapered and a parallel thread, so quote the full code when you enquire.
+              </Typography>
+
+              {/* QUOTE CHECKLIST */}
+              <Typography id="specify" variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
+                What to Tell Us When You Ask for a Quote
+              </Typography>
+
+              <Box component="ul" sx={{ mb: 6, pl: 2 }}>
+                {[
+                  'Thread type: NPT, BSPT or BSPP (not just "BSP")',
+                  "Nominal size",
+                  "Male or female",
+                  "The Panam part code, if you have one",
+                  "Medium, pressure and temperature, if known",
+                ].map(item => (
+                  <Box component="li" sx={{ mb: 2 }} key={item}>
+                    <Typography variant="body1">{item}</Typography>
+                  </Box>
+                ))}
+              </Box>
 
               {/* FAQ */}
               <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
@@ -428,7 +586,7 @@ const NPTBSPPBSPTBlog: React.FC = () => {
 
               <Typography variant="body1" sx={{ mb: 10, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
                 Correctly identifying NPT, BSPP and BSPT saves ports, prevents leaks and keeps commissioning on schedule. Check taper, pitch and markings, then choose the right seal method. Never force mixed standards; convert with SS316 adapters and nipples. Request material certificates and state any sour service requirement at enquiry. If you want help matching threads to valves, gauges and fittings, contact Valvenok technical support or browse our{" "}
-                <Box component="a" href="https://www.panamvalve.com/fittings" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+                <Box component="a" href="/instrumentation-fittings" target="_blank" rel="noopener noreferrer" sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
                   SS316 instrumentation and pipe fittings
                 </Box>
                 {" "}to build a leak-tight bill of materials.
@@ -463,6 +621,8 @@ const NPTBSPPBSPTBlog: React.FC = () => {
                 <Stack spacing={2}>
                   {[
                     "NPT vs BSPP vs BSPT Differences",
+                    "Why \"BSP\" Alone Is Not Enough",
+                    "Threads per Inch by Size",
                     "Fast Field Identification",
                     "Seal Methods by Standard",
                     "Compatibility Myths",
@@ -470,6 +630,8 @@ const NPTBSPPBSPTBlog: React.FC = () => {
                     "Selection Checklist",
                     "Inspection Before Start-Up",
                     "Mapping to Valvenok Parts",
+                    "How Panam Part Codes Show the Thread",
+                    "What to Tell Us for a Quote",
                   ].map(text => (
                     <Box key={text} sx={{ pb: 2, borderBottom: "1px solid #EEE" }}>
                       <Typography variant="body2" sx={{ fontWeight: 500, color: "#555" }}>
