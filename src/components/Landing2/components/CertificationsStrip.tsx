@@ -1,83 +1,72 @@
-import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material"
+import { Box, Container, Grid, Typography, Button } from "@mui/material"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { Link as RouterLink } from "react-router-dom"
 import { certsByTab } from "../../Resources/components/Cert"
+import { C, btn, cardSx, cardHoverSx, sectionSx } from "../homeTokens"
+import { SectionHeader } from "../homeStyles"
 
-const BRAND_BLUE = "#01B0F0"
-
-const featuredCerts = [
-  ...(certsByTab["qms"] ?? []).map(cert => ({ ...cert, tab: "qms" })),
-]
+const featuredCerts = [...(certsByTab["qms"] ?? []).map(cert => ({ ...cert, tab: "qms" }))]
 
 const CertificationsStrip = () => {
   return (
-    <Box component="section" sx={{ py: 10, bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0", borderBottom: "1px solid #E2E8F0" }}>
+    <Box component="section" sx={sectionSx("surface")}>
       <Container maxWidth="lg">
-        <Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "flex-end" }} spacing={3} sx={{ mb: 6 }}>
-          <Box>
-            <Typography variant="overline" sx={{ fontWeight: 800, color: BRAND_BLUE, letterSpacing: 1.5 }}>
-              Certified & Compliant
-            </Typography>
-            <Typography variant="h4" component="h3" sx={{ fontWeight: 800, color: "#1E293B", mt: 1 }}>
-              Quality You Can Verify
-            </Typography>
-          </Box>
-          <Button
-            component={RouterLink} viewTransition
-            to="/certificates"
-            variant="outlined"
-            endIcon={<ArrowForwardIcon />}
-            sx={{
-              borderColor: "#E2E8F0",
-              color: "#475569",
-              fontWeight: 600,
-              px: 3,
-              borderRadius: "8px",
-              textTransform: "none",
-              transition: "0.2s",
-              "&:hover": { borderColor: BRAND_BLUE, color: BRAND_BLUE, bgcolor: "rgba(1,176,240,0.04)" },
-            }}>
-            View All Certifications
-          </Button>
-        </Stack>
+        <SectionHeader
+          eyebrow="Certified & Compliant"
+          title="Quality You Can Verify"
+          titleComponent="h3"
+          action={
+            <Button component={RouterLink} viewTransition to="/certificates" endIcon={<ArrowForwardIcon />} sx={{ ...btn.secondary, flexShrink: 0 }}>
+              View All Certifications
+            </Button>
+          }
+        />
 
-        <Grid container spacing={3}>
-          {featuredCerts.map((cert, i) => (
-            <Grid key={i} size={{ xs: 6, sm: 4, md: 3 }}>
-              <Stack
-                component={RouterLink} viewTransition
+        <Grid container spacing={{ xs: 2.5, md: 4 }}>
+          {featuredCerts.map(cert => (
+            <Grid key={cert.title} size={{ xs: 12, sm: 6, md: 4 }}>
+              <Box
+                component={RouterLink}
+                viewTransition
                 to={`/certificates/${cert.tab}`}
-                spacing={1.5}
-                alignItems="center"
                 sx={{
-                  p: 3,
+                  ...cardSx,
+                  ...cardHoverSx,
+                  display: "flex",
+                  flexDirection: "column",
                   height: "100%",
-                  textAlign: "center",
-                  bgcolor: "#F8FAFC",
-                  border: "1px solid #E2E8F0",
+                  overflow: "hidden",
                   textDecoration: "none",
-                  cursor: "pointer",
-                  transition: "all 0.25s ease",
-                  "&:hover": {
-                    bgcolor: "#FFFFFF",
-                    borderColor: BRAND_BLUE,
-                    boxShadow: "0 10px 24px rgba(1,176,240,0.1)",
-                    transform: "translateY(-4px)",
-                    "& .cert-img": { transform: "scale(1.08)" },
-                  },
-                  "&:active": { transform: "translateY(-1px)" },
+                  "&:hover .cert-img": { transform: "scale(1.42)" },
+                  "&:hover .cert-cta": { color: C.brandDark },
                 }}>
                 <Box
-                  component="img"
-                  className="cert-img"
-                  src={cert.image}
-                  alt={cert.title}
-                  loading="lazy"
-                  sx={{ height: 56, width: "auto", maxWidth: "100%", objectFit: "contain", transition: "transform 0.3s ease" }}
-                />
-                <Typography sx={{ fontWeight: 800, fontSize: "0.85rem", color: "#1E293B" }}>{cert.title}</Typography>
-                <Typography variant="caption" sx={{ color: "#64748B" }}>{cert.subtitle}</Typography>
-              </Stack>
+                  sx={{
+                    position: "relative",
+                    height: { xs: 300, md: 340 },
+                    m: 1.25,
+                    borderRadius: "14px",
+                    bgcolor: C.white,
+                    border: `1px solid ${C.border}`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflow: "hidden",
+                  }}>
+                  <Box
+                    component="img"
+                    className="cert-img"
+                    src={cert.image}
+                    alt={cert.title}
+                    loading="lazy"
+                    sx={{ height: "100%", width: "100%", objectFit: "contain", transform: "scale(1.34)", transition: "transform 0.45s ease" }}
+                  />
+                </Box>
+                <Box sx={{ px: 3, pt: 1.5, pb: 3 }}>
+                  <Typography sx={{ fontWeight: 800, fontSize: "1.15rem", color: C.ink, letterSpacing: "-0.01em" }}>{cert.title}</Typography>
+                  <Typography sx={{ color: C.muted, fontSize: "0.92rem", lineHeight: 1.5, mt: 0.5 }}>{cert.subtitle}</Typography>
+                </Box>
+              </Box>
             </Grid>
           ))}
         </Grid>

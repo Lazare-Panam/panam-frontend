@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   Box, 
   Container, 
   Typography, 
   Button, 
-  Grid, 
   Stack, 
   Tabs, 
   Tab,
-  alpha 
 } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import HandymanIcon from '@mui/icons-material/Handyman';
@@ -20,8 +18,9 @@ import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import { Link as RouterLink } from 'react-router-dom';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-const BRAND_BLUE = "#01B0F0";
+import { useReducedMotion } from 'framer-motion';
+import { C, RADIUS, btn, sectionSx } from '../homeTokens';
+import { SectionHeader } from '../homeStyles';
 
 const industryData = [
   {
@@ -56,7 +55,7 @@ const industryData = [
     path: '/industries/hydrogen',
     title: 'Hydrogen Infrastructure',
     desc: 'Specialised hydrogen infrastructure support for large-scale electrolyser and refuelling projects. Advanced leak-detection and dedicated H2 supply chain.',
-    img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/w_800,f_auto,q_auto/v1769604874/biel-morro-HCha-UHkIg8-unsplash_pl8qt9.jpg',
+    img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80',
     specs: [
       { icon: <FlashOnIcon />, text: 'H2-rated valves for 350 bar+ service' },
       { icon: <ScienceIcon />, text: 'Leak-detection training and engineering audits' },
@@ -82,7 +81,7 @@ const industryData = [
     path: '/industries/chemicals-petrochemical',
     title: 'Chemicals & Petrochemical',
     desc: 'Corrosion-resistant valves and fittings for aggressive chemical environments. Stainless steel and exotic alloy options for demanding process conditions.',
-    img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/w_800,f_auto,q_auto/v1769604928/annie-spratt-Iqwnr00mfQM-unsplash_qtpa2u.jpg',
+    img: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1200&q=80',
     specs: [
       { icon: <ScienceIcon />, text: 'Full material range for aggressive service' },
       { icon: <LocalGasStationIcon />, text: 'Sour service requirements reviewed at enquiry' },
@@ -104,159 +103,206 @@ const industryData = [
   }
 ];
 
+const AUTO_ADVANCE_MS = 6000;
+
+// Expanding image "flash cards": the active industry opens wide over its photo with the details;
+// the others stay as slim image panels. Advances on its own and pauses while hovered.
 const IndustriesSection = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [paused, setPaused] = useState(false);
   const prefersReducedMotion = useReducedMotion();
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-  setActiveTab(newValue);
-};
+    setActiveTab(newValue);
+  };
 
-  const current = industryData[activeTab];
+  useEffect(() => {
+    if (paused || prefersReducedMotion) return;
+    const id = setInterval(() => setActiveTab(i => (i + 1) % industryData.length), AUTO_ADVANCE_MS);
+    return () => clearInterval(id);
+  }, [paused, prefersReducedMotion]);
 
   return (
-    <Box component="section" id="industries" sx={{ py: 12, bgcolor: '#F8FAFC' }}>
+    <Box component="section" id="industries" sx={sectionSx('white')}>
       <Container maxWidth="lg">
-        {/* Header */}
-        <Box sx={{ mb: 6 }}>
-          <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-            <Typography variant="overline" sx={{ fontWeight: 800, color: BRAND_BLUE, letterSpacing: 1.5 }}>
-              Product Applications
-            </Typography>
-            <Box sx={{ width: 40, height: '1px', bgcolor: BRAND_BLUE }} />
-          </Stack>
-          <Typography variant="h2" sx={{ fontWeight: 800, color: '#1E293B', mb: 3 }}>
-            Industries <Box component="span" sx={{ color: BRAND_BLUE }}>We Serve</Box>
-          </Typography>
-          <Typography variant="body1" sx={{ color: '#64748B', maxWidth: 600 }}>
-            Precision-engineered instrumentation valves trusted across the world’s most demanding industrial environments.
-          </Typography>
-        </Box>
+        <SectionHeader
+          eyebrow="Product Applications"
+          title="Industries We Serve"
+          subtitle="Precision-engineered instrumentation valves trusted across the world’s most demanding industrial environments."
+        />
 
-        {/* Tabs Navigation */}
-        <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 6 }}>
-          <Tabs 
-            value={activeTab} 
-            onChange={handleChange} 
-            variant="scrollable"
-            scrollButtons="auto"
-            sx={{
-              '& .MuiTabs-indicator': { bgcolor: BRAND_BLUE, height: 3,borderRadius: 0 },
-              '& .MuiTab-root': { 
-                fontWeight: 700, 
-                textTransform: 'none', 
-                fontSize: '1rem',
-                color: '#94A3B8',
-                borderRadius: 0,
-                '&.Mui-selected': { color: '#1E293B' }
-              }
-            }}
-          >
-            {industryData.map((item,) => (
-              <Tab key={item.id} label={item.label} />
-            ))}
-          </Tabs>
-        </Box>
-
-        {/* Tab Panel Content */}
-        <Box 
-          sx={{ 
-            bgcolor: '#FFFFFF', 
-            borderRadius: '0', 
-            overflow: 'hidden', 
-            boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
-            border: '1px solid #E2E8F0'
+        {/* Pill tabs (kept for quick navigation; synced with the cards) */}
+        <Tabs
+          value={activeTab}
+          onChange={handleChange}
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
+          sx={{
+            mb: 3.5,
+            minHeight: 0,
+            '& .MuiTabs-indicator': { display: 'none' },
+            '& .MuiTabs-flexContainer': { gap: 1 },
+            '& .MuiTab-root': {
+              minHeight: 0,
+              py: 1.1,
+              px: 2.25,
+              borderRadius: RADIUS.pill,
+              fontWeight: 600,
+              textTransform: 'none',
+              fontSize: '0.95rem',
+              color: C.text,
+              bgcolor: C.surface,
+              border: `1px solid ${C.border}`,
+              transition: 'all 0.2s ease',
+              '&:hover': { borderColor: C.brand, color: C.brandDark },
+              '&.Mui-selected': { color: C.white, bgcolor: C.brand, borderColor: C.brand, boxShadow: '0 6px 16px rgba(1,176,240,0.3)' },
+            },
           }}
         >
-          <Grid container>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current.id}
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={prefersReducedMotion ? undefined : { opacity: 0, y: -12 }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
-                style={{ display: "contents" }}
+          {industryData.map(item => (
+            <Tab key={item.id} label={item.label} />
+          ))}
+        </Tabs>
+
+        <Box
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocusCapture={() => setPaused(true)}
+          onBlurCapture={() => setPaused(false)}
+          sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 1.5, height: { md: 560 } }}
+        >
+          {industryData.map((item, i) => {
+            const active = i === activeTab;
+            return (
+              <Box
+                key={item.id}
+                role="button"
+                tabIndex={0}
+                aria-expanded={active}
+                aria-label={item.title}
+                onClick={() => setActiveTab(i)}
+                onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActiveTab(i); } }}
+                sx={{
+                  position: 'relative',
+                  overflow: 'hidden',
+                  borderRadius: '22px',
+                  bgcolor: C.brandDeep, // shows while the photo loads
+                  cursor: active ? 'default' : 'pointer',
+                  flex: { md: active ? '5 1 0' : '1 1 0' },
+                  minWidth: 0,
+                  height: { xs: active ? 560 : 84, md: 'auto' },
+                  transition: 'flex 0.7s cubic-bezier(0.4, 0, 0.2, 1), height 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease',
+                  boxShadow: active ? '0 20px 50px rgba(3,104,166,0.22)' : 'none',
+                  outline: 'none',
+                  '&:focus-visible': { boxShadow: `0 0 0 3px ${C.brand}` },
+                  '&:hover .ind-img': { transform: active ? 'scale(1.04)' : 'scale(1.1)' },
+                }}
               >
-                {/* Left Body */}
-                <Grid size={{ xs: 12, md: 6 }} sx={{ p: { xs: 4, md: 8 } }}>
-                  <Stack spacing={4}>
-                    <Typography variant="h4" component="h3" sx={{ fontWeight: 800, color: '#1E293B' }}>
-                      {current.title}
-                    </Typography>
-                    <Typography variant="body1" sx={{ color: '#64748B', lineHeight: 1.7 }}>
-                      {current.desc}
-                    </Typography>
+                <Box
+                  component="img"
+                  className="ind-img"
+                  src={item.img}
+                  alt={item.title}
+                  sx={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', color: 'transparent', transform: active ? 'scale(1.02)' : 'scale(1.08)', transition: 'transform 1.2s ease' }}
+                />
+                {/* Brand-blue scrim for legible text (no black) */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: active
+                      ? 'linear-gradient(180deg, rgba(3,80,130,0) 25%, rgba(3,80,130,0.55) 55%, rgba(2,62,104,0.92) 100%)'
+                      : 'linear-gradient(180deg, rgba(3,80,130,0.15) 0%, rgba(2,62,104,0.75) 100%)',
+                    transition: 'background 0.6s ease',
+                  }}
+                />
 
-                    <Stack spacing={2.5}>
-                      {current.specs.map((spec, i) => (
-                        <Stack key={i} direction="row" spacing={2} alignItems="center">
-                          <Box sx={{ color: BRAND_BLUE, display: 'flex' }}>
-                            {spec.icon}
-                          </Box>
-                          <Typography variant="body2" sx={{ fontWeight: 600, color: '#475569' }}>
-                            {spec.text}
-                          </Typography>
-                        </Stack>
-                      ))}
-                    </Stack>
-
-                    <Box sx={{ pt: 2 }}>
-                      <Button
-                        component={RouterLink} viewTransition
-                        to={current.path}
-                        variant="contained"
-                        size="large"
-                        endIcon={<ArrowForwardIcon />}
-                        sx={{
-                          bgcolor: BRAND_BLUE,
-                          fontWeight: 700,
-                          px: 4, py: 1.5,
-                          borderRadius: '0',
-                          transition: 'transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease',
-                          '&:hover': { bgcolor: alpha(BRAND_BLUE, 0.9), transform: 'translateY(-2px)', boxShadow: `0 8px 20px ${alpha(BRAND_BLUE, 0.35)}` },
-                          '&:active': { transform: 'translateY(0)' },
-                        }}
-                      >
-                        Explore {current.label}
-                      </Button>
-                    </Box>
-                  </Stack>
-                </Grid>
-
-                {/* Right Visual */}
-                <Grid size={{ xs: 12, md: 6 }} sx={{ position: 'relative', minHeight: { xs: 300, md: 'auto' } }}>
-                  <Box
-                    component="img"
-                    src={current.img}
-                    alt={current.title}
-                    loading="lazy"
+                {/* Collapsed label */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    alignItems: { xs: 'center', md: 'flex-end' },
+                    justifyContent: { xs: 'flex-start', md: 'center' },
+                    px: { xs: 3, md: 0 },
+                    pb: { md: 4 },
+                    opacity: active ? 0 : 1,
+                    transition: 'opacity 0.3s ease',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  <Typography
                     sx={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      display: 'block'
-                    }}
-                  />
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      bottom: 24,
-                      left: 24,
-                      bgcolor: alpha('#1E293B', 0.8),
-                      backdropFilter: 'blur(8px)',
-                      color: 'white',
-                      px: 3, py: 1,
-                      borderRadius: '4px',
+                      color: C.white,
                       fontWeight: 700,
-                      fontSize: '0.875rem'
+                      fontSize: '1rem',
+                      whiteSpace: 'nowrap',
+                      writingMode: { md: 'vertical-rl' },
+                      transform: { md: 'rotate(180deg)' },
+                      letterSpacing: '0.01em',
                     }}
                   >
-                    {current.label}
-                  </Box>
-                </Grid>
-              </motion.div>
-            </AnimatePresence>
-          </Grid>
+                    {item.label}
+                  </Typography>
+                </Box>
+
+                {/* Expanded content */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    p: { xs: 3, md: 4.5 },
+                    color: C.white,
+                    opacity: active ? 1 : 0,
+                    transform: active ? 'none' : 'translateY(16px)',
+                    transition: active ? 'opacity 0.5s ease 0.35s, transform 0.5s ease 0.35s' : 'opacity 0.2s ease, transform 0.2s ease',
+                    pointerEvents: active ? 'auto' : 'none',
+                    minWidth: { md: 460 },
+                  }}
+                >
+                  <Typography variant="h4" component="h3" sx={{ fontWeight: 800, letterSpacing: '-0.02em', fontSize: { xs: '1.6rem', md: '2rem' }, mb: 1.5 }}>
+                    {item.title}
+                  </Typography>
+                  <Typography sx={{ color: 'rgba(255,255,255,0.88)', lineHeight: 1.65, fontSize: '0.98rem', mb: 2.5, maxWidth: 560 }}>
+                    {item.desc}
+                  </Typography>
+                  <Stack spacing={1.1} sx={{ mb: 3 }}>
+                    {item.specs.map((spec, j) => (
+                      <Stack key={j} direction="row" spacing={1.5} alignItems="center">
+                        <Box sx={{ width: 30, height: 30, flex: 'none', borderRadius: '9px', bgcolor: 'rgba(255,255,255,0.18)', border: '1px solid rgba(255,255,255,0.25)', display: 'grid', placeItems: 'center', '& svg': { fontSize: 17 } }}>
+                          {spec.icon}
+                        </Box>
+                        <Typography sx={{ fontWeight: 500, fontSize: '0.92rem' }}>{spec.text}</Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
+                  <Button component={RouterLink} viewTransition to={item.path} endIcon={<ArrowForwardIcon />} tabIndex={active ? 0 : -1} sx={{ ...btn.light, color: C.brandDeep }}>
+                    Explore {item.label}
+                  </Button>
+                </Box>
+
+                {/* Progress bar for the auto-advance */}
+                {active && !prefersReducedMotion && (
+                  <Box
+                    key={`${item.id}-${paused}`}
+                    sx={{
+                      position: 'absolute',
+                      left: 0,
+                      top: 0,
+                      height: 3,
+                      bgcolor: C.brand,
+                      width: paused ? 0 : '100%',
+                      animation: paused ? 'none' : `industryProgress ${AUTO_ADVANCE_MS}ms linear`,
+                      '@keyframes industryProgress': { from: { width: 0 }, to: { width: '100%' } },
+                    }}
+                  />
+                )}
+              </Box>
+            );
+          })}
         </Box>
       </Container>
     </Box>

@@ -31,19 +31,27 @@ export const NavLink: React.FC<NavLinkProps> = ({ item, isOpen, onHover, onClick
           sx={{
             transition: "0.2s",
             transform: isOpen ? "rotate(180deg)" : "none",
-            fontSize: 14,
+            fontSize: 16,
           }}
         />
       )
     }
     sx={{
-      color: "#1A1A1A",
+      color: isOpen ? BRAND_BLUE : "#22364A",
+      bgcolor: isOpen ? "rgba(1,176,240,0.08)" : "transparent",
       textTransform: "none",
       fontFamily: PRIMARY_FONT,
-      fontSize: "0.775rem",
-      fontWeight: 600,
-      px: 2,
-      "&:hover": { color: BRAND_BLUE },
+      fontSize: "0.9rem",
+      fontWeight: 500,
+      letterSpacing: "-0.005em",
+      whiteSpace: "nowrap",
+      flexShrink: 0,
+      px: { md: 1.25, xl: 1.25 },
+      py: 1,
+      borderRadius: "10px",
+      transition: "color 0.2s ease, background-color 0.2s ease",
+      "& .MuiButton-endIcon": { ml: 0.5 },
+      "&:hover": { color: BRAND_BLUE, bgcolor: "rgba(1,176,240,0.08)" },
     }}
   >
     {item.label}

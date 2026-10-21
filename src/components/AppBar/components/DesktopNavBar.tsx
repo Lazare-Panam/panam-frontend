@@ -10,19 +10,20 @@ const DesktopNavbar = (props: any) => {
   const navigate = useNavigate()
   const { megaMenuOpen, handleMouseEnter, cartCount, setOpenDrawer } = props
 
-  const LOGO_URL = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/panam-resize_smallest.jpg"
+  // Transparent, tightly trimmed logo (the old JPG had an off-white box behind it)
+  const LOGO_URL = "/brands/panam-logo-nav.png"
 
   return (
     <Box sx={{ position: 'relative' }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ height: 90, justifyContent: "space-between" }}>
+        <Toolbar disableGutters sx={{ height: { xs: 72, md: 80 }, justifyContent: "space-between" }}>
           
           <Box onClick={() => navigate("/")} sx={{ cursor: "pointer", zIndex: 10, display: "flex", alignItems: "center", flexShrink: 0 }}>
-            <Box component="img" src={LOGO_URL} alt="Panam logo" sx={{ height: 70, width: "auto", objectFit: "contain" }} />
+            <Box component="img" src={LOGO_URL} alt="Panam logo" sx={{ height: { xs: 36, md: 42 }, width: "auto", objectFit: "contain" }} />
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", mx: 2 }}>
-            <Stack direction="row" spacing={1} sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: { xs: 1, xl: 0 }, flexShrink: 0, display: "flex", alignItems: "center", mx: { md: 1, xl: 0.5 } }}>
+            <Stack direction="row" spacing={0} sx={{ display: { xs: "none", md: "flex" }, ml: { md: 1, lg: 2.5, xl: 2 } }}>
               {NAV_LINKS.map(item => (
                 <NavLink
                   key={item.id}
@@ -35,6 +36,11 @@ const DesktopNavbar = (props: any) => {
             </Stack>
           </Box>
 
+          {/* Inline search on wide screens (one-row header) */}
+          <Box sx={{ display: { xs: "none", xl: "block" }, flex: "1 1 auto", maxWidth: 560, minWidth: 260, ml: { xl: 3 }, mr: 4 }}>
+            <SearchBar inline />
+          </Box>
+
           <AccreditationStack />
 
           <ActionStack
@@ -44,8 +50,10 @@ const DesktopNavbar = (props: any) => {
         </Toolbar>
       </Container>
 
-      {/* Always visible search bar */}
-      <SearchBar />
+      {/* Always-visible search row on smaller screens */}
+      <Box sx={{ display: { xs: "block", xl: "none" } }}>
+        <SearchBar />
+      </Box>
     </Box>
   )
 }

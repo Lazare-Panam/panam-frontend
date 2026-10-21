@@ -1,10 +1,19 @@
-import React from "react"
-import { Box, Container, Typography, Accordion, AccordionSummary, AccordionDetails, Paper } from "@mui/material"
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import React, { useState } from "react"
+import { Box, Button, Container, Grid, Stack, Typography, Accordion, AccordionSummary, AccordionDetails } from "@mui/material"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import AddRoundedIcon from "@mui/icons-material/AddRounded"
+import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined"
+import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined"
+import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined"
+import ScheduleOutlinedIcon from "@mui/icons-material/ScheduleOutlined"
+import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined"
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined"
+import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined"
+import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined"
 import { Link as RouterLink } from "react-router-dom"
 
-const BRAND_BLUE = "#01B0F0"
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
+import { C, SHADOW, btn, cardSx, sectionSx } from "../homeTokens"
+import { Eyebrow } from "../homeStyles"
 
 interface FAQItem {
   question: string
@@ -49,18 +58,22 @@ const faqs: FAQItem[] = [
   },
 ]
 
+// One icon per question, in the same order as `faqs`.
+const faqIcons = [
+  <Inventory2OutlinedIcon />,
+  <FactoryOutlinedIcon />,
+  <ScienceOutlinedIcon />,
+  <ScheduleOutlinedIcon />,
+  <EngineeringOutlinedIcon />,
+  <DescriptionOutlinedIcon />,
+  <RequestQuoteOutlinedIcon />,
+]
+
 const FAQSection: React.FC = () => {
+  const [expanded, setExpanded] = useState<number | false>(0)
+
   return (
-    <Box
-      component="section"
-      sx={{
-        width: "100%",
-        py: { xs: 8, md: 12 },
-        backgroundColor: "#fcfcfc",
-        // Subtle dot pattern to make the background feel "engineered" and less empty
-        backgroundImage: `radial-gradient(${BRAND_BLUE}22 1px, transparent 0)`,
-        backgroundSize: "40px 40px",
-      }}>
+    <Box component="section" sx={sectionSx("surface")}>
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -73,98 +86,82 @@ const FAQSection: React.FC = () => {
         })}
       </script>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 6, textAlign: "center" }}>
-          <Typography
-            variant="overline"
-            sx={{
-              color: BRAND_BLUE,
-              fontWeight: 800,
-              letterSpacing: 3,
-              fontFamily: PRIMARY_FONT,
-              display: "block",
-            }}>
-            SUPPORT CENTER
-          </Typography>
-          <Typography
-            variant="h3"
-            sx={{
-              fontWeight: 800,
-              fontFamily: PRIMARY_FONT,
-              mt: 1,
-              color: "#1a1a1a",
-              fontSize: { xs: "2.25rem", md: "3rem" },
-            }}>
-            Frequently Asked Questions
-          </Typography>
-        </Box>
-
-        <Paper
-          elevation={0}
-          sx={{
-            maxWidth: "900px",
-            mx: "auto",
-            p: { xs: 2, md: 4 },
-            borderRadius: "4px",
-            border: "1px solid #eef0f2",
-            backgroundColor: "#ffffff",
-            // This box shadow gives it that premium "Paper" feel
-            boxShadow: "0px 20px 50px rgba(0,0,0,0.04)",
-          }}>
-          {faqs.map((faq, index) => (
-            <Accordion
-              key={index}
-              disableGutters
-              elevation={0}
-              sx={{
-                borderBottom: index !== faqs.length - 1 ? "1px solid #f0f0f0" : "none",
-                "&:before": { display: "none" },
-                backgroundColor: "transparent",
-              }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: BRAND_BLUE, fontSize: "1.8rem" }} />}
-                aria-controls={`faq-content-${index}`}
-                id={`faq-header-${index}`}
+        <Grid container spacing={{ xs: 5, md: 8 }}>
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Box sx={{ position: { md: "sticky" }, top: { md: 120 } }}>
+              <Eyebrow>SUPPORT CENTER</Eyebrow>
+              <Typography component="h2" sx={{ mt: 2, fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.12, fontSize: { xs: "2rem", md: "2.5rem" }, color: C.ink }}>
+                Frequently Asked Questions
+              </Typography>
+              <Box
                 sx={{
-                  px: { xs: 1, md: 2 },
-                  py: 1,
-                  "&:hover": { bgcolor: "rgba(1, 176, 240, 0.02)" },
-                  "& .MuiAccordionSummary-content": {
-                    my: 2,
-                  },
+                  mt: 4,
+                  p: { xs: 3, md: 3.5 },
+                  borderRadius: "20px",
+                  background: `linear-gradient(145deg, ${C.white} 0%, ${C.tintBg} 100%)`,
+                  border: "1px solid rgba(1,176,240,0.2)",
+                  boxShadow: SHADOW.card,
                 }}>
-                <Typography
-                  sx={{
-                    fontWeight: 700,
-                    fontFamily: PRIMARY_FONT,
-                    fontSize: { xs: "1rem", md: "1.15rem" },
-                    color: "#222",
-                  }}>
-                  {faq.question}
+                <Box sx={{ width: 56, height: 56, borderRadius: "16px", background: `linear-gradient(135deg, ${C.brand}, ${C.brandDeep})`, color: C.white, display: "grid", placeItems: "center", mb: 2.5, boxShadow: "0 10px 24px rgba(1,176,240,0.35)", "& svg": { fontSize: 30 } }}>
+                  <SupportAgentOutlinedIcon />
+                </Box>
+                <Typography sx={{ color: C.ink, fontWeight: 600, fontSize: "1.05rem", lineHeight: 1.5 }}>
+                  Can't find what you're looking for?
                 </Typography>
-              </AccordionSummary>
-              <AccordionDetails sx={{ px: { xs: 1, md: 2 }, pb: 4 }}>
-                <Typography
-                  sx={{
-                    fontFamily: PRIMARY_FONT,
-                    color: "#555",
-                    lineHeight: 1.8,
-                    fontSize: "1rem",
-                    maxWidth: "800px",
-                  }}>
-                  {faq.answer}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </Paper>
+                <Button component={RouterLink} viewTransition to="/enquiry" endIcon={<ArrowForwardIcon />} sx={{ ...btn.primary, mt: 2.5, width: "100%" }}>
+                  Ask our engineering team
+                </Button>
+              </Box>
+            </Box>
+          </Grid>
 
-        <Typography sx={{ textAlign: "center", mt: 4, color: "#64748B", fontFamily: PRIMARY_FONT }}>
-          Can't find what you're looking for?{" "}
-          <Box component={RouterLink} viewTransition to="/enquiry" sx={{ color: BRAND_BLUE, fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-            Ask our engineering team
-          </Box>
-          .
-        </Typography>
+          <Grid size={{ xs: 12, md: 8 }}>
+            <Stack spacing={1.5}>
+              {faqs.map((faq, index) => {
+                const open = expanded === index
+                return (
+                  <Accordion
+                    key={index}
+                    disableGutters
+                    elevation={0}
+                    expanded={open}
+                    onChange={(_, isOpen) => setExpanded(isOpen ? index : false)}
+                    sx={{
+                      ...cardSx,
+                      boxShadow: open ? SHADOW.card : "none",
+                      borderRadius: "16px !important",
+                      overflow: "hidden",
+                      borderColor: open ? "rgba(1,176,240,0.45)" : C.border,
+                      "&:before": { display: "none" },
+                      "&:hover": { borderColor: "rgba(1,176,240,0.35)" },
+                    }}>
+                    <AccordionSummary
+                      expandIcon={
+                        <Box sx={{ width: 32, height: 32, borderRadius: "50%", display: "grid", placeItems: "center", bgcolor: open ? C.brand : C.surface, color: open ? C.white : C.brandDark, transition: "all 0.25s ease" }}>
+                          <AddRoundedIcon sx={{ fontSize: 20 }} />
+                        </Box>
+                      }
+                      aria-controls={`faq-content-${index}`}
+                      id={`faq-header-${index}`}
+                      sx={{
+                        px: { xs: 2, md: 2.5 },
+                        "& .MuiAccordionSummary-content": { my: 1.75, alignItems: "center", gap: 2 },
+                        "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": { transform: "rotate(45deg)" },
+                      }}>
+                      <Box sx={{ width: 44, height: 44, flex: "none", borderRadius: "12px", display: "grid", placeItems: "center", bgcolor: open ? C.brandTint : C.surface, color: C.brandDark, transition: "background-color 0.25s ease", "& svg": { fontSize: 23 } }}>
+                        {faqIcons[index]}
+                      </Box>
+                      <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.98rem", md: "1.05rem" }, color: C.ink }}>{faq.question}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ pl: { xs: 2, md: "92px" }, pr: { xs: 2, md: 5 }, pt: 0, pb: 3 }}>
+                      <Typography sx={{ color: C.text, lineHeight: 1.8, fontSize: "0.97rem" }}>{faq.answer}</Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                )
+              })}
+            </Stack>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   )

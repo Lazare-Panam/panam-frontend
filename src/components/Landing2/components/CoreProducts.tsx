@@ -1,8 +1,8 @@
-import { Box, Container, Typography, Button, Grid, Stack, alpha } from "@mui/material"
+import { Box, Container, Typography, Button, Grid, Stack } from "@mui/material"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { Link as RouterLink } from "react-router-dom"
-
-const BRAND_BLUE = "#01B0F0"
+import { C, btn, sectionSx } from "../homeTokens"
+import { SectionHeader } from "../homeStyles"
 
 const productData = [
   { name: "High Pressure & Hydrogen", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/high-pressure/adapters_-_npt_x_npt_-_jpg-removebg-preview.png", path: "/high-pressure" },
@@ -14,185 +14,84 @@ const productData = [
   { name: "Quick Coupling", img: "https://pblol2.blob.core.windows.net/panam-images/products/quick-coupling/iso-a", path: "/quick-coupling-and-tubing" },
   { name: "System Integration", img: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/system-integration/Img11695-removebg-preview.png", path: "/system-integration" },
 ]
+
 const CoreProducts = () => {
   return (
-    <Box component="section" id="products" sx={{ py: 12, bgcolor: "#FFFFFF" }}>
+    <Box component="section" id="products" sx={sectionSx("white")}>
       <Container maxWidth="lg">
-        {/* Header Section */}
-        <Grid container spacing={4} alignItems="flex-end" sx={{ mb: 8 }}>
-          <Grid size={{ xs: 12, md: 8 }}>
-            <Stack spacing={2}>
-              <Stack direction="row" spacing={2} alignItems="center">
-                <Typography variant="overline" sx={{ fontWeight: 800, color: BRAND_BLUE, letterSpacing: 1.5 }}>
-                  Core Product Lines
-                </Typography>
-                <Box sx={{ flex: 1, height: "1px", bgcolor: alpha(BRAND_BLUE, 0.2) }} />
-              </Stack>
-              <Typography variant="h2" sx={{ fontWeight: 800, color: "#1E293B", fontSize: { xs: "2.5rem", md: "3.5rem" }, lineHeight: 1.1 }}>
-                Our Core
-                <Box component="span" sx={{ color: BRAND_BLUE }}>
-                  {" "}
-                  Products
-                </Box>
-              </Typography>
-              <Typography variant="body1" sx={{ color: "#64748B", maxWidth: 600, fontSize: "1.1rem" }}>
-                Precision-engineered valves, manifolds and fittings for critical global infrastructure.
-              </Typography>
-            </Stack>
-          </Grid>
-          <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { md: "flex-end" } }}>
+        <SectionHeader
+          eyebrow="Core Product Lines"
+          title="Our Core Products"
+          subtitle="Precision-engineered valves, manifolds and fittings for critical global infrastructure."
+          action={
             <Stack
-              direction={{ xs: "column", sm: "row" }} // Stacks on mobile, row on desktop
-              spacing={2}
-              alignItems="center">
-              <Button
-                component={RouterLink} viewTransition
-                to="/products"
-                variant="outlined"
-                endIcon={<ArrowForwardIcon sx={{ fontSize: "1.1rem" }} />}
-                sx={{
-                  borderColor: "#E2E8F0",
-                  color: "#475569",
-                  fontWeight: 600,
-                  px: 3,
-                  py: 1,
-                  borderRadius: "8px", // Rounded corners for a modern feel
-                  textTransform: "none",
-                  transition: "0.2s",
-                  "&:hover": {
-                    borderColor: BRAND_BLUE,
-                    color: BRAND_BLUE,
-                    bgcolor: "rgba(0, 144, 200, 0.04)",
-                  },
-                }}>
+              direction="row"
+              useFlexGap
+              flexWrap={{ xs: "wrap", sm: "nowrap" }}
+              gap={1.25}
+              sx={{ flexShrink: 0, width: { xs: "100%", md: "auto" }, "& > a": { flex: { xs: "1 1 0", md: "0 0 auto" }, px: { xs: 1.5, sm: 3 } } }}>
+              <Button component={RouterLink} viewTransition to="/products" endIcon={<ArrowForwardIcon />} sx={btn.secondary}>
                 Products
               </Button>
-
-              <Button
-                component={RouterLink} viewTransition
-                to="/about"
-                variant="contained"
-                disableElevation
-                endIcon={<ArrowForwardIcon sx={{ fontSize: "1.1rem" }} />}
-                sx={{
-                  bgcolor: BRAND_BLUE,
-                  color: "#fff",
-                  fontWeight: 600,
-                  px: 3,
-                  py: 1,
-                  borderRadius: "8px",
-                  textTransform: "none",
-                  "&:hover": {
-                    bgcolor: "#0090C8",
-                    boxShadow: "0 4px 12px rgba(0, 144, 200, 0.2)",
-                  },
-                }}>
+              <Button component={RouterLink} viewTransition to="/about" endIcon={<ArrowForwardIcon />} sx={btn.secondary}>
                 Panam
               </Button>
-
-              <Button
-                component={RouterLink} viewTransition
-                to="/catalogPDFs"
-                variant="contained"
-                disableElevation
-                // Using a gold/amber accent to make it "jump out" against the blue
-                endIcon={<ArrowForwardIcon sx={{ fontSize: "1.1rem" }} />}
-                sx={{
-                  bgcolor: "#FF6B00",
-                  color: "#fff",
-                  fontWeight: 700, // Slightly bolder
-                  px: 3,
-                  py: 1,
-                  borderRadius: "8px",
-                  textTransform: "none",
-                  boxShadow: "0 2px 4px rgba(245, 158, 11, 0.2)",
-                  "&:hover": {
-                    bgcolor: "#D97706",
-                    boxShadow: "0 6px 15px rgba(245, 158, 11, 0.4)",
-                    transform: "scale(1.02)", // Scale effect makes it feel more "interactive"
-                  },
-                }}>
+              <Button component={RouterLink} viewTransition to="/catalogPDFs" endIcon={<ArrowForwardIcon />} sx={btn.primary}>
                 Catalogs
               </Button>
             </Stack>
-          </Grid>
-        </Grid>
+          }
+        />
 
-        {/* Product Grid */}
-        <Grid container spacing={4}>
-          {" "}
-          {/* Spacing 4 creates a nice 32px gap between cards */}
-          {productData.map((product, index) => (
-            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+        <Grid container spacing={{ xs: 2, md: 3 }}>
+          {productData.map((product, i) => (
+            <Grid size={{ xs: 6, md: 3 }} key={product.name}>
               <Box
-                component={RouterLink} viewTransition
+                component={RouterLink}
+                viewTransition
                 to={product.path}
                 sx={{
+                  position: "relative",
                   display: "flex",
                   flexDirection: "column",
+                  height: "100%",
+                  boxSizing: "border-box",
                   textDecoration: "none",
-                  p: 4,
-                  cursor: "pointer",
-                  // Makes all cards in a row the same height
-                  borderRadius: "0", // Small radius looks more industrial than 0
-                  bgcolor: "#F8FAFC",
-                  border: "1px solid #F1F5F9",
-                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                  textAlign: "center",
-                  "&:hover": {
-                    bgcolor: "#FFFFFF",
-                    borderColor: BRAND_BLUE,
-                    boxShadow: `0 15px 30px ${alpha(BRAND_BLUE, 0.1)}`,
-                    transform: "translateY(-10px)",
-                    "& .prod-img": { transform: "scale(1.08)" },
-                    "& .prod-link": { color: BRAND_BLUE },
-                    "& .prod-arrow": { transform: "translateX(4px)" },
-                  },
-                  "&:active": {
-                    transform: "translateY(-4px)",
-                    boxShadow: `0 8px 16px ${alpha(BRAND_BLUE, 0.12)}`,
-                  },
+                  borderRadius: "24px",
+                  overflow: "hidden",
+                  bgcolor: C.white,
+                  border: `1px solid ${C.border}`,
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+                  "&:hover": { transform: "translateY(-6px)", boxShadow: "0 24px 50px rgba(1,120,190,0.16)", borderColor: "rgba(1,176,240,0.4)" },
+                  "&:hover .prod-img": { transform: "scale(1.1) rotate(-3deg)" },
+                  "&:hover .prod-bg": { opacity: 1 },
+                  "&:hover .prod-btn": { bgcolor: C.brand, color: C.white, borderColor: C.brand, transform: "rotate(-45deg)" },
                 }}>
-                <Box sx={{ height: 160, display: "flex", alignItems: "center", justifyContent: "center", mb: 3 }}>
+                {/* Image stage */}
+                <Box sx={{ position: "relative", aspectRatio: "4 / 3", flex: "none", display: "flex", alignItems: "center", justifyContent: "center", p: { xs: 2.5, md: 3.5 }, background: `radial-gradient(circle at 50% 55%, #FFFFFF 0%, ${C.surface} 70%)`, overflow: "hidden" }}>
+                  <Box className="prod-bg" aria-hidden sx={{ position: "absolute", inset: 0, background: `radial-gradient(circle at 50% 55%, #FFFFFF 0%, ${C.tintBg} 60%, rgba(1,176,240,0.16) 100%)`, opacity: 0, transition: "opacity 0.4s ease" }} />
+                  <Typography aria-hidden sx={{ position: "absolute", top: 14, left: 16, fontWeight: 700, fontSize: "0.78rem", color: C.muted, letterSpacing: "0.06em", fontVariantNumeric: "tabular-nums" }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </Typography>
                   <Box
                     component="img"
                     className="prod-img"
                     src={product.img}
                     alt={product.name}
                     loading="lazy"
-                    sx={{
-                      maxWidth: "100%",
-                      maxHeight: "100%",
-                      objectFit: "contain",
-                      transition: "transform 0.4s ease",
-                      filter: "drop-shadow(0 5px 10px rgba(0,0,0,0.08))",
-                    }}
+                    sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", boxSizing: "border-box", p: { xs: 1.5, md: 4 }, objectFit: "contain", transition: "transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)", filter: "drop-shadow(0 16px 20px rgba(15,34,54,0.18))" }}
                   />
                 </Box>
-
-                <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#1E293B", mb: 2, flexGrow: 1 }}>
-                  {product.name}
-                </Typography>
-
-                <Typography
-                  className="prod-link"
-                  variant="caption"
-                  sx={{
-                    fontWeight: 700,
-                    color: "#94A3B8",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 1,
-                    mt: "auto", // Pushes the link to the bottom regardless of text height
-                    transition: "color 0.3s ease",
-                  }}>
-                  View Range{" "}
-                  <ArrowForwardIcon
-                    className="prod-arrow"
-                    sx={{ fontSize: 14, transition: "transform 0.25s ease" }}
-                  />
-                </Typography>
+                {/* Footer */}
+                <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1.5} sx={{ px: { xs: 2, md: 2.5 }, py: { xs: 1.75, md: 2.25 }, flex: 1, borderTop: `1px solid ${C.border}` }}>
+                  <Box sx={{ minWidth: 0 }}>
+                    <Typography sx={{ fontWeight: 700, color: C.ink, fontSize: { xs: "0.92rem", md: "1.02rem" }, lineHeight: 1.3, letterSpacing: "-0.01em" }}>{product.name}</Typography>
+                    <Typography sx={{ mt: 0.5, fontWeight: 600, fontSize: "0.8rem", color: C.brandDark }}>View Range</Typography>
+                  </Box>
+                  <Box className="prod-btn" sx={{ width: 38, height: 38, flex: "none", borderRadius: "50%", border: `1px solid ${C.border}`, color: C.ink, display: { xs: "none", sm: "grid" }, placeItems: "center", transition: "all 0.3s ease" }}>
+                    <ArrowForwardIcon sx={{ fontSize: 18 }} />
+                  </Box>
+                </Stack>
               </Box>
             </Grid>
           ))}

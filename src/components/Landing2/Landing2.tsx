@@ -1,3 +1,5 @@
+import { Box } from "@mui/material"
+import { FONT } from "./homeTokens"
 import ContactBanner from "./components/ContactBanner"
 import CoreProducts from "./components/CoreProducts"
 import Hero2 from "./components/Hero2"
@@ -5,11 +7,9 @@ import HydrogenSection from "./components/HydrogenSection"
 import IndustriesSection from "./components/IndustriesSection"
 import MovingBanner from "./components/LiveInventory"
 import PartnersSection from "./components/PartnersSection"
-import SEOSection from "./components/SEOSection"
 import TechnicalSupport from "./components/TechnicalSupport"
+import SEOSection from "./components/SEOSection"
 import Ticker from "./components/Ticker"
-import TrustBar from "./components/TrustBar"
-import ConfigureCTA from "./components/ConfigureCTA"
 import CertificationsStrip from "./components/CertificationsStrip"
 import LatestInsights from "./components/LatestInsights"
 import Testimonials from "./components/Testimonials"
@@ -85,54 +85,61 @@ const Landing2 = () => {
           ],
         })}
       </script>
-      <SectionDotNav />
-      <Hero2 />
-      <PartNumberFinder />
-      <TrustBar />
-      <Ticker />
-      <ScrollReveal>
-        <SEOSection/>
-      </ScrollReveal>
-      <MovingBanner/>
-      <ScrollReveal delay={0.1}>
-        <CoreProducts />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <ToolsResources />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <IndustriesSection />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <ConfigureCTA />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <HydrogenSection />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <CertificationsStrip />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <TechnicalSupport />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <LatestInsights />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <PartnersSection />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <Testimonials />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <FAQSection />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <LocationMap />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <ContactBanner />
-      </ScrollReveal>
+      {/* The site-wide body rule capitalises every word; the homepage copy is written in proper case. */}
+      <Box
+        sx={{
+          textTransform: "none",
+          fontFamily: FONT,
+          "& .MuiTypography-root, & .MuiButton-root, & .MuiTab-root": { fontFamily: FONT },
+          // Large screens: widen section content to match the navbar (Container xl = 1536px) instead of the 1200px lg cap
+          "& .MuiContainer-maxWidthLg": { maxWidth: { xl: 1536 } },
+        }}>
+        <SectionDotNav />
+        <Hero2 />
+        <Ticker />
+        {/* PartNumberFinder now includes the trust points (formerly TrustBar) */}
+        <PartNumberFinder />
+        <ScrollReveal>
+          <SEOSection />
+        </ScrollReveal>
+        <MovingBanner />
+        <ScrollReveal delay={0.1}>
+          <CoreProducts />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <ToolsResources />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <IndustriesSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <HydrogenSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <CertificationsStrip />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <TechnicalSupport />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <LatestInsights />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <PartnersSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Testimonials />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <FAQSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <LocationMap />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <ContactBanner />
+        </ScrollReveal>
+      </Box>
     </>
   )
 }

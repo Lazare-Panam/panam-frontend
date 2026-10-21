@@ -1,11 +1,10 @@
-import React, { useRef } from "react"
+import React from "react"
 import { Box, Typography, Button, Container, Stack, GlobalStyles } from "@mui/material"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Navigation, Pagination, EffectFade, A11y } from "swiper/modules"
 import { Link as RouterLink } from "react-router-dom"
-const BRAND_BLUE = "#01B0F0"
-
-const PARALLAX_MAX_PX = 14
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import { C, btn } from "../homeTokens"
 
 const slides = [
   {
@@ -25,174 +24,82 @@ const slides = [
   },
 ]
 
+// Full-bleed photo hero with a light wash: the image stays visible on the right, while a white
+// gradient on the left keeps dark text crisp — bright and clean rather than a dark overlay.
 const Hero2: React.FC = () => {
-  const heroRef = useRef<HTMLDivElement>(null)
-  const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!heroRef.current) return
-    const rect = heroRef.current.getBoundingClientRect()
-    // Glow position — plain pixel offset from the container's own top-left corner
-    heroRef.current.style.setProperty("--glow-x", `${event.clientX - rect.left}px`)
-    heroRef.current.style.setProperty("--glow-y", `${event.clientY - rect.top}px`)
-    heroRef.current.style.setProperty("--glow-opacity", "1")
-
-    if (prefersReducedMotion) return
-    const offsetX = ((event.clientX - rect.left) / rect.width - 0.5) * 2 // -1 to 1
-    const offsetY = ((event.clientY - rect.top) / rect.height - 0.5) * 2 // -1 to 1
-    heroRef.current.style.setProperty("--parallax-x", `${offsetX * PARALLAX_MAX_PX}px`)
-    heroRef.current.style.setProperty("--parallax-y", `${offsetY * PARALLAX_MAX_PX}px`)
-  }
-
-  const handleMouseLeave = () => {
-    if (!heroRef.current) return
-    heroRef.current.style.setProperty("--parallax-x", "0px")
-    heroRef.current.style.setProperty("--parallax-y", "0px")
-    heroRef.current.style.setProperty("--glow-opacity", "0")
-  }
-
   return (
     <Box
       id="home"
-      ref={heroRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
       sx={{
         width: "100%",
-        height: { xs: "500px", md: "80vh" },
+        height: { xs: 600, md: "min(82vh, 780px)" },
+        minHeight: { md: 620 },
         position: "relative",
         overflow: "hidden",
-        backgroundColor: "#000", // Prevents white flash on load
+        bgcolor: "#F2F8FC",
       }}>
       <Swiper
         modules={[Autoplay, Navigation, Pagination, EffectFade, A11y]}
         a11y={{ enabled: true, prevSlideMessage: "Previous slide", nextSlideMessage: "Next slide" }}
         effect="fade"
-        speed={1200}
-        autoplay={{ delay: 5500, disableOnInteraction: false }}
+        speed={1100}
+        autoplay={{ delay: 6000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
         loop
-        watchSlidesProgress={true} // Forces Swiper to calculate visibility for the first slide
+        watchSlidesProgress
+        className="hero-swiper"
         style={{ height: "100%", width: "100%" }}>
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.title}>
-            <Box
-              sx={{
-                position: "relative",
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                color: "white",
-                pt: { xs: "70px", md: "80px" },
-                overflow: "hidden",
-              }}>
-              {/* Parallax Layer — translate lives here, separate from the zoom-bg's own scale transform below */}
+            <Box sx={{ position: "relative", width: "100%", height: "100%", display: "flex", alignItems: "center", overflow: "hidden" }}>
               <Box
-                className="parallax-layer"
+                className="zoom-bg"
                 sx={{
                   position: "absolute",
-                  top: -PARALLAX_MAX_PX * 2,
-                  left: -PARALLAX_MAX_PX * 2,
-                  right: -PARALLAX_MAX_PX * 2,
-                  bottom: -PARALLAX_MAX_PX * 2,
-                  zIndex: -1,
-                  transform: "translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0)",
-                  transition: "transform 0.3s ease-out",
-                }}>
-                {/* Background Image Layer */}
-                <Box
-                  className="zoom-bg"
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url(${slide.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    transition: "transform 8s ease-out", // Long, cinematic zoom
-                    willChange: "transform",
-                  }}
-                />
-              </Box>
-
-              {/* Mouse-follow glow */}
+                  inset: 0,
+                  backgroundImage: `url(${slide.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  transition: "transform 9s ease-out",
+                  willChange: "transform",
+                }}
+              />
+              {/* Feathered light glow behind the copy — no box edges, fades straight into the photo */}
               <Box
                 sx={{
                   position: "absolute",
                   inset: 0,
-                  zIndex: 0,
-                  pointerEvents: "none",
-                  opacity: "var(--glow-opacity, 0)",
-                  transition: "opacity 0.4s ease",
-                  background: "radial-gradient(420px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(1,176,240,0.35), transparent 70%)",
-                  mixBlendMode: "screen",
+                  background: {
+                    xs: "linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.78) 55%, rgba(255,255,255,0.85) 100%)",
+                    md: "radial-gradient(ellipse 58% 80% at 24% 52%, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.62) 42%, rgba(255,255,255,0.18) 68%, rgba(255,255,255,0) 82%)",
+                  },
                 }}
               />
+              {/* Fade into the page below */}
+              <Box aria-hidden sx={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 90, background: "linear-gradient(180deg, transparent, rgba(255,255,255,0.9))" }} />
 
-              <Container maxWidth="lg">
-                <Stack spacing={2} sx={{ maxWidth: { xs: "100%", md: 700 } }}>
+              <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+                <Stack spacing={3} sx={{ maxWidth: 620, "& .hero-text": { textShadow: "0 1px 18px rgba(255,255,255,0.9)" } }}>
+                  <Box className="fade-up-1" sx={{ width: 56, height: 4, borderRadius: 2, background: `linear-gradient(90deg, ${C.brand}, ${C.brandDeep})` }} />
                   <Typography
-                    variant="h1"
                     component={index === 0 ? "h1" : "p"}
-                    className="fade-up-1"
-                    sx={{
-                      fontWeight: 900,
-                      fontSize: { xs: "2.2rem", sm: "3rem", md: "3.8rem" },
-                      lineHeight: 1.1,
-                      textShadow: "0px 2px 10px rgba(0,0,0,0.3)",
-                    }}>
+                    className="fade-up-1 hero-text"
+                    sx={{ fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.04, fontSize: { xs: "2.2rem", sm: "2.9rem", md: "3.5rem" }, color: C.ink }}>
                     {slide.title}
                   </Typography>
-
-                  <Typography
-                    variant="h5"
-                    className="fade-up-2"
-                    sx={{
-                      fontWeight: 400,
-                      fontSize: { xs: "1rem", md: "1.25rem" },
-                      opacity: 0.9,
-                      maxWidth: "550px",
-                      lineHeight: 1.5,
-                    }}>
+                  <Typography className="fade-up-2 hero-text" sx={{ fontSize: { xs: "1.05rem", md: "1.22rem" }, lineHeight: 1.65, color: "#2C4156", fontWeight: 500, maxWidth: 540 }}>
                     {slide.subtitle}
                   </Typography>
-
-                  <Stack direction="row" spacing={2} sx={{ pt: 1 }} className="fade-up-3">
-                    <Button
-                      component={RouterLink} viewTransition
-                      to="/products"
-                      variant="contained"
-                      disableElevation
-                      sx={{
-                        backgroundColor: BRAND_BLUE,
-                        px: { xs: 2, md: 4 },
-                        py: 1.2,
-                        fontWeight: 700,
-                        textTransform: "none",
-                        transition: "transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease",
-                        "&:hover": { backgroundColor: "#0090C5", transform: "translateY(-2px)", boxShadow: "0 8px 20px rgba(1,176,240,0.35)" },
-                        "&:active": { transform: "translateY(0)" },
-                      }}>
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ pt: 1 }} className="fade-up-3">
+                    <Button component={RouterLink} viewTransition to="/products" endIcon={<ArrowForwardIcon />} sx={{ ...btn.primary, py: 1.6, px: 3.75 }}>
                       Explore Products
                     </Button>
                     <Button
-                      component={RouterLink} viewTransition
+                      component={RouterLink}
+                      viewTransition
                       to="/enquiry"
-                      variant="outlined"
-                      sx={{
-                        color: "white",
-                        borderColor: "rgba(255,255,255,0.5)",
-                        px: { xs: 2, md: 4 },
-                        fontWeight: 700,
-                        textTransform: "none",
-                        transition: "transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease",
-                        "&:hover": { borderColor: "white", backgroundColor: "rgba(255,255,255,0.1)", transform: "translateY(-2px)" },
-                        "&:active": { transform: "translateY(0)" },
-                      }}>
+                      sx={{ ...btn.secondary, py: 1.6, px: 3.75, bgcolor: "rgba(255,255,255,0.75)", backdropFilter: "blur(8px)" }}>
                       Contact Sales
                     </Button>
                   </Stack>
@@ -205,36 +112,48 @@ const Hero2: React.FC = () => {
 
       <GlobalStyles
         styles={{
-          // 1. Zoom Logic — targets both active and duplicate-active for seamless looping
-          ".swiper-slide-active .zoom-bg, .swiper-slide-duplicate-active .zoom-bg": {
-            transform: "scale(1.15)",
-          },
-          // 2. Text/Content Reveal Logic
-          ".fade-up-1, .fade-up-2, .fade-up-3": {
+          ".hero-swiper .swiper-slide-active .zoom-bg, .hero-swiper .swiper-slide-duplicate-active .zoom-bg": { transform: "scale(1.06)" },
+          ".hero-swiper .fade-up-1, .hero-swiper .fade-up-2, .hero-swiper .fade-up-3": {
             opacity: 0,
-            transform: "translateY(30px)",
-            transition: "all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1)",
-            willChange: "transform, opacity",
+            transform: "translateY(20px)",
+            transition: "opacity 0.7s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)",
           },
-          // Staggered delays so they pop in one by one
-          ".swiper-slide-active .fade-up-1, .swiper-slide-duplicate-active .fade-up-1": {
-            opacity: 1, transform: "translateY(0)", transitionDelay: "0.4s",
+          ".hero-swiper .swiper-slide-active .fade-up-1": { opacity: 1, transform: "none", transitionDelay: "0.2s" },
+          ".hero-swiper .swiper-slide-active .fade-up-2": { opacity: 1, transform: "none", transitionDelay: "0.35s" },
+          ".hero-swiper .swiper-slide-active .fade-up-3": { opacity: 1, transform: "none", transitionDelay: "0.5s" },
+          "@media (prefers-reduced-motion: reduce)": {
+            ".hero-swiper .fade-up-1, .hero-swiper .fade-up-2, .hero-swiper .fade-up-3": { opacity: 1, transform: "none", transition: "none" },
+            ".hero-swiper .zoom-bg": { transition: "none !important", transform: "none !important" },
           },
-          ".swiper-slide-active .fade-up-2, .swiper-slide-duplicate-active .fade-up-2": {
-            opacity: 0.9, transform: "translateY(0)", transitionDelay: "0.6s",
+          // The pagination bar spans the full width; let clicks pass through to the arrows (dots stay clickable)
+          ".hero-swiper .swiper-pagination": { bottom: "40px !important", pointerEvents: "none" },
+          ".hero-swiper .swiper-pagination-bullet": { background: "rgba(15,34,54,0.22)", opacity: 1, width: 8, height: 8, transition: "all 0.3s", pointerEvents: "auto" },
+          ".hero-swiper .swiper-pagination-bullet-active": { background: C.brand, width: 28, borderRadius: 4 },
+          ".hero-swiper .swiper-button-next, .hero-swiper .swiper-button-prev": {
+            color: C.ink,
+            width: 46,
+            height: 46,
+            borderRadius: "50%",
+            backgroundColor: "rgba(255,255,255,0.85)",
+            border: "1px solid rgba(15,34,54,0.08)",
+            boxShadow: "0 6px 20px rgba(15,34,54,0.10)",
+            backdropFilter: "blur(8px)",
+            transition: "background-color 0.2s, color 0.2s",
+            display: "none",
           },
-          ".swiper-slide-active .fade-up-3, .swiper-slide-duplicate-active .fade-up-3": {
-            opacity: 1, transform: "translateY(0)", transitionDelay: "0.8s",
+          ".hero-swiper .swiper-button-next::after, .hero-swiper .swiper-button-prev::after": { fontSize: 15, fontWeight: 800 },
+          ".hero-swiper .swiper-button-next:hover, .hero-swiper .swiper-button-prev:hover": { backgroundColor: C.brand, color: C.white },
+          // Arrows in the bottom corners (left / right), clear of the fixed section dots on the right edge
+          "@media (min-width: 1200px)": {
+            ".hero-swiper .swiper-button-next, .hero-swiper .swiper-button-prev": { display: "flex", top: "auto", bottom: "26px", marginTop: 0, zIndex: 20 },
+            // aligned to the content edges so the floating WhatsApp button (fixed bottom-left) never covers them
+            ".hero-swiper .swiper-button-prev": { left: "max(120px, calc((100% - 1200px) / 2 + 24px))", right: "auto" },
+            ".hero-swiper .swiper-button-next": { right: "max(120px, calc((100% - 1200px) / 2 + 24px))", left: "auto" },
           },
-          // 3. Navigation Styling
-          ".swiper-pagination-bullet": { background: "rgba(255,255,255,0.5)", opacity: 1 },
-          ".swiper-pagination-bullet-active": { background: BRAND_BLUE, width: 24, borderRadius: 4, transition: "all 0.3s" },
-          ".swiper-button-next, .swiper-button-prev": { color: "white", transform: "scale(0.5)", opacity: 0.5, transition: "0.3s" },
-          ".swiper-button-next:hover, .swiper-button-prev:hover": { opacity: 1 },
         }}
       />
     </Box>
   )
 }
 
-export default Hero2;
+export default Hero2

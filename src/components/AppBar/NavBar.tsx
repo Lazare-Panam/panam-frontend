@@ -21,14 +21,15 @@ const Navbar: React.FC = () => {
     <>
       <AppBar
         position="sticky"
-        elevation={trigger ? 1 : 0}
+        elevation={0}
         onMouseLeave={() => actions.setMegaMenuOpen(null)}
         sx={{
-          backgroundColor: trigger ? "rgba(255, 255, 255, 0.98)" : "white",
-          backdropFilter: "blur(12px)",
-          transition: "all 0.3s ease-in-out",
+          backgroundColor: trigger ? "rgba(255, 255, 255, 0.92)" : "#FFFFFF",
+          backdropFilter: "saturate(180%) blur(14px)",
+          transition: "background-color 0.3s ease, box-shadow 0.3s ease",
           color: "text.primary",
-          borderBottom: trigger ? "none" : "1px solid #E0E0E0",
+          borderBottom: "1px solid #E8EEF3",
+          boxShadow: trigger ? "0 6px 24px rgba(15,34,54,0.08)" : "none",
           zIndex: 1201 // Higher than default to stay above search overlays
         }}
       >

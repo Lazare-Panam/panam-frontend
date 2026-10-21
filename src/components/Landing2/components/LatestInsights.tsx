@@ -1,99 +1,71 @@
-import { Box, Container, Grid, Stack, Typography, Card, CardContent, Button } from "@mui/material"
+import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { Link as RouterLink } from "react-router-dom"
 import { blogs } from "../../News/components/blogData"
-
-const BRAND_BLUE = "#01B0F0"
+import { C, RADIUS, btn, cardSx, cardHoverSx, sectionSx } from "../homeTokens"
+import { SectionHeader } from "../homeStyles"
 
 const featured = blogs.slice(0, 3)
 
 const LatestInsights = () => {
   return (
-    <Box component="section" id="insights" sx={{ py: 12, bgcolor: "#FFFFFF" }}>
+    <Box component="section" id="insights" sx={sectionSx("surface")}>
       <Container maxWidth="lg">
-        <Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "flex-end" }} spacing={3} sx={{ mb: 8 }}>
-          <Box>
-            <Typography variant="overline" sx={{ fontWeight: 800, color: BRAND_BLUE, letterSpacing: 1.5 }}>
-              Insights
-            </Typography>
-            <Typography variant="h2" sx={{ fontWeight: 800, color: "#1E293B", fontSize: { xs: "2rem", md: "2.5rem" }, mt: 1 }}>
-              Latest From The Blog
-            </Typography>
-          </Box>
-          <Button
-            component={RouterLink} viewTransition
-            to="/blog"
-            variant="outlined"
-            endIcon={<ArrowForwardIcon />}
-            sx={{
-              borderColor: "#E2E8F0",
-              color: "#475569",
-              fontWeight: 600,
-              px: 3,
-              borderRadius: "8px",
-              textTransform: "none",
-              transition: "0.2s",
-              "&:hover": { borderColor: BRAND_BLUE, color: BRAND_BLUE, bgcolor: "rgba(1,176,240,0.04)" },
-            }}>
-            View All Articles
-          </Button>
-        </Stack>
+        <SectionHeader
+          eyebrow="Insights"
+          title="Latest From The Blog"
+          action={
+            <Button component={RouterLink} viewTransition to="/blog" endIcon={<ArrowForwardIcon />} sx={{ ...btn.secondary, flexShrink: 0 }}>
+              View All Articles
+            </Button>
+          }
+        />
 
-        <Grid container spacing={4}>
+        <Grid container spacing={3}>
           {featured.map(post => (
             <Grid key={post.slug} size={{ xs: 12, sm: 6, md: 4 }}>
-              <Card
-                component={RouterLink} viewTransition
+              <Box
+                component={RouterLink}
+                viewTransition
                 to={`/blog/${post.slug}`}
-                elevation={0}
                 sx={{
+                  ...cardSx,
+                  ...cardHoverSx,
                   textDecoration: "none",
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
-                  border: "1px solid #E2E8F0",
-                  borderRadius: 0,
                   overflow: "hidden",
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    boxShadow: "0 15px 30px rgba(1,176,240,0.1)",
-                    transform: "translateY(-6px)",
-                    "& .insight-img": { transform: "scale(1.06)" },
-                    "& .insight-arrow": { transform: "translateX(4px)", opacity: 1 },
-                  },
+                  "&:hover .insight-img": { transform: "scale(1.05)" },
+                  "&:hover .insight-arrow": { transform: "translateX(4px)" },
                 }}>
-                <Box sx={{ width: "100%", height: 190, overflow: "hidden" }}>
+                <Box sx={{ width: "100%", aspectRatio: "16 / 10", overflow: "hidden", bgcolor: C.surface }}>
                   <Box
                     component="img"
                     className="insight-img"
                     src={post.image}
                     alt={post.title}
                     loading="lazy"
-                    sx={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.4s ease" }}
+                    sx={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
                   />
                 </Box>
-                <CardContent sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                  <Stack direction="row" spacing={2} sx={{ mb: 1.5 }}>
-                    <Typography variant="caption" sx={{ fontWeight: 600, color: "#94A3B8" }}>{post.date}</Typography>
-                    <Typography variant="caption" sx={{ fontWeight: 700, color: BRAND_BLUE }}>{post.category}</Typography>
+                <Stack sx={{ p: 3, flexGrow: 1 }} spacing={1.5}>
+                  <Stack direction="row" spacing={1.25} alignItems="center">
+                    <Box component="span" sx={{ px: 1.25, py: 0.25, borderRadius: RADIUS.pill, bgcolor: C.brandTint, color: C.brandDark, fontSize: "0.75rem", fontWeight: 600 }}>
+                      {post.category}
+                    </Box>
+                    <Typography sx={{ color: C.muted, fontSize: "0.82rem" }}>{post.date}</Typography>
                   </Stack>
-                  <Typography sx={{ fontWeight: 800, color: "#1E293B", mb: 1.5, fontSize: "1.05rem", lineHeight: 1.4 }}>
-                    {post.title}
+                  <Typography sx={{ fontWeight: 700, color: C.ink, fontSize: "1.08rem", lineHeight: 1.4, letterSpacing: "-0.01em" }}>{post.title}</Typography>
+                  <Typography sx={{ color: C.muted, lineHeight: 1.65, flexGrow: 1, fontSize: "0.92rem" }}>
+                    {post.excerpt.length > 130 ? `${post.excerpt.slice(0, 130)}…` : post.excerpt}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "#64748B", lineHeight: 1.7, flexGrow: 1, mb: 2 }}>
-                    {post.excerpt.length > 120 ? `${post.excerpt.slice(0, 120)}…` : post.excerpt}
-                  </Typography>
-                  <Stack direction="row" spacing={0.75} alignItems="center">
-                    <Typography variant="caption" sx={{ fontWeight: 700, color: BRAND_BLUE }}>
-                      Read Article
-                    </Typography>
-                    <ArrowForwardIcon
-                      className="insight-arrow"
-                      sx={{ fontSize: 14, color: BRAND_BLUE, opacity: 0.7, transition: "transform 0.25s ease, opacity 0.25s ease" }}
-                    />
+                  <Stack direction="row" spacing={0.75} alignItems="center" sx={{ color: C.brandDark, pt: 0.5 }}>
+                    <Typography sx={{ fontWeight: 600, fontSize: "0.9rem" }}>Read Article</Typography>
+                    <ArrowForwardIcon className="insight-arrow" sx={{ fontSize: 17, transition: "transform 0.25s ease" }} />
                   </Stack>
-                </CardContent>
-              </Card>
+                </Stack>
+              </Box>
             </Grid>
           ))}
         </Grid>
