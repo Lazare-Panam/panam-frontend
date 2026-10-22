@@ -238,7 +238,7 @@ const SearchBar: React.FC<{ inline?: boolean }> = ({ inline = false }) => {
           sx={{ fontFamily: PRIMARY_FONT, fontSize: { xs: '1.1rem', md: '1.35rem' }, fontWeight: 500, color: '#0F2236', '& input::placeholder': { color: '#8A99A8', opacity: 1 } }}
         />
         {query && (
-          <IconButton aria-label="Clear" onClick={() => setQuery('')} sx={{ color: '#8A99A8' }}>
+          <IconButton aria-label="Clear" onClick={() => setQuery('')} sx={{ color: '#8A99A8', '& svg': { fontSize: 20 } }}>
             <CloseIcon />
           </IconButton>
         )}
@@ -249,6 +249,13 @@ const SearchBar: React.FC<{ inline?: boolean }> = ({ inline = false }) => {
         >
           Search <KeyboardReturnRoundedIcon sx={{ fontSize: 18, display: { xs: 'none', sm: 'block' } }} />
         </Box>
+        <IconButton
+          aria-label="Close search"
+          onClick={() => setOverlayOpen(false)}
+          sx={{ flexShrink: 0, width: 44, height: 44, borderRadius: '12px', border: '1px solid #E5EAF0', color: '#64748B', transition: 'all 0.2s', '&:hover': { bgcolor: '#F4F8FB', color: '#0F2236', borderColor: '#CBD5E1' } }}
+        >
+          <CloseIcon />
+        </IconButton>
       </Box>
       <Box sx={{ px: { xs: 2, md: 3 }, py: 2.5, bgcolor: '#F7FAFC' }}>
         <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1.5, color: '#64748B' }}>
