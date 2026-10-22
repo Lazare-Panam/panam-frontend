@@ -8,6 +8,10 @@ const AuthAndInquiryPage = () => {
 
   return (
     <Box>
+      <title>Request a Quote | Valves & Fittings Enquiry | PANAM®</title>
+      <meta name="description" content="Send PANAM® an enquiry for instrumentation valves, fittings, manifolds and high-pressure components. Our sales team replies with pricing and lead times." />
+      <link rel="canonical" href="https://www.panamvalve.com/enquiry" />
+      <meta name="robots" content="index, follow" />
       {/* Conditional Rendering based on Auth State */}
       {isAuthenticated ? (
         <LoggedInEnquiry />

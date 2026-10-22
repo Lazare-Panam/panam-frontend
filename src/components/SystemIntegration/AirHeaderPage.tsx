@@ -61,6 +61,13 @@ const FEATURES = [
 export default function AirHeaderDetailPage() {
   return (
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
+      <title>Air Header | Stainless Pressure Header Manifold | PANAM®</title>
+      <meta name="description" content="PANAM® stainless steel air headers for instrument air and utility lines: up to 20 outlets, 6,000 psi working pressure and ASME BPVC leak testing on every unit." />
+      <meta property="og:title" content="Air Header Distribution Manifold | PANAM®" />
+      <meta property="og:description" content="Stainless steel air distribution headers with up to 20 outlets and 6,000 psi working pressure." />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://www.panamvalve.com/system-integration/air-header" />
+      <meta name="robots" content="index, follow" />
       {/* HERO */}
       <Box
         sx={{

@@ -1,4 +1,6 @@
-import { Breadcrumbs, Typography, Link as MuiLink } from "@mui/material"
+import { Box, Breadcrumbs, Container, Typography, Link as MuiLink } from "@mui/material"
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded"
 import { useLocation, Link } from "react-router-dom" // Added Link here
 
 const formatSlug = (slug: string) =>
@@ -22,9 +24,9 @@ export default function AppBreadcrumbs() {
   const segments = pathname.split("/").filter(Boolean)
 
   const crumbs = [
-    { label: "HOME", path: "/" },
+    { label: "Home", path: "/" },
     ...segments.map((seg, i) => ({
-      label: (ROUTE_LABELS[seg] ?? formatSlug(seg)).toUpperCase(),
+      label: ROUTE_LABELS[seg] ?? formatSlug(seg),
       path: "/" + segments.slice(0, i + 1).join("/"),
     })),
   ]
@@ -43,42 +45,56 @@ export default function AppBreadcrumbs() {
   return (
     <>
       <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      <Breadcrumbs separator="/" sx={{ px: 4, py: 2 }}>
-      {crumbs.map((crumb, i) =>
-        i < crumbs.length - 1 ? (
-          <MuiLink
-            key={crumb.path}
-            component={Link} // This bridges MUI to React Router
-            to={crumb.path}   // React Router needs 'to'
-            underline="hover" // Adds the underline on hover
-            sx={{
-              textDecoration: "none",
-              color: "#999",
-              fontSize: "0.75rem",
-              letterSpacing: "0.1em",
-              fontWeight: 600,
-              "&:hover": {
-                color: "#01B0F0",
-              },
-            }}
-          >
-            {crumb.label}
-          </MuiLink>
-        ) : (
-          <Typography
-            key={crumb.path}
-            sx={{ 
-              fontSize: "0.75rem", 
-              letterSpacing: "0.1em", 
-              fontWeight: 700, 
-              color: "#01B0F0" 
-            }}
-          >
-            {crumb.label}
-          </Typography>
-        )
-      )}
-      </Breadcrumbs>
+      {/* Same container as the page content so it lines up with the nav and sections below */}
+      <Container maxWidth="lg" sx={{ py: { xs: 1.25, md: 1.75 } }}>
+        <Breadcrumbs
+          aria-label="Breadcrumb"
+          separator={<ChevronRightRoundedIcon sx={{ fontSize: 18, color: "#B4C0CC" }} />}
+          sx={{
+            fontFamily: '"Inter", "Roboto", "Helvetica", Arial, sans-serif',
+            textTransform: "none",
+            "& .MuiBreadcrumbs-ol": { flexWrap: "nowrap", overflowX: "auto", scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } },
+            "& .MuiBreadcrumbs-li": { whiteSpace: "nowrap", flex: "none" },
+            "& .MuiBreadcrumbs-separator": { mx: 0.5 },
+          }}>
+          {crumbs.map((crumb, i) =>
+            i < crumbs.length - 1 ? (
+              <MuiLink
+                key={crumb.path}
+                component={Link}
+                to={crumb.path}
+                underline="none"
+                aria-label={i === 0 ? "Home" : undefined}
+                sx={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 0.75,
+                  px: i === 0 ? 0.75 : 1,
+                  ml: i === 0 ? -0.75 : 0, // icon (not its hover pad) sits on the content edge
+                  py: 0.5,
+                  borderRadius: "8px",
+                  color: "#64748B",
+                  fontSize: "0.85rem",
+                  fontWeight: 500,
+                  transition: "all 0.2s ease",
+                  "&:hover": { color: "#0089BD", bgcolor: "#EEF8FD" },
+                }}>
+                {i === 0 ? <HomeOutlinedIcon sx={{ fontSize: 18 }} /> : crumb.label}
+              </MuiLink>
+            ) : (
+              <Box
+                component="span"
+                key={crumb.path}
+                aria-current="page"
+                sx={{ display: "inline-flex", alignItems: "center", px: 1.25, py: 0.5, borderRadius: "999px", bgcolor: "#EEF8FD", border: "1px solid rgba(1,176,240,0.2)", color: "#0089BD", fontSize: "0.85rem", fontWeight: 600 }}>
+                <Typography component="span" sx={{ font: "inherit" }}>
+                  {crumb.label}
+                </Typography>
+              </Box>
+            )
+          )}
+        </Breadcrumbs>
+      </Container>
     </>
   )
 }

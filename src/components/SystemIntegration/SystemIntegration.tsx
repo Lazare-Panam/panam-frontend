@@ -70,6 +70,10 @@ const PRODUCTS: ProductGroup[] = [
 export default function SystemIntegrationIndexPage() {
   return (
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
+      <title>System Integration & Pressure Instrumentation | PANAM®</title>
+      <meta name="description" content="PANAM® system integration: air headers, condensate pots, grab sampling systems, pressure transmitters, diaphragm seals and flange adapters for instrumentation lines." />
+      <link rel="canonical" href="https://www.panamvalve.com/system-integration" />
+      <meta name="robots" content="index, follow" />
       {/* ── HERO ── */}
       <Box
         sx={{

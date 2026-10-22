@@ -65,7 +65,7 @@ const CatalogPdfs = () => {
   // so it must still carry the page's <h1> — otherwise crawlers report "H1 tag missing".
   if (isLoading) {
     return (
-      <Box sx={{ p: { xs: 3, md: 8 }, maxWidth: "1200px", margin: "0 auto" }}>
+      <Box sx={{ px: { xs: 2, sm: 3 }, py: { xs: 3, md: 8 }, maxWidth: { xs: 1200, xl: 1536 }, boxSizing: "border-box", margin: "0 auto" }}>
         <title>Product Catalogs & Technical PDFs | Panam Valves</title>
         <meta name="description" content="Download Panam Valves product catalogs and technical datasheets for high pressure valves, fittings, manifolds and filters." />
         <meta name="robots" content="index, follow" />
@@ -117,7 +117,7 @@ const CatalogPdfs = () => {
         })}
       </script>
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh", pb: 10, position: "relative" }}>
-      <Box sx={{ p: { xs: 3, md: 8 }, maxWidth: "1200px", margin: "0 auto" }}>
+      <Box sx={{ px: { xs: 2, sm: 3 }, py: { xs: 3, md: 8 }, maxWidth: { xs: 1200, xl: 1536 }, boxSizing: "border-box", margin: "0 auto" }}>
         {/* Header Section */}
         {header}
 

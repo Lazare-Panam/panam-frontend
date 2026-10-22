@@ -91,8 +91,6 @@ const Landing2 = () => {
           textTransform: "none",
           fontFamily: FONT,
           "& .MuiTypography-root, & .MuiButton-root, & .MuiTab-root": { fontFamily: FONT },
-          // Large screens: widen section content to match the navbar (Container xl = 1536px) instead of the 1200px lg cap
-          "& .MuiContainer-maxWidthLg": { maxWidth: { xl: 1536 } },
         }}>
         <SectionDotNav />
         <Hero2 />

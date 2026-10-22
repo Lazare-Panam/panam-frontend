@@ -8,20 +8,20 @@ const BRAND_BLUE = "#01B0F0"
 
 const ALL_PRODUCTS = [
   { name: "Pipe Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065185/reducing-hex-couplings-npt_dlncbd.png", link: "/instrumentation-fittings/pipe-fittings" },
-  { name: "Tube Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065253/UNION-CROSS-IMPERIAL-PUC-04-SS_usickt.png", link: "/products/fittings" },
+  { name: "Tube Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065253/UNION-CROSS-IMPERIAL-PUC-04-SS_usickt.png", link: "/instrumentation-fittings/tube-fittings" },
   { name: "37 JIC Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065297/union-cross_ktkzxj.png", link: "/instrumentation-fittings/jic-fittings" },
   { name: "Weld Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065327/male-connector-tube-socket-weld-x-npt_pyqtf0.png", link: "/instrumentation-fittings/weld-fittings" },
-  { name: "Needle Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768296756/11111_e7ywry.webp", link: "/products/needle-valves" },
-  { name: "Gauge Root Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770306213/final-gauge-root-ff_oforuw.webp", link: "/products/gauge-root-valves" },
-  { name: "High Pressure Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065950/cross-npt-1_r7ivzj.png", link: "/products/pipe-fittings-high-pressure" },
+  { name: "Needle Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1768296756/11111_e7ywry.webp", link: "/valves/needle-valves" },
+  { name: "Gauge Root Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_400,f_auto,q_auto/v1770306213/final-gauge-root-ff_oforuw.webp", link: "/products/valves/gauge-root-valves" },
+  { name: "High Pressure Fittings", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065950/cross-npt-1_r7ivzj.png", link: "/high-pressure/pipe-fittings" },
 
   { name: "Check Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773066005/PCV-S-08-OD-PNG-removebg-preview_gfigng.png", link: "/valves/check-valves" },
 
   { name: "Ball Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065898/PBV-3-S-O4-OD-A_vpgv95.png", link: "/valves/ball-valves" },
   { name: "Relief Valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065866/PRVH-SS-08-MF-15K_tnunca.png", link: "/valves/relief-valves" },
-  { name: "2-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065762/2VM-SS-8-20M-RM_gviqce.png", link: "/products/2-way-valve-manifold" },
-  { name: "3-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065795/3VM-SS-H_xhzpkr.png", link: "/products/3-way-valve-manifold" },
-  { name: "5-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065822/5VM-SS-H_lnxzwa.png", link: "/products/5-way-valve-manifold" },
+  { name: "2-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065762/2VM-SS-8-20M-RM_gviqce.png", link: "/manifolds/2VM" },
+  { name: "3-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065795/3VM-SS-H_xhzpkr.png", link: "/manifolds/3VM" },
+  { name: "5-Way Valve Manifold", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065822/5VM-SS-H_lnxzwa.png", link: "/manifolds/5VM" },
   { name: "Pressure Transmitter", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065582/APC-2000ALW-PNG-removebg-preview_jxvqjx.png", link: "/system-integration" },
   { name: "Double Block and bleed valves", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065511/MONO-FLANGE-1_zo3vzq.png", link: "/double-block-and-bleed-valves" },
   { name: "Filters", image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1773065475/PTF-TC-06-60-SS_qvotij.png", link: "/filters" },

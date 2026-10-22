@@ -94,7 +94,7 @@ export default function ProductDetailPage({ backHref, backLabel, image, partNumb
           </Button>
         </Box>
 
-        <Box sx={{ maxWidth: 1200, mx: "auto", px: { xs: 2, md: 5 }, py: { xs: 4, md: 6 } }}>
+        <Box sx={{ maxWidth: { xs: 1200, xl: 1536 }, boxSizing: "border-box", mx: "auto", px: { xs: 2, sm: 3 }, py: { xs: 4, md: 6 } }}>
           <Grid container spacing={6}>
             {/* ── LEFT: Image ── */}
             <Grid size={{ xs: 12, md: 5 }}>

@@ -25,6 +25,10 @@ const staticRoutes = [
   "/blog/swivel-gauge-blog",
   "/blog/check-valves-blog",
   "/catalogPDFs",
+  // Weren't prerendered, so Azure served them the homepage's title/canonical and Google kept old titles.
+  "/enquiry",
+  "/system-integration",
+  "/system-integration/air-header",
   // certificatesn
   "/certificates",
   "/certificates/qms",

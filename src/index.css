@@ -28,3 +28,11 @@ body {
     transform: translateY(-8px);
   }
 }
+
+/* Same content width as the homepage and navbar on large screens (≥1536px): standard "lg" page containers
+   widen to 1536px so left/right padding lines up with the nav on every page. */
+@media (min-width: 1536px) {
+  .MuiContainer-root.MuiContainer-maxWidthLg {
+    max-width: 1536px;
+  }
+}

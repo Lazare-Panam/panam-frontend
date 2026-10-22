@@ -27,9 +27,9 @@ export const CATEGORIES: CategoryData[] = [
     id: "filters",
     image: "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/filters/PTF-TB-04-15-SS_JPG-removebg-preview.png",
     products: [
-      { name: "T-Type Filter", link: "/products/filters" },
-      { name: "In-Line Filter", link: "/products/filters" },
-      { name: "Filter Elements", link: "/products/filters" },
+      { name: "T-Type Filter", link: "/filters" },
+      { name: "In-Line Filter", link: "/filters" },
+      { name: "Filter Elements", link: "/filters" },
     ],
   },
 
@@ -86,7 +86,7 @@ export const CATEGORIES: CategoryData[] = [
       { name: "Needle Valves", link: "/valves/needle-valves" },
       { name: "Ball Valves", link: "/valves/ball-valves" },
       { name: "Check Valves", link: "/valves/check-valves" },
-      { name: "Relief Valves", link: "/products/valves/relief-valves" },
+      { name: "Relief Valves", link: "/valves/relief-valves" },
       { name: "Gauge Root Valves", link: "/products/valves/gauge-root-valves" },
       { name: "Purge Valves", link: "/products/valves/purge-valves" },
     ],

@@ -59,6 +59,18 @@ export default function ProductInventory() {
 
   const selectedProduct = buildSelectedProduct()
 
+  // These pages aren't prerendered, so Azure serves them the homepage HTML (canonical "/").
+  // Emit a self-canonical + title so the client render replaces the homepage's tags.
+  const path = subId ? `/products/${id}/${subId}` : `/products/${id}`
+  const heading = (activeId ?? "").split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
+  const headTags = (
+    <>
+      <title>{`${heading} | PANAM® Instrumentation`}</title>
+      <meta name="description" content={`PANAM® ${heading.toLowerCase()} for instrumentation and process lines. Browse the range and send an enquiry for pricing and lead times.`} />
+      <link rel="canonical" href={`https://www.panamvalve.com${path}`} />
+    </>
+  )
+
   const handleOpenModal = (product: Product) => {
     const productId = product.id
     setSelectedProductId(productId)
@@ -76,11 +88,21 @@ export default function ProductInventory() {
   }
 
   if (isLoading) {
-    return <ProductInventorySkeleton count={6} />
+    return (
+      <>
+        {headTags}
+        <ProductInventorySkeleton count={6} />
+      </>
+    )
   }
 
   if (isError) {
-    return <Typography color="error">Error loading products.</Typography>
+    return (
+      <>
+        {headTags}
+        <Typography color="error">Error loading products.</Typography>
+      </>
+    )
   }
   return (
     <Container
@@ -88,6 +110,7 @@ export default function ProductInventory() {
       sx={{
         mt: 4,
       }}>
+      {headTags}
       <Grid container spacing={0}>
         {catalog?.children.map((item: ProductCatalog) => (
           <Grid

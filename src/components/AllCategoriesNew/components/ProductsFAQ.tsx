@@ -1,10 +1,20 @@
 import React from "react"
-import { Box, Container, Typography, Accordion, AccordionSummary, AccordionDetails, Paper } from "@mui/material"
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import { Box, Container, Typography, Accordion, AccordionSummary, AccordionDetails, Grid, Stack } from "@mui/material"
+import AddRoundedIcon from "@mui/icons-material/AddRounded"
+import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined"
+import TuneRoundedIcon from "@mui/icons-material/TuneRounded"
+import ScheduleRoundedIcon from "@mui/icons-material/ScheduleRounded"
+import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined"
+import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined"
+import ArchitectureRoundedIcon from "@mui/icons-material/ArchitectureRounded"
+import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined"
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded"
 import { Link as RouterLink } from "react-router-dom"
+import { SectionHeader } from "../../Landing2/homeStyles"
+import { C, GRADIENT, cardSx, sectionSx } from "../../Landing2/homeTokens"
 
-const BRAND_BLUE = "#01B0F0"
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
+// One icon per question, in the same order as `faqs`
+const ICONS = [<CategoryOutlinedIcon />, <TuneRoundedIcon />, <ScheduleRoundedIcon />, <VerifiedOutlinedIcon />, <AccountBalanceWalletOutlinedIcon />, <ArchitectureRoundedIcon />]
 
 interface FAQItem {
   question: string
@@ -45,15 +55,10 @@ const faqs: FAQItem[] = [
 ]
 
 const ProductsFAQ: React.FC = () => {
+  const [open, setOpen] = React.useState<number | false>(0)
+
   return (
-    <Box
-      component="section"
-      sx={{
-        width: "100%",
-        py: { xs: 8, md: 12 },
-        backgroundColor: "#fcfcfc",
-        borderTop: "1px solid #eee",
-      }}>
+    <Box component="section" sx={sectionSx("white")}>
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -66,96 +71,78 @@ const ProductsFAQ: React.FC = () => {
         })}
       </script>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 6, textAlign: "center" }}>
-          <Typography
-            variant="overline"
-            sx={{
-              color: BRAND_BLUE,
-              fontWeight: 800,
-              letterSpacing: 3,
-              fontFamily: PRIMARY_FONT,
-              display: "block",
-            }}>
-            CATALOG FAQ
-          </Typography>
-          <Typography
-            variant="h3"
-            component="h2"
-            sx={{
-              fontWeight: 800,
-              fontFamily: PRIMARY_FONT,
-              mt: 1,
-              color: "#1a1a1a",
-              fontSize: { xs: "2rem", md: "2.75rem" },
-            }}>
-            Frequently Asked Questions
-          </Typography>
-        </Box>
-
-        <Paper
-          elevation={0}
-          sx={{
-            maxWidth: "900px",
-            mx: "auto",
-            p: { xs: 2, md: 4 },
-            borderRadius: "4px",
-            border: "1px solid #eef0f2",
-            backgroundColor: "#ffffff",
-            boxShadow: "0px 20px 50px rgba(0,0,0,0.04)",
-          }}>
-          {faqs.map((faq, index) => (
-            <Accordion
-              key={index}
-              disableGutters
-              elevation={0}
-              sx={{
-                borderBottom: index !== faqs.length - 1 ? "1px solid #f0f0f0" : "none",
-                "&:before": { display: "none" },
-                backgroundColor: "transparent",
-              }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: BRAND_BLUE, fontSize: "1.8rem" }} />}
-                aria-controls={`products-faq-content-${index}`}
-                id={`products-faq-header-${index}`}
-                sx={{
-                  px: { xs: 1, md: 2 },
-                  py: 1,
-                  "&:hover": { bgcolor: "rgba(1, 176, 240, 0.02)" },
-                  "& .MuiAccordionSummary-content": { my: 2 },
-                }}>
-                <Typography
-                  sx={{
-                    fontWeight: 700,
-                    fontFamily: PRIMARY_FONT,
-                    fontSize: { xs: "1rem", md: "1.15rem" },
-                    color: "#222",
-                  }}>
-                  {faq.question}
+        <Grid container spacing={{ xs: 4, md: 6 }}>
+          <Grid size={{ xs: 12, md: 4.5 }}>
+            <Box sx={{ position: { md: "sticky" }, top: { md: 120 } }}>
+              <SectionHeader eyebrow="CATALOG FAQ" title="Frequently Asked Questions" />
+              <Box sx={{ ...cardSx, mt: { xs: -2, md: -3 }, p: 3, background: `linear-gradient(160deg, ${C.tintBg} 0%, ${C.white} 70%)` }}>
+                <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 1.5 }}>
+                  <Box sx={{ width: 42, height: 42, borderRadius: "12px", background: GRADIENT.brand, color: C.white, display: "grid", placeItems: "center" }}>
+                    <SupportAgentOutlinedIcon />
+                  </Box>
+                </Stack>
+                <Typography sx={{ color: C.text, lineHeight: 1.6 }}>
+                  Can't find what you're looking for?{" "}
+                  <Box
+                    component={RouterLink}
+                    viewTransition
+                    to="/enquiry"
+                    sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: C.brandDark, fontWeight: 700, textDecoration: "none", "& svg": { fontSize: 17, transition: "transform 0.2s ease" }, "&:hover svg": { transform: "translateX(3px)" } }}>
+                    Ask our engineering team
+                    <ArrowForwardRoundedIcon />
+                  </Box>
+                  .
                 </Typography>
-              </AccordionSummary>
-              <AccordionDetails sx={{ px: { xs: 1, md: 2 }, pb: 4 }}>
-                <Typography
-                  sx={{
-                    fontFamily: PRIMARY_FONT,
-                    color: "#555",
-                    lineHeight: 1.8,
-                    fontSize: "1rem",
-                    maxWidth: "800px",
-                  }}>
-                  {faq.answer}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </Paper>
+              </Box>
+            </Box>
+          </Grid>
 
-        <Typography sx={{ textAlign: "center", mt: 4, color: "#64748B", fontFamily: PRIMARY_FONT }}>
-          Can't find what you're looking for?{" "}
-          <Box component={RouterLink} viewTransition to="/enquiry" sx={{ color: BRAND_BLUE, fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-            Ask our engineering team
-          </Box>
-          .
-        </Typography>
+          <Grid size={{ xs: 12, md: 7.5 }}>
+            <Stack spacing={1.5}>
+              {faqs.map((faq, index) => {
+                const isOpen = open === index
+                return (
+                  <Accordion
+                    key={index}
+                    disableGutters
+                    elevation={0}
+                    expanded={isOpen}
+                    onChange={(_, exp) => setOpen(exp ? index : false)}
+                    sx={{
+                      ...cardSx,
+                      boxShadow: isOpen ? cardSx.boxShadow : "none",
+                      borderColor: isOpen ? "rgba(1,176,240,0.4)" : C.border,
+                      borderRadius: "16px !important",
+                      overflow: "hidden",
+                      "&:before": { display: "none" },
+                    }}>
+                    <AccordionSummary
+                      expandIcon={
+                        <Box sx={{ width: 30, height: 30, borderRadius: "50%", display: "grid", placeItems: "center", bgcolor: isOpen ? C.brand : C.surface, color: isOpen ? C.white : C.ink, transition: "all 0.25s ease" }}>
+                          <AddRoundedIcon sx={{ fontSize: 20 }} />
+                        </Box>
+                      }
+                      aria-controls={`products-faq-content-${index}`}
+                      id={`products-faq-header-${index}`}
+                      sx={{
+                        px: { xs: 2, md: 2.5 },
+                        "& .MuiAccordionSummary-content": { my: 2, alignItems: "center", gap: 2 },
+                        "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": { transform: "rotate(45deg)" },
+                      }}>
+                      <Box sx={{ width: 40, height: 40, flex: "none", borderRadius: "12px", bgcolor: isOpen ? C.tintBg : C.surface, color: isOpen ? C.brandDark : C.muted, display: { xs: "none", sm: "grid" }, placeItems: "center", transition: "all 0.25s ease", "& svg": { fontSize: 21 } }}>
+                        {ICONS[index]}
+                      </Box>
+                      <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.98rem", md: "1.05rem" }, color: C.ink, lineHeight: 1.4 }}>{faq.question}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ px: { xs: 2, md: 2.5 }, pl: { sm: 9.5 }, pt: 0, pb: 3 }}>
+                      <Typography sx={{ color: C.muted, lineHeight: 1.75, fontSize: "0.96rem" }}>{faq.answer}</Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                )
+              })}
+            </Stack>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   )

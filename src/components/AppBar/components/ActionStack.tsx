@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Stack, IconButton, Badge, Avatar, Menu, MenuItem, Button } from "@mui/material"
+import { Stack, IconButton, Badge, Avatar, Menu, MenuItem, Button, Tooltip } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline"
@@ -38,12 +38,21 @@ export const ActionStack = ({ cartCount, setOpenDrawer }: any) => {
 
   return (
     <Stack direction="row" spacing={1} alignItems="center" sx={{ zIndex: 10 }}>
-      {/* Apply for Credit — always visible, stands out */}
+      {/* Apply for Credit — always visible, stands out. Full label from lg; between md and lg (iPad landscape)
+          the nav links leave no room for it, so it collapses to an icon button instead of pushing the cart off-screen. */}
+      <Tooltip title="Apply for Credit">
+        <IconButton
+          aria-label="Apply for Credit"
+          onClick={() => navigate("/credit-application")}
+          sx={{ ...iconBtnSx, display: { xs: "none", md: "inline-flex", lg: "none" }, color: "#fff", bgcolor: BRAND_BLUE, borderColor: BRAND_BLUE, "&:hover": { bgcolor: "#0088BA", borderColor: "#0088BA", color: "#fff" } }}>
+          <CreditCardIcon sx={{ fontSize: 20 }} />
+        </IconButton>
+      </Tooltip>
       <Button
         onClick={() => navigate("/credit-application")}
         startIcon={<CreditCardIcon sx={{ fontSize: 18 }} />}
         sx={{
-          display: { xs: "none", md: "inline-flex" },
+          display: { xs: "none", lg: "inline-flex" },
           textTransform: "none",
           fontWeight: 600,
           fontSize: "0.88rem",

@@ -1,180 +1,124 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
 import { Box, Typography, Stack } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import { type CategoryData2 } from "./CategoryData2";
+import { CATEGORY_ROUTES } from "./categoryRoutes";
+import { C, cardSx, cardHoverSx } from "../../Landing2/homeTokens";
 
-const BRAND_BLUE = "#01B0F0";
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
-
-const CATEGORY_ROUTES: Record<string, string> = {
-  "instrumentation-fittings":       "/instrumentation-fittings",
-  "filters":                        "/filters",
-  "quick-coupling-and-hoses":       "/quick-coupling-and-tubing",
-  "hydrogen":                       "/high-pressure",
-  "valves":                         "/valves",
-  "valve-manifolds":                "/manifolds",
-  "double-block-and-bleed-valves":  "/double-block-and-bleed-valves",
-  "tubing":                         "/quick-coupling-and-tubing/tubing",
-  "pressure-regulator-transmitter": "/system-integration",
-  "system-integration":             "/system-integration",
-};
-
-const RootCard = styled(Box)({
-  height: "100%",
-  display: "flex",
-  flexDirection: "column",
-  borderRadius: 0,
-  backgroundColor: "#fff",
-  border: "1px solid rgba(0, 0, 0, 0.1)",
-  transition: "all 0.25s ease-in-out",
-  "&:hover": {
-    borderColor: BRAND_BLUE,
-    transform: "translateY(-5px)",
-    boxShadow: "0px 12px 30px rgba(0,0,0,0.08)",
-  },
-  "&:hover .category-arrow": {
-    transform: "translateX(4px)",
-    opacity: 1,
-  },
-  "&:active": {
-    transform: "translateY(-2px)",
-    boxShadow: "0px 6px 16px rgba(0,0,0,0.1)",
-  },
-});
-
-const ImageLink = styled(RouterLink)({
-  position: "relative",
-  height: 240,
-  width: "100%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  overflow: "hidden",
-  backgroundColor: "#fcfcfc",
-  borderBottom: "1px solid rgba(0, 0, 0, 0.05)",
-  textDecoration: "none",
-  "& img": {
-    width: "75%",
-    height: "75%",
-    objectFit: "contain",
-    transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
-  },
-  "&:hover img": {
-    transform: "scale(1.05)",
-  },
-});
-
-export const CategoryButton2: React.FC<CategoryData2> = ({
+// Same card language as the homepage Core Products: fixed-ratio image stage, number badge, round arrow footer.
+// `featured`: full-width horizontal layout (image left, details right) used for the lead category.
+export const CategoryButton2: React.FC<CategoryData2 & { index?: number; featured?: boolean }> = ({
   title,
   id,
   image,
   products,
   seoDescription,
+  index,
+  featured = false,
 }) => {
   const route = CATEGORY_ROUTES[id] ?? `/products/${id}`;
 
   return (
-    <RootCard>
-      <ImageLink to={route} viewTransition>
-        <img src={image} alt={`${title} industrial component`} loading="lazy" />
-      </ImageLink>
+    <Box
+      sx={{
+        ...cardSx,
+        ...cardHoverSx,
+        height: "100%",
+        display: "flex",
+        flexDirection: { xs: "column", md: featured ? "row" : "column" },
+        overflow: "hidden",
+        "&:hover .cat-img": { transform: "scale(1.06)" },
+        "&:hover .cat-bg": { opacity: 1 },
+        "&:hover .cat-btn": { bgcolor: C.brand, borderColor: C.brand, color: C.white, transform: "rotate(-45deg)" },
+      }}>
+      <Box
+        component={RouterLink}
+        to={route}
+        viewTransition
+        aria-label={title}
+        sx={{ position: "relative", display: "block", aspectRatio: "4 / 3", flex: "none", width: { md: featured ? "42%" : "auto" }, overflow: "hidden", background: `radial-gradient(circle at 50% 55%, #FFFFFF 0%, ${C.surface} 70%)` }}>
+        <Box className="cat-bg" aria-hidden sx={{ position: "absolute", inset: 0, background: `radial-gradient(circle at 50% 55%, #FFFFFF 0%, ${C.tintBg} 60%, rgba(1,176,240,0.16) 100%)`, opacity: 0, transition: "opacity 0.4s ease" }} />
+        {index !== undefined && (
+          <Typography aria-hidden sx={{ position: "absolute", top: 14, left: 16, zIndex: 1, fontWeight: 700, fontSize: "0.78rem", color: C.muted, letterSpacing: "0.06em", fontVariantNumeric: "tabular-nums" }}>
+            {String(index + 1).padStart(2, "0")}
+          </Typography>
+        )}
+        <Box
+          component="img"
+          className="cat-img"
+          src={image}
+          alt={`${title} industrial component`}
+          loading="lazy"
+          sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", boxSizing: "border-box", p: { xs: 3, md: featured ? 6 : 4.5 }, objectFit: "contain", transition: "transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)", filter: "drop-shadow(0 16px 20px rgba(15,34,54,0.18))" }}
+        />
+      </Box>
 
-      <Box sx={{ p: 3, flexGrow: 1 }}>
+      <Box sx={{ p: { xs: 2.5, md: featured ? 4.5 : 3 }, flexGrow: 1, display: "flex", flexDirection: "column", borderTop: { xs: `1px solid ${C.border}`, md: featured ? 0 : `1px solid ${C.border}` }, borderLeft: { md: featured ? `1px solid ${C.border}` : 0 } }}>
         <Typography
           component={RouterLink}
           to={route}
           viewTransition
           variant="h6"
-          sx={{
-            display: "block",
-            fontWeight: 800,
-            textTransform: "uppercase",
-            color: BRAND_BLUE,
-            fontFamily: PRIMARY_FONT,
-            fontSize: "0.95rem",
-            letterSpacing: "0.05em",
-            mb: 1,
-            textDecoration: "none",
-            "&:hover": { textDecoration: "underline" },
-          }}
-        >
+          sx={{ display: "block", fontWeight: 700, color: C.ink, fontSize: featured ? { xs: "1.15rem", md: "1.6rem" } : "1.15rem", letterSpacing: "-0.01em", lineHeight: 1.3, mb: 1, textDecoration: "none", "&:hover": { color: C.brandDark } }}>
           {title}
         </Typography>
 
-        <Typography
-          variant="body2"
-          sx={{
-            color: "#666",
-            fontSize: "0.8rem",
-            lineHeight: 1.6,
-            mb: 2,
-            fontFamily: PRIMARY_FONT,
-            minHeight: "40px",
-          }}
-        >
+        <Typography variant="body2" sx={{ color: C.muted, fontSize: featured ? { xs: "0.88rem", md: "1rem" } : "0.88rem", lineHeight: 1.65, mb: 2.5, maxWidth: 620 }}>
           {seoDescription}
         </Typography>
 
         {products && products.length > 1 && (
-          <Typography
-            variant="overline"
-            sx={{
-              fontWeight: 900,
-              color: "#ccc",
-              letterSpacing: 2,
-              display: "block",
-              mb: 1.5,
-            }}
-          >
+          <Typography sx={{ fontWeight: 700, color: C.brandDark, fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", mb: 1 }}>
             Featured Specs
           </Typography>
         )}
 
-        <Stack spacing={1}>
-          {products?.map((product, index) => (
-            <Typography
-              key={`${id}-prod-${index}`}
+        <Box sx={{ mb: 2.5, display: "grid", gridTemplateColumns: { xs: "1fr", sm: featured ? "1fr 1fr" : "1fr" }, columnGap: 3, rowGap: 0.5 }}>
+          {products?.map((product, i) => (
+            <Box
+              key={`${id}-prod-${i}`}
               component={RouterLink}
               to={product.link}
               viewTransition
               sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 1,
+                px: 1.25,
+                py: 0.85,
+                mx: -1.25,
+                borderRadius: "10px",
+                color: C.text,
+                fontSize: "0.88rem",
                 fontWeight: 500,
-                color: "#444",
-                fontSize: "0.85rem",
-                fontFamily: PRIMARY_FONT,
                 textDecoration: "none",
-                display: "block",
-                "&:hover": {
-                  color: BRAND_BLUE,
-                  textDecoration: "underline",
-                },
-              }}
-            >
+                transition: "all 0.2s ease",
+                "& svg": { fontSize: 18, color: C.brand, opacity: 0.4, transition: "all 0.2s ease" },
+                "&:hover": { bgcolor: C.tintBg, color: C.brandDark, "& svg": { opacity: 1, transform: "translateX(2px)" } },
+              }}>
               {product.name}
-            </Typography>
+              <ChevronRightRoundedIcon />
+            </Box>
           ))}
-        </Stack>
+        </Box>
 
         <Stack
           component={RouterLink}
           to={route}
           viewTransition
           direction="row"
-          spacing={0.5}
           alignItems="center"
-          sx={{ mt: 2, textDecoration: "none", width: "fit-content" }}
-        >
-          <Typography variant="caption" sx={{ fontWeight: 700, color: BRAND_BLUE }}>
-            View Category
-          </Typography>
-          <ArrowForwardIcon
-            className="category-arrow"
-            sx={{ fontSize: 14, color: BRAND_BLUE, opacity: 0.7, transition: "transform 0.25s ease, opacity 0.25s ease" }}
-          />
+          justifyContent="space-between"
+          sx={{ mt: "auto", pt: 2, borderTop: `1px solid ${C.border}`, textDecoration: "none" }}>
+          <Typography sx={{ fontWeight: 600, fontSize: "0.9rem", color: C.brandDark }}>View Category</Typography>
+          <Box className="cat-btn" sx={{ width: 36, height: 36, flex: "none", borderRadius: "50%", border: `1px solid ${C.border}`, color: C.ink, display: "grid", placeItems: "center", transition: "all 0.3s ease" }}>
+            <ArrowForwardIcon sx={{ fontSize: 17 }} />
+          </Box>
         </Stack>
       </Box>
-    </RootCard>
+    </Box>
   );
 };

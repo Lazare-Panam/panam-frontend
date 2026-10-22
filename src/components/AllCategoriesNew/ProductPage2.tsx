@@ -1,5 +1,6 @@
 import React from "react";
-import HeroSection from "../Common/HeroSection";
+import ProductsHero from "./components/ProductsHero";
+import { FONT } from "../Landing2/homeTokens";
 import AllCategories2 from "./AllCategories2";
 import { CATEGORIES2 } from "./components/CategoryData2";
 const ProductPage2 = () => {
@@ -40,10 +41,8 @@ const ProductPage2 = () => {
         })}
       </script>
 
-      <div style={watermarkStyle} />
-
       <div style={{ position: "relative", zIndex: 1 }}>
-        <HeroSection
+        <ProductsHero
           overline="COMPREHENSIVE SOLUTIONS"
           titleMain="Engineered"
           titleAccent="Integrity"
@@ -63,23 +62,9 @@ const containerStyle: React.CSSProperties = {
   width: "100%",
   minHeight: "100vh",
   backgroundColor: "#ffffff",
-};
-
-const watermarkStyle: React.CSSProperties = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  zIndex: 0,
-  backgroundImage: `url("https://res.cloudinary.com/dm9rmmemx/image/upload/v1770828489/3e23e20e-56fd-4194-87f9-318349186f1d_xxoxyc.jpg")`,
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  filter: "brightness(1.1) contrast(0.8) grayscale(1) blur(11px)",
-  opacity: 0.07,
-  mixBlendMode: "multiply",
-  pointerEvents: "none",
+  fontFamily: FONT,
+  // The site body capitalises every word; the catalog reads as normal sentence case like the homepage
+  textTransform: "none",
 };
 
 export default ProductPage2;

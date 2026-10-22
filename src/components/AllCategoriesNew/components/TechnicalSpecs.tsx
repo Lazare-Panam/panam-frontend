@@ -1,11 +1,10 @@
 import React from "react"
-import { Box, Container, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Stack } from "@mui/material"
+import { Box, Container, Typography, Stack, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material"
 import SpeedIcon from "@mui/icons-material/Speed"
 import ThermostatIcon from "@mui/icons-material/Thermostat"
 import ScienceIcon from "@mui/icons-material/Science"
-
-const BRAND_BLUE = "#01B0F0"
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
+import { SectionHeader } from "../../Landing2/homeStyles"
+import { C, GRADIENT, SHADOW, sectionSx } from "../../Landing2/homeTokens"
 
 const specGroups = [
   {
@@ -45,68 +44,162 @@ const specGroups = [
   },
 ]
 
-const tableSx = {
-  "& th": { fontFamily: PRIMARY_FONT, fontWeight: 800, color: "#1a1a1a", fontSize: "0.78rem", textTransform: "uppercase", letterSpacing: "0.03em", bgcolor: "#fafafa" },
-  "& td": { fontFamily: PRIMARY_FONT, color: "#444", fontSize: "0.9rem" },
-  "& tbody tr": { transition: "background-color 0.15s ease" },
-  "& tbody tr:hover": { bgcolor: "rgba(1,176,240,0.04)" },
+// Highest working pressure per Pressure Classes row, drawn as a bar against the 60,000 psi top class
+const PSI_METER: Record<string, number> = {
+  "6K / 10K / 15K / 20K psig": 20000,
+  "MP Cone & Thread — 20,000 psi": 20000,
+  "HP Cone & Thread — 60,000 psi": 60000,
 }
+const PSI_MAX = 60000
+
+// Two-letter badge for material rows, e.g. "KEL-F (PCTFE)" → "KE"
+const badge = (name: string) => name.replace(/[^A-Za-z0-9]/g, "").slice(0, 2).toUpperCase()
+
+// Datasheet-style table: one card, pill tabs on top, a real <table> below. Inactive tables stay in the DOM
+// (hidden) so the prerendered HTML still carries every row. Below sm each row stacks into a block.
+const tableSx = {
+  borderCollapse: "separate",
+  "& th": { color: C.muted, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", borderBottom: `1px solid ${C.border}`, py: 1.75, px: { xs: 2.5, md: 3.5 }, bgcolor: C.white },
+  "& td": { borderBottom: `1px solid ${C.border}`, py: 2.5, px: { xs: 2.5, md: 3.5 }, verticalAlign: "middle" },
+  "& tbody tr": { position: "relative", transition: "background-color 0.2s ease" },
+  "& tbody tr:hover": { bgcolor: C.tintBg },
+  "& tbody tr:hover td:first-of-type": { boxShadow: `inset 3px 0 0 ${C.brand}` },
+  "& tbody tr:last-of-type td": { borderBottom: 0 },
+  "@media (max-width: 599.95px)": {
+    "& thead": { display: "none" },
+    "& tbody tr, & tbody td": { display: "block" },
+    "& tbody tr": { py: 1, borderBottom: `1px solid ${C.border}` },
+    "& tbody tr:last-of-type": { borderBottom: 0 },
+    "& td": { border: 0, py: 1 },
+    "& td.spec-num": { display: "none" },
+  },
+} as const
 
 const TechnicalSpecs: React.FC = () => {
+  const [active, setActive] = React.useState(0)
+  const current = specGroups[active]
+
   return (
-    <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: "#fff", borderTop: "1px solid #eee" }}>
+    <Box component="section" sx={sectionSx("surface")}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 8, maxWidth: 800 }}>
-          <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 800, letterSpacing: 3, fontFamily: PRIMARY_FONT, display: "block" }}>
-            Technical Reference
-          </Typography>
-          <Typography variant="h3" component="h2" sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, mt: 1, mb: 2, color: "#1a1a1a", fontSize: { xs: "1.8rem", md: "2.4rem" } }}>
-            Pressure Classes, Seat Materials & Metallurgy
-          </Typography>
-          <Typography sx={{ fontFamily: PRIMARY_FONT, color: "#555", lineHeight: 1.8 }}>
-            Every product in this catalog is specified against a known pressure class, seat material and body metallurgy — the same reference our engineers use when matching a component to your application.
-          </Typography>
-        </Box>
+        <SectionHeader
+          eyebrow="Technical Reference"
+          title="Pressure Classes, Seat Materials & Metallurgy"
+          subtitle="Every product in this catalog is specified against a known pressure class, seat material and body metallurgy — the same reference our engineers use when matching a component to your application."
+        />
 
-        <Stack spacing={6}>
-          {specGroups.map(group => (
-            <Grid container spacing={4} key={group.label} alignItems="flex-start">
-              <Grid size={{ xs: 12, md: 4 }}>
-                <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 1.5 }}>
-                  <Box sx={{ color: BRAND_BLUE, display: "flex" }}>{group.icon}</Box>
-                  <Typography sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, color: "#1a1a1a", fontSize: "1.15rem" }}>
+        <Box sx={{ bgcolor: C.white, border: `1px solid ${C.border}`, borderRadius: "22px", boxShadow: SHADOW.card, overflow: "hidden" }}>
+          {/* Toolbar: segmented tabs + the active group's summary */}
+          <Box sx={{ px: { xs: 2, md: 3.5 }, pt: { xs: 2, md: 3 }, pb: { xs: 2.5, md: 3 }, borderBottom: `1px solid ${C.border}`, background: `linear-gradient(180deg, ${C.surface} 0%, ${C.white} 100%)` }}>
+            <Box
+              role="tablist"
+              aria-label="Technical reference groups"
+              sx={{ display: "flex", gap: 0.5, p: 0.5, borderRadius: "14px", bgcolor: "#E9EFF5", width: { xs: "100%", md: "fit-content" }, boxSizing: "border-box", overflowX: "auto", scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}>
+              {specGroups.map((group, i) => {
+                const on = active === i
+                return (
+                  <Box
+                    key={group.label}
+                    component="button"
+                    type="button"
+                    role="tab"
+                    id={`spec-tab-${i}`}
+                    aria-selected={on}
+                    aria-controls={`spec-panel-${i}`}
+                    onClick={e => {
+                      setActive(i)
+                      // Keep the chosen tab in view when the tab row scrolls sideways on phones
+                      e.currentTarget.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" })
+                    }}
+                    sx={{
+                      flex: { xs: "1 0 auto", md: "0 0 auto" },
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 1,
+                      px: { xs: 1.5, md: 2.25 },
+                      py: 1.1,
+                      border: 0,
+                      borderRadius: "10px",
+                      font: "inherit",
+                      fontSize: "0.9rem",
+                      fontWeight: 600,
+                      whiteSpace: "nowrap",
+                      cursor: "pointer",
+                      color: on ? C.brandDark : C.muted,
+                      bgcolor: on ? C.white : "transparent",
+                      boxShadow: on ? "0 1px 2px rgba(15,34,54,0.06), 0 4px 12px rgba(15,34,54,0.08)" : "none",
+                      transition: "all 0.2s ease",
+                      "& svg": { fontSize: 18 },
+                      "&:hover": { color: on ? C.brandDark : C.ink },
+                    }}>
+                    {group.icon}
                     {group.label}
-                  </Typography>
-                </Stack>
-                <Typography sx={{ fontFamily: PRIMARY_FONT, color: "#666", lineHeight: 1.7, fontSize: "0.95rem" }}>
-                  {group.blurb}
-                </Typography>
-              </Grid>
+                  </Box>
+                )
+              })}
+            </Box>
 
-              <Grid size={{ xs: 12, md: 8 }}>
-                <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #eee", borderRadius: 0 }}>
-                  <Table size="small" sx={tableSx}>
-                    <TableHead>
-                      <TableRow>
-                        {group.columns.map(col => (
-                          <TableCell key={col}>{col}</TableCell>
-                        ))}
+            <Stack direction="row" alignItems="flex-start" sx={{ mt: { xs: 2.5, md: 3 }, gap: 2 }}>
+              <Box sx={{ width: 48, height: 48, flex: "none", borderRadius: "14px", background: GRADIENT.brand, color: C.white, display: { xs: "none", sm: "grid" }, placeItems: "center", boxShadow: SHADOW.brand, "& svg": { fontSize: 24 } }}>
+                {current.icon}
+              </Box>
+              <Box>
+                <Typography component="h3" sx={{ fontWeight: 700, color: C.ink, fontSize: { xs: "1.15rem", md: "1.3rem" }, letterSpacing: "-0.01em" }}>{current.label}</Typography>
+                <Typography sx={{ mt: 0.5, color: C.muted, fontSize: "0.95rem", lineHeight: 1.6, maxWidth: 760 }}>{current.blurb}</Typography>
+              </Box>
+            </Stack>
+          </Box>
+
+          {specGroups.map((group, i) => (
+            <Box key={group.label} role="tabpanel" id={`spec-panel-${i}`} aria-labelledby={`spec-tab-${i}`} hidden={active !== i}>
+              <Table sx={tableSx}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell sx={{ width: 56 }}>#</TableCell>
+                    <TableCell sx={{ width: { sm: "38%" } }}>{group.columns[0]}</TableCell>
+                    <TableCell>{group.columns[1]}</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {group.rows.map((row, r) => {
+                    const psi = PSI_METER[row[0]]
+                    return (
+                      <TableRow key={row[0]}>
+                        <TableCell className="spec-num" sx={{ color: C.muted, fontWeight: 600, fontSize: "0.82rem", fontVariantNumeric: "tabular-nums" }}>
+                          {String(r + 1).padStart(2, "0")}
+                        </TableCell>
+                        <TableCell>
+                          {psi ? (
+                            <Box>
+                              <Typography sx={{ fontWeight: 700, color: C.ink, fontSize: "0.98rem", lineHeight: 1.35 }}>{row[0]}</Typography>
+                              <Stack direction="row" alignItems="center" spacing={1.25} sx={{ mt: 1.1, maxWidth: 260 }}>
+                                <Box sx={{ flex: 1, height: 6, borderRadius: 3, bgcolor: C.surface, overflow: "hidden" }}>
+                                  <Box sx={{ height: "100%", width: `${(psi / PSI_MAX) * 100}%`, borderRadius: 3, background: GRADIENT.brand }} />
+                                </Box>
+                                <Typography sx={{ fontSize: "0.75rem", fontWeight: 600, color: C.brandDark, fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" }}>
+                                  {psi.toLocaleString("en-GB")} psi
+                                </Typography>
+                              </Stack>
+                            </Box>
+                          ) : (
+                            <Stack direction="row" spacing={1.5} alignItems="center">
+                              <Box aria-hidden sx={{ width: 38, height: 38, flex: "none", borderRadius: "10px", bgcolor: C.tintBg, border: "1px solid rgba(1,176,240,0.25)", color: C.brandDark, display: "grid", placeItems: "center", fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.02em" }}>
+                                {badge(row[0])}
+                              </Box>
+                              <Typography sx={{ fontWeight: 700, color: C.ink, fontSize: "0.98rem" }}>{row[0]}</Typography>
+                            </Stack>
+                          )}
+                        </TableCell>
+                        <TableCell sx={{ color: C.text, fontSize: "0.94rem", lineHeight: 1.6 }}>{row[1]}</TableCell>
                       </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {group.rows.map(row => (
-                        <TableRow key={row[0]}>
-                          <TableCell sx={{ fontWeight: 700, whiteSpace: "nowrap" }}>{row[0]}</TableCell>
-                          <TableCell>{row[1]}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </Grid>
-            </Grid>
+                    )
+                  })}
+                </TableBody>
+              </Table>
+            </Box>
           ))}
-        </Stack>
+        </Box>
       </Container>
     </Box>
   )

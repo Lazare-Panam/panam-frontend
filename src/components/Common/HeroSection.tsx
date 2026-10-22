@@ -37,7 +37,7 @@ const HeroSection = ({ overline, titleMain, titleAccent, titleEnd, description, 
         },
       }}>
       <Container maxWidth="xl" sx={{ position: "relative" }}>
-        <Stack spacing={2} sx={{ maxWidth: "900px", pl: { md: 4 } }}>
+        <Stack spacing={2} sx={{ maxWidth: "900px" }}>
           <Typography
             variant="overline"
             sx={{
