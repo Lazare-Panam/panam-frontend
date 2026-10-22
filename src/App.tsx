@@ -187,6 +187,7 @@ import CheckValveGuideBlog from "./components/News/components/CheckValveGuidBlog
 import BallValvesBlog from "./components/News/components/BallValvesBlog"
 import DeliveryReturnsPage from "./components/Landing/components/DeliveryInformation"
 import CreditApplicationForm from "./components/CreditLineApplication/CreditApplicationForm"
+import ReviewForm from "./components/Reviews/ReviewForm"
 import AllPipeFittings from "./PipeFittings/pages/PipeFittingsAll"
 import AllPipeFittingsProductPage from "./PipeFittings/components/AllPipeFittings"
 import SpecifyValvesGuideBlog from "./components/News/components/Specifyvalvesguideblog"
@@ -212,6 +213,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <CreditApplicationForm />
+          </Suspense>
+        ),
+      },
+      {
+        path: "leave-a-review",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ReviewForm />
           </Suspense>
         ),
       },
