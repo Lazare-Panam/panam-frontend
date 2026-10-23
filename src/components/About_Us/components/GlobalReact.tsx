@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from "react"
-import { Box, Container, Divider, Typography } from "@mui/material"
-import Grid from "@mui/material/Grid" // Reverted to Grid2 for layout consistency
+import { Box, Container, Typography } from "@mui/material"
+import Grid from "@mui/material/Grid"
+import { SectionHeader } from "../../Landing2/homeStyles"
+import { C } from "../../Landing2/homeTokens"
 
-const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
 interface StatItem {
@@ -50,11 +51,13 @@ const StatCounter: React.FC<StatCounterProps> = ({ endValue, suffix = "", durati
       <Typography
         variant="h2"
         sx={{
-          color: BRAND_BLUE,
+          color: C.white,
           fontWeight: 800,
           fontFamily: PRIMARY_FONT,
-          fontSize: { xs: "2.2rem", md: "3rem" },
-          mb: 0.5,
+          fontSize: { xs: "2rem", md: "2.5rem" },
+          letterSpacing: "-0.02em",
+          lineHeight: 1.1,
+          mb: 0.75,
         }}>
         {count.toLocaleString()}
         {suffix}
@@ -74,76 +77,49 @@ const GlobalReachMetrics: React.FC = () => {
   ]
 
   return (
-    <>
-      <Divider
-        sx={{
-          width: "100%",
-          borderColor: "rgba(0,0,0,0.1)",
-          borderBottomWidth: 1,
-        }}
-      />
-      <Box sx={{ py: 12, bgcolor: "#FFFFFF" }}>
-        <Container maxWidth="lg">
-          {/* Header Section */}
-          <Box sx={{ mb: 10, textAlign: "left" }}>
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: 800,
-                fontFamily: PRIMARY_FONT,
-                color: BRAND_BLUE,
-                mb: 3,
-                fontSize: { xs: "2rem", md: "2.8rem" },
-                textTransform: "uppercase",
-                letterSpacing: "-0.01em",
-              }}>
-              Key Metrics of Our Achievements
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: "1.15rem",
-                lineHeight: 1.8,
-                color: "#4A4A4A", // Kept description dark grey for better readability
-                maxWidth: "850px",
-                fontFamily: PRIMARY_FONT,
-              }}>
-              Our achievements serve as milestones that define Panam Valves Ltd.'s journey of innovation, excellence, and global impact. Each accomplishment is a tangible reflection of our dedication to advancing industrial systems.
-            </Typography>
-          </Box>
-
-          {/* Stats Grid */}
-          <Grid container spacing={{ xs: 6, md: 4 }}>
-            {stats.map((stat, index) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
-                <Box
-                  sx={{
-                    textAlign: "left",
-                    borderLeft: `4px solid ${BRAND_BLUE}`,
-                    pl: 3,
-                    transition: "transform 0.3s ease",
-                    "&:hover": { transform: "translateX(8px)" }, // Subtle nudge to the right on hover
-                  }}>
-                  <StatCounter endValue={stat.value} suffix={stat.suffix} />
-                  <Typography
-                    variant="subtitle2"
+    <Box component="section" sx={{ py: { xs: 7, md: 9 }, bgcolor: C.white }}>
+      <Container maxWidth="lg">
+        {/* Brand-blue band, same gradient as the enquiry side panel */}
+        <Box
+          sx={{
+            position: "relative",
+            overflow: "hidden",
+            borderRadius: "28px",
+            color: C.white,
+            px: { xs: 3, sm: 5, md: 7 },
+            py: { xs: 5, md: 7 },
+            background: `linear-gradient(135deg, ${C.brand} 0%, ${C.brandDark} 50%, ${C.brandDeep} 100%)`,
+            boxShadow: "0 24px 60px rgba(3,104,166,0.25)",
+            "&::before": { content: '""', position: "absolute", width: 420, height: 420, borderRadius: "50%", top: -220, right: -140, border: "50px solid rgba(255,255,255,0.06)" },
+            "&::after": { content: '""', position: "absolute", width: 300, height: 300, borderRadius: "50%", bottom: -190, left: -100, border: "40px solid rgba(255,255,255,0.05)" },
+          }}>
+          <Box sx={{ position: "relative", zIndex: 1 }}>
+            <SectionHeader dark eyebrow="By the numbers" title="Key Metrics of Our Achievements" subtitle="Our achievements serve as milestones that define Panam Valves Ltd.'s journey of innovation, excellence, and global impact. Each accomplishment is a tangible reflection of our dedication to advancing industrial systems." />
+            <Grid container spacing={2}>
+              {stats.map(stat => (
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={stat.label}>
+                  <Box
                     sx={{
-                      fontWeight: 600,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.1em",
-                      color: "#666", // Grey label so the blue number stands out
-                      fontFamily: PRIMARY_FONT,
-                      fontSize: "0.85rem",
+                      height: "100%",
+                      boxSizing: "border-box",
+                      p: { xs: 2.5, md: 3 },
+                      borderRadius: "18px",
+                      bgcolor: "rgba(255,255,255,0.1)",
+                      border: "1px solid rgba(255,255,255,0.18)",
+                      backdropFilter: "blur(6px)",
+                      transition: "transform 0.25s ease, background-color 0.25s ease",
+                      "&:hover": { transform: "translateY(-4px)", bgcolor: "rgba(255,255,255,0.16)" },
                     }}>
-                    {stat.label}
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-    </>
+                    <StatCounter endValue={stat.value} suffix={stat.suffix} />
+                    <Typography sx={{ fontWeight: 500, fontSize: "0.92rem", opacity: 0.85, fontFamily: PRIMARY_FONT }}>{stat.label}</Typography>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   )
 }
 

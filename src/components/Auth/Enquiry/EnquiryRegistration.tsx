@@ -168,8 +168,8 @@ export const EnquiryRegistration = () => {
       <EnquiryShell
         header={{
           overline: "Technical Enquiry",
-          titleMain: "Talk to a Panam",
-          titleAccent: "engineer",
+          titleMain: "Talk to our",
+          titleAccent: "technical experts",
           description: "Send us your specifications, drawings or part numbers and our engineers will come back with pricing, availability and technical guidance.",
         }}
         eyebrow="Partner Onboarding"

@@ -1,11 +1,10 @@
-import HeroSection from "../Common/HeroSection"
 import NewsCards from "./components/NewsCards"
 import { blogs } from "./components/blogData"
 const News = () => {
   return (
     <>
-    <title>Technical Insights & Industry News | Panam Valves Blog</title>
-     <meta name="description" content="Explore expert articles on high-pressure instrumentation, valve maintenance, hydrogen safety standards, and the latest innovations from Panam Valves." />
+      <title>Technical Insights & Industry News | Panam Valves Blog</title>
+      <meta name="description" content="Explore expert articles on high-pressure instrumentation, valve maintenance, hydrogen safety standards, and the latest innovations from Panam Valves." />
       {/* Social Media Preview Tags (Open Graph) */}
       <meta property="og:title" content="Engineering the Future of Flow Control | Panam Valves" />
       <meta property="og:description" content="Stay informed on technical breakthroughs and regulatory shifts in the valve industry." />
@@ -30,15 +29,15 @@ const News = () => {
           },
         })}
       </script>
-      <HeroSection
-        overline="INSIGHTS & INNOVATION"
-        titleMain="Engineering the"
-        titleAccent="Future"
-        titleEnd="of Flow Control."
-        description="Stay informed on the latest technical breakthroughs, regulatory shifts, and Panam Valves' ongoing commitment to extreme-pressure safety."
-        backgroundImage="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/andrew-neel-cckf4TsHAuw-unsplash.jpg"
+      <NewsCards
+        hero={{
+          overline: "INSIGHTS & INNOVATION",
+          titleMain: "Engineering the",
+          titleAccent: "Future",
+          titleEnd: "of Flow Control.",
+          description: "Stay informed on the latest technical breakthroughs, regulatory shifts, and Panam Valves' ongoing commitment to extreme-pressure safety.",
+        }}
       />
-      <NewsCards />
     </>
   )
 }
