@@ -29,7 +29,7 @@ const industryData = [
     path: '/industries/marine-subsea',
     title: 'Marine & Subsea',
     desc: 'Specialised instrumentation valves and manifolds designed for extreme hydrostatic pressures. We utilise high-grade Duplex materials to prevent corrosion in offshore energy and subsea production systems.',
-    img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=75',
+    img: '/images/industries/marine-subsea.jpg',
     specs: [
       { icon: <HandymanIcon />, text: 'Duplex & Super Duplex for maximum corrosion resistance' },
       { icon: <SettingsIcon />, text: 'Pressure ratings confirmed for your application at enquiry' },

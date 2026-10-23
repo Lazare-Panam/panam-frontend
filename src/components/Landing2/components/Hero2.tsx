@@ -9,19 +9,25 @@ import { C, btn } from "../homeTokens"
 // POC: PANAM photos from panam.in, AI-upscaled (Real-ESRGAN x4) to 2400px. Swap to blob URLs once approved.
 const slides = [
   {
-    title: "Precision Valves & Flow Control Systems",
+    title: "Precision Instrumentation Valves & Fittings",
     subtitle: "High-performance valves and instrumentation engineered for the world's most demanding industrial environments.",
     image: "/hero-poc/hero-aerial.jpg",
+    primary: { label: "Explore Products", to: "/products" },
+    secondary: { label: "Contact Sales", to: "/enquiry" },
   },
   {
     title: "Global Infrastructure, Local Expertise",
     subtitle: "UK-manufactured solutions built to withstand extreme pressures and ensure total operational safety.",
     image: "/hero-poc/hero-factory.jpg",
+    primary: { label: "Browse Valves", to: "/valves" },
+    secondary: { label: "About PANAM®", to: "/about" },
   },
   {
     title: "H2 Ready: The Future of Energy",
     subtitle: "Pioneering hydrogen-compatible technologies to power the next generation of clean energy infrastructure.",
     image: "/hero-poc/hero-cleanroom.jpg",
+    primary: { label: "Hydrogen Range", to: "/high-pressure" },
+    secondary: { label: "Hydrogen Industry", to: "/industries/hydrogen" },
   },
 ]
 
@@ -39,18 +45,7 @@ const Hero2: React.FC = () => {
         overflow: "hidden",
         bgcolor: "#F2F8FC",
       }}>
-      <Swiper
-        modules={[Autoplay, Navigation, Pagination, EffectFade, A11y]}
-        a11y={{ enabled: true, prevSlideMessage: "Previous slide", nextSlideMessage: "Next slide" }}
-        effect="fade"
-        speed={1100}
-        autoplay={{ delay: 6000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
-        navigation
-        loop
-        watchSlidesProgress
-        className="hero-swiper"
-        style={{ height: "100%", width: "100%" }}>
+      <Swiper modules={[Autoplay, Navigation, Pagination, EffectFade, A11y]} a11y={{ enabled: true, prevSlideMessage: "Previous slide", nextSlideMessage: "Next slide" }} effect="fade" speed={1100} autoplay={{ delay: 6000, disableOnInteraction: false }} pagination={{ clickable: true }} navigation loop watchSlidesProgress className="hero-swiper" style={{ height: "100%", width: "100%" }}>
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.title}>
             <Box sx={{ position: "relative", width: "100%", height: "100%", display: "flex", alignItems: "center", overflow: "hidden" }}>
@@ -83,25 +78,18 @@ const Hero2: React.FC = () => {
               <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
                 <Stack spacing={3} sx={{ maxWidth: 620, "& .hero-text": { textShadow: "0 1px 18px rgba(255,255,255,0.9)" } }}>
                   <Box className="fade-up-1" sx={{ width: 56, height: 4, borderRadius: 2, background: `linear-gradient(90deg, ${C.brand}, ${C.brandDeep})` }} />
-                  <Typography
-                    component={index === 0 ? "h1" : "p"}
-                    className="fade-up-1 hero-text"
-                    sx={{ fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.04, fontSize: { xs: "2.2rem", sm: "2.9rem", md: "3.5rem" }, color: C.ink }}>
+                  <Typography component={index === 0 ? "h1" : "p"} className="fade-up-1 hero-text" sx={{ fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.04, fontSize: { xs: "2.2rem", sm: "2.9rem", md: "3.5rem" }, color: C.ink }}>
                     {slide.title}
                   </Typography>
                   <Typography className="fade-up-2 hero-text" sx={{ fontSize: { xs: "1.05rem", md: "1.22rem" }, lineHeight: 1.65, color: "#2C4156", fontWeight: 500, maxWidth: 540 }}>
                     {slide.subtitle}
                   </Typography>
                   <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ pt: 1 }} className="fade-up-3">
-                    <Button component={RouterLink} viewTransition to="/products" endIcon={<ArrowForwardIcon />} sx={{ ...btn.primary, py: 1.6, px: 3.75 }}>
-                      Explore Products
+                    <Button component={RouterLink} viewTransition to={slide.primary.to} endIcon={<ArrowForwardIcon />} sx={{ ...btn.primary, py: 1.6, px: 3.75 }}>
+                      {slide.primary.label}
                     </Button>
-                    <Button
-                      component={RouterLink}
-                      viewTransition
-                      to="/enquiry"
-                      sx={{ ...btn.secondary, py: 1.6, px: 3.75, bgcolor: "rgba(255,255,255,0.75)", backdropFilter: "blur(8px)" }}>
-                      Contact Sales
+                    <Button component={RouterLink} viewTransition to={slide.secondary.to} sx={{ ...btn.secondary, py: 1.6, px: 3.75, bgcolor: "rgba(255,255,255,0.75)", backdropFilter: "blur(8px)" }}>
+                      {slide.secondary.label}
                     </Button>
                   </Stack>
                 </Stack>

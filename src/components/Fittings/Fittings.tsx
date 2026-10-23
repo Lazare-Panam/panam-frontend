@@ -1,6 +1,5 @@
 import React from "react"
-import { Link as RouterLink } from "react-router-dom"
-import { Box, Container, Grid, Stack, Typography } from "@mui/material"
+import { Box, Container, Grid } from "@mui/material"
 import SpeedRoundedIcon from "@mui/icons-material/SpeedRounded"
 import StraightenRoundedIcon from "@mui/icons-material/StraightenRounded"
 import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined"
@@ -12,11 +11,12 @@ import ChangeHistoryRoundedIcon from "@mui/icons-material/ChangeHistoryRounded"
 import PlumbingRoundedIcon from "@mui/icons-material/PlumbingRounded"
 import LocalFireDepartmentOutlinedIcon from "@mui/icons-material/LocalFireDepartmentOutlined"
 import ViewWeekOutlinedIcon from "@mui/icons-material/ViewWeekOutlined"
-import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded"
 import FittingsFAQ from "./FittingsFAQ"
-import { CategoryHero, CategoryIntro, CategoryPage, CtaBand, FeatureTiles, HeroBadge, RangeCard } from "../Common/CategoryIndexKit"
+import FittingsSelector from "./FittingsSelector"
+import FittingsCompliance from "./FittingsCompliance"
+import { CategoryHero, CategoryIntro, CategoryPage, CtaBand, FeatureTiles, GaugeBadge, RangeCard } from "../Common/CategoryIndexKit"
 import { SectionHeader } from "../Landing2/homeStyles"
-import { C, sectionSx } from "../Landing2/homeTokens"
+import { sectionSx } from "../Landing2/homeTokens"
 
 // ── EDIT FITTING ROUTES HERE ──────────────────────────────────────────────
 const FITTING_ROUTES: Record<string, string> = {
@@ -95,17 +95,15 @@ const SPECS = [
   { icon: <DescriptionOutlinedIcon />, label: "Documentation", value: "Material certificates available on request" },
 ]
 
-// Connection-type shortcuts under the hero: one per family
-const CONNECTION_TYPES: Record<string, { label: string; icon: React.ReactNode }> = {
-  "tube-fittings": { label: "Compression", icon: <RadioButtonCheckedRoundedIcon /> },
-  "37-jic-fittings": { label: "37° flare", icon: <ChangeHistoryRoundedIcon /> },
-  "pipe-fittings": { label: "Threaded", icon: <PlumbingRoundedIcon /> },
-  "weld-fittings": { label: "Welded", icon: <LocalFireDepartmentOutlinedIcon /> },
-  "swivel-gauge-adaptors": { label: "Gauge mounting", icon: <SpeedRoundedIcon /> },
-  "tube-clamps": { label: "Tube support", icon: <ViewWeekOutlinedIcon /> },
+// What each family is for, used by the selection guide
+const FITTING_NEEDS: Record<string, { need: string; icon: React.ReactNode }> = {
+  "tube-fittings": { need: "Leak-tight compression joints on instrument tubing", icon: <RadioButtonCheckedRoundedIcon /> },
+  "37-jic-fittings": { need: "37° flare connections on hydrogen, chemical or gas lines", icon: <ChangeHistoryRoundedIcon /> },
+  "pipe-fittings": { need: "Threaded pipe connections up to 15,000 psig", icon: <PlumbingRoundedIcon /> },
+  "weld-fittings": { need: "Permanent, high-integrity welded joints", icon: <LocalFireDepartmentOutlinedIcon /> },
+  "swivel-gauge-adaptors": { need: "Mount a pressure gauge and turn it to face you", icon: <SpeedRoundedIcon /> },
+  "tube-clamps": { need: "Support and secure tube and pipe runs", icon: <ViewWeekOutlinedIcon /> },
 }
-
-const MATERIALS = ["SS316", "Duplex", "Monel", "Hastelloy", "Brass"]
 
 const FEATURES = [
   "Six fitting families from a single trusted manufacturer",
@@ -120,23 +118,7 @@ const FEATURES = [
 
 const routeFor = (type: string) => FITTING_ROUTES[type] ?? `/fittings/${type}`
 
-// Materials card floating over the hero photo
-const MaterialsBadge = () => (
-  <HeroBadge width={{ xs: 200, md: 236 }}>
-    <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.muted }}>Available in</Typography>
-    <Stack direction="row" sx={{ mt: 1.25, flexWrap: "wrap", gap: 0.75 }}>
-      {MATERIALS.map((m, i) => (
-        <Box key={m} component="span" sx={{ px: 1.1, py: 0.4, borderRadius: "8px", fontSize: "0.78rem", fontWeight: 700, bgcolor: i === 0 ? C.brand : C.tintBg, color: i === 0 ? C.white : C.brandDark }}>
-          {m}
-        </Box>
-      ))}
-    </Stack>
-    <Stack direction="row" alignItems="baseline" spacing={0.75} sx={{ mt: 1.75, pt: 1.5, borderTop: `1px solid ${C.border}` }}>
-      <Typography sx={{ fontWeight: 800, fontSize: "1.3rem", color: C.ink, letterSpacing: "-0.02em", lineHeight: 1 }}>15,000</Typography>
-      <Typography sx={{ fontSize: "0.78rem", color: C.muted }}>psig max</Typography>
-    </Stack>
-  </HeroBadge>
-)
+const SELECTOR = FITTINGS.map(f => ({ ...FITTING_NEEDS[f.type], valve: f.title, to: routeFor(f.type), pressure: f.pressure, size: f.size }))
 
 export default function FittingsPage() {
   return (
@@ -191,47 +173,8 @@ export default function FittingsPage() {
             { value: String(FITTINGS.length), label: "Fitting families" },
             { value: '1/16"–2"', label: "Fractional OD" },
           ]}
-          badge={<MaterialsBadge />}
+          badge={<GaugeBadge value="15,000 psig" />}
         />
-
-        {/* Connection-type shortcuts, overlapping the hero edge */}
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1, mt: { xs: -4, md: -6 } }}>
-          <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3, 1fr)", md: "repeat(6, 1fr)" }, bgcolor: C.white, borderRadius: "22px", border: `1px solid ${C.border}`, boxShadow: "0 1px 2px rgba(15,23,42,0.04), 0 20px 50px rgba(15,34,54,0.10)", overflow: "hidden" }}>
-            {FITTINGS.map((f, i) => {
-              const conn = CONNECTION_TYPES[f.type]
-              return (
-                <Box
-                  key={f.type}
-                  component={RouterLink}
-                  to={routeFor(f.type)}
-                  viewTransition
-                  sx={{
-                    position: "relative",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 1.25,
-                    p: { xs: 2, md: 2.5 },
-                    textDecoration: "none",
-                    borderLeft: { xs: i % 2 === 1 ? `1px solid ${C.border}` : "none", sm: i % 3 !== 0 ? `1px solid ${C.border}` : "none", md: i > 0 ? `1px solid ${C.border}` : "none" },
-                    borderTop: { xs: i > 1 ? `1px solid ${C.border}` : "none", sm: i > 2 ? `1px solid ${C.border}` : "none", md: "none" },
-                    transition: "background-color 0.2s ease",
-                    "&:hover": { bgcolor: C.tintBg },
-                    "&:hover .icon": { bgcolor: C.brand, color: C.white },
-                    "&:hover .go": { opacity: 1, transform: "translate(0,0)" },
-                  }}>
-                  <Box className="icon" sx={{ width: 40, height: 40, borderRadius: "12px", bgcolor: C.tintBg, color: C.brand, display: "grid", placeItems: "center", transition: "all 0.2s ease", "& svg": { fontSize: 21 } }}>
-                    {conn?.icon}
-                  </Box>
-                  <Box>
-                    <Typography sx={{ fontSize: "0.72rem", fontWeight: 600, color: C.muted, textTransform: "uppercase", letterSpacing: "0.06em" }}>{conn?.label}</Typography>
-                    <Typography sx={{ mt: 0.25, fontWeight: 700, fontSize: "0.92rem", color: C.ink, lineHeight: 1.3 }}>{f.title}</Typography>
-                  </Box>
-                  <NorthEastRoundedIcon className="go" sx={{ position: "absolute", top: 14, right: 14, fontSize: 18, color: C.brand, opacity: 0, transform: "translate(-4px,4px)", transition: "all 0.2s ease" }} />
-                </Box>
-              )
-            })}
-          </Box>
-        </Container>
 
         <CategoryIntro
           eyebrow="Complete range"
@@ -247,7 +190,7 @@ export default function FittingsPage() {
         <Box component="section" id="range" sx={{ ...sectionSx("surface"), scrollMarginTop: "100px" }}>
           <Container maxWidth="lg">
             <SectionHeader eyebrow="Product Range" title="Six Families. One Standard." subtitle="Each fitting family is purpose-built for a specific connection type and pressure class. Select by application, working pressure, or end connection." />
-            <Grid container spacing={3}>
+            <Grid container spacing={3} justifyContent="center">
               {FITTINGS.map(f => (
                 <Grid key={f.type} size={{ xs: 12, sm: 6, md: 4 }}>
                   <RangeCard
@@ -268,6 +211,18 @@ export default function FittingsPage() {
                 </Grid>
               ))}
             </Grid>
+          </Container>
+        </Box>
+
+        <Box component="section" sx={sectionSx("white")}>
+          <Container maxWidth="lg">
+            <FittingsSelector rows={SELECTOR} />
+          </Container>
+        </Box>
+
+        <Box component="section" sx={sectionSx("tint")}>
+          <Container maxWidth="lg">
+            <FittingsCompliance />
           </Container>
         </Box>
 

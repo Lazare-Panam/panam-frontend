@@ -23,18 +23,18 @@ const Landing2 = () => {
   /** */
   return (
     <>
-      <title>PANAM® UK | Precision Valve Manufacturer, Built for Every Fit</title>
+      <title>Instrumentation Valves & Fittings | PANAM® UK Manufacturer</title>
       <meta name="description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. Global dispatch and full technical support." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="PANAM Valves" />
-      <meta property="og:title" content="PANAM® UK | Precision Valve Manufacturer, Built for Every Fit" />
+      <meta property="og:title" content="Instrumentation Valves & Fittings | PANAM® UK Manufacturer" />
       <meta property="og:description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. Global dispatch and full technical support." />
       <meta property="og:url" content="https://www.panamvalve.com/" />
       <meta property="og:image" content="https://www.panamvalve.com/p2.png" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="PANAM® UK | Precision Valve Manufacturer, Built for Every Fit" />
+      <meta name="twitter:title" content="Instrumentation Valves & Fittings | PANAM® UK Manufacturer" />
       <meta name="twitter:description" content="Precision valves, manifolds and fittings for hydrogen, oil & gas and industrial applications. Global dispatch and full technical support." />
       <script type="application/ld+json">
         {JSON.stringify({
@@ -57,7 +57,7 @@ const Landing2 = () => {
                 "@type": "ContactPoint",
                 telephone: "+44-7369-243459",
                 contactType: "sales",
-                email: "marketing@panamvalve.com",
+                email: "sales@panamvalves.co.uk",
                 areaServed: "GB",
               },
               sameAs: [

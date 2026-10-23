@@ -53,31 +53,24 @@ const LocationMap = () => {
                 <Box sx={iconTile}>
                   <EmailOutlinedIcon />
                 </Box>
-                <Typography component="a" href="mailto:marketing@panamvalve.com" sx={{ ...linkSx, wordBreak: "break-all" }}>
-                  marketing@panamvalve.com
-                </Typography>
+                <Stack>
+                  <Typography component="a" href="mailto:sales@panamvalves.co.uk" sx={{ ...linkSx, wordBreak: "break-all" }}>
+                    sales@panamvalves.co.uk
+                  </Typography>
+                  <Typography component="a" href="mailto:marketing@panamvalve.com" sx={{ ...linkSx, wordBreak: "break-all" }}>
+                    marketing@panamvalve.com
+                  </Typography>
+                </Stack>
               </Stack>
 
-              <Button
-                component="a"
-                href={`https://maps.google.com/?q=${MAPS_QUERY}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                endIcon={<ArrowForwardIcon />}
-                sx={{ ...btn.secondary, alignSelf: "flex-start" }}>
+              <Button component="a" href={`https://maps.google.com/?q=${MAPS_QUERY}`} target="_blank" rel="noopener noreferrer" endIcon={<ArrowForwardIcon />} sx={{ ...btn.secondary, alignSelf: "flex-start" }}>
                 Get Directions
               </Button>
             </Stack>
           </Grid>
 
           <Grid size={{ xs: 12, md: 8 }} sx={{ minHeight: { xs: 300, md: 440 }, bgcolor: C.surface }}>
-            <Box
-              component="iframe"
-              title="Panam Valves — Bicester, UK location map"
-              src={`https://www.google.com/maps?q=${COORDS}&z=16&output=embed`}
-              loading="lazy"
-              sx={{ width: "100%", height: "100%", minHeight: { xs: 300, md: 440 }, border: 0, display: "block" }}
-            />
+            <Box component="iframe" title="Panam Valves — Bicester, UK location map" src={`https://www.google.com/maps?q=${COORDS}&z=16&output=embed`} loading="lazy" sx={{ width: "100%", height: "100%", minHeight: { xs: 300, md: 440 }, border: 0, display: "block" }} />
           </Grid>
         </Grid>
       </Container>

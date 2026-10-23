@@ -1,14 +1,31 @@
-import { Box, Container, Typography, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
-import Grid from "@mui/material/Grid"
+import React from "react"
+import { Box, Container, Grid, Stack, Typography } from "@mui/material"
+import SpeedRoundedIcon from "@mui/icons-material/SpeedRounded"
+import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined"
+import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined"
+import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined"
+import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined"
+import MonitorHeartOutlinedIcon from "@mui/icons-material/MonitorHeartOutlined"
+import LinkRoundedIcon from "@mui/icons-material/LinkRounded"
+import WaterDropOutlinedIcon from "@mui/icons-material/WaterDropOutlined"
+import ColorizeOutlinedIcon from "@mui/icons-material/ColorizeOutlined"
+import SensorsRoundedIcon from "@mui/icons-material/SensorsRounded"
+import CompareArrowsRoundedIcon from "@mui/icons-material/CompareArrowsRounded"
+import { CategoryHero, CategoryIntro, CategoryPage, CtaBand, FeatureTiles, HeroBadge, RangeCard } from "../Common/CategoryIndexKit"
+import { SectionHeader } from "../Landing2/homeStyles"
+import { C, sectionSx } from "../Landing2/homeTokens"
 
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
-const BRAND_BLUE = "#01B0F0"
+const HERO_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/transmitter-thumbnail.jpg"
+
+// None of these products has its own page yet, so every card goes to the enquiry form
+const ENQUIRY_ROUTE = "/enquiry"
 
 interface ProductItem {
   title: string
   description: string
   image: string
-  href?: string
+  tag: string // short label for the pill over the image
+  icon: React.ReactNode
 }
 
 interface ProductGroup {
@@ -26,21 +43,29 @@ const PRODUCTS: ProductGroup[] = [
         title: "Stabilized Connector",
         description: "Precision-engineered connectors designed for stable, secure connections in instrumentation and process control systems.",
         image: "https://pblol2.blob.core.windows.net/panam-images/products/system-integratino/stablized-connector.png",
+        tag: "Instrument connections",
+        icon: <LinkRoundedIcon />,
       },
       {
         title: "Condensate Pots",
         description: "Used to collect and trap condensate in steam or gas lines to protect instruments and ensure accurate measurement.",
         image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/system-integratino/condensate-pots.jpg",
+        tag: "Steam & gas lines",
+        icon: <WaterDropOutlinedIcon />,
       },
       {
         title: "Grab Sampling System",
         description: "System designed to safely extract representative fluid samples from process lines for laboratory analysis.",
         image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/system-integratino/grab-sampling.jpg",
+        tag: "Lab sampling",
+        icon: <ColorizeOutlinedIcon />,
       },
       {
         title: "Flange Adapter",
         description: "2 and 3-way configurations with floating ball design. Rated up to 10,000 psig with anti-blowout stem safety.",
         image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/system-integratino/flange-adaptors.jpg",
+        tag: "10,000 psig max",
+        icon: <SpeedRoundedIcon />,
       },
     ],
   },
@@ -52,148 +77,152 @@ const PRODUCTS: ProductGroup[] = [
         title: "Pressure Transmitter",
         description: "High-accuracy pressure transmitters for process measurement and monitoring across oil & gas, petrochemical, and utility applications.",
         image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/pressure-transmitter/pt-1.jpg",
+        tag: "Process measurement",
+        icon: <SensorsRoundedIcon />,
       },
       {
         title: "Differential Pressure Transmitter",
         description: "Smart differential pressure transmitters for flow, level, and pressure measurement in demanding process environments.",
         image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/pressure-transmitter/dpt-1.jpg",
+        tag: "Flow · level · pressure",
+        icon: <CompareArrowsRoundedIcon />,
       },
       {
         title: "Diaphragm Seal",
         description: "Diaphragm seals for isolating pressure instruments from aggressive, viscous, or crystallising process media.",
         image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/pressure-transmitter/pt-2.jpg",
+        tag: "Media isolation",
+        icon: <ShieldOutlinedIcon />,
       },
     ],
   },
 ]
 
+const PRODUCT_COUNT = PRODUCTS.reduce((n, g) => n + g.items.length, 0)
+
+const SPECS = [
+  { icon: <AccountTreeOutlinedIcon />, label: "Product Groups", value: "System integration & pressure instrumentation" },
+  { icon: <MonitorHeartOutlinedIcon />, label: "Measurement", value: "Pressure, differential pressure, flow and level" },
+  { icon: <ShieldOutlinedIcon />, label: "Instrument Protection", value: "Diaphragm seals and condensate pots" },
+  { icon: <ScienceOutlinedIcon />, label: "Sampling", value: "Grab sampling systems for laboratory analysis" },
+  { icon: <SpeedRoundedIcon />, label: "Flange Adapters", value: "2 and 3-way, rated up to 10,000 psig" },
+  { icon: <FactoryOutlinedIcon />, label: "Applications", value: "Oil & gas, petrochemical, offshore and utility" },
+]
+
+const FEATURES = [
+  "System integration components and pressure instrumentation in one range",
+  "Complete instrumentation systems designed and supplied to your specification",
+  "Pressure, differential pressure, flow and level measurement",
+  "Diaphragm seals for aggressive, viscous or crystallising media",
+  "Condensate pots to protect instruments in steam and gas lines",
+  "Engineering team responds to enquiries within 24 hours",
+]
+
+// Hero badge: there is only one pressure rating in the range, so show the two product groups instead
+const GroupsBadge = () => (
+  <HeroBadge width={{ xs: 200, md: 236 }}>
+    <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.muted }}>Product groups</Typography>
+    <Stack direction="row" sx={{ mt: 1.25, flexWrap: "wrap", gap: 0.75 }}>
+      {PRODUCTS.map((g, i) => (
+        <Box key={g.category} component="span" sx={{ px: 1.1, py: 0.4, borderRadius: "8px", fontSize: "0.78rem", fontWeight: 700, bgcolor: i === 0 ? C.brand : C.tintBg, color: i === 0 ? C.white : C.brandDark }}>
+          {g.category}
+        </Box>
+      ))}
+    </Stack>
+    <Stack direction="row" alignItems="baseline" spacing={0.75} sx={{ mt: 1.75, pt: 1.5, borderTop: `1px solid ${C.border}` }}>
+      <Typography sx={{ fontWeight: 800, fontSize: "1.3rem", color: C.ink, letterSpacing: "-0.02em", lineHeight: 1 }}>{PRODUCT_COUNT}</Typography>
+      <Typography sx={{ fontSize: "0.78rem", color: C.muted }}>products to enquire</Typography>
+    </Stack>
+  </HeroBadge>
+)
+
 export default function SystemIntegrationIndexPage() {
   return (
-    <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
+    <>
       <title>System Integration & Pressure Instrumentation | PANAM®</title>
       <meta name="description" content="PANAM® system integration: air headers, condensate pots, grab sampling systems, pressure transmitters, diaphragm seals and flange adapters for instrumentation lines." />
       <link rel="canonical" href="https://www.panamvalve.com/system-integration" />
       <meta name="robots" content="index, follow" />
-      {/* ── HERO ── */}
-      <Box
-        sx={{
-          width: "100%",
-          minHeight: { xs: "50vh", md: "60vh" },
-          display: "flex",
-          alignItems: "center",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.58)), url("https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/transmitter-thumbnail.jpg")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          py: { xs: 8, md: 12 },
-        }}>
-        <Container maxWidth="lg">
-          <Typography variant="overline" sx={{ color: BRAND_BLUE, letterSpacing: 3, fontSize: 11, fontWeight: 700, fontFamily: PRIMARY_FONT }}>
-            PANAM® Instrumentation
-          </Typography>
-          <Typography variant="h1" sx={{ fontSize: { xs: 38, md: 64 }, fontWeight: 900, color: "#fff", mt: 1, mb: 3, lineHeight: 1.08, maxWidth: 750, fontFamily: PRIMARY_FONT, letterSpacing: "-0.03em" }}>
-            System Integration &amp;
-            <br />
-            <span style={{ color: BRAND_BLUE }}>Pressure Instrumentation.</span>
-          </Typography>
-          <Typography sx={{ fontSize: { xs: 16, md: 19 }, color: "rgba(255,255,255,0.85)", maxWidth: 580, mb: 5, lineHeight: 1.75, fontFamily: PRIMARY_FONT }}>Air headers, condensate pots, grab sampling systems, flange adapters, pressure transmitters, differential pressure transmitters, and diaphragm seals — all available to enquire directly.</Typography>
-          <Button variant="contained" size="large" href="/enquiry" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
-            Make an Enquiry
-          </Button>
-        </Container>
-      </Box>
 
-      {/* ── MARQUEE ── */}
-      <Box sx={{ borderBottom: "1px solid #eee", py: 1.5, bgcolor: "#fff", overflow: "hidden", whiteSpace: "nowrap" }}>
-        <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
-        <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
-          {[1, 2].map(i => (
-            <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
-              {["Air Headers", "Condensate Pots", "Grab Sampling Systems", "Flange Adapters", "Pressure Transmitters", "Differential Pressure Transmitters", "Diaphragm Seals", "Oil & Gas · Petrochemical · Offshore"].map(item => (
-                <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5, fontFamily: PRIMARY_FONT }}>
-                  <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: BRAND_BLUE, flexShrink: 0 }} />
-                  {item}
-                </Typography>
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Panam Valves" />
+      <meta property="og:title" content="System Integration & Pressure Instrumentation | PANAM®" />
+      <meta property="og:description" content="PANAM® system integration: air headers, condensate pots, grab sampling systems, pressure transmitters, diaphragm seals and flange adapters for instrumentation lines." />
+      <meta property="og:url" content="https://www.panamvalve.com/system-integration" />
+      <meta property="og:image" content={HERO_IMAGE} />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="System Integration & Pressure Instrumentation | PANAM®" />
+      <meta name="twitter:description" content="PANAM® system integration: air headers, condensate pots, grab sampling systems, pressure transmitters, diaphragm seals and flange adapters for instrumentation lines." />
+      <meta name="twitter:image" content={HERO_IMAGE} />
+
+      <CategoryPage>
+        <CategoryHero
+          eyebrow="PANAM® Instrumentation"
+          titleMain="System Integration &"
+          titleAccent="Pressure Instrumentation."
+          description="Air headers, condensate pots, grab sampling systems, flange adapters, pressure transmitters, differential pressure transmitters, and diaphragm seals — all available to enquire directly."
+          image={HERO_IMAGE}
+          imageAlt="Panam pressure transmitter installed on an instrumentation line"
+          primary={{ label: "Explore range", href: "#range" }}
+          secondary={{ label: "Request quote", to: "/enquiry" }}
+          stats={[
+            { value: String(PRODUCT_COUNT), label: "Products" },
+            { value: String(PRODUCTS.length), label: "Product groups" },
+            { value: "24h", label: "Enquiry response" },
+          ]}
+          badge={<GroupsBadge />}
+        />
+
+        <CategoryIntro
+          eyebrow="Complete range"
+          titleMain="Connect, protect"
+          titleAccent="and measure."
+          paragraphs={["PANAM® system integration components — stabilized connectors, condensate pots, grab sampling systems and flange adapters — sit alongside our pressure instrumentation range of pressure transmitters, differential pressure transmitters and diaphragm seals.", "Our engineering team can design and supply complete instrumentation systems to your specification."]}
+          specs={SPECS}
+        />
+
+        {/* No pressure-coverage chart: only the flange adapter carries a pressure rating */}
+        <Box component="section" id="range" sx={{ ...sectionSx("surface"), scrollMarginTop: "100px" }}>
+          <Container maxWidth="lg">
+            <SectionHeader eyebrow="Product Range" title="Two Groups. One Instrumentation Line." subtitle="System integration components for connecting, sampling and protecting instruments, and pressure instrumentation for measurement. Every product is available to enquire directly." />
+            <Stack spacing={{ xs: 6, md: 8 }}>
+              {PRODUCTS.map(group => (
+                <Box key={group.category}>
+                  <Typography component="h3" sx={{ mb: 3, fontWeight: 800, color: C.ink, fontSize: { xs: "1.3rem", md: "1.5rem" }, letterSpacing: "-0.02em" }}>
+                    {group.category}
+                  </Typography>
+                  {/* Centred so the three-card group sits in the middle of the row */}
+                  <Grid container spacing={3} justifyContent="center">
+                    {group.items.map(product => (
+                      <Grid key={product.title} size={{ xs: 12, sm: 6, md: 3 }}>
+                        <RangeCard
+                          ctaLabel="Enquire now"
+                          eyebrow={group.overline}
+                          title={product.title}
+                          description={product.description}
+                          image={product.image}
+                          to={ENQUIRY_ROUTE}
+                          pill={
+                            <>
+                              {product.icon}
+                              {product.tag}
+                            </>
+                          }
+                        />
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Box>
               ))}
-            </Box>
-          ))}
+            </Stack>
+          </Container>
         </Box>
-      </Box>
 
-      <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-        {PRODUCTS.map((group, gi) => (
-          <Box key={group.category} sx={{ mb: 10 }}>
-            <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 3, fontSize: 11, fontFamily: PRIMARY_FONT, display: "block", mb: 1 }}>
-              {group.overline}
-            </Typography>
-            <Typography variant="h2" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 800, mb: 6, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
-              {group.category}
-            </Typography>
+        <FeatureTiles eyebrow="Why Panam" title="Why specify PANAM® System Integration" subtitle="Components to connect, sample and protect your instruments, alongside the transmitters that measure." items={FEATURES} />
 
-            <Grid container spacing={3}>
-              {group.items.map(product => (
-                <Grid key={product.title} size={{ xs: 12, sm: 6, md: 3 }}>
-                  <Card
-                    variant="outlined"
-                    {...(product.href ? { component: "a", href: product.href } : {})}
-                    sx={{
-                      borderRadius: 0,
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      border: "1px solid #e8e8e8",
-                      transition: "box-shadow 0.2s",
-                      textDecoration: "none",
-                      cursor: product.href ? "pointer" : "default",
-                      "&:hover": { boxShadow: product.href ? "0 4px 24px rgba(1,176,240,0.18)" : "0 4px 24px rgba(1,176,240,0.10)" },
-                    }}>
-                    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 200 }}>
-                      <CardMedia component="img" image={product.image} alt={product.title} sx={{ width: "100%", maxWidth: 180, height: 160, objectFit: "contain" }} />
-                    </Box>
-                    <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                      <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}>
-                        {group.overline}
-                      </Typography>
-                      <Typography variant="h6" sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, color: "#1a1a1a", mt: 0.5, mb: 1.5, fontSize: "1rem", lineHeight: 1.3 }}>
-                        {product.title}
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: "#666", lineHeight: 1.75, fontSize: "0.85rem", fontFamily: PRIMARY_FONT }}>
-                        {product.description}
-                      </Typography>
-                    </CardContent>
-                    <Box sx={{ p: 2, pt: 0, display: "flex", flexDirection: "column", gap: 1 }}>
-                      <Button variant="contained" fullWidth size="small" href={product.href ?? "/enquiry"} onClick={e => e.stopPropagation()} sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
-                        {product.href ? "VIEW PRODUCT" : "ENQUIRE NOW"}
-                      </Button>
-                      <Button variant="outlined" fullWidth size="small" href="mailto:sales@panamvalves.co.uk" onClick={e => e.stopPropagation()} sx={{ borderColor: "#ddd", color: "#444", borderRadius: 0, fontWeight: 600, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#f5f5f5", borderColor: "#bbb" } }}>
-                        EMAIL SALES
-                      </Button>
-                    </Box>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-
-            {gi < PRODUCTS.length - 1 && <Divider sx={{ mt: 10 }} />}
-          </Box>
-        ))}
-
-        {/* ── CTA ── */}
-        <Divider sx={{ mb: 10 }} />
-        <Box sx={{ textAlign: "center", py: 6 }}>
-          <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 800, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a" }}>
-            Need a custom solution?
-          </Typography>
-          <Typography sx={{ color: "#666", lineHeight: 1.8, mb: 4, maxWidth: 520, mx: "auto", fontFamily: PRIMARY_FONT }}>Our engineering team can design and supply complete instrumentation systems to your specification. Get in touch and we'll respond within 24 hours.</Typography>
-          <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
-            <Button variant="contained" size="large" href="/enquiry" sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, px: 4, py: 1.5, fontWeight: 700, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#0090c8" } }}>
-              Make an Enquiry
-            </Button>
-            <Button variant="outlined" size="large" href="mailto:sales@panamvalves.co.uk" sx={{ borderColor: "#ddd", color: "#333", borderRadius: 0, px: 4, py: 1.5, fontWeight: 600, fontFamily: PRIMARY_FONT, "&:hover": { bgcolor: "#f5fbfe", borderColor: BRAND_BLUE } }}>
-              Email Technical Sales
-            </Button>
-          </Box>
-        </Box>
-      </Container>
-    </Box>
+        <CtaBand title="Need a custom solution?" text="Our engineering team can design and supply complete instrumentation systems to your specification. Get in touch and we'll respond within 24 hours." primary={{ label: "Email Technical Sales", href: "mailto:sales@panamvalves.co.uk" }} secondary={{ label: "Make an Enquiry", to: "/enquiry" }} />
+      </CategoryPage>
+    </>
   )
 }

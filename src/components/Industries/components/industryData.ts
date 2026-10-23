@@ -2,14 +2,14 @@ export const industryData = [
   {
     id: "marine-subsea",
     title: "Marine & Subsea",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
+    image: "/images/industries/marine-subsea.jpg",
     hero: {
       overline: "SECTORS WE SERVE",
       titleMain: "Engineering for the",
       titleAccent: "Deepest Frontiers",
       titleEnd: "on Earth.",
       description: "Our marine-grade valve solutions are engineered to withstand extreme hydrostatic pressures and corrosive saltwater environments, ensuring uptime for offshore energy and subsea exploration.",
-      backgroundImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80",
+      backgroundImage: "/images/industries/marine-subsea.jpg",
     },
     content: {
       subHeading: "MARINE & SUBSEA EXPERTISE",

@@ -395,6 +395,18 @@ export const CertificatesFAQ: React.FC = () => {
           })}
         </script>
 
+        {/* Same @id as the homepage Organization, so search engines tie these certificates to one company */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://www.panamvalve.com/#organization",
+            name: "PANAM Valves",
+            url: "https://www.panamvalve.com/",
+            logo: "https://www.panamvalve.com/p2.png",
+          })}
+        </script>
+
         <SectionHeading id="faq">Frequently asked questions</SectionHeading>
 
         <Paper elevation={0} sx={{ maxWidth: "900px", p: { xs: 2, md: 4 }, borderRadius: 0, border: BORDER, backgroundColor: "#fff" }}>

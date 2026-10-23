@@ -198,6 +198,7 @@ const Footer: React.FC = () => (
           Precision-engineered instrumentation solutions for critical global infrastructure.
         </Typography>
         <Stack spacing={1.25} sx={{ mb: 3 }}>
+          <ContactRow Icon={EmailOutlinedIcon} href="mailto:sales@panamvalves.co.uk">sales@panamvalves.co.uk</ContactRow>
           <ContactRow Icon={EmailOutlinedIcon} href="mailto:marketing@panamvalve.com">marketing@panamvalve.com</ContactRow>
           <ContactRow Icon={PhoneOutlinedIcon} href="tel:+447369243459">+44 (0) 7369243459</ContactRow>
           <ContactRow Icon={LocationOnOutlinedIcon} href={MAPS_URL} external>
