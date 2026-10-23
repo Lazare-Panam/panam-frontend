@@ -19,7 +19,7 @@ const USEFUL_LINKS_PATHS = new Set(["/about", "/industries", "/industries/marine
 
 // Pages that open with the light-blue hero background. The breadcrumb strip gets the same background on these,
 // so it flows into the hero instead of leaving a white band with a hard edge above it.
-const LIGHT_HERO_PATHS = new Set(["/products", "/enquiry", "/resources", "/blog", "/login", "/register", "/about", "/leave-a-review", "/credit-application"])
+const LIGHT_HERO_PATHS = new Set(["/products", "/enquiry", "/resources", "/blog", "/login", "/register", "/about", "/leave-a-review", "/credit-application", "/high-pressure", "/instrumentation-fittings"])
 
 const Layout = () => {
   const { pathname } = useLocation()
