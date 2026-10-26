@@ -196,7 +196,7 @@ export default function TubeClampIndexPage() {
   return (
     <>
       <title>Tube Clamps | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® Tube Clamps — Twin, Single Layer, Double Layer, Heavy Single and Heavy Double series. DIN Groups 1 to 10, 4mm to 219mm pipe OD, M6 to M30 bolts, PP jaws included. Request a quote." />
+      <meta name="description" content="PANAM® tube clamps: Twin, Single, Double, Heavy Single and Heavy Double series. DIN Groups 1–10, 4–219mm pipe OD, M6–M30 bolts, PP jaws included." />
       <meta name="keywords" content="tube clamps, DIN tube clamps, instrumentation pipe clamps, twin series clamps, heavy series tube clamps, DIN 3015" />
       <meta property="og:title" content="Tube Clamps | PANAM® Instrumentation" />
       <meta property="og:description" content="Five series of tube clamps from one source. DIN Groups 1 to 10, 4mm to 219mm OD, complete sets supplied as standard." />

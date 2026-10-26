@@ -19,6 +19,7 @@
       "redirect": "/blog/double-block-and-bleed",
       "statusCode": 301
     },
+    { "route": "/certificates/registrations", "redirect": "/certificates", "statusCode": 301 },
     { "route": "/products/valves", "redirect": "/valves", "statusCode": 301 },
     { "route": "/products/needle-valves", "redirect": "/valves/needle-valves", "statusCode": 301 },
     { "route": "/products/valves/needle-valves", "redirect": "/valves/needle-valves", "statusCode": 301 },

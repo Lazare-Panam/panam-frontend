@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link as RouterLink, useParams } from "react-router-dom"
+import { Link as RouterLink, Navigate, useParams } from "react-router-dom"
 import { Box, ButtonBase, Container, Dialog, Grid, IconButton, Stack, Typography } from "@mui/material"
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded"
 import ZoomInRoundedIcon from "@mui/icons-material/ZoomInRounded"
@@ -90,13 +90,21 @@ const CertificationsPage: React.FC = () => {
     "type-reports": "Type Test Reports | Panam Valves – ATEX & PED",
   }
 
-  const pageTitle = isBasePage ? "Quality & Certifications | ISO 9001, ISO 14001, ISO 45001, ATEX | Panam" : (tabTitles[activeTab] ?? "Official Certifications | Panam Valves – QMS & Type Test Reports")
-  const pageDescription = isBasePage ? "Panam certifications in one place: ISO 9001, ISO 14001 and ISO 45001, plus ATEX and PED documents. Material certificates available on request." : "Browse Panam Valves' certifications, including QMS certificates and type test reports."
+  const pageTitle = isBasePage ? "Quality & Certifications | ISO 9001, 14001, 45001, ATEX | Panam" : (tabTitles[activeTab] ?? "Official Certifications | Panam Valves – QMS & Type Test Reports")
+  // One description per page, drawn from each page's own intro copy, so the tabs don't share a meta description
+  const tabDescriptions: Record<string, string> = {
+    qms: "Panam's quality, environmental and health and safety management systems, certified to ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018.",
+    "type-reports": "Panam type test reports: ATEX technical file deposit with LCIE and TÜV NORD PED material processor recognition for instrumentation valves and fittings.",
+  }
+  const pageDescription = isBasePage ? "Panam certifications in one place: ISO 9001, ISO 14001 and ISO 45001, plus ATEX and PED documents. Material certificates available on request." : (tabDescriptions[activeTab] ?? "Browse Panam Valves' certifications, including QMS certificates and type test reports.")
   const [openCert, setOpenCert] = useState<CertDoc | null>(null)
   const canonicalBase = "https://www.panamvalve.com/certificates"
   const canonicalUrl = tab ? `${canonicalBase}/${tab}` : canonicalBase
   const allCerts = Object.entries(certsByTab).flatMap(([key, certs]) => certs.map(cert => ({ ...cert, label: tabs.find(t => t.key === key)?.label })))
   const tabCerts = certsByTab[activeTab] ?? []
+
+  // Unknown sections (e.g. the old /certificates/registrations) used to render the QMS page as a duplicate
+  if (tab && !tabs.some(t => t.key === tab)) return <Navigate to="/certificates" replace />
 
   return (
     <>

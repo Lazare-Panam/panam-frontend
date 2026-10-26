@@ -37,7 +37,15 @@ const CategoryCard: React.FC<TechnicalFileCategory> = ({ name, category, subtitl
       "&:hover .cad-cta": { background: GRADIENT.brand, color: C.white, borderColor: "transparent" },
     }}>
     <Box sx={{ position: "relative", aspectRatio: "4 / 3", m: 1.25, mb: 0, borderRadius: "14px", overflow: "hidden", background: `radial-gradient(ellipse at 40% 45%, ${C.white} 0%, ${C.white} 40%, ${C.tintBg} 100%)` }}>
-      <Box component="img" className="cad-photo" src={image} alt={name} loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "contain", p: 4, pr: 9, boxSizing: "border-box", mixBlendMode: "multiply", transition: "transform 0.45s ease" }} />
+      {image ? (
+        <Box component="img" className="cad-photo" src={image} alt={name} loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "contain", p: 4, pr: 9, boxSizing: "border-box", mixBlendMode: "multiply", transition: "transform 0.45s ease" }} />
+      ) : (
+        <Box className="cad-photo" sx={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", p: 4, pr: 9, transition: "transform 0.45s ease" }}>
+          <Box sx={{ width: "70%" }}>
+            <CadDrawing kind={drawingKindFor(category)} />
+          </Box>
+        </Box>
+      )}
       <Stack direction="row" alignItems="center" spacing={0.6} sx={{ position: "absolute", top: 12, left: 12, px: 1.1, py: 0.4, borderRadius: RADIUS.pill, bgcolor: "rgba(255,255,255,0.92)", border: `1px solid ${C.border}`, color: C.brandDark, fontSize: "0.72rem", fontWeight: 700, "& svg": { fontSize: 14 } }}>
         <ViewInArRoundedIcon />
         <span>{subtitle}</span>

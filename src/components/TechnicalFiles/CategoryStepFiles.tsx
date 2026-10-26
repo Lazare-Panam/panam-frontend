@@ -4,7 +4,8 @@ import { useParams, Link as RouterLink } from "react-router-dom"
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined"
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded"
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded"
-import { getTechnicalFiles, type TechnicalFile } from "../../api/technicalFileApi"
+import { getTechnicalFiles, TechnicalFileType, type TechnicalFile } from "../../api/technicalFileApi"
+import { DRAWING_FILES } from "./drawings"
 import { CATEGORIES, drawingKindFor, getCategory, type DrawingKind } from "./categories"
 import CadDrawing from "./CadDrawing"
 import { CategoryPage } from "../Common/CategoryIndexKit"
@@ -49,6 +50,8 @@ const FileTile: React.FC<{ file: TechnicalFile; query: string; kind: DrawingKind
       component="a"
       href={file.blobUrl}
       download={file.fileName}
+      target="_blank"
+      rel="noopener noreferrer"
       aria-label={`Download ${file.partNumber}`}
       sx={{
         ...cardSx,
@@ -93,15 +96,19 @@ const CategoryStepFiles: React.FC = () => {
 
   useEffect(() => {
     let active = true
-    setLoading(true)
+    // STEP models come from the API; PDF drawings aren't in the API, so they're listed in drawings.ts
+    // and shown straight away without waiting for it.
+    const drawings = DRAWING_FILES.filter(d => d.category.toLowerCase() === category.toLowerCase())
+    const sortByPart = (list: TechnicalFile[]) => [...list].sort((a, b) => a.partNumber.localeCompare(b.partNumber))
+    setFiles(sortByPart(drawings))
+    setLoading(drawings.length === 0)
     setError("")
     getTechnicalFiles(category)
       .then(data => {
-        if (!active) return
-        setFiles([...data].sort((a, b) => a.partNumber.localeCompare(b.partNumber)))
+        if (active) setFiles(sortByPart([...data, ...drawings]))
       })
       .catch(() => {
-        if (active) setError("Could not load files. Please try again.")
+        if (active && !drawings.length) setError("Could not load files. Please try again.")
       })
       .finally(() => {
         if (active) setLoading(false)
@@ -110,6 +117,10 @@ const CategoryStepFiles: React.FC = () => {
       active = false
     }
   }, [category])
+
+  const hasDrawings = files.some(f => f.fileType === TechnicalFileType.Drawing)
+  const hasModels = files.some(f => f.fileType !== TechnicalFileType.Drawing)
+  const listTitle = hasDrawings && hasModels ? "Drawings & STEP Models" : hasDrawings ? "Drawings" : "STEP Models"
 
   const query = search.trim().toLowerCase()
   const filtered = query ? files.filter(f => f.partNumber.toLowerCase().includes(query)) : files
@@ -151,7 +162,13 @@ const CategoryStepFiles: React.FC = () => {
               <Grid size={{ md: 4 }} sx={{ display: { xs: "none", md: "flex" }, justifyContent: "center" }}>
                 <Box sx={{ position: "relative", width: 260, height: 260, display: "grid", placeItems: "center" }}>
                   <Box aria-hidden sx={{ position: "absolute", inset: 0, borderRadius: "50%", background: `radial-gradient(circle, ${C.white} 0%, rgba(255,255,255,0.9) 45%, rgba(1,176,240,0.10) 70%, transparent 72%)` }} />
-                  <Box component="img" src={meta.image} alt={meta.name} sx={{ position: "relative", width: "100%", height: "100%", objectFit: "contain", mixBlendMode: "multiply", transform: "scale(1.15)" }} />
+                  {meta.image ? (
+                    <Box component="img" src={meta.image} alt={meta.name} sx={{ position: "relative", width: "100%", height: "100%", objectFit: "contain", mixBlendMode: "multiply", transform: "scale(1.15)" }} />
+                  ) : (
+                    <Box sx={{ position: "relative", width: "78%" }}>
+                      <CadDrawing kind={drawingKindFor(category)} />
+                    </Box>
+                  )}
                 </Box>
               </Grid>
             )}
@@ -179,12 +196,12 @@ const CategoryStepFiles: React.FC = () => {
             </Box>
           )}
 
-          {!loading && !error && files.length > 0 && (
+          {!error && files.length > 0 && (
             <Box>
               <Stack direction={{ xs: "column", sm: "row" }} alignItems={{ xs: "stretch", sm: "center" }} justifyContent="space-between" spacing={2} sx={{ mb: { xs: 3, md: 4 }, pb: 2, borderBottom: `1px solid ${C.border}` }}>
                 <Stack direction="row" alignItems="baseline" spacing={1.25}>
                   <Typography component="h2" sx={{ fontWeight: 800, color: C.ink, fontSize: { xs: "1.3rem", md: "1.5rem" }, letterSpacing: "-0.02em" }}>
-                    STEP Models
+                    {listTitle}
                   </Typography>
                   <Typography sx={{ fontSize: "0.85rem", color: C.muted }}>{query ? `${filtered.length} of ${files.length}` : files.length} files</Typography>
                 </Stack>

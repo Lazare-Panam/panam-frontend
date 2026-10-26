@@ -141,7 +141,7 @@ const sealMaterialOptions = useMemo(
   return (
     <>
       <title>DBB Flange-to-Pipe Valves | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® DBB Flange-to-Pipe valves — Integral and Three Piece construction, Class 150–2500, SS316, NACE MR-0175 and fire-safe options. Configure and request a quote." />
+      <meta name="description" content="PANAM® DBB flange-to-pipe valves: integral and three-piece, Class 150–2500, SS316, with NACE MR-0175 and fire-safe options. Configure and request a quote." />
       <meta name="keywords" content="DBB flange to pipe valve, double block bleed valve, instrument isolation valve, NACE valve, SS316 instrumentation valve" />
       <meta property="og:title" content="DBB Flange-to-Pipe Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® DBB Flange-to-Pipe valves by construction, pressure class, bore size, and special service." />

@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react"
+import { fitTitle } from "../../data/seoMetaRules"
 import { Link as RouterLink, useParams } from "react-router-dom"
 import { Box, Button, Container, Divider, TextField, Typography } from "@mui/material"
 import { PRODUCT_SECTIONS } from "../../productRoutes"
@@ -29,7 +30,7 @@ const SectionIndexPage = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
-      <title>{`${section.label} — Full Product Index | Panam Valves`}</title>
+      <title>{fitTitle(`${section.label}: Product Index | Panam Valves`)}</title>
       <meta
         name="description"
         content={`Browse every ${section.label} product from Panam Valves — a complete directory of part numbers with direct links to each product page.`}

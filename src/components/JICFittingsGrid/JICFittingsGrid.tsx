@@ -39,7 +39,7 @@ export default function JICFittingPage({
       {section === "all" && (
         <>
           <title>37° Flared JIC Fittings | PANAM® Instrumentation</title>
-          <meta name="description" content="PANAM® 37° JIC Male and Female Connectors — SS316, NPT, BSPT, BSPP, SAE/MS and Metric threads, 1/8 to 2 inch. Request a quote." />
+          <meta name="description" content="Configure PANAM® 37° JIC fittings by type, thread standard and size. SS316 connectors, unions, elbows, tees and adapters, 1/8 to 2 inch." />
           <meta name="keywords" content="JIC fittings, 37 degree flare fittings, SS316 JIC, NPT BSPP BSPT fittings, instrumentation tube fittings" />
           <meta property="og:title" content="37° Flared JIC Fittings | PANAM® Instrumentation" />
           <meta property="og:description" content="Configure PANAM® 37° JIC Fittings by type, thread standard, and size. SS316 construction, full range of connectors, unions, elbows, tees and adapters." />
@@ -52,7 +52,7 @@ export default function JICFittingPage({
               "@context": "https://schema.org",
               "@type": "CollectionPage",
               name: "37° Flared JIC Fittings",
-              description: "PANAM® 37° JIC Male and Female Connectors — SS316, NPT, BSPT, BSPP, SAE/MS and Metric threads, 1/8 to 2 inch.",
+              description: "Configure PANAM® 37° JIC fittings by type, thread standard and size. SS316 connectors, unions, elbows, tees and adapters, 1/8 to 2 inch.",
               url: "https://www.panamvalve.com/instrumentation-fittings/jic-fittings/all",
             })}
           </script>

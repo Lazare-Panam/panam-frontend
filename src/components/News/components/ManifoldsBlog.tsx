@@ -44,7 +44,7 @@ const ManifoldValvesBlog: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>Manifold Valves for Accurate, Safe Instrumentation Measurement | Panam Valve</title>
+      <title>Manifold Valves for Accurate, Safe Instrumentation | Panam Valve</title>
       <meta name="description" content="Compare manifold valve types, monoflanges, and DB&B setups to improve DP, level, and pressure measurement accuracy and safety." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />

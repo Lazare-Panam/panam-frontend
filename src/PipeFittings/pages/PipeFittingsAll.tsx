@@ -5,7 +5,7 @@ export default function AllPipeFittings() {
     <>
       {/* /instrumentation-fittings/pipe-fittings/all */}
       <title>All Pipe Fittings | PANAM®</title>
-      <meta name="description" content={"Browse the full PANAM® pipe fittings range — hex nipples, unions, tees, elbows, adapters and more. SS316, Duplex, Monel & Hastelloy with NPT, BSPT & BSPP threads."} />
+      <meta name="description" content={"The full PANAM® pipe fittings range: hex nipples, unions, tees, elbows, adapters and more in SS316, Duplex, Monel and Hastelloy. NPT, BSPT and BSPP."} />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/pipe-fittings/all" />
       <meta name="robots" content="index, follow" />
       <meta property="og:type" content="website" />
@@ -24,7 +24,7 @@ export default function AllPipeFittings() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "All Pipe Fittings | PANAM®",
-          description: "Browse the full PANAM® pipe fittings range — hex nipples, unions, tees, elbows, adapters and more. SS316, Duplex, Monel & Hastelloy with NPT, BSPT & BSPP threads.",
+          description: "The full PANAM® pipe fittings range: hex nipples, unions, tees, elbows, adapters and more in SS316, Duplex, Monel and Hastelloy. NPT, BSPT and BSPP.",
         })}
       </script>
       <PipeFittingPage />

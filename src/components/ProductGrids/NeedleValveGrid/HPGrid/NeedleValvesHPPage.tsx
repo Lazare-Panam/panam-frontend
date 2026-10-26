@@ -37,8 +37,8 @@ export default function NeedleValveHPPage() {
 
   return (
     <>
-      <title>PANAM® HP Series High Pressure Forged Needle Valves | 10,000 psig | PANAM®</title>
-      <meta name="description" content="PANAM® HP Series one-piece forged needle valves rated to 10,000 psig and 538°C. SS316, Duplex, Monel and Hastelloy. Optional Graphoil packing for high-temperature service." />
+      <title>PANAM® HP Series Forged Needle Valves | 10,000 psig</title>
+      <meta name="description" content="PANAM® HP Series one-piece forged needle valves rated to 10,000 psig and 538°C. SS316, Duplex, Monel, Hastelloy. Graphoil packing for high temperatures." />
       <meta name="keywords" content="high pressure forged needle valve, HP series needle valve, 10000 psi forged valve, high temperature needle valve, Graphoil packing needle valve, forged instrumentation valve, SS316 forged needle valve" />
       <meta property="og:title" content="HP Series Forged Needle Valves | 10,000 psig | PANAM®" />
       <meta property="og:description" content="One-piece forged needle valves to 10,000 psig and 538°C. Graphoil packing option." />
@@ -50,7 +50,7 @@ export default function NeedleValveHPPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "HP Series High Pressure Forged Needle Valves",
-          description: "PANAM® HP Series one-piece forged needle valves rated to 10,000 psig and 538°C. SS316, Duplex, Monel and Hastelloy. Optional Graphoil packing for high-temperature service.",
+          description: "PANAM® HP Series one-piece forged needle valves rated to 10,000 psig and 538°C. SS316, Duplex, Monel, Hastelloy. Graphoil packing for high temperatures.",
         })}
       </script>
       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>

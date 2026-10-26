@@ -69,8 +69,8 @@ export default function PCVPage() {
 
   return (
     <>
-    <title>PANAM Check Valves | Inline Backflow Prevention | 6,000 psig | PANAM®</title>
-    <meta name="description" content="PANAM® PCV Series inline check valves rated to 6,000 psig. Eight cracking pressure options from 1/3 to 100 psig. SS316, Duplex, Monel and Hastelloy. Hydrogen service rated." />
+    <title>PANAM Check Valves | Inline Backflow Prevention | 6,000 psig</title>
+    <meta name="description" content="PANAM® PCV inline check valves rated to 6,000 psig, with eight cracking pressures from 1/3 to 100 psig. SS316, Duplex, Monel, Hastelloy. Hydrogen rated." />
     <meta name="keywords" content="instrumentation check valve, inline check valve, backflow prevention valve, PCV check valve, 6000 psi check valve, hydrogen service check valve, SS316 check valve, Duplex check valve, cracking pressure valve, non return valve instrumentation" />
     <meta property="og:title" content="PCV Series Check Valves | 6,000 psig | PANAM®" />
     <meta property="og:description" content="Inline check valves to 6,000 psig. Eight cracking pressure options. SS316, Duplex, Monel, Hastelloy. Hydrogen service rated." />
@@ -82,7 +82,7 @@ export default function PCVPage() {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         name: "PCV Series Check Valves",
-        description: "PANAM® PCV Series inline check valves rated to 6,000 psig. Eight cracking pressure options from 1/3 to 100 psig. SS316, Duplex, Monel and Hastelloy. Hydrogen service rated.",
+        description: "PANAM® PCV inline check valves rated to 6,000 psig, with eight cracking pressures from 1/3 to 100 psig. SS316, Duplex, Monel, Hastelloy. Hydrogen rated.",
       })}
     </script>
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>

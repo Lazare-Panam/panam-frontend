@@ -125,7 +125,7 @@ export default function PipexPipeDBB() {
   return (
     <>
       <title>DBB Pipe-to-Pipe Valves | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® DBB Pipe-to-Pipe valves — NPT, BSPP, and BSPT thread forms, SS316, NACE MR-0175 and fire-safe options. Compact instrument isolation and process bleed. Configure and request a quote." />
+      <meta name="description" content="PANAM® DBB pipe-to-pipe valves in NPT, BSPP and BSPT, SS316, with NACE MR-0175 and fire-safe options for compact instrument isolation and process bleed." />
       <meta name="keywords" content="DBB pipe to pipe valve, double block bleed valve, threaded instrument isolation valve, NPT BSPP BSPT valve, NACE SS316 valve" />
       <meta property="og:title" content="DBB Pipe-to-Pipe Valves | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® DBB Pipe-to-Pipe valves by thread type, bore size, configuration, and special service." />

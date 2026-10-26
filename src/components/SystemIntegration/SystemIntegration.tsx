@@ -140,20 +140,20 @@ export default function SystemIntegrationIndexPage() {
   return (
     <>
       <title>System Integration & Pressure Instrumentation | PANAM®</title>
-      <meta name="description" content="PANAM® system integration: air headers, condensate pots, grab sampling systems, pressure transmitters, diaphragm seals and flange adapters for instrumentation lines." />
+      <meta name="description" content="PANAM® system integration: air headers, condensate pots, grab sampling, pressure transmitters, diaphragm seals and flange adapters for instrument lines." />
       <link rel="canonical" href="https://www.panamvalve.com/system-integration" />
       <meta name="robots" content="index, follow" />
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Panam Valves" />
       <meta property="og:title" content="System Integration & Pressure Instrumentation | PANAM®" />
-      <meta property="og:description" content="PANAM® system integration: air headers, condensate pots, grab sampling systems, pressure transmitters, diaphragm seals and flange adapters for instrumentation lines." />
+      <meta property="og:description" content="PANAM® system integration: air headers, condensate pots, grab sampling, pressure transmitters, diaphragm seals and flange adapters for instrument lines." />
       <meta property="og:url" content="https://www.panamvalve.com/system-integration" />
       <meta property="og:image" content={HERO_IMAGE} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="System Integration & Pressure Instrumentation | PANAM®" />
-      <meta name="twitter:description" content="PANAM® system integration: air headers, condensate pots, grab sampling systems, pressure transmitters, diaphragm seals and flange adapters for instrumentation lines." />
+      <meta name="twitter:description" content="PANAM® system integration: air headers, condensate pots, grab sampling, pressure transmitters, diaphragm seals and flange adapters for instrument lines." />
       <meta name="twitter:image" content={HERO_IMAGE} />
 
       <CategoryPage>

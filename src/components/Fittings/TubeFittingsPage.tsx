@@ -228,7 +228,7 @@ export default function TubeFittingsPage() {
   return (
     <>
       <title>Tube Fittings | Single & Double Ferrule | PANAM®</title>
-      <meta name="description" content={'PANAM® tube fittings in single and double ferrule designs — connectors, unions, reducers, adapters & more. SS316, Duplex, Monel, Hastelloy & Brass. 1/16" to 2" OD.'} />
+      <meta name="description" content={'PANAM® single and double ferrule tube fittings: connectors, unions, reducers, adapters and more in SS316, Duplex, Monel, Hastelloy, Brass. 1/16–2 inch OD.'} />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-fittings" />
       <meta name="robots" content="index, follow" />
 

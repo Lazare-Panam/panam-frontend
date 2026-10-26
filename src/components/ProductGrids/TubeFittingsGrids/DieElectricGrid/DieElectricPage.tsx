@@ -327,7 +327,7 @@ export default function DielectricGasketPage() {
   return (
     <>
       <title>Dielectric Tube Fittings & Gaskets | PANAM®</title>
-      <meta name="description" content="PANAM® stainless steel dielectric tube fittings isolate instruments from electric currents, voltage & static. Polyamideimide insulation, rated to 5000 PSI, -40°C to 93°C." />
+      <meta name="description" content="PANAM® stainless steel dielectric tube fittings isolate instruments from current, voltage and static. Polyamideimide insulation, 5000 PSI, -40°C to 93°C." />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/die-electric" />
       <meta name="robots" content="index, follow" />
       <meta property="og:type" content="website" />
@@ -342,7 +342,7 @@ export default function DielectricGasketPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Dielectric Tube Fittings & Gaskets | PANAM®",
-          description: "PANAM® stainless steel dielectric tube fittings isolate instruments from electric currents, voltage & static. Polyamideimide insulation, rated to 5000 PSI, -40°C to 93°C.",
+          description: "PANAM® stainless steel dielectric tube fittings isolate instruments from current, voltage and static. Polyamideimide insulation, 5000 PSI, -40°C to 93°C.",
           mainEntity: {
             "@type": "ItemList",
             itemListElement: [

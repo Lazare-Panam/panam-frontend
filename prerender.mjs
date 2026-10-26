@@ -33,7 +33,6 @@ const staticRoutes = [
   "/certificates",
   "/certificates/qms",
   "/certificates/type-reports",
-  "/certificates/registrations",
   // valves
   "/valves",
   "/valves/needle-valves",

@@ -233,7 +233,7 @@ export default function DoubleLayerTubeClampPage() {
   return (
     <>
           <title>Double Layer Tube Clamps | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® Double Layer Tube Clamps — DIN Groups 1 to 6, 4mm to 50.8mm OD, M6 bolts, PP jaws included. Each set includes top plate, bottom plate, 2 hex bolts, 2 pairs of PP jaws, 2 stacking bolts, and 1 locking plate. Request a quote." />
+      <meta name="description" content="PANAM® double layer tube clamps: DIN Groups 1–6, 4–50.8mm OD, M6 bolts. Sets include plates, hex and stacking bolts, a locking plate and PP jaws." />
       <meta name="keywords" content="double layer tube clamps, DIN tube clamps, stacking tube clamps, instrumentation pipe clamps, PP jaw clamps" />
       <meta property="og:title" content="Double Layer Tube Clamps | PANAM® Instrumentation" />
       <meta property="og:description" content="Precision double layer tube clamps in DIN Groups 1 to 6. 4mm to 50.8mm OD, M6 bolts, PP jaws included." />

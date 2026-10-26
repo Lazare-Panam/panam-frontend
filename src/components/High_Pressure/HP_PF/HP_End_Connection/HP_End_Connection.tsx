@@ -28,12 +28,12 @@ export default function PipeEndFittingPage() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <title>PANAM® High Pressure Hex Plugs, Pipe Caps & Tube Plugs | 10,000–15,000 psi | SS 316</title>
+      <title>PANAM® HP Hex Plugs, Pipe Caps & Tube Plugs | 10,000–15,000 psi</title>
       <meta name="description" content="Panam high pressure hex plugs, pipe caps and tube plugs in NPT, BSPT, ISO parallel and 37° JIC, rated 10,000 to 15,000 psi. SS 316, 1/8&quot; to 2&quot;." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure/pipe-fittings/plugs-caps" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="PANAM® High Pressure Hex Plugs, Pipe Caps & Tube Plugs | 10,000–15,000 psi | SS 316" />
+      <meta property="og:title" content="PANAM® HP Hex Plugs, Pipe Caps & Tube Plugs | 10,000–15,000 psi" />
       <meta property="og:description" content="Panam high pressure hex plugs, pipe caps and tube plugs in NPT, BSPT, ISO parallel and 37° JIC, rated 10,000 to 15,000 psi. SS 316, 1/8&quot; to 2&quot;." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/pipe-fittings/plugs-caps" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>

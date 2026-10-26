@@ -193,7 +193,7 @@ export default function PipeFittingsIndexPage() {
   return (
     <>
       <title>Pipe Fittings and Stainless Steel Fittings - Panam Valves Ltd.</title>
-      <meta name="description" content={"PANAM® pipe fittings — nipples, couplings, adapters, unions, elbows, tees & crosses for extreme service: hydrogen, fuel cell, aerospace & cryogenic. To 15,000 psig."} />
+      <meta name="description" content={"PANAM® pipe fittings: nipples, couplings, adapters, unions, elbows, tees and crosses for hydrogen, fuel cell, aerospace and cryogenic use. To 15,000 psig."} />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/pipe-fittings" />
       <meta name="robots" content="index, follow" />
 

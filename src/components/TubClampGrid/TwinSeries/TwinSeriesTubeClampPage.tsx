@@ -237,7 +237,7 @@ export default function TwinSeriesTubeClampPage() {
   return (
     <>
          <title>Twin Series Tube Clamps | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® Twin Series Tube Clamps — DIN Groups 1 to 5, 6mm to 42mm OD, M6 and M8 bolts, PP jaws included. Each set includes top plate, bottom plate, hex bolt, and PP jaws. Request a quote." />
+      <meta name="description" content="PANAM® twin series tube clamps: DIN Groups 1–5, 6–42mm OD, M6 and M8 bolts. Each set includes top and bottom plates, a hex bolt and PP jaws." />
       <meta name="keywords" content="twin series tube clamps, DIN tube clamps, instrumentation tube clamps, pipe clamps DIN, PP jaw clamps" />
       <meta property="og:title" content="Twin Series Tube Clamps | PANAM® Instrumentation" />
       <meta property="og:description" content="Precision tube clamps in DIN Groups 1 to 5. 6mm to 42mm OD, M6 and M8 bolts, PP jaws included." />

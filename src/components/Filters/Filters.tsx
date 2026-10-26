@@ -79,7 +79,7 @@ export default function PTFFiltersPage() {
   return (
     <>
           <title>T-Type In-Line Filters (PTF) | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® PTF T-Type In-Line Filters — SS316, sintered and mesh elements 0.5 to 440 micron, nitrogen leak tested at 1000 psi. Series TA, TB, TC, TD. 3mm to 12mm tube, 1/8 to 1/2 inch thread. Request a quote." />
+      <meta name="description" content="PANAM® PTF T-Type Filters, Series TA–TD: SS316, 0.5–440 micron elements, nitrogen leak tested at 1000 psi, 3–12mm tube and 1/8–1/2 inch threads." />
       <meta name="keywords" content="T-type inline filters, PTF filters, instrumentation filters, SS316 filters, sintered filter elements" />
       <meta property="og:title" content="T-Type In-Line Filters (PTF) | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® PTF T-Type Filters by series, connection standard, pore size, and end connection. SS316, nitrogen leak tested at 1000 psi." />

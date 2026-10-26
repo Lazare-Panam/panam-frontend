@@ -29,13 +29,13 @@ export default function HPBallValvePage() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <title>PANAM® High Pressure Ball Valves | 2-Way, 3-Way & Diverter | 10,000–20,000 psi</title>
-      <meta name="description" content="Panam high pressure ball valves in 2-way, 3-way and 90° diverter patterns across HP, HP1 and HP2 series, rated 10,000 to 20,000 psi. SS 316, NPT and MP cone & thread ends." />
+      <title>PANAM® High Pressure Ball Valves | 2-Way, 3-Way & Diverter</title>
+      <meta name="description" content="Panam high pressure ball valves: 2-way, 3-way and 90° diverter, HP, HP1 and HP2 series, 10,000–20,000 psi. SS 316 with NPT and MP cone & thread ends." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure/ball-valves" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="PANAM® High Pressure Ball Valves | 2-Way, 3-Way & Diverter | 10,000–20,000 psi" />
-      <meta property="og:description" content="Panam high pressure ball valves in 2-way, 3-way and 90° diverter patterns across HP, HP1 and HP2 series, rated 10,000 to 20,000 psi. SS 316, NPT and MP cone & thread ends." />
+      <meta property="og:title" content="PANAM® High Pressure Ball Valves | 2-Way, 3-Way & Diverter" />
+      <meta property="og:description" content="Panam high pressure ball valves: 2-way, 3-way and 90° diverter, HP, HP1 and HP2 series, 10,000–20,000 psi. SS 316 with NPT and MP cone & thread ends." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/ball-valves" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>
