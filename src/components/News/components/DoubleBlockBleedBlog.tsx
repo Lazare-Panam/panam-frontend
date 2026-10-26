@@ -14,7 +14,7 @@ const DoubleBlockBleedBlog: React.FC = () => {
   // CTA Data matching SEO expert text
   const cta = {
     heading: "Planning a summer outage or a brownfield tie-in where isolation integrity is non-negotiable?",
-    body: "Request a PANAM DB&B application review and valve sizing support. Our engineering team will help align seat design, test method, and vent routing to your pressure class, media, and temperature so you can lock out, prove zero, and proceed with confidence.",
+    body: "Request a PANAM DB&B application review and valve sizing support. Our technical team will help align seat design, test method, and vent routing to your pressure class, media, and temperature so you can lock out, prove zero, and proceed with confidence.",
     buttonText: "Request Technical Support",
     buttonLink: "/enquiry",
   }

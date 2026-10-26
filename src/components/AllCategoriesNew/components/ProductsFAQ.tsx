@@ -88,7 +88,7 @@ const ProductsFAQ: React.FC = () => {
                     viewTransition
                     to="/enquiry"
                     sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: C.brandDark, fontWeight: 700, textDecoration: "none", "& svg": { fontSize: 17, transition: "transform 0.2s ease" }, "&:hover svg": { transform: "translateX(3px)" } }}>
-                    Ask our engineering team
+                    Ask our technical team
                     <ArrowForwardRoundedIcon />
                   </Box>
                   .

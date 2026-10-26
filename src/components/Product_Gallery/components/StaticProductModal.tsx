@@ -90,7 +90,7 @@ export default function StaticProductModal({ open, onClose, productId }: { open:
             }
           }}
           onClick={() => (navigate('/enquiry'))}>
-          Contact Engineering for Quote
+          Contact Sales for Quote
         </Button>
       </Box>
     </Modal>

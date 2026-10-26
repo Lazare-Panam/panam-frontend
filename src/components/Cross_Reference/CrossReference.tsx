@@ -4,7 +4,7 @@ import {
   InputAdornment, Breadcrumbs, Link, Divider 
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import EngineeringIcon from "@mui/icons-material/Engineering";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const BRAND_BLUE = "#01B0F0";
@@ -179,15 +179,15 @@ const data: Record<string, string> = {
                     No direct match found for "{cleanInput}"
                   </Typography>
                   <Typography sx={{ mb: 3, color: "#555" }}>
-                    Our engineering team can cross-reference specialty materials (PFA, Monel, Hastelloy) and custom configurations manually.
+                    Our technical team can cross-reference specialty materials (PFA, Monel, Hastelloy) and custom configurations manually.
                   </Typography>
                   <Button 
                     variant="contained" 
-                    startIcon={<EngineeringIcon />}
+                    startIcon={<SupportAgentIcon />}
                     href="https://panam.in/contact-us/" 
                     sx={{ bgcolor: "#d32f2f", "&:hover": { bgcolor: "#b71c1c" }, px: 4, py: 1.5 }}
                   >
-                    Contact Engineering for Assistance
+                    Contact Our Technical Team
                   </Button>
                 </Box>
               )}

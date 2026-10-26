@@ -112,7 +112,7 @@ const Enquiries = () => {
             Technical Enquiries
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary", fontWeight: 600, textTransform: "uppercase", letterSpacing: 1 }}>
-            Engineering Request Logs
+            Technical Request Logs
           </Typography>
         </Box>
         <Button

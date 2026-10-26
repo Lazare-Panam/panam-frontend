@@ -26,13 +26,13 @@ const ContactBanner = () => {
                 You Need?
               </Box>
             </Typography>
-            <Typography sx={{ color: C.muted, fontSize: { xs: "1.05rem", md: "1.15rem" }, lineHeight: 1.75, mb: 4.5, maxWidth: 600 }}>Our engineering team can source and supply almost any instrumentation valve, fitting or manifold. Send us your specification or bill of materials and we’ll respond within 24 hours.</Typography>
+            <Typography sx={{ color: C.muted, fontSize: { xs: "1.05rem", md: "1.15rem" }, lineHeight: 1.75, mb: 4.5, maxWidth: 600 }}>Our technical team can source and supply almost any instrumentation valve, fitting or manifold. Send us your specification or bill of materials and we’ll respond within 24 hours.</Typography>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
               <Button component={RouterLink} viewTransition to="/enquiry" startIcon={<EmailOutlinedIcon />} endIcon={<ArrowForwardIcon />} sx={{ ...btn.primary, py: 1.6, px: 3.5 }}>
                 SUBMIT AN RFQ
               </Button>
               <Button href="tel:+447369243459" startIcon={<PhoneOutlinedIcon />} sx={{ ...btn.secondary, py: 1.6, px: 3.5 }}>
-                TALK TO AN ENGINEER
+                TALK TO OUR TEAM
               </Button>
             </Stack>
           </Grid>

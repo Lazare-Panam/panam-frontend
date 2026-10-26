@@ -196,7 +196,7 @@ const HydrogenValvesBlog: React.FC = () => {
             <Box component="ul" sx={{ mb: 6, pl: 4 }}>
               <li><strong>Rigorous Hydrostatic and Pneumatic Testing:</strong> To validate seal integrity at 1.5x maximum allowable working pressure (MAWP).</li>
               <li><strong>Material Traceability:</strong> Ensuring all alloys meet the specific nickel and chromium equivalents required to resist hydrogen-induced cracking.</li>
-              <li><strong>Global Distribution:</strong> Supporting infrastructure across 52 countries, providing bespoke engineering solutions for the evolving hydrogen economy.</li>
+              <li><strong>Global Distribution:</strong> Supporting infrastructure across 52 countries, providing bespoke solutions for the evolving hydrogen economy.</li>
             </Box>
 
             <Paper elevation={0} sx={{ mt: 10, p: { xs: 4, md: 6 }, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px" }}>

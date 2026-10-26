@@ -85,7 +85,7 @@ const TechnicalSpecs: React.FC = () => {
         <SectionHeader
           eyebrow="Technical Reference"
           title="Pressure Classes, Seat Materials & Metallurgy"
-          subtitle="Every product in this catalog is specified against a known pressure class, seat material and body metallurgy — the same reference our engineers use when matching a component to your application."
+          subtitle="Every product in this catalog is specified against a known pressure class, seat material and body metallurgy — the same reference our technical team uses when matching a component to your application."
         />
 
         <Box sx={{ bgcolor: C.white, border: `1px solid ${C.border}`, borderRadius: "22px", boxShadow: SHADOW.card, overflow: "hidden" }}>

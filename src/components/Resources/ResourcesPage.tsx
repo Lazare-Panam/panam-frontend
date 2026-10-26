@@ -299,9 +299,9 @@ const ResourcesPage = () => (
     <Box component="section" sx={sectionSx("white")}>
       <Container maxWidth="lg">
         <SectionHeader
-          eyebrow="Engineering Guides"
+          eyebrow="Technical Guides"
           title="Technical Know-How"
-          subtitle="In-depth guides from our engineers on standards, threads and valve selection."
+          subtitle="In-depth guides on standards, threads and valve selection."
           action={
             <Button component={RouterLink} viewTransition to="/blog" endIcon={<ArrowForwardIcon />} sx={btn.secondary}>
               All articles
@@ -368,13 +368,13 @@ const ResourcesPage = () => (
                 Custom Documentation Request
               </Typography>
               <Typography sx={{ mt: 2, color: "rgba(255,255,255,0.88)", fontSize: { xs: "1rem", md: "1.1rem" }, lineHeight: 1.7, maxWidth: 560 }}>
-                Need specific CAD drawings or material certificates for your project? Our engineering team provides custom technical support.
+                Need specific CAD drawings or material certificates for your project? Our technical team can help.
               </Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
               <Stack direction={{ xs: "column", sm: "row", md: "column" }} spacing={1.5} alignItems={{ md: "flex-end" }}>
                 <Button component={RouterLink} viewTransition to="/enquiry" startIcon={<EmailOutlinedIcon />} endIcon={<ArrowForwardIcon />} sx={{ ...btn.light, py: 1.6, px: 3.5, minWidth: { md: 260 } }}>
-                  Contact Engineering
+                  Contact Our Technical Team
                 </Button>
                 <Button href="tel:+447369243459" startIcon={<PhoneOutlinedIcon />} sx={{ ...btn.onDark, py: 1.6, px: 3.5, minWidth: { md: 260 } }}>
                   +44 7369 243459

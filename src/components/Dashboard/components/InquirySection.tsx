@@ -16,7 +16,7 @@ export const InquirySection = () => {
             Submit a Project Inquiry
           </Typography>
           <Typography sx={{ color: "rgba(255,255,255,0.6)", maxWidth: "600px" }}>
-            Need custom flow control specifications? Our engineering team is ready to assist with your specific hydrogen or traditional energy requirements.
+            Need custom flow control specifications? Our technical team is ready to assist with your specific hydrogen or traditional energy requirements.
           </Typography>
         </Stack>
 

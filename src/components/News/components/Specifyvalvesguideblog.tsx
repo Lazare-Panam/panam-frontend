@@ -13,7 +13,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
 
   const cta = {
     heading: "Ready to turn your spec into a purchase order?",
-    body: "Send your BOM or specification to Panam Valves. Our engineering team will respond with a matched quote, with material certificates available on request and lead times confirmed at quotation.",
+    body: "Send your BOM or specification to Panam Valves. Our technical team will respond with a matched quote, with material certificates available on request and lead times confirmed at quotation.",
     buttonText: "Request a Quote",
     buttonLink: "/enquiry",
   }
@@ -146,7 +146,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
             </Typography>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              Material certificates are available on request, and lead times are confirmed at quotation. Send your BOM or spec to Panam for an engineering response.
+              Material certificates are available on request, and lead times are confirmed at quotation. Send your BOM or spec to Panam for a technical response.
             </Typography>
 
             {/* SECTION 1 */}
@@ -431,7 +431,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
                   <Box component="img" src="https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png" alt="PANAM Industrial Valves" sx={{ width: "100%", height: 160, objectFit: "contain", bgcolor: "#F4F4F4", p: 2 }} />
                   <Box sx={{ p: 2 }}>
                     <Typography sx={{ fontWeight: 800, fontSize: "0.9rem", color: "#1A1A1A", mb: 0.5 }}>PANAM Industrial Valves</Typography>
-                    <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>Engineering Support · Lead Times on Request</Typography>
+                    <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>Technical Support · Lead Times on Request</Typography>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 700, color: "#01B0F0" }}>Browse the range →</Typography>
                   </Box>
                 </Paper>

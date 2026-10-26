@@ -38,7 +38,7 @@ const ErrorPage = () => {
             <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: "#1a1a1a" }}>
               Have an urgent enquiry?
             </Typography>
-            <Typography sx={{ mb: 3, color: "#666" }}>Don't let a server hiccup stall your project. Our sales and engineering teams are still very much online. Shoot us a mail—we promise you won't be unheard.</Typography>
+            <Typography sx={{ mb: 3, color: "#666" }}>Don't let a server hiccup stall your project. Our sales and technical teams are still very much online. Shoot us a mail—we promise you won't be unheard.</Typography>
 
             <Button
               variant="contained"

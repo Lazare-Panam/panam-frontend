@@ -10,7 +10,7 @@ import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined"
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined"
 import ScheduleRoundedIcon from "@mui/icons-material/ScheduleRounded"
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded"
-import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined"
+import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined"
 import AttachFileRoundedIcon from "@mui/icons-material/AttachFileRounded"
 import { C, FONT, GRADIENT, SHADOW } from "../../Landing2/homeTokens"
 import { Eyebrow } from "../../Landing2/homeStyles"
@@ -206,7 +206,7 @@ const EnquiryHeader = ({ overline, titleMain, titleAccent, description, response
     <Stack direction="row" justifyContent="center" sx={{ flexWrap: "wrap", gap: 1, pt: 0.5 }}>
       {[
         { icon: <ScheduleRoundedIcon />, label: `Response ${response.charAt(0).toLowerCase()}${response.slice(1)}` },
-        { icon: <EngineeringOutlinedIcon />, label: "Reviewed by our engineers" },
+        { icon: <SupportAgentOutlinedIcon />, label: "Reviewed by our technical team" },
         { icon: <AttachFileRoundedIcon />, label: "Drawings & specs welcome" },
       ].map(chip => (
         <Stack key={chip.label} direction="row" alignItems="center" sx={{ gap: 0.75, px: 1.5, py: 0.75, borderRadius: "999px", border: `1px solid ${C.border}`, bgcolor: "rgba(255,255,255,0.85)", color: C.text, fontSize: "0.84rem", fontWeight: 500, "& svg": { fontSize: 17, color: C.brand } }}>
@@ -300,7 +300,7 @@ export const EnquiryShell = ({ header, eyebrow, title, text, response, steps, im
       {/* What to include */}
       <Box sx={{ mt: 3, bgcolor: C.white, borderRadius: "24px", border: `1px solid ${C.border}`, boxShadow: SHADOW.card, p: { xs: 2.5, sm: 4, md: 5 } }}>
         <Typography component="h2" sx={{ fontWeight: 800, color: C.ink, fontSize: { xs: "1.3rem", md: "1.5rem" }, letterSpacing: "-0.02em" }}>What to include in your enquiry</Typography>
-        <Typography sx={{ mt: 0.75, color: C.muted, fontSize: "0.95rem" }}>The more of this you can share, the faster our engineers can respond.</Typography>
+        <Typography sx={{ mt: 0.75, color: C.muted, fontSize: "0.95rem" }}>The more of this you can share, the faster our team can respond.</Typography>
         <Box sx={{ mt: 3, display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(3, 1fr)" }, gap: 1.5 }}>
           {INCLUDE_LIST.map(item => (
             <Stack key={item} direction="row" alignItems="flex-start" sx={{ gap: 1.25, p: 2, borderRadius: "14px", bgcolor: C.surface }}>

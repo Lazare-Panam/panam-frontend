@@ -17,7 +17,7 @@ const FeatureSection = () => {
       image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_1920,f_auto,q_auto/v1769604874/biel-morro-HCha-UHkIg8-unsplash_pl8qt9.jpg",
       caption: (
         <>
-          Advanced <span>Leak-Detection Training</span> and engineering audits for high-pressure H2 storage systems.
+          Advanced <span>Leak-Detection Training</span> and technical audits for high-pressure H2 storage systems.
         </>
       ),
      
@@ -40,7 +40,7 @@ const FeatureSection = () => {
       </ScrollReveal>
 
       <ScrollReveal delay={0.2}>
-        <FeatureGridSection sectionTitle="Hydrogen Product & Project Engineering" items={hydrogenData} buttonText="Find Out more about our work on hydrogen" onButtonClick={() => console.log("Button Clicked!")} />
+        <FeatureGridSection sectionTitle="Hydrogen Products & Projects" items={hydrogenData} buttonText="Find Out more about our work on hydrogen" onButtonClick={() => console.log("Button Clicked!")} />
       </ScrollReveal>
      
       {/* <FeatureGridSection sectionTitle="Global Expertise, Local Support" items={expertiseData} buttonText="Find Support from a Local Sales and Service Center" onButtonClick={() => console.log("Button Clicked!")} /> */}

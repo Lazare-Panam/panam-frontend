@@ -13,7 +13,7 @@ const ThreeWayValveBlog: React.FC = () => {
 
   const cta = {
     heading: "Building a hydraulic circuit or instrumentation manifold where flow direction matters?",
-    body: "Request a PANAM 3-way valve application review and port-map verification. Our engineering team will confirm L-port vs T-port selection, pressure class, thread form and actuation torque so your circuit performs exactly as designed from day one.",
+    body: "Request a PANAM 3-way valve application review and port-map verification. Our technical team will confirm L-port vs T-port selection, pressure class, thread form and actuation torque so your circuit performs exactly as designed from day one.",
     buttonText: "Request Technical Support",
     buttonLink: "/enquiry",
   }

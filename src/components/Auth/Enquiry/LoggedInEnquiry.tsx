@@ -55,7 +55,7 @@ export const LoggedInEnquiry = () => {
       await submitAuthenticatedEnquiry(message, selectedFile || undefined);
 
       showNotification({
-        message: "Technical enquiry submitted! Our engineering team has been notified.",
+        message: "Technical enquiry submitted! Our technical team has been notified.",
         severity: "success",
       });
 
@@ -81,7 +81,7 @@ export const LoggedInEnquiry = () => {
   return (
     <EnquiryShell
       header={{
-        overline: "Engineering Support",
+        overline: "Technical Support",
         titleMain: "Submit a",
         titleAccent: "technical enquiry",
         description: "Share your requirements and drawings with our flow-control specialists. Your account details are attached automatically.",
@@ -89,7 +89,7 @@ export const LoggedInEnquiry = () => {
       eyebrow="Verified Partner"
       title={
         <>
-          Engineering <Box component="span" sx={{ color: "#BFEFFF" }}>Support.</Box>
+          Technical <Box component="span" sx={{ color: "#BFEFFF" }}>Support.</Box>
         </>
       }
       text={
@@ -97,7 +97,7 @@ export const LoggedInEnquiry = () => {
           Submitting this form creates a high-priority ticket for our flow-control specialists.
           <br />
           <br />
-          Our engineers will analyze your specifications and provide technical drawings or documentation within 24 business hours.
+          Our technical team will analyze your specifications and provide technical drawings or documentation within 24 business hours.
         </>
       }
       response="Within 24 business hours"

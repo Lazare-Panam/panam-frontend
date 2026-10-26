@@ -31,7 +31,7 @@ const TechnicalSupport = () => {
               </Box>
             </Typography>
             <Typography sx={{ color: C.muted, mb: 4, lineHeight: 1.75, fontSize: "1.03rem" }}>
-              Full technical documentation available on every order. We provide the engineering support your procurement and design teams need to move fast.
+              Full technical documentation available on every order. We provide the technical support your procurement and design teams need to move fast.
             </Typography>
             <Button component={RouterLink} viewTransition to="/catalogPDFs" sx={{ ...btn.primary, py: 1.5, px: 3.5 }}>
               Request Technical Documents

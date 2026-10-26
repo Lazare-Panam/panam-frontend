@@ -16,7 +16,7 @@ const NeedleValveBlog: React.FC = () => {
 
   const cta = {
     heading: "Working with high-pressure instrumentation, hydraulics or hydrogen service?",
-    body: "Request an HP Series application review from the PANAM engineering team. We'll confirm the right pressure tier, stem tip, packing, and material grade for your specific media, temperature, and cycling profile — so you spec it right the first time.",
+    body: "Request an HP Series application review from the PANAM technical team. We'll confirm the right pressure tier, stem tip, packing, and material grade for your specific media, temperature, and cycling profile — so you spec it right the first time.",
     buttonText: "Request Technical Support",
     buttonLink: "/enquiry",
   }

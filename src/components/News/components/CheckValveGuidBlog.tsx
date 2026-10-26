@@ -13,7 +13,7 @@ const CheckValveGuideBlog: React.FC = () => {
 
   const cta = {
     heading: "Need a check valve for a critical high-pressure application?",
-    body: "Send your specification, datasheet, or bill of materials to Panam Valves. The engineering team will review your pressure class, media, cracking pressure, and end connections — and respond with a matched quotation and documentation.",
+    body: "Send your specification, datasheet, or bill of materials to Panam Valves. Our technical team will review your pressure class, media, cracking pressure, and end connections — and respond with a matched quotation and documentation.",
     buttonText: "Request a Quote",
     buttonLink: "/enquiry",
   }
@@ -36,8 +36,8 @@ const CheckValveGuideBlog: React.FC = () => {
     },
     {
       num: "2",
-      title: "Engineering Review",
-      body: "Applications engineers verify pressure class, material compatibility (SS316, Duplex, Monel, Hastelloy), and cracking pressure requirements. Hydrogen service, sour service (NACE), and high-temperature conditions are evaluated where required.",
+      title: "Technical Review",
+      body: "We verify pressure class, material compatibility (SS316, Duplex, Monel, Hastelloy), and cracking pressure requirements. Hydrogen service, sour service (NACE), and high-temperature conditions are evaluated where required.",
     },
     {
       num: "3",
@@ -64,7 +64,7 @@ const CheckValveGuideBlog: React.FC = () => {
   const faqs = [
     { q: "What types of check valve does Panam supply?", a: "The core family is the PCV Series — uni-directional non-return valves for backflow prevention in high-pressure systems, offering multiple cracking pressures, SS316 and exotic alloys, and a wide choice of threaded and tube-fitting ends. Where process-line non-return or wafer check valves are required, Panam can support sourcing and integration as part of a wider package." },
     { q: "Can I get a stainless steel check valve for hydrogen service in the UK?", a: "Yes. Panam PCV Series check valves are available in SS316 and other alloys with hydrogen service-rated options, dispatched from Bicester for electrolyser, refuelling, and wider hydrogen infrastructure projects." },
-    { q: "What pressure ratings are available?", a: "Panam check valves are rated up to 6,000 psig (414 bar). Exact ratings depend on size, connection type, and material — the engineering team will confirm suitability against your design conditions." },
+    { q: "What pressure ratings are available?", a: "Panam check valves are rated up to 6,000 psig (414 bar). Exact ratings depend on size, connection type, and material — our technical team will confirm suitability against your design conditions." },
     { q: "Which end connections can I specify?", a: "Male and female NPT, BSPP, BSPT, and PANAM® tube-fitting ends are available, allowing straightforward integration with existing tube fittings, manifolds, and instrument take-off assemblies." },
     { q: "Can Panam match check valves to manifolds and other industrial valves?", a: "Yes. Panam specialises in complete instrumentation assemblies — combining check valves with manifolds, needle valves, ball valves, filters, air headers, and pipe fittings. This ensures consistent pressure class, material grade, and documentation across the entire package." },
     { q: "How quickly can a check valve be shipped to a UK site?", a: "Lead times vary by product and are confirmed at quotation. Send your requirement and the technical team will respond with availability and delivery information." },
@@ -171,7 +171,7 @@ const CheckValveGuideBlog: React.FC = () => {
               ))}
             </Box>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Hydrogen projects benefit from hydrogen service-rated PCV check valves, supported by Panam's dedicated hydrogen product engineering and H₂ supply chain — ensuring material compatibility and documentation for electrolyser and refuelling infrastructure.
+              Hydrogen projects benefit from hydrogen service-rated PCV check valves, supported by Panam's dedicated hydrogen product range and H₂ supply chain — ensuring material compatibility and documentation for electrolyser and refuelling infrastructure.
             </Typography>
 
             {/* SECTION 2 — SPEC TABLE */}
@@ -301,7 +301,7 @@ const CheckValveGuideBlog: React.FC = () => {
                 sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
                 Panam check valves range
               </Box>
-              {" "}or send your bill of materials directly for a 24-hour engineering response.
+              {" "}or send your bill of materials directly for a response within 24 hours.
             </Typography>
 
             {/* CTA */}

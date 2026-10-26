@@ -115,7 +115,7 @@ const FEATURES = [
   "Pressure, differential pressure, flow and level measurement",
   "Diaphragm seals for aggressive, viscous or crystallising media",
   "Condensate pots to protect instruments in steam and gas lines",
-  "Engineering team responds to enquiries within 24 hours",
+  "Technical team responds to enquiries within 24 hours",
 ]
 
 // Hero badge: there is only one pressure rating in the range, so show the two product groups instead
@@ -178,7 +178,7 @@ export default function SystemIntegrationIndexPage() {
           eyebrow="Complete range"
           titleMain="Connect, protect"
           titleAccent="and measure."
-          paragraphs={["PANAM® system integration components — stabilized connectors, condensate pots, grab sampling systems and flange adapters — sit alongside our pressure instrumentation range of pressure transmitters, differential pressure transmitters and diaphragm seals.", "Our engineering team can design and supply complete instrumentation systems to your specification."]}
+          paragraphs={["PANAM® system integration components — stabilized connectors, condensate pots, grab sampling systems and flange adapters — sit alongside our pressure instrumentation range of pressure transmitters, differential pressure transmitters and diaphragm seals.", "Our technical team can design and supply complete instrumentation systems to your specification."]}
           specs={SPECS}
         />
 
@@ -221,7 +221,7 @@ export default function SystemIntegrationIndexPage() {
 
         <FeatureTiles eyebrow="Why Panam" title="Why specify PANAM® System Integration" subtitle="Components to connect, sample and protect your instruments, alongside the transmitters that measure." items={FEATURES} />
 
-        <CtaBand title="Need a custom solution?" text="Our engineering team can design and supply complete instrumentation systems to your specification. Get in touch and we'll respond within 24 hours." primary={{ label: "Email Technical Sales", href: "mailto:sales@panamvalves.co.uk" }} secondary={{ label: "Make an Enquiry", to: "/enquiry" }} />
+        <CtaBand title="Need a custom solution?" text="Our technical team can design and supply complete instrumentation systems to your specification. Get in touch and we'll respond within 24 hours." primary={{ label: "Email Technical Sales", href: "mailto:sales@panamvalves.co.uk" }} secondary={{ label: "Make an Enquiry", to: "/enquiry" }} />
       </CategoryPage>
     </>
   )

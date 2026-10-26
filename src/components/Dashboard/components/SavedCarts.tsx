@@ -119,7 +119,7 @@ const SavedCarts = () => {
         <DialogTitle sx={{ fontWeight: 800, color: "#1a1a1a" }}>Confirm Quotation Request</DialogTitle>
         <DialogContent>
           <DialogContentText sx={{ color: "#555", mt: 1 }}>
-            You are about to submit a formal request for <strong>{savedItems?.length} item(s)</strong>. Our engineering team will generate a formal quote based on these specifications.
+            You are about to submit a formal request for <strong>{savedItems?.length} item(s)</strong>. Our team will generate a formal quote based on these specifications.
             <br /><br />Do you wish to proceed?
           </DialogContentText>
         </DialogContent>

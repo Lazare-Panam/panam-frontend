@@ -127,7 +127,7 @@ export const EnquiryRegistration = () => {
       )
 
       showNotification({
-        message: "Enquiry submitted successfully! Our engineers will review your account.",
+        message: "Enquiry submitted successfully! Our team will review your account.",
         severity: "success",
       })
 
@@ -170,7 +170,7 @@ export const EnquiryRegistration = () => {
           overline: "Technical Enquiry",
           titleMain: "Talk to our",
           titleAccent: "technical experts",
-          description: "Send us your specifications, drawings or part numbers and our engineers will come back with pricing, availability and technical guidance.",
+          description: "Send us your specifications, drawings or part numbers and our technical team will come back with pricing, availability and technical guidance.",
         }}
         eyebrow="Partner Onboarding"
         title={
@@ -180,7 +180,7 @@ export const EnquiryRegistration = () => {
         }
         text="We manually verify all accounts to ensure our technical assets and CAD data remain secure for our professional partners."
         response="Within 24 hours"
-        steps={["Submit your project specifications", "Our engineers review your enquiry", "Account verified within 24 hours"]}
+        steps={["Submit your project specifications", "Our team reviews your enquiry", "Account verified within 24 hours"]}
         image="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80">
         <Stack spacing={4} onFocusCapture={trackFormStart}>
           <Box>
@@ -188,7 +188,7 @@ export const EnquiryRegistration = () => {
               Technical Enquiry & Partner Onboarding
             </Typography>
             <Typography sx={{ mt: 1, color: C.muted, lineHeight: 1.6, fontSize: "0.95rem" }}>
-              Submit your project specifications below. Our engineers will review your enquiry and verify your account within 24 hours.
+              Submit your project specifications below. Our team will review your enquiry and verify your account within 24 hours.
             </Typography>
           </Box>
 

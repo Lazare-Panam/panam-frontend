@@ -14,7 +14,7 @@ import { Eyebrow } from "../homeStyles"
 
 const features = [
   { icon: <ScienceIcon fontSize="small" />, title: "H2-Compatible Materials", desc: "SS316, Duplex, Super Duplex and Inconel options — suitability confirmed for your service conditions." },
-  { icon: <SpeedIcon fontSize="small" />, title: "Advanced Leak-Detection", desc: "Training and engineering audits for high-pressure H2 storage systems." },
+  { icon: <SpeedIcon fontSize="small" />, title: "Advanced Leak-Detection", desc: "Training and technical audits for high-pressure H2 storage systems." },
   { icon: <PublicIcon fontSize="small" />, title: "Global H2 Supply Chain", desc: "Material compatibility and documentation support across global markets." },
   { icon: <AssignmentIcon fontSize="small" />, title: "Documentation", desc: "Material certificates on request, plus ISO 9001, ISO 14001 and ISO 45001 certified management systems." },
 ]
@@ -172,7 +172,7 @@ const HydrogenSection = () => {
               </Box>
             </Typography>
             <Typography sx={{ color: C.muted, mb: 4.5, maxWidth: 560, lineHeight: 1.75, fontSize: "1.08rem" }}>
-              Dedicated hydrogen product engineering and project support for large-scale electrolyser and refuelling infrastructure. Our H2 supply chain ensures material compatibility.
+              Dedicated hydrogen product and project support for large-scale electrolyser and refuelling infrastructure. Our H2 supply chain ensures material compatibility.
             </Typography>
 
             <Grid container spacing={2} sx={{ mb: 4.5 }}>

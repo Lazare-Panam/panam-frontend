@@ -14,7 +14,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
   // CTA Data
   const cta = {
     heading: "Ready to optimize your systems?",
-    body: "Speak with our engineering team today to discuss your specific high-pressure requirements.",
+    body: "Speak with our technical team today to discuss your specific high-pressure requirements.",
     buttonText: "Contact Our Experts",
     buttonLink: "/enquiry",
   }

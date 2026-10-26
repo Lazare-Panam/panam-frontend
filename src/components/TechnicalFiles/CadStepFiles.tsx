@@ -1,70 +1,136 @@
 import React from "react"
-import { Box, Container, Typography, Button, Card, CardMedia, CardContent } from "@mui/material"
-import Grid from "@mui/material/Grid"
+import { Box, Container, Grid, Stack, Typography } from "@mui/material"
 import { Link as RouterLink } from "react-router-dom"
-import { CATEGORIES, type TechnicalFileCategory } from "./categories"
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded"
+import ViewInArRoundedIcon from "@mui/icons-material/ViewInArRounded"
+import { CATEGORIES, drawingKindFor, type TechnicalFileCategory } from "./categories"
+import CadDrawing from "./CadDrawing"
+import { CategoryPage } from "../Common/CategoryIndexKit"
+import { Eyebrow } from "../Landing2/homeStyles"
+import { C, GRADIENT, RADIUS, SHADOW, btn, cardHoverSx, cardSx } from "../Landing2/homeTokens"
 
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
-const BRAND_BLUE = "#01B0F0"
+const hrefFor = (category: string) => `/cad-step-files/${encodeURIComponent(category)}`
 
-const CategoryCard: React.FC<TechnicalFileCategory> = ({ name, category, subtitle, description, image }) => (
-  <Card
-    variant="outlined"
-    sx={{
-      borderRadius: 0,
-      height: "100%",
-      display: "flex",
-      flexDirection: "column",
-      border: "1px solid #e8e8e8",
-      transition: "box-shadow 0.2s",
-      "&:hover": { boxShadow: "0 4px 24px rgba(1,176,240,0.10)" },
-    }}>
-    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#ffffff", p: 3, borderBottom: "1px solid #f0f0f0", minHeight: 220 }}>
-      <CardMedia component="img" image={image} alt={name} loading="lazy" sx={{ width: "100%", maxWidth: 200, height: 180, objectFit: "contain" }} />
-    </Box>
-
-    <CardContent sx={{ flexGrow: 1, p: 3 }}>
-      <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 2, fontSize: 10, fontFamily: PRIMARY_FONT }}>
-        CAD & STEP Files
-      </Typography>
-      <Typography variant="h6" sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, color: "#1a1a1a", mt: 0.5, mb: 2, fontSize: "1.05rem" }}>
-        {name} — {subtitle}
-      </Typography>
-      <Typography variant="body2" sx={{ color: "#666", lineHeight: 1.75, fontSize: "0.88rem", fontFamily: PRIMARY_FONT }}>
-        {description}
-      </Typography>
-    </CardContent>
-
-    <Box sx={{ p: 2 }}>
-      <Button
-        component={RouterLink}
-        viewTransition
-        to={`/cad-step-files/${encodeURIComponent(category)}`}
-        variant="contained"
-        fullWidth
-        size="small"
-        sx={{ bgcolor: BRAND_BLUE, color: "#fff", borderRadius: 0, fontWeight: 700, fontSize: 12, letterSpacing: 1, py: 1, "&:hover": { bgcolor: "#0090c8" } }}>
-        BROWSE FILES
-      </Button>
-    </Box>
-  </Card>
+// Blueprint sheet holding one of the fitting drawings
+const DrawingSheet: React.FC<{ category: string; sx?: object }> = ({ category, sx }) => (
+  <Box sx={{ borderRadius: "10px", border: "1px solid rgba(1,176,240,0.22)", bgcolor: "#F3FAFE", backgroundImage: "linear-gradient(rgba(1,176,240,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(1,176,240,0.06) 1px, transparent 1px)", backgroundSize: "10px 10px", boxShadow: SHADOW.card, p: 0.75, boxSizing: "border-box", ...sx }}>
+    <CadDrawing kind={drawingKindFor(category)} />
+  </Box>
 )
 
-const CadStepFiles: React.FC = () => {
-  return (
-    <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
-      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
-        <Typography variant="overline" sx={{ color: BRAND_BLUE, fontWeight: 700, letterSpacing: 3, fontSize: 11, fontFamily: PRIMARY_FONT, display: "block", mb: 1 }}>
-          Technical Downloads
-        </Typography>
-        <Typography variant="h2" sx={{ fontSize: { xs: 30, md: 44 }, fontWeight: 900, mb: 2, fontFamily: PRIMARY_FONT, color: "#1a1a1a", letterSpacing: "-0.02em" }}>
-          CAD & STEP Files
-        </Typography>
-        <Typography sx={{ color: "#666", fontFamily: PRIMARY_FONT, mb: 6, maxWidth: 620, lineHeight: 1.8 }}>
-          Browse and download 3D STEP models and technical drawings by category — ready to drop straight into your CAD assembly.
-        </Typography>
+// Category card: product photo with its matching drawing sheet tucked in the corner, then copy and a clear action
+const CategoryCard: React.FC<TechnicalFileCategory> = ({ name, category, subtitle, description, image }) => (
+  <Box
+    component={RouterLink}
+    viewTransition
+    to={hrefFor(category)}
+    sx={{
+      ...cardSx,
+      ...cardHoverSx,
+      display: "flex",
+      flexDirection: "column",
+      height: "100%",
+      overflow: "hidden",
+      textDecoration: "none",
+      "&:hover .cad-photo": { transform: "scale(1.06)" },
+      "&:hover .cad-sheet": { transform: "rotate(0deg) translateY(-4px)" },
+      "&:hover .cad-cta": { background: GRADIENT.brand, color: C.white, borderColor: "transparent" },
+    }}>
+    <Box sx={{ position: "relative", aspectRatio: "4 / 3", m: 1.25, mb: 0, borderRadius: "14px", overflow: "hidden", background: `radial-gradient(ellipse at 40% 45%, ${C.white} 0%, ${C.white} 40%, ${C.tintBg} 100%)` }}>
+      <Box component="img" className="cad-photo" src={image} alt={name} loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "contain", p: 4, pr: 9, boxSizing: "border-box", mixBlendMode: "multiply", transition: "transform 0.45s ease" }} />
+      <Stack direction="row" alignItems="center" spacing={0.6} sx={{ position: "absolute", top: 12, left: 12, px: 1.1, py: 0.4, borderRadius: RADIUS.pill, bgcolor: "rgba(255,255,255,0.92)", border: `1px solid ${C.border}`, color: C.brandDark, fontSize: "0.72rem", fontWeight: 700, "& svg": { fontSize: 14 } }}>
+        <ViewInArRoundedIcon />
+        <span>{subtitle}</span>
+      </Stack>
+      <Box className="cad-sheet" sx={{ position: "absolute", right: 12, bottom: 12, width: "44%", transform: "rotate(-4deg)", transition: "transform 0.35s ease" }}>
+        <DrawingSheet category={category} sx={{ aspectRatio: "16 / 10" }} />
+      </Box>
+    </Box>
 
-        <Grid container spacing={3}>
+    <Box sx={{ px: 3, pt: 2.5, pb: 3, display: "flex", flexDirection: "column", flexGrow: 1 }}>
+      <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: C.brandDark }}>CAD & STEP Files</Typography>
+      <Typography component="h2" sx={{ mt: 0.5, fontWeight: 800, fontSize: "1.35rem", color: C.ink, letterSpacing: "-0.02em" }}>
+        {name}
+      </Typography>
+      <Typography sx={{ mt: 1, color: C.muted, fontSize: "0.92rem", lineHeight: 1.7, flexGrow: 1 }}>{description}</Typography>
+      <Stack className="cad-cta" direction="row" alignItems="center" justifyContent="center" spacing={0.75} sx={{ ...btn.secondary, mt: 2.5, py: 1.1, transition: "all 0.25s ease", "& svg": { fontSize: 18 } }}>
+        <span>Browse files</span>
+        <ArrowForwardRoundedIcon />
+      </Stack>
+    </Box>
+  </Box>
+)
+
+const CadStepFiles: React.FC = () => (
+  <CategoryPage>
+    {/* Hero: copy on the left, the three drawing sheets fanned on the right */}
+    <Box component="section" sx={{ position: "relative", overflow: "hidden", background: GRADIENT.heroBg, pt: { xs: 5, md: 8 }, pb: { xs: 5, md: 8 } }}>
+      <Container maxWidth="lg">
+        <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
+          <Grid size={{ xs: 12, md: 6.5 }}>
+            <Stack spacing={2.5}>
+              <Box>
+                <Eyebrow>Technical Downloads</Eyebrow>
+              </Box>
+              <Typography component="h1" sx={{ fontWeight: 800, color: C.ink, letterSpacing: "-0.035em", lineHeight: 1.05, fontSize: { xs: "2.4rem", sm: "3rem", md: "3.5rem" } }}>
+                CAD &amp; STEP{" "}
+                <Box component="span" sx={{ display: "inline-block", pb: "0.08em", background: GRADIENT.brand, WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                  Files
+                </Box>
+              </Typography>
+              <Typography sx={{ color: C.muted, fontSize: { xs: "1.02rem", md: "1.12rem" }, lineHeight: 1.75, maxWidth: 560 }}>Browse and download 3D STEP models and technical drawings by category — ready to drop straight into your CAD assembly.</Typography>
+              <Stack direction="row" sx={{ flexWrap: "wrap", gap: 1, pt: 0.5 }}>
+                {CATEGORIES.map(cat => (
+                  <Box
+                    key={cat.category}
+                    component={RouterLink}
+                    viewTransition
+                    to={hrefFor(cat.category)}
+                    sx={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 0.75,
+                      px: 1.75,
+                      py: 0.75,
+                      borderRadius: RADIUS.pill,
+                      fontSize: "0.86rem",
+                      fontWeight: 600,
+                      textDecoration: "none",
+                      border: `1px solid ${C.border}`,
+                      bgcolor: "rgba(255,255,255,0.85)",
+                      color: C.inkSoft,
+                      transition: "all 0.2s ease",
+                      "& svg": { fontSize: 16, transition: "transform 0.2s ease" },
+                      "&:hover": { borderColor: C.ink, color: C.ink },
+                      "&:hover svg": { transform: "translateX(2px)" },
+                    }}>
+                    {cat.name}
+                    <ArrowForwardRoundedIcon />
+                  </Box>
+                ))}
+              </Stack>
+            </Stack>
+          </Grid>
+          <Grid size={{ md: 5.5 }} sx={{ display: { xs: "none", md: "block" } }}>
+            {/* Tidy grid of the three drawing sheets: one large on top, two below */}
+            <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1.5 }}>
+              {CATEGORIES.slice(0, 3).map((cat, i) => (
+                <Box key={cat.category} component={RouterLink} viewTransition to={hrefFor(cat.category)} sx={{ gridColumn: i === 0 ? "1 / -1" : "auto", position: "relative", display: "block", textDecoration: "none", transition: "transform 0.3s ease", "&:hover": { transform: "translateY(-4px)" } }}>
+                  <DrawingSheet category={cat.category} sx={{ aspectRatio: i === 0 ? "16 / 7" : "16 / 10", bgcolor: C.white, boxShadow: SHADOW.card }} />
+                  <Box component="span" sx={{ position: "absolute", left: 10, bottom: 8, px: 1, py: 0.3, borderRadius: RADIUS.pill, bgcolor: "rgba(255,255,255,0.92)", border: `1px solid ${C.border}`, color: C.inkSoft, fontSize: "0.7rem", fontWeight: 700 }}>
+                    {cat.name}
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+
+    <Box component="section" sx={{ bgcolor: C.surface, py: { xs: 6, md: 9 } }}>
+      <Container maxWidth="lg">
+        <Grid container spacing={{ xs: 2.5, md: 4 }}>
           {CATEGORIES.map(cat => (
             <Grid key={cat.category} size={{ xs: 12, sm: 6, md: 4 }}>
               <CategoryCard {...cat} />
@@ -73,7 +139,7 @@ const CadStepFiles: React.FC = () => {
         </Grid>
       </Container>
     </Box>
-  )
-}
+  </CategoryPage>
+)
 
 export default CadStepFiles

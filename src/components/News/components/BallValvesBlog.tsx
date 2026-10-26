@@ -13,7 +13,7 @@ const BallValvesBlog: React.FC = () => {
 
   const cta = {
     heading: "Ready to specify a stainless steel ball valve for your next project?",
-    body: "Send your datasheet or bill of materials to the Panam engineering team. We'll review your pressure class, media, end connections, and flow configuration — and respond with a matched quotation and datasheets. Material certificates are available on request.",
+    body: "Send your datasheet or bill of materials to the Panam technical team. We'll review your pressure class, media, end connections, and flow configuration — and respond with a matched quotation and datasheets. Material certificates are available on request.",
     buttonText: "Request a Quote",
     buttonLink: "/enquiry",
   }
@@ -35,8 +35,8 @@ const BallValvesBlog: React.FC = () => {
   ]
 
   const processSteps = [
-    { num: "1", title: "Specification Review", body: "Send your datasheet, isometric, or bill of materials. The engineering team reviews pressure class, media compatibility, end connection standards, and flow configuration." },
-    { num: "2", title: "Product Selection and Optimisation", body: "Engineers match your requirements to the right ball valve family — standardising sizes and connection types where possible, and aligning with manifolds, check valves, and filters across the system." },
+    { num: "1", title: "Specification Review", body: "Send your datasheet, isometric, or bill of materials. Our technical team reviews pressure class, media compatibility, end connection standards, and flow configuration." },
+    { num: "2", title: "Product Selection and Optimisation", body: "We match your requirements to the right ball valve family — standardising sizes and connection types where possible, and aligning with manifolds, check valves, and filters across the system." },
     { num: "3", title: "Quotation and Documentation", body: "A detailed quotation covering ball valves and associated fittings, manifolds and accessories, plus datasheets. Documentation requirements, including any sour service needs, are confirmed at this stage." },
     { num: "4", title: "Manufacturing, Stock Allocation and Dispatch", body: "Stock availability and lead times are confirmed at quotation and vary by product. Orders are produced under an ISO 9001:2015 certified quality management system, with global dispatch." },
   ]
@@ -44,9 +44,9 @@ const BallValvesBlog: React.FC = () => {
   const faqs = [
     { q: "Do you supply stainless steel ball valves from stock in the UK?", a: "Stock availability varies by product and size, so please confirm availability and lead time at enquiry stage." },
     { q: "What pressure ratings are available?", a: "Standard floating ball valves are rated up to 10,000 psig. High pressure variants are available in HP (10,000 psi), HP1 (15,000 psi), and HP2 (15,000–20,000 psi) series — all in SS316 construction." },
-    { q: "Can I get a 1/2\" ball valve for high pressure service?", a: "Yes. Panam manufactures from 1/8\" to 2\", including 1/2\" sizes, with high pressure families rated up to 20,000 psi. The engineering team can help you select the correct series, seat material, and end connections." },
+    { q: "Can I get a 1/2\" ball valve for high pressure service?", a: "Yes. Panam manufactures from 1/8\" to 2\", including 1/2\" sizes, with high pressure families rated up to 20,000 psi. Our technical team can help you select the correct series, seat material, and end connections." },
     { q: "Do you supply 3-way ball valves in stainless steel?", a: "Yes. The portfolio includes 3-way ball valves with T-port and L-port options, including high pressure 3-way 180° and 90° turn diverter designs in SS316 — widely used for sampling, diversion, and multi-line isolation." },
-    { q: "Can ball valves be integrated into automated or motorised systems?", a: "Yes. Panam ball valves are used in instrumentation and control environments and can be incorporated into automated systems alongside suitable actuation hardware. The engineering team can review your specification and advise on valve selection and interface details." },
+    { q: "Can ball valves be integrated into automated or motorised systems?", a: "Yes. Panam ball valves are used in instrumentation and control environments and can be incorporated into automated systems alongside suitable actuation hardware. Our technical team can review your specification and advise on valve selection and interface details." },
     { q: "What options are available for hydrogen and offshore projects?", a: "Panam supports hydrogen, offshore energy, subsea production, and deep-water applications with SS316 ball valves, optional Duplex, Monel, and Hastelloy materials, with material certificates available on request." },
     { q: "Can Panam supply complete packages including ball valves, manifolds, and fittings?", a: "Yes. Panam can source and supply instrumentation valves, fittings, manifolds, filters, stainless steel fittings, and high pressure tubing from a single supplier based on your bill of materials." },
   ]
@@ -126,7 +126,7 @@ const BallValvesBlog: React.FC = () => {
           <Grid size={{ xs: 12, md: 8 }}>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              Looking for a stainless steel ball valve for demanding instrumentation or process service? Panam Valves designs and manufactures precision-engineered ball valves in SS316, including 2-way, 3-way, high-bore, and high pressure configurations for critical global infrastructure. With global dispatch capability, the engineering team reviews specification and bill-of-material enquiries and confirms lead times at quotation.
+              Looking for a stainless steel ball valve for demanding instrumentation or process service? Panam Valves designs and manufactures precision-engineered ball valves in SS316, including 2-way, 3-way, high-bore, and high pressure configurations for critical global infrastructure. With global dispatch capability, our technical team reviews specification and bill-of-material enquiries and confirms lead times at quotation.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
               Panam stainless steel ball valves are designed for hydrogen, oil & gas, power, petrochemical, offshore, and wider process applications where reliability, traceability, and pressure performance are non-negotiable.
@@ -280,7 +280,7 @@ const BallValvesBlog: React.FC = () => {
                 "Stainless steel ball valve supply with lead times confirmed at quotation",
                 "High pressure ball valve solutions for critical infrastructure",
                 "Material certificates available on request",
-                "Engineering support for specification and bill-of-material alignment",
+                "Technical support for specification and bill-of-material alignment",
                 "Global dispatch capability to meet project timelines worldwide",
               ].map(item => (
                 <Typography key={item} sx={{ mb: 1 }}>• {item}</Typography>
@@ -331,7 +331,7 @@ const BallValvesBlog: React.FC = () => {
                 sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
                 Panam ball valves range
               </Box>
-              , or send your bill of materials directly for a 24-hour engineering response. Contact us at Ground Floor, St Edburgs Hall, Priory Road, Bicester OX26 6BL, United Kingdom.
+              , or send your bill of materials directly for a response within 24 hours. Contact us at Ground Floor, St Edburgs Hall, Priory Road, Bicester OX26 6BL, United Kingdom.
             </Typography>
 
             {/* CTA */}

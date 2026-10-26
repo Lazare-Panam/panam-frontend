@@ -29,6 +29,8 @@ export const SHADOW = {
 
 export const GRADIENT = {
   brand: `linear-gradient(120deg, ${C.brandDeep} 0%, ${C.brand} 60%, #3CC6F5 100%)`,
+  // Lighter sweep for big filled numbers, so short numerals stay light blue instead of reading navy
+  number: `linear-gradient(120deg, #1E8FD6 0%, ${C.brand} 50%, #6FD6F8 100%)`,
   heroBg: `radial-gradient(800px circle at 0% 0%, rgba(1,176,240,0.10), transparent 60%), radial-gradient(700px circle at 100% 30%, rgba(1,176,240,0.12), transparent 60%), linear-gradient(180deg, #F2FAFE 0%, #FFFFFF 100%)`,
 }
 
@@ -92,4 +94,3 @@ export const cardSx = {
 export const cardHoverSx = {
   "&:hover": { transform: "translateY(-4px)", boxShadow: SHADOW.hover, borderColor: "rgba(1,176,240,0.35)" },
 } as const
-

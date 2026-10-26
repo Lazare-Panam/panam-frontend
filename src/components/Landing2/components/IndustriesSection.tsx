@@ -58,7 +58,7 @@ const industryData = [
     img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80',
     specs: [
       { icon: <FlashOnIcon />, text: 'H2-rated valves for 350 bar+ service' },
-      { icon: <ScienceIcon />, text: 'Leak-detection training and engineering audits' },
+      { icon: <ScienceIcon />, text: 'Leak-detection training and technical audits' },
       { icon: <AssignmentIcon />, text: 'Documentation requirements confirmed at enquiry' },
     ]
   },

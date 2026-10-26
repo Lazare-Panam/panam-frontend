@@ -5,16 +5,16 @@ import { Link as RouterLink } from "react-router-dom"
 import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined"
 import ScheduleOutlinedIcon from "@mui/icons-material/ScheduleOutlined"
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined"
-import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined"
+import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { C, GRADIENT, btn } from "../homeTokens"
 
-// Same three points as the old scrolling ticker ("LEAD TIMES ON REQUEST • GLOBAL DISPATCH • ENGINEERING SUPPORT"),
+// Same three points as the old scrolling ticker ("LEAD TIMES ON REQUEST • GLOBAL DISPATCH • TECHNICAL SUPPORT"),
 // now scrolling between a fixed badge and CTA.
 const points = [
   { icon: <ScheduleOutlinedIcon />, text: "LEAD TIMES ON REQUEST" },
   { icon: <LocalShippingOutlinedIcon />, text: "GLOBAL DISPATCH" },
-  { icon: <EngineeringOutlinedIcon />, text: "ENGINEERING SUPPORT" },
+  { icon: <SupportAgentOutlinedIcon />, text: "TECHNICAL SUPPORT" },
 ]
 
 // Four copies of the points; moving by a quarter of the track width loops seamlessly.

@@ -20,7 +20,7 @@ const faqs: FaqItem[] = [
   },
   {
     question: "Can I get a custom configuration or connection size?",
-    answer: "Yes — our engineering team can match pressure series, connection type and length to your exact application. Submit your specification through our enquiry form and we'll respond with a matched configuration.",
+    answer: "Yes — our technical team can match pressure series, connection type and length to your exact application. Submit your specification through our enquiry form and we'll respond with a matched configuration.",
   },
   {
     question: "What's the typical lead time for high pressure orders?",

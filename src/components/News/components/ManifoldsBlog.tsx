@@ -13,7 +13,7 @@ const ManifoldValvesBlog: React.FC = () => {
 
   const cta = {
     heading: "Planning mid-year maintenance or a metering upgrade where measurement accuracy matters?",
-    body: "Book a manifold standardisation workshop with PANAM. Our engineering team will align specifications, simplify your spares, and confirm the right manifold architecture — 2-, 3-, or 5-valve, monoflange or DB&B — so your instrumentation performs reliably from day one.",
+    body: "Book a manifold standardisation workshop with PANAM. Our technical team will align specifications, simplify your spares, and confirm the right manifold architecture — 2-, 3-, or 5-valve, monoflange or DB&B — so your instrumentation performs reliably from day one.",
     buttonText: "Book a Manifold Workshop",
     buttonLink: "/enquiry",
   }

@@ -13,7 +13,7 @@ const UKBuyersGuideBlog: React.FC = () => {
 
   const cta = {
     heading: "Need valves with the right documentation for your project?",
-    body: "Send your specification or bill of materials to Panam Valves. Our engineering team will respond with a matched quote, with material certificates available on request.",
+    body: "Send your specification or bill of materials to Panam Valves. Our technical team will respond with a matched quote, with material certificates available on request.",
     buttonText: "Request a Quote",
     buttonLink: "/enquiry",
   }
@@ -136,7 +136,7 @@ const UKBuyersGuideBlog: React.FC = () => {
             </Typography>
 
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              Panam Valves supplies precision-engineered industrial and instrumentation valves Material certificates are available on request. Send your specification or bill of materials and our engineering team will respond with a quotation, including lead times, which vary by product.
+              Panam Valves supplies precision-engineered industrial and instrumentation valves Material certificates are available on request. Send your specification or bill of materials and our technical team will respond with a quotation, including lead times, which vary by product.
             </Typography>
 
             {/* SECTION 1 */}
@@ -279,7 +279,7 @@ const UKBuyersGuideBlog: React.FC = () => {
               Planning Procurement
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Panam Valves supplies core industrial valves and fittings with engineering support; lead times vary by product and are confirmed at quotation. For isolation or instrumentation skids, you can source:
+              Panam Valves supplies core industrial valves and fittings with technical support; lead times vary by product and are confirmed at quotation. For isolation or instrumentation skids, you can source:
             </Typography>
             <Box sx={{ pl: 3, mb: 4 }}>
               {[
@@ -388,7 +388,7 @@ const UKBuyersGuideBlog: React.FC = () => {
                       PANAM Industrial Valves
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>
-                      Engineering Support · Lead Times on Request
+                      Technical Support · Lead Times on Request
                     </Typography>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 700, color: "#01B0F0" }}>
                       Browse the range →

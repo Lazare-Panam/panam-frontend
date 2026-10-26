@@ -6,7 +6,7 @@ import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined"
 import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined"
 import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined"
 import ScheduleOutlinedIcon from "@mui/icons-material/ScheduleOutlined"
-import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined"
+import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined"
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined"
 import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined"
 import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined"
@@ -29,7 +29,7 @@ const faqs: FAQItem[] = [
   {
     question: "Which industries do you supply?",
     answer:
-      "Panam supplies oil and gas, marine and subsea, chemicals, aerospace, food and beverage, and hydrogen applications, and its product range extends to the power and nuclear sectors, with bellow sealed valves specified for oil and gas, marine and nuclear service. Application-specific requirements can be scoped with Panam's engineers through the enquiry form.",
+      "Panam supplies oil and gas, marine and subsea, chemicals, aerospace, food and beverage, and hydrogen applications, and its product range extends to the power and nuclear sectors, with bellow sealed valves specified for oil and gas, marine and nuclear service. Application-specific requirements can be scoped with Panam's technical team through the enquiry form.",
   },
   {
     question: "What materials are available?",
@@ -44,7 +44,7 @@ const faqs: FAQItem[] = [
   {
     question: "Can you support custom or project-specific requirements?",
     answer:
-      "Yes. Panam's R&D function offers customisation of products to client requirement, adhering to international standards, and the company describes itself as a complete system solution provider rather than a product-only supplier. Pre-fabricated hookups and grab sampling systems are built to configuration. An online configurator covers end connections, materials, pressure ratings and certifications; for bespoke engineering, select \"Technical Support\" in the enquiry form.",
+      "Yes. Panam's R&D function offers customisation of products to client requirement, adhering to international standards, and the company describes itself as a complete system solution provider rather than a product-only supplier. Pre-fabricated hookups and grab sampling systems are built to configuration. An online configurator covers end connections, materials, pressure ratings and certifications; for bespoke requirements, select \"Technical Support\" in the enquiry form.",
   },
   {
     question: "What technical documentation is available?",
@@ -54,7 +54,7 @@ const faqs: FAQItem[] = [
   {
     question: "How do I request a quote or technical review?",
     answer:
-      "Submit an RFQ through the enquiry form with your specification or bill of materials, and Panam will respond within 24 hours. For bespoke engineering outside the standard ranges, select \"Technical Support\" in the enquiry form to have the requirement scoped by Panam's engineers. An online configurator is available for standard builds. Contact: marketing@panamvalve.com or +44 (0) 7369 243459.",
+      "Submit an RFQ through the enquiry form with your specification or bill of materials, and Panam will respond within 24 hours. For bespoke requirements outside the standard ranges, select \"Technical Support\" in the enquiry form to have the requirement scoped by Panam's technical team. An online configurator is available for standard builds. Contact: marketing@panamvalve.com or +44 (0) 7369 243459.",
   },
 ]
 
@@ -64,7 +64,7 @@ const faqIcons = [
   <FactoryOutlinedIcon />,
   <ScienceOutlinedIcon />,
   <ScheduleOutlinedIcon />,
-  <EngineeringOutlinedIcon />,
+  <TuneOutlinedIcon />,
   <DescriptionOutlinedIcon />,
   <RequestQuoteOutlinedIcon />,
 ]
@@ -109,7 +109,7 @@ const FAQSection: React.FC = () => {
                   Can't find what you're looking for?
                 </Typography>
                 <Button component={RouterLink} viewTransition to="/enquiry" endIcon={<ArrowForwardIcon />} sx={{ ...btn.primary, mt: 2.5, width: "100%" }}>
-                  Ask our engineering team
+                  Ask our technical team
                 </Button>
               </Box>
             </Box>

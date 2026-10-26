@@ -441,7 +441,7 @@ const ApiValveStandardsBlog: React.FC = () => {
                   <Box component="img" src={heroImage} alt="PANAM Industrial Valves" sx={{ width: "100%", height: 160, objectFit: "contain", bgcolor: "#F4F4F4", p: 2 }} />
                   <Box sx={{ p: 2 }}>
                     <Typography sx={{ fontWeight: 800, fontSize: "0.9rem", color: "#1A1A1A", mb: 0.5 }}>PANAM Industrial Valves</Typography>
-                    <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>Engineering Support · Lead Times on Request</Typography>
+                    <Typography sx={{ fontSize: "0.8rem", color: "#666", mb: 1.5 }}>Technical Support · Lead Times on Request</Typography>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 700, color: "#01B0F0" }}>Browse the range →</Typography>
                   </Box>
                 </Paper>

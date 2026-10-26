@@ -540,7 +540,7 @@ export const CtaBand = ({ title, text, primary, secondary }: { title: string; te
               <SupportAgentRoundedIcon />
             </Box>
             <Box>
-              <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: C.brandDark }}>Talk to an engineer</Typography>
+              <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: C.brandDark }}>Talk to our team</Typography>
               <Typography component="h2" sx={{ mt: 0.75, fontWeight: 800, color: C.ink, fontSize: { xs: "1.45rem", md: "1.75rem" }, letterSpacing: "-0.02em", lineHeight: 1.2 }}>
                 {title}
               </Typography>

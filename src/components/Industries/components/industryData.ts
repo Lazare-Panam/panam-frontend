@@ -51,7 +51,7 @@ export const industryData = [
     content: {
       subHeading: "THE HYDROGEN ECONOMY",
       heading: "Mastering the Smallest Molecule.",
-      bodyText: "Hydrogen is notoriously difficult to contain. Our engineering team has developed specialized seal technologies and material selections that prevent hydrogen embrittlement. \n\nFrom electrolyzer integration to high-pressure storage and refueling stations, we are the trusted partner for companies scaling up green and blue hydrogen infrastructure globally.",
+      bodyText: "Hydrogen is notoriously difficult to contain. We have developed specialized seal technologies and material selections that prevent hydrogen embrittlement. \n\nFrom electrolyzer integration to high-pressure storage and refueling stations, we are the trusted partner for companies scaling up green and blue hydrogen infrastructure globally.",
     },
   },
   {
