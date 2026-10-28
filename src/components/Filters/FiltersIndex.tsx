@@ -96,7 +96,7 @@ export default function FiltersIndexPage() {
   return (
     <>
       <title>Instrumentation Filters | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® Instrumentation Filters — T-Type and In-Line configurations, SS316, sintered and mesh elements 0.5 to 440 micron, nitrogen leak tested at 1000 psi. 3mm to 12mm tube, 1/8 to 1/2 inch thread. 624+ configurations. Request a quote." />
+      <meta name="description" content="PANAM® T-Type and In-Line filters in SS316: 0.5–440 micron elements, leak tested at 1000 psi, 3–12mm tube and 1/8–1/2 inch threads. 624+ configurations." />
       <meta name="keywords" content="instrumentation filters, inline filters, T-type filters, SS316 filters, sintered filter elements, PTF PIF filters" />
       <link rel="canonical" href="https://www.panamvalve.com/filters" />
       <meta name="robots" content="index, follow" />

@@ -113,7 +113,7 @@ const Hero: React.FC<{ heading: string; intro: React.ReactNode; certs: CertDoc[]
                     "&:hover": { zIndex: 11, boxShadow: `0 34px 70px rgba(15,34,54,0.24), 0 0 0 3px ${C.brand}` },
                     "&:focus-visible": { outline: `3px solid ${C.brand}`, outlineOffset: 4 },
                   }}>
-                  <Box component="img" src={cert.image} alt="" sx={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", transform: "scale(1.55)", display: "block" }} />
+                  <Box component="img" src={cert.image} alt={`${cert.title} certificate`} sx={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", transform: "scale(1.55)", display: "block" }} />
                 </Box>
               ))}
             </Box>

@@ -27,8 +27,8 @@ export default function NeedleValveHBPage() {
 
   return (
     <>
-    <title>PANAM® HB Series Block & Bleed Needle Valves | 10,000 psig | PANAM®</title>
-    <meta name="description" content="PANAM® HB Series block and bleed needle valves rated to 10,000 psig. Non-rotating Vee-tip stem, SS316, Duplex, Monel and Hastelloy. NPT, BSPP and tube fitting ends." />
+    <title>PANAM® HB Series Block & Bleed Needle Valves | 10,000 psig</title>
+    <meta name="description" content="PANAM® HB Series block and bleed needle valves to 10,000 psig. Non-rotating Vee-tip stem; SS316, Duplex, Monel, Hastelloy; NPT, BSPP and tube ends." />
     <meta name="keywords" content="block and bleed needle valve, HB series needle valve, 10000 psi needle valve, instrumentation block bleed valve, SS316 block bleed valve, high pressure block bleed valve" />
     <meta property="og:title" content="HB Series Block & Bleed Needle Valves | PANAM®" />
     <meta property="og:description" content="High-pressure block and bleed needle valves to 10,000 psig. Non-rotating Vee-tip stem." />
@@ -40,7 +40,7 @@ export default function NeedleValveHBPage() {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         name: "HB Series Block & Bleed Needle Valves",
-        description: "PANAM® HB Series block and bleed needle valves rated to 10,000 psig. Non-rotating Vee-tip stem, SS316, Duplex, Monel and Hastelloy. NPT, BSPP and tube fitting ends.",
+        description: "PANAM® HB Series block and bleed needle valves to 10,000 psig. Non-rotating Vee-tip stem; SS316, Duplex, Monel, Hastelloy; NPT, BSPP and tube ends.",
       })}
     </script>
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>

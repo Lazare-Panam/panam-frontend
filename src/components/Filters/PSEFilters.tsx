@@ -58,7 +58,7 @@ export default function PSEFiltersPage() {
   return (
     <>
       <title>Replacement Filter Elements (PSE) | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® PSE Replacement Filter Elements — SS316 sintered and mesh cartridges 0.5 to 440 micron. Fits PIF In-Line and PTF T-Type filter housings. Request a quote." />
+      <meta name="description" content="PANAM® PSE replacement filter elements: SS316 sintered and mesh cartridges, 0.5 to 440 micron, for PIF In-Line and PTF T-Type housings. Request a quote." />
       <meta name="keywords" content="filter elements, replacement filter cartridge, PSE filters, sintered filter element, mesh filter element, SS316 filter cartridge" />
       <meta property="og:title" content="Replacement Filter Elements (PSE) | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® PSE Replacement Filter Elements by size group, element type, and pore size. SS316, fits PIF & PTF housings." />

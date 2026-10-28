@@ -30,13 +30,13 @@ export default function PipeAdapterPage() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <title>PANAM® High Pressure Pipe Adapters, Bushings & Swivel Connectors | 10,000–15,000 psi</title>
-      <meta name="description" content="Panam high pressure pipe adapters, reducing bushings, reducing adaptors and swivel male connectors in NPT, BSPT, ISO parallel and 37° JIC, rated 10,000 to 15,000 psi. SS 316." />
+      <title>PANAM® HP Pipe Adapters, Bushings & Swivel Connectors</title>
+      <meta name="description" content="Panam high pressure pipe adapters, reducing bushings and swivel male connectors in NPT, BSPT, ISO parallel and 37° JIC. 10,000–15,000 psi, SS 316." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure/pipe-fittings/adapters" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="PANAM® High Pressure Pipe Adapters, Bushings & Swivel Connectors | 10,000–15,000 psi" />
-      <meta property="og:description" content="Panam high pressure pipe adapters, reducing bushings, reducing adaptors and swivel male connectors in NPT, BSPT, ISO parallel and 37° JIC, rated 10,000 to 15,000 psi. SS 316." />
+      <meta property="og:title" content="PANAM® HP Pipe Adapters, Bushings & Swivel Connectors" />
+      <meta property="og:description" content="Panam high pressure pipe adapters, reducing bushings and swivel male connectors in NPT, BSPT, ISO parallel and 37° JIC. 10,000–15,000 psi, SS 316." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/pipe-fittings/adapters" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_BLUE, fontFamily: PRIMARY_FONT }}>

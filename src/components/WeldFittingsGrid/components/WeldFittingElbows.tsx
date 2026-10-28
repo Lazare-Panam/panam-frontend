@@ -1,7 +1,7 @@
 import WeldFittingPage from "./WeldFittingsAll"
 export default function WeldFittingElbows() {
   return(<><title>Weld Fitting Elbows | Socket & Butt Weld | PANAM®</title>
-<meta name="description" content={'PANAM® weld fitting elbows in socket & butt weld for permanent directional changes in high-integrity systems. SS316, Duplex, Monel & Hastelloy. To 10,000 psig.'} />
+<meta name="description" content={'PANAM® socket and butt weld elbows for permanent direction changes in high-integrity systems. SS316, Duplex, Monel and Hastelloy. To 10,000 psig.'} />
 <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/weld-fittings/elbows" />
 <meta name="robots" content="index, follow" />
 <meta property="og:type" content="website" />

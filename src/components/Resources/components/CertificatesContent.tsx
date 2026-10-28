@@ -420,13 +420,13 @@ export const CertificationSections: React.FC = () => {
 /* Block 9 — Sector requirements                                       */
 /* ------------------------------------------------------------------ */
 
-const SECTOR_ROWS: { sector: string; to: string; requirement?: React.ReactNode }[] = [
+const SECTOR_ROWS: { sector: string; to: string; requirement: React.ReactNode }[] = [
   { sector: "Oil & gas", to: "/industries/oil-gas", requirement: "NACE MR0175 / ISO 15156 sour service materials, hazardous area certification, EN 10204 material documentation, pressure class verification" },
   { sector: "Hydrogen", to: "/industries/hydrogen", requirement: "Material selection documented against embrittlement, ATEX where the zone requires it, pressure testing records at service pressure" },
-  { sector: "Aerospace & defence", to: "/industries/aerospace-defense" },
+  { sector: "Aerospace & defence", to: "/industries/aerospace-defense", requirement: "Full material traceability with EN 10204 3.1 certificates, first article inspection where specified, documented pressure and leak testing" },
   { sector: "Marine & subsea", to: "/industries/marine-subsea", requirement: "Classification society approval where applicable, NACE for sour service, corrosion-resistant material certification" },
   { sector: "Chemical & petrochemical", to: "/industries/chemicals-petrochemical", requirement: "ATEX for zoned areas, material compatibility documentation for the process media, PED conformity" },
-  { sector: "Food & beverage", to: "/industries/food-beverages" },
+  { sector: "Food & beverage", to: "/industries/food-beverages", requirement: "Food-contact materials to EC 1935/2004 or FDA, hygienic design where the process calls for it, surface finish documentation" },
 ]
 
 const sectorImage = (to: string) => industryData.find(i => to.endsWith(i.id))?.image
@@ -440,7 +440,7 @@ export const SectorRequirements: React.FC = () => (
           <Grid size={{ xs: 12, sm: 6, md: 4 }} key={row.sector}>
             <Box component={RouterLink} viewTransition to={row.to} sx={{ ...cardSx, ...cardHoverSx, display: "flex", flexDirection: "column", height: "100%", overflow: "hidden", textDecoration: "none", "&:hover .sector-img": { transform: "scale(1.06)" }, "&:hover .sector-arrow": { bgcolor: C.brand, color: C.white, transform: "translateX(2px)" } }}>
               {/* Industry photo with the sector name over it */}
-              <Box sx={{ position: "relative", height: row.requirement ? 150 : "auto", minHeight: 150, flexGrow: row.requirement ? 0 : 1, overflow: "hidden", bgcolor: C.surface }}>
+              <Box sx={{ position: "relative", height: 150, flex: "none", overflow: "hidden", bgcolor: C.surface }}>
                 <Box className="sector-img" sx={{ position: "absolute", inset: 0, backgroundImage: `url("${sectorImage(row.to)}")`, backgroundSize: "cover", backgroundPosition: "center", transition: "transform 0.6s ease" }} />
                 <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,34,54,0) 30%, rgba(15,34,54,0.78) 100%)" }} />
                 <Stack direction="row" alignItems="flex-end" justifyContent="space-between" sx={{ position: "absolute", left: 20, right: 16, bottom: 14 }}>
@@ -452,11 +452,9 @@ export const SectorRequirements: React.FC = () => (
                   </Box>
                 </Stack>
               </Box>
-              {row.requirement && (
-                <Box sx={{ p: 2.5, flexGrow: 1 }}>
-                  <Typography sx={{ color: C.text, fontSize: "0.92rem", lineHeight: 1.65 }}>{row.requirement}</Typography>
-                </Box>
-              )}
+              <Box sx={{ p: 2.5, flexGrow: 1 }}>
+                <Typography sx={{ color: C.text, fontSize: "0.92rem", lineHeight: 1.65 }}>{row.requirement}</Typography>
+              </Box>
             </Box>
           </Grid>
         ))}

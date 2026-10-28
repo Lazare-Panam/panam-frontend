@@ -106,7 +106,7 @@ export default function HPPipeFittingsIndexPage() {
   return (
     <>
       <title>PANAM® HP Pipe Fittings | 10,000 – 15,000 psi | SS 316</title>
-      <meta name="description" content="Panam high pressure pipe fittings in SS 316 — hex nipples, reducing hex nipples, couplings, and adapters. NPT, ISO Parallel, and 37° JIC. 10,000 to 15,000 psi." />
+      <meta name="description" content="Panam high pressure pipe fittings in SS 316: hex nipples, reducing hex nipples, couplings and adapters in NPT, ISO Parallel and 37° JIC. 10,000–15,000 psi." />
       <meta name="keywords" content="high pressure pipe fittings, hex nipples, reducing hex nipples, hex couplings, adapters, NPT fittings, ISO parallel fittings, JIC fittings, SS316 pipe fittings" />
       <meta property="og:title" content="PANAM® HP Pipe Fittings | 10,000 – 15,000 psi" />
       <meta property="og:description" content="High pressure pipe fittings in SS 316. Hex nipples, couplings and adapters in NPT, ISO Parallel and 37° JIC. 10,000 to 15,000 psi." />

@@ -174,7 +174,7 @@ export default function WeldFittingsIndexPage() {
   return (
     <>
       <title>Weld Fittings | Socket & Butt Weld | PANAM®</title>
-      <meta name="description" content={"PANAM® weld fittings in socket & butt weld configurations for permanent, high-integrity connections in hydrogen systems, chemical processing & industrial gas. To 10,000 psig."} />
+      <meta name="description" content={"PANAM® socket and butt weld fittings for permanent, high-integrity connections in hydrogen, chemical processing and industrial gas. To 10,000 psig."} />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/weld-fittings" />
       <meta name="robots" content="index, follow" />
 

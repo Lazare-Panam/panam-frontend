@@ -245,7 +245,7 @@ export default function HeavySeriesTubeClampPage() {
   return (
     <>
           <title>Heavy Series Tube Clamps | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® Heavy Series Tube Clamps — DIN Groups 1 to 10, 6mm to 219mm OD, M10 to M30 bolts, PP jaws included. Each set includes top plate, bottom plate, 2 hex bolts (4.6 Grade), and PP jaws. Request a quote." />
+      <meta name="description" content="PANAM® heavy series tube clamps: DIN Groups 1–10, 6–219mm OD, M10–M30 bolts. Sets include top and bottom plates, 2 grade 4.6 hex bolts and PP jaws." />
       <meta name="keywords" content="heavy series tube clamps, DIN tube clamps, large bore pipe clamps, heavy duty instrumentation clamps, PP jaw clamps" />
       <meta property="og:title" content="Heavy Series Tube Clamps | PANAM® Instrumentation" />
       <meta property="og:description" content="Heavy duty tube clamps in DIN Groups 1 to 10. 6mm to 219mm OD, M10 to M30 bolts, PP jaws included." />

@@ -1,4 +1,4 @@
-import { Fab, Zoom } from "@mui/material"
+import { Box, Fab, Zoom } from "@mui/material"
 import { useLocation } from "react-router-dom"
 import WhatsAppIcon from "@mui/icons-material/WhatsApp"
 
@@ -6,7 +6,8 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp"
 // 07369 243459 (UK) -> +44 7369 243459 -> 447369243459
 const WHATSAPP_NUMBER = "447369243459"
 const PREFILLED_MESSAGE = "Hi Panam Valve, I have an enquiry."
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PREFILLED_MESSAGE)}`
+// wa.me answers with a 302 to this URL; linking here directly avoids the redirect (flagged by SEO audits)
+const WHATSAPP_URL = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(PREFILLED_MESSAGE)}`
 
 const WHATSAPP_GREEN = "#25D366"
 // Mirror StickyQuoteButton's hide-list so we don't clutter the transactional/admin pages.
@@ -44,6 +45,10 @@ const WhatsAppButton = () => {
           "&:active": { transform: "translateY(0)" },
         }}>
         <WhatsAppIcon />
+        {/* Visible to crawlers and screen readers only, so the icon link has anchor text */}
+        <Box component="span" sx={{ position: "absolute", width: "1px", height: "1px", p: 0, m: "-1px", overflow: "hidden", clip: "rect(0 0 0 0)", whiteSpace: "nowrap", border: 0 }}>
+          Chat on WhatsApp
+        </Box>
       </Fab>
     </Zoom>
   )

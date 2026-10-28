@@ -112,7 +112,7 @@ export default function NeedleValvesPage() {
   return (
     <>
       <title>PANAM Needle Valves | IB, HB, HP, SB & Mini Series | PANAM®</title>
-      <meta name="description" content="PANAM® needle valves in five series — IB, HB, HP, SB and Mini — rated 3,000 to 20,000 psig. SS316, Duplex, Monel, Hastelloy. NPT, BSPP, BSPT and tube fitting ends." />
+      <meta name="description" content="PANAM® needle valves in IB, HB, HP, SB and Mini series, rated 3,000–20,000 psig. SS316, Duplex, Monel, Hastelloy with NPT, BSPP, BSPT and tube ends." />
       <meta name="keywords" content="instrumentation needle valves, high pressure needle valves, 20000 psi needle valve, SS316 needle valve, Duplex needle valve, Hastelloy needle valve, integral bonnet needle valve, block and bleed needle valve, forged needle valve, NPT needle valve" />
       <meta property="og:title" content="Instrumentation Needle Valves | PANAM® IB · HB · HP · SB · Mini Series" />
       <meta property="og:description" content="Five needle valve series rated 3,000–20,000 psig. Non-rotating Vee-tip stem. SS316, Duplex, Monel and Hastelloy." />

@@ -5,7 +5,7 @@ import { alpha } from "@mui/material/styles"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
 import { useCartStore } from "../store/useCartStore"
-import { HP_SEO_META } from "../../data/hpSeoMeta"
+import { productMetaDescription, productMetaTitle } from "../../data/seoMetaRules"
 
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -70,9 +70,9 @@ export default function ProductDetailPage({ backHref, backLabel, image, partNumb
   // Hand-written SEO copy from the HP product spreadsheet, keyed by part number.
   // When a part has an entry, its meta title/description win; otherwise fall back
   // to the auto-generated values so non-HP products are unaffected.
-  const seo = HP_SEO_META[partNumber]
-  const metaTitle = seo?.metaTitle ?? `${partNumber} — ${title} | Panam Valves`
-  const metaDescription = seo?.metaDescription ?? `${title} (${partNumber}). ${description}`.slice(0, 300)
+  // Titles always carry the part number (so they're unique) and are kept within the audit's length limits.
+  const metaTitle = productMetaTitle(partNumber, title)
+  const metaDescription = productMetaDescription(partNumber, title, description)
 
   return (
     <>

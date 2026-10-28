@@ -2,7 +2,7 @@ import PipeFittingPage from '../PipeFittings'
 export default function Elbows() {
   return (<>
   <title>Pipe Fitting Elbows | 45° & 90° | PANAM®</title>
-<meta name="description" content={'PANAM® pipe fitting elbows in 45° & 90° configurations for instrumentation and process systems. SS316, Duplex, Monel & Hastelloy with NPT, BSPT & BSPP threads.'} />
+<meta name="description" content={'PANAM® 45° and 90° pipe fitting elbows for instrumentation and process systems. SS316, Duplex, Monel and Hastelloy with NPT, BSPT and BSPP threads.'} />
 <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/pipe-fittings/elbows" />
 <meta name="robots" content="index, follow" />
 <meta property="og:type" content="website" />
@@ -21,7 +21,7 @@ export default function Elbows() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Pipe Fitting Elbows | 45° & 90° | PANAM®",
-    description: "PANAM® pipe fitting elbows in 45° & 90° configurations for instrumentation and process systems. SS316, Duplex, Monel & Hastelloy with NPT, BSPT & BSPP threads.",
+    description: "PANAM® 45° and 90° pipe fitting elbows for instrumentation and process systems. SS316, Duplex, Monel and Hastelloy with NPT, BSPT and BSPP threads.",
   })}
 </script>
 

@@ -220,7 +220,7 @@ export const EnquiryRegistration = () => {
                   sx={{ width: 132, flex: "none" }}
                   renderOption={(props, option) => (
                     <Box component="li" sx={{ fontSize: "0.85rem", "& > img": { mr: 1, flexShrink: 0 } }} {...props}>
-                      <img loading="lazy" width="18" src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`} alt="" />
+                      <img loading="lazy" width="18" src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`} alt={`${option.label} flag`} />
                       {option.label} (+{option.phone})
                     </Box>
                   )}
@@ -231,7 +231,7 @@ export const EnquiryRegistration = () => {
                       inputProps={{ ...params.inputProps, "aria-label": "Country dial code" }}
                       InputProps={{
                         ...params.InputProps,
-                        startAdornment: <Box component="img" src={`https://flagcdn.com/w20/${selectedCountry.code.toLowerCase()}.png`} alt="" sx={{ width: 18, ml: 0.5, borderRadius: "2px" }} />,
+                        startAdornment: <Box component="img" src={`https://flagcdn.com/w20/${selectedCountry.code.toLowerCase()}.png`} alt={`${selectedCountry.label} flag`} sx={{ width: 18, ml: 0.5, borderRadius: "2px" }} />,
                       }}
                       sx={{ ...inputSx, "& .MuiOutlinedInput-root": { ...inputSx["& .MuiOutlinedInput-root"], py: "3px !important" } }}
                     />

@@ -201,7 +201,7 @@ export default function JICFittingsIndexPage() {
   return (
     <>
       <title>37° JIC Flare Fittings | Connectors, Elbows & Tees | PANAM®</title>
-      <meta name="description" content={"PANAM® 37° JIC flare fittings — connectors, elbows, tees, plugs, caps & nuts for critical hydrogen, chemical & industrial gas systems. SS316, Duplex, Monel. To 10,000 psig."} />
+      <meta name="description" content={"PANAM® 37° JIC flare fittings: connectors, elbows, tees, plugs, caps and nuts for hydrogen, chemical and gas systems. SS316, Duplex, Monel. To 10,000 psig."} />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/jic-fittings" />
       <meta name="robots" content="index, follow" />
 

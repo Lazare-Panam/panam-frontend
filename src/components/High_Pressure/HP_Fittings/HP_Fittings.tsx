@@ -106,7 +106,7 @@ export default function HPFittingsIndexPage() {
   return (
     <>
       <title>PANAM® HP Cone & Thread Fittings | 10,000 – 60,000 psi | SS 316</title>
-      <meta name="description" content="Panam high pressure cone and thread fittings in SS 316 — connectors, unions, adapters, elbows, tees, crosses, hex nipples, caps, plugs, glands and collars. 10,000 to 60,000 psi." />
+      <meta name="description" content="Panam high pressure cone & thread fittings in SS 316: connectors, unions, adapters, elbows, tees, crosses, nipples, caps, plugs, glands. 10,000–60,000 psi." />
       <meta name="keywords" content="high pressure fittings, cone and thread fittings, HP connectors, HP unions, HP adapters, HP elbows, HP tees, HP crosses, hex nipples, SS316 fittings, 60000 psi fittings" />
       <meta property="og:title" content="PANAM® HP Cone & Thread Fittings | 10,000 – 60,000 psi" />
       <meta property="og:description" content="Six categories of high pressure cone and thread fittings in SS 316. Connectors, unions, adapters, elbows, tees, crosses, hex nipples, caps, plugs, glands and collars from 10,000 to 60,000 psi." />

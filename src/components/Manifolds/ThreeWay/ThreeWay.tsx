@@ -114,7 +114,7 @@ export default function Manifolds3VMPage() {
   return (
     <>
           <title>3-Valve Manifolds | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® 3-Valve Manifolds — multiple connection types, mountings, and drain hole sizes. NACE MR-0175 sour gas option available. Configure and request a quote within 24 hours." />
+      <meta name="description" content="PANAM® 3-valve manifolds with multiple connection types, mountings and drain hole sizes. NACE MR-0175 sour gas option. Quote within 24 hours." />
       <meta name="keywords" content="3 valve manifold, three valve manifold, instrument manifold, DP transmitter manifold, NACE manifold, SS316 manifold" />
       <meta property="og:title" content="3-Valve Manifolds | PANAM® Instrumentation" />
       <meta property="og:description" content="Configure PANAM® 3-Valve Manifolds by connection type, mounting, drain hole size, and special service." />

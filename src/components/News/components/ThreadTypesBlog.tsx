@@ -67,7 +67,7 @@ const NPTBSPPBSPTBlog: React.FC = () => {
 
   return (
     <>
-      <title key="title">NPT vs BSPP vs BSPT Threads for Instrumentation Fittings | Panam Valves Blog</title>
+      <title key="title">NPT vs BSPP vs BSPT Threads for Instrumentation Fittings</title>
       <meta name="description" content="Learn to identify NPT, BSPP and BSPT threads, pick the right seal method, and use adapters to convert safely on instrumentation fittings." />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="NPT vs BSPP vs BSPT Threads for Instrumentation Fittings | Panam Valves" />

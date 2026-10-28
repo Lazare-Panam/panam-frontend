@@ -70,8 +70,8 @@ const SpecifyValvesGuideBlog: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>How to Specify Industrial and Control Valves: Cv, Pressure Class and Materials | Panam Valve</title>
-      <meta name="description" content="A fast, defensible route from application to purchase order for industrial and control valves — function, Cv and pressure drop, MP/HP ratings, end connections, seats and materials, mapped to Panam ranges." />
+      <title>How to Specify Industrial Valves: Cv, Pressure Class & Materials</title>
+      <meta name="description" content="A fast route from application to purchase order for industrial and control valves: function, Cv, pressure ratings, end connections, seats and materials." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/how-to-specify-industrial-and-control-valves" />
@@ -80,7 +80,7 @@ const SpecifyValvesGuideBlog: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: "How to Specify Industrial and Control Valves: Cv, Pressure Class and Materials",
-          description: "A fast, defensible route from application to purchase order for industrial and control valves — function, Cv and pressure drop, MP/HP ratings, end connections, seats and materials, mapped to Panam ranges.",
+          description: "A fast route from application to purchase order for industrial and control valves: function, Cv, pressure ratings, end connections, seats and materials.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },

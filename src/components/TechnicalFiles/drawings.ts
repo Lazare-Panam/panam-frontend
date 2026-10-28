@@ -1,0 +1,61 @@
+import { TechnicalFileType, type TechnicalFile } from "../../api/technicalFileApi"
+
+// PDF technical drawings hosted in Azure Blob Storage (panam-images/technical-drawings/<category>/).
+// These aren't served by the API, so they're listed here; STEP models still come from the API.
+// To add a drawing: upload it to the matching blob folder and add one line here.
+// `category` matches the blob folder and the category key in categories.ts.
+export const DRAWING_FILES: TechnicalFile[] = [
+  { id: "drawing-PBV-2-S-08-FF-G-L-TM", partNumber: "PBV-2-S-08-FF-G-L-TM", fileType: TechnicalFileType.Drawing, fileName: "PBV-2-S-08-FF-G-L-TM.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-2-S-08-FF-G-L-TM.pdf", category: "Ball-Valves" },
+  { id: "drawing-PBV-2-S-08-TE-OB", partNumber: "PBV-2-S-08-TE-OB", fileType: TechnicalFileType.Drawing, fileName: "PBV-2-S-08-TE-OB.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-2-S-08-TE-OB.pdf", category: "Ball-Valves" },
+  { id: "drawing-PBV-2-S-12-FF-L-AM", partNumber: "PBV-2-S-12-FF-L-AM", fileType: TechnicalFileType.Drawing, fileName: "PBV-2-S-12-FF-L-AM.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-2-S-12-FF-L-AM.pdf", category: "Ball-Valves" },
+  { id: "drawing-PBV-2-S-12-TE-OB", partNumber: "PBV-2-S-12-TE-OB", fileType: TechnicalFileType.Drawing, fileName: "PBV-2-S-12-TE-OB.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-2-S-12-TE-OB.pdf", category: "Ball-Valves" },
+  { id: "drawing-PBV-3-S-04-FF", partNumber: "PBV-3-S-04-FF", fileType: TechnicalFileType.Drawing, fileName: "PBV-3-S-04-FF.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-3-S-04-FF.pdf", category: "Ball-Valves" },
+  { id: "drawing-PBV-3T-S-06-FF", partNumber: "PBV-3T-S-06-FF", fileType: TechnicalFileType.Drawing, fileName: "PBV-3T-S-06-FF.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-3T-S-06-FF.pdf", category: "Ball-Valves" },
+  { id: "drawing-PBV-HB-S-08-PSW-6K", partNumber: "PBV-HB-S-08-PSW-6K", fileType: TechnicalFileType.Drawing, fileName: "PBV-HB-S-08-PSW-6K.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-HB-S-08-PSW-6K.pdf", category: "Ball-Valves" },
+  { id: "drawing-PBV-HB-S-12-PSW-6K", partNumber: "PBV-HB-S-12-PSW-6K", fileType: TechnicalFileType.Drawing, fileName: "PBV-HB-S-12-PSW-6K.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-HB-S-12-PSW-6K.pdf", category: "Ball-Valves" },
+  { id: "drawing-PBV-HB-S-M08-OD-PK-6K-LH", partNumber: "PBV-HB-S-M08-OD-PK-6K-LH", fileType: TechnicalFileType.Drawing, fileName: "PBV-HB-S-M08-OD-PK-6K-LH.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-HB-S-M08-OD-PK-6K-LH.pdf", category: "Ball-Valves" },
+  { id: "drawing-PBV-HP2-2-4-S-9MF", partNumber: "PBV-HP2-2-4-S-9MF", fileType: TechnicalFileType.Drawing, fileName: "PBV-HP2-2-4-S-9MF.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Ball-Valves/PBV-HP2-2-4-S-9MF.pdf", category: "Ball-Valves" },
+  { id: "drawing-PCV-04-SS-FF", partNumber: "PCV-04-SS-FF", fileType: TechnicalFileType.Drawing, fileName: "PCV-04-SS-FF.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Check-Valves/PCV-04-SS-FF.pdf", category: "Check-Valves" },
+  { id: "drawing-PCV-06G-SS-MF", partNumber: "PCV-06G-SS-MF", fileType: TechnicalFileType.Drawing, fileName: "PCV-06G-SS-MF.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Check-Valves/PCV-06G-SS-MF.pdf", category: "Check-Valves" },
+  {
+    id: "drawing-PDBB-1-A-CS-2-PK-10-20-900RF-8NF-8N-TR1-LH-SG-AS-FS-P",
+    partNumber: "PDBB-1-A-CS-2-PK-10-20-900RF-8NF-8N-TR1-LH-SG-AS-FS-P",
+    fileType: TechnicalFileType.Drawing,
+    fileName: "PDBB-1-A-CS-2-PK-10-20-900RF-8NF-8N-TR1-LH-SG-AS-FS-P.pdf",
+    blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Double-Block-Bleed/PDBB-1-A-CS-2-PK-10-20-900RF-8NF-8N-TR1-LH-SG-AS-FS-P.pdf",
+    category: "Double-Block-Bleed",
+  },
+  {
+    id: "drawing-PDBB-1-A-F55-2-PK-12-20-150RF-8NF-8N-LH-SG-AS-FS-P-LS316",
+    partNumber: "PDBB-1-A-F55-2-PK-12-20-150RF-8NF-8N-LH-SG-AS-FS-P-LS316",
+    fileType: TechnicalFileType.Drawing,
+    fileName: "PDBB-1-A-F55-2-PK-12-20-150RF-8NF-8N-LH-SG-AS-FS-P-LS316.pdf",
+    blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Double-Block-Bleed/PDBB-1-A-F55-2-PK-12-20-150RF-8NF-8N-LH-SG-AS-FS-P-LS316.pdf",
+    category: "Double-Block-Bleed",
+  },
+  {
+    id: "drawing-PDBB-1-A-F55-2-PK-12-20-300RF-8NF-8N-LH-SG-AS-FS-P-LS316",
+    partNumber: "PDBB-1-A-F55-2-PK-12-20-300RF-8NF-8N-LH-SG-AS-FS-P-LS316",
+    fileType: TechnicalFileType.Drawing,
+    fileName: "PDBB-1-A-F55-2-PK-12-20-300RF-8NF-8N-LH-SG-AS-FS-P-LS316.pdf",
+    blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Double-Block-Bleed/PDBB-1-A-F55-2-PK-12-20-300RF-8NF-8N-LH-SG-AS-FS-P-LS316.pdf",
+    category: "Double-Block-Bleed",
+  },
+  { id: "drawing-PDBB-6-C-SS-1-8-NM-8NF-4N-P", partNumber: "PDBB-6-C-SS-1-8-NM-8NF-4N-P", fileType: TechnicalFileType.Drawing, fileName: "PDBB-6-C-SS-1-8-NM-8NF-4N-P.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Double-Block-Bleed/PDBB-6-C-SS-1-8-NM-8NF-4N-P.pdf", category: "Double-Block-Bleed" },
+  { id: "drawing-PA-4N-SS", partNumber: "PA-4N-SS", fileType: TechnicalFileType.Drawing, fileName: "PA-4N-SS.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Fittings/PA-4N-SS.pdf", category: "Fittings" },
+  { id: "drawing-PBP-XR-SS", partNumber: "PBP-XR-SS", fileType: TechnicalFileType.Drawing, fileName: "PBP-XR-SS.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Fittings/PBP-XR-SS.pdf", category: "Fittings" },
+  { id: "drawing-PFT-4N-SS", partNumber: "PFT-4N-SS", fileType: TechnicalFileType.Drawing, fileName: "PFT-4N-SS.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Fittings/PFT-4N-SS.pdf", category: "Fittings" },
+  { id: "drawing-PHLN-4N-SS-L2.5", partNumber: "PHLN-4N-SS-L2.5", fileType: TechnicalFileType.Drawing, fileName: "PHLN-4N-SS-L2.5.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Fittings/PHLN-4N-SS-L2.5.pdf", category: "Fittings" },
+  { id: "drawing-PHN-4N-SS", partNumber: "PHN-4N-SS", fileType: TechnicalFileType.Drawing, fileName: "PHN-4N-SS.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Fittings/PHN-4N-SS.pdf", category: "Fittings" },
+  { id: "drawing-PHN-8G-SS", partNumber: "PHN-8G-SS", fileType: TechnicalFileType.Drawing, fileName: "PHN-8G-SS.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Fittings/PHN-8G-SS.pdf", category: "Fittings" },
+  { id: "drawing-PLME-12-12N-SS", partNumber: "PLME-12-12N-SS", fileType: TechnicalFileType.Drawing, fileName: "PLME-12-12N-SS.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Fittings/PLME-12-12N-SS.pdf", category: "Fittings" },
+  { id: "drawing-PRHC-8N-4N-SS", partNumber: "PRHC-8N-4N-SS", fileType: TechnicalFileType.Drawing, fileName: "PRHC-8N-4N-SS.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Fittings/PRHC-8N-4N-SS.pdf", category: "Fittings" },
+  { id: "drawing-PST-4N-SS", partNumber: "PST-4N-SS", fileType: TechnicalFileType.Drawing, fileName: "PST-4N-SS.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Fittings/PST-4N-SS.pdf", category: "Fittings" },
+  { id: "drawing-3VM-SS-6-RM-V4", partNumber: "3VM-SS-6-RM-V4", fileType: TechnicalFileType.Drawing, fileName: "3VM-SS-6-RM-V4.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Manifolds/3VM-SS-6-RM-V4.pdf", category: "Manifolds" },
+  { id: "drawing-PNV-SB-H-S-12-PSW-HT", partNumber: "PNV-SB-H-S-12-PSW-HT", fileType: TechnicalFileType.Drawing, fileName: "PNV-SB-H-S-12-PSW-HT.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Needle-Valves/PNV-SB-H-S-12-PSW-HT.pdf", category: "Needle-Valves" },
+  { id: "drawing-PNV-TV-B-04-OD", partNumber: "PNV-TV-B-04-OD", fileType: TechnicalFileType.Drawing, fileName: "PNV-TV-B-04-OD.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Needle-Valves/PNV-TV-B-04-OD.pdf", category: "Needle-Valves" },
+  { id: "drawing-MIXING VESSEL", partNumber: "MIXING VESSEL", fileType: TechnicalFileType.Drawing, fileName: "MIXING_VESSEL.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Other/MIXING_VESSEL.pdf", category: "Other" },
+  { id: "drawing-PRVH-SS-04-MF-H", partNumber: "PRVH-SS-04-MF-H", fileType: TechnicalFileType.Drawing, fileName: "PRVH-SS-04-MF-H.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Relief-Valves/PRVH-SS-04-MF-H.pdf", category: "Relief-Valves" },
+  { id: "drawing-PRVH-SS-08-MOD-D-H2 + PFA-08-8N-SS", partNumber: "PRVH-SS-08-MOD-D-H2 + PFA-08-8N-SS", fileType: TechnicalFileType.Drawing, fileName: "PRVH-SS-08-MOD-D-H2_PFA-08-8N-SS.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Relief-Valves/PRVH-SS-08-MOD-D-H2_PFA-08-8N-SS.pdf", category: "Relief-Valves" },
+  { id: "drawing-PRVH-SS-9MF-8NF-20K", partNumber: "PRVH-SS-9MF-8NF-20K", fileType: TechnicalFileType.Drawing, fileName: "PRVH-SS-9MF-8NF-20K.pdf", blobUrl: "https://pblol2.blob.core.windows.net/panam-images/technical-drawings/Relief-Valves/PRVH-SS-9MF-8NF-20K.pdf", category: "Relief-Valves" },
+]

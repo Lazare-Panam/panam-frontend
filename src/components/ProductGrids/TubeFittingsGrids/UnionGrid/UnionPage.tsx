@@ -82,7 +82,7 @@ export default function UnionPage() {
   return (
     <>
       <title>Tube Fitting Unions | Reducing & Bulkhead | PANAM®</title>
-      <meta name="description" content="Stainless steel tube-to-tube union fittings from PANAM® — standard unions, reducing unions, bulkhead unions, union elbows, tees & crosses. Imperial & Metric tube OD." />
+      <meta name="description" content="Stainless steel tube-to-tube unions from PANAM®: standard, reducing and bulkhead unions, union elbows, tees and crosses. Imperial and Metric tube OD." />
       <link rel="canonical" href="https://www.panamvalve.com/instrumentation-fittings/tube-fittings/union" />
       <meta name="robots" content="index, follow" />
       <meta property="og:type" content="website" />
@@ -101,7 +101,7 @@ export default function UnionPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Tube Fitting Unions | Reducing & Bulkhead | PANAM®",
-          description: "Stainless steel tube-to-tube union fittings from PANAM® — standard unions, reducing unions, bulkhead unions, union elbows, tees & crosses. Imperial & Metric tube OD.",
+          description: "Stainless steel tube-to-tube unions from PANAM®: standard, reducing and bulkhead unions, union elbows, tees and crosses. Imperial and Metric tube OD.",
         })}
       </script>
 

@@ -62,9 +62,17 @@ export default function ProductInventory() {
   // These pages aren't prerendered, so Azure serves them the homepage HTML (canonical "/").
   // Emit a self-canonical + title so the client render replaces the homepage's tags.
   const path = subId ? `/products/${id}/${subId}` : `/products/${id}`
-  const heading = (activeId ?? "").split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
+  const heading = (activeId ?? "")
+    .split("-")
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ")
   const headTags = (
     <>
+      <Container maxWidth="lg" sx={{ pt: 4 }}>
+        <Typography component="h1" sx={{ fontWeight: 800, fontSize: { xs: "1.8rem", md: "2.2rem" }, color: "#0F2236", letterSpacing: "-0.02em", textTransform: "none" }}>
+          {heading}
+        </Typography>
+      </Container>
       <title>{`${heading} | PANAM® Instrumentation`}</title>
       <meta name="description" content={`PANAM® ${heading.toLowerCase()} for instrumentation and process lines. Browse the range and send an enquiry for pricing and lead times.`} />
       <link rel="canonical" href={`https://www.panamvalve.com${path}`} />
@@ -105,52 +113,54 @@ export default function ProductInventory() {
     )
   }
   return (
-    <Container
-      maxWidth="lg"
-      sx={{
-        mt: 4,
-      }}>
+    <>
       {headTags}
-      <Grid container spacing={0}>
-        {catalog?.children.map((item: ProductCatalog) => (
-          <Grid
-            key={item.type}
-            size={{
-              xs: 12,
-              sm: 6,
-              md: 4,
-            }}>
-            {catalog.pageType === PageType.ProductListing ? (
-              <ProductCard
-                product={{
-                  id: item.type,
-                  detailId: item.detailId,
-                  title: item.title,
+      <Container
+        maxWidth="lg"
+        sx={{
+          mt: 3,
+        }}>
+        <Grid container spacing={0}>
+          {catalog?.children.map((item: ProductCatalog) => (
+            <Grid
+              key={item.type}
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 4,
+              }}>
+              {catalog.pageType === PageType.ProductListing ? (
+                <ProductCard
+                  product={{
+                    id: item.type,
+                    detailId: item.detailId,
+                    title: item.title,
 
-                  description: item.description,
-                  imageUrl: item.image,
-                }}
-                onConfigure={handleOpenModal}
-              />
-            ) : (
-              <CatelogCard
-                product={{
-                  id: item.type,
-                  detailId: item.detailId,
-                  title: item.title,
-                  description: item.description,
-                  imageUrl: item.image,
-                  features: item.features,
-                }}
-                type={item.type}
-              />
-            )}
-          </Grid>
-        ))}
-      </Grid>
+                    description: item.description,
+                    imageUrl: item.image,
+                  }}
+                  onConfigure={handleOpenModal}
+                />
+              ) : (
+                <CatelogCard
+                  product={{
+                    id: item.type,
+                    detailId: item.detailId,
+                    title: item.title,
+                    description: item.description,
+                    imageUrl: item.image,
+                    features: item.features,
+                  }}
+                  type={item.type}
+                />
+              )}
+            </Grid>
+          ))}
+        </Grid>
 
-      <ConfigModal open={isModalOpen} onClose={handleCloseModal} product={selectedProduct} key={selectedProduct?.id || "no-product"} />
-      <StaticProductModal open={isStaticModalOpen} onClose={handleCloseModal} productId={selectedProductId} key={`static-${selectedProductId || "none"}`} />
-    </Container>
+        <ConfigModal open={isModalOpen} onClose={handleCloseModal} product={selectedProduct} key={selectedProduct?.id || "no-product"} />
+        <StaticProductModal open={isStaticModalOpen} onClose={handleCloseModal} productId={selectedProductId} key={`static-${selectedProductId || "none"}`} />
+      </Container>
+    </>
   )
 }

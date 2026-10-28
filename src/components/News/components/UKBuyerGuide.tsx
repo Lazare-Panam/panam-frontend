@@ -57,7 +57,7 @@ const UKBuyersGuideBlog: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>UK Industrial Valves Buyer's Guide: Types, Standards, Materials | Panam Valve</title>
+      <title>UK Industrial Valves Buyer's Guide: Types, Standards, Materials</title>
       <meta name="description" content="Learn how to specify industrial valves in the UK, from types and standards to materials, sizing and planning supply." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />

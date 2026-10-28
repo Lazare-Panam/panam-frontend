@@ -28,12 +28,12 @@ export default function HPNipplePage() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <title>PANAM® High Pressure Cone & Thread Nipples | MP & HP | 20,000–60,000 psi | SS 316</title>
+      <title>PANAM® HP Cone & Thread Nipples | 20,000–60,000 psi | SS 316</title>
       <meta name="description" content="Panam high pressure cone & thread nipples in MP and HP styles, 1/4&quot; to 1&quot; OD, rated 20,000 to 60,000 psi. SS 316, lengths from 2.75&quot; to 12&quot;." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure/cones-threaded-nipples" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="PANAM® High Pressure Cone & Thread Nipples | MP & HP | 20,000–60,000 psi | SS 316" />
+      <meta property="og:title" content="PANAM® HP Cone & Thread Nipples | 20,000–60,000 psi | SS 316" />
       <meta property="og:description" content="Panam high pressure cone & thread nipples in MP and HP styles, 1/4&quot; to 1&quot; OD, rated 20,000 to 60,000 psi. SS 316, lengths from 2.75&quot; to 12&quot;." />
       <meta property="og:url" content="https://www.panamvalve.com/high-pressure/cones-threaded-nipples" />
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>

@@ -30,15 +30,15 @@ const HighPressureIndexPage = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
-      <title>High Pressure Index — All HP Valves, Fittings & Pipe Fittings | Panam Valves</title>
+      <title>High Pressure Index: All HP Valves & Fittings | Panam Valves</title>
       <meta
         name="description"
-        content="Complete directory of every Panam high pressure product — valves, manifolds, fittings and pipe fittings up to 60,000 psi. Browse or search every HP part number."
+        content="Directory of every Panam high pressure product: valves, manifolds, fittings and pipe fittings up to 60,000 psi. Browse or search every HP part number."
       />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/high-pressure-index" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="High Pressure Index — All HP Valves, Fittings & Pipe Fittings | Panam Valves" />
+      <meta property="og:title" content="High Pressure Index: All HP Valves & Fittings | Panam Valves" />
       <meta
         property="og:description"
         content="Complete directory of every Panam high pressure product — valves, manifolds, fittings and pipe fittings up to 60,000 psi."

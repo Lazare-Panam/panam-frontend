@@ -243,7 +243,7 @@ export default function HeavySeriesDoubleLayerPage() {
   return (
     <>
           <title>Heavy Series Double Layer Tube Clamps | PANAM® Instrumentation</title>
-      <meta name="description" content="PANAM® Heavy Series Double Layer Tube Clamps DIN 3015 — DIN Groups 1 to 8, 6mm to 219mm OD, M10 to M30 bolts, 2 sets PP jaws included. Each set includes top plate, bottom plate, locking plate, 2 stacking bolts, 2 hex bolts, and 2 sets PP jaws. Request a quote." />
+      <meta name="description" content="PANAM® heavy series double layer tube clamps to DIN 3015: Groups 1–8, 6–219mm OD, M10–M30 bolts. Sets include plates, bolts and 2 sets of PP jaws." />
       <meta name="keywords" content="heavy series double layer tube clamps, DIN 3015 tube clamps, stacking pipe clamps, heavy duty instrumentation clamps, DIN 3015 Part 2" />
       <meta property="og:title" content="Heavy Series Double Layer Tube Clamps | PANAM® Instrumentation" />
       <meta property="og:description" content="Heavy series double layer tube clamps DIN 3015, Groups 1 to 8. 6mm to 219mm OD, M10 to M30 bolts, PP jaws included." />

@@ -104,8 +104,8 @@ const COVERAGE = PRODUCTS.map(p => ({ name: shortName(p.title), to: p.link, ...p
 export default function HighPressureIndexPage() {
   return (
     <>
-      <title>PANAM® High Pressure Valves & Fittings | 10,000 – 60,000 psi | Hydrogen Ready</title>
-      <meta name="description" content="Panam high pressure valves and fittings rated 10,000 to 60,000 psi — needle valves, double block & bleed, ball valves, cone & threaded nipples, and 2-valve manifolds. SS 316." />
+      <title>PANAM® High Pressure Valves & Fittings | 10,000–60,000 psi</title>
+      <meta name="description" content="Panam high pressure valves and fittings, 10,000–60,000 psi: needle, double block & bleed and ball valves, cone & thread nipples, 2-valve manifolds. SS 316." />
       <meta name="keywords" content="high pressure needle valves, high pressure ball valves, double block and bleed valves, cone threaded nipples, 2-valve manifolds, hydrogen valves, 60000 psi valves, SS316 high pressure fittings" />
       <meta property="og:title" content="PANAM® High Pressure Valves & Fittings | Hydrogen Ready | 10,000 – 60,000 psi" />
       <meta property="og:description" content="Five high pressure product families — needle valves, DBB, ball valves, nipples, and manifolds — rated from 10,000 to 60,000 psi in SS 316." />

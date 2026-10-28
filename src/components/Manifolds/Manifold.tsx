@@ -116,7 +116,7 @@ const COVERAGE = MANIFOLDS.map(m => ({ name: m.title, to: routeFor(m.type), ...p
 
 const SELECTOR = MANIFOLDS.map(m => ({ ...MANIFOLD_NEEDS[m.type], valve: m.title, to: routeFor(m.type), pressure: m.pressure, size: m.size }))
 
-const DESCRIPTION = "2-valve, 3-valve and 5-valve instrumentation manifolds in SS316, rated 6000–10000 psi with NACE MR-01-75 options for gauge and differential pressure transmitters."
+const DESCRIPTION = "2-, 3- and 5-valve instrumentation manifolds in SS316, rated 6000–10000 psi, with NACE MR-01-75 options for gauge and DP pressure transmitters."
 
 export default function ManifoldsIndexPage() {
   return (

@@ -72,7 +72,7 @@ export default function ReliefValvePage() {
   return (
     <> 
     <title>PANAM Relief Valves | Overpressure Protection | PANAM®</title>
-<meta name="description" content="PANAM® relief valves with pressure ratings varying by model, up to 15,000 psi. Direct-acting and pilot-operated configurations. Factory-set cracking pressure. SS316, Duplex, Monel and Hastelloy. PTFE, Viton, PEEK seals." />
+<meta name="description" content="PANAM® relief valves up to 15,000 psi: direct-acting and pilot-operated, factory-set cracking pressure. SS316, Duplex, Monel, Hastelloy; PTFE, Viton, PEEK." />
 <meta name="keywords" content="instrumentation relief valve, pressure relief valve, safety relief valve, overpressure protection valve, direct acting relief valve, pilot operated relief valve, SS316 relief valve, PTFE seat relief valve, Viton seal relief valve" />
 <meta property="og:title" content="Relief Valves | Overpressure Protection | PANAM®" />
 <meta property="og:description" content="Direct-acting and pilot-operated relief valves, ratings varying by model up to 15,000 psi. Factory-set cracking pressure. SS316, Duplex, Monel, Hastelloy." />
@@ -84,7 +84,7 @@ export default function ReliefValvePage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Relief Valves",
-    description: "PANAM® relief valves with pressure ratings varying by model, up to 15,000 psi. Direct-acting and pilot-operated configurations. Factory-set cracking pressure. SS316, Duplex, Monel and Hastelloy. PTFE, Viton, PEEK seals.",
+    description: "PANAM® relief valves up to 15,000 psi: direct-acting and pilot-operated, factory-set cracking pressure. SS316, Duplex, Monel, Hastelloy; PTFE, Viton, PEEK.",
   })}
 </script>
      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "#f8f9fa" }}>
