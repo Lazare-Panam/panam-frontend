@@ -198,6 +198,7 @@ import AllPipeFittingsProductPage from "./PipeFittings/components/AllPipeFitting
 import SpecifyValvesGuideBlog from "./components/News/components/Specifyvalvesguideblog"
 import ApiValveStandardsBlog from "./components/News/components/ApiValveStandardsBlog"
 const SwagelokAlternativeBlog = lazy(() => import("./components/News/components/SwagelokAlternativeBlog"))
+const ThreeValveManifoldBlog = lazy(() => import("./components/News/components/ThreeValveManifoldBlog"))
 
 export const routes = [
   {
@@ -330,6 +331,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <DoubleBlockBleedBlog />
+          </Suspense>
+        ),
+      },
+      {
+        path: "blog/3-valve-manifold-operation-guide",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <ThreeValveManifoldBlog />
           </Suspense>
         ),
       },

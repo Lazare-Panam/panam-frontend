@@ -13,6 +13,17 @@ export interface BlogPost {
 
 export const blogs: BlogPost[] = [
   {
+    slug: "3-valve-manifold-operation-guide",
+    title: "3-Valve Manifolds Explained: How They Work, How to Operate Them and Why Readings Go Wrong",
+    category: "Technical Guide",
+    author: "Steven Kassi",
+    date: "Oct 28, 2026",
+    readTime: "11 min read",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/valve-manifolds/3VM/3VM_Cover.jpg",
+    excerpt:
+      "How a 3-valve manifold works on a DP transmitter: what the instrument measures, what each valve does, and the fixed sequences for putting it into service, checking zero under line pressure and isolating it. Includes a symptom-to-cause fault-finding table for readings that look wrong, the standards that can apply, and a specification checklist.",
+  },
+  {
     slug: "swagelok-alternative-tube-fittings",
     title: 'Swagelok Alternative Tube Fittings: What "Compatible" Really Means',
     category: "Technical Guide",

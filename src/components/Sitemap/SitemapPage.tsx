@@ -201,6 +201,7 @@ const STRUCTURAL_GROUPS: { title: string; links: SitemapLink[] }[] = [
       { label: "UK Industrial Valves Buyer's Guide", to: "/blog/uk-industrial-valves-buyers-guide" },
       { label: "NPT vs BSPP vs BSPT Thread Standards", to: "/blog/npt-vs-bspp-vs-bspt-thread-standards" },
       { label: "Manifold Valves for Accurate, Safe Instrumentation", to: "/blog/manifold-valves-for-accurate-safe-instrumentation" },
+      { label: "3-Valve Manifolds Explained: Operation & Fault-Finding", to: "/blog/3-valve-manifold-operation-guide" },
       { label: "HP Series Needle Valves — High Pressure Flow Control", to: "/blog/hp-series-needle-valves-high-pressure-flow-control" },
     ],
   },

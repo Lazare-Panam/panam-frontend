@@ -21,6 +21,7 @@ const staticRoutes = [
   "/industries/food-beverages",
   "/blog/panam-valves-rg-fluid-power-partnership",
   "/blog/double-block-and-bleed",
+  "/blog/3-valve-manifold-operation-guide",
   "/blog/hydrogen-blog",
   "/blog/swivel-gauge-blog",
   "/blog/check-valves-blog",
