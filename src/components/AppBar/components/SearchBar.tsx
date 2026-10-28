@@ -14,6 +14,7 @@ const SEARCH_TERMS = [
   'High Pressure Needle Valves',
   'Manifolds',
   'Double Block & Bleed',
+  'Single Block & Bleed',
   'Tube Fittings',
   'Relief Valves',
   'HP Ball Valves 20,000 psi',

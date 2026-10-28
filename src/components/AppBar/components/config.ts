@@ -83,6 +83,16 @@ export const navConfig: Record<string, NavCategory[]> = {
       ],
     },
     {
+      id: "sbb",
+      label: "Single Block and Bleed",
+      link: "/single-block-and-bleed-valves",
+      items: [
+        { name: "Monoflange", link: "/single-block-and-bleed-valves/monoflange" },
+        { name: "Flange to Pipe", link: "/single-block-and-bleed-valves/flange-to-pipe" },
+        { name: "Block & Bleed", link: "/single-block-and-bleed-valves/block-and-bleed" },
+      ],
+    },
+    {
       id: "filters",
       label: "Filters",
       link: "/filters",

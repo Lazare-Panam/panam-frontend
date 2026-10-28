@@ -107,6 +107,11 @@ import FlangexFlangeDBB from "./components/DBB/Flange-to-Flange/Flange-to-Flange
 import FlangexPipeDBB from "./components/DBB/Flange-to-Pipe/Flange-to-Pipe"
 import PipexPipeDBB from "./components/DBB/Pipe-to-Pipe/Pipe-to-Pipe"
 import DBBIndexPage from "./components/DBB/DBBPage"
+
+import MonoflangeSBB from "./components/SBB/Monoflange/Monoflange"
+import FlangexPipeSBB from "./components/SBB/Flange-to-Pipe/Flange-to-Pipe"
+import BlockAndBleedSBB from "./components/SBB/Block-and-Bleed/Block-and-Bleed"
+import SBBIndexPage from "./components/SBB/SBBPage"
 import QuickCouplingIndexPage from "./components/Quick_Coupling/components/QCIndexPage"
 import QuickCouplingPage from "./components/Quick_Coupling/Quick_Coupling"
 import NPTBSPPBSPTBlog from "./components/News/components/ThreadTypesBlog"
@@ -732,6 +737,12 @@ export const routes = [
       { path: "/double-block-and-bleed-valves/flange-to-pipe", element: <FlangexPipeDBB /> },
       { path: "/double-block-and-bleed-valves/flange-to-flange", element: <FlangexFlangeDBB /> },
       { path: "/double-block-and-bleed-valves", element: <DBBIndexPage /> },
+
+      //sbb (single block and bleed)
+      { path: "/single-block-and-bleed-valves/monoflange", element: <MonoflangeSBB /> },
+      { path: "/single-block-and-bleed-valves/flange-to-pipe", element: <FlangexPipeSBB /> },
+      { path: "/single-block-and-bleed-valves/block-and-bleed", element: <BlockAndBleedSBB /> },
+      { path: "/single-block-and-bleed-valves", element: <SBBIndexPage /> },
       { path: "/quick-coupling-and-tubing", element: <QuickCouplingIndexPage /> },
       { path: "/quick-coupling-and-tubing/quick-coupling", element: <QuickCouplingPage /> },
       { path: "/quick-coupling-and-tubing/quick-coupling/:partNumber", element: <QuickCouplingProductPage /> },

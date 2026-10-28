@@ -149,6 +149,15 @@ const STRUCTURAL_GROUPS: { title: string; links: SitemapLink[] }[] = [
     ],
   },
   {
+    title: "Single Block & Bleed",
+    links: [
+      { label: "Single Block & Bleed Valves", to: "/single-block-and-bleed-valves" },
+      { label: "Monoflange", to: "/single-block-and-bleed-valves/monoflange" },
+      { label: "Flange to Pipe", to: "/single-block-and-bleed-valves/flange-to-pipe" },
+      { label: "Block & Bleed", to: "/single-block-and-bleed-valves/block-and-bleed" },
+    ],
+  },
+  {
     title: "High Pressure — Categories",
     links: [
       { label: "High Pressure (hub)", to: "/high-pressure" },

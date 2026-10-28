@@ -34,12 +34,19 @@ type Filters = Omit<SearchRequest, 'q' | 'page' | 'hitsPerPage'>
 
 function highlightMatch(text: string | null | undefined, query: string) {
   if (!text || !query.trim()) return <span>{text ?? ''}</span>
-  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
+  // Highlight each query WORD, not the whole phrase - so "male reducing nipple" lights up
+  // "reducing" and "nipple" wherever they appear. Words absent from this card's text (like
+  // "male" on a hex-nipple) simply don't match, which is expected.
+  const tokens = query.trim().split(/\s+/).filter(Boolean)
+  const escaped = tokens.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  if (escaped.length === 0) return <span>{text}</span>
+  const tokenSet = new Set(tokens.map(t => t.toLowerCase()))
+  const regex = new RegExp(`(${escaped.join('|')})`, 'gi')
   const parts = text.split(regex)
   return (
     <>
       {parts.map((part, i) =>
-        regex.test(part) ? (
+        tokenSet.has(part.toLowerCase()) ? (
           <Box
             component="span"
             key={i}

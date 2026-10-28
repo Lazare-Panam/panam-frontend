@@ -7,6 +7,7 @@ export const CATEGORY_ROUTES: Record<string, string> = {
   "valves":                         "/valves",
   "valve-manifolds":                "/manifolds",
   "double-block-and-bleed-valves":  "/double-block-and-bleed-valves",
+  "single-block-and-bleed-valves":  "/single-block-and-bleed-valves",
   "tubing":                         "/quick-coupling-and-tubing/tubing",
   "pressure-regulator-transmitter": "/system-integration",
   "system-integration":             "/system-integration",

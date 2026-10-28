@@ -99,6 +99,11 @@ const staticRoutes = [
   "/double-block-and-bleed-valves/pipe-to-pipe",
   "/double-block-and-bleed-valves/flange-to-pipe",
   "/double-block-and-bleed-valves/flange-to-flange",
+  // single block and bleed
+  "/single-block-and-bleed-valves",
+  "/single-block-and-bleed-valves/monoflange",
+  "/single-block-and-bleed-valves/flange-to-pipe",
+  "/single-block-and-bleed-valves/block-and-bleed",
   // High Pressure hub + category listing pages. Without these, Azure's navigationFallback served
   // the prerendered HOMEPAGE for them, so their canonical was baked as "/" (Google would fold these
   // high-traffic hubs into the homepage) and the SPA then added a 2nd, self-canonical at runtime →

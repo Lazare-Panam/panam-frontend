@@ -133,6 +133,19 @@ export const CATEGORIES2: CategoryData2[] = [
     ],
   },
 
+  //sbb
+  {
+    title: "Single Block and Bleed",
+    id: "single-block-and-bleed-valves",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/SBB.png",
+    seoDescription: "Single Block & Bleed valves in monoflange, flange-to-pipe and threaded block & bleed configurations for primary instrument isolation and bleed.",
+    products: [
+      { name: "Monoflange ", link: "/single-block-and-bleed-valves/monoflange" },
+      { name: "Flange to Pipe ", link: "/single-block-and-bleed-valves/flange-to-pipe" },
+      { name: "Block & Bleed ", link: "/single-block-and-bleed-valves/block-and-bleed" },
+    ],
+  },
+
   //tubing
   {
     title: "Tubing",

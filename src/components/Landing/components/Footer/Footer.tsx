@@ -34,6 +34,7 @@ const PRODUCT_LINKS = [
   { label: "Valves", href: "/valves" },
   { label: "Manifolds", href: "/manifolds" },
   { label: "Double Block & Bleed", href: "/double-block-and-bleed-valves" },
+  { label: "Single Block & Bleed", href: "/single-block-and-bleed-valves" },
   { label: "Fittings", href: "/instrumentation-fittings" },
   { label: "Filters", href: "/filters" },
   { label: "High Pressure", href: "/high-pressure" },
