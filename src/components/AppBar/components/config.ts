@@ -1,6 +1,9 @@
 export interface NavSubItem {
   name: string
   link?: string
+  // Optional 3rd menu level: the series/sub-categories that live under this item
+  // (e.g. Needle Valves -> IB / HB / HP / SB / Mini). Rendered as a flyout column.
+  children?: NavSubItem[]
 }
 export const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", "Arial", sans-serif'
 
@@ -33,8 +36,30 @@ export const navConfig: Record<string, NavCategory[]> = {
         { name: "HP Ball Valves", link: "/high-pressure/ball-valves" },
         { name: "HP Cone & Threaded Nipples", link: "/high-pressure/cones-threaded-nipples" },
         { name: "HP 2-Valve Manifolds", link: "/high-pressure/2-valve-manifolds" },
-        { name: "High Pressure Fittings", link: "/high-pressure/fittings" },
-        { name: "High Pressure Pipe Fittings", link: "/high-pressure/pipe-fittings" },
+        {
+          name: "High Pressure Fittings",
+          link: "/high-pressure/fittings",
+          children: [
+            { name: "Connectors", link: "/high-pressure/fittings/connectors" },
+            { name: "Unions", link: "/high-pressure/fittings/unions" },
+            { name: "Adaptors", link: "/high-pressure/fittings/adaptors" },
+            { name: "Elbows, Tees & Cross", link: "/high-pressure/fittings/elbows-tees-cross" },
+            { name: "End Connections", link: "/high-pressure/fittings/end-connections" },
+            { name: "Seals & Glands", link: "/high-pressure/fittings/seals-glads" },
+          ],
+        },
+        {
+          name: "High Pressure Pipe Fittings",
+          link: "/high-pressure/pipe-fittings",
+          children: [
+            { name: "Hex Nipples", link: "/high-pressure/pipe-fittings/hex-nipples" },
+            { name: "Hex Couplings", link: "/high-pressure/pipe-fittings/hex-couplings" },
+            { name: "Adapters", link: "/high-pressure/pipe-fittings/adapters" },
+            { name: "Elbows", link: "/high-pressure/pipe-fittings/elbows" },
+            { name: "Tees & Crosses", link: "/high-pressure/pipe-fittings/tees-crosses" },
+            { name: "Plugs & Caps", link: "/high-pressure/pipe-fittings/plugs-caps" },
+          ],
+        },
       ],
     },
     {
@@ -42,12 +67,67 @@ export const navConfig: Record<string, NavCategory[]> = {
       label: "Instrumentation Fittings",
       link: "/instrumentation-fittings",
       items: [
-        { name: "Tube Fittings", link: "/instrumentation-fittings/tube-fittings" },
-        { name: "37° JIC Fittings", link: "/instrumentation-fittings/jic-fittings" },
-        { name: "Pipe Fittings", link: "/instrumentation-fittings/pipe-fittings" },
-        { name: "Weld Fittings", link: "/instrumentation-fittings/weld-fittings" },
+        {
+          name: "Tube Fittings",
+          link: "/instrumentation-fittings/tube-fittings",
+          children: [
+            { name: "Connectors & Elbows", link: "/instrumentation-fittings/tube-fittings/connectors" },
+            { name: "Unions", link: "/instrumentation-fittings/tube-fittings/union" },
+            { name: "Reducers", link: "/instrumentation-fittings/tube-fittings/reducer" },
+            { name: "Adapters", link: "/instrumentation-fittings/tube-fittings/adapter" },
+            { name: "Port Connectors", link: "/instrumentation-fittings/tube-fittings/port-connector" },
+            { name: "Weld Gauge Connectors", link: "/instrumentation-fittings/tube-fittings/weld-gauge" },
+            { name: "Accessories", link: "/instrumentation-fittings/tube-fittings/accessories" },
+            { name: "Dielectric & Gaskets", link: "/instrumentation-fittings/tube-fittings/die-electric" },
+          ],
+        },
+        {
+          name: "37° JIC Fittings",
+          link: "/instrumentation-fittings/jic-fittings",
+          children: [
+            { name: "All JIC Fittings", link: "/instrumentation-fittings/jic-fittings/all" },
+            { name: "Connectors", link: "/instrumentation-fittings/jic-fittings/connectors" },
+            { name: "Unions & Swivels", link: "/instrumentation-fittings/jic-fittings/unions-swivel" },
+            { name: "Adapters & Reducers", link: "/instrumentation-fittings/jic-fittings/adapters-reducers" },
+            { name: "Elbows", link: "/instrumentation-fittings/jic-fittings/elbows" },
+            { name: "Tees", link: "/instrumentation-fittings/jic-fittings/tees" },
+            { name: "Plugs, Caps & Nuts", link: "/instrumentation-fittings/jic-fittings/plugs-caps-nuts" },
+          ],
+        },
+        {
+          name: "Pipe Fittings",
+          link: "/instrumentation-fittings/pipe-fittings",
+          children: [
+            { name: "All Pipe Fittings", link: "/instrumentation-fittings/pipe-fittings/all" },
+            { name: "Nipples & Couplings", link: "/instrumentation-fittings/pipe-fittings/nipples-couplings" },
+            { name: "Unions & Connectors", link: "/instrumentation-fittings/pipe-fittings/unions-connectors" },
+            { name: "Elbows", link: "/instrumentation-fittings/pipe-fittings/elbows" },
+            { name: "Tees & Cross", link: "/instrumentation-fittings/pipe-fittings/tees-cross" },
+            { name: "Adapters & Plugs", link: "/instrumentation-fittings/pipe-fittings/adapters-plugs" },
+          ],
+        },
+        {
+          name: "Weld Fittings",
+          link: "/instrumentation-fittings/weld-fittings",
+          children: [
+            { name: "All Weld Fittings", link: "/instrumentation-fittings/weld-fittings/all" },
+            { name: "Connectors", link: "/instrumentation-fittings/weld-fittings/connectors" },
+            { name: "Elbows", link: "/instrumentation-fittings/weld-fittings/elbows" },
+            { name: "Tees", link: "/instrumentation-fittings/weld-fittings/tees" },
+          ],
+        },
 
-        { name: "Tube Clamps", link: "/instrumentation-fittings/tube-clamps" },
+        {
+          name: "Tube Clamps",
+          link: "/instrumentation-fittings/tube-clamps",
+          children: [
+            { name: "Twin Series", link: "/instrumentation-fittings/tube-clamps/twin-series" },
+            { name: "Single Layer", link: "/instrumentation-fittings/tube-clamps/single-layer" },
+            { name: "Double Layer", link: "/instrumentation-fittings/tube-clamps/double-layer" },
+            { name: "Heavy Single Layer", link: "/instrumentation-fittings/tube-clamps/heavy-single-layer" },
+            { name: "Heavy Double Layer", link: "/instrumentation-fittings/tube-clamps/heavy-double-layer" },
+          ],
+        },
       ],
     },
     {
@@ -55,8 +135,26 @@ export const navConfig: Record<string, NavCategory[]> = {
       label: "Valves",
       link: "/valves",
       items: [
-        { name: "Needle Valves", link: "/valves/needle-valves" },
-        { name: "Ball Valves", link: "/valves/ball-valves" },
+        {
+          name: "Needle Valves",
+          link: "/valves/needle-valves",
+          children: [
+            { name: "IB Series — Integral Bonnet", link: "/valves/needle-valves/needle-valves-ib" },
+            { name: "SB Series — Heavy-Duty Bar Stock", link: "/valves/needle-valves/needle-valves-sb" },
+            { name: "HB Series — Block & Bleed", link: "/valves/needle-valves/needle-valves-hb" },
+            { name: "HP Series — High Pressure Forged", link: "/valves/needle-valves/needle-valves-hp" },
+            { name: "Mini Series — Compact", link: "/valves/needle-valves/needle-valves-mini" },
+          ],
+        },
+        {
+          name: "Ball Valves",
+          link: "/valves/ball-valves",
+          children: [
+            { name: "Two-Way Ball Valves", link: "/valves/ball-valves/two-way" },
+            { name: "Three-Way Ball Valves", link: "/valves/ball-valves/three-way" },
+            { name: "High-Bore Ball Valves", link: "/valves/ball-valves/high-bore" },
+          ],
+        },
         { name: "Check Valves", link: "/valves/check-valves" },
         { name: "Relief Valves", link: "/valves/relief-valves" },
         { name: "Gauge Root Valves", link: "/products/valves/gauge-root-valves" },
