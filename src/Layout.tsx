@@ -7,6 +7,7 @@ import { NotificationProvider } from "./components/Notification/NotificationProv
 import AppBreadcrumbs from "./components/Common/BreadCrumbs"
 import StickyQuoteButton from "./components/Common/StickyQuoteButton"
 import WhatsAppButton from "./components/Common/WhatsAppButton"
+import LeadCapturePopup from "./components/LeadCapture/LeadCapturePopup"
 import BrowseSectionButton from "./components/Common/BrowseSectionButton"
 import { GRADIENT } from "./components/Landing2/homeTokens"
 
@@ -47,6 +48,7 @@ const Layout = () => {
       <Footer />
       <StickyQuoteButton />
       <WhatsAppButton />
+      <LeadCapturePopup />
     </div>
   )
 }
