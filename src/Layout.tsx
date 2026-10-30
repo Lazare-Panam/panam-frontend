@@ -27,14 +27,14 @@ const Layout = () => {
   const cleanPath = pathname.replace(/\/+$/, "") || "/"
   const showUsefulLinks = USEFUL_LINKS_PATHS.has(cleanPath)
   const lightHero = LIGHT_HERO_PATHS.has(cleanPath)
-
+//
   return (
     <div className="app-shell">
       <NotificationProvider />
       <Navbar />
       <Box sx={lightHero ? { background: GRADIENT.heroBg, backgroundSize: "100% 1000px", backgroundRepeat: "no-repeat" } : undefined}>
         <AppBreadcrumbs />
-      </Box>
+      </Box> 
       <ScrollRestoration />
       <main>
         <Outlet />
