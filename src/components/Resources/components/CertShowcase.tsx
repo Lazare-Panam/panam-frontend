@@ -113,7 +113,7 @@ const Hero: React.FC<{ heading: string; intro: React.ReactNode; certs: CertDoc[]
                     "&:hover": { zIndex: 11, boxShadow: `0 34px 70px rgba(15,34,54,0.24), 0 0 0 3px ${C.brand}` },
                     "&:focus-visible": { outline: `3px solid ${C.brand}`, outlineOffset: 4 },
                   }}>
-                  <Box component="img" src={cert.image} alt={`${cert.title} certificate`} sx={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", transform: "scale(1.55)", display: "block" }} />
+                  <Box component="img" src={cert.image} alt={`${cert.title} certificate`} sx={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", transform: "scale(1)", display: "block" }} />
                 </Box>
               ))}
             </Box>
@@ -194,7 +194,7 @@ const TiltImage: React.FC<{ cert: CertDoc; onOpen: () => void }> = ({ cert, onOp
           "&:hover .tilt-hint": { opacity: 1, transform: "translateY(0)" },
           "&:focus-visible": { outline: `3px solid ${C.brand}`, outlineOffset: 4 },
         }}>
-        <Box component="img" src={cert.image} alt={`${cert.title} certificate`} loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "contain", transform: "scale(1.18)", display: "block" }} />
+        <Box component="img" src={cert.image} alt={`${cert.title} certificate`} loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "contain", transform: "scale(1)", display: "block" }} />
         <Stack direction="row" alignItems="center" spacing={0.75} className="tilt-hint" sx={{ position: "absolute", left: 16, bottom: 16, px: 1.5, py: 0.7, borderRadius: RADIUS.pill, bgcolor: C.ink, color: C.white, fontSize: "0.8rem", fontWeight: 600, opacity: 0, transform: "translateY(6px)", transition: "all 0.25s ease" }}>
           <ZoomInRoundedIcon sx={{ fontSize: 16 }} />
           <span>Click to enlarge</span>
@@ -239,7 +239,7 @@ const Spotlight: React.FC<{ cert: CertDoc; index: number; onOpen: () => void }> 
             <Button onClick={onOpen} startIcon={<ZoomInRoundedIcon />} sx={{ ...btn.primary, py: 1.3 }}>
               View certificate
             </Button>
-            <Button component="a" href={cert.image} target="_blank" rel="noopener noreferrer" endIcon={<NorthEastRoundedIcon />} sx={{ ...btn.secondary, py: 1.3 }}>
+            <Button component="a" href={cert.pdf ?? cert.image} target="_blank" rel="noopener noreferrer" endIcon={<NorthEastRoundedIcon />} sx={{ ...btn.secondary, py: 1.3 }}>
               Open full size
             </Button>
           </Stack>

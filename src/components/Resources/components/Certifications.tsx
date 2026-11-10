@@ -57,9 +57,9 @@ const countSx = (active: boolean) => ({ fontSize: "0.75rem", fontWeight: 700, px
 // Tab-page card, in the same style as the homepage "Quality You Can Verify" strip
 const CertCard: React.FC<{ cert: CertDoc; onOpen: () => void }> = ({ cert, onOpen }) => {
   return (
-    <ButtonBase onClick={onOpen} aria-label={`View ${cert.title} certificate`} sx={{ ...cardSx, ...cardHoverSx, display: "flex", flexDirection: "column", alignItems: "stretch", textAlign: "left", overflow: "hidden", height: "100%", "&:hover .cert-img": { transform: "scale(1.42)" }, "&:hover .cert-zoom": { opacity: 1 } }}>
+    <ButtonBase onClick={onOpen} aria-label={`View ${cert.title} certificate`} sx={{ ...cardSx, ...cardHoverSx, display: "flex", flexDirection: "column", alignItems: "stretch", textAlign: "left", overflow: "hidden", height: "100%", "&:hover .cert-img": { transform: "scale(1.08)" }, "&:hover .cert-zoom": { opacity: 1 } }}>
       <Box sx={{ position: "relative", height: { xs: 280, md: 320 }, m: 1.25, borderRadius: "14px", bgcolor: C.white, border: `1px solid ${C.border}`, overflow: "hidden" }}>
-        <Box component="img" className="cert-img" src={cert.image} alt={`${cert.title} certificate`} loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "contain", transform: "scale(1.34)", transition: "transform 0.45s ease", display: "block" }} />
+        <Box component="img" className="cert-img" src={cert.image} alt={`${cert.title} certificate`} loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "contain", transform: "scale(1)", transition: "transform 0.45s ease", display: "block" }} />
         <Stack direction="row" alignItems="center" spacing={0.75} className="cert-zoom" sx={{ position: "absolute", right: 12, bottom: 12, px: 1.5, py: 0.6, borderRadius: RADIUS.pill, bgcolor: C.white, color: C.ink, fontSize: "0.8rem", fontWeight: 600, boxShadow: SHADOW.card, opacity: 0, transition: "opacity 0.25s ease" }}>
           <ZoomInRoundedIcon sx={{ fontSize: 16, color: C.brand }} />
           <span>View certificate</span>
@@ -210,7 +210,7 @@ const CertificationsPage: React.FC = () => {
                 <Typography sx={{ color: C.muted, fontSize: "0.85rem" }}>{openCert.subtitle}</Typography>
               </Box>
               <Stack direction="row" alignItems="center" spacing={1} sx={{ flex: "none" }}>
-                <Box component="a" href={openCert.image} target="_blank" rel="noopener noreferrer" sx={{ display: { xs: "none", sm: "inline-flex" }, alignItems: "center", gap: 0.5, fontSize: "0.85rem", fontWeight: 600, color: C.brandDark, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+                <Box component="a" href={openCert.pdf ?? openCert.image} target="_blank" rel="noopener noreferrer" sx={{ display: { xs: "none", sm: "inline-flex" }, alignItems: "center", gap: 0.5, fontSize: "0.85rem", fontWeight: 600, color: C.brandDark, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
                   Open full size <NorthEastRoundedIcon sx={{ fontSize: 16 }} />
                 </Box>
                 <IconButton onClick={() => setOpenCert(null)} aria-label="Close">
@@ -219,7 +219,7 @@ const CertificationsPage: React.FC = () => {
               </Stack>
             </Stack>
             <Box sx={{ bgcolor: C.white, display: "flex", justifyContent: "center", overflow: "hidden" }}>
-              <Box component="img" src={openCert.image} alt={`${openCert.title} certificate`} sx={{ display: "block", width: "100%", maxHeight: "calc(100vh - 160px)", objectFit: "contain", transform: "scale(1.2)" }} />
+              <Box component="img" src={openCert.image} alt={`${openCert.title} certificate`} sx={{ display: "block", width: "100%", maxHeight: "calc(100vh - 160px)", objectFit: "contain", transform: "scale(1)" }} />
             </Box>
           </Box>
         )}

@@ -37,7 +37,7 @@ const CertificationsStrip = () => {
                   height: "100%",
                   overflow: "hidden",
                   textDecoration: "none",
-                  "&:hover .cert-img": { transform: "scale(1.42)" },
+                  "&:hover .cert-img": { transform: "scale(1.08)" },
                   "&:hover .cert-cta": { color: C.brandDark },
                 }}>
                 <Box
@@ -59,7 +59,7 @@ const CertificationsStrip = () => {
                     src={cert.image}
                     alt={cert.title}
                     loading="lazy"
-                    sx={{ height: "100%", width: "100%", objectFit: "contain", transform: "scale(1.34)", transition: "transform 0.45s ease" }}
+                    sx={{ height: "100%", width: "100%", objectFit: "contain", transform: "scale(1)", transition: "transform 0.45s ease" }}
                   />
                 </Box>
                 <Box sx={{ px: 3, pt: 1.5, pb: 3 }}>

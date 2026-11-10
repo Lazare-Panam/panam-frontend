@@ -1,19 +1,22 @@
-export const certsByTab: Record<string, { title: string; subtitle: string; image: string }[]> = {
+export const certsByTab: Record<string, { title: string; subtitle: string; image: string; pdf?: string }[]> = {
   "qms": [
     {
       title: "ISO 14001:2015",
       subtitle: "Environmental Management",
-      image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/certs/qms/ISO_14001_2015.png",
+      image: "https://pblol2.blob.core.windows.net/panam-images/certs/qms/ISO_14001_2015_UD.png",
+      pdf: "https://pblol2.blob.core.windows.net/panam-images/certs/qms/ISO-CERTIFICATE-14001-2015-UD.pdf",
     },
     {
       title: "ISO 45001:2018",
       subtitle: "Occupational Health & Safety Management System",
-      image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/certs/qms/ISO_45001-2018.png",
+      image: "https://pblol2.blob.core.windows.net/panam-images/certs/qms/ISO_45001-2018_UD.png",
+      pdf: "https://pblol2.blob.core.windows.net/panam-images/certs/qms/ISO-CERTIFICATE-45001-2018-UD.pdf",
     },
     {
       title: "ISO 9001:2015",
       subtitle: "Quality Management System Standard",
-      image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/certs/qms/ISO9001-2015_new.png",
+      image: "https://pblol2.blob.core.windows.net/panam-images/certs/qms/ISO9001-2015_new_UD.png",
+      pdf: "https://pblol2.blob.core.windows.net/panam-images/certs/qms/ISO-CERTIFICATE-9001-2015-UD.pdf",
     }
   ],
   "type-reports": [
