@@ -8,7 +8,7 @@ import { alpha } from "@mui/material/styles"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
 import { type PCVDto } from "../../../api/checkValveApi"
-import { INLET_OUTLET_LABELS, MATERIAL_LABELS } from "../hooks/types"
+import { INLET_OUTLET_LABELS, MATERIAL_LABELS, formatPressure } from "../hooks/types"
 import { useCartStore } from "../../store/useCartStore"
 
 const BRAND_BLUE = "#01B0F0"
@@ -32,6 +32,7 @@ function PCVRow({ row }: { row: PCVDto }) {
   const specs = {
     "Part Number": row.partNumber,
     "Material": MATERIAL_LABELS[row.material] ?? row.material,
+    "Working Pressure": row.pressureRating ? formatPressure(row.pressureRating) : "—",
     "Inlet Type": INLET_OUTLET_LABELS[row.inlet] ?? row.inlet,
     "Inlet Size": row.inletTubeOD,
     "Outlet Type": row.outlet ? (INLET_OUTLET_LABELS[row.outlet] ?? row.outlet) : "—",
@@ -61,6 +62,13 @@ function PCVRow({ row }: { row: PCVDto }) {
           <Chip label={MATERIAL_LABELS[row.material] ?? row.material} size="small"
             sx={{ fontSize: "0.65rem", fontWeight: 700, bgcolor: alpha(BRAND_BLUE, 0.1), color: "#0277BD" }}
           />
+        </TableCell>
+        <TableCell sx={{ py: 1 }}>
+          {row.pressureRating ? (
+            <Chip label={formatPressure(row.pressureRating)} size="small"
+              sx={{ fontSize: "0.68rem", fontWeight: 800, bgcolor: BRAND_BLUE, color: "#fff" }}
+            />
+          ) : "—"}
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem", fontFamily: PRIMARY_FONT }}>
           {INLET_OUTLET_LABELS[row.inlet] ?? row.inlet}
@@ -99,7 +107,7 @@ function PCVRow({ row }: { row: PCVDto }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={8} sx={{ p: 0, borderBottom: "none" }}>
+          <TableCell colSpan={9} sx={{ p: 0, borderBottom: "none" }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(BRAND_BLUE, 0.02), borderLeft: `4px solid ${BRAND_BLUE}`, borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
                 <Stack direction={{ xs: "column", md: "row" }} spacing={4} alignItems="flex-start">
@@ -115,6 +123,7 @@ function PCVRow({ row }: { row: PCVDto }) {
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       <Spec label="Part Number" value={row.partNumber} />
                       <Spec label="Material" value={MATERIAL_LABELS[row.material] ?? row.material} />
+                      <Spec label="Working Pressure" value={row.pressureRating ? formatPressure(row.pressureRating) : undefined} />
                       <Spec label="Inlet Type" value={INLET_OUTLET_LABELS[row.inlet] ?? row.inlet} />
                       <Spec label="Inlet Size" value={row.inletTubeOD} />
                       <Spec label="Outlet Type" value={row.outlet ? (INLET_OUTLET_LABELS[row.outlet] ?? row.outlet) : undefined} />
@@ -158,7 +167,7 @@ function PCVRow({ row }: { row: PCVDto }) {
   )
 }
 
-type SortKey = "partNumber" | "inlet" | "inletTubeOD" | "outlet" | "outletTubeOD"
+type SortKey = "partNumber" | "pressureRating" | "inlet" | "inletTubeOD" | "outlet" | "outletTubeOD"
 
 export default function PCVTable({ models, isFetching }: { models: PCVDto[]; isFetching?: boolean }) {
   const [page, setPage] = useState(0)
@@ -207,6 +216,7 @@ export default function PCVTable({ models, isFetching }: { models: PCVDto[]; isF
               {([
                 { key: "partNumber" as SortKey, label: "Part Number" },
                 { key: null, label: "Material" },
+                { key: "pressureRating" as SortKey, label: "Working Pressure" },
                 { key: "inlet" as SortKey, label: "Inlet Type" },
                 { key: "inletTubeOD" as SortKey, label: "Inlet Size" },
                 { key: "outlet" as SortKey, label: "Outlet Type" },
@@ -226,7 +236,7 @@ export default function PCVTable({ models, isFetching }: { models: PCVDto[]; isF
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={8} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={9} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No check valves found.</Typography>
                 </TableCell>
               </TableRow>

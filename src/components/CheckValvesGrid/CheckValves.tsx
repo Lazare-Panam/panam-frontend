@@ -1,9 +1,10 @@
 import { useState } from "react"
 import {
   Box, Typography, CircularProgress,
-  useMediaQuery, Drawer, IconButton, Chip
+  useMediaQuery, Drawer, IconButton, Chip, Button
 } from "@mui/material"
 import { alpha } from "@mui/material/styles"
+import { useNavigate } from "react-router-dom"
 import FilterListIcon from "@mui/icons-material/FilterList"
 import BuildCircleIcon from "@mui/icons-material/BuildCircle"
 import TuneIcon from "@mui/icons-material/Tune"
@@ -32,8 +33,8 @@ const FEATURE_COLUMNS = [
   },
   {
     icon: <TuneIcon sx={{ fontSize: 22, color: BRAND_BLUE }} />,
-    title: "Cracking Pressure Options",
-    body: "Supports working pressures up to 6,000 psig (414 bar) in sizes from 1/8\" to 1\". Eight cracking pressure options — 1/3, 1, 5, 10, 25, 50, 75, and 100 psig — for precise control across gas, liquid, and high purity applications.",
+    title: "Pressure & Cracking Options",
+    body: "Standard working pressure is 3,000 psig (207 bar) in Brass and 6,000 psig (414 bar) in Stainless Steel, in sizes from 1/8\" to 1\". Higher ratings up to 10,000 psig (690 bar) are available on request. Cracking pressure is set precisely — standard options of 1/3, 1, 5, 10, 25, 50, 75, and 100 psig, or a specified value to suit your application.",
   },
   {
     icon: <VerifiedIcon sx={{ fontSize: 22, color: BRAND_BLUE }} />,
@@ -44,6 +45,7 @@ const FEATURE_COLUMNS = [
 
 export default function PCVPage() {
   const isMobile = useMediaQuery("(max-width:1200px)")
+  const navigate = useNavigate()
   const [filters, setFilters] = useState<PCVFilters>(EMPTY_PCV_FILTERS)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -198,6 +200,31 @@ export default function PCVPage() {
       ) : (
         <PCVTable models={models} isFetching={isFetching} />
       )}
+    </Box>
+
+    {/* Customizable product callout */}
+    <Box sx={{
+      mt: 2, p: { xs: 2, md: 2.5 }, borderRadius: "8px",
+      border: `1px solid ${alpha(BRAND_BLUE, 0.3)}`,
+      bgcolor: alpha(BRAND_BLUE, 0.04),
+      display: "flex", flexWrap: "wrap", gap: 2,
+      alignItems: "center", justifyContent: "space-between",
+    }}>
+      <Box>
+        <Typography variant="body2" fontWeight={800} sx={{ color: "#1a1a1a", fontFamily: PRIMARY_FONT }}>
+          This is a customizable product.
+        </Typography>
+        <Typography variant="body2" sx={{ color: "#666", fontFamily: PRIMARY_FONT, fontSize: "0.85rem", mt: 0.25 }}>
+          Don't see your exact size, connection type, material, or pressure rating in the table? Don't hesitate to contact us — tell us your requirement and we'll build it.
+        </Typography>
+      </Box>
+      <Button
+        variant="contained"
+        onClick={() => navigate("/enquiry")}
+        sx={{ textTransform: "none", fontWeight: 700, borderRadius: "6px", bgcolor: BRAND_BLUE, boxShadow: "none", fontFamily: PRIMARY_FONT, whiteSpace: "nowrap", "&:hover": { bgcolor: "#0199d4", boxShadow: "none" } }}
+      >
+        Enquire about a custom valve
+      </Button>
     </Box>
 
     <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>
