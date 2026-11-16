@@ -1,5 +1,5 @@
 import { Stack, Chip, Typography } from "@mui/material"
-import { type PCVFilters, INLET_OUTLET_LABELS, MATERIAL_LABELS } from "../hooks/types"
+import { type PCVFilters, INLET_OUTLET_LABELS, MATERIAL_LABELS, formatPressure } from "../hooks/types"
 
 const BRAND_BLUE = "#01B0F0"
 
@@ -16,6 +16,7 @@ export function PCVActiveFilters({ filters, setFilters }: Props) {
   filters.inletTubeODs.forEach(v => chips.push({ label: `Inlet Size: ${v}`, onDelete: () => setFilters(prev => ({ ...prev, inletTubeODs: prev.inletTubeODs.filter(x => x !== v) })) }))
   filters.outlets.forEach(v => chips.push({ label: `Outlet: ${INLET_OUTLET_LABELS[v] ?? v}`, onDelete: () => setFilters(prev => ({ ...prev, outlets: prev.outlets.filter(x => x !== v) })) }))
   filters.outletTubeODs.forEach(v => chips.push({ label: `Outlet Size: ${v}`, onDelete: () => setFilters(prev => ({ ...prev, outletTubeODs: prev.outletTubeODs.filter(x => x !== v) })) }))
+  filters.pressureRatings.forEach(v => chips.push({ label: `Pressure: ${formatPressure(v)}`, onDelete: () => setFilters(prev => ({ ...prev, pressureRatings: prev.pressureRatings.filter(x => x !== v) })) }))
 
   if (chips.length === 0) return null
 

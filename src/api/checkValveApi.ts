@@ -6,8 +6,11 @@ export interface PCVDto {
   material: string
   inlet: string
   inletTubeOD: string
+  inletConnectionType?: string
   outlet?: string
   outletTubeOD?: string
+  outletConnectionType?: string
+  pressureRating?: number
   imageUrl?: string
 }
 
@@ -15,16 +18,22 @@ export interface PCVFilterOptions {
   materials: string[]
   inlets: string[]
   inletTubeODs: string[]
+  inletConnectionTypes: string[]
   outlets: string[]
   outletTubeODs: string[]
+  outletConnectionTypes: string[]
+  pressureRatings: number[]
 }
 
 export interface PCVFilterParams {
   materials?: string[]
   inlets?: string[]
   inletTubeODs?: string[]
+  inletConnectionTypes?: string[]
   outlets?: string[]
   outletTubeODs?: string[]
+  outletConnectionTypes?: string[]
+  pressureRatings?: number[]
 }
 
 export const getPCVs = async (filters: PCVFilterParams) => {

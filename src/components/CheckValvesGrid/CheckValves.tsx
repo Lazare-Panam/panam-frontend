@@ -55,7 +55,8 @@ export default function PCVPage() {
     filters.inlets.length +
     filters.inletTubeODs.length +
     filters.outlets.length +
-    filters.outletTubeODs.length
+    filters.outletTubeODs.length +
+    filters.pressureRatings.length
 
   const sidebar = (
     <PCVSidebar

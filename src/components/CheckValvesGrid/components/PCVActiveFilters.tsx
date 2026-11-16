@@ -3,7 +3,7 @@ import {
   AccordionDetails, FormGroup, FormControlLabel, Checkbox, Skeleton
 } from "@mui/material"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
-import { type PCVFilters, EMPTY_PCV_FILTERS, INLET_OUTLET_LABELS, MATERIAL_LABELS } from "../hooks/types"
+import { type PCVFilters, EMPTY_PCV_FILTERS, INLET_OUTLET_LABELS, MATERIAL_LABELS, formatPressure } from "../hooks/types"
 import { type PCVFilterOptions } from "../../../api/checkValveApi"
 
 const BRAND_BLUE = "#01B0F0"
@@ -53,6 +53,27 @@ function StringCheckbox({ options, selected, onChange, loading, labelMap }: {
   )
 }
 
+function NumberCheckbox({ options, selected, onChange, loading, format }: {
+  options: number[]
+  selected: number[]
+  onChange: (v: number) => void
+  loading?: boolean
+  format: (v: number) => string
+}) {
+  if (loading) return <Skeleton height={50} />
+  if (!options?.length) return <Typography variant="caption" color="text.disabled" sx={{ pl: 1 }}>No options</Typography>
+  return (
+    <>
+      {options.map(opt => (
+        <FormControlLabel key={opt}
+          control={<Checkbox size="small" checked={selected.includes(opt)} onChange={() => onChange(opt)} sx={{ py: 0.25, "&.Mui-checked": { color: BRAND_BLUE } }} />}
+          label={<Typography variant="body2" fontSize="0.8rem">{format(opt)}</Typography>}
+        />
+      ))}
+    </>
+  )
+}
+
 export function PCVSidebar({ filters, setFilters, filterOptions, filtersLoading, activeCount }: Props) {
   const toggle = (key: keyof PCVFilters, val: string) =>
     setFilters(prev => ({
@@ -60,6 +81,14 @@ export function PCVSidebar({ filters, setFilters, filterOptions, filtersLoading,
       [key]: (prev[key] as string[]).includes(val)
         ? (prev[key] as string[]).filter(v => v !== val)
         : [...(prev[key] as string[]), val],
+    }))
+
+  const toggleNum = (val: number) =>
+    setFilters(prev => ({
+      ...prev,
+      pressureRatings: prev.pressureRatings.includes(val)
+        ? prev.pressureRatings.filter(v => v !== val)
+        : [...prev.pressureRatings, val],
     }))
 
   return (
@@ -79,8 +108,13 @@ export function PCVSidebar({ filters, setFilters, filterOptions, filtersLoading,
         )}
       </Stack>
 
-      <FilterGroup title="MATERIAL" count={filters.materials.length || undefined}>
+      <FilterGroup title="BODY MATERIAL" count={filters.materials.length || undefined}>
         <StringCheckbox options={filterOptions?.materials ?? []} selected={filters.materials} onChange={v => toggle("materials", v)} loading={filtersLoading} labelMap={MATERIAL_LABELS} />
+      </FilterGroup>
+      <Divider sx={{ my: 0.5 }} />
+
+      <FilterGroup title="WORKING PRESSURE" count={filters.pressureRatings.length || undefined}>
+        <NumberCheckbox options={filterOptions?.pressureRatings ?? []} selected={filters.pressureRatings} onChange={toggleNum} loading={filtersLoading} format={formatPressure} />
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />
 

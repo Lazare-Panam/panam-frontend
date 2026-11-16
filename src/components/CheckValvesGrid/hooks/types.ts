@@ -4,6 +4,7 @@ export interface PCVFilters {
   inletTubeODs: string[]
   outlets: string[]
   outletTubeODs: string[]
+  pressureRatings: number[]
 }
 
 export const EMPTY_PCV_FILTERS: PCVFilters = {
@@ -12,6 +13,7 @@ export const EMPTY_PCV_FILTERS: PCVFilters = {
   inletTubeODs: [],
   outlets: [],
   outletTubeODs: [],
+  pressureRatings: [],
 }
 
 export const INLET_OUTLET_LABELS: Record<string, string> = {
@@ -22,4 +24,7 @@ export const INLET_OUTLET_LABELS: Record<string, string> = {
 
 export const MATERIAL_LABELS: Record<string, string> = {
   SS: "Stainless Steel",
+  B: "Brass",
 }
+
+export const formatPressure = (psi: number) => `${psi.toLocaleString()} psig`
