@@ -53,8 +53,8 @@ const BallValvesBlog: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>Stainless Steel Ball Valve Guide: SS316 2-Way, 3-Way & HP</title>
-      <meta name="description" content="How to choose a stainless steel ball valve: SS316 2-way, 3-way and high pressure up to 20,000 psi, seat materials, end connections and specs." />
+      <title>SS316 Manual Ball Valves: 2-Way & 3-Way, 1/8" to 2" | Panam</title>
+      <meta name="description" content="Manual stainless steel ball valves for pipeline and instrument lines: SS316, 2-way and 3-way, NPT/BSP ends, up to 20,000 psi. Spec checklist and quick quote." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://www.panamvalve.com/blog/stainless-steel-ball-valve-guide" />
@@ -63,7 +63,7 @@ const BallValvesBlog: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: "Stainless Steel Ball Valves | SS316 2-Way, 3-Way & High Pressure",
-          description: "How to choose a stainless steel ball valve: SS316 2-way, 3-way and high pressure up to 20,000 psi, seat materials, end connections and specs.",
+          description: "Manual stainless steel ball valves for pipeline and instrument lines: SS316, 2-way and 3-way, NPT/BSP ends, up to 20,000 psi. Spec checklist and quick quote.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
           author: { "@type": "Organization", name: "PANAM®" },
           publisher: { "@type": "Organization", name: "PANAM®" },
@@ -129,6 +129,9 @@ const BallValvesBlog: React.FC = () => {
               Looking for a stainless steel ball valve for demanding instrumentation or process service? Panam Valves designs and manufactures precision-engineered ball valves in SS316, including 2-way, 3-way, high-bore, and high pressure configurations for critical global infrastructure. With global dispatch capability, our technical team reviews specification and bill-of-material enquiries and confirms lead times at quotation.
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
+              Supplied as manual lever-operated valves as standard.
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
               Panam stainless steel ball valves are designed for hydrogen, oil & gas, power, petrochemical, offshore, and wider process applications where reliability, traceability, and pressure performance are non-negotiable.
             </Typography>
 
@@ -154,6 +157,18 @@ const BallValvesBlog: React.FC = () => {
             </Box>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
               Every stainless steel ball valve in the Panam range features an internally loaded anti-blow-out stem as a key safety feature. Material certificates are available on request.
+            </Typography>
+
+            {/* SECTION: Manual ball valves for pipeline systems */}
+            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
+              Manual Ball Valves for Pipeline Systems
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
+              Panam SS316 ball valves are used as manual isolation valves in pipeline, process and utility lines, where an operator needs a quick, reliable quarter-turn shut-off. Choose 2-way for straight isolation or 3-way to divert or mix flow, with NPT, BSPP or BSPT ends from 1/8" to 2".{" "}
+              <Box component="a" href="https://www.panamvalve.com/valves/ball-valves" target="_blank" rel="noopener noreferrer"
+                sx={{ color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+                See the Panam ball valve range →
+              </Box>
             </Typography>
 
             {/* SECTION 2 */}
@@ -185,6 +200,15 @@ const BallValvesBlog: React.FC = () => {
                 </TableBody>
               </Table>
             </TableContainer>
+
+            <Button
+              variant="contained"
+              onClick={() => navigate("/enquiry")}
+              endIcon={<ArrowForwardIcon />}
+              sx={{ bgcolor: "#01B0F0", color: "white", px: 4, py: 1.5, borderRadius: "4px", fontWeight: 700, mb: 6 }}
+            >
+              Request a quote
+            </Button>
 
             {/* SECTION 3 */}
             <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>

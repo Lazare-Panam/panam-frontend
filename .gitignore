@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 # Testing coverage
 coverage/
+
+# Local working notes (not shipped)
+LEARNING_LOG.md
