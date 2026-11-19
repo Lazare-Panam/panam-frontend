@@ -41,9 +41,10 @@ const StickyQuoteButton = () => {
         variant="extended"
         aria-label="Request a quote"
         sx={{
+          // top-left, just below the sticky header (bottom-right is Disha's chat button)
           position: "fixed",
-          bottom: { xs: 16, md: 28 },
-          right: { xs: 16, md: 28 },
+          top: { xs: 84, md: 96 },
+          left: { xs: 16, md: 28 },
           zIndex: 1200,
           bgcolor: overFooter ? "#fff" : BRAND_BLUE,
           color: overFooter ? BRAND_BLUE : "#fff",

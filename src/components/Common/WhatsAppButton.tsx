@@ -29,7 +29,7 @@ const WhatsAppButton = () => {
         aria-label="Chat on WhatsApp"
         sx={{
           position: "fixed",
-          // Bottom-LEFT so it never collides with the bottom-right Request-a-Quote Fab.
+          // Bottom-LEFT, level with the Disha chat button on the bottom-right.
           bottom: { xs: 16, md: 28 },
           left: { xs: 16, md: 28 },
           zIndex: 1200,
