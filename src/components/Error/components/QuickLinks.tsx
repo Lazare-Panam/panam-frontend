@@ -10,7 +10,7 @@ const QuickLinks = () => {
   const paths = [
     { title: "Product Catalog", desc: "Browse our full range of valves and fittings.", path: "/products" },
     { title: "Industries", desc: "Solutions for Hydrogen, Oil & Gas, and more.", path: "/industries" },
-    { title: "Technical Support", desc: "Contact our technical team for assistance.", path: "/contact" },
+    { title: "Technical Support", desc: "Contact our technical team for assistance.", path: "/enquiry" },
   ]
 
   return (

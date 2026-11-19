@@ -27,7 +27,7 @@ const COMPANY_LINKS = [
   { label: "About Us", href: "/about" },
   { label: "Certificates", href: "/certificates" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Contact Us", href: "/enquiry" },
 ]
 
 const PRODUCT_LINKS = [

@@ -62,7 +62,7 @@ const QUICK_LINKS: { label: string; to: string; icon: ReactNode; color: string; 
   { label: "Products", to: "/products", icon: <Inventory2OutlinedIcon />, color: "#D97706", tint: "#FFFAF0" },
   { label: "Catalogs", to: "/catalogPdfs", icon: <MenuBookOutlinedIcon />, color: "#DC2626", tint: "#FFF5F5" },
   { label: "Certs", to: "/certificates", icon: <VerifiedOutlinedIcon />, color: "#059669", tint: "#F1FBF6" },
-  { label: "Contact", to: "/contact", icon: <SupportAgentOutlinedIcon />, color: "#EA580C", tint: "#FFF7F1" },
+  { label: "Enquiry", to: "/enquiry", icon: <SupportAgentOutlinedIcon />, color: "#EA580C", tint: "#FFF7F1" },
   { label: "About", to: "/about", icon: <InfoOutlinedIcon />, color: "#DB2777", tint: "#FEF4F9" },
 ]
 
@@ -685,7 +685,7 @@ const ChatWidget = () => {
                 <strong>We're getting there!</strong> Disha is still learning our full range — some answers may be incomplete. For anything urgent, contact our{" "}
                 <Box
                   component={RouterLink}
-                  to="/contact"
+                  to="/enquiry"
                   onClick={() => setOpen(false)}
                   sx={{
                     fontWeight: 800,
