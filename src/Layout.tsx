@@ -8,6 +8,7 @@ import AppBreadcrumbs from "./components/Common/BreadCrumbs"
 import StickyQuoteButton from "./components/Common/StickyQuoteButton"
 import WhatsAppButton from "./components/Common/WhatsAppButton"
 import LeadCapturePopup from "./components/LeadCapture/LeadCapturePopup"
+import ChatWidget from "./components/Chatbot/ChatWidget"
 import BrowseSectionButton from "./components/Common/BrowseSectionButton"
 import { GRADIENT } from "./components/Landing2/homeTokens"
 
@@ -48,6 +49,7 @@ const Layout = () => {
       <Footer />
       <StickyQuoteButton />
       <WhatsAppButton />
+      <ChatWidget />
       <LeadCapturePopup />
     </div>
   )
