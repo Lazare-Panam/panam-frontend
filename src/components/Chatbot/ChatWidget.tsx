@@ -58,15 +58,9 @@ const STARTER_PROMPTS = [
 const CID_KEY = "panam-chat-cid"
 const UNLOCK_KEY = "panam-ai-unlocked"
 
-const getConversationId = () => {
-  if (typeof window === "undefined") return "ssr"
-  let id = window.sessionStorage.getItem(CID_KEY)
-  if (!id) {
-    id = crypto.randomUUID()
-    window.sessionStorage.setItem(CID_KEY, id)
-  }
-  return id
-}
+// The backend creates the conversation id and returns it on the first answer.
+// We just remember it (per tab) so a page refresh keeps the same conversation.
+const getStoredConversationId = () => (typeof window === "undefined" ? null : window.sessionStorage.getItem(CID_KEY))
 const getUnlocked = () => (typeof window === "undefined" ? false : window.sessionStorage.getItem(UNLOCK_KEY) === "1")
 
 interface Message {
@@ -178,7 +172,7 @@ const ChatWidget = () => {
   const [submitting, setSubmitting] = useState(false)
   const [gateError, setGateError] = useState<string | null>(null)
 
-  const conversationId = useRef<string>(getConversationId())
+  const conversationId = useRef<string | null>(getStoredConversationId())
   const bottomRef = useRef<HTMLDivElement>(null)
 
   const userMsgCount = messages.filter((m) => m.role === "user").length
@@ -198,10 +192,12 @@ const ChatWidget = () => {
     setInput("")
     setLoading(true)
     try {
-      const answer = await askChatbot(conversationId.current, text)
+      const { conversationId: newId, answer } = await askChatbot(text, conversationId.current)
+      conversationId.current = newId
+      window.sessionStorage.setItem(CID_KEY, newId)
       setMessages((prev) => [...prev, { role: "bot", text: answer }])
     } catch {
-      setMessages((prev) => [...prev, { role: "bot", text: "Sorry, something went wrong. Please try again, or contact **sales@panamvalve.com**." }])
+      setMessages((prev) => [...prev, { role: "bot", text: "Sorry, something went wrong. Please try again, or contact **sales@panamvalves.co.uk**." }])
     } finally {
       setLoading(false)
     }

@@ -2,24 +2,31 @@
 import axiosClient from "./axiosClient"
 
 // The chatbot lives on the Spring Boot service. Panam.API reverse-proxies this
-// exact path (/ai) to it via YARP, so from the frontend it looks like any other
-// call to our own API (same baseURL, same CORS). The endpoint is a GET that takes
-// two query params and returns the answer as PLAIN TEXT (not JSON).
-const CHAT_PATH = "/ai"
+// path (/ai/chat) to it via YARP, so from the frontend it looks like any other
+// call to our own API (same baseURL, same CORS). It's a POST with a JSON body
+// and returns JSON: { conversationId, answer }.
+const CHAT_PATH = "/ai/chat"
+
+// The server OWNS the conversation id: omit it on the first message and the
+// backend creates one; send that same id back on every following message so the
+// bot keeps the conversation's memory.
+export interface ChatAnswer {
+  conversationId: string
+  answer: string
+}
 
 /**
  * Ask the PANAM product assistant a question.
  *
- * @param conversationId stable id for this chat session. The bot keeps per-id
- *        memory, so reuse the same id for every message in one conversation.
- * @param userInput the visitor's message.
- * @returns the assistant's answer as a plain string.
+ * @param message the visitor's question.
+ * @param conversationId the id returned by a previous call, or null for the
+ *        first message of a new conversation.
+ * @returns { conversationId, answer } — keep the conversationId for the next call.
  */
-export const askChatbot = async (conversationId: string, userInput: string): Promise<string> => {
-  const { data } = await axiosClient.get<string>(CHAT_PATH, {
-    params: { conversationId, userInput },
-    // The endpoint returns text/plain; tell axios not to try to JSON-parse it.
-    responseType: "text",
+export const askChatbot = async (message: string, conversationId: string | null): Promise<ChatAnswer> => {
+  const { data } = await axiosClient.post<ChatAnswer>(CHAT_PATH, {
+    message,
+    conversationId: conversationId ?? null,
   })
   return data
 }
