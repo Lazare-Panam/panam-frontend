@@ -8,10 +8,10 @@ import { C, RADIUS, btn, cardSx, cardHoverSx, sectionSx } from "../homeTokens"
 import { Eyebrow } from "../homeStyles"
 
 const docs = [
-  { icon: <LibraryBooksOutlinedIcon />, title: "Catalog Library", desc: "Full product catalogue with specifications" },
-  { icon: <DesignServicesOutlinedIcon />, title: "2D/3D Drawings", desc: "CAD files for all standard products" },
-  { icon: <ViewInArOutlinedIcon />, title: "CAD Files", desc: "Ready for direct import into your design workflow" },
-  { icon: <VerifiedOutlinedIcon />, title: "QMS Certifications", desc: "Quality management system documentation" },
+  { icon: <LibraryBooksOutlinedIcon />, title: "Catalog Library", desc: "Full product catalogue with specifications", to: "/catalogPDFs" },
+  { icon: <DesignServicesOutlinedIcon />, title: "2D/3D Drawings", desc: "CAD files for all standard products", to: "/cad-step-files" },
+  { icon: <ViewInArOutlinedIcon />, title: "CAD Files", desc: "Ready for direct import into your design workflow", to: "/cad-step-files" },
+  { icon: <VerifiedOutlinedIcon />, title: "QMS Certifications", desc: "Quality management system documentation", to: "/certificates" },
 ]
 
 const TechnicalSupport = () => {
@@ -42,7 +42,7 @@ const TechnicalSupport = () => {
             <Grid container spacing={2}>
               {docs.map(doc => (
                 <Grid size={{ xs: 12, sm: 6 }} key={doc.title}>
-                  <Stack spacing={1.75} sx={{ ...cardSx, ...cardHoverSx, p: 3, height: "100%", "&:hover .doc-icon": { bgcolor: C.brand, color: C.white } }}>
+                  <Stack component={RouterLink} viewTransition to={doc.to} spacing={1.75} sx={{ ...cardSx, ...cardHoverSx, p: 3, height: "100%", textDecoration: "none", "&:hover .doc-icon": { bgcolor: C.brand, color: C.white } }}>
                     <Box className="doc-icon" sx={{ width: 46, height: 46, borderRadius: RADIUS.button, bgcolor: C.brandTint, color: C.brandDark, display: "grid", placeItems: "center", transition: "all 0.25s ease", "& svg": { fontSize: 24 } }}>
                       {doc.icon}
                     </Box>
