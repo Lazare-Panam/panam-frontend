@@ -141,9 +141,6 @@ const renderContacts = (text: string, keyPrefix: string) =>
     )
   })
 
-// Links: markdown links [text](url) and bare URLs. Only links to PANAM's own website become
-// clickable (the bot gives product page links from the live product search); any other URL
-// stays plain text, so a manipulated answer can't send visitors to another site.
 const LINK_RE = /(\[[^\]]+\]\(https?:\/\/[^\s)]+\)|https?:\/\/[^\s)<>\]]+)/g
 const MD_LINK_RE = /^\[([^\]]+)\]\((.+)\)$/
 const ALLOWED_LINK_RE = /^https:\/\/(www\.)?panamvalve\.com(\/|$)/i
@@ -157,7 +154,6 @@ const linkSx = {
   "&:hover": { color: C.brand },
 } as const
 
-/** A bare product URL reads better as its part number: .../connectors/PMC-04-4N-SS -> "PMC-04-4N-SS". */
 const linkLabel = (url: string) => {
   const last = url.replace(/\/+$/, "").split("/").pop() ?? ""
   return last && !last.includes(".") ? last : "panamvalve.com"
@@ -169,7 +165,7 @@ const renderLinks = (text: string, keyPrefix: string) =>
     if (i % 2 === 0) return part ? <span key={key}>{renderContacts(part, key)}</span> : null
     const md = part.match(MD_LINK_RE)
     const raw = md ? md[2] : part
-    const url = raw.replace(/[.,;:!?]+$/, "") // a bare URL at the end of a sentence keeps its full stop outside
+    const url = raw.replace(/[.,;:!?]+$/, "")
     const trailing = raw.slice(url.length)
     const label = md ? md[1] : linkLabel(url)
     if (!ALLOWED_LINK_RE.test(url)) return <span key={key}>{md ? label : part}</span>
@@ -214,10 +210,6 @@ const RichText = ({ text }: { text: string }) => (
 )
 
 // --- Turnstile captcha widget ----------------------------------------------
-// Shown as a "Security check" box so visitors can see where the check is and what state it is in:
-// loading -> Cloudflare's "Verify you are human" checkbox -> verified. If the Cloudflare script or
-// frame can't load (no network, ad blocker, blocked by the site's security header), it says so and
-// offers "Try again" instead of leaving an empty space.
 type CaptchaStatus = "loading" | "ready" | "verified" | "failed"
 
 const TurnstileWidget = ({ onToken }: { onToken: (t: string | null) => void }) => {
@@ -251,7 +243,6 @@ const TurnstileWidget = ({ onToken }: { onToken: (t: string | null) => void }) =
     const fail = () => {
       if (!cancelled) setStatus("failed")
     }
-    // The script never loaded (blocked or offline): don't leave the visitor waiting forever
     const timeout = window.setTimeout(() => {
       if (!cancelled && widgetId.current === null) setStatus("failed")
     }, 10000)
@@ -895,7 +886,6 @@ const ChatWidget = () => {
 
               {/* Details gate — shown once the free messages run out */}
               {gateRequired && (
-                // textTransform none: the site's global style capitalises every word, which makes these sentences hard to read
                 <Box sx={{ mt: 1, p: 2.5, bgcolor: C.white, border: `1px solid ${C.border}`, borderRadius: "22px", boxShadow: "0 6px 20px rgba(15,34,54,0.06)", "&, & *": { textTransform: "none" } }}>
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1.25, mb: 1 }}>
                     <BotAvatar size={40} />
