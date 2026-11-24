@@ -75,18 +75,54 @@ const SUGGESTED_QUESTIONS = [
   "How do I read a PANAM part number?",
 ]
 
-// Per-tab keys: conversation id for the bot's memory, whether this visitor has
-// submitted their details, and how many messages they've sent this session
-// (counted across "New chat", so starting over doesn't skip the details form).
-const CID_KEY = "panam-chat-cid"
+const CHAT_KEY = "panam-chat"
 const UNLOCK_KEY = "panam-ai-unlocked"
 const SENT_KEY = "panam-ai-sent"
+const CHAT_TTL_MS = 24 * 60 * 60 * 1000
 
-// The backend creates the conversation id and returns it on the first answer.
-// We just remember it (per tab) so a page refresh keeps the same conversation.
-const getStoredConversationId = () => (typeof window === "undefined" ? null : window.sessionStorage.getItem(CID_KEY))
-const getUnlocked = () => (typeof window === "undefined" ? false : window.sessionStorage.getItem(UNLOCK_KEY) === "1")
-const getSentCount = () => (typeof window === "undefined" ? 0 : Number(window.sessionStorage.getItem(SENT_KEY) ?? "0") || 0)
+interface SavedChat {
+  conversationId: string | null
+  messages: Message[]
+  savedAt: number
+}
+
+const readStored = <T,>(key: string): T | null => {
+  try {
+    const raw = typeof window === "undefined" ? null : window.localStorage.getItem(key)
+    return raw ? (JSON.parse(raw) as T) : null
+  } catch {
+    return null
+  }
+}
+const writeStored = (key: string, value: unknown) => {
+  try {
+    window.localStorage.setItem(key, JSON.stringify(value))
+  } catch {
+    return
+  }
+}
+const removeStored = (key: string) => {
+  try {
+    window.localStorage.removeItem(key)
+  } catch {
+    return
+  }
+}
+
+const isFresh = (savedAt: number | undefined) => typeof savedAt === "number" && Date.now() - savedAt < CHAT_TTL_MS
+const loadChat = (): SavedChat | null => {
+  const chat = readStored<SavedChat>(CHAT_KEY)
+  return chat && isFresh(chat.savedAt) && Array.isArray(chat.messages) && chat.messages.length > 0 ? chat : null
+}
+const getUnlocked = () => readStored<boolean>(UNLOCK_KEY) === true
+const getSentCount = () => {
+  const sent = readStored<{ count: number; since: number }>(SENT_KEY)
+  return sent && isFresh(sent.since) ? sent.count : 0
+}
+const saveSentCount = (count: number) => {
+  const sent = readStored<{ count: number; since: number }>(SENT_KEY)
+  writeStored(SENT_KEY, { count, since: sent && isFresh(sent.since) ? sent.since : Date.now() })
+}
 
 interface Message {
   role: "user" | "bot"
@@ -169,9 +205,10 @@ const renderLinks = (text: string, keyPrefix: string) =>
     const trailing = raw.slice(url.length)
     const label = md ? md[1] : linkLabel(url)
     if (!ALLOWED_LINK_RE.test(url)) return <span key={key}>{md ? label : part}</span>
+    const path = url.replace(/^https:\/\/(www\.)?panamvalve\.com/i, "") || "/"
     return (
       <span key={key}>
-        <Box component="a" href={url} target="_blank" rel="noopener noreferrer" sx={linkSx}>
+        <Box component={RouterLink} to={path} sx={linkSx}>
           {label}
         </Box>
         {trailing}
@@ -514,7 +551,7 @@ const ChatWidget = () => {
   // otherwise both would play the sound.
   // Plain media query (this app has no MUI ThemeProvider); 900px = MUI's "md" breakpoint.
   const isDesktop = useMediaQuery("(min-width:900px)")
-  const [messages, setMessages] = useState<Message[]>(() => [greeting()])
+  const [messages, setMessages] = useState<Message[]>(() => loadChat()?.messages ?? [greeting()])
   const [input, setInput] = useState("")
   const [loading, setLoading] = useState(false)
   const [unlocked, setUnlocked] = useState<boolean>(getUnlocked())
@@ -530,7 +567,7 @@ const ChatWidget = () => {
   const [submitting, setSubmitting] = useState(false)
   const [gateError, setGateError] = useState<string | null>(null)
 
-  const conversationId = useRef<string | null>(getStoredConversationId())
+  const conversationId = useRef<string | null>(loadChat()?.conversationId ?? null)
   const bottomRef = useRef<HTMLDivElement>(null)
 
   // Once they've used their free messages and haven't submitted details, the
@@ -542,13 +579,35 @@ const ChatWidget = () => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages, open, gateRequired, loading])
 
+  useEffect(() => {
+    if (messages.some((m) => m.role === "user")) {
+      writeStored(CHAT_KEY, { conversationId: conversationId.current, messages, savedAt: Date.now() } satisfies SavedChat)
+    }
+  }, [messages])
+
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === CHAT_KEY) {
+        const chat = loadChat()
+        conversationId.current = chat?.conversationId ?? null
+        setMessages(chat?.messages ?? [greeting()])
+      } else if (e.key === UNLOCK_KEY) {
+        setUnlocked(getUnlocked())
+      } else if (e.key === SENT_KEY) {
+        setSentCount(getSentCount())
+      }
+    }
+    window.addEventListener("storage", onStorage)
+    return () => window.removeEventListener("storage", onStorage)
+  }, [])
+
   const sendText = async (raw: string) => {
     const text = raw.trim()
     if (!text || loading || gateRequired) return
 
     const nextSent = sentCount + 1
     setSentCount(nextSent)
-    window.sessionStorage.setItem(SENT_KEY, String(nextSent))
+    saveSentCount(nextSent)
 
     setMessages((prev) => [...prev, { role: "user", text, time: timeNow() }])
     setInput("")
@@ -556,7 +615,6 @@ const ChatWidget = () => {
     try {
       const { conversationId: newId, answer } = await askChatbot(text, conversationId.current)
       conversationId.current = newId
-      window.sessionStorage.setItem(CID_KEY, newId)
       setMessages((prev) => [...prev, { role: "bot", text: answer, time: timeNow() }])
     } catch {
       setMessages((prev) => [...prev, { role: "bot", text: `Sorry, something went wrong. Please try again, or contact **${SALES_EMAIL}**.`, time: timeNow() }])
@@ -570,7 +628,7 @@ const ChatWidget = () => {
   const newChat = () => {
     if (loading) return
     conversationId.current = null
-    window.sessionStorage.removeItem(CID_KEY)
+    removeStored(CHAT_KEY)
     setMessages([greeting()])
     setInput("")
   }
@@ -604,7 +662,7 @@ const ChatWidget = () => {
         sourcePage: location.pathname,
         website: gWebsite, // honeypot
       })
-      window.sessionStorage.setItem(UNLOCK_KEY, "1")
+      writeStored(UNLOCK_KEY, true)
       setUnlocked(true)
       setMessages((prev) => [...prev, { role: "bot", text: "Thanks — you're all set! Ask me anything else about PANAM products. 🙌", time: timeNow() }])
     } catch {
