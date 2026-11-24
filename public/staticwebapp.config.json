@@ -11,7 +11,7 @@
   "globalHeaders": {
     "Referrer-Policy": "strict-origin-when-cross-origin",
     "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-    "Content-Security-Policy": "frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://www.google.com https://news.google.com;"
+    "Content-Security-Policy": "frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://www.google.com https://news.google.com https://challenges.cloudflare.com;"
   },
   "routes": [
     {

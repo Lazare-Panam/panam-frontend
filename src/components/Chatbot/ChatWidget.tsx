@@ -214,21 +214,47 @@ const RichText = ({ text }: { text: string }) => (
 )
 
 // --- Turnstile captcha widget ----------------------------------------------
+// Shown as a "Security check" box so visitors can see where the check is and what state it is in:
+// loading -> Cloudflare's "Verify you are human" checkbox -> verified. If the Cloudflare script or
+// frame can't load (no network, ad blocker, blocked by the site's security header), it says so and
+// offers "Try again" instead of leaving an empty space.
+type CaptchaStatus = "loading" | "ready" | "verified" | "failed"
+
 const TurnstileWidget = ({ onToken }: { onToken: (t: string | null) => void }) => {
   const ref = useRef<HTMLDivElement>(null)
   const widgetId = useRef<string | null>(null)
+  const [status, setStatus] = useState<CaptchaStatus>("loading")
+  const [attempt, setAttempt] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setStatus("loading")
     const render = () => {
       if (cancelled || !ref.current || !window.turnstile || widgetId.current !== null || !TURNSTILE_SITE_KEY) return
       widgetId.current = window.turnstile.render(ref.current, {
         sitekey: TURNSTILE_SITE_KEY,
-        callback: (token: string) => onToken(token),
-        "error-callback": () => onToken(null),
-        "expired-callback": () => onToken(null),
+        callback: (token: string) => {
+          onToken(token)
+          setStatus("verified")
+        },
+        "error-callback": () => {
+          onToken(null)
+          setStatus("failed")
+        },
+        "expired-callback": () => {
+          onToken(null)
+          setStatus("ready")
+        },
       })
+      setStatus("ready")
     }
+    const fail = () => {
+      if (!cancelled) setStatus("failed")
+    }
+    // The script never loaded (blocked or offline): don't leave the visitor waiting forever
+    const timeout = window.setTimeout(() => {
+      if (!cancelled && widgetId.current === null) setStatus("failed")
+    }, 10000)
 
     if (window.turnstile) {
       render()
@@ -236,6 +262,7 @@ const TurnstileWidget = ({ onToken }: { onToken: (t: string | null) => void }) =
       const existing = document.querySelector<HTMLScriptElement>("script[data-turnstile]")
       if (existing) {
         existing.addEventListener("load", render)
+        existing.addEventListener("error", fail)
       } else {
         const s = document.createElement("script")
         s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
@@ -243,22 +270,57 @@ const TurnstileWidget = ({ onToken }: { onToken: (t: string | null) => void }) =
         s.defer = true
         s.setAttribute("data-turnstile", "")
         s.onload = render
+        s.onerror = fail
         document.head.appendChild(s)
       }
     }
 
     return () => {
       cancelled = true
+      window.clearTimeout(timeout)
       if (widgetId.current && window.turnstile) {
         try { window.turnstile.remove(widgetId.current) } catch { /* already gone */ }
       }
+      widgetId.current = null
     }
-  }, [onToken])
+  }, [onToken, attempt])
 
   if (!TURNSTILE_SITE_KEY) {
     return <Typography sx={{ fontFamily: FONT, fontSize: "0.72rem", color: "#c0392b" }}>Captcha not configured (missing VITE_TURNSTILE_SITE_KEY).</Typography>
   }
-  return <div ref={ref} />
+  return (
+    <Box sx={{ border: `1px solid ${C.border}`, borderRadius: "14px", p: 1.25, bgcolor: "#F8FBFD" }}>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, mb: 0.75 }}>
+        <VerifiedOutlinedIcon sx={{ fontSize: "1rem", color: C.brand }} />
+        <Typography sx={{ fontFamily: FONT, fontWeight: 700, fontSize: "0.8rem", color: C.ink }}>Security check</Typography>
+        {status === "verified" && (
+          <Typography sx={{ fontFamily: FONT, fontWeight: 700, fontSize: "0.76rem", color: "#059669", ml: "auto" }}>✓ Verified</Typography>
+        )}
+      </Box>
+      {status === "loading" && (
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, py: 0.5 }}>
+          <CircularProgress size={14} />
+          <Typography sx={{ fontFamily: FONT, fontSize: "0.76rem", color: C.text }}>Loading the security check…</Typography>
+        </Box>
+      )}
+      <div ref={ref} />
+      {status === "ready" && (
+        <Typography sx={{ fontFamily: FONT, fontSize: "0.72rem", color: C.text, mt: 0.5 }}>
+          Tick the box above to confirm you're human. Sometimes it completes by itself.
+        </Typography>
+      )}
+      {status === "failed" && (
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
+          <Typography sx={{ fontFamily: FONT, fontSize: "0.76rem", color: "#c0392b", flex: 1, minWidth: 180 }}>
+            The security check didn't load. Check your connection or ad blocker, then try again.
+          </Typography>
+          <Button size="small" variant="outlined" onClick={() => setAttempt((a) => a + 1)} sx={{ fontFamily: FONT, textTransform: "none", borderRadius: RADIUS.pill }}>
+            Try again
+          </Button>
+        </Box>
+      )}
+    </Box>
+  )
 }
 
 // --- Small building blocks ----------------------------------------------------
@@ -536,7 +598,7 @@ const ChatWidget = () => {
       return
     }
     if (!captchaToken) {
-      setGateError("Please complete the captcha.")
+      setGateError("Please complete the security check above.")
       return
     }
     setSubmitting(true)
@@ -555,7 +617,7 @@ const ChatWidget = () => {
       setUnlocked(true)
       setMessages((prev) => [...prev, { role: "bot", text: "Thanks — you're all set! Ask me anything else about PANAM products. 🙌", time: timeNow() }])
     } catch {
-      setGateError("We couldn't verify that. Please complete the captcha and try again.")
+      setGateError("We couldn't verify that. Please complete the security check again.")
       setCaptchaToken(null)
       if (window.turnstile) try { window.turnstile.reset() } catch { /* noop */ }
     } finally {
@@ -833,13 +895,17 @@ const ChatWidget = () => {
 
               {/* Details gate — shown once the free messages run out */}
               {gateRequired && (
-                <Box sx={{ mt: 1, p: 2.5, bgcolor: C.white, border: `1px solid ${C.border}`, borderRadius: "22px", boxShadow: "0 6px 20px rgba(15,34,54,0.06)" }}>
+                // textTransform none: the site's global style capitalises every word, which makes these sentences hard to read
+                <Box sx={{ mt: 1, p: 2.5, bgcolor: C.white, border: `1px solid ${C.border}`, borderRadius: "22px", boxShadow: "0 6px 20px rgba(15,34,54,0.06)", "&, & *": { textTransform: "none" } }}>
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1.25, mb: 1 }}>
                     <BotAvatar size={40} />
-                    <Typography sx={{ fontFamily: FONT, fontWeight: 800, fontSize: "1rem", color: C.ink }}>Keep chatting with Disha</Typography>
+                    <Typography sx={{ fontFamily: FONT, fontWeight: 800, fontSize: "1rem", color: C.ink }}>Want to keep chatting?</Typography>
                   </Box>
                   <Typography sx={{ fontFamily: FONT, fontSize: "0.84rem", color: C.text, mb: 1.75 }}>
-                    You've used your free preview. Share a few details and our team will help with anything Disha can't.
+                    You've used your {FREE_USER_MESSAGES} free questions. Add your name and phone number below to unlock unlimited chat with Disha.
+                  </Typography>
+                  <Typography sx={{ fontFamily: FONT, fontSize: "0.76rem", color: C.text, mb: 1.75, mt: -1 }}>
+                    Our sales team receives these details so they can help with anything Disha can't answer.
                   </Typography>
 
                   <Box sx={{ display: "flex", flexDirection: "column", gap: 1.25 }}>
@@ -863,7 +929,7 @@ const ChatWidget = () => {
                       disabled={submitting}
                       startIcon={submitting ? <CircularProgress size={16} sx={{ color: C.white }} /> : <LockOpenIcon />}
                       sx={{ fontFamily: FONT, fontWeight: 700, textTransform: "none", borderRadius: RADIUS.pill, py: 1, background: GRADIENT.brand, boxShadow: SHADOW.brand, "&:hover": { background: GRADIENT.brand, filter: "brightness(1.05)" } }}>
-                      {submitting ? "Verifying…" : "Continue"}
+                      {submitting ? "Verifying…" : "Unlock chat"}
                     </Button>
                   </Box>
                 </Box>
