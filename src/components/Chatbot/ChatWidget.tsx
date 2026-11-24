@@ -98,7 +98,7 @@ const timeNow = () => new Date().toLocaleTimeString([], { hour: "2-digit", minut
 
 const greeting = (): Message => ({
   role: "bot",
-  text: "Hello, I'm **Disha**, PANAM's AI assistant 👋 Ask me about our tube fittings, valves or part numbers and I'll answer from the PANAM catalogue.",
+  text: "Hello, I'm **Disha**, PANAM's AI assistant 👋 Ask me about our tube fittings, valves, manifolds or part numbers. I answer from the PANAM catalogue and our live product range.",
   time: timeNow(),
 })
 
@@ -141,12 +141,54 @@ const renderContacts = (text: string, keyPrefix: string) =>
     )
   })
 
+// Links: markdown links [text](url) and bare URLs. Only links to PANAM's own website become
+// clickable (the bot gives product page links from the live product search); any other URL
+// stays plain text, so a manipulated answer can't send visitors to another site.
+const LINK_RE = /(\[[^\]]+\]\(https?:\/\/[^\s)]+\)|https?:\/\/[^\s)<>\]]+)/g
+const MD_LINK_RE = /^\[([^\]]+)\]\((.+)\)$/
+const ALLOWED_LINK_RE = /^https:\/\/(www\.)?panamvalve\.com(\/|$)/i
+
+const linkSx = {
+  color: C.brandDeep,
+  fontWeight: 700,
+  textDecoration: "underline",
+  textUnderlineOffset: "2px",
+  wordBreak: "break-word",
+  "&:hover": { color: C.brand },
+} as const
+
+/** A bare product URL reads better as its part number: .../connectors/PMC-04-4N-SS -> "PMC-04-4N-SS". */
+const linkLabel = (url: string) => {
+  const last = url.replace(/\/+$/, "").split("/").pop() ?? ""
+  return last && !last.includes(".") ? last : "panamvalve.com"
+}
+
+const renderLinks = (text: string, keyPrefix: string) =>
+  text.split(LINK_RE).map((part, i) => {
+    const key = `${keyPrefix}-u${i}`
+    if (i % 2 === 0) return part ? <span key={key}>{renderContacts(part, key)}</span> : null
+    const md = part.match(MD_LINK_RE)
+    const raw = md ? md[2] : part
+    const url = raw.replace(/[.,;:!?]+$/, "") // a bare URL at the end of a sentence keeps its full stop outside
+    const trailing = raw.slice(url.length)
+    const label = md ? md[1] : linkLabel(url)
+    if (!ALLOWED_LINK_RE.test(url)) return <span key={key}>{md ? label : part}</span>
+    return (
+      <span key={key}>
+        <Box component="a" href={url} target="_blank" rel="noopener noreferrer" sx={linkSx}>
+          {label}
+        </Box>
+        {trailing}
+      </span>
+    )
+  })
+
 const renderBold = (line: string, keyPrefix: string) =>
   line.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
     part.startsWith("**") && part.endsWith("**") ? (
-      <strong key={`${keyPrefix}-${i}`}>{renderContacts(part.slice(2, -2), `${keyPrefix}-${i}`)}</strong>
+      <strong key={`${keyPrefix}-${i}`}>{renderLinks(part.slice(2, -2), `${keyPrefix}-${i}`)}</strong>
     ) : (
-      <span key={`${keyPrefix}-${i}`}>{renderContacts(part, `${keyPrefix}-${i}`)}</span>
+      <span key={`${keyPrefix}-${i}`}>{renderLinks(part, `${keyPrefix}-${i}`)}</span>
     ),
   )
 
@@ -604,7 +646,7 @@ const ChatWidget = () => {
               <Box sx={{ py: 1.75, textAlign: "center" }}>
                 <Typography sx={{ fontFamily: FONT, fontWeight: 800, fontSize: "0.78rem", letterSpacing: "0.12em", color: C.ink }}>YOUR PRODUCT EXPERT</Typography>
                 <Typography sx={{ fontFamily: FONT, fontSize: "0.8rem", color: C.muted, mt: 0.75, lineHeight: 1.55 }}>
-                  Instant answers on tube fittings, valves, sizes & part numbers — straight from the PANAM catalogue.
+                  Instant answers on tube fittings, valves, sizes & part numbers — from the PANAM catalogue and our live product range.
                 </Typography>
               </Box>
               <Divider />
