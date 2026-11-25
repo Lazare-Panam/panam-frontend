@@ -1,4 +1,5 @@
 import { useState, useRef, type ChangeEvent } from "react"
+import { useNavigate } from "react-router-dom"
 import { Box, Typography, TextField, Stack, Checkbox, FormControlLabel, Link, Autocomplete, IconButton, InputAdornment } from "@mui/material"
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined"
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined"
@@ -40,6 +41,7 @@ export const EnquiryRegistration = () => {
   const [showPassword, setShowPassword] = useState(false)
 
   const showNotification = useNotificationStore(state => state.showNotification)
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -126,11 +128,7 @@ export const EnquiryRegistration = () => {
         selectedFile || undefined // ✅ pass the file here
       )
 
-      showNotification({
-        message: "Enquiry submitted successfully! Our team will review your account.",
-        severity: "success",
-      })
-
+      // Reset form before leaving, so the back button returns to a clean form
       setFormData({
         firstName: "",
         lastName: "",
@@ -145,6 +143,8 @@ export const EnquiryRegistration = () => {
       })
       setSelectedFile(null)
       if (fileInputRef.current) fileInputRef.current.value = ""
+
+      navigate("/enquiry/thank-you")
     } catch (error: any) {
       const errorMsg = error.response?.data?.message || "Registration failed."
       showNotification({ message: errorMsg, severity: "error" })

@@ -13,6 +13,7 @@ const NotFound = lazy(() => import("./components/Error/NotFound"))
 const CartPage = lazy(() => import("./components/Cart/CartPage"))
 const IndustryPage = lazy(() => import("./components/Industries/components/IndustryPage"))
 const AuthAndInquiryPage = lazy(() => import("./components/Auth/AuthAndInquiryPage"))
+const EnquiryThankYou = lazy(() => import("./components/Auth/Enquiry/EnquiryThankYou"))
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
@@ -509,6 +510,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <AuthAndInquiryPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "enquiry/thank-you",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <EnquiryThankYou />
           </Suspense>
         ),
       },

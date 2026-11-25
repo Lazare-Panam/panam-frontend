@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography, Stack } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
@@ -19,6 +20,7 @@ export const LoggedInEnquiry = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const trackFormStart = useFormStartTracking("enquiry-logged-in");
+  const navigate = useNavigate();
 
   // User details from Zustand store
   const { firstName, lastName, companyName, email, phoneNumber } = useUserStore();
@@ -54,16 +56,12 @@ export const LoggedInEnquiry = () => {
       // API call now accepts (string, File | undefined)
       await submitAuthenticatedEnquiry(message, selectedFile || undefined);
 
-      showNotification({
-        message: "Technical enquiry submitted! Our technical team has been notified.",
-        severity: "success",
-      });
-
-      // Reset form on success
+      // Reset form before leaving, so the back button returns to a clean form
       setMessage("");
       setSelectedFile(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
-      
+
+      navigate("/enquiry/thank-you");
     } catch (error: any) {
       const errorMsg = error.response?.data?.message || "Submission failed. Please check your connection.";
       showNotification({ message: errorMsg, severity: "error" });
