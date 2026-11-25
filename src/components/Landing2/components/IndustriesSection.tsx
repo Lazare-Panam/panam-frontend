@@ -54,11 +54,11 @@ const industryData = [
     label: 'Hydrogen',
     path: '/industries/hydrogen',
     title: 'Hydrogen Infrastructure',
-    desc: 'Specialised hydrogen infrastructure support for large-scale electrolyser and refuelling projects. Advanced leak-detection and dedicated H2 supply chain.',
+    desc: 'Support for hydrogen infrastructure projects, from electrolyser integration to refuelling, with guidance on component selection for high-pressure H2 duty.',
     img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80',
     specs: [
-      { icon: <FlashOnIcon />, text: 'H2-rated valves for 350 bar+ service' },
-      { icon: <ScienceIcon />, text: 'Leak-detection training and technical audits' },
+      { icon: <FlashOnIcon />, text: 'Valves and fittings selected for high-pressure hydrogen duty' },
+      { icon: <ScienceIcon />, text: 'Material and sealing guidance for H2 systems' },
       { icon: <AssignmentIcon />, text: 'Documentation requirements confirmed at enquiry' },
     ]
   },

@@ -26,6 +26,9 @@ const staticRoutes = [
   "/blog/swivel-gauge-blog",
   "/blog/check-valves-blog",
   "/catalogPDFs",
+  // Legal pages — index,follow and required by Merchant Center, so prerender for crawlers.
+  "/privacy-policy",
+  "/terms-of-use",
   // Weren't prerendered, so Azure served them the homepage's title/canonical and Google kept old titles.
   "/enquiry",
   "/system-integration",
@@ -222,3 +225,19 @@ for (const route of routes) {
 }
 
 console.log("🎉 Prerender complete!")
+
+// ── XML sitemap ────────────────────────────────────────────────────────────────────────────────
+// Built from the same `routes` list we prerender, so the sitemap and the crawlable pages never drift
+// apart. robots.txt (in public/) points search engines here. Only indexable, canonical pages are in
+// `routes` — noindex pages (e.g. /enquiry/thank-you) are deliberately excluded by not being listed.
+const SITE_ORIGIN = "https://www.panamvalve.com"
+const lastmod = new Date().toISOString().split("T")[0]
+const sitemapUrls = [...new Set(routes)]
+  .map(route => {
+    const loc = `${SITE_ORIGIN}${route === "/" ? "" : route}`
+    return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`
+  })
+  .join("\n")
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`
+fs.writeFileSync(path.resolve(__dirname, "dist/sitemap.xml"), sitemapXml)
+console.log(`🗺️  Sitemap written: ${[...new Set(routes)].length} URLs`)

@@ -30,7 +30,7 @@ const APPLICATIONS_DATA = [
     id: "hydrogen",
     label: "Hydrogen",
     title: "Hydrogen Economy",
-    description: "Engineering for the H2 value chain. Our specialized seal technologies and material selections prevent hydrogen embrittlement in electrolyzers, high-pressure storage, and refueling infrastructure.",
+    description: "Engineering for the H2 value chain. We help you select materials and sealing suited to hydrogen service across electrolysers, high-pressure storage and refuelling infrastructure.",
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
   },
   {

@@ -15,6 +15,7 @@ import FittingsFAQ from "./FittingsFAQ"
 import FittingsSelector from "./FittingsSelector"
 import FittingsCompliance from "./FittingsCompliance"
 import { CategoryHero, CategoryIntro, CategoryPage, CtaBand, FeatureTiles, GaugeBadge, RangeCard } from "../Common/CategoryIndexKit"
+import RelatedGuide from "../Common/RelatedGuide"
 import { SectionHeader } from "../Landing2/homeStyles"
 import { sectionSx } from "../Landing2/homeTokens"
 
@@ -231,6 +232,17 @@ export default function FittingsPage() {
         <Box component="section" sx={sectionSx("surface")}>
           <Container maxWidth="lg">
             <FittingsFAQ />
+          </Container>
+        </Box>
+
+        <Box component="section" sx={sectionSx("white")}>
+          <Container maxWidth="lg">
+            <RelatedGuide
+              title="NPT vs BSPP vs BSPT: getting thread standards right"
+              text="Choosing the wrong thread form is one of the most common causes of leaks and mismatched fittings. Our guide explains the differences, how to identify each, and how to specify them."
+              to="/blog/npt-vs-bspp-vs-bspt-thread-standards"
+              linkLabel="Read the thread guide"
+            />
           </Container>
         </Box>
 

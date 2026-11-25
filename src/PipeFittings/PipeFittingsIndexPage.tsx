@@ -2,6 +2,7 @@ import React from "react"
 import { Box, Container, Typography, Grid, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
 import { Link as RouterLink } from "react-router-dom"
 import PipeFittingsIndexFAQ from "./PipeFittingsIndexFAQ"
+import RelatedGuide from "../components/Common/RelatedGuide"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -509,6 +510,15 @@ export default function PipeFittingsIndexPage() {
           <PipeFittingsIndexFAQ />
 
           <Divider sx={{ mb: 10 }} />
+
+          <Box sx={{ mb: 10 }}>
+            <RelatedGuide
+              title="NPT vs BSPP vs BSPT: getting thread standards right"
+              text="Pipe fittings are specified by thread form as well as size. Our guide explains NPT, BSPP and BSPT, how to tell them apart, and how to avoid cross-threading and leaks."
+              to="/blog/npt-vs-bspp-vs-bspt-thread-standards"
+              linkLabel="Read the thread guide"
+            />
+          </Box>
 
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>

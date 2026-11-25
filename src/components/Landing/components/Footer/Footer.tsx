@@ -55,8 +55,8 @@ const RESOURCE_LINKS = [
 ]
 
 const LEGAL_LINKS = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Use", href: "#" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Use", href: "/terms-of-use" },
 ]
 
 const sectionHeading = {

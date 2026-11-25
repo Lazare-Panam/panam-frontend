@@ -17,7 +17,7 @@ const FeatureSection = () => {
       image: "https://res.cloudinary.com/dm9rmmemx/image/upload/w_1920,f_auto,q_auto/v1769604874/biel-morro-HCha-UHkIg8-unsplash_pl8qt9.jpg",
       caption: (
         <>
-          Advanced <span>Leak-Detection Training</span> and technical audits for high-pressure H2 storage systems.
+          Expert <span>H2 application support</span> for component selection in high-pressure hydrogen systems.
         </>
       ),
      

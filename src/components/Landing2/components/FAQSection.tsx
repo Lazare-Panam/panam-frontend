@@ -54,7 +54,7 @@ const faqs: FAQItem[] = [
   {
     question: "How do I request a quote or technical review?",
     answer:
-      "Submit an RFQ through the enquiry form with your specification or bill of materials, and Panam will respond within 24 hours. For bespoke requirements outside the standard ranges, select \"Technical Support\" in the enquiry form to have the requirement scoped by Panam's technical team. An online configurator is available for standard builds. Contact: marketing@panamvalve.com or +44 (0) 7369 243459.",
+      "Submit an RFQ through the enquiry form with your specification or bill of materials, and Panam will respond within 24 hours. For bespoke requirements outside the standard ranges, select \"Technical Support\" in the enquiry form to have the requirement scoped by Panam's technical team. An online configurator is available for standard builds. Contact: sales@panamvalves.co.uk or +44 (0) 7369 243459.",
   },
 ]
 

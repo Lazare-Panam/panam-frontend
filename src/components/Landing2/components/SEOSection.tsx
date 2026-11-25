@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { Box, Container, Stack, Typography } from "@mui/material"
+import { Box, Container, Stack, Typography, Link } from "@mui/material"
+import { Link as RouterLink } from "react-router-dom"
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded"
 import PrecisionManufacturingOutlinedIcon from "@mui/icons-material/PrecisionManufacturingOutlined"
 import Grid from "@mui/material/Grid"
@@ -9,6 +10,13 @@ import { Eyebrow } from "../homeStyles"
 const YOUTUBE_ID = "HRFxY37P0Lg"
 
 const bodySx = { color: C.text, lineHeight: 1.85, fontSize: "1.05rem", "& strong": { color: C.ink, fontWeight: 600 } }
+
+// Inline link style for the product mentions in the SEO copy. Linking each range reads more naturally
+// (and is better for SEO) than a list of bold keywords, which the Nov-2026 audit flagged as stuffed.
+const inlineLink = { color: C.brandDark, fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } }
+const L = ({ to, children }: { to: string; children: React.ReactNode }) => (
+  <Link component={RouterLink} to={to} sx={inlineLink}>{children}</Link>
+)
 
 // Media-left layout: large feature video, copy on the right, and the sub-section as a full-width
 // highlight strip below. Copy and headings are unchanged (this block carries the homepage's main SEO text).
@@ -132,10 +140,10 @@ const SEOSection = () => {
               Valves & Flow Control Products
             </Typography>
             <Typography sx={{ ...bodySx, fontSize: { xs: "1.06rem", md: "1.12rem" }, color: "#3E5266", mb: 2.5 }}>
-              PANAM Valves provides a complete range of high-quality instrumentation valves and flow control products designed for performance in demanding industrial environments. Our solutions are widely used across <strong>oil & gas, petrochemical, and process industries</strong> where reliability and precision are critical.
+              PANAM Valves provides a complete range of high-quality instrumentation valves and flow control products designed for performance in demanding industrial environments. Our solutions are widely used across <L to="/industries/oil-gas">oil &amp; gas</L>, petrochemical and process industries where reliability and precision are critical.
             </Typography>
             <Typography sx={bodySx}>
-              Our product portfolio includes <strong>needle valves, check valves, and non return check valves</strong>, alongside advanced solutions such as the <strong>block and bleed valve</strong> for safe isolation and pressure control. We also supply a wide range of <strong>pipe and fittings</strong>, including <strong>stainless steel fittings</strong>, ensuring compatibility across a variety of industrial systems.
+              Our product portfolio includes <L to="/valves/needle-valves">needle valves</L>, <L to="/valves/check-valves">check valves</L> and non-return check valves, alongside the <L to="/double-block-and-bleed-valves">double block &amp; bleed valve</L> for safe isolation and pressure control. We also supply a wide range of <L to="/instrumentation-fittings/pipe-fittings">pipe fittings</L>, including stainless steel fittings, ensuring compatibility across a variety of industrial systems.
             </Typography>
           </Grid>
         </Grid>
@@ -154,7 +162,7 @@ const SEOSection = () => {
           </Grid>
           <Grid size={{ xs: 12, md: 7 }}>
             <Typography sx={{ ...bodySx, fontSize: "1.02rem" }}>
-              All PANAM products are manufactured using premium materials to ensure durability and long service life. Our range of <strong>tube fitting</strong> solutions and <strong>flare fittings</strong> are designed for secure, leak-free connections in high-pressure environments.
+              All PANAM products are manufactured using premium materials to ensure durability and long service life. Our <L to="/instrumentation-fittings/tube-fittings">tube fittings</L> and flare fittings are designed for secure, leak-free connections in high-pressure environments.
             </Typography>
           </Grid>
         </Grid>

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Private / app-only areas — not for search
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /cart
+Disallow: /login
+Disallow: /register
+
+Sitemap: https://www.panamvalve.com/sitemap.xml

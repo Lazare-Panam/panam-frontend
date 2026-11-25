@@ -45,13 +45,13 @@ export const industryData = [
       titleMain: "Pioneering the",
       titleAccent: "Clean Energy",
       titleEnd: "Transition.",
-      description: "Hydrogen presents unique challenges, from embrittlement to cryogenic temperatures. Our specialized valve range is built specifically for the H2 value chain.",
+      description: "Hydrogen puts demanding requirements on valves, fittings and sealing. We help engineers specify instrumentation suited to hydrogen service across the H2 value chain.",
       backgroundImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80",
     },
     content: {
       subHeading: "THE HYDROGEN ECONOMY",
-      heading: "Mastering the Smallest Molecule.",
-      bodyText: "Hydrogen is notoriously difficult to contain. We have developed specialized seal technologies and material selections that prevent hydrogen embrittlement. \n\nFrom electrolyzer integration to high-pressure storage and refueling stations, we are the trusted partner for companies scaling up green and blue hydrogen infrastructure globally.",
+      heading: "Specifying for the smallest molecule.",
+      bodyText: "Hydrogen is a small, highly diffusive molecule and can embrittle certain metals, so material selection and sealing are important considerations across a hydrogen system. \n\nFrom electrolyser integration to high-pressure storage and refuelling, talk to our team about your hydrogen duty and we will help you work through the right configuration, materials and documentation.",
     },
   },
   {

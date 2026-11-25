@@ -14,6 +14,8 @@ const CartPage = lazy(() => import("./components/Cart/CartPage"))
 const IndustryPage = lazy(() => import("./components/Industries/components/IndustryPage"))
 const AuthAndInquiryPage = lazy(() => import("./components/Auth/AuthAndInquiryPage"))
 const EnquiryThankYou = lazy(() => import("./components/Auth/Enquiry/EnquiryThankYou"))
+const PrivacyPolicy = lazy(() => import("./components/Legal/PrivacyPolicy"))
+const TermsOfUse = lazy(() => import("./components/Legal/TermsOfUse"))
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
@@ -518,6 +520,22 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <EnquiryThankYou />
+          </Suspense>
+        ),
+      },
+      {
+        path: "privacy-policy",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <PrivacyPolicy />
+          </Suspense>
+        ),
+      },
+      {
+        path: "terms-of-use",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <TermsOfUse />
           </Suspense>
         ),
       },

@@ -2,6 +2,7 @@ import React from "react"
 import { Box, Container, Typography, Grid, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
 import { Link as RouterLink } from "react-router-dom"
 import TubeFittingsFAQ from "./TubeFittingsFAQ"
+import RelatedGuide from "../Common/RelatedGuide"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -549,6 +550,15 @@ export default function TubeFittingsPage() {
           <TubeFittingsFAQ />
 
           <Divider sx={{ mb: 10 }} />
+
+          <Box sx={{ mb: 10 }}>
+            <RelatedGuide
+              title="NPT vs BSPP vs BSPT: getting thread standards right"
+              text="Tube fittings connect to ports and components in a range of thread forms. Our guide explains the differences, how to identify each, and how to avoid mismatches."
+              to="/blog/npt-vs-bspp-vs-bspt-thread-standards"
+              linkLabel="Read the thread guide"
+            />
+          </Box>
 
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>

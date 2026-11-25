@@ -205,6 +205,15 @@ const STRUCTURAL_GROUPS: { title: string; links: SitemapLink[] }[] = [
       { label: "HP Series Needle Valves — High Pressure Flow Control", to: "/blog/hp-series-needle-valves-high-pressure-flow-control" },
     ],
   },
+  {
+    title: "Company & Legal",
+    links: [
+      { label: "Request a Quote", to: "/enquiry" },
+      { label: "Delivery & Returns", to: "/delivery-returns" },
+      { label: "Privacy Policy", to: "/privacy-policy" },
+      { label: "Terms of Use", to: "/terms-of-use" },
+    ],
+  },
 ]
 
 // ── Every product SKU, grouped by category (single source of truth: productRoutes). ─────────────

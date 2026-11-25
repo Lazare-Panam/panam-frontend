@@ -22,7 +22,7 @@ const rows: ServiceRow[] = [
     industry: {
       title: "Hydrogen Infrastructure",
       path: "/industries/hydrogen",
-      desc: "H2-rated valves and fittings for electrolyser, storage and refuelling projects requiring proven material compatibility at high pressure.",
+      desc: "Valves and fittings selected for electrolyser, storage and refuelling projects, with material compatibility confirmed for your high-pressure hydrogen duty at enquiry.",
     },
   },
 ]

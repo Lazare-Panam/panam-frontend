@@ -8,7 +8,9 @@ import { industryData } from "./industryData"
 const BRAND_BLUE = "#01B0F0"
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
-const IndustriesCards = () => {
+// excludeId lets a page drop its own card, so the current industry doesn't link back to itself.
+const IndustriesCards = ({ excludeId }: { excludeId?: string }) => {
+  const industries = excludeId ? industryData.filter(i => i.id !== excludeId) : industryData
   return (
     <Box sx={{ py: 10, backgroundColor: "#ffffff" }}>
       <Container maxWidth="xl">
@@ -41,7 +43,7 @@ const IndustriesCards = () => {
         </Box>
 
         <Grid container spacing={4}>
-          {industryData.map((industry) => (
+          {industries.map((industry) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={industry.id}>
               <Card
                 component={Link}
