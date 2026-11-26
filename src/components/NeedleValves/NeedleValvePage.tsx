@@ -1,5 +1,6 @@
 import React from "react"
 import { Box, Container, Typography, Grid, Divider, Button, Card, CardMedia, CardContent } from "@mui/material"
+import RelatedGuide from "../Common/RelatedGuide"
 
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const BRAND_BLUE = "#01B0F0"
@@ -256,6 +257,15 @@ export default function NeedleValvesPage() {
           </Box>
 
           <Divider sx={{ mb: 10 }} />
+
+          <Box sx={{ mb: 10 }}>
+            <RelatedGuide
+              title="Choosing and specifying needle valves"
+              text="Our guide covers how needle valves work, the trade-offs between series, and the pressure, material and connection details to confirm before you specify."
+              to="/blog/hp-series-needle-valves-high-pressure-flow-control"
+              linkLabel="Read the needle valve guide"
+            />
+          </Box>
 
           {/* ── CTA ── */}
           <Box sx={{ textAlign: "center", py: 6 }}>

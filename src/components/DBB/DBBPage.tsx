@@ -15,6 +15,7 @@ import LinearScaleRoundedIcon from "@mui/icons-material/LinearScaleRounded"
 import DBBSelector from "./DBBSelector"
 import DBBCompliance from "./DBBCompliance"
 import { CategoryHero, CategoryIntro, CategoryPage, CtaBand, FeatureTiles, GaugeBadge, RangeCard } from "../Common/CategoryIndexKit"
+import RelatedGuide from "../Common/RelatedGuide"
 import { SectionHeader } from "../Landing2/homeStyles"
 import { sectionSx } from "../Landing2/homeTokens"
 
@@ -202,6 +203,17 @@ export default function DBBIndexPage() {
         </Box>
 
         <FeatureTiles eyebrow="Why Panam" title="Why specify PANAM® DBB Valves" subtitle="All three DBB families are built to the same engineering standard — consistent materials, construction, and test procedures across the entire range." items={FEATURES} />
+
+        <Box component="section" sx={sectionSx("surface")}>
+          <Container maxWidth="lg">
+            <RelatedGuide
+              title="What is a double block & bleed valve?"
+              text="New to DBB, or deciding between a single and double block & bleed arrangement? Our guide explains how DBB works, where it's used, and how to choose the right configuration."
+              to="/blog/double-block-and-bleed"
+              linkLabel="Read the DBB guide"
+            />
+          </Container>
+        </Box>
 
         <CtaBand title="Specify your DBB valve" text="Send us your connection type, pressure class, bore size, and any special service requirements. Our technical team responds to instrumentation enquiries within 24 hours." primary={{ label: "Email Technical Sales", href: "mailto:sales@panamvalves.co.uk" }} secondary={{ label: "Request Quote", to: "/enquiry" }} />
       </CategoryPage>

@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation, Link as RouterLink } from "react-router-dom"
 import { Box, Typography, Stack, Chip, Button, Divider, Card, CardActionArea, CardContent } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import { alpha } from "@mui/material/styles"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined"
 import { useCartStore } from "../store/useCartStore"
 import { productMetaDescription, productMetaTitle } from "../../data/seoMetaRules"
 
@@ -48,7 +49,12 @@ interface Props {
   specs: SpecItem[]
   cartItem: CartItem
   related?: RelatedItem[]
+  // Override the self-referencing canonical path. By default the current URL path is used, which is
+  // always correct; only pass this if a page should canonicalise to a different URL.
+  canonicalPath?: string
 }
+
+const SITE_ORIGIN = "https://www.panamvalve.com"
 
 function SpecBlock({ label, value }: SpecItem) {
   return (
@@ -63,8 +69,9 @@ function SpecBlock({ label, value }: SpecItem) {
   )
 }
 
-export default function ProductDetailPage({ backHref, backLabel, image, partNumber, title, description, chips, specs, cartItem, related = [] }: Props) {
+export default function ProductDetailPage({ backHref, backLabel, image, partNumber, title, description, chips, specs, cartItem, related = [], canonicalPath }: Props) {
   const navigate = useNavigate()
+  const { pathname } = useLocation()
   const addItem = useCartStore(s => s.addItem)
 
   // Hand-written SEO copy from the HP product spreadsheet, keyed by part number.
@@ -73,6 +80,25 @@ export default function ProductDetailPage({ backHref, backLabel, image, partNumb
   // Titles always carry the part number (so they're unique) and are kept within the audit's length limits.
   const metaTitle = productMetaTitle(partNumber, title)
   const metaDescription = productMetaDescription(partNumber, title, description)
+  // Self-referencing canonical from the actual current path (trailing slash stripped), so it is
+  // always correct regardless of how each product route is structured.
+  const canonicalUrl = `${SITE_ORIGIN}${canonicalPath ?? pathname.replace(/\/+$/, "")}`
+
+  // schema.org/Product built entirely from existing props — no invented data. Specs become
+  // additionalProperty entries. Offers are deliberately omitted: pricing is quote-based, and an
+  // offer without a price triggers Search Console warnings. Google reads JSON-LD anywhere in the page.
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${partNumber} ${title}`,
+    sku: partNumber,
+    mpn: partNumber,
+    image,
+    description: metaDescription,
+    brand: { "@type": "Brand", name: "PANAM" },
+    url: canonicalUrl,
+    additionalProperty: specs.map(s => ({ "@type": "PropertyValue", name: s.label, value: s.value })),
+  }
 
   return (
     <>
@@ -81,11 +107,14 @@ export default function ProductDetailPage({ backHref, backLabel, image, partNumb
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={`${partNumber}, ${specs.map(s => s.value).join(", ")}, Panam Valves`} />
+      <link rel="canonical" href={canonicalUrl} />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={image} />
       <meta property="og:type" content="product" />
+      <meta property="og:url" content={canonicalUrl} />
       <meta name="robots" content="index, follow" />
+      <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
       <Box sx={{ bgcolor: "#f8f9fa", minHeight: "100vh" }}>
         {/* ── BACK BAR ── */}
         <Box sx={{ bgcolor: "background.paper", borderBottom: "1px solid rgba(0,0,0,0.07)", px: { xs: 2, md: 5 }, py: 1.5 }}>
@@ -203,6 +232,24 @@ export default function ProductDetailPage({ backHref, backLabel, image, partNumb
                     "&:hover": { bgcolor: alpha(BRAND_BLUE, 0.05) },
                   }}>
                   Email Enquiry
+                </Button>
+                <Button
+                  component={RouterLink}
+                  to="/catalogPDFs"
+                  variant="text"
+                  size="large"
+                  startIcon={<DescriptionOutlinedIcon />}
+                  sx={{
+                    color: "text.secondary",
+                    fontWeight: 700,
+                    textTransform: "none",
+                    borderRadius: "8px",
+                    px: 3,
+                    py: 1.5,
+                    fontFamily: PRIMARY_FONT,
+                    "&:hover": { color: BRAND_BLUE, bgcolor: alpha(BRAND_BLUE, 0.05) },
+                  }}>
+                  Datasheets &amp; Catalogue
                 </Button>
               </Stack>
             </Grid>
