@@ -9,8 +9,8 @@ import { Box } from "@mui/material"
 const AboutUs = () => {
   return (
     <>
-      <title>Leaders Flow Control</title>
-      <meta name="description" content="Discover Panam Valves' commitment to engineering excellence" />
+      <title>About PANAM® | Instrumentation Valve &amp; Fittings Manufacturer</title>
+      <meta name="description" content="PANAM® manufactures precision instrumentation valves, fittings and manifolds for oil & gas, hydrogen and process industries. Learn about our quality, capabilities and experience." />
 
       {/* Open Graph / Social Media */}
       <meta property="og:title" content="Engineering a Sustainable Tomorrow | Panam Valves" />

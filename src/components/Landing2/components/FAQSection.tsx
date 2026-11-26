@@ -34,7 +34,7 @@ const faqs: FAQItem[] = [
   {
     question: "What materials are available?",
     answer:
-      "Material options include SS316 and 316L, Duplex, Super Duplex, Inconel, Monel and Hastalloy, with brass and carbon steel in selected families such as filters, pressure regulators, air headers and condensate pots. Availability varies by product family — Super Duplex and Inconel are listed for pipe fittings and swivel gauge adapters. Confirm material options for a specific series at enquiry.",
+      "Material options include SS316 and 316L, Duplex, Super Duplex, Inconel, Monel and Hastelloy, with brass and carbon steel in selected families such as filters, pressure regulators, air headers and condensate pots. Availability varies by product family — Super Duplex and Inconel are listed for pipe fittings and swivel gauge adapters. Confirm material options for a specific series at enquiry.",
   },
   {
     question: "What are typical lead times?",

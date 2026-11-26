@@ -32,6 +32,9 @@ const staticRoutes = [
   "/conditions-of-sale",
   // Weren't prerendered, so Azure served them the homepage's title/canonical and Google kept old titles.
   "/enquiry",
+  // Prerendered so the URL serves its own (noindex) HTML instead of the homepage; excluded from the
+  // sitemap below because it is noindex.
+  "/enquiry/thank-you",
   "/system-integration",
   "/system-integration/air-header",
   // certificatesn
@@ -234,7 +237,10 @@ console.log("🎉 Prerender complete!")
 // `routes` — noindex pages (e.g. /enquiry/thank-you) are deliberately excluded by not being listed.
 const SITE_ORIGIN = "https://www.panamvalve.com"
 const lastmod = new Date().toISOString().split("T")[0]
+// Routes that are prerendered but marked noindex — keep them out of the sitemap.
+const SITEMAP_EXCLUDE = new Set(["/enquiry/thank-you"])
 const sitemapUrls = [...new Set(routes)]
+  .filter(route => !SITEMAP_EXCLUDE.has(route))
   .map(route => {
     const loc = `${SITE_ORIGIN}${route === "/" ? "" : route}`
     return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`
