@@ -47,6 +47,7 @@ const INDUSTRY_LINKS = [
 ]
 
 const RESOURCE_LINKS = [
+  { label: "Stock Clear-Out", href: "/stock-clearance" },
   { label: "Product Configurator", href: "/products" },
   { label: "Catalog & CAD Files", href: "/catalogPDFs" },
   { label: "Request a Quote", href: "/enquiry" },

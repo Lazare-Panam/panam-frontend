@@ -17,6 +17,7 @@ const EnquiryThankYou = lazy(() => import("./components/Auth/Enquiry/EnquiryThan
 const PrivacyPolicy = lazy(() => import("./components/Legal/PrivacyPolicy"))
 const TermsOfUse = lazy(() => import("./components/Legal/TermsOfUse"))
 const ConditionsOfSale = lazy(() => import("./components/Legal/ConditionsOfSale"))
+const StockClearancePage = lazy(() => import("./components/StockClearance/StockClearancePage"))
 const ProductGallery = lazy(() => import("./components/Product_Gallery/components/ProductGallery"))
 const AboutUs = lazy(() => import("./components/About_Us/AboutUs"))
 const Industries = lazy(() => import("./components/Industries/Industries"))
@@ -545,6 +546,14 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingScreen />}>
             <ConditionsOfSale />
+          </Suspense>
+        ),
+      },
+      {
+        path: "stock-clearance",
+        element: (
+          <Suspense fallback={<LoadingScreen />}>
+            <StockClearancePage />
           </Suspense>
         ),
       },

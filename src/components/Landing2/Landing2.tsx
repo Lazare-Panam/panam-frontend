@@ -6,6 +6,7 @@ import Hero2 from "./components/Hero2"
 import HydrogenSection from "./components/HydrogenSection"
 import IndustriesSection from "./components/IndustriesSection"
 import MovingBanner from "./components/LiveInventory"
+import ClearanceBanner from "./components/ClearanceBanner"
 import PartnersSection from "./components/PartnersSection"
 import TechnicalSupport from "./components/TechnicalSupport"
 import SEOSection from "./components/SEOSection"
@@ -97,6 +98,7 @@ const Landing2 = () => {
         }}>
         <SectionDotNav />
         <Hero2 />
+        <ClearanceBanner />
         <Ticker />
         {/* PartNumberFinder now includes the trust points (formerly TrustBar) */}
         <PartNumberFinder />

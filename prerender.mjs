@@ -26,6 +26,7 @@ const staticRoutes = [
   "/blog/swivel-gauge-blog",
   "/blog/check-valves-blog",
   "/catalogPDFs",
+  "/stock-clearance",
   // Legal pages — index,follow and required by Merchant Center, so prerender for crawlers.
   "/privacy-policy",
   "/terms-of-use",
@@ -193,6 +194,12 @@ for (const route of routes) {
     // twitter:card and never a duplicate. X fills title/image from each page's Open Graph tags.
     const twitterCardTag = /name=["']twitter:card["']/.test(dedupedHeadTags) ? "" : '<meta name="twitter:card" content="summary_large_image" />'
 
+    // Open Graph image. Many hub/sub/listing pages render no og:image, so link/social previews come
+    // up blank (flagged on ~85 pages). Inject a brand default ONLY when the page has none, so every
+    // page has exactly one og:image; pages with their own keep it. Swap for a 1200x630 social card.
+    const DEFAULT_OG_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png"
+    const ogImageTag = /property=["']og:image["']/.test(dedupedHeadTags) ? "" : `<meta property="og:image" content="${DEFAULT_OG_IMAGE}" />`
+
     // Remove them from body
     const bodyHtml = appHtml
       .replace(/<title[^>]*>.*?<\/title>/gs, "")
@@ -205,7 +212,7 @@ for (const route of routes) {
       .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, "")
 
       // 2. Use a regex to find the <head> tag even if it has attributes
-      .replace(/<head[^>]*>/i, match => `${match}\n${dedupedHeadTags}\n${twitterCardTag}`)
+      .replace(/<head[^>]*>/i, match => `${match}\n${dedupedHeadTags}\n${twitterCardTag}\n${ogImageTag}`)
 
       // 3. Keep your root replacement, but ensure it matches correctly
       // data-prerendered-route lets main.tsx tell real prerendered HTML apart from the homepage copy
