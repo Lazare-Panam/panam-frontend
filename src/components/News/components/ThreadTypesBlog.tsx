@@ -82,7 +82,7 @@ const NPTBSPPBSPTBlog: React.FC = () => {
           headline: "NPT vs BSPP vs BSPT Threads for Instrumentation Fittings",
           description: "Learn to identify NPT, BSPP and BSPT threads, pick the right seal method, and use adapters to convert safely on instrumentation fittings.",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/npt-vs-bspp-vs-bspt-thread-standards" },
           datePublished: "2026-05-27",
           dateModified: "2026-10-21",

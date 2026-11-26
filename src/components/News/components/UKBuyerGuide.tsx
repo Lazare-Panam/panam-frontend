@@ -70,9 +70,10 @@ const UKBuyersGuideBlog: React.FC = () => {
           description: "Learn how to specify industrial valves in the UK, from types and standards to materials, sizing and planning supply.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/uk-industrial-valves-buyers-guide" },
           datePublished: "2026-06-22",
+          dateModified: "2026-06-22",
         })}
       </script>
 

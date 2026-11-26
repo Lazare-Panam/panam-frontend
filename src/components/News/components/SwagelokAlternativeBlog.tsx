@@ -108,9 +108,10 @@ const SwagelokAlternativeBlog: React.FC = () => {
           description: "Swagelok warns against mixing tube fitting brands. Here's what Panam's DNV interchangeability report does and doesn't cover.",
           image: "https://pblol2.blob.core.windows.net/panam-images/blog/blog-cover.png",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/swagelok-alternative-tube-fittings" },
           datePublished: "2026-10-13",
+          dateModified: "2026-10-13",
         })}
       </script>
       <script type="application/ld+json">

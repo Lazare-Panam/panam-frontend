@@ -66,9 +66,10 @@ const HydrogenValvesBlog: React.FC = () => {
           description: "A guide to specifying valves for hydrogen service — hydrogen embrittlement, permeation, austenitic material selection and the standards that apply.",
           image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/karsten-wurth-ZKWgoRUYuMk-unsplash (1).jpg",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/hydrogen-blog" },
           datePublished: "2026-03-31",
+          dateModified: "2026-03-31",
         })}
       </script>
 

@@ -49,7 +49,7 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>Swivel Gauge Adapters!</title>
+      <title>Swivel Gauge Adapters: Guide & Specifications | PANAM®</title>
       <meta name="description" content="Complete technical guide to Panam swivel gauge adapters. 360° rotational positioning, dual seal configurations, and ten alloy grades rated to 10,000 psi." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
@@ -62,8 +62,10 @@ const SwivelGaugeAdaptersBlog: React.FC = () => {
           description: "Complete technical guide to Panam swivel gauge adapters. 360° rotational positioning, dual seal configurations, and ten alloy grades rated to 10,000 psi.",
           image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/swivel-gauge-blog" },
+          datePublished: "2026-04-01",
+          dateModified: "2026-04-01",
         })}
       </script>
 

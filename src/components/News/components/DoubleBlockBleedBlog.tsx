@@ -42,9 +42,10 @@ const DoubleBlockBleedBlog: React.FC = () => {
           description: "Master Double Block and Bleed (DB&B) vs. DIB valves.",
           image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/double-block-and-bleeed/dbb_flange_x_flange.png",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/double-block-and-bleed" },
           datePublished: "2026-03-25",
+          dateModified: "2026-03-25",
         })}
       </script>
 

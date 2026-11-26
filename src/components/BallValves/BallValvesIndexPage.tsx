@@ -184,7 +184,7 @@ const CategoryCard: React.FC<CategoryItem> = ({ title, subtitle, description, im
 export default function BallValvesIndexPage() {
   return (
     <>
-      <title>Ball Valve Range for Industrial and Instrumentation Applications</title>
+      <title>Ball Valves for Instrumentation & Industrial Use | PANAM®</title>
       <meta name="description" content="PANAM® floating ball valves rated to 10,000 psig. 2-way, 3-way and high bore. SS316, Duplex, Monel & Hastelloy." />
       <meta name="keywords" content="instrumentation ball valves, floating ball valve, 10000 psi ball valve, 2 way ball valve, 3 way ball valve, high bore ball valve, SS316 ball valve, Duplex ball valve, Hastelloy ball valve, PTFE seat ball valve, PEEK seat ball valve, anti blowout stem ball valve" />
       <meta property="og:title" content="Instrumentation Ball Valves | 2-Way · 3-Way · High Bore | PANAM®" />

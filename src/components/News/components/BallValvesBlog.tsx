@@ -66,9 +66,10 @@ const BallValvesBlog: React.FC = () => {
           description: "Manual stainless steel ball valves for pipeline and instrument lines: SS316, 2-way and 3-way, NPT/BSP ends, up to 20,000 psi. Spec checklist and quick quote.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/stainless-steel-ball-valve-guide" },
           datePublished: "2026-06-22",
+          dateModified: "2026-06-22",
         })}
       </script>
 

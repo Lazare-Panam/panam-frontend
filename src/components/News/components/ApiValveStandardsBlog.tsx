@@ -118,9 +118,10 @@ const ApiValveStandardsBlog: React.FC = () => {
           description: "API 600, 602, 603, 598 and 6D explained: which standard applies to which valve, how they differ, and how to write them into data sheets and ITPs.",
           image: heroImage,
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/api-valve-standards-600-602-603-598-6d" },
           datePublished: "2026-09-23",
+          dateModified: "2026-09-23",
         })}
       </script>
 

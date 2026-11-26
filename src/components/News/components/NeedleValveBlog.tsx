@@ -58,9 +58,10 @@ const NeedleValveBlog: React.FC = () => {
           description: "PANAM HP Series needle valves: 6,000 to 60,000 PSI tiers, materials, packing, stem tips and uses in oil and gas, hydraulics and instrumentation.",
           image: "https://pblol2.blob.core.windows.net/panam-images/blog/needle-valve-blog.jpeg",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/hp-series-needle-valves-high-pressure-flow-control" },
           datePublished: "2026-05-05",
+          dateModified: "2026-05-05",
         })}
       </script>
 

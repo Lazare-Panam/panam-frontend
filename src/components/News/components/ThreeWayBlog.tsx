@@ -49,9 +49,10 @@ const ThreeWayValveBlog: React.FC = () => {
           description: "Understand three-way valves, L-port vs T-port flow paths, specs and uses in hydraulic and instrumentation circuits. Learn how to choose and commission.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/three-way-valve-l-port-t-port-guide" },
           datePublished: "2026-04-24",
+          dateModified: "2026-04-24",
         })}
       </script>
 

@@ -33,6 +33,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
           headline: "Announcing a Strategic Partnership between Panam Valves and R&G Fluid Power Group",
           description: "Panam Valves and R&G Fluid Power Group announce a new strategic partnership.",
           datePublished: "2026-03-05",
+          dateModified: "2026-03-05",
           author: {
             "@type": "Organization",
             name: "PANAM®",
@@ -40,6 +41,7 @@ const PartnershipAnnouncementPage: React.FC = () => {
           publisher: {
             "@type": "Organization",
             name: "PANAM®",
+            logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" },
           },
           mainEntityOfPage: {
             "@type": "WebPage",

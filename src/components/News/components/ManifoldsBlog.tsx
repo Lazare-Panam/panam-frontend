@@ -57,9 +57,10 @@ const ManifoldValvesBlog: React.FC = () => {
           description: "Compare manifold valve types, monoflanges, and DB&B setups to improve DP, level, and pressure measurement accuracy and safety.",
           image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/valve-manifolds/5VM/5VM-1.jpg",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/manifold-valves-for-accurate-safe-instrumentation" },
           datePublished: "2026-05-25",
+          dateModified: "2026-05-25",
         })}
       </script>
 

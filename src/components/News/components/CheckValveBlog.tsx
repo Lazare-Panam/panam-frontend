@@ -45,9 +45,10 @@ const CheckValveBlog: React.FC = () => {
         description: "Explore what check valves (NRV) do, the mechanics behind their operation, and why they remain essential in modern industrial infrastructure.",
         image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c-cover.png",
         author: { "@type": "Organization", name: "PANAM®" },
-        publisher: { "@type": "Organization", name: "PANAM®" },
+        publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
         mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/check-valves-blog" },
         datePublished: "2026-03-25",
+          dateModified: "2026-03-25",
       })}
     </script>
 

@@ -87,9 +87,10 @@ const CheckValveGuideBlog: React.FC = () => {
           description: "How to specify a check valve: cracking pressure, SS316 and exotic alloys, end connections, ratings to 6,000 psig, and hydrogen and NACE options.",
           image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/products/check-valves/c1.png",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/check-valve-guide" },
           datePublished: "2026-06-22",
+          dateModified: "2026-06-22",
         })}
       </script>
 

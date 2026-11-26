@@ -83,9 +83,10 @@ const SpecifyValvesGuideBlog: React.FC = () => {
           description: "A fast route from application to purchase order for industrial and control valves: function, Cv, pressure ratings, end connections, seats and materials.",
           image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-3-S-O4-OD-A.png",
           author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®" },
+          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
           mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/how-to-specify-industrial-and-control-valves" },
           datePublished: "2026-07-21",
+          dateModified: "2026-07-21",
         })}
       </script>
 
