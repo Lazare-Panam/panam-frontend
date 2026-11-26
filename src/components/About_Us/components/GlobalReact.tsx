@@ -19,7 +19,10 @@ interface StatCounterProps {
 }
 
 const StatCounter: React.FC<StatCounterProps> = ({ endValue, suffix = "", duration = 2000 }) => {
-  const [count, setCount] = useState<number>(0)
+  // Initialise to the final value so server-side render / prerender captures the real number
+  // (e.g. "25+ years") rather than "0". The count-up animation still runs on the client once the
+  // element scrolls into view. Hydration matches because server and first client render agree.
+  const [count, setCount] = useState<number>(endValue)
   const [hasStarted, setHasStarted] = useState<boolean>(false)
   const elementRef = useRef<HTMLDivElement | null>(null)
 

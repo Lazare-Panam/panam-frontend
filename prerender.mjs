@@ -151,6 +151,7 @@ const staticRoutes = [
   "/blog/npt-vs-bspp-vs-bspt-thread-standards",
   "/blog/manifold-valves-for-accurate-safe-instrumentation",
   "/blog/hp-series-needle-valves-high-pressure-flow-control",
+  "/blog/swagelok-alternative-tube-fittings",
 ]
 const routes = [...staticRoutes, ...PRODUCT_SECTION_ROUTES, ...PRODUCT_ROUTES]
 

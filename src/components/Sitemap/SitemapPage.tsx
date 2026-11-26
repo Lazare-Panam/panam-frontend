@@ -203,6 +203,7 @@ const STRUCTURAL_GROUPS: { title: string; links: SitemapLink[] }[] = [
       { label: "Manifold Valves for Accurate, Safe Instrumentation", to: "/blog/manifold-valves-for-accurate-safe-instrumentation" },
       { label: "3-Valve Manifolds Explained: Operation & Fault-Finding", to: "/blog/3-valve-manifold-operation-guide" },
       { label: "HP Series Needle Valves — High Pressure Flow Control", to: "/blog/hp-series-needle-valves-high-pressure-flow-control" },
+      { label: "Swagelok Alternative Tube Fittings", to: "/blog/swagelok-alternative-tube-fittings" },
     ],
   },
   {

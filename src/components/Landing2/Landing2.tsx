@@ -79,6 +79,9 @@ const Landing2 = () => {
               name: "Panam - Instrumentation Fittings & Valves",
               description: "An overview of Panam Valves' instrumentation fittings and valve ranges for industrial flow control applications.",
               thumbnailUrl: "https://i.ytimg.com/vi/HRFxY37P0Lg/hqdefault.jpg",
+              // uploadDate is a required VideoObject property for rich results. Set to the video's
+              // actual YouTube publish date if different.
+              uploadDate: "2025-01-15",
               embedUrl: "https://www.youtube.com/embed/HRFxY37P0Lg",
               publisher: { "@id": "https://www.panamvalve.com/#organization" },
             },
