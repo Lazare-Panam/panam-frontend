@@ -212,6 +212,7 @@ const STRUCTURAL_GROUPS: { title: string; links: SitemapLink[] }[] = [
       { label: "Delivery & Returns", to: "/delivery-returns" },
       { label: "Privacy Policy", to: "/privacy-policy" },
       { label: "Terms of Use", to: "/terms-of-use" },
+      { label: "Conditions of Sale", to: "/conditions-of-sale" },
     ],
   },
 ]

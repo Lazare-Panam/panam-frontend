@@ -29,6 +29,7 @@ const staticRoutes = [
   // Legal pages — index,follow and required by Merchant Center, so prerender for crawlers.
   "/privacy-policy",
   "/terms-of-use",
+  "/conditions-of-sale",
   // Weren't prerendered, so Azure served them the homepage's title/canonical and Google kept old titles.
   "/enquiry",
   "/system-integration",

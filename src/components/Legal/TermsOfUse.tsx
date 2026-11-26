@@ -13,7 +13,11 @@ const sections: LegalSection[] = [
     heading: "About these terms",
     paragraphs: [
       "These Terms of Use govern your access to and use of panamvalve.com (the “site”), operated by Panam Engineers Ltd trading as PANAM® (“PANAM”, “we”, “us”). By using the site you agree to these terms. If you do not agree, please do not use the site.",
-      "Orders, quotations and credit accounts are also subject to our separate terms and conditions of sale, which take precedence over these Terms of Use in the event of any conflict in relation to a purchase.",
+      <>
+        Orders, quotations and credit accounts are also subject to our separate{" "}
+        <Link href="/conditions-of-sale" sx={brand}>Conditions of Sale</Link>, which take precedence over these
+        Terms of Use in the event of any conflict in relation to a purchase.
+      </>,
     ],
   },
   {
