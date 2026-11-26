@@ -397,13 +397,15 @@ interface RangeCardProps {
   footnote?: string
   quoteHref?: string
   ctaLabel?: string // main button text
+  imageAlt?: string // decouples the image alt text from the visible title (defaults to title)
+  quoteAriaLabel?: string // descriptive label for the compact "Quote" button
 }
 
 // Product-family card: product shot floating on a light stage (white backgrounds multiply away), tilts on hover
-export const RangeCard = ({ eyebrow, title, description, image, to, pill, chips = [], footnote, quoteHref = "mailto:sales@panamvalves.co.uk", ctaLabel = "View range" }: RangeCardProps) => (
+export const RangeCard = ({ eyebrow, title, description, image, to, pill, chips = [], footnote, quoteHref = "mailto:sales@panamvalves.co.uk", ctaLabel = "View range", imageAlt, quoteAriaLabel }: RangeCardProps) => (
   <Box sx={{ ...cardSx, ...cardHoverSx, height: "100%", display: "flex", flexDirection: "column", overflow: "hidden", borderRadius: "22px", "&:hover img": { transform: "scale(1.08) rotate(-3deg)" } }}>
     <Box component={RouterLink} to={to} viewTransition sx={{ position: "relative", display: "block", height: 230, background: "radial-gradient(circle at 50% 42%, #FFFFFF 0%, #EAF6FC 58%, #D9EEF8 100%)" }}>
-      <Box component="img" src={image} alt={title} loading="lazy" sx={{ position: "absolute", inset: "12%", width: "76%", height: "76%", objectFit: "contain", mixBlendMode: "multiply", transition: "transform 0.6s cubic-bezier(.2,.8,.2,1)" }} />
+      <Box component="img" src={image} alt={imageAlt ?? title} loading="lazy" sx={{ position: "absolute", inset: "12%", width: "76%", height: "76%", objectFit: "contain", mixBlendMode: "multiply", transition: "transform 0.6s cubic-bezier(.2,.8,.2,1)" }} />
       <Box sx={{ position: "absolute", top: 14, left: 14, display: "inline-flex", alignItems: "center", gap: 0.5, px: 1.25, py: 0.5, borderRadius: "999px", bgcolor: C.ink, color: C.white, fontSize: "0.72rem", fontWeight: 700, "& svg": { fontSize: 14, color: "#3CC6F5" } }}>{pill}</Box>
     </Box>
     <Stack sx={{ p: 3, flex: 1 }} spacing={1.25}>
@@ -426,7 +428,7 @@ export const RangeCard = ({ eyebrow, title, description, image, to, pill, chips 
         <Button component={RouterLink} viewTransition to={to} endIcon={<ArrowForwardRoundedIcon />} sx={{ ...btn.primary, flex: 1, py: 1, fontSize: "0.88rem" }}>
           {ctaLabel}
         </Button>
-        <Button href={quoteHref} sx={{ ...btn.secondary, py: 1, px: 2, fontSize: "0.88rem" }}>
+        <Button href={quoteHref} aria-label={quoteAriaLabel} sx={{ ...btn.secondary, py: 1, px: 2, fontSize: "0.88rem" }}>
           Quote
         </Button>
       </Stack>
