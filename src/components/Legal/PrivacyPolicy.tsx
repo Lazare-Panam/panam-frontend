@@ -5,7 +5,7 @@ import { C } from "../Landing2/homeTokens"
 // NOTE FOR REVIEW: This is a drafted UK GDPR / Data Protection Act 2018 privacy policy tailored to
 // the data this site actually collects (enquiry forms, account registration, credit applications,
 // reviews, WhatsApp, chat widget). It should be reviewed by legal/your DPO before relying on it.
-// Placeholders in [brackets] below must be filled in: registered company number and ICO number.
+// Placeholder in [brackets] below still to fill: [ICO registration number]. (Company number set.)
 
 const brand = { color: C.brandDark, fontWeight: 600 }
 
@@ -13,7 +13,7 @@ const sections: LegalSection[] = [
   {
     heading: "Who we are",
     paragraphs: [
-      "PANAM® is a trading name of Panam Engineers Ltd (“PANAM”, “we”, “us”, “our”), a company registered in England and Wales [company registration number] with its registered office at St Edburgs Hall, Priory Road, Bicester, OX26 6BL, United Kingdom.",
+      "PANAM® is a trading name of Panam Engineers Ltd (“PANAM”, “we”, “us”, “our”), a company registered in England and Wales under company number 16134631, with its registered office at St Edburgs Hall, Priory Road, Bicester, OX26 6BL, United Kingdom.",
       "We are the “data controller” responsible for your personal data when you use panamvalve.com and the services on it. We are registered with the UK Information Commissioner’s Office (ICO) under registration number [ICO registration number].",
     ],
   },
