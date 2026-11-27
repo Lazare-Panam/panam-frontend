@@ -42,6 +42,9 @@ export interface AiAccessRequest {
   captchaToken: string
   sourcePage?: string
   website?: string
+  // The chat this visitor had before hitting the limit, so the team's lead email
+  // can include the transcript. Omit when there is no conversation yet.
+  conversationId?: string
 }
 
 // POSTs to the .NET gate endpoint, which verifies the Turnstile captcha

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import { Link as RouterLink, useLocation } from "react-router-dom"
-import { Box, Button, ButtonBase, CircularProgress, IconButton, InputBase, Paper, TextField, Tooltip, Typography, Zoom, Grow, useMediaQuery } from "@mui/material"
+import { Box, Button, ButtonBase, CircularProgress, Collapse, IconButton, InputBase, Paper, TextField, Tooltip, Typography, Zoom, Grow, useMediaQuery } from "@mui/material"
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded"
 import { motion } from "framer-motion"
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"
 import CloseIcon from "@mui/icons-material/Close"
@@ -553,6 +554,7 @@ const ChatWidget = () => {
   const isDesktop = useMediaQuery("(min-width:900px)")
   const [messages, setMessages] = useState<Message[]>(() => loadChat()?.messages ?? [greeting()])
   const [input, setInput] = useState("")
+  const [linksOpen, setLinksOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const [unlocked, setUnlocked] = useState<boolean>(getUnlocked())
   const [sentCount, setSentCount] = useState<number>(getSentCount())
@@ -578,6 +580,15 @@ const ChatWidget = () => {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages, open, gateRequired, loading])
+
+  // Full-screen chat on phones: stop the page behind it from scrolling.
+  const isPhone = useMediaQuery("(max-width:599.95px)")
+  useEffect(() => {
+    if (!open || !isPhone) return
+    const previous = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => { document.body.style.overflow = previous }
+  }, [open, isPhone])
 
   useEffect(() => {
     if (messages.some((m) => m.role === "user")) {
@@ -661,6 +672,7 @@ const ChatWidget = () => {
         captchaToken,
         sourcePage: location.pathname,
         website: gWebsite, // honeypot
+        conversationId: conversationId.current ?? undefined, // lead email includes this chat's transcript
       })
       writeStored(UNLOCK_KEY, true)
       setUnlocked(true)
@@ -714,19 +726,24 @@ const ChatWidget = () => {
           elevation={0}
           sx={{
             position: "fixed",
-            bottom: { xs: 16, md: 24 },
-            right: { xs: 16, md: 24 },
+            // Phones (< 600px): full screen. Larger screens: floating panel bottom-right.
+            top: { xs: 0, sm: "auto" },
+            left: { xs: 0, sm: "auto" },
+            bottom: { xs: 0, sm: 16, md: 24 },
+            right: { xs: 0, sm: 16, md: 24 },
             zIndex: 1300,
-            width: { xs: "calc(100vw - 32px)", sm: 440, md: 900, lg: 980 },
-            height: { xs: "82vh", sm: 640, md: 680 },
-            maxHeight: "calc(100vh - 40px)",
+            width: { xs: "100vw", sm: 440, md: 900, lg: 980 },
+            height: { xs: "100dvh", sm: 640, md: 680 },
+            maxHeight: { xs: "100dvh", sm: "calc(100vh - 40px)" },
             display: "flex",
-            borderRadius: "28px",
+            borderRadius: { xs: 0, sm: "28px" },
             overflow: "hidden",
             fontFamily: FONT,
+            // Normal sentence case inside the widget, whatever the page around it sets.
+            textTransform: "none",
             bgcolor: C.white,
-            border: `1px solid ${C.border}`,
-            boxShadow: "0 30px 80px rgba(15,34,54,0.25)",
+            border: { xs: "none", sm: `1px solid ${C.border}` },
+            boxShadow: { xs: "none", sm: "0 30px 80px rgba(15,34,54,0.25)" },
           }}>
           {/* ---------- Sidebar (desktop only) ---------- */}
           <Box sx={{ display: { xs: "none", md: "flex" }, flexDirection: "column", width: { md: 330, lg: 350 }, flexShrink: 0, bgcolor: C.white, borderRight: `1px solid ${C.border}`, px: 3, overflowY: "auto" }}>
@@ -826,10 +843,25 @@ const ChatWidget = () => {
               <IconButton size="small" onClick={newChat} disabled={loading || atStart} aria-label="New chat" sx={{ display: { xs: "inline-flex", sm: "none" }, color: C.white, position: "relative" }}>
                 <RestartAltRoundedIcon fontSize="small" />
               </IconButton>
+              {/* Menu (phones/tablets): opens the quick links; desktop shows them in the sidebar */}
+              <IconButton
+                onClick={() => setLinksOpen((o) => !o)}
+                aria-label="Quick links"
+                aria-expanded={linksOpen}
+                sx={{ display: { xs: "inline-flex", md: "none" }, color: C.white, position: "relative", bgcolor: linksOpen ? "rgba(255,255,255,0.18)" : "transparent" }}>
+                <MenuRoundedIcon />
+              </IconButton>
               <IconButton onClick={closeChat} aria-label="Close chat" sx={{ color: C.white, position: "relative" }}>
                 <CloseIcon />
               </IconButton>
             </Box>
+
+            {/* Quick links menu (phones/tablets), opened from the header's menu button */}
+            <Collapse in={linksOpen && !isDesktop} unmountOnExit>
+              <Box sx={{ px: 2, py: 1.5, bgcolor: C.white, borderBottom: `1px solid ${C.border}`, boxShadow: "0 8px 18px rgba(15,34,54,0.06)" }}>
+                <QuickLinkGrid compact onPick={() => { setLinksOpen(false); setOpen(false) }} />
+              </Box>
+            </Collapse>
 
             {/* "We're getting there" notice, with the sales team highlighted & linked */}
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.25, px: { xs: 2, md: 3 }, py: 1, bgcolor: "#FFF8E6", borderBottom: "1px solid #FCE7B2" }}>
@@ -953,7 +985,7 @@ const ChatWidget = () => {
                     You've used your {FREE_USER_MESSAGES} free questions. Add your name and phone number below to unlock unlimited chat with Disha.
                   </Typography>
                   <Typography sx={{ fontFamily: FONT, fontSize: "0.76rem", color: C.text, mb: 1.75, mt: -1 }}>
-                    Our sales team receives these details so they can help with anything Disha can't answer.
+                    Our sales team receives these details, together with your conversation with Disha, so they can follow up on your enquiry and help with anything Disha can't answer.
                   </Typography>
 
                   <Box sx={{ display: "flex", flexDirection: "column", gap: 1.25 }}>
@@ -988,8 +1020,7 @@ const ChatWidget = () => {
 
             {/* Input area — hidden while the gate is up */}
             {!gateRequired && (
-              <Box sx={{ px: { xs: 2, md: 3.5 }, pt: 1.75, pb: 1.5, borderTop: `1px solid ${C.border}`, bgcolor: C.white }}>
-                <Box
+              <Box sx={{ px: { xs: 2, md: 3.5 }, pt: 1.75, pb: { xs: "calc(12px + env(safe-area-inset-bottom))", md: 1.5 }, borderTop: `1px solid ${C.border}`, bgcolor: C.white }}>                <Box
                   sx={{
                     display: "flex",
                     alignItems: "center",
