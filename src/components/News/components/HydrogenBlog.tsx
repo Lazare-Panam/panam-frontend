@@ -1,252 +1,347 @@
-import React, { useEffect } from "react";
-import { useNavigate, Link as RouterLink } from "react-router-dom";
-import { Container, Typography, Box, Avatar, Stack, Paper, Button, Link, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import React, { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { Container, Typography, Box, Avatar, Stack, Paper, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
-// NOTE FOR TECHNICAL SIGN-OFF: this article keeps the established engineering content (embrittlement
-// and permeation mechanisms, austenitic material rationale, applicable standards, industry pressure
-// ranges — all citable facts) but does NOT assert specific PANAM product ratings that the Nov-2026
-// SEO audit flagged as unverified (e.g. exact max pressures, NACE compliance, country/experience
-// counts). Where a product-specific value belongs, it is framed as "confirmed at enquiry". Once the
-// technical team verifies a figure, it can be stated here as a hard spec.
+// Self-hosted (blob) OG image — avoids hotlinking. TODO: swap for the dedicated mechanism diagram
+// (hydrogen-embrittlement-mechanism-diagram.png) once produced.
+const OG_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/hero-banners/atieh-khoshraftar-l4PrMpT_DuY-unsplash.jpg"
+const PAGE_URL = "https://www.panamvalve.com/blog/hydrogen-blog"
 
-const inlineLink = { color: "#0089BD", fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } };
-const L = ({ to, children }: { to: string; children: React.ReactNode }) => (
-  <Link component={RouterLink} to={to} sx={inlineLink}>{children}</Link>
-);
-
-const HydrogenValvesBlog: React.FC = () => {
-  const navigate = useNavigate();
+const HydrogenEmbrittlementBlog: React.FC = () => {
+  const navigate = useNavigate()
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+  }, [])
 
   const cta = {
-    heading: "Specifying valves for a hydrogen system?",
-    body: "Hydrogen service depends on getting metallurgy, sealing and pressure rating right for the specific duty. Share your media, pressure, temperature and connection requirements, and our team will help you confirm material compatibility and the right valve configuration.",
+    heading: "Specifying hydrogen valves and fittings?",
+    body: "PANAM supplies 316/316L stainless valves, manifolds and fittings for hydrogen service, with material certificates on request. Send us your pressure, temperature, purity and connections, and our technical team will confirm materials, ratings and documentation.",
+    buttonText: "Request a hydrogen technical review",
     buttonLink: "/enquiry",
-  };
+  }
 
-  // Selection reference — application- and standards-driven, not a claim of PANAM product maxima.
-  const matrixData = [
-    { feature: "Typical system pressures", spec: "Refuelling cycles to ~700 bar (10,150 psi); cascade storage to ~900 bar (13,050 psi)" },
-    { feature: "Valve typologies", spec: "Needle, Ball (2-way / 3-way), Check (non-return)" },
-    { feature: "Connection types", spec: "NPT, BSPT, BSPP, cone-and-thread, tube fittings" },
-    { feature: "Wetted material options", spec: "316 / 316L, Monel, Hastelloy, Duplex SS" },
-    { feature: "Seal material options", spec: "PTFE, PEEK and graphite-based packing, selected for low H₂ permeability and service temperature" },
-    { feature: "Sour / H₂S service", spec: "NACE MR0175 / ISO 15156 material options where the duty requires" },
-    { feature: "Applicable standards", spec: "ISO 19880-3, ASME B31.12, ASTM A182" },
-    { feature: "Pressure rating & certification", spec: "Confirmed per application at enquiry" },
-    { feature: "Documentation", spec: "Material certificates available on request" },
-  ];
+  const linkSx = { color: "#01B0F0", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }
+  const A: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
+    <Box component="a" href={href} sx={linkSx}>{children}</Box>
+  )
+
+  const forms = [
+    { form: "Hydrogen environment embrittlement", source: "Hydrogen gas around the part during service", situation: "Valves, fittings and tubing in hydrogen systems" },
+    { form: "Internal hydrogen embrittlement", source: "Hydrogen absorbed during manufacture", situation: "Welding, electroplating, acid pickling, cathodic protection" },
+    { form: "Sour service cracking (sulfide stress cracking)", source: "Hydrogen released by corrosion in wet H₂S", situation: "Oil and gas, some reformer and process streams" },
+  ]
+
+  const materials = [
+    { material: "316/316L stainless steel", structure: "Stable austenite", susceptibility: "Low, especially with higher nickel content", use: "Preferred for most valves, fittings and tubing" },
+    { material: "304/304L stainless steel", structure: "Less stable austenite", susceptibility: "Moderate: can form martensite when strained", use: "Low-pressure service, with caution" },
+    { material: "Duplex and super duplex", structure: "Austenite + ferrite", susceptibility: "Higher: the ferrite phase is susceptible", use: "Generally avoided at high pressure unless qualified" },
+    { material: "Martensitic and precipitation-hardened steels (e.g. 17-4 PH)", structure: "Martensite", susceptibility: "High", use: "Avoid in hydrogen-wetted parts" },
+    { material: "High-strength nickel alloys (e.g. 718, Monel K-500)", structure: "Nickel-based, age-hardened", susceptibility: "High at high strength", use: "Only after specific qualification" },
+    { material: "Other nickel alloys (e.g. Monel 400, Hastelloy C-276)", structure: "Nickel-based", susceptibility: "Varies with condition and strength", use: "Case-by-case review" },
+    { material: "Carbon and low-alloy steel", structure: "Ferrite/pearlite", susceptibility: "Moderate to high", use: "Low-pressure pipelines, within ASME B31.12 limits" },
+    { material: "Aluminium alloys (e.g. 6061-T6)", structure: "Aluminium", susceptibility: "Low", use: "Cylinder liners and some fittings; limited strength" },
+    { material: "Copper and brass", structure: "Copper-based", susceptibility: "Low", use: "Low-pressure service only" },
+  ]
+
+  const standards = [
+    { std: "ASME B31.12", covers: "Hydrogen piping and pipelines, including material limits" },
+    { std: "ISO 19880-3", covers: "Valves for gaseous hydrogen fuelling stations" },
+    { std: "ISO 11114-4", covers: "Test methods for selecting steels resistant to hydrogen embrittlement" },
+    { std: "CSA/ANSI CHMC 1", covers: "Test methods for evaluating metal compatibility in compressed hydrogen" },
+    { std: "ASTM G142", covers: "Tensile testing of metals in high-pressure hydrogen" },
+    { std: "NACE MR0175 / ISO 15156", covers: "Materials for sour (H₂S) service" },
+  ]
+
+  const faqData = [
+    {
+      question: "What is hydrogen embrittlement?",
+      answer: "Hydrogen embrittlement is a loss of ductility and toughness caused by hydrogen atoms entering a metal. Affected parts can crack at stresses well below their normal strength.",
+    },
+    {
+      question: "Does hydrogen embrittle stainless steel?",
+      answer: "It can, but austenitic grades such as 316/316L are among the most resistant common metals. Less stable grades such as 304, and duplex or martensitic stainless steels, are more susceptible.",
+    },
+    {
+      question: "Why is 316 stainless steel used for hydrogen?",
+      answer: "316 has a stable austenitic structure that resists hydrogen embrittlement, especially with higher nickel content. It also has good corrosion resistance and is widely available in valve and fitting forms.",
+    },
+    {
+      question: "Is duplex stainless steel suitable for hydrogen?",
+      answer: "Not by default. Duplex contains ferrite, which is susceptible to hydrogen embrittlement. It needs specific qualification before use in high-pressure hydrogen.",
+    },
+    {
+      question: "Does low temperature make hydrogen embrittlement worse?",
+      answer: "For austenitic stainless steels, yes. They are most affected at sub-zero temperatures, which is relevant to pre-cooled 700 bar fuelling at -40 °C.",
+    },
+    {
+      question: "How do you prevent hydrogen embrittlement in valves?",
+      answer: "Choose a resistant material such as 316/316L, keep stresses and hardness low, avoid stress concentrations, control welding and plating, and qualify the design against the applicable hydrogen standard.",
+    },
+  ]
+
+  const h2Sx = { mt: 7, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }
+  const h3Sx = { mt: 4, mb: 1.5, fontWeight: 700, color: "#1A1A1A", fontSize: "1.2rem" }
+  const bodySx = { mb: 3, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }
+  const headCell = { fontWeight: 700 }
 
   return (
-    <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-      <title>Hydrogen Valves: Embrittlement, Sealing & Material Selection | PANAM®</title>
-      <meta name="description" content="A guide to specifying valves for hydrogen service — hydrogen embrittlement, permeation, austenitic material selection and the standards that apply." />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <>
+      <title key="title">Hydrogen Embrittlement: Materials for H2 Valves &amp; Fittings</title>
+      <meta name="description" content="What hydrogen embrittlement is, what makes it worse, and which metals and seals suit hydrogen valves and fittings. Includes a material comparison table." />
+      <meta name="keywords" content="hydrogen embrittlement, hydrogen embrittlement stainless steel, 316 stainless steel hydrogen, materials for hydrogen service, hydrogen compatible materials, hydrogen valves materials" />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://www.panamvalve.com/blog/hydrogen-blog" />
-
       <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="PANAM®" />
-      <meta property="og:title" content="Hydrogen Valves: Embrittlement, Sealing & Material Selection | PANAM®" />
-      <meta property="og:description" content="How hydrogen embrittlement, permeation and material selection drive valve specification for H₂ service, and the standards that apply." />
-      <meta property="og:url" content="https://www.panamvalve.com/blog/hydrogen-blog" />
-      <meta property="og:image" content="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/karsten-wurth-ZKWgoRUYuMk-unsplash (1).jpg" />
+      <meta property="og:site_name" content="PANAM Valves" />
+      <meta property="og:title" content="Hydrogen Embrittlement: Materials for H2 Valves & Fittings" />
+      <meta property="og:description" content="What hydrogen embrittlement is, what makes it worse, and which metals and seals suit hydrogen valves and fittings." />
+      <meta property="og:url" content={PAGE_URL} />
+      <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Diagram of hydrogen atoms diffusing into a metal and gathering at a crack tip" />
       <meta name="twitter:card" content="summary_large_image" />
-
+      <meta name="twitter:image" content={OG_IMAGE} />
+      <link rel="canonical" href={PAGE_URL} />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          headline: "Hydrogen Valves: Embrittlement, Sealing & Material Selection",
-          description: "A guide to specifying valves for hydrogen service — hydrogen embrittlement, permeation, austenitic material selection and the standards that apply.",
-          image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/karsten-wurth-ZKWgoRUYuMk-unsplash (1).jpg",
-          author: { "@type": "Organization", name: "PANAM®" },
-          publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
-          mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.panamvalve.com/blog/hydrogen-blog" },
-          datePublished: "2026-03-31",
-          dateModified: "2026-03-31",
+          "@graph": [
+            {
+              "@type": "BlogPosting",
+              "@id": `${PAGE_URL}#article`,
+              headline: "Hydrogen Embrittlement: Choosing Materials for Hydrogen Valves and Fittings",
+              description: "What hydrogen embrittlement is, what makes it worse, and which metals and seals suit hydrogen valves and fittings.",
+              mainEntityOfPage: PAGE_URL,
+              image: OG_IMAGE,
+              author: { "@type": "Person", name: "Steven Kassi" },
+              publisher: { "@type": "Organization", name: "PANAM®", logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/panam-no-bg.png" } },
+              datePublished: "2026-03-31",
+              dateModified: "2026-11-27",
+              about: [
+                { "@type": "Thing", name: "Hydrogen embrittlement" },
+                { "@type": "Thing", name: "Hydrogen valves and fittings" },
+              ],
+              inLanguage: "en-GB",
+            },
+            {
+              "@type": "FAQPage",
+              "@id": `${PAGE_URL}#faq`,
+              mainEntity: faqData.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })),
+            },
+          ],
         })}
       </script>
 
-      <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 4, md: 6 } }}>
-        <Container maxWidth="md">
-          <Typography variant="h1" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: "2rem", md: "3rem" }, color: "#1A1A1A" }}>
-            Hydrogen Valves: Embrittlement, Sealing and Material Selection
-          </Typography>
-          <Typography variant="h4" sx={{ fontWeight: 600, mb: 4, color: "#555", fontSize: "1.5rem" }}>
-            What makes hydrogen service different, and how it drives valve specification
-          </Typography>
-          <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 4 }}>
-            <Avatar sx={{ bgcolor: "#1A1A1A", width: 48, height: 48, fontSize: "1rem", fontWeight: 700 }}>SR</Avatar>
-            <Box>
-              <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#1A1A1A", lineHeight: 1.2, fontSize: "1rem" }}>Sejal Raina</Typography>
-              <Typography variant="body2" sx={{ color: "#01B0F0", fontWeight: 600, fontSize: "0.85rem" }}>Digital Marketing</Typography>
-              <Typography variant="caption" sx={{ color: "#777", display: "flex", alignItems: "center" }}>March 31, 2026 • 6 min read</Typography>
-            </Box>
-          </Stack>
-        </Container>
-      </Box>
-
-      <Container maxWidth="lg" sx={{ mb: 8 }}>
-        <Box
-          component="img"
-          src="https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/blog/karsten-wurth-ZKWgoRUYuMk-unsplash (1).jpg"
-          alt="High-pressure hydrogen infrastructure and valve systems"
-          sx={{ width: "100%", height: { xs: 200, md: 500 }, objectFit: "cover", bgcolor: "#F4F4F4", borderRadius: "4px", boxShadow: "0 10px 30px rgba(0,0,0,0.08)", border: "1px solid #EEE" }}
-        />
-      </Container>
-
-      <Container maxWidth="lg">
-        <Grid container spacing={8}>
-          <Grid size={{ xs: 12, md: 8 }}>
-
-            {/* Intro */}
-            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
-              As the energy sector decarbonises, hydrogen (H₂) is being adopted as an energy vector for power, heavy transport and industrial feedstock. But hydrogen&apos;s physical and chemical properties — an extremely low molecular weight (2.016 g/mol), a wide flammability range (4–75% in air), and a tendency to embrittle certain metals — make it a demanding medium for flow-control components. This guide explains the mechanisms that matter when specifying valves for hydrogen service, and the material and standards choices they drive. For our range, see the{" "}
-              <L to="/industries/hydrogen">hydrogen industry page</L> and the <L to="/high-pressure">high-pressure range</L>.
+      <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
+        {/* HEADER */}
+        <Box sx={{ pt: { xs: 4, md: 8 }, pb: { xs: 2, md: 4 } }}>
+          <Container maxWidth="md">
+            <Typography component="h1" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: "2rem", md: "2.75rem" }, color: "#1A1A1A", lineHeight: 1.15 }}>
+              Hydrogen Embrittlement: Choosing Materials for Hydrogen Valves and Fittings
             </Typography>
-
-            {/* Critical Engineering Challenges */}
-            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Why hydrogen service is different
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, fontSize: "1.1rem" }}>
-              Three phenomena separate hydrogen duty from conventional gas service:
-            </Typography>
-
-            <Box component="ul" sx={{ mb: 6, pl: 2, listStyle: "none" }}>
-              <Box component="li" sx={{ mb: 3 }}>
-                <Typography sx={{ fontWeight: 700, display: "inline" }}>Atomic permeation: </Typography>
-                <Typography sx={{ display: "inline" }}>With a very small kinetic diameter (≈ 2.89 Å), hydrogen can permeate through microscopic crystalline defects and seal interfaces at rates far exceeding conventional industrial gases, leading to fugitive emissions. Sealing should achieve metal-to-metal contact wherever possible, with any polymer seals selected for low H₂ permeability, such as PTFE and PEEK.</Typography>
-              </Box>
-              <Box component="li" sx={{ mb: 3 }}>
-                <Typography sx={{ fontWeight: 700, display: "inline" }}>Hydrogen embrittlement (HE): </Typography>
-                <Typography sx={{ display: "inline" }}>The diffusion of atomic hydrogen into metal lattices can cause a progressive loss of ductility and fracture toughness, leading to sub-critical crack growth and, in the worst case, brittle fracture at stresses below the nominal yield strength. A common mitigation is to use austenitic alloys for hydrogen-wetted parts:</Typography>
-                <Box component="ul" sx={{ mt: 1, pl: 3 }}>
-                  <Box component="li" sx={{ mb: 1 }}>
-                    <Typography sx={{ fontWeight: 700, display: "inline" }}>316 / 316L stainless steel — </Typography>
-                    <Typography sx={{ display: "inline" }}>its nickel content stabilises the face-centred cubic (FCC) austenitic lattice, reducing hydrogen diffusivity relative to ferritic grades while providing good corrosion resistance across the hydrogen pressure range.</Typography>
-                  </Box>
-                  <Box component="li">
-                    <Typography sx={{ fontWeight: 700, display: "inline" }}>Monel, Hastelloy and Duplex SS — </Typography>
-                    <Typography sx={{ display: "inline" }}>options for aggressive or sour-gas hydrogen environments, including H₂S-containing streams encountered in steam methane reforming and other production processes.</Typography>
-                  </Box>
-                </Box>
-              </Box>
-              <Box component="li" sx={{ mb: 3 }}>
-                <Typography sx={{ fontWeight: 700, display: "inline" }}>High-pressure dynamics: </Typography>
-                <Typography sx={{ display: "inline" }}>Hydrogen systems span a wide pressure range — fuel-cell vehicle refuelling cycles up to around 700 bar (10,150 psi), and stationary cascade storage can operate to roughly 900 bar (13,050 psi). Each pressure cycle imposes fatigue loading on valve bodies, stem seals and seat interfaces, so components should be designed with appropriate safety factors and validated by cyclic pressure testing.</Typography>
-              </Box>
-            </Box>
-
-            {/* Ball Valves */}
-            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Ball valves — isolation &amp; directional control
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8 }}>
-              <L to="/valves/ball-valves">Ball valves</L> are used for high-cycle isolation; in service, the stem seal assembly is the primary wear point.
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 1 }}><strong>Trunnion-mounted design:</strong> distributes fluid load to the bearings rather than the seats, helping maintain consistent torque and seat integrity under high differential pressure.</Typography>
-            <Typography variant="body1" sx={{ mb: 6 }}><strong>Configurations:</strong> available in 2-way and 3-way (diverter) geometries for more complex flow paths.</Typography>
-
-            {/* Check Valves */}
-            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Check valves — non-return protection
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              In compression trains, refuelling stations and electrolyser buffer systems, <L to="/valves/check-valves">check valves</L> prevent backflow and protect upstream instrumentation from reverse pressure transients. The pressure fluctuations of piston and diaphragm compressors impose cyclic loading on check-valve internals, so fatigue-resistant design matters.
-            </Typography>
-            <Stack spacing={3} sx={{ mb: 6 }}>
+            <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
+              <Avatar sx={{ bgcolor: "#1A1A1A", width: 48, height: 48, fontSize: "1rem", fontWeight: 700 }}>SK</Avatar>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Material fatigue considerations</Typography>
-                <Typography variant="body1">Strain-hardened spring materials in conventional poppet designs can be susceptible to hydrogen embrittlement under cyclic loading; progressive loss of spring preload reduces cracking pressure and can lead to unseated leakage. Material selection and sealing for sour or H₂S-containing hydrogen service (e.g. NACE MR0175 / ISO 15156 options) is confirmed against your conditions at enquiry.</Typography>
-              </Box>
-              <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Ball-check architecture</Typography>
-                <Typography variant="body1">A ball-check design can be preferred over spring-loaded poppets in hydrogen service: by reducing reliance on high-stress spring components, it lowers mechanical complexity and the exposure of HE-susceptible parts. Selectable cracking pressures allow the opening threshold to be tuned to the upstream equipment, helping prevent chatter and maintain a reliable seal under dynamic pressure.</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#1A1A1A", lineHeight: 1.2, fontSize: "1rem" }}>Steven Kassi</Typography>
+                <Typography variant="body2" sx={{ color: "#01B0F0", fontWeight: 600, fontSize: "0.85rem" }}>Technical Guide</Typography>
+                <Typography variant="caption" sx={{ color: "#777", display: "flex", alignItems: "center" }}>March 31, 2026 · Updated Nov 27, 2026 • 9 min read</Typography>
               </Box>
             </Stack>
+          </Container>
+        </Box>
 
-            {/* Needle Valves */}
-            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Needle valves — precision metering
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.8 }}>
-              <L to="/valves/needle-valves">Needle valves</L> provide fine flow adjustment but must resist seat deformation under the high seating forces required for gas-tight shut-off.
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 1 }}><strong>Material:</strong> austenitic grades such as ASTM A182 316 SS are commonly specified for corrosion resistance and structural stability in hydrogen service.</Typography>
-            <Typography variant="body1" sx={{ mb: 6 }}><strong>Pressure rating:</strong> matched to the application and confirmed at enquiry, with compatibility to hydrogen-rated compression fittings to limit leak paths. For higher duties, see the <L to="/high-pressure/needle-valves">high-pressure needle valve range</L>.</Typography>
+        <Container maxWidth="md">
+          {/* INTRO / DEFINITION (featured-snippet target) */}
+          <Typography variant="body1" sx={bodySx}>
+            <strong>Hydrogen embrittlement</strong> is the loss of ductility and toughness that some metals suffer when hydrogen atoms enter them. An embrittled part can crack at stresses well below its normal strength, often without warning. In hydrogen valves and fittings, the main defence is choosing a resistant material, usually 316/316L stainless steel, and keeping stresses low.
+          </Typography>
+          <Typography variant="body1" sx={bodySx}>
+            This guide explains how hydrogen embrittlement happens, what makes it worse, how common valve and fitting materials compare, and what to specify for hydrogen service.
+          </Typography>
 
-            {/* Selection reference */}
-            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Hydrogen service selection reference
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.8 }}>
-              A starting point for scoping a hydrogen valve requirement. Exact ratings, materials and certification are confirmed for your duty at enquiry.
-            </Typography>
-            <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #EEE", mb: 4 }}>
-              <Table>
-                <TableHead sx={{ bgcolor: "#1A3A5C" }}>
-                  <TableRow>
-                    <TableCell sx={{ fontWeight: 700, color: "#fff" }}>Parameter</TableCell>
-                    <TableCell sx={{ fontWeight: 700, color: "#fff" }}>Typical selection</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {matrixData.map((row, i) => (
-                    <TableRow key={i} sx={{ bgcolor: i % 2 === 0 ? "#fff" : "#F4F8FB" }}>
-                      <TableCell sx={{ fontWeight: 600 }}>{row.feature}</TableCell>
-                      <TableCell>{row.spec}</TableCell>
-                    </TableRow>
+          {/* WHAT IS IT */}
+          <Typography component="h2" sx={h2Sx}>What Is Hydrogen Embrittlement?</Typography>
+          <Typography component="h3" sx={h3Sx}>How hydrogen gets into metal</Typography>
+          <Typography variant="body1" sx={bodySx}>
+            Hydrogen gas (H₂) is not the problem on its own. At a metal surface, some molecules split into single hydrogen atoms. These atoms are small enough to diffuse into the metal's crystal structure. They collect at grain boundaries, inclusions and other defects, and at regions of high stress such as crack tips and thread roots.
+          </Typography>
+          <Typography variant="body1" sx={bodySx}>
+            There, they weaken the bonds between metal atoms and make it easier for cracks to start and grow.
+          </Typography>
+
+          <Typography component="h3" sx={h3Sx}>Three forms engineers meet</Typography>
+          <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #ECEEF0", borderRadius: "8px", mb: 3 }}>
+            <Table size="small" aria-label="Three forms of hydrogen embrittlement">
+              <TableHead>
+                <TableRow sx={{ bgcolor: "#F8F9FA" }}>
+                  {["Form", "Where the hydrogen comes from", "Typical situation"].map(h => (
+                    <TableCell key={h} sx={headCell}>{h}</TableCell>
                   ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-
-            {/* Standards & QA */}
-            <Typography variant="h4" sx={{ mt: 6, mb: 3, fontWeight: 700, color: "#000", fontSize: "1.8rem" }}>
-              Standards, testing and documentation
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Hydrogen valve specification is framed by standards including ISO 19880-3 (gaseous hydrogen fuelling station valves), ASME B31.12 (hydrogen piping and pipelines) and ASTM A182 (forged stainless components). Good practice for gas-tight service includes:
-            </Typography>
-            <Box component="ul" sx={{ mb: 6, pl: 4 }}>
-              <li><strong>Pressure testing</strong> to validate seal integrity above the maximum allowable working pressure.</li>
-              <li><strong>Material traceability,</strong> so alloy composition can be matched to the resistance required for hydrogen service.</li>
-              <li><strong>Documentation,</strong> with material certificates available on request.</li>
-            </Box>
-
-            <Paper elevation={0} sx={{ mt: 10, p: { xs: 4, md: 6 }, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px" }}>
-              <Typography variant="h4" sx={{ fontWeight: 800, mb: 2, fontSize: "1.5rem" }}>{cta.heading}</Typography>
-              <Typography variant="body1" sx={{ color: "#666", mb: 4 }}>{cta.body}</Typography>
-              <Button variant="contained" onClick={() => navigate(cta.buttonLink)} endIcon={<ArrowForwardIcon />} sx={{ bgcolor: "#01B0F0", color: "white", px: 4, py: 1.5, borderRadius: "4px", fontWeight: 700 }}>
-                Request a technical review
-              </Button>
-            </Paper>
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Box sx={{ position: "sticky", top: 40 }}>
-              <Typography variant="h6" sx={{ mb: 3, fontWeight: 800 }}>At a Glance</Typography>
-              <Stack spacing={2}>
-                {["Hydrogen embrittlement (HE)", "Atomic permeation & sealing", "Austenitic material selection (316/316L)", "ISO 19880-3 & ASME B31.12", "Ball, check & needle types"].map(text => (
-                  <Box key={text} sx={{ pb: 2, borderBottom: "1px solid #EEE" }}>
-                    <Typography variant="body2" sx={{ fontWeight: 500, color: "#555" }}>• {text}</Typography>
-                  </Box>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {forms.map(r => (
+                  <TableRow key={r.form}>
+                    <TableCell sx={{ fontWeight: 600, verticalAlign: "top" }}>{r.form}</TableCell>
+                    <TableCell sx={{ verticalAlign: "top" }}>{r.source}</TableCell>
+                    <TableCell sx={{ verticalAlign: "top" }}>{r.situation}</TableCell>
+                  </TableRow>
                 ))}
-              </Stack>
-            </Box>
-          </Grid>
-        </Grid>
-      </Container>
-      <Box sx={{ py: 10 }} />
-    </Box>
-  );
-};
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <Typography variant="body1" sx={bodySx}>
+            This guide focuses on the first: parts working in hydrogen gas. Sour service is covered by NACE MR0175 / ISO 15156.
+          </Typography>
 
-export default HydrogenValvesBlog;
+          {/* WHAT MAKES IT WORSE */}
+          <Typography component="h2" sx={h2Sx}>What Makes Hydrogen Embrittlement Worse?</Typography>
+          <Box component="ul" sx={{ pl: 2, mb: 3, "& li": { mb: 1.5 } }}>
+            <Box component="li"><Typography variant="body1"><strong>Higher pressure.</strong> More hydrogen enters the metal as pressure rises. A 700 bar refuelling line is far more demanding than a 30 bar electrolyser outlet.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Pressure cycling.</strong> Every fill and vent cycle loads the part. Hydrogen speeds up fatigue crack growth, so cycling matters more than steady pressure.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Higher strength and hardness.</strong> Stronger, harder steels are generally more susceptible. A material that is safe in an annealed condition may not be safe after cold work or heat treatment.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Stress concentrations.</strong> Thread roots, sharp corners, scratches and weld defects give hydrogen somewhere to gather and cracks somewhere to start.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Low temperature.</strong> Austenitic stainless steels are most affected at sub-zero temperatures, around -50 °C. This matters because 700 bar dispensing pre-cools hydrogen to as low as -40 °C.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Unstable microstructure.</strong> Some stainless grades partly transform to martensite when deformed. Martensite is much more susceptible than austenite.</Typography></Box>
+          </Box>
+
+          {/* MATERIAL SELECTION */}
+          <Typography component="h2" sx={h2Sx}>Material Selection for Hydrogen Service</Typography>
+          <Typography component="h3" sx={h3Sx}>Material comparison</Typography>
+          <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #ECEEF0", borderRadius: "8px", mb: 2 }}>
+            <Table size="small" aria-label="Material comparison for hydrogen service">
+              <TableHead>
+                <TableRow sx={{ bgcolor: "#F8F9FA" }}>
+                  {["Material", "Microstructure", "Susceptibility in hydrogen gas", "Typical use in hydrogen systems"].map(h => (
+                    <TableCell key={h} sx={headCell}>{h}</TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {materials.map(r => (
+                  <TableRow key={r.material}>
+                    <TableCell sx={{ fontWeight: 600, verticalAlign: "top" }}>{r.material}</TableCell>
+                    <TableCell sx={{ verticalAlign: "top" }}>{r.structure}</TableCell>
+                    <TableCell sx={{ verticalAlign: "top" }}>{r.susceptibility}</TableCell>
+                    <TableCell sx={{ verticalAlign: "top" }}>{r.use}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <Typography variant="body1" sx={bodySx}>
+            Use this table as a starting point, not a specification. Confirm every material against the governing code, the operating conditions and test data. A widely used public reference is the Sandia National Laboratories <em>Technical Reference for Hydrogen Compatibility of Materials</em>.
+          </Typography>
+
+          <Typography component="h3" sx={h3Sx}>Why nickel content matters in 316</Typography>
+          <Typography variant="body1" sx={bodySx}>
+            Nickel keeps stainless steel austenitic. When a low-nickel 316 is deformed, part of it can transform to martensite, which embrittles easily. A higher-nickel 316 stays austenitic and resists hydrogen better. Many hydrogen specifications therefore set a minimum nickel content, or a minimum "nickel equivalent", for 316.
+          </Typography>
+
+          <Typography component="h3" sx={h3Sx}>Strength, hardness and cold work</Typography>
+          <Typography variant="body1" sx={bodySx}>
+            Keep hydrogen-wetted metals at modest strength. Avoid unnecessary cold work, or anneal after forming where the design allows. Where a hardness limit applies, as in sour service, specify and verify it on the material certificate.
+          </Typography>
+
+          {/* SEALS */}
+          <Typography component="h2" sx={h2Sx}>Seals and Soft Goods: Permeation and Decompression</Typography>
+          <Typography variant="body1" sx={bodySx}>
+            Metals are only half the story. Hydrogen is the smallest molecule there is, and it passes through many polymers.
+          </Typography>
+          <Box component="ul" sx={{ pl: 2, mb: 3, "& li": { mb: 1.5 } }}>
+            <Box component="li"><Typography variant="body1"><strong>Permeation.</strong> Hydrogen diffuses through elastomers and plastics. Thicker sections and lower-permeability materials reduce it. PEEK and PCTFE are commonly used for seats.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Rapid gas decompression.</strong> When pressure drops suddenly, hydrogen absorbed in an elastomer expands and can blister or split the seal. Specify elastomers rated for rapid gas decompression (RGD).</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Temperature.</strong> Check every soft good's rating at the lowest temperature in the cycle, including pre-cooled fuelling.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Metal-to-metal sealing.</strong> At the highest pressures, <A href="/high-pressure/cones-threaded-nipples">cone-and-thread fittings</A> seal metal to metal, which removes the polymer from the main leak path.</Typography></Box>
+          </Box>
+
+          {/* DESIGN */}
+          <Typography component="h2" sx={h2Sx}>Designing Hydrogen Embrittlement Out of Valves and Fittings</Typography>
+          <Box component="ol" sx={{ pl: 3, mb: 3, "& li": { mb: 1.5 } }}>
+            <Box component="li"><Typography variant="body1"><strong>Choose the material first.</strong> Start from 316/316L and justify anything else.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Keep stresses low.</strong> Select pressure ratings with margin for the peak pressure, not the nominal one.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Protect thread roots.</strong> In high-pressure connections, anti-vibration collars on cone-and-thread fittings keep bending loads off the thread root.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Watch the springs.</strong> Strain-hardened springs, for example in poppet <A href="/valves/check-valves">check valves</A>, can be susceptible. Ball-check designs reduce reliance on highly stressed springs.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Control manufacturing.</strong> Welding, plating and pickling can introduce internal hydrogen. Follow the relevant procedures and bake-out requirements.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Avoid surface damage.</strong> Scratches and tool marks are crack starters. Handle and install parts carefully.</Typography></Box>
+            <Box component="li"><Typography variant="body1"><strong>Test for leaks before hydrogen goes in.</strong> Use a tracer gas such as helium, or a hydrogen-nitrogen mix, at the pressure your code requires.</Typography></Box>
+          </Box>
+          <Typography variant="body1" sx={bodySx}>
+            For isolation and fine flow control on hydrogen instrument lines, see our <A href="/valves/needle-valves">needle valves</A>.
+          </Typography>
+
+          {/* STANDARDS */}
+          <Typography component="h2" sx={h2Sx}>Standards and Test Methods</Typography>
+          <TableContainer component={Paper} elevation={0} sx={{ border: "1px solid #ECEEF0", borderRadius: "8px", mb: 3 }}>
+            <Table size="small" aria-label="Hydrogen standards and test methods">
+              <TableHead>
+                <TableRow sx={{ bgcolor: "#F8F9FA" }}>
+                  {["Standard", "What it covers"].map(h => (
+                    <TableCell key={h} sx={headCell}>{h}</TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {standards.map(r => (
+                  <TableRow key={r.std}>
+                    <TableCell sx={{ fontWeight: 600, verticalAlign: "top", whiteSpace: "nowrap" }}>{r.std}</TableCell>
+                    <TableCell sx={{ verticalAlign: "top" }}>{r.covers}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+
+          {/* CHECKLIST */}
+          <Typography component="h2" sx={h2Sx}>Checklist: Specifying Hydrogen-Compatible Valves and Fittings</Typography>
+          <Box component="ol" sx={{ pl: 3, mb: 3, "& li": { mb: 1 } }}>
+            {[
+              "Maximum and minimum operating pressure, including fill peaks",
+              "Minimum and maximum temperature, including pre-cooling",
+              "Number of pressure cycles expected over the design life",
+              "Hydrogen purity, and whether H₂S or moisture is present",
+              "Body material and grade, with any minimum nickel content",
+              "Seat, seal and packing materials, with RGD rating where relevant",
+              "End connections: tube fitting, cone-and-thread, or threaded",
+              "Governing code (ASME B31.12, ISO 19880-3, PED) and required test methods",
+              "Material certificates and heat traceability",
+              "Leak test method and test gas",
+            ].map(item => (
+              <Box component="li" key={item}><Typography variant="body1">{item}</Typography></Box>
+            ))}
+          </Box>
+
+          {/* FAQ */}
+          <Typography component="h2" sx={h2Sx}>FAQ</Typography>
+          <Stack spacing={3.5} sx={{ mb: 4 }}>
+            {faqData.map(item => (
+              <Box key={item.question}>
+                <Typography component="h3" sx={{ fontWeight: 700, mb: 1, fontSize: "1.15rem", color: "#1A1A1A" }}>{item.question}</Typography>
+                <Typography variant="body1" sx={{ lineHeight: 1.8 }}>{item.answer}</Typography>
+              </Box>
+            ))}
+          </Stack>
+
+          {/* CLOSING */}
+          <Typography component="h2" sx={h2Sx}>Specify Hydrogen Valves and Fittings with Confidence</Typography>
+          <Typography variant="body1" sx={bodySx}>
+            Material choice decides how a hydrogen system ages. Start with 316/316L, keep stresses low, choose seals for permeation and decompression, and document everything. For PANAM's range, see our <A href="/industries/hydrogen">hydrogen valves and fittings page</A> and the <A href="/high-pressure">high-pressure range</A>. To check a specification, <A href="/enquiry">request a hydrogen technical review</A>.
+          </Typography>
+
+          {/* CTA */}
+          <Paper elevation={0} sx={{ p: { xs: 4, md: 6 }, bgcolor: "#F8F9FA", border: "1px solid #ECEEF0", borderRadius: "8px", mt: 4, mb: 10 }}>
+            <Typography component="h2" sx={{ fontWeight: 800, mb: 2, fontSize: "1.5rem" }}>{cta.heading}</Typography>
+            <Typography variant="body1" sx={{ color: "#666", mb: 4 }}>{cta.body}</Typography>
+            <Button variant="contained" onClick={() => navigate(cta.buttonLink)} endIcon={<ArrowForwardIcon />} sx={{ bgcolor: "#01B0F0", color: "white", px: 4, py: 1.5, borderRadius: "4px", fontWeight: 700, "&:hover": { bgcolor: "#0190c0" } }}>
+              {cta.buttonText}
+            </Button>
+          </Paper>
+        </Container>
+      </Box>
+    </>
+  )
+}
+
+export default HydrogenEmbrittlementBlog

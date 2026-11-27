@@ -139,13 +139,13 @@ export const blogs: BlogPost[] = [
   },
   {
     slug: "hydrogen-blog",
-    title: "Hydrogen Valves: Engineering for High-Pressure Net-Zero Infrastructure",
+    title: "Hydrogen Embrittlement: Materials for H2 Valves & Fittings",
     category: "Technical Guide",
-    author: "Sejal Raina",
+    author: "Steven Kassi",
     date: "March 31, 2026",
-    readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=80&w=1200",
-    excerpt: "As the global energy sector pivots toward H₂, specialized valving is critical. Learn about the material science and engineering required to mitigate embrittlement and leakage in high-pressure hydrogen systems.",
+    readTime: "9 min read",
+    image: "https://pblol2.blob.core.windows.net/panam-images/panam-image-compressed/website-media/hero-banners/atieh-khoshraftar-l4PrMpT_DuY-unsplash.jpg",
+    excerpt: "What hydrogen embrittlement is, what makes it worse, and which metals and seals suit hydrogen valves and fittings — including a material comparison table and a specification checklist.",
   },
   {
     slug: "swivel-gauge-blog",

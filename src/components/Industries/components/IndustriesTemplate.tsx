@@ -1,3 +1,4 @@
+import React from "react"
 import { Box, Typography, Container, Button } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import { Link as RouterLink } from "react-router-dom"
@@ -30,9 +31,12 @@ interface IndustryPageProps {
   }
   // id of this industry, so the "Industries We Serve" grid can drop its own self-linking card.
   currentIndustryId?: string
+  // Optional rich sections (tables, FAQ, etc.) rendered between the content band and the CTA.
+  // Backward compatible: industry pages that pass nothing render exactly as before.
+  children?: React.ReactNode
 }
 
-const IndustryTemplate = ({ hero, content, cta, currentIndustryId }: IndustryPageProps) => {
+const IndustryTemplate = ({ hero, content, cta, currentIndustryId, children }: IndustryPageProps) => {
   return (
     <Box>
       {/* 1. Hero Section */}
@@ -82,6 +86,9 @@ const IndustryTemplate = ({ hero, content, cta, currentIndustryId }: IndustryPag
           </Grid>
         </Container>
       </Box>
+
+      {/* 2b. Optional rich sections (value-chain table, components, materials, FAQ, …) */}
+      {children}
 
       {/* 3. Optional CTA band — links the industry to its relevant product range */}
       {cta && (
