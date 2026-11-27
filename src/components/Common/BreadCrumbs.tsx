@@ -18,6 +18,9 @@ const ROUTE_LABELS: Record<string, string> = {
   cart: "Cart",
   dashboard: "Dashboard",
   enquiry: "Enquiry",
+  // Override the auto-title-cased slug so the crumb (and its BreadcrumbList schema) reads the target keyword
+  // instead of "Npt Vs Bspp Vs Bspt Thread Standards". The URL slug itself is unchanged.
+  "npt-vs-bspp-vs-bspt-thread-standards": "BSP vs NPT Thread Standards",
 }
 
 // Server-side 301s (e.g. /products/valves -> /valves). Crumbs link straight to the final URL so no link points at a redirect.

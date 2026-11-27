@@ -91,7 +91,7 @@ export function MiniSidebar({ filters, setFilters, filterOptions, filtersLoading
         )}
       </Stack>
 
-      <FilterGroup title="STEAM SEAL" count={filters.steamSeals.length || undefined}>
+      <FilterGroup title="STEM SEAL" count={filters.steamSeals.length || undefined}>
         <MultiCheckbox options={filterOptions?.steamSeals ?? []} selected={filters.steamSeals}
           onChange={v => toggle('steamSeals', v)} loading={filtersLoading} labelMap={STEAM_SEAL_LABELS} />
       </FilterGroup>
